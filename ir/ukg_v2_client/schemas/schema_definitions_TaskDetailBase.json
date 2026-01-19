@@ -1,0 +1,73 @@
+{
+  "id": "schema:definitions/TaskDetailBase",
+  "name_hint": "TaskDetailBase",
+  "kind": "unknown",
+  "title": null,
+  "description": null,
+  "properties": [
+    {
+      "json_name": "completed_by",
+      "schema_id": "schema:ref_definitions_EmployeeSimplified",
+      "required": true,
+      "nullable": null,
+      "description": "User or Employee who has completed the task",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.completed_by",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskDetailBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "completed_by"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:ref_definitions_TaskListBase"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/TaskDetailBase",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "absent",
+    "title": "absent",
+    "description": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

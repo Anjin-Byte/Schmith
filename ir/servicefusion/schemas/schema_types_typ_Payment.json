@@ -1,0 +1,786 @@
+{
+  "id": "schema:types/typ.Payment",
+  "name_hint": "typ.Payment",
+  "kind": "object",
+  "title": null,
+  "description": "A payment's schema.\n",
+  "properties": [
+    {
+      "json_name": "transaction_type",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's transaction type.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.transaction_type",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "transaction_token",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's transaction token.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.transaction_token",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "transaction_id",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The `id` of attached transaction to the payment (Note: `id` - [integer] the transaction's identifier).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.transaction_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "payment_transaction_id",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The `id` of attached payment transaction to the payment (Note: `id` - [integer] the payment transaction's identifier).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.payment_transaction_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "original_transaction_id",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The `id` of attached original transaction to the payment (Note: `id` - [integer] the original transaction's identifier).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.original_transaction_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "apply_to",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's apply to.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.apply_to",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "amount",
+      "schema_id": "schema:types/number",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's amount.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.amount",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "memo",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's memo.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.memo",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "authorization_code",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's authorization code.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.authorization_code",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "bill_to_street_address",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's bill to street address.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.bill_to_street_address",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "bill_to_postal_code",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's bill to postal code.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.bill_to_postal_code",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "bill_to_country",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's bill to country.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.bill_to_country",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "reference_number",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's reference number.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.reference_number",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "is_resync_qbo",
+      "schema_id": "schema:types/boolean",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's is resync qbo flag.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.is_resync_qbo",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "created_at",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's created date.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.created_at",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "updated_at",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's updated date.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.updated_at",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "received_on",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's received date.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.received_on",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "qbo_synced_date",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "The payment's qbo synced date.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.qbo_synced_date",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "qbo_id",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The `id` of attached qbo class to the payment (Note: `id` - [integer] the qbo class'es identifier).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.qbo_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "qbd_id",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The `id` of attached qbd class to the payment (Note: `id` - [integer] the qbd class'es identifier).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.qbd_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "customer",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The `header` of attached customer to the payment (Note: `header` - [string] the customer's fields concatenated by pattern `{customer_name}`).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.customer",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "type",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The `header` of attached customer payment method to the payment (Note: `header` - [string] the customer payment method's fields concatenated by pattern `{cc_type} {first_four} {last_four}` with space as separator).\nIf customer payment method does not attached - it returns the `header` of attached payment type to the job payment (Note: `header` - [string] the payment type's fields concatenated by pattern `{name}`).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.type",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "invoice_id",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The `id` of attached invoice to the payment (Note: `id` - [integer] the invoice's identifier).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.invoice_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "gateway_id",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The `id` of attached gateway to the payment (Note: `id` - [integer] the gateway's identifier).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.gateway_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "receipt_id",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The `id` of attached receipt to the payment (Note: `id` - [integer] the receipt's identifier).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.receipt_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.Payment",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+    "source_pointer": "raml:types:typ.Payment",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

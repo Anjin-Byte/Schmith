@@ -1,0 +1,127 @@
+{
+  "id": "op:GET:/document_generations/syntax_migration/status",
+  "method": "GET",
+  "path_template": "/document_generations/syntax_migration/status",
+  "declared": {
+    "parameters": [
+      {
+        "name": "auto_start",
+        "location": "query",
+        "required": false,
+        "schema_id": null,
+        "description": "Automatically start the migration if it has not been started yet.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/syntax_migration/status/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:ref_definitions_DocGenMigrationCampaign",
+        "description": "The syntax migration status.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/syntax_migration/status/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "auto_start",
+        "location": "query",
+        "required": false,
+        "schema_id": null,
+        "description": "Automatically start the migration if it has not been started yet.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/syntax_migration/status/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:ref_definitions_DocGenMigrationCampaign",
+        "description": "The syntax migration status.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/syntax_migration/status/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Document Manager: Document Generation Templates Syntax Migration"
+  ],
+  "summary": "Get the status of the syntax migration of a client's templates",
+  "description": "Return the status of the syntax V1 -> V2 migration. The migration can also automatically be started by using the auto_start parameter. Only eligible templates are migrated. Eligible means they have an active version of syntax V1 OR no active version and a latest version of syntax V1.",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//document_generations/syntax_migration/status/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

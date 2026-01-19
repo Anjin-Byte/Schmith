@@ -1,0 +1,528 @@
+{
+  "id": "schema:definitions/RequestBase",
+  "name_hint": "RequestBase",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "properties": [
+    {
+      "json_name": "name",
+      "schema_id": "schema:anon/899b516302327aae85f2eecfb448e232c87c4af9",
+      "required": true,
+      "nullable": null,
+      "description": "Name of the request. The name of the request can be inherited from the name of the form that has been use to create the request OR from the subject of the request if the request has been created from a default form.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.name",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "priority",
+      "schema_id": "schema:anon/e616cc07e9e84b75aae74f0c458061091d611755",
+      "required": false,
+      "nullable": null,
+      "description": "Priority of the request - 1: low, 2: normal, 3: high",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.priority",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "employee",
+      "schema_id": "schema:ref_definitions_EmployeeSimplified",
+      "required": false,
+      "nullable": null,
+      "description": "Only exists if `embed=employee` query string parameter was used. Gives full information on the employee the request has been created for. Exist only if the request has been created for an employee.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.employee",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "employee_id",
+      "schema_id": "schema:anon/e10d406dd46afc9c7501d1705f9f07d51cf3e37d",
+      "required": false,
+      "nullable": null,
+      "description": "Only exists if `embed=employee` query string parameter was not used. Unique ID of the employee the request has been created for. Exist only if the request has been created for an employee.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.employee_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "creator",
+      "schema_id": "schema:ref_definitions_UserSimplified",
+      "required": false,
+      "nullable": null,
+      "description": "Only exists if `embed=creator` query string parameter was used. Gives full information on the employee, the manager or the HR user who has created the request. Exist only if the request has been created by one of these personas.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.creator",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "creator_id",
+      "schema_id": "schema:anon/6514132b5f6b1e2e4b351800f15352b6cca80244",
+      "required": false,
+      "nullable": null,
+      "description": "Only exists if `embed=creator` query string parameter was not used. Unique ID of the employee, the manager or the HR user who has created the request. Exist only if the request has been created by one of these personas.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.creator_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "closed_by",
+      "schema_id": "schema:ref_definitions_UserSimplified",
+      "required": false,
+      "nullable": null,
+      "description": "Only exists if `embed=closed_by` query string parameter was used. Gives full information on the manager or the HR user who has closed the request. Exist only if the request has been closed by one of these personas.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.closed_by",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "closed_by_id",
+      "schema_id": "schema:anon/c0cbc8710b03cf9ac853d139387bad459b3e71cb",
+      "required": false,
+      "nullable": null,
+      "description": "Only exists if `embed=closed_by` query string parameter was not used. Unique ID of the manager or the HR user who has closed the request. Exist only if the request has been closed by one of these personas.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.closed_by_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "organization_ids",
+      "schema_id": "schema:anon/cc5fe5b9537c0b6d5e3b2fd0053b4719eb65863b",
+      "required": false,
+      "nullable": null,
+      "description": "Codes of the organizations attached to the employee at the time the request was created.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.organization_ids",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "form_id",
+      "schema_id": "schema:anon/c72d7d1c6b43a851ace78aad922229d0f3a3062c",
+      "required": true,
+      "nullable": null,
+      "description": "Unique  ID of the form used in the request (slug ID)",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.form_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "form_files",
+      "schema_id": "schema:anon/a49be0e411256b0b9df33353d7f10996a9850e72",
+      "required": true,
+      "nullable": null,
+      "description": "Attached files uploaded in the form by the assignee",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.form_files",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "due_date",
+      "schema_id": "schema:anon/7597b64e7e3af725e72bc1db40f0326833510e9c",
+      "required": false,
+      "nullable": null,
+      "description": " The day by which the request must be close by the HR teams.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.due_date",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "custom_status",
+      "schema_id": "schema:ref_definitions_CustomStatusField",
+      "required": false,
+      "nullable": null,
+      "description": "The custom status of a request define the step of the workflow the request is in. It can be 'null' in case there is no custom status or the custom status is not displayed for employees.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.custom_status",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "category",
+      "schema_id": "schema:ref_definitions_RequestCategory",
+      "required": true,
+      "nullable": null,
+      "description": "Category of the request. The category is inherited from the form the request has been created from.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.category",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "form_data",
+      "schema_id": "schema:anon/47781ac7ffef1d1d6eb6f6d98a8cea57fe143f35",
+      "required": true,
+      "nullable": null,
+      "description": "Answers given by the request creator in the form",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.form_data",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "feedback",
+      "schema_id": "schema:ref_definitions_RequestFeedback",
+      "required": false,
+      "nullable": null,
+      "description": null,
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.feedback",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/RequestBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "absent",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "name",
+    "category",
+    "form_files",
+    "form_id",
+    "form_data"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:ref_definitions_RequestComputedFields",
+      "schema:ref_definitions_RequestTimestamps"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/RequestBase",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

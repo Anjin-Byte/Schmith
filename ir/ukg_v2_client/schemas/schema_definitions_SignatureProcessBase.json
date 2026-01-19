@@ -1,0 +1,640 @@
+{
+  "id": "schema:definitions/SignatureProcessBase",
+  "name_hint": "SignatureProcessBase",
+  "kind": "unknown",
+  "title": null,
+  "description": null,
+  "properties": [
+    {
+      "json_name": "signature_type_id",
+      "schema_id": "schema:anon/94a0304df7e3108084d9a6a3f0b604f94ac35df8",
+      "required": true,
+      "nullable": null,
+      "description": "ID of the signature type",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.signature_type_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "title",
+      "schema_id": "schema:anon/5047fb97994ce2027e4cf4dcb550c2dcefe3473d",
+      "required": true,
+      "nullable": null,
+      "description": "Title of the signature process that will be displayed in the UI and the various e-mails (255 characters max)",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.title",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "name",
+      "schema_id": "schema:anon/1801009c6b47ef004c0972b8c2564a89cdc437fb",
+      "required": false,
+      "nullable": null,
+      "description": "Name of the signature process generated from title or filename",
+      "deprecated": null,
+      "read_only": true,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.name",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "native",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "location",
+      "schema_id": "schema:anon/ddd32ae57131972d42eff757e09e55413f363b2d",
+      "required": false,
+      "nullable": null,
+      "description": "Location of the signature process, if applicable, will be embedded in the PDF digital signature details (255 characters max)",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.location",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "expiry_date",
+      "schema_id": "schema:anon/b45c7437de91503b7e875b2f6ec60b0e63277977",
+      "required": false,
+      "nullable": null,
+      "description": "Date after which the signature process will be expired. The expiration will occur at the end of the given day, UTC",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.expiry_date",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "notify_on_signature",
+      "schema_id": "schema:anon/b5ac406690aa9b8d4626346e01583a0ca98f1642",
+      "required": false,
+      "nullable": null,
+      "description": "Indicates if the sender should be notified when all signers have signed the document",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.notify_on_signature",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "notify_on_refusal",
+      "schema_id": "schema:anon/ae7f52c82e7394031fb8006dccab5f11dc2dc43c",
+      "required": false,
+      "nullable": null,
+      "description": "Indicates if the sender should be notified when one of the signers has refused to sign the document",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.notify_on_refusal",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "document_type_id",
+      "schema_id": "schema:anon/3d9e52190f2682c8ed886052d356cdb2474a9b6a",
+      "required": false,
+      "nullable": null,
+      "description": "Document Type ID, the document the signature belongs to",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.document_type_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "document_metadata",
+      "schema_id": "schema:anon/9b85689ed77455967bda4c646f88c4a8569576ca",
+      "required": false,
+      "nullable": null,
+      "description": "Metadata associated with the signature document",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.document_metadata",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "document_date",
+      "schema_id": "schema:anon/1825211316460bb15df837685f0e9a8f0827fe8e",
+      "required": false,
+      "nullable": null,
+      "description": "The date of the document",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.document_date",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "cancellation_comment",
+      "schema_id": "schema:anon/54a7b38c9f909ec1db9a83470610a6c5da807b27",
+      "required": false,
+      "nullable": null,
+      "description": "Optional comment when cancelling a signature",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.cancellation_comment",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "file_number",
+      "schema_id": "schema:anon/d48af8e4df5f8f1cfa26f30823da70332b016a25",
+      "required": false,
+      "nullable": null,
+      "description": "File number of the document to sign. This file number is referenced in all the notifications sent to the signers",
+      "deprecated": null,
+      "read_only": true,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.file_number",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "native",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "is_cancelable",
+      "schema_id": "schema:anon/1fab49273566c990be7c86486f6c7d8c17d08376",
+      "required": false,
+      "nullable": null,
+      "description": "Indicates if the signature process can be canceled",
+      "deprecated": null,
+      "read_only": true,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.is_cancelable",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "native",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "is_deletable",
+      "schema_id": "schema:anon/c040239b294edee8190136fe54e5b9617aaf19dd",
+      "required": false,
+      "nullable": null,
+      "description": "Indicates if the signature process can be deleted",
+      "deprecated": null,
+      "read_only": true,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.is_deletable",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "native",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "message",
+      "schema_id": "schema:anon/09294a3efc5a66d74b6be766eb6c20d2da8a946f",
+      "required": false,
+      "nullable": null,
+      "description": "General message that will be sent to all signers",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.message",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "notify_employee_ids",
+      "schema_id": "schema:anon/50085db6b2aa488930f4cacc7b94723129f87f35",
+      "required": false,
+      "nullable": null,
+      "description": "Ids of the employees to notify when all signers have signed the document or when someone has refused to sign the document",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.notify_employee_ids",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "external_id",
+      "schema_id": "schema:anon/27c5e0fc9549509a7ee6884faa1aaa3d6ece0e7d",
+      "required": false,
+      "nullable": null,
+      "description": "Unique signature process identifier reported by your system",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.external_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "auto_send",
+      "schema_id": "schema:anon/1a2800e993d0638be0e85fdc26bc9470d85dd97c",
+      "required": false,
+      "nullable": null,
+      "description": "Indicates if the signed document should be automatically sent to all signers at the end of the signature process (true). Or notify the creator of the signature at the end of the process to connect to the interface to send the document manually (false). If there is an employee signer on the signature then the signed document will be automatically archived in the employee folder.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.auto_send",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "callback_url",
+      "schema_id": "schema:anon/12492131210bdfbec912c9b8f4521dd53f7f183d",
+      "required": false,
+      "nullable": null,
+      "description": "If provided, this URL will be called at the end of the signing process, when all signers have signed the document, when one of the signers has refused to sign, or when the `expiry_date` has expired.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.callback_url",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "reason",
+      "schema_id": "schema:anon/32186d6c6c5d2e34f9a10f4f09fdfbb54efcf01b",
+      "required": true,
+      "nullable": null,
+      "description": "Provides more context on the intent of the signature",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.reason",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "signature_type_id",
+    "title",
+    "reason"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/SignatureProcessBase",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "absent",
+    "title": "absent",
+    "description": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

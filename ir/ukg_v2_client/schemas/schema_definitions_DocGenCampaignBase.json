@@ -1,0 +1,216 @@
+{
+  "id": "schema:definitions/DocGenCampaignBase",
+  "name_hint": "DocGenCampaignBase",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "properties": [
+    {
+      "json_name": "title",
+      "schema_id": "schema:anon/6d15d9c2017be249ba6eedd6b4021c2adb2912b6",
+      "required": false,
+      "nullable": null,
+      "description": "Title of the campaign. It can be used to search for a specific campaign.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.title",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DocGenCampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "creator_ref",
+      "schema_id": "schema:anon/989f8d79f5233811d687579578b540ec7c8562d4",
+      "required": false,
+      "nullable": null,
+      "description": "Use to identify the user that created this campaign. It can be the user UUID, its name and so on.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.creator_ref",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DocGenCampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "document_generation_template_id",
+      "schema_id": "schema:anon/8b1692d94731900cee53d5335c2cb9e6fe9b4990",
+      "required": false,
+      "nullable": null,
+      "description": "ID of the template to use for the campaign.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.document_generation_template_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DocGenCampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "document_generation_template_version",
+      "schema_id": "schema:anon/fb839b504e14e4c8f61bfb0248e4a815abca1213",
+      "required": false,
+      "nullable": null,
+      "description": "Version of the template to use for the generation. If it is not provided, the active version will be used.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.document_generation_template_version",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DocGenCampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "document_type_id",
+      "schema_id": "schema:anon/c7558133db8ac17d8c0dcf5ab48e494837655074",
+      "required": false,
+      "nullable": null,
+      "description": "ID of the document type. This parameter is mandatory when 'output_action' is 'archive'.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.document_type_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DocGenCampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "output_action",
+      "schema_id": "schema:anon/eb14f41fa7ebdcdf7b0d9f067de7ed5d09baec3b",
+      "required": false,
+      "nullable": null,
+      "description": "Action to perform once all the documents are generated.\n Choosing `zip` will create a zip file containing all the generated documents.\n Choosing `pdf` will create a single PDF file containing all the generated documents.\n Choosing `archive` will archive the generated documents to each related employee. `employee_id` in campaing data is mandatory in this case.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.output_action",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DocGenCampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/DocGenCampaignBase",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

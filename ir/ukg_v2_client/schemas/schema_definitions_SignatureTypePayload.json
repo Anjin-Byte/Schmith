@@ -1,0 +1,611 @@
+{
+  "id": "schema:definitions/SignatureTypePayload",
+  "name_hint": "SignatureTypePayload",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "properties": [
+    {
+      "json_name": "id",
+      "schema_id": "schema:anon/7eac0497f2d085ebd3682f7311c3d9988a8f2f69",
+      "required": true,
+      "nullable": null,
+      "description": "ID of the signature type",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "backend_code",
+      "schema_id": "schema:anon/60af20961278fb80f49cbabf38e72e6deeba3c2e",
+      "required": true,
+      "nullable": null,
+      "description": "ID of the signature backend that is used for this signature type",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.backend_code",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "display_in_ui",
+      "schema_id": "schema:anon/78fa643ff3642954b800cea5ed7d2f51e97d75e1",
+      "required": false,
+      "nullable": null,
+      "description": "Should the signature type be displayed in the interface (`true`) or invisible in the interface and only used by API (`false)`",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.display_in_ui",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "title",
+      "schema_id": "schema:anon/d99901a0e7f6e08b9eb0f521e0a7839417a6775a",
+      "required": false,
+      "nullable": null,
+      "description": "Title of the signature type in the client default language",
+      "deprecated": null,
+      "read_only": true,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.title",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "native",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "localized_title",
+      "schema_id": "schema:anon/5b98c1e84b01b1c7dfa8008abc06aebb091b7a9d",
+      "required": true,
+      "nullable": null,
+      "description": "Localized title of the signature type in all the languages used by the client. The localized title for the site's default language is mandatory",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.localized_title",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "description",
+      "schema_id": "schema:anon/0caacc9be17495a33f53600634898941443bdf0a",
+      "required": false,
+      "nullable": null,
+      "description": "Description of the signature type in the client default language",
+      "deprecated": null,
+      "read_only": true,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.description",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "native",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "localized_description",
+      "schema_id": "schema:anon/4a9526cbe5b947a98384ede0106c76168ef71006",
+      "required": true,
+      "nullable": null,
+      "description": "Localized description of the signature type in all the languages used by the client. The localized description for the site's default language is mandatory",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.localized_description",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "default_sms_notification",
+      "schema_id": "schema:ref_definitions_SmsNotificationSettings",
+      "required": false,
+      "nullable": null,
+      "description": "Activate notification via text message by default for a specific signer type. This value can be overriden on the individual signature level",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.default_sms_notification",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "two_factor_auth_settings",
+      "schema_id": "schema:ref_definitions_2FASettings",
+      "required": false,
+      "nullable": null,
+      "description": "Selection of the authentication parameters for this signature type",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.two_factor_auth_settings",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "include_signer_link",
+      "schema_id": "schema:anon/7edee13a3468f67c08a1ab98ab6c87474424a44c",
+      "required": false,
+      "nullable": null,
+      "description": "Only available if `display_in_ui` is set to `false`. Should the link for the next signer to sign the document be returned in the details of a signature (`true`) or not (`false`). The link is inserted in the signer details under the `signer_link` key (on the APIv1). For security reasons, this must only be activated when agreed upon between the client and UKG",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.include_signer_link",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "storage_profile",
+      "schema_id": "schema:anon/01a117cfabdc02f2bbcd3fd98cb4aba6f40887c6",
+      "required": false,
+      "nullable": null,
+      "description": "Only available if `backend_code` is set to `docusign_protect_and_sign`. Should signed document (employee copy only) and the proof audit trail be archived in Document Manager internal archiving system only (``peopledoc_sae``) or also separately archived in other systems. Other system include CDC Arkhin\u00e9o (France): ``fr_cdc``. External storage can only be activated according to specific contract terms",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.storage_profile",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "signer_can_reject",
+      "schema_id": "schema:anon/4b546976686a07e4ac9a678bfc5182538845601c",
+      "required": false,
+      "nullable": null,
+      "description": "Only available if `backend_code` is set to `docusign_protect_and_sign`. Should the signer be able to reject a document",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.signer_can_reject",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "delegation",
+      "schema_id": "schema:anon/9c1585894cb467de2aaaa181a8c1dccef8a31fbb",
+      "required": false,
+      "nullable": null,
+      "description": "Only available if `backend_code` is set to `docusign_protect_and_sign`. Should the signature delegation be used",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.delegation",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "template_id",
+      "schema_id": "schema:anon/7c5aca33582730b2fe6ebefbfc354e43322698de",
+      "required": false,
+      "nullable": null,
+      "description": "Only available if `backend_code` is set to `docusign`. DocuSign template ID. If set, the provided DocuSign template will be used instead of an uploaded document in the signature process",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.template_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "external_authentication",
+      "schema_id": "schema:anon/a71345c2cf6da55f271e6120a88a09c8b4a5c719",
+      "required": false,
+      "nullable": null,
+      "description": "Only available if `backend_code` is set to `docusign` and `display_in_ui` is set to `false`. Should the DocuSign authentication feature be enabled. An access code will be passed via API for each signer. DocuSign will then handle the double authentication with the passed code. UKG HR Service Delivery is not responsible to provide the code to the employee. Only use when made mandatory by the client",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.external_authentication",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "docusign_settings",
+      "schema_id": "schema:ref_definitions_DocusignSettings",
+      "required": false,
+      "nullable": null,
+      "description": "\"Only available (and required) if `backend_code` is set to `docusign`. Only used if Docusign is not activated as third party\"\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.docusign_settings",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "docusign_provider",
+      "schema_id": "schema:anon/d21beb1d5b26f248e582e6fa0bf22189a94c9a28",
+      "required": false,
+      "nullable": null,
+      "description": "DocuSign signature provider code to use for Advanced Electronic Signature and/or Qualified Electronic Signature",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.docusign_provider",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "docusign_protect_and_sign_settings",
+      "schema_id": "schema:ref_definitions_DocusignProtectAndSignSettings",
+      "required": false,
+      "nullable": null,
+      "description": "\"Only available (and required) if `backend_code` is set to `docusign_protect_and_sign`\"\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.docusign_protect_and_sign_settings",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "display_terms_on_signature_portal",
+      "schema_id": "schema:anon/aed487f704e894e32c2c5c32103d5afeae1089ab",
+      "required": false,
+      "nullable": null,
+      "description": "Should the terms & conditions be displayed on the signature portal",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.display_terms_on_signature_portal",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureTypePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "backend_code",
+    "localized_title",
+    "localized_description"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/SignatureTypePayload",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

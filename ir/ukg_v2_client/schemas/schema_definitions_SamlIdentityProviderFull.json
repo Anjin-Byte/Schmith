@@ -1,0 +1,47 @@
+{
+  "id": "schema:definitions/SamlIdentityProviderFull",
+  "name_hint": "SamlIdentityProviderFull",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "properties": [],
+  "required": [
+    "entity_id",
+    "name",
+    "sso_endpoint",
+    "x509_certificate"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:ref_definitions_SamlIdentityProviderComputedFields",
+      "schema:ref_definitions_SamlIdentityProviderBase",
+      "schema:ref_definitions_Timestamps"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/SamlIdentityProviderFull",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "properties": "absent",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

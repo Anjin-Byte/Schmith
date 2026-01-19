@@ -1,0 +1,129 @@
+{
+  "id": "schema:definitions/FormidableFieldValidation",
+  "name_hint": "FormidableFieldValidation",
+  "kind": "object",
+  "title": null,
+  "description": "Formidable field validation rules\nIn order to make sure a form data value follows your business logic rules, you may add a validation rule to your field.\n\nAvailable validations:\n\n| Field type | Validation rules             |\n|------------|------------------------------|\n| short_text | MINLENGTH, MAXLENGTH, REGEXP |\n| long_text  | MINLENGTH, MAXLENGTH         |\n| number     | EQ, NEQ, GT, GTE, LT, LTE    |\n| date     | EQ, NEQ, GT, GTE, LT, LTE, IS_AGE_UNDER, IS_AGE_ABOVE, IS_DATE_IN_THE_FUTURE |\n",
+  "properties": [
+    {
+      "json_name": "type",
+      "schema_id": "schema:anon/94bbaf27be1d81f66a680870754e99c30d4923c8",
+      "required": true,
+      "nullable": null,
+      "description": "Validator ID. This is a unique id of the validator",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.type",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/FormidableFieldValidation",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "value",
+      "schema_id": "schema:anon/cb93aea2129853220e34d278dd366fd3e23d45bc",
+      "required": true,
+      "nullable": false,
+      "description": "Value to be used by the validation rule. For example validator with a type `MAXLENGTH` and value `10`\nwill validate that submitted data length should be less or equal than `10`\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.value",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/FormidableFieldValidation",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "native",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "message",
+      "schema_id": "schema:anon/5a718bcd5fea7212f2f827ee86e10ded45a5b3f9",
+      "required": false,
+      "nullable": null,
+      "description": "Custom error message for the validation",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.message",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/FormidableFieldValidation",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "type",
+    "value"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/FormidableFieldValidation",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

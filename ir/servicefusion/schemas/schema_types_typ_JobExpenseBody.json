@@ -1,0 +1,246 @@
+{
+  "id": "schema:types/typ.JobExpenseBody",
+  "name_hint": "typ.JobExpenseBody",
+  "kind": "object",
+  "title": null,
+  "description": "A job expense's body schema.\n",
+  "properties": [
+    {
+      "json_name": "purchased_from",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the expense's purchased from that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.purchased_from",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobExpenseBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "notes",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the expense's notes that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.notes",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobExpenseBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "amount",
+      "schema_id": "schema:types/number",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the expense's amount that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.amount",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobExpenseBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "is_billable",
+      "schema_id": "schema:types/boolean",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the expense's is billable flag that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.is_billable",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobExpenseBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "date",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the expense's date that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.date",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobExpenseBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "user",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send a user's `id` or `header` that will be attached to the expense (Note: `id` - [integer] the user's identifier, `header` - [string] the user's fields concatenated by pattern `{first_name} {last_name}` with space as separator).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.user",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobExpenseBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "category",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send a category's `id` or `header` that will be attached to the expense (Note: `id` - [integer] the category's identifier, `header` - [string] the category's fields concatenated by pattern `{category_name}`).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.category",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobExpenseBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/servicefusion/api.json",
+    "source_pointer": "raml:types:typ.JobExpenseBody",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

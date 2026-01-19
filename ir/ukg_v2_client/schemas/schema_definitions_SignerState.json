@@ -1,0 +1,46 @@
+{
+  "id": "schema:definitions/SignerState",
+  "name_hint": "SignerState",
+  "kind": "string",
+  "title": null,
+  "description": "Completion state of this signer's step in the signature process\n\n- `pending`: The signer is not requested to sign yet\n- `in_progress`: The signer is requested to sign (or reject) the signature process\n- `signed`: The signer has signed the signature process\n- `rejected`: The signer has rejected the signature process\n- `error`: There has been an error during the signature process. Please contact the support\n- `done`: Only used for signers with type `organization` after the delegation seal has been applied\n- `id_check_failed`: The signer has failed the identity verification process\n- `delivered`: The signer has viewed the document on the DocuSign signing web site. Only applies to DocuSign QES signatures.\n- `delayed`: The signer has selected to finish the signing process at a later time. Only applies to DocuSign QES signatures.\n",
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {
+    "enum": [
+      "pending",
+      "in_progress",
+      "signed",
+      "rejected",
+      "error",
+      "done",
+      "delivered",
+      "delayed"
+    ]
+  },
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/SignerState",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "native",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

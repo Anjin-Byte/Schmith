@@ -1,0 +1,826 @@
+{
+  "schemas": [
+    {
+      "schema_id": "schema:types/object",
+      "name_hint": "object",
+      "kind": "object",
+      "where_used": [
+        "op:GET:/me",
+        "op:GET:/me",
+        "op:GET:/me",
+        "op:GET:/me",
+        "op:GET:/me",
+        "op:GET:/me",
+        "op:GET:/me",
+        "op:GET:/me",
+        "op:GET:/calendar-tasks",
+        "op:GET:/calendar-tasks",
+        "op:GET:/calendar-tasks",
+        "op:GET:/calendar-tasks",
+        "op:GET:/calendar-tasks",
+        "op:GET:/calendar-tasks",
+        "op:GET:/calendar-tasks",
+        "op:GET:/calendar-tasks",
+        "op:GET:/calendar-tasks/{calendar-task-id}",
+        "op:GET:/calendar-tasks/{calendar-task-id}",
+        "op:GET:/calendar-tasks/{calendar-task-id}",
+        "op:GET:/calendar-tasks/{calendar-task-id}",
+        "op:GET:/calendar-tasks/{calendar-task-id}",
+        "op:GET:/calendar-tasks/{calendar-task-id}",
+        "op:GET:/calendar-tasks/{calendar-task-id}",
+        "op:GET:/calendar-tasks/{calendar-task-id}",
+        "op:GET:/calendar-tasks/{calendar-task-id}",
+        "op:POST:/customers",
+        "op:POST:/customers",
+        "op:POST:/customers",
+        "op:POST:/customers",
+        "op:POST:/customers",
+        "op:POST:/customers",
+        "op:POST:/customers",
+        "op:POST:/customers",
+        "op:POST:/customers",
+        "op:GET:/customers",
+        "op:GET:/customers",
+        "op:GET:/customers",
+        "op:GET:/customers",
+        "op:GET:/customers",
+        "op:GET:/customers",
+        "op:GET:/customers",
+        "op:GET:/customers",
+        "op:GET:/customers/{customer-id}",
+        "op:GET:/customers/{customer-id}",
+        "op:GET:/customers/{customer-id}",
+        "op:GET:/customers/{customer-id}",
+        "op:GET:/customers/{customer-id}",
+        "op:GET:/customers/{customer-id}",
+        "op:GET:/customers/{customer-id}",
+        "op:GET:/customers/{customer-id}",
+        "op:GET:/customers/{customer-id}",
+        "op:GET:/customers/{customer-id}/equipment",
+        "op:GET:/customers/{customer-id}/equipment",
+        "op:GET:/customers/{customer-id}/equipment",
+        "op:GET:/customers/{customer-id}/equipment",
+        "op:GET:/customers/{customer-id}/equipment",
+        "op:GET:/customers/{customer-id}/equipment",
+        "op:GET:/customers/{customer-id}/equipment",
+        "op:GET:/customers/{customer-id}/equipment",
+        "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+        "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+        "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+        "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+        "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+        "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+        "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+        "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+        "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+        "op:POST:/jobs",
+        "op:POST:/jobs",
+        "op:POST:/jobs",
+        "op:POST:/jobs",
+        "op:POST:/jobs",
+        "op:POST:/jobs",
+        "op:POST:/jobs",
+        "op:POST:/jobs",
+        "op:POST:/jobs",
+        "op:GET:/jobs",
+        "op:GET:/jobs",
+        "op:GET:/jobs",
+        "op:GET:/jobs",
+        "op:GET:/jobs",
+        "op:GET:/jobs",
+        "op:GET:/jobs",
+        "op:GET:/jobs",
+        "op:GET:/jobs/{job-id}",
+        "op:GET:/jobs/{job-id}",
+        "op:GET:/jobs/{job-id}",
+        "op:GET:/jobs/{job-id}",
+        "op:GET:/jobs/{job-id}",
+        "op:GET:/jobs/{job-id}",
+        "op:GET:/jobs/{job-id}",
+        "op:GET:/jobs/{job-id}",
+        "op:GET:/jobs/{job-id}",
+        "op:GET:/job-categories",
+        "op:GET:/job-categories",
+        "op:GET:/job-categories",
+        "op:GET:/job-categories",
+        "op:GET:/job-categories",
+        "op:GET:/job-categories",
+        "op:GET:/job-categories",
+        "op:GET:/job-categories",
+        "op:GET:/job-categories/{job-category-id}",
+        "op:GET:/job-categories/{job-category-id}",
+        "op:GET:/job-categories/{job-category-id}",
+        "op:GET:/job-categories/{job-category-id}",
+        "op:GET:/job-categories/{job-category-id}",
+        "op:GET:/job-categories/{job-category-id}",
+        "op:GET:/job-categories/{job-category-id}",
+        "op:GET:/job-categories/{job-category-id}",
+        "op:GET:/job-categories/{job-category-id}",
+        "op:GET:/job-statuses",
+        "op:GET:/job-statuses",
+        "op:GET:/job-statuses",
+        "op:GET:/job-statuses",
+        "op:GET:/job-statuses",
+        "op:GET:/job-statuses",
+        "op:GET:/job-statuses",
+        "op:GET:/job-statuses",
+        "op:GET:/job-statuses/{job-status-id}",
+        "op:GET:/job-statuses/{job-status-id}",
+        "op:GET:/job-statuses/{job-status-id}",
+        "op:GET:/job-statuses/{job-status-id}",
+        "op:GET:/job-statuses/{job-status-id}",
+        "op:GET:/job-statuses/{job-status-id}",
+        "op:GET:/job-statuses/{job-status-id}",
+        "op:GET:/job-statuses/{job-status-id}",
+        "op:GET:/job-statuses/{job-status-id}",
+        "op:POST:/estimates",
+        "op:POST:/estimates",
+        "op:POST:/estimates",
+        "op:POST:/estimates",
+        "op:POST:/estimates",
+        "op:POST:/estimates",
+        "op:POST:/estimates",
+        "op:POST:/estimates",
+        "op:POST:/estimates",
+        "op:GET:/estimates",
+        "op:GET:/estimates",
+        "op:GET:/estimates",
+        "op:GET:/estimates",
+        "op:GET:/estimates",
+        "op:GET:/estimates",
+        "op:GET:/estimates",
+        "op:GET:/estimates",
+        "op:GET:/estimates/{estimate-id}",
+        "op:GET:/estimates/{estimate-id}",
+        "op:GET:/estimates/{estimate-id}",
+        "op:GET:/estimates/{estimate-id}",
+        "op:GET:/estimates/{estimate-id}",
+        "op:GET:/estimates/{estimate-id}",
+        "op:GET:/estimates/{estimate-id}",
+        "op:GET:/estimates/{estimate-id}",
+        "op:GET:/estimates/{estimate-id}",
+        "op:GET:/invoices",
+        "op:GET:/invoices",
+        "op:GET:/invoices",
+        "op:GET:/invoices",
+        "op:GET:/invoices",
+        "op:GET:/invoices",
+        "op:GET:/invoices",
+        "op:GET:/invoices",
+        "op:GET:/invoices/{invoice-id}",
+        "op:GET:/invoices/{invoice-id}",
+        "op:GET:/invoices/{invoice-id}",
+        "op:GET:/invoices/{invoice-id}",
+        "op:GET:/invoices/{invoice-id}",
+        "op:GET:/invoices/{invoice-id}",
+        "op:GET:/invoices/{invoice-id}",
+        "op:GET:/invoices/{invoice-id}",
+        "op:GET:/invoices/{invoice-id}",
+        "op:GET:/payment-types",
+        "op:GET:/payment-types",
+        "op:GET:/payment-types",
+        "op:GET:/payment-types",
+        "op:GET:/payment-types",
+        "op:GET:/payment-types",
+        "op:GET:/payment-types",
+        "op:GET:/payment-types",
+        "op:GET:/payment-types/{payment-type-id}",
+        "op:GET:/payment-types/{payment-type-id}",
+        "op:GET:/payment-types/{payment-type-id}",
+        "op:GET:/payment-types/{payment-type-id}",
+        "op:GET:/payment-types/{payment-type-id}",
+        "op:GET:/payment-types/{payment-type-id}",
+        "op:GET:/payment-types/{payment-type-id}",
+        "op:GET:/payment-types/{payment-type-id}",
+        "op:GET:/payment-types/{payment-type-id}",
+        "op:GET:/sources",
+        "op:GET:/sources",
+        "op:GET:/sources",
+        "op:GET:/sources",
+        "op:GET:/sources",
+        "op:GET:/sources",
+        "op:GET:/sources",
+        "op:GET:/sources",
+        "op:GET:/sources/{source-id}",
+        "op:GET:/sources/{source-id}",
+        "op:GET:/sources/{source-id}",
+        "op:GET:/sources/{source-id}",
+        "op:GET:/sources/{source-id}",
+        "op:GET:/sources/{source-id}",
+        "op:GET:/sources/{source-id}",
+        "op:GET:/sources/{source-id}",
+        "op:GET:/sources/{source-id}",
+        "op:GET:/techs",
+        "op:GET:/techs",
+        "op:GET:/techs",
+        "op:GET:/techs",
+        "op:GET:/techs",
+        "op:GET:/techs",
+        "op:GET:/techs",
+        "op:GET:/techs",
+        "op:GET:/techs/{tech-id}",
+        "op:GET:/techs/{tech-id}",
+        "op:GET:/techs/{tech-id}",
+        "op:GET:/techs/{tech-id}",
+        "op:GET:/techs/{tech-id}",
+        "op:GET:/techs/{tech-id}",
+        "op:GET:/techs/{tech-id}",
+        "op:GET:/techs/{tech-id}",
+        "op:GET:/techs/{tech-id}"
+      ],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/array",
+      "name_hint": "array",
+      "kind": "array",
+      "where_used": [
+        "op:POST:/customers",
+        "op:POST:/jobs",
+        "op:POST:/estimates"
+      ],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/OAuthToken",
+      "name_hint": "OAuthToken",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/OAuthTokenError",
+      "name_hint": "OAuthTokenError",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Error",
+      "name_hint": "typ.Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.400Error",
+      "name_hint": "typ.400Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.404Error",
+      "name_hint": "typ.404Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.405Error",
+      "name_hint": "typ.405Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.415Error",
+      "name_hint": "typ.415Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.422Error",
+      "name_hint": "typ.422Error",
+      "kind": "array",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.429Error",
+      "name_hint": "typ.429Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.500Error",
+      "name_hint": "typ.500Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Agent",
+      "name_hint": "typ.Agent",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.AgentBody",
+      "name_hint": "typ.AgentBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.AssignedTech",
+      "name_hint": "typ.AssignedTech",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.AssignedTechBody",
+      "name_hint": "typ.AssignedTechBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CalendarTask",
+      "name_hint": "typ.CalendarTask",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CalendarTaskView",
+      "name_hint": "typ.CalendarTaskView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CalendarTaskRepeat",
+      "name_hint": "typ.CalendarTaskRepeat",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomField",
+      "name_hint": "typ.CustomField",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomFieldBody",
+      "name_hint": "typ.CustomFieldBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Customer",
+      "name_hint": "typ.Customer",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerBody",
+      "name_hint": "typ.CustomerBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerView",
+      "name_hint": "typ.CustomerView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerContact",
+      "name_hint": "typ.CustomerContact",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerContactBody",
+      "name_hint": "typ.CustomerContactBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerEmail",
+      "name_hint": "typ.CustomerEmail",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerEmailBody",
+      "name_hint": "typ.CustomerEmailBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerLocation",
+      "name_hint": "typ.CustomerLocation",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerLocationBody",
+      "name_hint": "typ.CustomerLocationBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerPhone",
+      "name_hint": "typ.CustomerPhone",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerPhoneBody",
+      "name_hint": "typ.CustomerPhoneBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Equipment",
+      "name_hint": "typ.Equipment",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.EquipmentBody",
+      "name_hint": "typ.EquipmentBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.EquipmentView",
+      "name_hint": "typ.EquipmentView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Estimate",
+      "name_hint": "typ.Estimate",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.EstimateBody",
+      "name_hint": "typ.EstimateBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.EstimateView",
+      "name_hint": "typ.EstimateView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Invoice",
+      "name_hint": "typ.Invoice",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.InvoiceView",
+      "name_hint": "typ.InvoiceView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Job",
+      "name_hint": "typ.Job",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobBody",
+      "name_hint": "typ.JobBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobView",
+      "name_hint": "typ.JobView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobCategory",
+      "name_hint": "typ.JobCategory",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobCategoryView",
+      "name_hint": "typ.JobCategoryView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobStatus",
+      "name_hint": "typ.JobStatus",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobStatusView",
+      "name_hint": "typ.JobStatusView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobDocument",
+      "name_hint": "typ.JobDocument",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobExpense",
+      "name_hint": "typ.JobExpense",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobExpenseBody",
+      "name_hint": "typ.JobExpenseBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobLaborCharge",
+      "name_hint": "typ.JobLaborCharge",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobLaborChargeBody",
+      "name_hint": "typ.JobLaborChargeBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobNote",
+      "name_hint": "typ.JobNote",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobNoteBody",
+      "name_hint": "typ.JobNoteBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobOtherCharge",
+      "name_hint": "typ.JobOtherCharge",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobOtherChargeBody",
+      "name_hint": "typ.JobOtherChargeBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobProduct",
+      "name_hint": "typ.JobProduct",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobProductBody",
+      "name_hint": "typ.JobProductBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobService",
+      "name_hint": "typ.JobService",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobServiceBody",
+      "name_hint": "typ.JobServiceBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobSignature",
+      "name_hint": "typ.JobSignature",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobTag",
+      "name_hint": "typ.JobTag",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobTagBody",
+      "name_hint": "typ.JobTagBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobTask",
+      "name_hint": "typ.JobTask",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobTaskBody",
+      "name_hint": "typ.JobTaskBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobVisit",
+      "name_hint": "typ.JobVisit",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.MeView",
+      "name_hint": "typ.MeView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Payment",
+      "name_hint": "typ.Payment",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.PaymentType",
+      "name_hint": "typ.PaymentType",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.PaymentTypeView",
+      "name_hint": "typ.PaymentTypeView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.PrintableWorkOrder",
+      "name_hint": "typ.PrintableWorkOrder",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Source",
+      "name_hint": "typ.Source",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.SourceView",
+      "name_hint": "typ.SourceView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Tech",
+      "name_hint": "typ.Tech",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.TechView",
+      "name_hint": "typ.TechView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Picture",
+      "name_hint": "typ.Picture",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Document",
+      "name_hint": "typ.Document",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:anon/c43bbb9a0c1d95e3fa51ca9c12c9b74d7d887542",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/ab3f875c8616f895b8d8898634bbc9497d42411c",
+      "name_hint": null,
+      "kind": "integer",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/4b0ddaabb4fa2a259c7effc43eb30e05adfce2de",
+      "name_hint": null,
+      "kind": "integer",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/49e60392e4b641f4c7cd787e2d2f056ed7315a31",
+      "name_hint": null,
+      "kind": "integer",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/c83c88cdba15cb620be5734bbe2168d4b373f343",
+      "name_hint": null,
+      "kind": "integer",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/7cb68b1b7ee21eea168641a1efa7871424b3bf4b",
+      "name_hint": null,
+      "kind": "string",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/e6d7c085f06d737cd8db642516e1a28fc507570b",
+      "name_hint": null,
+      "kind": "string",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    }
+  ]
+}
