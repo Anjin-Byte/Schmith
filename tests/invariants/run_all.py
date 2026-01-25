@@ -22,6 +22,8 @@ from pipeline.config import api_name, load_config
 from tests.invariants.test_invariant_1 import OperationSchemaUsageTest
 from tests.invariants.test_invariant_2 import FieldNameSerializationTest
 from tests.invariants.test_invariant_3 import MediaTypeMappingTest
+from tests.invariants.test_invariant_4 import ReferenceEdgeConsistencyTest
+from tests.invariants.test_invariant_5 import ProvenanceCoverageTest
 
 CONFIG_DEFAULT = os.path.join(ROOT, "config.toml")
 
@@ -30,7 +32,8 @@ ALL_TESTS: List[type] = [
     OperationSchemaUsageTest,
     FieldNameSerializationTest,
     MediaTypeMappingTest,
-    # Add new tests here as they're implemented
+    ReferenceEdgeConsistencyTest,
+    ProvenanceCoverageTest,
 ]
 
 
