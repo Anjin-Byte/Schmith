@@ -12,17 +12,17 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_SignatureProcessBase",
-      "schema:ref_definitions_SignatureProcessComputedFields",
-      "schema:ref_definitions_SignatureProcessState",
-      "schema:ref_definitions_Timestamps",
-      "schema:ref_definitions_SignatureProcessNestedSender",
-      "schema:ref_definitions_SignatureProcessSigners",
-      "schema:ref_definitions_SignatureProcessOrganizations"
+      "schema:definitions/SignatureProcessBase",
+      "schema:definitions/SignatureProcessComputedFields",
+      "schema:definitions/SignatureProcessState",
+      "schema:definitions/Timestamps",
+      "schema:definitions/SignatureProcessNestedSender",
+      "schema:definitions/SignatureProcessSigners",
+      "schema:definitions/SignatureProcessOrganizations"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/SignatureProcessFull",
     "via": []
   },
@@ -40,7 +40,12 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/signature_processes",
+    "op:PUT:/signature_processes/{id}",
+    "op:PATCH:/signature_processes/{id}",
+    "op:GET:/signature_processes/{id}"
+  ]
 }

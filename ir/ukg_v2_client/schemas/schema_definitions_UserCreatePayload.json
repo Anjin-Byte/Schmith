@@ -12,12 +12,12 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_UserBase",
-      "schema:ref_definitions_UserCreateParams"
+      "schema:definitions/UserBase",
+      "schema:definitions/UserCreateParams"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/UserCreatePayload",
     "via": []
   },
@@ -35,7 +35,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/users"
+  ]
 }

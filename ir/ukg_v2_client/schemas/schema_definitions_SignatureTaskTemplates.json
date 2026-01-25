@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.pdf_template_id",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/SignatureTaskTemplates",
         "via": []
       },
@@ -47,7 +47,7 @@
       "examples": null,
       "json_pointer": "$.signature_zone_id",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/SignatureTaskTemplates",
         "via": []
       },
@@ -73,11 +73,11 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_TaskTemplateDetail"
+      "schema:definitions/TaskTemplateDetail"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/SignatureTaskTemplates",
     "via": []
   },
@@ -95,7 +95,12 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:GET:/process_templates/{process_template_id}/task_templates/{id}#signature",
+    "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#signature",
+    "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#signature",
+    "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#signature"
+  ]
 }

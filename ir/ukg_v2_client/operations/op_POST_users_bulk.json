@@ -8,13 +8,13 @@
         "name": "body",
         "location": "body",
         "required": true,
-        "schema_id": "schema:ref_definitions_UserBulkCreatePayload",
+        "schema_id": "schema:definitions/UserBulkCreatePayload",
         "description": "Bulk User object and options",
         "deprecated": null,
         "explode": null,
         "style": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//users/bulk/post/parameters",
           "via": []
         },
@@ -34,12 +34,12 @@
     "request_bodies": [
       {
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_UserBulkCreatePayload",
+        "schema_id": "schema:definitions/UserBulkCreatePayload",
         "required": true,
         "description": "Bulk User object and options",
         "examples": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//users/bulk/post/parameters",
           "via": []
         },
@@ -57,10 +57,10 @@
       {
         "status_code": "200",
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_UserBulkOperationResult",
+        "schema_id": "schema:definitions/UserBulkOperationResult",
         "description": "Request ID of the bulk operation\n",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//users/bulk/post/responses/200",
           "via": []
         },
@@ -75,10 +75,10 @@
       {
         "status_code": "400",
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_BadRequest",
+        "schema_id": "schema:definitions/BadRequest",
         "description": "Bad Request (invalid JSON...)",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//users/bulk/post/responses/400",
           "via": []
         },
@@ -98,13 +98,13 @@
         "name": "body",
         "location": "body",
         "required": true,
-        "schema_id": "schema:ref_definitions_UserBulkCreatePayload",
+        "schema_id": "schema:definitions/UserBulkCreatePayload",
         "description": "Bulk User object and options",
         "deprecated": null,
         "explode": null,
         "style": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//users/bulk/post/parameters",
           "via": []
         },
@@ -124,12 +124,12 @@
     "request_bodies": [
       {
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_UserBulkCreatePayload",
+        "schema_id": "schema:definitions/UserBulkCreatePayload",
         "required": true,
         "description": "Bulk User object and options",
         "examples": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//users/bulk/post/parameters",
           "via": []
         },
@@ -147,10 +147,10 @@
       {
         "status_code": "200",
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_UserBulkOperationResult",
+        "schema_id": "schema:definitions/UserBulkOperationResult",
         "description": "Request ID of the bulk operation\n",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//users/bulk/post/responses/200",
           "via": []
         },
@@ -165,10 +165,10 @@
       {
         "status_code": "400",
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_BadRequest",
+        "schema_id": "schema:definitions/BadRequest",
         "description": "Bad Request (invalid JSON...)",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//users/bulk/post/responses/400",
           "via": []
         },
@@ -188,7 +188,7 @@
   "summary": "Create multiple users in bulk",
   "description": "Create multiple `User` records.\n\nThis method will process a list of users provided in the payload.\n\nThe response will provide a request_id that can be used to track the status of the bulk operation.\nThis operation is asynchronous, and the actual processing of the users will occur in the background.\nYou can check the status of the operation using the `GET /users/bulk/{request_id}` endpoint.\n\nFor every field with a text content, if a break line is in the content sent, add a `\\` to the `\\n` character like this:  `\\\\n`.\n",
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/paths//users/bulk/post",
     "via": []
   },

@@ -1,17 +1,17 @@
 #uv run python tools/sync_spec.py --config configs/servicefusion.toml
 #uv run python tools/sync_spec.py --config configs/ukg_v2_client.toml
 
-#uv run python builders/build_operations.py --config configs/servicefusion.toml --adapter raml
-#uv run python builders/build_operations.py --config configs/ukg_v2_client.toml --adapter openapi
+uv run python builders/build_operations.py --config configs/servicefusion.toml --adapter raml
+uv run python builders/build_operations.py --config configs/ukg_v2_client.toml --adapter openapi
 
-#uv run python builders/build_schemas.py --config configs/ukg_v2_client.toml --adapter openapi
-#uv run python builders/build_schemas.py --config configs/servicefusion.toml --adapter raml
+uv run python builders/build_schemas.py --config configs/ukg_v2_client.toml --adapter openapi
+uv run python builders/build_schemas.py --config configs/servicefusion.toml --adapter raml
 
 uv run python builders/build_serialization.py --config configs/ukg_v2_client.toml --adapter openapi
 uv run python builders/build_serialization.py --config configs/servicefusion.toml --adapter raml
 
-#uv run python builders/build_refs.py --config configs/ukg_v2_client.toml
-#uv run python builders/build_refs.py --config configs/servicefusion.toml
+uv run python builders/build_refs.py --config configs/ukg_v2_client.toml
+uv run python builders/build_refs.py --config configs/servicefusion.toml
 
 uv run python tests/invariants/test_invariant_1.py --config configs/ukg_v2_client.toml
 uv run python tests/invariants/test_invariant_1.py --config configs/servicefusion.toml

@@ -18,7 +18,7 @@
       "path": "/custom_fields/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_CustomFieldFull"
+        "schema:definitions/CustomFieldFull"
       ],
       "tags": [
         "Platform: Custom Fields"
@@ -29,13 +29,13 @@
       "method": "PUT",
       "path": "/custom_fields/{id}",
       "requests": [
-        "schema:ref_definitions_CustomFieldCreatePayload"
+        "schema:definitions/CustomFieldCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_CustomFieldFull",
-        "schema:ref_definitions_CustomFieldFull",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_CustomFieldFull"
+        "schema:definitions/CustomFieldFull",
+        "schema:definitions/CustomFieldFull",
+        "schema:definitions/Error",
+        "schema:definitions/CustomFieldFull"
       ],
       "tags": [
         "Platform: Custom Fields"
@@ -46,13 +46,13 @@
       "method": "PATCH",
       "path": "/custom_fields/{id}",
       "requests": [
-        "schema:ref_definitions_CustomFieldCreatePayload"
+        "schema:definitions/CustomFieldCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_CustomFieldFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_CustomFieldFull"
+        "schema:definitions/CustomFieldFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error",
+        "schema:definitions/CustomFieldFull"
       ],
       "tags": [
         "Platform: Custom Fields"
@@ -63,14 +63,14 @@
       "method": "PUT",
       "path": "/employees/{id}",
       "requests": [
-        "schema:ref_definitions_EmployeeUpdatePayload"
+        "schema:definitions/EmployeeUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeFull",
-        "schema:ref_definitions_EmployeeFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Employees"
@@ -81,13 +81,13 @@
       "method": "PATCH",
       "path": "/employees/{id}",
       "requests": [
-        "schema:ref_definitions_EmployeePartialUpdatePayload"
+        "schema:definitions/EmployeePartialUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Employees"
@@ -99,8 +99,8 @@
       "path": "/employees/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_EmployeeFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employees"
@@ -113,7 +113,7 @@
       "requests": [],
       "responses": [
         "schema:anon/3043869d9d959dbd70c0572f1c48f37687317660",
-        "schema:ref_definitions_Error"
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Employees"
@@ -124,12 +124,12 @@
       "method": "POST",
       "path": "/employees",
       "requests": [
-        "schema:ref_definitions_EmployeeCreatePayload"
+        "schema:definitions/EmployeeCreatePayload"
       ],
       "responses": [
         "schema:anon/3043869d9d959dbd70c0572f1c48f37687317660",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Employees"
@@ -140,11 +140,11 @@
       "method": "PATCH",
       "path": "/employees/bulk",
       "requests": [
-        "schema:ref_definitions_EmployeeBulkPatchPayload"
+        "schema:definitions/EmployeeBulkPatchPayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeBulkOperationResult",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/EmployeeBulkOperationResult",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employees"
@@ -155,11 +155,11 @@
       "method": "PUT",
       "path": "/employees/bulk",
       "requests": [
-        "schema:ref_definitions_EmployeeBulkUpdatePayload"
+        "schema:definitions/EmployeeBulkUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeBulkOperationResult",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/EmployeeBulkOperationResult",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employees"
@@ -170,11 +170,11 @@
       "method": "POST",
       "path": "/employees/bulk",
       "requests": [
-        "schema:ref_definitions_EmployeeBulkCreatePayload"
+        "schema:definitions/EmployeeBulkCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeBulkOperationResult",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/EmployeeBulkOperationResult",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employees"
@@ -186,8 +186,8 @@
       "path": "/employees/bulk/{request_id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_EmployeeBulkOperationStatus",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/EmployeeBulkOperationStatus",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employees"
@@ -199,8 +199,8 @@
       "path": "/employees/{id}/electronic_vault_invite",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employees"
@@ -212,8 +212,8 @@
       "path": "/employees/{id}/portal_invite",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employees"
@@ -225,8 +225,8 @@
       "path": "/employees/{id}/electronic_vault_link",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employees"
@@ -237,13 +237,13 @@
       "method": "PUT",
       "path": "/employees/by_external_id/{external_id}",
       "requests": [
-        "schema:ref_definitions_EmployeeCreateOrUpdatePayload"
+        "schema:definitions/EmployeeCreateOrUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeFull",
-        "schema:ref_definitions_EmployeeFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Employees"
@@ -254,11 +254,11 @@
       "method": "POST",
       "path": "/employees/{id}/electronic_vault_documents",
       "requests": [
-        "schema:ref_definitions_EmployeeElectronicVaultDocuments"
+        "schema:definitions/EmployeeElectronicVaultDocuments"
       ],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employees"
@@ -282,7 +282,7 @@
       "path": "/employee_subscriptions/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_EmployeeSubscriptionFull"
+        "schema:definitions/EmployeeSubscriptionFull"
       ],
       "tags": [
         "Platform: Employee Subscriptions"
@@ -305,13 +305,13 @@
       "method": "PATCH",
       "path": "/electronic_vault_options/{id}",
       "requests": [
-        "schema:ref_definitions_ElectronicVaultOptionsUpdatePayload"
+        "schema:definitions/ElectronicVaultOptionsUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_ElectronicVaultFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/ElectronicVaultFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Electronic Vaults"
@@ -323,8 +323,8 @@
       "path": "/electronic_vault_options/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_ElectronicVaultFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/ElectronicVaultFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Electronic Vaults"
@@ -347,13 +347,13 @@
       "method": "PUT",
       "path": "/roles/{id}",
       "requests": [
-        "schema:ref_definitions_RoleCreatePayload"
+        "schema:definitions/RoleCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_RoleFull",
-        "schema:ref_definitions_RoleFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/RoleFull",
+        "schema:definitions/RoleFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Roles"
@@ -365,8 +365,8 @@
       "path": "/roles/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_RoleFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/RoleFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Roles"
@@ -378,7 +378,7 @@
       "path": "/roles/{role_id}/permissions/core",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_CorePermissionsGet"
+        "schema:definitions/CorePermissionsGet"
       ],
       "tags": [
         "Platform: Roles"
@@ -389,11 +389,11 @@
       "method": "PUT",
       "path": "/roles/{role_id}/permissions/core",
       "requests": [
-        "schema:ref_definitions_CorePermissionsPut"
+        "schema:definitions/CorePermissionsPut"
       ],
       "responses": [
-        "schema:ref_definitions_CorePermissionsFull",
-        "schema:ref_definitions_Error"
+        "schema:definitions/CorePermissionsFull",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Roles"
@@ -405,7 +405,7 @@
       "path": "/roles/{role_id}/permissions/efm",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_EFMPermissionsFull"
+        "schema:definitions/EFMPermissionsFull"
       ],
       "tags": [
         "Platform: Roles"
@@ -418,7 +418,7 @@
       "requests": [],
       "responses": [
         "schema:anon/c8499daacd0b84ab9982b5a6f1c38a7171d8f366",
-        "schema:ref_definitions_Error"
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Users"
@@ -429,11 +429,11 @@
       "method": "POST",
       "path": "/users",
       "requests": [
-        "schema:ref_definitions_UserCreatePayload"
+        "schema:definitions/UserCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_UserFull",
-        "schema:ref_definitions_Error"
+        "schema:definitions/UserFull",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Users"
@@ -445,7 +445,7 @@
       "path": "/users",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_Error"
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Users"
@@ -456,13 +456,13 @@
       "method": "PUT",
       "path": "/users/{id}",
       "requests": [
-        "schema:ref_definitions_UserPutPayload"
+        "schema:definitions/UserPutPayload"
       ],
       "responses": [
-        "schema:ref_definitions_UserFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_RateLimitErrors"
+        "schema:definitions/UserFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error",
+        "schema:definitions/RateLimitErrors"
       ],
       "tags": [
         "Platform: Users"
@@ -473,12 +473,12 @@
       "method": "PATCH",
       "path": "/users/{id}",
       "requests": [
-        "schema:ref_definitions_UserPatchPayload"
+        "schema:definitions/UserPatchPayload"
       ],
       "responses": [
-        "schema:ref_definitions_UserFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/UserFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Users"
@@ -490,7 +490,7 @@
       "path": "/users/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_UserFull"
+        "schema:definitions/UserFull"
       ],
       "tags": [
         "Platform: Users"
@@ -501,11 +501,11 @@
       "method": "POST",
       "path": "/users/bulk",
       "requests": [
-        "schema:ref_definitions_UserBulkCreatePayload"
+        "schema:definitions/UserBulkCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_UserBulkOperationResult",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/UserBulkOperationResult",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Users"
@@ -516,11 +516,11 @@
       "method": "PUT",
       "path": "/users/bulk",
       "requests": [
-        "schema:ref_definitions_UserBulkUpdatePayload"
+        "schema:definitions/UserBulkUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_UserBulkOperationResult",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/UserBulkOperationResult",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Users"
@@ -531,11 +531,11 @@
       "method": "PATCH",
       "path": "/users/bulk",
       "requests": [
-        "schema:ref_definitions_UserBulkPatchPayload"
+        "schema:definitions/UserBulkPatchPayload"
       ],
       "responses": [
-        "schema:ref_definitions_UserBulkOperationResult",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/UserBulkOperationResult",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Users"
@@ -547,8 +547,8 @@
       "path": "/users/bulk/{request_id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_UserBulkOperationStatus",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/UserBulkOperationStatus",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Users"
@@ -560,8 +560,8 @@
       "path": "/users/{id}/invite",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Users"
@@ -584,13 +584,13 @@
       "method": "PUT",
       "path": "/employee_document_types/{id}",
       "requests": [
-        "schema:ref_definitions_EmployeeDocumentTypeCreatePayload"
+        "schema:definitions/EmployeeDocumentTypeCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeDocumentTypeFull",
-        "schema:ref_definitions_EmployeeDocumentTypeFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/EmployeeDocumentTypeFull",
+        "schema:definitions/EmployeeDocumentTypeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Employee Document Types"
@@ -601,13 +601,13 @@
       "method": "PATCH",
       "path": "/employee_document_types/{id}",
       "requests": [
-        "schema:ref_definitions_EmployeeDocumentTypePatchPayload"
+        "schema:definitions/EmployeeDocumentTypePatchPayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeDocumentTypeFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/EmployeeDocumentTypeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Employee Document Types"
@@ -619,8 +619,8 @@
       "path": "/employee_document_types/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_EmployeeDocumentTypeFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/EmployeeDocumentTypeFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Document Types"
@@ -643,13 +643,13 @@
       "method": "PUT",
       "path": "/company_document_types/{id}",
       "requests": [
-        "schema:ref_definitions_CompanyDocumentTypeCreatePayload"
+        "schema:definitions/CompanyDocumentTypeCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_CompanyDocumentTypeFull",
-        "schema:ref_definitions_CompanyDocumentTypeFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/CompanyDocumentTypeFull",
+        "schema:definitions/CompanyDocumentTypeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Company Document Types"
@@ -660,13 +660,13 @@
       "method": "PATCH",
       "path": "/company_document_types/{id}",
       "requests": [
-        "schema:ref_definitions_CompanyDocumentTypeCreatePayload"
+        "schema:definitions/CompanyDocumentTypeCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_CompanyDocumentTypeFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/CompanyDocumentTypeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Company Document Types"
@@ -678,8 +678,8 @@
       "path": "/company_document_types/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_CompanyDocumentTypeFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/CompanyDocumentTypeFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Document Types"
@@ -740,7 +740,7 @@
       "requests": [],
       "responses": [
         "schema:anon/c33cf55f8516018dfec2345eadb6c3b8a504c947",
-        "schema:ref_definitions_Error"
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Organizations"
@@ -752,7 +752,7 @@
       "path": "/organizations",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_Error"
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Organizations"
@@ -763,13 +763,13 @@
       "method": "PUT",
       "path": "/organizations/{id}",
       "requests": [
-        "schema:ref_definitions_OrganizationCreatePayload"
+        "schema:definitions/OrganizationCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_OrganizationFull",
-        "schema:ref_definitions_OrganizationFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/OrganizationFull",
+        "schema:definitions/OrganizationFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Organizations"
@@ -781,8 +781,8 @@
       "path": "/organizations/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_OrganizationFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/OrganizationFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Organizations"
@@ -793,13 +793,13 @@
       "method": "PATCH",
       "path": "/organizations/{id}",
       "requests": [
-        "schema:ref_definitions_OrganizationCreatePayload"
+        "schema:definitions/OrganizationCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_OrganizationFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/OrganizationFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Organizations"
@@ -812,7 +812,7 @@
       "requests": [],
       "responses": [
         "schema:anon/d66080a6d8906ee35e18b5732d6197fe03d5a6ef",
-        "schema:ref_definitions_Error"
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Organizations"
@@ -823,13 +823,13 @@
       "method": "PUT",
       "path": "/organization_groups/{id}",
       "requests": [
-        "schema:ref_definitions_OrganizationGroupCreatePayload"
+        "schema:definitions/OrganizationGroupCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_OrganizationGroupFull",
-        "schema:ref_definitions_OrganizationGroupFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/OrganizationGroupFull",
+        "schema:definitions/OrganizationGroupFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Organizations"
@@ -841,8 +841,8 @@
       "path": "/organization_groups/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_OrganizationGroupFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/OrganizationGroupFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Organizations"
@@ -853,13 +853,13 @@
       "method": "PATCH",
       "path": "/organization_groups/{id}",
       "requests": [
-        "schema:ref_definitions_OrganizationGroupCreatePayload"
+        "schema:definitions/OrganizationGroupCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_OrganizationGroupFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/OrganizationGroupFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Organizations"
@@ -871,8 +871,8 @@
       "path": "/document",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocumentFileId",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DocumentFileId",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Documents"
@@ -884,7 +884,7 @@
       "path": "/redirection_urls",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_RedirectionUrls"
+        "schema:definitions/RedirectionUrls"
       ],
       "tags": [
         "Document Manager: Redirection Urls"
@@ -907,13 +907,13 @@
       "method": "POST",
       "path": "/employee_documents",
       "requests": [
-        "schema:ref_definitions_EmployeeDocumentCreatePayload"
+        "schema:definitions/EmployeeDocumentCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeDocumentFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/EmployeeDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -926,7 +926,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -950,10 +950,10 @@
       "responses": [
         "schema:anon/510932133ea32afb1165548fc5d46b15720f18ef",
         "schema:anon/510932133ea32afb1165548fc5d46b15720f18ef",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -967,10 +967,10 @@
       "responses": [
         "schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9",
         "schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/Error",
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -984,8 +984,8 @@
       "responses": [
         "schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf",
         "schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -996,10 +996,10 @@
       "method": "PUT",
       "path": "/employee_documents/{id}/expiration/update",
       "requests": [
-        "schema:ref_definitions_DocumentExpirationDatePayload"
+        "schema:definitions/DocumentExpirationDatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -1011,8 +1011,8 @@
       "path": "/employee_documents/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_EmployeeDocumentFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/EmployeeDocumentFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -1024,7 +1024,7 @@
       "path": "/employee_documents/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -1035,12 +1035,12 @@
       "method": "PUT",
       "path": "/employee_documents/{id}",
       "requests": [
-        "schema:ref_definitions_EmployeeDocumentUpdatePayload"
+        "schema:definitions/EmployeeDocumentUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeDocumentFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/EmployeeDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -1051,12 +1051,12 @@
       "method": "PATCH",
       "path": "/employee_documents/{id}",
       "requests": [
-        "schema:ref_definitions_EmployeeDocumentUpdatePayload"
+        "schema:definitions/EmployeeDocumentUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_EmployeeDocumentFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/EmployeeDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -1068,7 +1068,7 @@
       "path": "/employee_documents/{id}/trash",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -1080,7 +1080,7 @@
       "path": "/employee_documents/{id}/untrash",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -1101,10 +1101,10 @@
       "method": "PUT",
       "path": "/employee_documents/{id}/expire",
       "requests": [
-        "schema:ref_definitions_DocumentExpiryDatePayload"
+        "schema:definitions/DocumentExpiryDatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Employee Documents"
@@ -1141,13 +1141,13 @@
       "method": "POST",
       "path": "/company_documents",
       "requests": [
-        "schema:ref_definitions_CompanyDocumentCreatePayload"
+        "schema:definitions/CompanyDocumentCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_CompanyDocumentFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/CompanyDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1159,8 +1159,8 @@
       "path": "/company_documents/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_CompanyDocumentFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/CompanyDocumentFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1172,7 +1172,7 @@
       "path": "/company_documents/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1183,12 +1183,12 @@
       "method": "PUT",
       "path": "/company_documents/{id}",
       "requests": [
-        "schema:ref_definitions_CompanyDocumentUpdatePayload"
+        "schema:definitions/CompanyDocumentUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_CompanyDocumentFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/CompanyDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1199,12 +1199,12 @@
       "method": "PATCH",
       "path": "/company_documents/{id}",
       "requests": [
-        "schema:ref_definitions_CompanyDocumentUpdatePayload"
+        "schema:definitions/CompanyDocumentUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_CompanyDocumentFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/CompanyDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1217,7 +1217,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1229,7 +1229,7 @@
       "path": "/company_documents/{id}/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1243,10 +1243,10 @@
       "responses": [
         "schema:anon/510932133ea32afb1165548fc5d46b15720f18ef",
         "schema:anon/510932133ea32afb1165548fc5d46b15720f18ef",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1260,10 +1260,10 @@
       "responses": [
         "schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9",
         "schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/Error",
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1277,8 +1277,8 @@
       "responses": [
         "schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf",
         "schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1290,7 +1290,7 @@
       "path": "/company_documents/{id}/trash",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1302,7 +1302,7 @@
       "path": "/company_documents/{id}/untrash",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1323,10 +1323,10 @@
       "method": "PUT",
       "path": "/company_documents/{id}/expire",
       "requests": [
-        "schema:ref_definitions_DocumentExpiryDatePayload"
+        "schema:definitions/DocumentExpiryDatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Company Documents"
@@ -1338,8 +1338,8 @@
       "path": "/uploads",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_UploadDocument",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/UploadDocument",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Uploads"
@@ -1350,13 +1350,13 @@
       "method": "POST",
       "path": "/uploads/{id}/text_occurrences",
       "requests": [
-        "schema:ref_definitions_UploadTextoccurrencesPayload"
+        "schema:definitions/UploadTextoccurrencesPayload"
       ],
       "responses": [
         "schema:anon/a7d973accdf4c2c2660945da290d177c9b727cd0",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Uploads"
@@ -1379,12 +1379,12 @@
       "method": "POST",
       "path": "/signature_processes",
       "requests": [
-        "schema:ref_definitions_SignatureProcessCreatePayload"
+        "schema:definitions/SignatureProcessCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_SignatureProcessFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SignatureProcessFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1395,11 +1395,11 @@
       "method": "POST",
       "path": "/signature_processes/cancel",
       "requests": [
-        "schema:ref_definitions_SignatureProcessCancelPayload"
+        "schema:definitions/SignatureProcessCancelPayload"
       ],
       "responses": [
         "schema:anon/574132e6e898a6dde6c146408dacf2510e9fe68f",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1410,12 +1410,12 @@
       "method": "PUT",
       "path": "/signature_processes/{id}",
       "requests": [
-        "schema:ref_definitions_SignatureProcessUpdatePayload"
+        "schema:definitions/SignatureProcessUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_SignatureProcessFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SignatureProcessFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1426,12 +1426,12 @@
       "method": "PATCH",
       "path": "/signature_processes/{id}",
       "requests": [
-        "schema:ref_definitions_SignatureProcessUpdatePayload"
+        "schema:definitions/SignatureProcessUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_SignatureProcessFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SignatureProcessFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1443,8 +1443,8 @@
       "path": "/signature_processes/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_SignatureProcessFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/SignatureProcessFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1456,8 +1456,8 @@
       "path": "/signature_processes/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1470,7 +1470,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1483,7 +1483,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1494,11 +1494,11 @@
       "method": "POST",
       "path": "/signature_processes/{id}/archive",
       "requests": [
-        "schema:ref_definitions_SignatureProcessArchivePayload"
+        "schema:definitions/SignatureProcessArchivePayload"
       ],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1510,8 +1510,8 @@
       "path": "/signature_processes/{id}/send",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signature Processes"
@@ -1535,8 +1535,8 @@
       "path": "/signature_types/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_SignatureTypeFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/SignatureTypeFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signature Type"
@@ -1559,13 +1559,13 @@
       "method": "POST",
       "path": "/signers",
       "requests": [
-        "schema:ref_definitions_SignerBase"
+        "schema:definitions/SignerBase"
       ],
       "responses": [
-        "schema:ref_definitions_SignerFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SignerFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Signer"
@@ -1576,11 +1576,11 @@
       "method": "POST",
       "path": "/signers/remind",
       "requests": [
-        "schema:ref_definitions_SignerRemindPayload"
+        "schema:definitions/SignerRemindPayload"
       ],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signer"
@@ -1592,8 +1592,8 @@
       "path": "/signers/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_SignerFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/SignerFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signer"
@@ -1605,7 +1605,7 @@
       "path": "/signers/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Signer"
@@ -1616,12 +1616,12 @@
       "method": "PATCH",
       "path": "/signers/{id}",
       "requests": [
-        "schema:ref_definitions_SignerBase"
+        "schema:definitions/SignerBase"
       ],
       "responses": [
-        "schema:ref_definitions_SignerFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SignerFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Signer"
@@ -1632,13 +1632,13 @@
       "method": "PUT",
       "path": "/signers/{id}",
       "requests": [
-        "schema:ref_definitions_SignerBase"
+        "schema:definitions/SignerBase"
       ],
       "responses": [
-        "schema:ref_definitions_SignerFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SignerFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Signer"
@@ -1650,8 +1650,8 @@
       "path": "/signers/{id}/remind",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Signer"
@@ -1674,12 +1674,12 @@
       "method": "POST",
       "path": "/inbox_items",
       "requests": [
-        "schema:ref_definitions_InboxItemCreatePayload"
+        "schema:definitions/InboxItemCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_InboxItemFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/InboxItemFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Inbox"
@@ -1691,8 +1691,8 @@
       "path": "/inbox_items/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_InboxItemFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/InboxItemFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Inbox"
@@ -1703,12 +1703,12 @@
       "method": "POST",
       "path": "/imports",
       "requests": [
-        "schema:ref_definitions_ImportCreatePayload"
+        "schema:definitions/ImportCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_ImportFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/ImportFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Imports"
@@ -1732,8 +1732,8 @@
       "path": "/imports/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_ImportFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/ImportFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Imports"
@@ -1746,7 +1746,7 @@
       "requests": [],
       "responses": [
         "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Imports"
@@ -1759,8 +1759,8 @@
       "requests": [],
       "responses": [
         "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Imports"
@@ -1773,8 +1773,8 @@
       "requests": [],
       "responses": [
         "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Imports"
@@ -1785,12 +1785,12 @@
       "method": "POST",
       "path": "/dataset_imports",
       "requests": [
-        "schema:ref_definitions_DatasetImportCreatePayload"
+        "schema:definitions/DatasetImportCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_DatasetImportFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/DatasetImportFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Dataset Imports"
@@ -1814,8 +1814,8 @@
       "path": "/dataset_imports/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DatasetImportFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DatasetImportFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Dataset Imports"
@@ -1828,7 +1828,7 @@
       "requests": [],
       "responses": [
         "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Dataset Imports"
@@ -1841,7 +1841,7 @@
       "requests": [],
       "responses": [
         "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Dataset Imports"
@@ -1852,12 +1852,12 @@
       "method": "POST",
       "path": "/processes",
       "requests": [
-        "schema:ref_definitions_ProcessCreatePayload"
+        "schema:definitions/ProcessCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_ProcessFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/ProcessFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Processes"
@@ -1881,8 +1881,8 @@
       "path": "/processes/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_ProcessFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/ProcessFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Processes"
@@ -1894,7 +1894,7 @@
       "path": "/processes/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "People Assist: Processes"
@@ -1906,7 +1906,7 @@
       "path": "/processes/{id}/publish",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Processes"
@@ -1917,14 +1917,14 @@
       "method": "POST",
       "path": "/processes/{id}/post_process_action#shared_inboxes",
       "requests": [
-        "schema:ref_definitions_ProcessPostActionSharedBase"
+        "schema:definitions/ProcessPostActionSharedBase"
       ],
       "responses": [
-        "schema:ref_definitions_ProcessPostActionSharedPayload",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/ProcessPostActionSharedPayload",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Processes"
@@ -1935,14 +1935,14 @@
       "method": "POST",
       "path": "/processes/{id}/post_process_action#user_inboxes",
       "requests": [
-        "schema:ref_definitions_ProcessPostActionUserBase"
+        "schema:definitions/ProcessPostActionUserBase"
       ],
       "responses": [
-        "schema:ref_definitions_ProcessPostActionUserPayload",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/ProcessPostActionUserPayload",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Processes"
@@ -1976,8 +1976,8 @@
       "path": "/process_templates/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_ProcessTemplate",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/ProcessTemplate",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -1988,12 +1988,12 @@
       "method": "PUT",
       "path": "/process_templates/{id}",
       "requests": [
-        "schema:ref_definitions_ProcessTemplate"
+        "schema:definitions/ProcessTemplate"
       ],
       "responses": [
-        "schema:ref_definitions_ProcessTemplate",
-        "schema:ref_definitions_ProcessTemplate",
-        "schema:ref_definitions_Error"
+        "schema:definitions/ProcessTemplate",
+        "schema:definitions/ProcessTemplate",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2006,7 +2006,7 @@
       "requests": [],
       "responses": [
         "schema:anon/49e966dbb2286958e7bd268f2b7f00e279570463",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2018,8 +2018,8 @@
       "path": "/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_AcknowledgmentTaskTemplates",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/AcknowledgmentTaskTemplates",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2030,13 +2030,13 @@
       "method": "PUT",
       "path": "/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
       "requests": [
-        "schema:ref_definitions_AcknowledgmentTaskTemplatesWrite"
+        "schema:definitions/AcknowledgmentTaskTemplatesWrite"
       ],
       "responses": [
-        "schema:ref_definitions_AcknowledgmentTaskTemplates",
-        "schema:ref_definitions_AcknowledgmentTaskTemplates",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/AcknowledgmentTaskTemplates",
+        "schema:definitions/AcknowledgmentTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2048,8 +2048,8 @@
       "path": "/process_templates/{process_template_id}/task_templates/{id}#basic",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BasicTaskTemplates",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BasicTaskTemplates",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2060,13 +2060,13 @@
       "method": "PUT",
       "path": "/process_templates/{process_template_id}/task_templates/{id}#basic",
       "requests": [
-        "schema:ref_definitions_BasicTaskTemplates"
+        "schema:definitions/BasicTaskTemplates"
       ],
       "responses": [
-        "schema:ref_definitions_BasicTaskTemplates",
-        "schema:ref_definitions_BasicTaskTemplates",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/BasicTaskTemplates",
+        "schema:definitions/BasicTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2078,8 +2078,8 @@
       "path": "/process_templates/{process_template_id}/task_templates/{id}#fill_form",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_FillFormTaskTemplates",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/FillFormTaskTemplates",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2090,13 +2090,13 @@
       "method": "PUT",
       "path": "/process_templates/{process_template_id}/task_templates/{id}#fill_form",
       "requests": [
-        "schema:ref_definitions_FillFormTaskTemplates"
+        "schema:definitions/FillFormTaskTemplates"
       ],
       "responses": [
-        "schema:ref_definitions_FillFormTaskTemplates",
-        "schema:ref_definitions_FillFormTaskTemplates",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/FillFormTaskTemplates",
+        "schema:definitions/FillFormTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2108,8 +2108,8 @@
       "path": "/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_FillPdfTaskTemplates",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/FillPdfTaskTemplates",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2120,13 +2120,13 @@
       "method": "PUT",
       "path": "/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
       "requests": [
-        "schema:ref_definitions_FillPdfTaskTemplates"
+        "schema:definitions/FillPdfTaskTemplates"
       ],
       "responses": [
-        "schema:ref_definitions_FillPdfTaskTemplates",
-        "schema:ref_definitions_FillPdfTaskTemplates",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/FillPdfTaskTemplates",
+        "schema:definitions/FillPdfTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2138,8 +2138,8 @@
       "path": "/process_templates/{process_template_id}/task_templates/{id}#signature",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_SignatureTaskTemplates",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/SignatureTaskTemplates",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2150,13 +2150,13 @@
       "method": "PUT",
       "path": "/process_templates/{process_template_id}/task_templates/{id}#signature",
       "requests": [
-        "schema:ref_definitions_SignatureTaskTemplates"
+        "schema:definitions/SignatureTaskTemplates"
       ],
       "responses": [
-        "schema:ref_definitions_SignatureTaskTemplates",
-        "schema:ref_definitions_SignatureTaskTemplates",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SignatureTaskTemplates",
+        "schema:definitions/SignatureTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2168,8 +2168,8 @@
       "path": "/process_templates/{process_template_id}/task_templates/{id}#validation",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_ValidationTaskTemplates",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/ValidationTaskTemplates",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2180,13 +2180,13 @@
       "method": "PUT",
       "path": "/process_templates/{process_template_id}/task_templates/{id}#validation",
       "requests": [
-        "schema:ref_definitions_ValidationTaskTemplates"
+        "schema:definitions/ValidationTaskTemplates"
       ],
       "responses": [
-        "schema:ref_definitions_ValidationTaskTemplates",
-        "schema:ref_definitions_ValidationTaskTemplates",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/ValidationTaskTemplates",
+        "schema:definitions/ValidationTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2198,8 +2198,8 @@
       "path": "/process_templates/{process_template_id}/task_templates/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Process Templates"
@@ -2233,8 +2233,8 @@
       "path": "/process_pdf_templates/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_PdfTemplateDetail",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/PdfTemplateDetail",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: PDF Templates"
@@ -2245,12 +2245,12 @@
       "method": "PUT",
       "path": "/process_pdf_templates/{id}",
       "requests": [
-        "schema:ref_definitions_PdfTemplateWrite"
+        "schema:definitions/PdfTemplateWrite"
       ],
       "responses": [
-        "schema:ref_definitions_PdfTemplateDetail",
-        "schema:ref_definitions_PdfTemplateDetail",
-        "schema:ref_definitions_Error"
+        "schema:definitions/PdfTemplateDetail",
+        "schema:definitions/PdfTemplateDetail",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: PDF Templates"
@@ -2273,11 +2273,11 @@
       "method": "PATCH",
       "path": "/tasks/{id}#acknowledgment",
       "requests": [
-        "schema:ref_definitions_PatchTaskPayload"
+        "schema:definitions/PatchTaskPayload"
       ],
       "responses": [
-        "schema:ref_definitions_AckTaskPayload",
-        "schema:ref_definitions_Error"
+        "schema:definitions/AckTaskPayload",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2289,8 +2289,8 @@
       "path": "/tasks/{id}#acknowledgment",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_AckTaskPayload",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/AckTaskPayload",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2301,11 +2301,11 @@
       "method": "PATCH",
       "path": "/tasks/{id}#basic",
       "requests": [
-        "schema:ref_definitions_PatchTaskPayload"
+        "schema:definitions/PatchTaskPayload"
       ],
       "responses": [
-        "schema:ref_definitions_BasicTaskPayload",
-        "schema:ref_definitions_Error"
+        "schema:definitions/BasicTaskPayload",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2317,8 +2317,8 @@
       "path": "/tasks/{id}#basic",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BasicTaskPayload",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BasicTaskPayload",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2329,11 +2329,11 @@
       "method": "PATCH",
       "path": "/tasks/{id}#signature",
       "requests": [
-        "schema:ref_definitions_PatchTaskPayload"
+        "schema:definitions/PatchTaskPayload"
       ],
       "responses": [
-        "schema:ref_definitions_SignatureTaskPayload",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SignatureTaskPayload",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2345,8 +2345,8 @@
       "path": "/tasks/{id}#signature",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_SignatureTaskPayload",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/SignatureTaskPayload",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2357,11 +2357,11 @@
       "method": "PATCH",
       "path": "/tasks/{id}#fill_form",
       "requests": [
-        "schema:ref_definitions_PatchTaskPayload"
+        "schema:definitions/PatchTaskPayload"
       ],
       "responses": [
-        "schema:ref_definitions_FillFormTaskPayload",
-        "schema:ref_definitions_Error"
+        "schema:definitions/FillFormTaskPayload",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2373,8 +2373,8 @@
       "path": "/tasks/{id}#fill_form",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_FillFormTaskPayload",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/FillFormTaskPayload",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2385,11 +2385,11 @@
       "method": "PATCH",
       "path": "/tasks/{id}#fill_pdf",
       "requests": [
-        "schema:ref_definitions_PatchTaskPayload"
+        "schema:definitions/PatchTaskPayload"
       ],
       "responses": [
-        "schema:ref_definitions_FillPdfTaskPayload",
-        "schema:ref_definitions_Error"
+        "schema:definitions/FillPdfTaskPayload",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2401,8 +2401,8 @@
       "path": "/tasks/{id}#fill_pdf",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_FillPdfTaskPayload",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/FillPdfTaskPayload",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2413,11 +2413,11 @@
       "method": "PATCH",
       "path": "/tasks/{id}#validation",
       "requests": [
-        "schema:ref_definitions_PatchTaskPayload"
+        "schema:definitions/PatchTaskPayload"
       ],
       "responses": [
-        "schema:ref_definitions_ValidationTaskPayload",
-        "schema:ref_definitions_Error"
+        "schema:definitions/ValidationTaskPayload",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2429,8 +2429,8 @@
       "path": "/tasks/{id}#validation",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_ValidationTaskPayload",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/ValidationTaskPayload",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2441,11 +2441,11 @@
       "method": "POST",
       "path": "/tasks/{id}/files",
       "requests": [
-        "schema:ref_definitions_TaskFilePostPayload"
+        "schema:definitions/TaskFilePostPayload"
       ],
       "responses": [
-        "schema:ref_definitions_TaskFileResource",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/TaskFileResource",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2457,8 +2457,8 @@
       "path": "/tasks/{id}/files/{file_id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_TaskFileResource",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/TaskFileResource",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2470,7 +2470,7 @@
       "path": "/tasks/{id}/files/{file_id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2481,11 +2481,11 @@
       "method": "PATCH",
       "path": "/tasks/{id}/files/{file_id}",
       "requests": [
-        "schema:ref_definitions_TaskFilePatchPayload"
+        "schema:definitions/TaskFilePatchPayload"
       ],
       "responses": [
-        "schema:ref_definitions_TaskFileResource",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/TaskFileResource",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2497,7 +2497,7 @@
       "path": "/tasks/{id}/files/{file_id}/download",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2510,7 +2510,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2521,12 +2521,12 @@
       "method": "POST",
       "path": "/tasks/{id}/fill",
       "requests": [
-        "schema:ref_definitions_FillTaskPayload"
+        "schema:definitions/FillTaskPayload"
       ],
       "responses": [
-        "schema:ref_definitions_TaskFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/TaskFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Tasks"
@@ -2538,8 +2538,8 @@
       "path": "/employee_settings/{employee_id}/process_automation",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_EmployeeSettingsProcessAutomation",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/EmployeeSettingsProcessAutomation",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employee Settings"
@@ -2551,7 +2551,7 @@
       "path": "/employee_settings/{employee_id}/process_automation/welcome_file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Employee Settings"
@@ -2575,8 +2575,8 @@
       "path": "/kb_categories/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_KbCategoryFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/KbCategoryFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Categories"
@@ -2588,9 +2588,9 @@
       "path": "/kb_categories/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_KbCategoryDeletionError",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/KbCategoryDeletionError",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Categories"
@@ -2601,12 +2601,12 @@
       "method": "PATCH",
       "path": "/kb_categories/{id}",
       "requests": [
-        "schema:ref_definitions_KbCategoryPatchOrderPayload"
+        "schema:definitions/KbCategoryPatchOrderPayload"
       ],
       "responses": [
-        "schema:ref_definitions_KbCategoryFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/KbCategoryFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Categories"
@@ -2617,12 +2617,12 @@
       "method": "PUT",
       "path": "/kb_categories/{id}",
       "requests": [
-        "schema:ref_definitions_KbCategoryUpdatePayload"
+        "schema:definitions/KbCategoryUpdatePayload"
       ],
       "responses": [
         "schema:anon/6585ded45263b3acb3c85a031b33d07ddb5838ce",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Categories"
@@ -2634,7 +2634,7 @@
       "path": "/article_resources/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Articles"
@@ -2646,7 +2646,7 @@
       "path": "/article_documents/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Articles"
@@ -2659,7 +2659,7 @@
       "requests": [],
       "responses": [
         "schema:anon/888d6facb4aefdffb6ce9cb24b8f6dbf3ebf2b94",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Articles"
@@ -2671,9 +2671,9 @@
       "path": "/kb_articles/images",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_KbArticleImage",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_Error"
+        "schema:definitions/KbArticleImage",
+        "schema:definitions/Error",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Articles"
@@ -2685,8 +2685,8 @@
       "path": "/kb_articles/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_KbArticleFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/KbArticleFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Articles"
@@ -2697,14 +2697,14 @@
       "method": "PUT",
       "path": "/kb_articles/{id}",
       "requests": [
-        "schema:ref_definitions_KbArticleUpdatePayload"
+        "schema:definitions/KbArticleUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_KbArticleFull",
-        "schema:ref_definitions_KbArticleFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/KbArticleFull",
+        "schema:definitions/KbArticleFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Articles"
@@ -2716,8 +2716,8 @@
       "path": "/kb_articles/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Articles"
@@ -2728,12 +2728,12 @@
       "method": "PATCH",
       "path": "/kb_articles/{id}",
       "requests": [
-        "schema:ref_definitions_KbArticlePatchPayload"
+        "schema:definitions/KbArticlePatchPayload"
       ],
       "responses": [
-        "schema:ref_definitions_KbArticleFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/KbArticleFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Articles"
@@ -2746,7 +2746,7 @@
       "requests": [],
       "responses": [
         "schema:anon/64b27ab8c3c56801e744779c2582279b8bd7eb40",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Articles"
@@ -2759,7 +2759,7 @@
       "requests": [],
       "responses": [
         "schema:anon/775063622faa0c3238bbe8e30f977893a59e85f0",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2770,11 +2770,11 @@
       "method": "POST",
       "path": "/requests",
       "requests": [
-        "schema:ref_definitions_RequestPostCreatePayload"
+        "schema:definitions/RequestPostCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_RequestFullWithAttachments",
-        "schema:ref_definitions_Error"
+        "schema:definitions/RequestFullWithAttachments",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2787,7 +2787,7 @@
       "requests": [],
       "responses": [
         "schema:anon/c4ab9b52f95636e64eb20c166044935588f1c435",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2798,11 +2798,11 @@
       "method": "POST",
       "path": "/requests/{id}/comments",
       "requests": [
-        "schema:ref_definitions_RequestPostComment"
+        "schema:definitions/RequestPostComment"
       ],
       "responses": [
-        "schema:ref_definitions_RequestComment",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/RequestComment",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2814,7 +2814,7 @@
       "path": "/requests/{id}/comments/{comment_id}/attachments/{attachment_id}/preview",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2827,7 +2827,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2839,8 +2839,8 @@
       "path": "/requests/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_RequestFullWithAttachments",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/RequestFullWithAttachments",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2852,7 +2852,7 @@
       "path": "/requests/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2863,14 +2863,14 @@
       "method": "PATCH",
       "path": "/requests/{id}",
       "requests": [
-        "schema:ref_definitions_RequestPatchPayload"
+        "schema:definitions/RequestPatchPayload"
       ],
       "responses": [
-        "schema:ref_definitions_RequestFullWithAttachments",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Forbidden",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/RequestFullWithAttachments",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Forbidden",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2882,7 +2882,7 @@
       "path": "/requests/{id}/files/{file_id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2895,7 +2895,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2907,7 +2907,7 @@
       "path": "/requests/{id}/files/{file_id}/preview",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2920,7 +2920,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2932,7 +2932,7 @@
       "path": "/requests/{id}/attachments/{attachment_id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2945,7 +2945,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2957,7 +2957,7 @@
       "path": "/requests/{id}/attachments/{attachment_id}/preview",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2970,7 +2970,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -2983,7 +2983,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -3008,7 +3008,7 @@
       "requests": [],
       "responses": [
         "schema:anon/1f57037e5c42b4db439332c55f0a1c6802ae7a84",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -3019,11 +3019,11 @@
       "method": "POST",
       "path": "/requests/{id}/macros",
       "requests": [
-        "schema:ref_definitions_RequestMacroPayload"
+        "schema:definitions/RequestMacroPayload"
       ],
       "responses": [
-        "schema:ref_definitions_Forbidden",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/Forbidden",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -3036,7 +3036,7 @@
       "requests": [],
       "responses": [
         "schema:anon/775063622faa0c3238bbe8e30f977893a59e85f0",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -3050,7 +3050,7 @@
         "schema:anon/1e597aca270857d81b90843f1e8aacbf62f90b3c"
       ],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -3073,7 +3073,7 @@
       "requests": [],
       "responses": [
         "schema:anon/089ee1bd66e109c974975933f2010b60b1ccab71",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -3085,8 +3085,8 @@
       "path": "/request_forms/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_RequestFormFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/RequestFormFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Requests"
@@ -3097,12 +3097,12 @@
       "method": "PATCH",
       "path": "/request_forms/{id}",
       "requests": [
-        "schema:ref_definitions_RequestFormPatch"
+        "schema:definitions/RequestFormPatch"
       ],
       "responses": [
-        "schema:ref_definitions_RequestFormPatch",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/RequestFormPatch",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Requests"
@@ -3113,12 +3113,12 @@
       "method": "PUT",
       "path": "/request_forms/{id}",
       "requests": [
-        "schema:ref_definitions_RequestFormPut"
+        "schema:definitions/RequestFormPut"
       ],
       "responses": [
-        "schema:ref_definitions_RequestFormPut",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/RequestFormPut",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Requests"
@@ -3130,7 +3130,7 @@
       "path": "/client",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_CoreClientFull"
+        "schema:definitions/CoreClientFull"
       ],
       "tags": [
         "Platform: Clients"
@@ -3141,11 +3141,11 @@
       "method": "POST",
       "path": "/platform_updates",
       "requests": [
-        "schema:ref_definitions_PlatformUpdatePayload"
+        "schema:definitions/PlatformUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Platform Updates"
@@ -3156,12 +3156,12 @@
       "method": "POST",
       "path": "/distribution_projects",
       "requests": [
-        "schema:ref_definitions_DistributionProjectBase"
+        "schema:definitions/DistributionProjectBase"
       ],
       "responses": [
-        "schema:ref_definitions_DistributionProjectFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/DistributionProjectFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Distribution Projects"
@@ -3174,7 +3174,7 @@
       "requests": [],
       "responses": [
         "schema:anon/906cd7d087081a0d824839e56dd6cb2fef2bfdb9",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Distribution Projects"
@@ -3186,9 +3186,9 @@
       "path": "/distribution_projects/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DistributionProjectFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DistributionProjectFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Distribution Projects"
@@ -3199,12 +3199,12 @@
       "method": "POST",
       "path": "/distributions",
       "requests": [
-        "schema:ref_definitions_DistributionBase"
+        "schema:definitions/DistributionBase"
       ],
       "responses": [
-        "schema:ref_definitions_DistributionFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/DistributionFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Distributions"
@@ -3228,9 +3228,9 @@
       "path": "/distributions/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DistributionFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DistributionFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Distributions"
@@ -3242,8 +3242,8 @@
       "path": "/distributions/{id}/report",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Distributions"
@@ -3255,9 +3255,9 @@
       "path": "/tokens",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_TokenFull",
-        "schema:ref_definitions_OAuthError",
-        "schema:ref_definitions_OAuthError"
+        "schema:definitions/TokenFull",
+        "schema:definitions/OAuthError",
+        "schema:definitions/OAuthError"
       ],
       "tags": [
         "Platform: OAuth - Tokens"
@@ -3269,7 +3269,7 @@
       "path": "/revoke_token",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_OAuthError"
+        "schema:definitions/OAuthError"
       ],
       "tags": [
         "Platform: OAuth - Tokens"
@@ -3280,10 +3280,10 @@
       "method": "POST",
       "path": "/document_generations",
       "requests": [
-        "schema:ref_definitions_DocGenRequestPayload"
+        "schema:definitions/DocGenRequestPayload"
       ],
       "responses": [
-        "schema:ref_definitions_DocGenFullWithErrors"
+        "schema:definitions/DocGenFullWithErrors"
       ],
       "tags": [
         "Document Manager: Document Generations"
@@ -3294,7 +3294,7 @@
       "method": "POST",
       "path": "/document_generations/async",
       "requests": [
-        "schema:ref_definitions_DocGenRequestPayload"
+        "schema:definitions/DocGenRequestPayload"
       ],
       "responses": [],
       "tags": [
@@ -3307,7 +3307,7 @@
       "path": "/document_generations/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generations"
@@ -3319,8 +3319,8 @@
       "path": "/document_generations/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocGenFull",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/DocGenFull",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generations"
@@ -3332,7 +3332,7 @@
       "path": "/document_generations/{id}/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generations"
@@ -3344,7 +3344,7 @@
       "path": "/document_generations/{id}/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generations"
@@ -3357,7 +3357,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generations"
@@ -3370,7 +3370,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generations"
@@ -3394,7 +3394,7 @@
         "schema:anon/9c349bf754b92e3106f490eda0a9eb824b64e6d2"
       ],
       "responses": [
-        "schema:ref_definitions_DocGenFullWithErrors"
+        "schema:definitions/DocGenFullWithErrors"
       ],
       "tags": [
         "Document Manager: Document Generations"
@@ -3416,8 +3416,8 @@
       "path": "/document_generation_templates/{id}/versions/{number}/doc_fields",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_FormidableCreatePayload",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/FormidableCreatePayload",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3428,11 +3428,11 @@
       "method": "PUT",
       "path": "/document_generation_templates/{id}/versions/{number}/doc_fields",
       "requests": [
-        "schema:ref_definitions_FormidableCreatePayload"
+        "schema:definitions/FormidableCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_FormidableCreatePayload",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/FormidableCreatePayload",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3455,11 +3455,11 @@
       "method": "POST",
       "path": "/document_generation_templates",
       "requests": [
-        "schema:ref_definitions_DocGenTemplatePayload"
+        "schema:definitions/DocGenTemplatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_DocGenTemplate",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DocGenTemplate",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3471,7 +3471,7 @@
       "path": "/document_generation_templates/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3483,8 +3483,8 @@
       "path": "/document_generation_templates/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocGenTemplate",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/DocGenTemplate",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3495,11 +3495,11 @@
       "method": "PATCH",
       "path": "/document_generation_templates/{id}",
       "requests": [
-        "schema:ref_definitions_DocGenTemplatePatchPayload"
+        "schema:definitions/DocGenTemplatePatchPayload"
       ],
       "responses": [
-        "schema:ref_definitions_DocGenTemplate",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/DocGenTemplate",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3510,12 +3510,12 @@
       "method": "PUT",
       "path": "/document_generation_templates/{id}",
       "requests": [
-        "schema:ref_definitions_DocGenTemplatePayload"
+        "schema:definitions/DocGenTemplatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_DocGenTemplate",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/DocGenTemplate",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3527,9 +3527,9 @@
       "path": "/document_generation_templates/{id}/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocGenTemplateVersion",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/DocGenTemplateVersion",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3542,7 +3542,7 @@
       "requests": [],
       "responses": [
         "schema:anon/04f3aee7230e3fba1c509255862123dfc9f22cd2",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3566,7 +3566,7 @@
       "path": "/document_generation_templates/{id}/versions/{number}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3578,8 +3578,8 @@
       "path": "/document_generation_templates/{id}/versions/{number}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocGenTemplateVersion",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/DocGenTemplateVersion",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3590,11 +3590,11 @@
       "method": "PUT",
       "path": "/document_generation_templates/{id}/versions/{number}",
       "requests": [
-        "schema:ref_definitions_DocGenTemplateVersionUpdatePayload"
+        "schema:definitions/DocGenTemplateVersionUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_DocGenTemplateVersion",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DocGenTemplateVersion",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3605,11 +3605,11 @@
       "method": "PATCH",
       "path": "/document_generation_templates/{id}/versions/{number}",
       "requests": [
-        "schema:ref_definitions_DocgenTemplateVersionPatchPayload"
+        "schema:definitions/DocgenTemplateVersionPatchPayload"
       ],
       "responses": [
-        "schema:ref_definitions_DocGenTemplateVersionFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DocGenTemplateVersionFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3621,7 +3621,7 @@
       "path": "/document_generation_templates/{id}/versions/{number}/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3633,7 +3633,7 @@
       "path": "/document_generation_templates/{id}/versions/{number}/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3645,7 +3645,7 @@
       "path": "/document_generation_templates/{id}/versions/active/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3657,7 +3657,7 @@
       "path": "/document_generation_templates/{id}/versions/active/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3669,7 +3669,7 @@
       "path": "/document_generation_templates/{id}/versions/latest/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3681,7 +3681,7 @@
       "path": "/document_generation_templates/{id}/versions/latest/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3693,8 +3693,8 @@
       "path": "/document_generation_templates/{id}/versions/{number}/fields",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_FieldSet",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/FieldSet",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3706,8 +3706,8 @@
       "path": "/document_generation_templates/{id}/versions/active/fields",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_FieldSet",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/FieldSet",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3719,8 +3719,8 @@
       "path": "/document_generation_templates/{id}/versions/latest/fields",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_FieldSet",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/FieldSet",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3733,7 +3733,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3746,7 +3746,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3759,7 +3759,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3772,7 +3772,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3785,7 +3785,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3798,7 +3798,7 @@
       "requests": [],
       "responses": [
         "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates"
@@ -3810,7 +3810,7 @@
       "path": "/document_generations/syntax_migration/status",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocGenMigrationCampaign"
+        "schema:definitions/DocGenMigrationCampaign"
       ],
       "tags": [
         "Document Manager: Document Generation Templates Syntax Migration"
@@ -3821,10 +3821,10 @@
       "method": "PUT",
       "path": "/document_generations/syntax_migration/status",
       "requests": [
-        "schema:ref_definitions_DocGenMigrationCampaign"
+        "schema:definitions/DocGenMigrationCampaign"
       ],
       "responses": [
-        "schema:ref_definitions_DocGenMigrationCampaign"
+        "schema:definitions/DocGenMigrationCampaign"
       ],
       "tags": [
         "Document Manager: Document Generation Templates Syntax Migration"
@@ -3836,9 +3836,9 @@
       "path": "/document_generations/syntax_migration/restart",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocGenMigrationCampaign",
-        "schema:ref_definitions_BaseError",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/DocGenMigrationCampaign",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates Syntax Migration"
@@ -3862,11 +3862,11 @@
       "path": "/document_generations/syntax_migration/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocGenTemplateVersionFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BaseError",
-        "schema:ref_definitions_BaseError",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/DocGenTemplateVersionFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Templates Syntax Migration"
@@ -3877,10 +3877,10 @@
       "method": "POST",
       "path": "/document_generation_campaigns",
       "requests": [
-        "schema:ref_definitions_DocGenCampaignPayload"
+        "schema:definitions/DocGenCampaignPayload"
       ],
       "responses": [
-        "schema:ref_definitions_DocGenCampaignResponse"
+        "schema:definitions/DocGenCampaignResponse"
       ],
       "tags": [
         "Document Manager: Document Generation Campaigns"
@@ -3904,10 +3904,10 @@
       "path": "/document_generation_campaigns/csv",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_CsvCampaign",
-        "schema:ref_definitions_BaseError",
-        "schema:ref_definitions_BaseError",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/CsvCampaign",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Campaigns"
@@ -3919,7 +3919,7 @@
       "path": "/document_generation_campaigns/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocGenCampaignResponse"
+        "schema:definitions/DocGenCampaignResponse"
       ],
       "tags": [
         "Document Manager: Document Generation Campaigns"
@@ -3931,8 +3931,8 @@
       "path": "/document_generation_campaigns/{id}/file",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BaseError",
-        "schema:ref_definitions_BaseError"
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError"
       ],
       "tags": [
         "Document Manager: Document Generation Campaigns"
@@ -3944,7 +3944,7 @@
       "path": "/document_generation_requests/{id}/status",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocGenRequestStatusResponse"
+        "schema:definitions/DocGenRequestStatusResponse"
       ],
       "tags": [
         "Document Manager: Document Generation Requests"
@@ -3967,13 +3967,13 @@
       "method": "POST",
       "path": "/saml/identity_providers",
       "requests": [
-        "schema:ref_definitions_SamlIdentityProviderCreatePayload"
+        "schema:definitions/SamlIdentityProviderCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_SamlIdentityProviderFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Saml Identity Providers"
@@ -3997,8 +3997,8 @@
       "path": "/saml/identity_providers/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_SamlIdentityProviderFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Saml Identity Providers"
@@ -4019,12 +4019,12 @@
       "method": "PATCH",
       "path": "/saml/identity_providers/{id}",
       "requests": [
-        "schema:ref_definitions_SamlIdentityProviderUpdatePayload"
+        "schema:definitions/SamlIdentityProviderUpdatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_SamlIdentityProviderFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Saml Identity Providers"
@@ -4035,13 +4035,13 @@
       "method": "PUT",
       "path": "/saml/identity_providers/{id}",
       "requests": [
-        "schema:ref_definitions_SamlIdentityProviderCreatePayload"
+        "schema:definitions/SamlIdentityProviderCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_SamlIdentityProviderFull",
-        "schema:ref_definitions_SamlIdentityProviderFull",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Saml Identity Providers"
@@ -4053,7 +4053,7 @@
       "path": "/saml/identity_providers/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Saml Identity Providers"
@@ -4077,7 +4077,7 @@
       "path": "/roles/{role_id}/permissions/audit",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_AuditPermissionsFull"
+        "schema:definitions/AuditPermissionsFull"
       ],
       "tags": [
         "Platform: Roles"
@@ -4088,11 +4088,11 @@
       "method": "PUT",
       "path": "/roles/{role_id}/permissions/audit",
       "requests": [
-        "schema:ref_definitions_AuditPermissionsBase"
+        "schema:definitions/AuditPermissionsBase"
       ],
       "responses": [
-        "schema:ref_definitions_AuditPermissionsFull",
-        "schema:ref_definitions_Error"
+        "schema:definitions/AuditPermissionsFull",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Roles"
@@ -4104,8 +4104,8 @@
       "path": "/events/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_EventBase",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/EventBase",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Events"
@@ -4153,11 +4153,11 @@
       "method": "POST",
       "path": "/webhooks",
       "requests": [
-        "schema:ref_definitions_WebhookCreatePayload"
+        "schema:definitions/WebhookCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_WebhookFull",
-        "schema:ref_definitions_Error"
+        "schema:definitions/WebhookFull",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Webhooks"
@@ -4169,7 +4169,7 @@
       "path": "/webhooks/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_WebhookFull"
+        "schema:definitions/WebhookFull"
       ],
       "tags": [
         "Platform: Webhooks"
@@ -4190,11 +4190,11 @@
       "method": "PUT",
       "path": "/webhooks/{id}",
       "requests": [
-        "schema:ref_definitions_WebhookCreatePayload"
+        "schema:definitions/WebhookCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_WebhookFull",
-        "schema:ref_definitions_Error"
+        "schema:definitions/WebhookFull",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Webhooks"
@@ -4206,7 +4206,7 @@
       "path": "/webhooks/{id}/refresh_signature_key",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_WebhookFull"
+        "schema:definitions/WebhookFull"
       ],
       "tags": [
         "Platform: Webhooks"
@@ -4218,7 +4218,7 @@
       "path": "/webhooks/{id}/tests",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_WebhookFull"
+        "schema:definitions/WebhookFull"
       ],
       "tags": [
         "Platform: Webhooks"
@@ -4230,7 +4230,7 @@
       "path": "/roles/{role_id}/permissions/webhook",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_WebhookPermissionsFull"
+        "schema:definitions/WebhookPermissionsFull"
       ],
       "tags": [
         "Platform: Roles"
@@ -4241,11 +4241,11 @@
       "method": "PUT",
       "path": "/roles/{role_id}/permissions/webhook",
       "requests": [
-        "schema:ref_definitions_WebhookPermissionsBase"
+        "schema:definitions/WebhookPermissionsBase"
       ],
       "responses": [
-        "schema:ref_definitions_WebhookPermissionsFull",
-        "schema:ref_definitions_Error"
+        "schema:definitions/WebhookPermissionsFull",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Roles"
@@ -4257,7 +4257,7 @@
       "path": "/settings/core",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_CoreSettingsFull"
+        "schema:definitions/CoreSettingsFull"
       ],
       "tags": [
         "Platform: Settings"
@@ -4269,7 +4269,7 @@
       "path": "/settings/process_automation",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_ProcessAutomationSettingsFull"
+        "schema:definitions/ProcessAutomationSettingsFull"
       ],
       "tags": [
         "Platform: Settings"
@@ -4281,7 +4281,7 @@
       "path": "/settings/knowledge_base",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_KnowledgeBaseSettings"
+        "schema:definitions/KnowledgeBaseSettings"
       ],
       "tags": [
         "Platform: Settings"
@@ -4293,7 +4293,7 @@
       "path": "/settings/case_management",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_CaseManagementSettings"
+        "schema:definitions/CaseManagementSettings"
       ],
       "tags": [
         "Platform: Settings"
@@ -4306,7 +4306,7 @@
       "requests": [],
       "responses": [
         "schema:anon/ecc811652a928c2fe8ecf0bfeab4342ce84786be",
-        "schema:ref_definitions_Error"
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Datasets"
@@ -4318,8 +4318,8 @@
       "path": "/datasets/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DatasetFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DatasetFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Datasets"
@@ -4330,12 +4330,12 @@
       "method": "PUT",
       "path": "/datasets/{id}",
       "requests": [
-        "schema:ref_definitions_DatasetCreatePayload"
+        "schema:definitions/DatasetCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_DatasetFull",
-        "schema:ref_definitions_DatasetFull",
-        "schema:ref_definitions_Error"
+        "schema:definitions/DatasetFull",
+        "schema:definitions/DatasetFull",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Datasets"
@@ -4348,7 +4348,7 @@
       "requests": [],
       "responses": [
         "schema:anon/766eaf4007e238e701301c1cc85e64116d4b270e",
-        "schema:ref_definitions_Error"
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Datasets"
@@ -4360,8 +4360,8 @@
       "path": "/datasets/{id}/values/{value_id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DatasetValueFull",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DatasetValueFull",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Datasets"
@@ -4373,7 +4373,7 @@
       "path": "/datasets/{id}/values/{value_id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Platform: Datasets"
@@ -4384,12 +4384,12 @@
       "method": "PUT",
       "path": "/datasets/{id}/values/{value_id}",
       "requests": [
-        "schema:ref_definitions_DatasetValueCreatePayload"
+        "schema:definitions/DatasetValueCreatePayload"
       ],
       "responses": [
-        "schema:ref_definitions_DatasetValueFull",
-        "schema:ref_definitions_DatasetValueFull",
-        "schema:ref_definitions_Error"
+        "schema:definitions/DatasetValueFull",
+        "schema:definitions/DatasetValueFull",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Datasets"
@@ -4401,7 +4401,7 @@
       "path": "/datasets/{id}/values/{value_id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_Error"
+        "schema:definitions/Error"
       ],
       "tags": [
         "Platform: Datasets"
@@ -4412,12 +4412,12 @@
       "method": "POST",
       "path": "/document_type_prediction_run",
       "requests": [
-        "schema:ref_definitions_DocumentTypePredictionClientPayload"
+        "schema:definitions/DocumentTypePredictionClientPayload"
       ],
       "responses": [
-        "schema:ref_definitions_DocumentTypePredictionRun",
-        "schema:ref_definitions_BadRequest",
-        "schema:ref_definitions_Error"
+        "schema:definitions/DocumentTypePredictionRun",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
       ],
       "tags": [
         "Document Manager: Document Classification"
@@ -4429,8 +4429,8 @@
       "path": "/document_type_prediction_run/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_DocumentTypePredictionRun",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/DocumentTypePredictionRun",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "Document Manager: Document Classification"
@@ -4464,8 +4464,8 @@
       "path": "/macros/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_MacroDetail",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/MacroDetail",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Macros"
@@ -4476,12 +4476,12 @@
       "method": "PUT",
       "path": "/macros/{id}",
       "requests": [
-        "schema:ref_definitions_MacroPutPayload"
+        "schema:definitions/MacroPutPayload"
       ],
       "responses": [
-        "schema:ref_definitions_MacroDetail",
-        "schema:ref_definitions_MacroDetail",
-        "schema:ref_definitions_Error"
+        "schema:definitions/MacroDetail",
+        "schema:definitions/MacroDetail",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Macros"
@@ -4515,8 +4515,8 @@
       "path": "/custom_status/{id}",
       "requests": [],
       "responses": [
-        "schema:ref_definitions_CustomStatusDetail",
-        "schema:ref_definitions_BadRequest"
+        "schema:definitions/CustomStatusDetail",
+        "schema:definitions/BadRequest"
       ],
       "tags": [
         "People Assist: Custom Status"
@@ -4527,12 +4527,12 @@
       "method": "PUT",
       "path": "/custom_status/{id}",
       "requests": [
-        "schema:ref_definitions_CustomStatusPutPayload"
+        "schema:definitions/CustomStatusPutPayload"
       ],
       "responses": [
-        "schema:ref_definitions_CustomStatusDetail",
-        "schema:ref_definitions_CustomStatusDetail",
-        "schema:ref_definitions_Error"
+        "schema:definitions/CustomStatusDetail",
+        "schema:definitions/CustomStatusDetail",
+        "schema:definitions/Error"
       ],
       "tags": [
         "People Assist: Custom Status"

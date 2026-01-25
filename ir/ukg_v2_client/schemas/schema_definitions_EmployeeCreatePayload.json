@@ -12,14 +12,14 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_EmployeeExternalId",
-      "schema:ref_definitions_EmployeeBase",
-      "schema:ref_definitions_EmployeeCreateOptions",
+      "schema:definitions/EmployeeExternalId",
+      "schema:definitions/EmployeeBase",
+      "schema:definitions/EmployeeCreateOptions",
       "schema:anon/faf8b7e09ffd97d3c58dcd05dba47f40944ee351"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/EmployeeCreatePayload",
     "via": []
   },
@@ -37,7 +37,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/employees"
+  ]
 }

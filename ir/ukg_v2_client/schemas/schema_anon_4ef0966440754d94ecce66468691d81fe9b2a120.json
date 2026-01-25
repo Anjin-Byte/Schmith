@@ -11,7 +11,7 @@
   "constraints": {},
   "composition": null,
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/paths//employee_documents/{id}/file/get/responses/200",
     "via": []
   },
@@ -29,7 +29,27 @@
     "constraints": "absent",
     "composition": "absent",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:GET:/employee_documents/{id}/file",
+    "op:GET:/company_documents/{id}/file",
+    "op:GET:/signature_processes/{id}/preview",
+    "op:GET:/signature_processes/{id}/file",
+    "op:GET:/tasks/{id}/workingfiles/{file_id}",
+    "op:GET:/requests/{id}/comments/{comment_id}/attachments/{attachment_id}/preview/{page}",
+    "op:GET:/requests/{id}/files/{file_id}/download",
+    "op:GET:/requests/{id}/files/{file_id}/preview/{page}",
+    "op:GET:/requests/{id}/attachments/{attachment_id}/download",
+    "op:GET:/requests/{id}/attachments/{attachment_id}/preview/{page}",
+    "op:GET:/requests/{id}/pdf",
+    "op:GET:/document_generations/{id}/preview",
+    "op:GET:/document_generations/{id}/preview/{page}",
+    "op:GET:/document_generation_templates/{id}/versions/{number}/preview",
+    "op:GET:/document_generation_templates/{id}/versions/active/preview",
+    "op:GET:/document_generation_templates/{id}/versions/latest/preview",
+    "op:GET:/document_generation_templates/{id}/versions/{number}/preview/{page}",
+    "op:GET:/document_generation_templates/{id}/versions/active/preview/{page}",
+    "op:GET:/document_generation_templates/{id}/versions/latest/preview/{page}"
+  ]
 }

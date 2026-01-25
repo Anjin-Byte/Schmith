@@ -12,13 +12,13 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_DocGenTemplateVersionBase",
+      "schema:definitions/DocGenTemplateVersionBase",
       "schema:anon/0f089560af2747345d683c009028e8c93d348f53",
-      "schema:ref_definitions_DocGenTemplateVersionComputedField"
+      "schema:definitions/DocGenTemplateVersionComputedField"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/DocGenTemplateVersionFull",
     "via": []
   },
@@ -36,7 +36,10 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:PATCH:/document_generation_templates/{id}/versions/{number}",
+    "op:POST:/document_generations/syntax_migration/{id}"
+  ]
 }

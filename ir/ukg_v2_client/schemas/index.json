@@ -39,7 +39,9 @@
       "schema_id": "schema:definitions/RedirectionUrls",
       "name_hint": "RedirectionUrls",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/redirection_urls"
+      ],
       "is_inline": false
     },
     {
@@ -256,14 +258,22 @@
       "schema_id": "schema:definitions/OrganizationFull",
       "name_hint": "OrganizationFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/organizations/{id}",
+        "op:PUT:/organizations/{id}",
+        "op:GET:/organizations/{id}",
+        "op:PATCH:/organizations/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/OrganizationCreatePayload",
       "name_hint": "OrganizationCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/organizations/{id}",
+        "op:PATCH:/organizations/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -291,14 +301,22 @@
       "schema_id": "schema:definitions/OrganizationGroupFull",
       "name_hint": "OrganizationGroupFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/organization_groups/{id}",
+        "op:PUT:/organization_groups/{id}",
+        "op:GET:/organization_groups/{id}",
+        "op:PATCH:/organization_groups/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/OrganizationGroupCreatePayload",
       "name_hint": "OrganizationGroupCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/organization_groups/{id}",
+        "op:PATCH:/organization_groups/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -543,35 +561,50 @@
       "schema_id": "schema:definitions/EmployeeCreatePayload",
       "name_hint": "EmployeeCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/employees"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/EmployeeUpdatePayload",
       "name_hint": "EmployeeUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/employees/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/EmployeePartialUpdatePayload",
       "name_hint": "EmployeePartialUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/employees/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/EmployeeCreateOrUpdatePayload",
       "name_hint": "EmployeeCreateOrUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/employees/by_external_id/{external_id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/EmployeeFull",
       "name_hint": "EmployeeFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/employees/{id}",
+        "op:PUT:/employees/{id}",
+        "op:PATCH:/employees/{id}",
+        "op:GET:/employees/{id}",
+        "op:PUT:/employees/by_external_id/{external_id}",
+        "op:PUT:/employees/by_external_id/{external_id}"
+      ],
       "is_inline": false
     },
     {
@@ -627,7 +660,9 @@
       "schema_id": "schema:definitions/EmployeeBulkUpdatePayload",
       "name_hint": "EmployeeBulkUpdatePayload",
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/employees/bulk"
+      ],
       "is_inline": false
     },
     {
@@ -641,21 +676,18 @@
       "schema_id": "schema:definitions/EmployeeBulkPatchPayload",
       "name_hint": "EmployeeBulkPatchPayload",
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/employees/bulk"
+      ],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:definitions/EmployeeBulkCreatePayload",
       "name_hint": "EmployeeBulkCreatePayload",
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/employees/bulk"
+      ],
       "is_inline": false
     },
     {
@@ -669,7 +701,11 @@
       "schema_id": "schema:definitions/EmployeeBulkOperationResult",
       "name_hint": "EmployeeBulkOperationResult",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/employees/bulk",
+        "op:PUT:/employees/bulk",
+        "op:POST:/employees/bulk"
+      ],
       "is_inline": false
     },
     {
@@ -732,7 +768,9 @@
       "schema_id": "schema:definitions/EmployeeBulkOperationStatus",
       "name_hint": "EmployeeBulkOperationStatus",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employees/bulk/{request_id}"
+      ],
       "is_inline": false
     },
     {
@@ -771,13 +809,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_LocalizedString",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/340dcb59bda950d6aa5c63245c9e65cf8779b2d9",
       "name_hint": null,
       "kind": "array",
@@ -809,13 +840,6 @@
       "schema_id": "schema:anon/c11f399cc043cca752c567eceac832c67e990779",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_AuthorizedValue",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -865,14 +889,24 @@
       "schema_id": "schema:definitions/CustomFieldCreatePayload",
       "name_hint": "CustomFieldCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/custom_fields/{id}",
+        "op:PATCH:/custom_fields/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/CustomFieldFull",
       "name_hint": "CustomFieldFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/custom_fields/{id}",
+        "op:PUT:/custom_fields/{id}",
+        "op:PUT:/custom_fields/{id}",
+        "op:PUT:/custom_fields/{id}",
+        "op:PATCH:/custom_fields/{id}",
+        "op:PATCH:/custom_fields/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -956,14 +990,19 @@
       "schema_id": "schema:definitions/ElectronicVaultOptionsUpdatePayload",
       "name_hint": "ElectronicVaultOptionsUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/electronic_vault_options/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/ElectronicVaultFull",
       "name_hint": "ElectronicVaultFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/electronic_vault_options/{id}",
+        "op:GET:/electronic_vault_options/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -1005,7 +1044,9 @@
       "schema_id": "schema:definitions/EmployeeElectronicVaultDocuments",
       "name_hint": "EmployeeElectronicVaultDocuments",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/employees/{id}/electronic_vault_documents"
+      ],
       "is_inline": false
     },
     {
@@ -1114,13 +1155,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_CustomFieldFilterRule",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/fca000226ca448c9d055b5d9f01f4826d4c868a0",
       "name_hint": null,
       "kind": "array",
@@ -1208,7 +1242,9 @@
       "schema_id": "schema:definitions/EmployeeSubscriptionFull",
       "name_hint": "EmployeeSubscriptionFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_subscriptions/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -1243,14 +1279,20 @@
       "schema_id": "schema:definitions/RoleCreatePayload",
       "name_hint": "RoleCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/roles/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/RoleFull",
       "name_hint": "RoleFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/roles/{id}",
+        "op:PUT:/roles/{id}",
+        "op:GET:/roles/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -1397,7 +1439,9 @@
       "schema_id": "schema:definitions/CorePermissionsFull",
       "name_hint": "CorePermissionsFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/roles/{role_id}/permissions/core"
+      ],
       "is_inline": false
     },
     {
@@ -1411,7 +1455,9 @@
       "schema_id": "schema:definitions/CorePermissionsGet",
       "name_hint": "CorePermissionsGet",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/roles/{role_id}/permissions/core"
+      ],
       "is_inline": false
     },
     {
@@ -1425,7 +1471,9 @@
       "schema_id": "schema:definitions/CorePermissionsPut",
       "name_hint": "CorePermissionsPut",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/roles/{role_id}/permissions/core"
+      ],
       "is_inline": false
     },
     {
@@ -1464,13 +1512,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_KnowledgeBasePermission",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:definitions/KnowledgeBasePermissions",
       "name_hint": "KnowledgeBasePermissions",
       "kind": "array",
@@ -1506,13 +1547,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_ProcessAutomationPermission",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:definitions/ProcessAutomationPermissions",
       "name_hint": "ProcessAutomationPermissions",
       "kind": "array",
@@ -1546,13 +1580,6 @@
       "kind": "object",
       "where_used": [],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestManagementPermission",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:definitions/RequestManagementPermissions",
@@ -1761,7 +1788,9 @@
       "schema_id": "schema:definitions/EFMPermissionsFull",
       "name_hint": "EFMPermissionsFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/roles/{role_id}/permissions/efm"
+      ],
       "is_inline": false
     },
     {
@@ -1775,7 +1804,9 @@
       "schema_id": "schema:definitions/AuditPermissionsBase",
       "name_hint": "AuditPermissionsBase",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/roles/{role_id}/permissions/audit"
+      ],
       "is_inline": false
     },
     {
@@ -1789,7 +1820,10 @@
       "schema_id": "schema:definitions/AuditPermissionsFull",
       "name_hint": "AuditPermissionsFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/roles/{role_id}/permissions/audit",
+        "op:PUT:/roles/{role_id}/permissions/audit"
+      ],
       "is_inline": false
     },
     {
@@ -1803,14 +1837,19 @@
       "schema_id": "schema:definitions/WebhookPermissionsBase",
       "name_hint": "WebhookPermissionsBase",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/roles/{role_id}/permissions/webhook"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/WebhookPermissionsFull",
       "name_hint": "WebhookPermissionsFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/roles/{role_id}/permissions/webhook",
+        "op:PUT:/roles/{role_id}/permissions/webhook"
+      ],
       "is_inline": false
     },
     {
@@ -1856,13 +1895,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_ProfileBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/8f85d27b82d6e00707c905d349e758065b329a8a",
       "name_hint": null,
       "kind": "array",
@@ -1894,7 +1926,12 @@
       "schema_id": "schema:definitions/UserFull",
       "name_hint": "UserFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/users",
+        "op:PUT:/users/{id}",
+        "op:PATCH:/users/{id}",
+        "op:GET:/users/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -1915,21 +1952,27 @@
       "schema_id": "schema:definitions/UserCreatePayload",
       "name_hint": "UserCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/users"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/UserPutPayload",
       "name_hint": "UserPutPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/users/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/UserPatchPayload",
       "name_hint": "UserPatchPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/users/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -2048,28 +2091,29 @@
       "schema_id": "schema:definitions/UserBulkUpdatePayload",
       "name_hint": "UserBulkUpdatePayload",
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/users/bulk"
+      ],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:definitions/UserBulkCreatePayload",
       "name_hint": "UserBulkCreatePayload",
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/users/bulk"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/UserBulkOperationResult",
       "name_hint": "UserBulkOperationResult",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/users/bulk",
+        "op:PUT:/users/bulk",
+        "op:PATCH:/users/bulk"
+      ],
       "is_inline": false
     },
     {
@@ -2083,7 +2127,9 @@
       "schema_id": "schema:definitions/UserBulkPatchPayload",
       "name_hint": "UserBulkPatchPayload",
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/users/bulk"
+      ],
       "is_inline": false
     },
     {
@@ -2111,7 +2157,9 @@
       "schema_id": "schema:definitions/UserBulkOperationStatus",
       "name_hint": "UserBulkOperationStatus",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/users/bulk/{request_id}"
+      ],
       "is_inline": false
     },
     {
@@ -2206,23 +2254,9 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_UserAccessPermissions",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/45a2380829cb9e8903a529a9f7f1038bf1344bac",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_MetaDataDefinition",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -2293,21 +2327,30 @@
       "schema_id": "schema:definitions/EmployeeDocumentTypeFull",
       "name_hint": "EmployeeDocumentTypeFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/employee_document_types/{id}",
+        "op:PUT:/employee_document_types/{id}",
+        "op:PATCH:/employee_document_types/{id}",
+        "op:GET:/employee_document_types/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/EmployeeDocumentTypeCreatePayload",
       "name_hint": "EmployeeDocumentTypeCreatePayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/employee_document_types/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/EmployeeDocumentTypePatchPayload",
       "name_hint": "EmployeeDocumentTypePatchPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/employee_document_types/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -2342,14 +2385,22 @@
       "schema_id": "schema:definitions/CompanyDocumentTypeFull",
       "name_hint": "CompanyDocumentTypeFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/company_document_types/{id}",
+        "op:PUT:/company_document_types/{id}",
+        "op:PATCH:/company_document_types/{id}",
+        "op:GET:/company_document_types/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/CompanyDocumentTypeCreatePayload",
       "name_hint": "CompanyDocumentTypeCreatePayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/company_document_types/{id}",
+        "op:PATCH:/company_document_types/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -2493,13 +2544,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_MetaDataBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/c93db0622de71b6517206d88ee4efafd4602f2ce",
       "name_hint": null,
       "kind": "array",
@@ -2531,7 +2575,9 @@
       "schema_id": "schema:definitions/DocumentFileId",
       "name_hint": "DocumentFileId",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document"
+      ],
       "is_inline": false
     },
     {
@@ -2545,7 +2591,9 @@
       "schema_id": "schema:definitions/DocumentExpirationDatePayload",
       "name_hint": "DocumentExpirationDatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/employee_documents/{id}/expiration/update"
+      ],
       "is_inline": false
     },
     {
@@ -2559,7 +2607,10 @@
       "schema_id": "schema:definitions/DocumentExpiryDatePayload",
       "name_hint": "DocumentExpiryDatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/employee_documents/{id}/expire",
+        "op:PUT:/company_documents/{id}/expire"
+      ],
       "is_inline": false
     },
     {
@@ -2699,21 +2750,31 @@
       "schema_id": "schema:definitions/EmployeeDocumentFull",
       "name_hint": "EmployeeDocumentFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/employee_documents",
+        "op:GET:/employee_documents/{id}",
+        "op:PUT:/employee_documents/{id}",
+        "op:PATCH:/employee_documents/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/EmployeeDocumentCreatePayload",
       "name_hint": "EmployeeDocumentCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/employee_documents"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/EmployeeDocumentUpdatePayload",
       "name_hint": "EmployeeDocumentUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/employee_documents/{id}",
+        "op:PATCH:/employee_documents/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -2776,21 +2837,31 @@
       "schema_id": "schema:definitions/CompanyDocumentFull",
       "name_hint": "CompanyDocumentFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/company_documents",
+        "op:GET:/company_documents/{id}",
+        "op:PUT:/company_documents/{id}",
+        "op:PATCH:/company_documents/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/CompanyDocumentCreatePayload",
       "name_hint": "CompanyDocumentCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/company_documents"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/CompanyDocumentUpdatePayload",
       "name_hint": "CompanyDocumentUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/company_documents/{id}",
+        "op:PATCH:/company_documents/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -2916,7 +2987,9 @@
       "schema_id": "schema:definitions/InboxItemCreatePayload",
       "name_hint": "InboxItemCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/inbox_items"
+      ],
       "is_inline": false
     },
     {
@@ -2965,7 +3038,10 @@
       "schema_id": "schema:definitions/InboxItemFull",
       "name_hint": "InboxItemFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/inbox_items",
+        "op:GET:/inbox_items/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -3140,7 +3216,9 @@
       "schema_id": "schema:definitions/SignatureTypeFull",
       "name_hint": "SignatureTypeFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/signature_types/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -3546,14 +3624,19 @@
       "schema_id": "schema:definitions/SignatureProcessCreatePayload",
       "name_hint": "SignatureProcessCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/signature_processes"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/SignatureProcessUpdatePayload",
       "name_hint": "SignatureProcessUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/signature_processes/{id}",
+        "op:PATCH:/signature_processes/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -3609,7 +3692,12 @@
       "schema_id": "schema:definitions/SignatureProcessFull",
       "name_hint": "SignatureProcessFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/signature_processes",
+        "op:PUT:/signature_processes/{id}",
+        "op:PATCH:/signature_processes/{id}",
+        "op:GET:/signature_processes/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -3630,7 +3718,9 @@
       "schema_id": "schema:definitions/SignatureProcessCancelPayload",
       "name_hint": "SignatureProcessCancelPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/signature_processes/cancel"
+      ],
       "is_inline": false
     },
     {
@@ -3644,7 +3734,9 @@
       "schema_id": "schema:definitions/SignatureProcessArchivePayload",
       "name_hint": "SignatureProcessArchivePayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/signature_processes/{id}/archive"
+      ],
       "is_inline": false
     },
     {
@@ -3672,13 +3764,6 @@
       "schema_id": "schema:anon/2b360fd31e8c89122e3db638daa1ac4b28b81830",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignaturePosition",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -3791,7 +3876,11 @@
       "schema_id": "schema:definitions/SignerBase",
       "name_hint": "SignerBase",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/signers",
+        "op:PATCH:/signers/{id}",
+        "op:PUT:/signers/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -3868,15 +3957,13 @@
       "schema_id": "schema:definitions/SignerFull",
       "name_hint": "SignerFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/signers",
+        "op:GET:/signers/{id}",
+        "op:PATCH:/signers/{id}",
+        "op:PUT:/signers/{id}"
+      ],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignerFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:definitions/SignersFull",
@@ -3896,7 +3983,9 @@
       "schema_id": "schema:definitions/SignerRemindPayload",
       "name_hint": "SignerRemindPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/signers/remind"
+      ],
       "is_inline": false
     },
     {
@@ -4019,13 +4108,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_DocusignProviderFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:definitions/DocusignProvidersFull",
       "name_hint": "DocusignProvidersFull",
       "kind": "array",
@@ -4113,14 +4195,19 @@
       "schema_id": "schema:definitions/ImportCreatePayload",
       "name_hint": "ImportCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/imports"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/ImportFull",
       "name_hint": "ImportFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/imports",
+        "op:GET:/imports/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -4204,14 +4291,19 @@
       "schema_id": "schema:definitions/DatasetImportCreatePayload",
       "name_hint": "DatasetImportCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/dataset_imports"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/DatasetImportFull",
       "name_hint": "DatasetImportFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/dataset_imports",
+        "op:GET:/dataset_imports/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -4463,14 +4555,19 @@
       "schema_id": "schema:definitions/ProcessFull",
       "name_hint": "ProcessFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/processes",
+        "op:GET:/processes/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/ProcessCreatePayload",
       "name_hint": "ProcessCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/processes"
+      ],
       "is_inline": false
     },
     {
@@ -4512,7 +4609,9 @@
       "schema_id": "schema:definitions/ProcessPostActionSharedBase",
       "name_hint": "ProcessPostActionSharedBase",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/processes/{id}/post_process_action#shared_inboxes"
+      ],
       "is_inline": false
     },
     {
@@ -4533,21 +4632,27 @@
       "schema_id": "schema:definitions/ProcessPostActionUserBase",
       "name_hint": "ProcessPostActionUserBase",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/processes/{id}/post_process_action#user_inboxes"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/ProcessPostActionSharedPayload",
       "name_hint": "ProcessPostActionSharedPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/processes/{id}/post_process_action#shared_inboxes"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/ProcessPostActionUserPayload",
       "name_hint": "ProcessPostActionUserPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/processes/{id}/post_process_action#user_inboxes"
+      ],
       "is_inline": false
     },
     {
@@ -4570,13 +4675,6 @@
       "kind": "object",
       "where_used": [],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_Organization",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:anon/0857f967b9914350174ca18aed4ed57436b843b6",
@@ -4677,13 +4775,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_ProcessTemplateRestriction",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/6dd29a1bf4362cb0d8e991b97816a65197ff31a8",
       "name_hint": null,
       "kind": "array",
@@ -4694,7 +4785,12 @@
       "schema_id": "schema:definitions/ProcessTemplate",
       "name_hint": "ProcessTemplate",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_templates/{id}",
+        "op:PUT:/process_templates/{id}",
+        "op:PUT:/process_templates/{id}",
+        "op:PUT:/process_templates/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -4803,23 +4899,9 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_SignatureZone",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/aedda69df6d53c24a16275b8f5ac68202dcdfbe4",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_PdfTemplateMapping",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -4834,7 +4916,11 @@
       "schema_id": "schema:definitions/PdfTemplateDetail",
       "name_hint": "PdfTemplateDetail",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_pdf_templates/{id}",
+        "op:PUT:/process_pdf_templates/{id}",
+        "op:PUT:/process_pdf_templates/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -4848,7 +4934,9 @@
       "schema_id": "schema:definitions/PdfTemplateWrite",
       "name_hint": "PdfTemplateWrite",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/process_pdf_templates/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -4950,13 +5038,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_TaskTemplateNotification",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/50ceb3e230dab2fb15a8fd7d867c4da7d898e866",
       "name_hint": null,
       "kind": "array",
@@ -4974,7 +5055,11 @@
       "schema_id": "schema:definitions/AcknowledgmentTaskTemplates",
       "name_hint": "AcknowledgmentTaskTemplates",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment"
+      ],
       "is_inline": false
     },
     {
@@ -4988,7 +5073,9 @@
       "schema_id": "schema:definitions/AcknowledgmentTaskTemplatesWrite",
       "name_hint": "AcknowledgmentTaskTemplatesWrite",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment"
+      ],
       "is_inline": false
     },
     {
@@ -5002,7 +5089,12 @@
       "schema_id": "schema:definitions/BasicTaskTemplates",
       "name_hint": "BasicTaskTemplates",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#basic",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#basic",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#basic",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#basic"
+      ],
       "is_inline": false
     },
     {
@@ -5016,7 +5108,12 @@
       "schema_id": "schema:definitions/FillFormTaskTemplates",
       "name_hint": "FillFormTaskTemplates",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_form"
+      ],
       "is_inline": false
     },
     {
@@ -5030,7 +5127,12 @@
       "schema_id": "schema:definitions/FillPdfTaskTemplates",
       "name_hint": "FillPdfTaskTemplates",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_pdf"
+      ],
       "is_inline": false
     },
     {
@@ -5044,7 +5146,12 @@
       "schema_id": "schema:definitions/SignatureTaskTemplates",
       "name_hint": "SignatureTaskTemplates",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#signature",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#signature",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#signature",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#signature"
+      ],
       "is_inline": false
     },
     {
@@ -5058,7 +5165,12 @@
       "schema_id": "schema:definitions/ValidationTaskTemplates",
       "name_hint": "ValidationTaskTemplates",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#validation",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#validation",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#validation",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#validation"
+      ],
       "is_inline": false
     },
     {
@@ -5401,7 +5513,9 @@
       "schema_id": "schema:definitions/TaskFull",
       "name_hint": "TaskFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/tasks/{id}/fill"
+      ],
       "is_inline": false
     },
     {
@@ -5410,13 +5524,6 @@
       "kind": "unknown",
       "where_used": [],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_TaskFile",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:anon/0cea1ef7cd55dfb60fec60bcd247de2dea1055a8",
@@ -5436,7 +5543,10 @@
       "schema_id": "schema:definitions/AckTaskPayload",
       "name_hint": "AckTaskPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/tasks/{id}#acknowledgment",
+        "op:GET:/tasks/{id}#acknowledgment"
+      ],
       "is_inline": false
     },
     {
@@ -5450,14 +5560,20 @@
       "schema_id": "schema:definitions/BasicTaskPayload",
       "name_hint": "BasicTaskPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/tasks/{id}#basic",
+        "op:GET:/tasks/{id}#basic"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/SignatureTaskPayload",
       "name_hint": "SignatureTaskPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/tasks/{id}#signature",
+        "op:GET:/tasks/{id}#signature"
+      ],
       "is_inline": false
     },
     {
@@ -5468,23 +5584,9 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_FillFormDataFieldValue",
-      "name_hint": null,
-      "kind": "object",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/de290c134382701cce7d9ba9e456bb6939d9603d",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FillFormTaskFile",
-      "name_hint": null,
-      "kind": "object",
       "where_used": [],
       "is_inline": true
     },
@@ -5499,7 +5601,10 @@
       "schema_id": "schema:definitions/FillFormTaskPayload",
       "name_hint": "FillFormTaskPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/tasks/{id}#fill_form",
+        "op:GET:/tasks/{id}#fill_form"
+      ],
       "is_inline": false
     },
     {
@@ -5520,14 +5625,20 @@
       "schema_id": "schema:definitions/FillPdfTaskPayload",
       "name_hint": "FillPdfTaskPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/tasks/{id}#fill_pdf",
+        "op:GET:/tasks/{id}#fill_pdf"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/ValidationTaskPayload",
       "name_hint": "ValidationTaskPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/tasks/{id}#validation",
+        "op:GET:/tasks/{id}#validation"
+      ],
       "is_inline": false
     },
     {
@@ -5541,7 +5652,14 @@
       "schema_id": "schema:definitions/PatchTaskPayload",
       "name_hint": "PatchTaskPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/tasks/{id}#acknowledgment",
+        "op:PATCH:/tasks/{id}#basic",
+        "op:PATCH:/tasks/{id}#signature",
+        "op:PATCH:/tasks/{id}#fill_form",
+        "op:PATCH:/tasks/{id}#fill_pdf",
+        "op:PATCH:/tasks/{id}#validation"
+      ],
       "is_inline": false
     },
     {
@@ -5692,13 +5810,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_FormDataField",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/2994cc1a10f696e452b7980bba60a1f3230b7033",
       "name_hint": null,
       "kind": "array",
@@ -5709,7 +5820,9 @@
       "schema_id": "schema:definitions/FillTaskPayload",
       "name_hint": "FillTaskPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/tasks/{id}/fill"
+      ],
       "is_inline": false
     },
     {
@@ -5730,7 +5843,9 @@
       "schema_id": "schema:definitions/TaskFilePostPayload",
       "name_hint": "TaskFilePostPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/tasks/{id}/files"
+      ],
       "is_inline": false
     },
     {
@@ -5744,14 +5859,20 @@
       "schema_id": "schema:definitions/TaskFilePatchPayload",
       "name_hint": "TaskFilePatchPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/tasks/{id}/files/{file_id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/TaskFileResource",
       "name_hint": "TaskFileResource",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/tasks/{id}/files",
+        "op:GET:/tasks/{id}/files/{file_id}",
+        "op:PATCH:/tasks/{id}/files/{file_id}"
+      ],
       "is_inline": false
     },
     {
@@ -5842,13 +5963,6 @@
       "schema_id": "schema:anon/97973a7480dbfd1154fc30131e1f47fe15830b11",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FormDefinitionConditionTest",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -5965,23 +6079,9 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_FormDefinitionItem",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/3d9fd97ae7e0153164dd558245e3ddd1fd45aac5",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FormDefinitionFieldValidation",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -6077,23 +6177,9 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_FormDefinitionCondition",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/fa506f1295d3157e656a404d31316994019ef04f",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FormDefinitionContextField",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -6175,13 +6261,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_DFCondition",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/deba87fe11afed1bcfb20aaf1118f488143e0ae0",
       "name_hint": null,
       "kind": "array",
@@ -6213,13 +6292,6 @@
       "schema_id": "schema:anon/7cf8fc2736a977d587e33ae927ae75e41380d291",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DFConditionTest",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -6287,13 +6359,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_DFItem",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/f1c39e748b6e8ad2e61c1efdeb798289a2c39478",
       "name_hint": null,
       "kind": "array",
@@ -6301,23 +6366,9 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_DFFieldAccess",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/4131f9809ba61c74469185be8f8892e305e91195",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DFFieldValidation",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -6416,7 +6467,9 @@
       "schema_id": "schema:definitions/EmployeeSettingsProcessAutomation",
       "name_hint": "EmployeeSettingsProcessAutomation",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_settings/{employee_id}/process_automation"
+      ],
       "is_inline": false
     },
     {
@@ -6570,21 +6623,28 @@
       "schema_id": "schema:definitions/KbCategoryFull",
       "name_hint": "KbCategoryFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/kb_categories/{id}",
+        "op:PATCH:/kb_categories/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/KbCategoryUpdatePayload",
       "name_hint": "KbCategoryUpdatePayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/kb_categories/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/KbCategoryPatchOrderPayload",
       "name_hint": "KbCategoryPatchOrderPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/kb_categories/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -6598,7 +6658,9 @@
       "schema_id": "schema:definitions/KbCategoryDeletionError",
       "name_hint": "KbCategoryDeletionError",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:DELETE:/kb_categories/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -6616,23 +6678,9 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_FormidableField",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/71516fb051c496a13a845951c8768ae8b3994bc7",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FormidableConditionalRule",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -6679,13 +6727,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_FormidableFieldItems",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/4fac8aa692eae3b2f69fd16f85a51a723dc6ca94",
       "name_hint": null,
       "kind": "array",
@@ -6703,13 +6744,6 @@
       "schema_id": "schema:anon/bbd51d2a5ad3b6c4fb3c3941c20deaa9d1ec567c",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FormidableFieldValidation",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -6815,7 +6849,11 @@
       "schema_id": "schema:definitions/FormidableCreatePayload",
       "name_hint": "FormidableCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generation_templates/{id}/versions/{number}/doc_fields",
+        "op:PUT:/document_generation_templates/{id}/versions/{number}/doc_fields",
+        "op:PUT:/document_generation_templates/{id}/versions/{number}/doc_fields"
+      ],
       "is_inline": false
     },
     {
@@ -6836,13 +6874,6 @@
       "schema_id": "schema:anon/92be1f111ae68724233e19f647a5b617b421fcba",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FormidableErrorItem",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -6980,13 +7011,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_FormidableConditionalRuleTest",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/8e95841bb76740343297ab60dde6a01f5c9a30f7",
       "name_hint": null,
       "kind": "array",
@@ -7078,13 +7102,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_EmployeesPerimeterBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/2c718ae84ff46569c357b928bcab1eef4e891bb4",
       "name_hint": null,
       "kind": "array",
@@ -7118,13 +7135,6 @@
       "kind": "unknown",
       "where_used": [],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_ArticleFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:anon/f3b0ee9dc58441153976a448939c6399cece5a5f",
@@ -7221,13 +7231,6 @@
       "schema_id": "schema:anon/c0b9fde8d26d66be7153072feaf9067d72a8dac3",
       "name_hint": null,
       "kind": "boolean",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbArticleVersion",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -7417,7 +7420,12 @@
       "schema_id": "schema:definitions/KbArticleFull",
       "name_hint": "KbArticleFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/kb_articles/{id}",
+        "op:PUT:/kb_articles/{id}",
+        "op:PUT:/kb_articles/{id}",
+        "op:PATCH:/kb_articles/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -7480,14 +7488,18 @@
       "schema_id": "schema:definitions/KbArticlePatchPayload",
       "name_hint": "KbArticlePatchPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/kb_articles/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/KbArticleUpdatePayload",
       "name_hint": "KbArticleUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/kb_articles/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -7536,7 +7548,9 @@
       "schema_id": "schema:definitions/KbArticleImage",
       "name_hint": "KbArticleImage",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/kb_articles/images"
+      ],
       "is_inline": false
     },
     {
@@ -7946,13 +7960,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_FormFile",
-      "name_hint": null,
-      "kind": "object",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/a49be0e411256b0b9df33353d7f10996a9850e72",
       "name_hint": null,
       "kind": "array",
@@ -7963,13 +7970,6 @@
       "schema_id": "schema:anon/7597b64e7e3af725e72bc1db40f0326833510e9c",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestFormDataFieldValue",
-      "name_hint": null,
-      "kind": "object",
       "where_used": [],
       "is_inline": true
     },
@@ -7995,13 +7995,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_RequestAttachment",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/eaf5456787fae3932c8444d0553f3bfecfc5fc6b",
       "name_hint": null,
       "kind": "array",
@@ -8019,7 +8012,11 @@
       "schema_id": "schema:definitions/RequestFullWithAttachments",
       "name_hint": "RequestFullWithAttachments",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/requests",
+        "op:GET:/requests/{id}",
+        "op:PATCH:/requests/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -8096,14 +8093,18 @@
       "schema_id": "schema:definitions/RequestComment",
       "name_hint": "RequestComment",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/requests/{id}/comments"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/RequestPatchPayload",
       "name_hint": "RequestPatchPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/requests/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -8194,7 +8195,9 @@
       "schema_id": "schema:definitions/RequestPostComment",
       "name_hint": "RequestPostComment",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/requests/{id}/comments"
+      ],
       "is_inline": false
     },
     {
@@ -8292,7 +8295,9 @@
       "schema_id": "schema:definitions/RequestPostCreatePayload",
       "name_hint": "RequestPostCreatePayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/requests"
+      ],
       "is_inline": false
     },
     {
@@ -8495,14 +8500,19 @@
       "schema_id": "schema:definitions/RequestFormFull",
       "name_hint": "RequestFormFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/request_forms/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/RequestFormPatch",
       "name_hint": "RequestFormPatch",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/request_forms/{id}",
+        "op:PATCH:/request_forms/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -8544,7 +8554,10 @@
       "schema_id": "schema:definitions/RequestFormPut",
       "name_hint": "RequestFormPut",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/request_forms/{id}",
+        "op:PUT:/request_forms/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -8581,13 +8594,6 @@
       "kind": "object",
       "where_used": [],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestProfileBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:anon/c4b058a197fa055f1fad9e216eecdaa29ab2cdf9",
@@ -8630,13 +8636,6 @@
       "kind": "object",
       "where_used": [],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestVisibleByUser",
-      "name_hint": null,
-      "kind": "object",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:definitions/RequestVisibleByList",
@@ -8744,25 +8743,11 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_RequestBulkItem",
-      "name_hint": null,
-      "kind": "object",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:definitions/RequestBulkBody",
       "name_hint": "RequestBulkBody",
       "kind": "array",
       "where_used": [],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestBulkItemResponse",
-      "name_hint": null,
-      "kind": "object",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:definitions/RequestBulkResponse",
@@ -8882,13 +8867,6 @@
       "kind": "object",
       "where_used": [],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestDraftAttachment",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:anon/5fc9130f6c38da5d9a7ee7e88f7e65ae86a477dd",
@@ -9041,7 +9019,9 @@
       "schema_id": "schema:definitions/CoreClientFull",
       "name_hint": "CoreClientFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/client"
+      ],
       "is_inline": false
     },
     {
@@ -9216,7 +9196,9 @@
       "schema_id": "schema:definitions/DistributionProjectBase",
       "name_hint": "DistributionProjectBase",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/distribution_projects"
+      ],
       "is_inline": false
     },
     {
@@ -9244,7 +9226,10 @@
       "schema_id": "schema:definitions/DistributionProjectFull",
       "name_hint": "DistributionProjectFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/distribution_projects",
+        "op:GET:/distribution_projects/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -9293,7 +9278,9 @@
       "schema_id": "schema:definitions/DistributionBase",
       "name_hint": "DistributionBase",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/distributions"
+      ],
       "is_inline": false
     },
     {
@@ -9426,7 +9413,10 @@
       "schema_id": "schema:definitions/DistributionFull",
       "name_hint": "DistributionFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/distributions",
+        "op:GET:/distributions/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -9566,7 +9556,9 @@
       "schema_id": "schema:definitions/TokenFull",
       "name_hint": "TokenFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/tokens"
+      ],
       "is_inline": false
     },
     {
@@ -9692,13 +9684,6 @@
       "schema_id": "schema:anon/809be921fb51b3fad762e331540008aeb295fbbe",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_PlatformCreationUser",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -9832,15 +9817,10 @@
       "schema_id": "schema:definitions/PlatformUpdatePayload",
       "name_hint": "PlatformUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/platform_updates"
+      ],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_DatasetField",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:anon/11e41083edbea18d1b52ed7645ea0c6d0a8a8a83",
@@ -9857,13 +9837,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_FieldsetField",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/63cc4271ad432d42a1a108109ad4c934d0032470",
       "name_hint": null,
       "kind": "array",
@@ -9874,7 +9847,11 @@
       "schema_id": "schema:definitions/FieldSet",
       "name_hint": "FieldSet",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generation_templates/{id}/versions/{number}/fields",
+        "op:GET:/document_generation_templates/{id}/versions/active/fields",
+        "op:GET:/document_generation_templates/{id}/versions/latest/fields"
+      ],
       "is_inline": false
     },
     {
@@ -9993,21 +9970,29 @@
       "schema_id": "schema:definitions/DocGenRequestPayload",
       "name_hint": "DocGenRequestPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_generations",
+        "op:POST:/document_generations/async"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/DocGenFull",
       "name_hint": "DocGenFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generations/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/DocGenFullWithErrors",
       "name_hint": "DocGenFullWithErrors",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_generations",
+        "op:POST:/document_generations/{id}/email"
+      ],
       "is_inline": false
     },
     {
@@ -10109,23 +10094,9 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_GenerationInfo",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/c8871b8ca972830cf58c47ce2a587be7dba73846",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FragmentFieldsetField",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -10161,7 +10132,10 @@
       "schema_id": "schema:definitions/DocGenTemplateVersionFull",
       "name_hint": "DocGenTemplateVersionFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/document_generation_templates/{id}/versions/{number}",
+        "op:POST:/document_generations/syntax_migration/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -10210,7 +10184,9 @@
       "schema_id": "schema:definitions/DocGenRequestStatusResponse",
       "name_hint": "DocGenRequestStatusResponse",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generation_requests/{id}/status"
+      ],
       "is_inline": false
     },
     {
@@ -10273,7 +10249,12 @@
       "schema_id": "schema:definitions/DocGenTemplate",
       "name_hint": "DocGenTemplate",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_generation_templates",
+        "op:GET:/document_generation_templates/{id}",
+        "op:PATCH:/document_generation_templates/{id}",
+        "op:PUT:/document_generation_templates/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -10368,13 +10349,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_TemplateRestriction",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/908c8aa4ec5fffd370da9dda5e2807312e1fe346",
       "name_hint": null,
       "kind": "array",
@@ -10385,7 +10359,10 @@
       "schema_id": "schema:definitions/DocGenTemplatePayload",
       "name_hint": "DocGenTemplatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_generation_templates",
+        "op:PUT:/document_generation_templates/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -10406,14 +10383,20 @@
       "schema_id": "schema:definitions/DocGenTemplatePatchPayload",
       "name_hint": "DocGenTemplatePatchPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/document_generation_templates/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/DocGenTemplateVersion",
       "name_hint": "DocGenTemplateVersion",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_generation_templates/{id}/file",
+        "op:GET:/document_generation_templates/{id}/versions/{number}",
+        "op:PUT:/document_generation_templates/{id}/versions/{number}"
+      ],
       "is_inline": false
     },
     {
@@ -10427,14 +10410,18 @@
       "schema_id": "schema:definitions/DocGenTemplateVersionUpdatePayload",
       "name_hint": "DocGenTemplateVersionUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/document_generation_templates/{id}/versions/{number}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/DocgenTemplateVersionPatchPayload",
       "name_hint": "DocgenTemplateVersionPatchPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/document_generation_templates/{id}/versions/{number}"
+      ],
       "is_inline": false
     },
     {
@@ -10483,7 +10470,12 @@
       "schema_id": "schema:definitions/DocGenMigrationCampaign",
       "name_hint": "DocGenMigrationCampaign",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generations/syntax_migration/status",
+        "op:PUT:/document_generations/syntax_migration/status",
+        "op:PUT:/document_generations/syntax_migration/status",
+        "op:POST:/document_generations/syntax_migration/restart"
+      ],
       "is_inline": false
     },
     {
@@ -10539,7 +10531,9 @@
       "schema_id": "schema:definitions/DocGenCampaignPayload",
       "name_hint": "DocGenCampaignPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_generation_campaigns"
+      ],
       "is_inline": false
     },
     {
@@ -10595,7 +10589,10 @@
       "schema_id": "schema:definitions/DocGenCampaignResponse",
       "name_hint": "DocGenCampaignResponse",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_generation_campaigns",
+        "op:GET:/document_generation_campaigns/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -10620,17 +10617,12 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_CsvCampaignData",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:definitions/CsvCampaign",
       "name_hint": "CsvCampaign",
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_generation_campaigns/csv"
+      ],
       "is_inline": false
     },
     {
@@ -10707,13 +10699,6 @@
       "schema_id": "schema:anon/b57162db5b8a7f7d1c881e88ad0e0a53f8c5902c",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrchestrationTemplateSteps",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -10921,13 +10906,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_OrchestrationTemplateSequences",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/c34be77154db43abd2091f8d336efde6b3db802d",
       "name_hint": null,
       "kind": "array",
@@ -10938,13 +10916,6 @@
       "schema_id": "schema:anon/4d9323150616e1d0aac73ee2c557b4e958bac1b2",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrchestrationTemplateAttributes",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -11082,13 +11053,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_OrchestrationTemplateRecipeSearchStepOccurrence",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/77dc593f86d80c5aa00e06562fa70caeb1ff9490",
       "name_hint": null,
       "kind": "array",
@@ -11152,23 +11116,9 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_OrchestrationMasterTemplateModel",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/13bbbb55bfddd0096b512516072bd8e6c1b2c788",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrchestrationMasterTemplateAttributeBlocks",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -11229,13 +11179,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_OrchestrationMasterTemplateModelSteps",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/e9a3f532853f61939f333cf77a3e89fdf50f8d41",
       "name_hint": null,
       "kind": "array",
@@ -11267,13 +11210,6 @@
       "schema_id": "schema:anon/2146d383ee889536dea58ce4320c3ec0adc46b5e",
       "name_hint": null,
       "kind": "object",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrchestrationMasterTemplateModelStepsSelection",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -11320,13 +11256,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:anon/fe90370d99c36e53dbfa68b1b0c05276f22e4800",
-      "name_hint": null,
-      "kind": "object",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/7f5a7a019ac1ad42e916f926e85b37a05366de73",
       "name_hint": null,
       "kind": "array",
@@ -11351,13 +11280,6 @@
       "schema_id": "schema:anon/bed2173d1cd260ed3d752136c14076ac258b738c",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrchestrationMasterTemplateAttributes",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -11509,13 +11431,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_FieldError",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/1c24377dc31b62214aaf53ac28e987915269fdc3",
       "name_hint": null,
       "kind": "array",
@@ -11663,13 +11578,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_OrchestrationEvent",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/deb9351000ae18bb2770eb49985d02b0fee56831",
       "name_hint": null,
       "kind": "array",
@@ -11698,13 +11606,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_OrchestrationStepResultIndex",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/e4e7e7bfaac8c4f1dc32725f82efc2ba27b5f209",
       "name_hint": null,
       "kind": "array",
@@ -11712,23 +11613,9 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_OrchestrationStepResultTag",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/4056374683079fe895a2f417dcae42cc450f68ec",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrchestrationStepResultHistory",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -11922,13 +11809,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_OrchestrationSftpTriggerDirectoryContentList",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/2da4780e904262ffb4862c2a4af15c3b7637f860",
       "name_hint": null,
       "kind": "array",
@@ -12100,13 +11980,6 @@
       "schema_id": "schema:anon/e349671e9e0a4e54abb34ae619e3f2c124bcad1c",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrchestrationStepTypeParameter",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -12387,21 +12260,32 @@
       "schema_id": "schema:definitions/SamlIdentityProviderCreatePayload",
       "name_hint": "SamlIdentityProviderCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/saml/identity_providers",
+        "op:PUT:/saml/identity_providers/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/SamlIdentityProviderUpdatePayload",
       "name_hint": "SamlIdentityProviderUpdatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/saml/identity_providers/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/SamlIdentityProviderFull",
       "name_hint": "SamlIdentityProviderFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/saml/identity_providers",
+        "op:GET:/saml/identity_providers/{id}",
+        "op:PATCH:/saml/identity_providers/{id}",
+        "op:PUT:/saml/identity_providers/{id}",
+        "op:PUT:/saml/identity_providers/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -12492,7 +12376,9 @@
       "schema_id": "schema:definitions/EventBase",
       "name_hint": "EventBase",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/events/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -12657,13 +12543,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_TemplatedEmailVariable",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/899b880e2c06e31d801e233e2726a207cc22ed1e",
       "name_hint": null,
       "kind": "array",
@@ -12674,13 +12553,6 @@
       "schema_id": "schema:anon/5b22fa59d7566a666ba8bee35d1755c4d8cc5a53",
       "name_hint": null,
       "kind": "integer",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_TemplatedEmailAttachment",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -12895,13 +12767,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_CustomizedFragmentBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/c4c7c3abf3db6a356c18678366ae7e81f15eefe0",
       "name_hint": null,
       "kind": "array",
@@ -13017,14 +12882,23 @@
       "schema_id": "schema:definitions/WebhookCreatePayload",
       "name_hint": "WebhookCreatePayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/webhooks",
+        "op:PUT:/webhooks/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/WebhookFull",
       "name_hint": "WebhookFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/webhooks",
+        "op:GET:/webhooks/{id}",
+        "op:PUT:/webhooks/{id}",
+        "op:POST:/webhooks/{id}/refresh_signature_key",
+        "op:POST:/webhooks/{id}/tests"
+      ],
       "is_inline": false
     },
     {
@@ -13224,13 +13098,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_CompliancePersonSearchCompanyInformation",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/0fa74f2d1c4acdb4b6c9c399227891b2034ba6ba",
       "name_hint": null,
       "kind": "array",
@@ -13294,13 +13161,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_DeletionRequestModuleFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/ba4e5cf7193a4e58a53c3f0a98133682b9279745",
       "name_hint": null,
       "kind": "array",
@@ -13346,13 +13206,6 @@
       "schema_id": "schema:anon/b7ff9f991da3941da9e260665e90e2fce64caf5d",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DeletionRequestModuleResource",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -13455,13 +13308,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_RetentionPolicyResourceFilters",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/c60572dc0ebd4e06d8021f344eed4f626a92881c",
       "name_hint": null,
       "kind": "array",
@@ -13511,13 +13357,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_RetentionPolicyResources",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/b62c124b90187321bdce48c039338b7fd7634f01",
       "name_hint": null,
       "kind": "array",
@@ -13528,13 +13367,6 @@
       "schema_id": "schema:anon/3db1d1f08eea39761276fe0d8f950eae06fd1df4",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RetentionPolicyTriggers",
-      "name_hint": null,
-      "kind": "unknown",
       "where_used": [],
       "is_inline": true
     },
@@ -15135,13 +14967,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_DistributionsPayload",
-      "name_hint": null,
-      "kind": "object",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:definitions/RunningDistributionsResponse",
       "name_hint": "RunningDistributionsResponse",
       "kind": "object",
@@ -15600,21 +15425,268 @@
       "schema_id": "schema:definitions/OAuthError",
       "name_hint": "OAuthError",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/tokens",
+        "op:POST:/tokens",
+        "op:POST:/revoke_token"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/BadRequest",
       "name_hint": "BadRequest",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/custom_fields/{id}",
+        "op:PUT:/employees/{id}",
+        "op:PUT:/employees/{id}",
+        "op:PATCH:/employees/{id}",
+        "op:PATCH:/employees/{id}",
+        "op:GET:/employees/{id}",
+        "op:POST:/employees",
+        "op:PATCH:/employees/bulk",
+        "op:PUT:/employees/bulk",
+        "op:POST:/employees/bulk",
+        "op:GET:/employees/bulk/{request_id}",
+        "op:POST:/employees/{id}/electronic_vault_invite",
+        "op:POST:/employees/{id}/electronic_vault_invite",
+        "op:POST:/employees/{id}/portal_invite",
+        "op:DELETE:/employees/{id}/electronic_vault_link",
+        "op:DELETE:/employees/{id}/electronic_vault_link",
+        "op:PUT:/employees/by_external_id/{external_id}",
+        "op:POST:/employees/{id}/electronic_vault_documents",
+        "op:POST:/employees/{id}/electronic_vault_documents",
+        "op:PATCH:/electronic_vault_options/{id}",
+        "op:PATCH:/electronic_vault_options/{id}",
+        "op:GET:/electronic_vault_options/{id}",
+        "op:PUT:/roles/{id}",
+        "op:GET:/roles/{id}",
+        "op:PUT:/users/{id}",
+        "op:PATCH:/users/{id}",
+        "op:POST:/users/bulk",
+        "op:PUT:/users/bulk",
+        "op:PATCH:/users/bulk",
+        "op:GET:/users/bulk/{request_id}",
+        "op:POST:/users/{id}/invite",
+        "op:POST:/users/{id}/invite",
+        "op:PUT:/employee_document_types/{id}",
+        "op:PATCH:/employee_document_types/{id}",
+        "op:PATCH:/employee_document_types/{id}",
+        "op:GET:/employee_document_types/{id}",
+        "op:PUT:/company_document_types/{id}",
+        "op:PATCH:/company_document_types/{id}",
+        "op:PATCH:/company_document_types/{id}",
+        "op:GET:/company_document_types/{id}",
+        "op:PUT:/organizations/{id}",
+        "op:GET:/organizations/{id}",
+        "op:PATCH:/organizations/{id}",
+        "op:PATCH:/organizations/{id}",
+        "op:PUT:/organization_groups/{id}",
+        "op:GET:/organization_groups/{id}",
+        "op:PATCH:/organization_groups/{id}",
+        "op:PATCH:/organization_groups/{id}",
+        "op:POST:/document",
+        "op:POST:/employee_documents",
+        "op:POST:/employee_documents",
+        "op:GET:/employee_documents/{id}/file",
+        "op:GET:/employee_documents/{id}/duplicate",
+        "op:GET:/employee_documents/{id}/duplicate",
+        "op:GET:/employee_documents/{id}/duplicate",
+        "op:GET:/employee_documents/{id}/duplicate",
+        "op:GET:/employee_documents/{id}/preview",
+        "op:GET:/employee_documents/{id}/preview",
+        "op:GET:/employee_documents/{id}/receipt",
+        "op:GET:/employee_documents/{id}/receipt",
+        "op:PUT:/employee_documents/{id}/expiration/update",
+        "op:GET:/employee_documents/{id}",
+        "op:DELETE:/employee_documents/{id}",
+        "op:PUT:/employee_documents/{id}",
+        "op:PATCH:/employee_documents/{id}",
+        "op:PUT:/employee_documents/{id}/trash",
+        "op:PUT:/employee_documents/{id}/untrash",
+        "op:PUT:/employee_documents/{id}/expire",
+        "op:POST:/company_documents",
+        "op:POST:/company_documents",
+        "op:GET:/company_documents/{id}",
+        "op:DELETE:/company_documents/{id}",
+        "op:PUT:/company_documents/{id}",
+        "op:PATCH:/company_documents/{id}",
+        "op:GET:/company_documents/{id}/file",
+        "op:HEAD:/company_documents/{id}/file",
+        "op:GET:/company_documents/{id}/duplicate",
+        "op:GET:/company_documents/{id}/duplicate",
+        "op:GET:/company_documents/{id}/duplicate",
+        "op:GET:/company_documents/{id}/duplicate",
+        "op:GET:/company_documents/{id}/preview",
+        "op:GET:/company_documents/{id}/preview",
+        "op:GET:/company_documents/{id}/receipt",
+        "op:GET:/company_documents/{id}/receipt",
+        "op:PUT:/company_documents/{id}/trash",
+        "op:PUT:/company_documents/{id}/untrash",
+        "op:PUT:/company_documents/{id}/expire",
+        "op:POST:/uploads",
+        "op:POST:/uploads/{id}/text_occurrences",
+        "op:POST:/uploads/{id}/text_occurrences",
+        "op:POST:/signature_processes",
+        "op:POST:/signature_processes/cancel",
+        "op:PUT:/signature_processes/{id}",
+        "op:PATCH:/signature_processes/{id}",
+        "op:GET:/signature_processes/{id}",
+        "op:DELETE:/signature_processes/{id}",
+        "op:DELETE:/signature_processes/{id}",
+        "op:GET:/signature_processes/{id}/preview",
+        "op:GET:/signature_processes/{id}/file",
+        "op:POST:/signature_processes/{id}/archive",
+        "op:POST:/signature_processes/{id}/archive",
+        "op:POST:/signature_processes/{id}/send",
+        "op:POST:/signature_processes/{id}/send",
+        "op:GET:/signature_types/{id}",
+        "op:POST:/signers",
+        "op:POST:/signers",
+        "op:POST:/signers/remind",
+        "op:POST:/signers/remind",
+        "op:GET:/signers/{id}",
+        "op:PATCH:/signers/{id}",
+        "op:PUT:/signers/{id}",
+        "op:PUT:/signers/{id}",
+        "op:POST:/signers/{id}/remind",
+        "op:POST:/signers/{id}/remind",
+        "op:POST:/inbox_items",
+        "op:GET:/inbox_items/{id}",
+        "op:POST:/imports",
+        "op:GET:/imports/{id}",
+        "op:GET:/imports/{id}/source",
+        "op:GET:/imports/{id}/report",
+        "op:GET:/imports/{id}/report",
+        "op:GET:/imports/{id}/errors_report",
+        "op:GET:/imports/{id}/errors_report",
+        "op:POST:/dataset_imports",
+        "op:GET:/dataset_imports/{id}",
+        "op:GET:/dataset_imports/{id}/source",
+        "op:GET:/dataset_imports/{id}/report",
+        "op:POST:/processes",
+        "op:GET:/processes/{id}",
+        "op:PUT:/processes/{id}/publish",
+        "op:POST:/processes/{id}/post_process_action#shared_inboxes",
+        "op:POST:/processes/{id}/post_process_action#shared_inboxes",
+        "op:POST:/processes/{id}/post_process_action#shared_inboxes",
+        "op:POST:/processes/{id}/post_process_action#shared_inboxes",
+        "op:POST:/processes/{id}/post_process_action#user_inboxes",
+        "op:POST:/processes/{id}/post_process_action#user_inboxes",
+        "op:POST:/processes/{id}/post_process_action#user_inboxes",
+        "op:POST:/processes/{id}/post_process_action#user_inboxes",
+        "op:GET:/process_templates/{id}",
+        "op:GET:/process_templates/{process_template_id}/task_templates",
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#basic",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#basic",
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#signature",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#signature",
+        "op:GET:/process_templates/{process_template_id}/task_templates/{id}#validation",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#validation",
+        "op:DELETE:/process_templates/{process_template_id}/task_templates/{id}",
+        "op:GET:/process_pdf_templates/{id}",
+        "op:GET:/tasks/{id}#acknowledgment",
+        "op:GET:/tasks/{id}#basic",
+        "op:GET:/tasks/{id}#signature",
+        "op:GET:/tasks/{id}#fill_form",
+        "op:GET:/tasks/{id}#fill_pdf",
+        "op:GET:/tasks/{id}#validation",
+        "op:POST:/tasks/{id}/files",
+        "op:GET:/tasks/{id}/files/{file_id}",
+        "op:DELETE:/tasks/{id}/files/{file_id}",
+        "op:PATCH:/tasks/{id}/files/{file_id}",
+        "op:GET:/tasks/{id}/files/{file_id}/download",
+        "op:GET:/tasks/{id}/workingfiles/{file_id}",
+        "op:POST:/tasks/{id}/fill",
+        "op:GET:/employee_settings/{employee_id}/process_automation",
+        "op:GET:/employee_settings/{employee_id}/process_automation/welcome_file",
+        "op:GET:/kb_categories/{id}",
+        "op:DELETE:/kb_categories/{id}",
+        "op:PATCH:/kb_categories/{id}",
+        "op:PUT:/kb_categories/{id}",
+        "op:GET:/article_resources/{id}",
+        "op:GET:/article_documents/{id}",
+        "op:GET:/kb_articles",
+        "op:GET:/kb_articles/{id}",
+        "op:PUT:/kb_articles/{id}",
+        "op:PUT:/kb_articles/{id}",
+        "op:DELETE:/kb_articles/{id}",
+        "op:DELETE:/kb_articles/{id}",
+        "op:PATCH:/kb_articles/{id}",
+        "op:GET:/kb_tags",
+        "op:GET:/requests",
+        "op:GET:/requests/{id}/comments",
+        "op:POST:/requests/{id}/comments",
+        "op:HEAD:/requests/{id}/comments/{comment_id}/attachments/{attachment_id}/preview",
+        "op:GET:/requests/{id}/comments/{comment_id}/attachments/{attachment_id}/preview/{page}",
+        "op:GET:/requests/{id}",
+        "op:DELETE:/requests/{id}",
+        "op:PATCH:/requests/{id}",
+        "op:PATCH:/requests/{id}",
+        "op:DELETE:/requests/{id}/files/{file_id}",
+        "op:GET:/requests/{id}/files/{file_id}/download",
+        "op:HEAD:/requests/{id}/files/{file_id}/preview",
+        "op:GET:/requests/{id}/files/{file_id}/preview/{page}",
+        "op:DELETE:/requests/{id}/attachments/{attachment_id}",
+        "op:GET:/requests/{id}/attachments/{attachment_id}/download",
+        "op:HEAD:/requests/{id}/attachments/{attachment_id}/preview",
+        "op:GET:/requests/{id}/attachments/{attachment_id}/preview/{page}",
+        "op:GET:/requests/{id}/pdf",
+        "op:GET:/requests/{id}/macros",
+        "op:POST:/requests/{id}/macros",
+        "op:GET:/requests/{id}/linked_requests",
+        "op:POST:/requests/{id}/linked_requests",
+        "op:GET:/request_forms",
+        "op:GET:/request_forms/{id}",
+        "op:PATCH:/request_forms/{id}",
+        "op:PUT:/request_forms/{id}",
+        "op:POST:/platform_updates",
+        "op:POST:/distribution_projects",
+        "op:GET:/distribution_projects",
+        "op:GET:/distribution_projects/{id}",
+        "op:GET:/distribution_projects/{id}",
+        "op:POST:/distributions",
+        "op:GET:/distributions/{id}",
+        "op:GET:/distributions/{id}",
+        "op:GET:/distributions/{id}/report",
+        "op:GET:/distributions/{id}/report",
+        "op:POST:/document_generation_templates",
+        "op:PUT:/document_generation_templates/{id}",
+        "op:POST:/document_generation_templates/{id}/file",
+        "op:PUT:/document_generation_templates/{id}/versions/{number}",
+        "op:PATCH:/document_generation_templates/{id}/versions/{number}",
+        "op:POST:/document_generations/syntax_migration/{id}",
+        "op:POST:/saml/identity_providers",
+        "op:POST:/saml/identity_providers",
+        "op:GET:/saml/identity_providers/{id}",
+        "op:PATCH:/saml/identity_providers/{id}",
+        "op:PUT:/saml/identity_providers/{id}",
+        "op:DELETE:/saml/identity_providers/{id}",
+        "op:GET:/events/{id}",
+        "op:GET:/datasets/{id}",
+        "op:GET:/datasets/{id}/values/{value_id}",
+        "op:HEAD:/datasets/{id}/values/{value_id}",
+        "op:POST:/document_type_prediction_run",
+        "op:GET:/document_type_prediction_run/{id}",
+        "op:GET:/macros/{id}",
+        "op:GET:/custom_status/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/Forbidden",
       "name_hint": "Forbidden",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PATCH:/requests/{id}",
+        "op:POST:/requests/{id}/macros"
+      ],
       "is_inline": false
     },
     {
@@ -15642,7 +15714,51 @@
       "schema_id": "schema:definitions/BaseError",
       "name_hint": "BaseError",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:DELETE:/signers/{id}",
+        "op:DELETE:/processes/{id}",
+        "op:DELETE:/document_generations/{id}",
+        "op:GET:/document_generations/{id}",
+        "op:HEAD:/document_generations/{id}/file",
+        "op:GET:/document_generations/{id}/file",
+        "op:GET:/document_generations/{id}/preview",
+        "op:GET:/document_generations/{id}/preview/{page}",
+        "op:GET:/document_generation_templates/{id}/versions/{number}/doc_fields",
+        "op:PUT:/document_generation_templates/{id}/versions/{number}/doc_fields",
+        "op:DELETE:/document_generation_templates/{id}",
+        "op:GET:/document_generation_templates/{id}",
+        "op:PATCH:/document_generation_templates/{id}",
+        "op:PUT:/document_generation_templates/{id}",
+        "op:POST:/document_generation_templates/{id}/file",
+        "op:GET:/document_generation_templates/{id}/fragment_usages",
+        "op:DELETE:/document_generation_templates/{id}/versions/{number}",
+        "op:GET:/document_generation_templates/{id}/versions/{number}",
+        "op:HEAD:/document_generation_templates/{id}/versions/{number}/file",
+        "op:GET:/document_generation_templates/{id}/versions/{number}/file",
+        "op:HEAD:/document_generation_templates/{id}/versions/active/file",
+        "op:GET:/document_generation_templates/{id}/versions/active/file",
+        "op:HEAD:/document_generation_templates/{id}/versions/latest/file",
+        "op:GET:/document_generation_templates/{id}/versions/latest/file",
+        "op:GET:/document_generation_templates/{id}/versions/{number}/fields",
+        "op:GET:/document_generation_templates/{id}/versions/active/fields",
+        "op:GET:/document_generation_templates/{id}/versions/latest/fields",
+        "op:GET:/document_generation_templates/{id}/versions/{number}/preview",
+        "op:GET:/document_generation_templates/{id}/versions/active/preview",
+        "op:GET:/document_generation_templates/{id}/versions/latest/preview",
+        "op:GET:/document_generation_templates/{id}/versions/{number}/preview/{page}",
+        "op:GET:/document_generation_templates/{id}/versions/active/preview/{page}",
+        "op:GET:/document_generation_templates/{id}/versions/latest/preview/{page}",
+        "op:POST:/document_generations/syntax_migration/restart",
+        "op:POST:/document_generations/syntax_migration/restart",
+        "op:POST:/document_generations/syntax_migration/{id}",
+        "op:POST:/document_generations/syntax_migration/{id}",
+        "op:POST:/document_generations/syntax_migration/{id}",
+        "op:POST:/document_generation_campaigns/csv",
+        "op:POST:/document_generation_campaigns/csv",
+        "op:POST:/document_generation_campaigns/csv",
+        "op:GET:/document_generation_campaigns/{id}/file",
+        "op:GET:/document_generation_campaigns/{id}/file"
+      ],
       "is_inline": false
     },
     {
@@ -15663,14 +15779,110 @@
       "schema_id": "schema:definitions/RateLimitErrors",
       "name_hint": "RateLimitErrors",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/users/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/Error",
       "name_hint": "Error",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/custom_fields/{id}",
+        "op:PATCH:/custom_fields/{id}",
+        "op:PUT:/employees/{id}",
+        "op:PATCH:/employees/{id}",
+        "op:GET:/employees",
+        "op:POST:/employees",
+        "op:POST:/employees/{id}/portal_invite",
+        "op:PUT:/employees/by_external_id/{external_id}",
+        "op:PATCH:/electronic_vault_options/{id}",
+        "op:PUT:/roles/{id}",
+        "op:PUT:/roles/{role_id}/permissions/core",
+        "op:GET:/users",
+        "op:POST:/users",
+        "op:HEAD:/users",
+        "op:PUT:/users/{id}",
+        "op:PATCH:/users/{id}",
+        "op:PUT:/employee_document_types/{id}",
+        "op:PATCH:/employee_document_types/{id}",
+        "op:PUT:/company_document_types/{id}",
+        "op:PATCH:/company_document_types/{id}",
+        "op:GET:/organizations",
+        "op:HEAD:/organizations",
+        "op:PUT:/organizations/{id}",
+        "op:PATCH:/organizations/{id}",
+        "op:GET:/organization_groups",
+        "op:PUT:/organization_groups/{id}",
+        "op:PATCH:/organization_groups/{id}",
+        "op:POST:/employee_documents",
+        "op:GET:/employee_documents/{id}/preview",
+        "op:GET:/employee_documents/{id}/preview",
+        "op:PUT:/employee_documents/{id}",
+        "op:PATCH:/employee_documents/{id}",
+        "op:POST:/company_documents",
+        "op:PUT:/company_documents/{id}",
+        "op:PATCH:/company_documents/{id}",
+        "op:GET:/company_documents/{id}/preview",
+        "op:GET:/company_documents/{id}/preview",
+        "op:POST:/uploads/{id}/text_occurrences",
+        "op:POST:/signature_processes",
+        "op:PUT:/signature_processes/{id}",
+        "op:PATCH:/signature_processes/{id}",
+        "op:POST:/signers",
+        "op:PATCH:/signers/{id}",
+        "op:PUT:/signers/{id}",
+        "op:POST:/inbox_items",
+        "op:POST:/imports",
+        "op:POST:/dataset_imports",
+        "op:POST:/processes",
+        "op:PUT:/process_templates/{id}",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#basic",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#signature",
+        "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#validation",
+        "op:DELETE:/process_templates/{process_template_id}/task_templates/{id}",
+        "op:PUT:/process_pdf_templates/{id}",
+        "op:PATCH:/tasks/{id}#acknowledgment",
+        "op:PATCH:/tasks/{id}#basic",
+        "op:PATCH:/tasks/{id}#signature",
+        "op:PATCH:/tasks/{id}#fill_form",
+        "op:PATCH:/tasks/{id}#fill_pdf",
+        "op:PATCH:/tasks/{id}#validation",
+        "op:POST:/tasks/{id}/fill",
+        "op:DELETE:/kb_categories/{id}",
+        "op:PATCH:/kb_categories/{id}",
+        "op:PUT:/kb_categories/{id}",
+        "op:POST:/kb_articles/images",
+        "op:POST:/kb_articles/images",
+        "op:PUT:/kb_articles/{id}",
+        "op:PATCH:/kb_articles/{id}",
+        "op:POST:/requests",
+        "op:PATCH:/requests/{id}",
+        "op:PATCH:/request_forms/{id}",
+        "op:PUT:/request_forms/{id}",
+        "op:POST:/platform_updates",
+        "op:POST:/distribution_projects",
+        "op:POST:/distributions",
+        "op:POST:/saml/identity_providers",
+        "op:PATCH:/saml/identity_providers/{id}",
+        "op:PUT:/saml/identity_providers/{id}",
+        "op:PUT:/roles/{role_id}/permissions/audit",
+        "op:POST:/webhooks",
+        "op:PUT:/webhooks/{id}",
+        "op:PUT:/roles/{role_id}/permissions/webhook",
+        "op:GET:/datasets",
+        "op:PUT:/datasets/{id}",
+        "op:GET:/datasets/{id}/values",
+        "op:PUT:/datasets/{id}/values/{value_id}",
+        "op:DELETE:/datasets/{id}/values/{value_id}",
+        "op:POST:/document_type_prediction_run",
+        "op:PUT:/macros/{id}",
+        "op:PUT:/custom_status/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -15726,7 +15938,9 @@
       "schema_id": "schema:definitions/UploadDocument",
       "name_hint": "UploadDocument",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/uploads"
+      ],
       "is_inline": false
     },
     {
@@ -15873,7 +16087,9 @@
       "schema_id": "schema:definitions/UploadTextoccurrencesPayload",
       "name_hint": "UploadTextoccurrencesPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/uploads/{id}/text_occurrences"
+      ],
       "is_inline": false
     },
     {
@@ -15959,13 +16175,6 @@
       "kind": "object",
       "where_used": [],
       "is_inline": false
-    },
-    {
-      "schema_id": "schema:ref_definitions_FileMergeDataItem",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
     },
     {
       "schema_id": "schema:anon/4d59a415bd69f2f1b465d3241a28e3d5966abf65",
@@ -16216,7 +16425,9 @@
       "schema_id": "schema:definitions/CoreSettingsFull",
       "name_hint": "CoreSettingsFull",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/settings/core"
+      ],
       "is_inline": false
     },
     {
@@ -16293,7 +16504,9 @@
       "schema_id": "schema:definitions/ProcessAutomationSettingsFull",
       "name_hint": "ProcessAutomationSettingsFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/settings/process_automation"
+      ],
       "is_inline": false
     },
     {
@@ -16342,7 +16555,9 @@
       "schema_id": "schema:definitions/KnowledgeBaseSettings",
       "name_hint": "KnowledgeBaseSettings",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/settings/knowledge_base"
+      ],
       "is_inline": false
     },
     {
@@ -16419,7 +16634,9 @@
       "schema_id": "schema:definitions/CaseManagementSettings",
       "name_hint": "CaseManagementSettings",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/settings/case_management"
+      ],
       "is_inline": false
     },
     {
@@ -17144,13 +17361,6 @@
       "is_inline": true
     },
     {
-      "schema_id": "schema:ref_definitions_DatasetDimensionFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/04cfa4bc857340db3a691d53c68484395a35c9ba",
       "name_hint": null,
       "kind": "array",
@@ -17186,13 +17396,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_DatasetDimensionCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/1f73ad518092281232a149dcdffa6c0da14a87ff",
       "name_hint": null,
       "kind": "array",
@@ -17203,14 +17406,20 @@
       "schema_id": "schema:definitions/DatasetCreatePayload",
       "name_hint": "DatasetCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/datasets/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/DatasetFull",
       "name_hint": "DatasetFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/datasets/{id}",
+        "op:PUT:/datasets/{id}",
+        "op:PUT:/datasets/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -17273,14 +17482,20 @@
       "schema_id": "schema:definitions/DatasetValueCreatePayload",
       "name_hint": "DatasetValueCreatePayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/datasets/{id}/values/{value_id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/DatasetValueFull",
       "name_hint": "DatasetValueFull",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/datasets/{id}/values/{value_id}",
+        "op:PUT:/datasets/{id}/values/{value_id}",
+        "op:PUT:/datasets/{id}/values/{value_id}"
+      ],
       "is_inline": false
     },
     {
@@ -17308,7 +17523,9 @@
       "schema_id": "schema:definitions/DocumentTypePredictionClientPayload",
       "name_hint": "DocumentTypePredictionClientPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_type_prediction_run"
+      ],
       "is_inline": false
     },
     {
@@ -17375,13 +17592,6 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_DocumentTypePredictionResult",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/93c5e4f32009f5f8c578952fcd981a02daead0d5",
       "name_hint": null,
       "kind": "array",
@@ -17399,7 +17609,10 @@
       "schema_id": "schema:definitions/DocumentTypePredictionRun",
       "name_hint": "DocumentTypePredictionRun",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_type_prediction_run",
+        "op:GET:/document_type_prediction_run/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -17616,14 +17829,20 @@
       "schema_id": "schema:definitions/MacroDetail",
       "name_hint": "MacroDetail",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/macros/{id}",
+        "op:PUT:/macros/{id}",
+        "op:PUT:/macros/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/MacroPutPayload",
       "name_hint": "MacroPutPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/macros/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -17637,7 +17856,9 @@
       "schema_id": "schema:definitions/RequestMacroPayload",
       "name_hint": "RequestMacroPayload",
       "kind": "object",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/requests/{id}/macros"
+      ],
       "is_inline": false
     },
     {
@@ -17665,14 +17886,20 @@
       "schema_id": "schema:definitions/CustomStatusDetail",
       "name_hint": "CustomStatusDetail",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/custom_status/{id}",
+        "op:PUT:/custom_status/{id}",
+        "op:PUT:/custom_status/{id}"
+      ],
       "is_inline": false
     },
     {
       "schema_id": "schema:definitions/CustomStatusPutPayload",
       "name_hint": "CustomStatusPutPayload",
       "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:PUT:/custom_status/{id}"
+      ],
       "is_inline": false
     },
     {
@@ -17823,458 +18050,179 @@
       "is_inline": false
     },
     {
-      "schema_id": "schema:ref_definitions_CustomFieldFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
       "schema_id": "schema:anon/ef8a93997d834fc0787d5023a82362d99e83839f",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CustomFieldCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_Error",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_BadRequest",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeePartialUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/custom_fields"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/3043869d9d959dbd70c0572f1c48f37687317660",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeBulkPatchPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeBulkOperationResult",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeBulkUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeBulkCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeBulkOperationStatus",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeCreateOrUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeElectronicVaultDocuments",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeSubscriptionFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employees",
+        "op:POST:/employees"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/aa0cfc068e025c28d6d580b4397375e997e965bd",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ElectronicVaultFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_subscriptions"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/c194bdf2ca6aa88d63a9f86b63ae43f3e0ad2674",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ElectronicVaultOptionsUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RoleFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/electronic_vault_options"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/713127302efd3e065589fb6ffc2c924ea6dfa3d8",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RoleCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CorePermissionsGet",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CorePermissionsPut",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CorePermissionsFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EFMPermissionsFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/roles"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/c8499daacd0b84ab9982b5a6f1c38a7171d8f366",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserPutPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RateLimitErrors",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserPatchPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserBulkCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserBulkOperationResult",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserBulkUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserBulkPatchPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserBulkOperationStatus",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeDocumentTypeFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/users"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/aa296d5d3ced8247f5b49d4c0ca0bc5840c26f62",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeDocumentTypeCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeDocumentTypePatchPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CompanyDocumentTypeFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_document_types"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/784c9c2066d6295cc3b049eacb69d4815eea3400",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CompanyDocumentTypeCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FolderBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/company_document_types"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/a6dc079ddf9eff65144267392e407e1f5ead40cc",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrganizationFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_folders",
+        "op:GET:/employee_folders/{id}",
+        "op:GET:/company_folders",
+        "op:GET:/company_folders/{id}"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/c33cf55f8516018dfec2345eadb6c3b8a504c947",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrganizationCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrganizationGroupFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/organizations"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/d66080a6d8906ee35e18b5732d6197fe03d5a6ef",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OrganizationGroupCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocumentFileId",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RedirectionUrls",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeDocumentFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/organization_groups"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/b0c37f04150f97e8cac6df1a54929b8a5cfb8bd0",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeDocumentCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_documents",
+        "op:POST:/employee_documents/search"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_documents/{id}/file",
+        "op:GET:/company_documents/{id}/file",
+        "op:GET:/signature_processes/{id}/preview",
+        "op:GET:/signature_processes/{id}/file",
+        "op:GET:/tasks/{id}/workingfiles/{file_id}",
+        "op:GET:/requests/{id}/comments/{comment_id}/attachments/{attachment_id}/preview/{page}",
+        "op:GET:/requests/{id}/files/{file_id}/download",
+        "op:GET:/requests/{id}/files/{file_id}/preview/{page}",
+        "op:GET:/requests/{id}/attachments/{attachment_id}/download",
+        "op:GET:/requests/{id}/attachments/{attachment_id}/preview/{page}",
+        "op:GET:/requests/{id}/pdf",
+        "op:GET:/document_generations/{id}/preview",
+        "op:GET:/document_generations/{id}/preview/{page}",
+        "op:GET:/document_generation_templates/{id}/versions/{number}/preview",
+        "op:GET:/document_generation_templates/{id}/versions/active/preview",
+        "op:GET:/document_generation_templates/{id}/versions/latest/preview",
+        "op:GET:/document_generation_templates/{id}/versions/{number}/preview/{page}",
+        "op:GET:/document_generation_templates/{id}/versions/active/preview/{page}",
+        "op:GET:/document_generation_templates/{id}/versions/latest/preview/{page}"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/510932133ea32afb1165548fc5d46b15720f18ef",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_documents/{id}/duplicate",
+        "op:GET:/employee_documents/{id}/duplicate",
+        "op:GET:/company_documents/{id}/duplicate",
+        "op:GET:/company_documents/{id}/duplicate"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_documents/{id}/preview",
+        "op:GET:/employee_documents/{id}/preview",
+        "op:GET:/company_documents/{id}/preview",
+        "op:GET:/company_documents/{id}/preview"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf",
       "name_hint": null,
       "kind": "string",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocumentExpirationDatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeDocumentUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocumentExpiryDatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/employee_documents/{id}/receipt",
+        "op:GET:/employee_documents/{id}/receipt",
+        "op:GET:/company_documents/{id}/receipt",
+        "op:GET:/company_documents/{id}/receipt"
+      ],
       "is_inline": true
     },
     {
@@ -18421,658 +18369,205 @@
       "schema_id": "schema:anon/e85abe7c3772c2e9b36158cd2ce2d890964ec2a0",
       "name_hint": null,
       "kind": "object",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CompanyDocumentFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/employee_documents/search"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/c071e6cecd79b1e634f7dc4aafb3e664234a67e8",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CompanyDocumentCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CompanyDocumentUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UploadDocument",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UploadTextoccurrencesPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UploadTextoccurrencesFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/company_documents"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/a7d973accdf4c2c2660945da290d177c9b727cd0",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignatureProcessFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/uploads/{id}/text_occurrences"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/574132e6e898a6dde6c146408dacf2510e9fe68f",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignatureProcessCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignatureProcessCancelPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignatureProcessUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignatureProcessArchivePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignatureTypeFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/signature_processes",
+        "op:POST:/signature_processes/cancel"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/dadb9bfad9410c9ba708c98acf88909c6e0730ab",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/signature_types"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/bb4cf25bfe441228ba77915ab5cb2edad954dbd4",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignerBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignerRemindPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_BaseError",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_InboxItemFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/signers"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/c6e719439cb16efc1d588734262fa68b3656ea68",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_InboxItemCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ImportCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ImportFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/inbox_items"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/b20d699cf7b14746324dbd42bf959b87d0a930ec",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/imports"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
       "name_hint": null,
       "kind": "file",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DatasetImportCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DatasetImportFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/imports/{id}/source",
+        "op:GET:/imports/{id}/report",
+        "op:GET:/imports/{id}/errors_report",
+        "op:GET:/dataset_imports/{id}/source",
+        "op:GET:/dataset_imports/{id}/report"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/12e4c29a4d55d063dc86bebeaf38bf8fdab962e5",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ProcessCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ProcessFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/dataset_imports"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/4fda8799c92e57c81aff0b5fec0301de1a3a79c5",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ProcessPostActionSharedBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ProcessPostActionSharedPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ProcessPostActionUserBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ProcessPostActionUserPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ProcessTemplate",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/processes"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/810ccd9b714002635c36ac4a9a1b0991dc0fd449",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_TaskTemplates",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_templates"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/49e966dbb2286958e7bd268f2b7f00e279570463",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_AcknowledgmentTaskTemplates",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_AcknowledgmentTaskTemplatesWrite",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_BasicTaskTemplates",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FillFormTaskTemplates",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FillPdfTaskTemplates",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignatureTaskTemplates",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ValidationTaskTemplates",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_PdfTemplateList",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_templates/{process_template_id}/task_templates"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/0943141efa0200182a6c0bb0d6b9444b716abe26",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_PdfTemplateDetail",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_PdfTemplateWrite",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_TaskListPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/process_pdf_templates"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/d14f6e39b9c2423c40bdac150f0e9a1cbaa65bc2",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_PatchTaskPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_AckTaskPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_BasicTaskPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SignatureTaskPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FillFormTaskPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FillPdfTaskPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ValidationTaskPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_TaskFilePostPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_TaskFileResource",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_TaskFilePatchPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FillTaskPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_TaskFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmployeeSettingsProcessAutomation",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbCategoryFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/tasks"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/6585ded45263b3acb3c85a031b33d07ddb5838ce",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbCategoryDeletionError",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbCategoryPatchOrderPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbCategoryUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbArticleFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/kb_categories",
+        "op:PUT:/kb_categories/{id}"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/888d6facb4aefdffb6ce9cb24b8f6dbf3ebf2b94",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbArticleImage",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbArticleUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbArticlePatchPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KbTag",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/kb_articles"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/64b27ab8c3c56801e744779c2582279b8bd7eb40",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/kb_tags"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/775063622faa0c3238bbe8e30f977893a59e85f0",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestPostCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestFullWithAttachments",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestComment",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/requests",
+        "op:GET:/requests/{id}/linked_requests"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/c4ab9b52f95636e64eb20c166044935588f1c435",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestPostComment",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestPatchPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_Forbidden",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_UserSimplified",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/requests/{id}/comments"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/3bfb95c39dd9c9740e366c2a0f63f7597632a6cc",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_MacroList",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/requests/{id}/assignees"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/1f57037e5c42b4db439332c55f0a1c6802ae7a84",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestMacroPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/requests/{id}/macros"
+      ],
       "is_inline": true
     },
     {
@@ -19086,546 +18581,181 @@
       "schema_id": "schema:anon/1e597aca270857d81b90843f1e8aacbf62f90b3c",
       "name_hint": null,
       "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestForm",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/requests/{id}/linked_requests"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/089ee1bd66e109c974975933f2010b60b1ccab71",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestFormFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestFormPatch",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestFormPut",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CoreClientFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_PlatformUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DistributionProjectBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DistributionProjectFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/request_forms"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/906cd7d087081a0d824839e56dd6cb2fef2bfdb9",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DistributionBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DistributionFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/distribution_projects"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/373db6efdc978baa34136c20670e74cb22fc3cbc",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_TokenFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_OAuthError",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenRequestPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenFullWithErrors",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EmailRecipient",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/distributions"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/9c349bf754b92e3106f490eda0a9eb824b64e6d2",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FormidableCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenTemplate",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:POST:/document_generations/{id}/email"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/b06a702c0cc5b75c38a2f13547adf26fae995cd8",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenTemplatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenTemplatePatchPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenTemplateVersion",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generation_templates"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/04f3aee7230e3fba1c509255862123dfc9f22cd2",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generation_templates/{id}/fragment_usages"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/6e85c5ca7ec2767e831b3fa8eaec108d8fee8a8c",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenTemplateVersionUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocgenTemplateVersionPatchPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenTemplateVersionFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_FieldSet",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenMigrationCampaign",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenMigrationTemplate",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generation_templates/{id}/versions"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/775ab4200a85248650330620627c3191895b6b8f",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenCampaignPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenCampaignResponse",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generations/syntax_migration/list"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/ac6d1dc118b25a7ed1b92b83b08dd27fe2febb2f",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CsvCampaign",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocGenRequestStatusResponse",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_RequestListingDto",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generation_campaigns"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/0b6db8ffe97262bfb8d32aa75ed908d16f3913e6",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SamlIdentityProviderCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SamlIdentityProviderFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/document_generation_requests"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/7848fbf9d588bc0223492736dd5178fcfacc18aa",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_SamlIdentityProviderUpdatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EventBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/saml/identity_providers"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/05f5b629ed8097ca7cddfd668e515f1e85181448",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_AuditPermissionsFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_AuditPermissionsBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EventExportFields",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/events"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/2edaec8241dcf7c871fc19b8b6f92bae66cfaf10",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_EventActionFilterComputedFields",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/events/export",
+        "op:GET:/events/export"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/08ade60f52657cdad656585770b0ed0603dfa5a4",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_WebhookFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/events/filters/actions"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/80021de2832ff47b51d3143a1ab9f9d6d0782bb9",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_WebhookCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_WebhookPermissionsFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_WebhookPermissionsBase",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CoreSettingsFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_ProcessAutomationSettingsFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_KnowledgeBaseSettings",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CaseManagementSettings",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DatasetFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/webhooks"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/ecc811652a928c2fe8ecf0bfeab4342ce84786be",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DatasetCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DatasetValueFull",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/datasets"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/766eaf4007e238e701301c1cc85e64116d4b270e",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DatasetValueCreatePayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocumentTypePredictionClientPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_DocumentTypePredictionRun",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/datasets/{id}/values"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/38b2796c882026cacb10dc2047ba6da0283fcb15",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_MacroDetail",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_MacroPutPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CustomStatusDetail",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/macros"
+      ],
       "is_inline": true
     },
     {
       "schema_id": "schema:anon/2ea0111c6225430d57de709997a73a74c59d4337",
       "name_hint": null,
       "kind": "array",
-      "where_used": [],
-      "is_inline": true
-    },
-    {
-      "schema_id": "schema:ref_definitions_CustomStatusPutPayload",
-      "name_hint": null,
-      "kind": "unknown",
-      "where_used": [],
+      "where_used": [
+        "op:GET:/custom_status"
+      ],
       "is_inline": true
     }
   ]

@@ -12,13 +12,13 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_DistributionBase",
-      "schema:ref_definitions_DistributionComputedFields",
-      "schema:ref_definitions_Timestamps"
+      "schema:definitions/DistributionBase",
+      "schema:definitions/DistributionComputedFields",
+      "schema:definitions/Timestamps"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/DistributionFull",
     "via": []
   },
@@ -36,7 +36,10 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/distributions",
+    "op:GET:/distributions/{id}"
+  ]
 }

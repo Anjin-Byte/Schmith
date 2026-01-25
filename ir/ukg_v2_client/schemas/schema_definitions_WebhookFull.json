@@ -12,13 +12,13 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_WebhookBase",
-      "schema:ref_definitions_WebhookComputedFields",
-      "schema:ref_definitions_Timestamps"
+      "schema:definitions/WebhookBase",
+      "schema:definitions/WebhookComputedFields",
+      "schema:definitions/Timestamps"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/WebhookFull",
     "via": []
   },
@@ -36,7 +36,13 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/webhooks",
+    "op:GET:/webhooks/{id}",
+    "op:PUT:/webhooks/{id}",
+    "op:POST:/webhooks/{id}/refresh_signature_key",
+    "op:POST:/webhooks/{id}/tests"
+  ]
 }

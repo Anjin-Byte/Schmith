@@ -12,13 +12,13 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_SignatureTypePayload",
+      "schema:definitions/SignatureTypePayload",
       "schema:anon/15a6265e82dbb270b53531e12283f96c1ab10130",
-      "schema:ref_definitions_UpdateTimestamp"
+      "schema:definitions/UpdateTimestamp"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/SignatureTypeFull",
     "via": []
   },
@@ -36,7 +36,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:GET:/signature_types/{id}"
+  ]
 }

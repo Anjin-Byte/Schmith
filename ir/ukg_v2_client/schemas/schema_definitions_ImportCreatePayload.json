@@ -12,12 +12,12 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_ImportBase",
+      "schema:definitions/ImportBase",
       "schema:anon/6b543979c75f326983006503216c85d2e1c2f745"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/ImportCreatePayload",
     "via": []
   },
@@ -35,7 +35,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/imports"
+  ]
 }

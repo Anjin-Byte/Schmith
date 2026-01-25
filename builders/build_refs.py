@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+"""Build IR reference topology indexes.
+
+This builder processes existing IR schema files to extract reference
+relationships between schemas (property refs, items refs, etc.).
+Unlike other builders, this doesn't use adapters since the IR format
+is adapter-agnostic.
+"""
 # pyright: reportUnknownVariableType=false
 # pyright: reportUnknownMemberType=false
 # pyright: reportUnknownArgumentType=false
@@ -11,9 +18,7 @@ import sys
 from typing import Any, Dict, List
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(ROOT)
-sys.path.append(SCRIPT_DIR)
+sys.path.insert(0, ROOT)
 
 from pipeline.config import api_name, load_config
 

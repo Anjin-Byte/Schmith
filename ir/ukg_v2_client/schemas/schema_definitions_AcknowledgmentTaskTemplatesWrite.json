@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.upload_id",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/AcknowledgmentTaskTemplatesWrite",
         "via": []
       },
@@ -43,11 +43,11 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_TaskTemplateDetail"
+      "schema:definitions/TaskTemplateDetail"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/AcknowledgmentTaskTemplatesWrite",
     "via": []
   },
@@ -65,7 +65,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment"
+  ]
 }

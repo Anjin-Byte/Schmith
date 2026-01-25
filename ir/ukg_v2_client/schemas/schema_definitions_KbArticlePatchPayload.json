@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.status",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/KbArticlePatchPayload",
         "via": []
       },
@@ -43,14 +43,14 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_KbTagsAndSearchKeywords",
-      "schema:ref_definitions_KbAccessibleBy",
-      "schema:ref_definitions_KbRoleRestrictions",
-      "schema:ref_definitions_KbEmployeePerimeters"
+      "schema:definitions/KbTagsAndSearchKeywords",
+      "schema:definitions/KbAccessibleBy",
+      "schema:definitions/KbRoleRestrictions",
+      "schema:definitions/KbEmployeePerimeters"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/KbArticlePatchPayload",
     "via": []
   },
@@ -68,7 +68,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:PATCH:/kb_articles/{id}"
+  ]
 }

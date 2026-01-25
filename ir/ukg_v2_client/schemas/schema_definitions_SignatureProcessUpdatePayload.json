@@ -12,15 +12,15 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_SignatureProcessBase",
-      "schema:ref_definitions_SignatureProcessState",
-      "schema:ref_definitions_SignatureProcessSenderId",
-      "schema:ref_definitions_SignatureProcessOrganizationIds",
-      "schema:ref_definitions_SignatureProcessUploadId"
+      "schema:definitions/SignatureProcessBase",
+      "schema:definitions/SignatureProcessState",
+      "schema:definitions/SignatureProcessSenderId",
+      "schema:definitions/SignatureProcessOrganizationIds",
+      "schema:definitions/SignatureProcessUploadId"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/SignatureProcessUpdatePayload",
     "via": []
   },
@@ -38,7 +38,10 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:PUT:/signature_processes/{id}",
+    "op:PATCH:/signature_processes/{id}"
+  ]
 }

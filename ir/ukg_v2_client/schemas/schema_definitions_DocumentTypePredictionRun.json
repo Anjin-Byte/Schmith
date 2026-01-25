@@ -12,14 +12,14 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_DocumentTypePredictionClientPayload",
-      "schema:ref_definitions__Run",
-      "schema:ref_definitions__DocumentTypePredictionRun",
-      "schema:ref_definitions_Timestamps"
+      "schema:definitions/DocumentTypePredictionClientPayload",
+      "schema:definitions/_Run",
+      "schema:definitions/_DocumentTypePredictionRun",
+      "schema:definitions/Timestamps"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/DocumentTypePredictionRun",
     "via": []
   },
@@ -37,7 +37,10 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/document_type_prediction_run",
+    "op:GET:/document_type_prediction_run/{id}"
+  ]
 }

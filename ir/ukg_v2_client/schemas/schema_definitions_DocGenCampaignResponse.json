@@ -13,13 +13,13 @@
     "kind": "allOf",
     "members": [
       "schema:anon/33fd6643ddfd77bb5ad2db45a63a4fead7641380",
-      "schema:ref_definitions_DocGenCampaignBase",
-      "schema:ref_definitions_Timestamps",
+      "schema:definitions/DocGenCampaignBase",
+      "schema:definitions/Timestamps",
       "schema:anon/b9192ea65df1ed7e892aaea4effc25840babbae1"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/DocGenCampaignResponse",
     "via": []
   },
@@ -37,7 +37,10 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/document_generation_campaigns",
+    "op:GET:/document_generation_campaigns/{id}"
+  ]
 }

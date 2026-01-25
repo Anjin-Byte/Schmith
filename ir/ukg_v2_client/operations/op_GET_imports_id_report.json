@@ -14,7 +14,7 @@
         "explode": null,
         "style": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//imports/{id}/report/get/parameters",
           "via": []
         },
@@ -39,7 +39,7 @@
         "schema_id": "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
         "description": "OK",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//imports/{id}/report/get/responses/200",
           "via": []
         },
@@ -54,10 +54,10 @@
       {
         "status_code": "404",
         "media_type": "text/xml",
-        "schema_id": "schema:ref_definitions_BadRequest",
+        "schema_id": "schema:definitions/BadRequest",
         "description": "Not Found",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//imports/{id}/report/get/responses/404",
           "via": []
         },
@@ -72,10 +72,10 @@
       {
         "status_code": "403",
         "media_type": "text/xml",
-        "schema_id": "schema:ref_definitions_BadRequest",
+        "schema_id": "schema:definitions/BadRequest",
         "description": "Forbidden - the report is not ready yet. Errors codes : `report_file_not_ready`",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//imports/{id}/report/get/responses/403",
           "via": []
         },
@@ -101,7 +101,7 @@
         "explode": null,
         "style": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//imports/{id}/report/get/parameters",
           "via": []
         },
@@ -126,7 +126,7 @@
         "schema_id": "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
         "description": "OK",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//imports/{id}/report/get/responses/200",
           "via": []
         },
@@ -141,10 +141,10 @@
       {
         "status_code": "404",
         "media_type": "text/xml",
-        "schema_id": "schema:ref_definitions_BadRequest",
+        "schema_id": "schema:definitions/BadRequest",
         "description": "Not Found",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//imports/{id}/report/get/responses/404",
           "via": []
         },
@@ -159,10 +159,10 @@
       {
         "status_code": "403",
         "media_type": "text/xml",
-        "schema_id": "schema:ref_definitions_BadRequest",
+        "schema_id": "schema:definitions/BadRequest",
         "description": "Forbidden - the report is not ready yet. Errors codes : `report_file_not_ready`",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//imports/{id}/report/get/responses/403",
           "via": []
         },
@@ -182,7 +182,7 @@
   "summary": "Get report file of an import",
   "description": "Download a detailed report for this Import. This file can only be downloaded after the Import is completed (else a 403 Forbidden will be returned)\n\nThe report file is produced in XML format. The structure of the report is the following\n\n* JOB_REFERENCE Internal processing reference, corresponding to the name of the import file renamed on UKG HR Service Delivery\n\n* JOB_REPORT_TIMESTAMP Date, in ISO format YYYY-MM-DDThh:mm:ss\u00b1hh:mm, at when the report was generated\n\n* JOB_DESCRIPTION Import title\n\n* JOB_TYPE `sal` for the employee import report (`sir` for organizations and `usr` for users)\n\n* COUNT_ROWS Number of total lines processed\n\n* MESSAGE feedback corresponding to one line\n\n* ENTITY_ID Identifier of the created employee\n\n* ENTITY_TYPE `Employee`, `Organization` or `Manager`\n\n* RESULT_CODE 0 (resource created), 1 (resource updated), != 1 (error)\n\n* RESULT_MESSAGE Message describing the action performed or the error encountered. When error, the line number is present at the beginning of the error message.",
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/paths//imports/{id}/report/get",
     "via": []
   },

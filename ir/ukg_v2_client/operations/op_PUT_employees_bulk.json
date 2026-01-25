@@ -8,13 +8,13 @@
         "name": "body",
         "location": "body",
         "required": true,
-        "schema_id": "schema:ref_definitions_EmployeeBulkUpdatePayload",
+        "schema_id": "schema:definitions/EmployeeBulkUpdatePayload",
         "description": "Bulk Employee object and options",
         "deprecated": null,
         "explode": null,
         "style": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//employees/bulk/put/parameters",
           "via": []
         },
@@ -34,12 +34,12 @@
     "request_bodies": [
       {
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_EmployeeBulkUpdatePayload",
+        "schema_id": "schema:definitions/EmployeeBulkUpdatePayload",
         "required": true,
         "description": "Bulk Employee object and options",
         "examples": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//employees/bulk/put/parameters",
           "via": []
         },
@@ -57,10 +57,10 @@
       {
         "status_code": "200",
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_EmployeeBulkOperationResult",
+        "schema_id": "schema:definitions/EmployeeBulkOperationResult",
         "description": "Request ID of the bulk operation\n",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//employees/bulk/put/responses/200",
           "via": []
         },
@@ -75,10 +75,10 @@
       {
         "status_code": "400",
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_BadRequest",
+        "schema_id": "schema:definitions/BadRequest",
         "description": "Bad Request (invalid JSON...)",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//employees/bulk/put/responses/400",
           "via": []
         },
@@ -98,13 +98,13 @@
         "name": "body",
         "location": "body",
         "required": true,
-        "schema_id": "schema:ref_definitions_EmployeeBulkUpdatePayload",
+        "schema_id": "schema:definitions/EmployeeBulkUpdatePayload",
         "description": "Bulk Employee object and options",
         "deprecated": null,
         "explode": null,
         "style": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//employees/bulk/put/parameters",
           "via": []
         },
@@ -124,12 +124,12 @@
     "request_bodies": [
       {
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_EmployeeBulkUpdatePayload",
+        "schema_id": "schema:definitions/EmployeeBulkUpdatePayload",
         "required": true,
         "description": "Bulk Employee object and options",
         "examples": null,
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//employees/bulk/put/parameters",
           "via": []
         },
@@ -147,10 +147,10 @@
       {
         "status_code": "200",
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_EmployeeBulkOperationResult",
+        "schema_id": "schema:definitions/EmployeeBulkOperationResult",
         "description": "Request ID of the bulk operation\n",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//employees/bulk/put/responses/200",
           "via": []
         },
@@ -165,10 +165,10 @@
       {
         "status_code": "400",
         "media_type": "application/json",
-        "schema_id": "schema:ref_definitions_BadRequest",
+        "schema_id": "schema:definitions/BadRequest",
         "description": "Bad Request (invalid JSON...)",
         "provenance": {
-          "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
           "source_pointer": "#/paths//employees/bulk/put/responses/400",
           "via": []
         },
@@ -188,7 +188,7 @@
   "summary": "Update multiple employees in bulk",
   "description": "Update multiple `Employee` records based on their `external_id`.\n\nThis method will process a list of employees provided in the payload.\n\nThe response will provide a request_id that can be used to track the status of the bulk operation.\nThis operation is asynchronous, and the actual processing of the employees will occur in the background.\nYou can check the status of the operation using the `GET /employees/bulk/{request_id}` endpoint.\n\nFor every field with a text content, if a break line is in the content sent, add a `\\` to the `\\n` character like this:  `\\\\n`.\n",
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/paths//employees/bulk/put",
     "via": []
   },

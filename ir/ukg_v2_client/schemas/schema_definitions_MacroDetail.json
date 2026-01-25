@@ -13,13 +13,13 @@
     "kind": "allOf",
     "members": [
       "schema:anon/3651620a0d4025ee8a9d40ce9559830c7594f496",
-      "schema:ref_definitions__MacroBase",
+      "schema:definitions/_MacroBase",
       "schema:anon/e0d4ff2ea78d755a558dd412e388af7e25034c8c",
-      "schema:ref_definitions_Timestamps"
+      "schema:definitions/Timestamps"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/MacroDetail",
     "via": []
   },
@@ -37,7 +37,11 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:GET:/macros/{id}",
+    "op:PUT:/macros/{id}",
+    "op:PUT:/macros/{id}"
+  ]
 }

@@ -12,7 +12,7 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_ProcessBase",
+      "schema:definitions/ProcessBase",
       "schema:anon/ffeea799f991f0f6b62f3e9457c6193b4a906ad7",
       "schema:anon/8fad6fd8a966e48892be42e7728f141762d8d985",
       "schema:anon/04aec87f4879e03968309a4b2016829b1d2fb6c3",
@@ -20,7 +20,7 @@
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/ProcessCreatePayload",
     "via": []
   },
@@ -38,7 +38,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/processes"
+  ]
 }

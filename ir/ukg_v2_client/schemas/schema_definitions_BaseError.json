@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.code",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/BaseError",
         "via": []
       },
@@ -47,7 +47,7 @@
       "examples": null,
       "json_pointer": "$.message",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/BaseError",
         "via": []
       },
@@ -75,7 +75,7 @@
   "constraints": {},
   "composition": null,
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/BaseError",
     "via": []
   },
@@ -93,7 +93,51 @@
     "constraints": "absent",
     "composition": "absent",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:DELETE:/signers/{id}",
+    "op:DELETE:/processes/{id}",
+    "op:DELETE:/document_generations/{id}",
+    "op:GET:/document_generations/{id}",
+    "op:HEAD:/document_generations/{id}/file",
+    "op:GET:/document_generations/{id}/file",
+    "op:GET:/document_generations/{id}/preview",
+    "op:GET:/document_generations/{id}/preview/{page}",
+    "op:GET:/document_generation_templates/{id}/versions/{number}/doc_fields",
+    "op:PUT:/document_generation_templates/{id}/versions/{number}/doc_fields",
+    "op:DELETE:/document_generation_templates/{id}",
+    "op:GET:/document_generation_templates/{id}",
+    "op:PATCH:/document_generation_templates/{id}",
+    "op:PUT:/document_generation_templates/{id}",
+    "op:POST:/document_generation_templates/{id}/file",
+    "op:GET:/document_generation_templates/{id}/fragment_usages",
+    "op:DELETE:/document_generation_templates/{id}/versions/{number}",
+    "op:GET:/document_generation_templates/{id}/versions/{number}",
+    "op:HEAD:/document_generation_templates/{id}/versions/{number}/file",
+    "op:GET:/document_generation_templates/{id}/versions/{number}/file",
+    "op:HEAD:/document_generation_templates/{id}/versions/active/file",
+    "op:GET:/document_generation_templates/{id}/versions/active/file",
+    "op:HEAD:/document_generation_templates/{id}/versions/latest/file",
+    "op:GET:/document_generation_templates/{id}/versions/latest/file",
+    "op:GET:/document_generation_templates/{id}/versions/{number}/fields",
+    "op:GET:/document_generation_templates/{id}/versions/active/fields",
+    "op:GET:/document_generation_templates/{id}/versions/latest/fields",
+    "op:GET:/document_generation_templates/{id}/versions/{number}/preview",
+    "op:GET:/document_generation_templates/{id}/versions/active/preview",
+    "op:GET:/document_generation_templates/{id}/versions/latest/preview",
+    "op:GET:/document_generation_templates/{id}/versions/{number}/preview/{page}",
+    "op:GET:/document_generation_templates/{id}/versions/active/preview/{page}",
+    "op:GET:/document_generation_templates/{id}/versions/latest/preview/{page}",
+    "op:POST:/document_generations/syntax_migration/restart",
+    "op:POST:/document_generations/syntax_migration/restart",
+    "op:POST:/document_generations/syntax_migration/{id}",
+    "op:POST:/document_generations/syntax_migration/{id}",
+    "op:POST:/document_generations/syntax_migration/{id}",
+    "op:POST:/document_generation_campaigns/csv",
+    "op:POST:/document_generation_campaigns/csv",
+    "op:POST:/document_generation_campaigns/csv",
+    "op:GET:/document_generation_campaigns/{id}/file",
+    "op:GET:/document_generation_campaigns/{id}/file"
+  ]
 }

@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.error",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/OAuthError",
         "via": []
       },
@@ -42,7 +42,7 @@
   "constraints": {},
   "composition": null,
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/OAuthError",
     "via": []
   },
@@ -60,7 +60,11 @@
     "constraints": "absent",
     "composition": "absent",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/tokens",
+    "op:POST:/tokens",
+    "op:POST:/revoke_token"
+  ]
 }

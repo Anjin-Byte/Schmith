@@ -6,12 +6,12 @@
   "description": null,
   "properties": [],
   "required": [],
-  "items_schema_id": "schema:ref_definitions_DatasetValueFull",
+  "items_schema_id": "schema:definitions/DatasetValueFull",
   "additional_properties_schema_id": null,
   "constraints": {},
   "composition": null,
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/paths//datasets/{id}/values/get/responses/200",
     "via": []
   },
@@ -29,7 +29,9 @@
     "constraints": "absent",
     "composition": "absent",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:GET:/datasets/{id}/values"
+  ]
 }

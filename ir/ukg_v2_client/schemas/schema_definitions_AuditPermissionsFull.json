@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.role_id",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/AuditPermissionsFull",
         "via": []
       },
@@ -45,11 +45,11 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_AuditPermissionsBase"
+      "schema:definitions/AuditPermissionsBase"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/AuditPermissionsFull",
     "via": []
   },
@@ -67,7 +67,10 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:GET:/roles/{role_id}/permissions/audit",
+    "op:PUT:/roles/{role_id}/permissions/audit"
+  ]
 }

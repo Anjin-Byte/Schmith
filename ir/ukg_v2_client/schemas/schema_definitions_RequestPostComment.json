@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.content",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/RequestPostComment",
         "via": []
       },
@@ -47,7 +47,7 @@
       "examples": null,
       "json_pointer": "$.attachment_upload_ids",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/RequestPostComment",
         "via": []
       },
@@ -77,7 +77,7 @@
       "examples": null,
       "json_pointer": "$.is_internal",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/RequestPostComment",
         "via": []
       },
@@ -107,7 +107,7 @@
       "examples": null,
       "json_pointer": "$.creator_id",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/RequestPostComment",
         "via": []
       },
@@ -137,7 +137,7 @@
       "examples": null,
       "json_pointer": "$.creator_external_id",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/RequestPostComment",
         "via": []
       },
@@ -162,7 +162,7 @@
   "constraints": {},
   "composition": null,
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/RequestPostComment",
     "via": []
   },
@@ -180,7 +180,9 @@
     "constraints": "absent",
     "composition": "absent",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/requests/{id}/comments"
+  ]
 }

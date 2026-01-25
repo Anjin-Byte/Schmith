@@ -16,12 +16,12 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_DocGenCampaignBase",
+      "schema:definitions/DocGenCampaignBase",
       "schema:anon/24ff120e54b3f0e3660833197908a8d22b9cfd70"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/DocGenCampaignPayload",
     "via": []
   },
@@ -39,7 +39,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/document_generation_campaigns"
+  ]
 }

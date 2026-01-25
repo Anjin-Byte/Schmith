@@ -12,13 +12,13 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_InboxItemBase",
-      "schema:ref_definitions_InboxItemComputedFields",
-      "schema:ref_definitions_Timestamps"
+      "schema:definitions/InboxItemBase",
+      "schema:definitions/InboxItemComputedFields",
+      "schema:definitions/Timestamps"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/InboxItemFull",
     "via": []
   },
@@ -36,7 +36,10 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/inbox_items",
+    "op:GET:/inbox_items/{id}"
+  ]
 }

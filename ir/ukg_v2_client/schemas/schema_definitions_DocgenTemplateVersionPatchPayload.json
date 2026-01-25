@@ -7,7 +7,7 @@
   "properties": [
     {
       "json_name": "output_format",
-      "schema_id": "schema:ref_definitions_OutputFormatPatchRequest",
+      "schema_id": "schema:definitions/OutputFormatPatchRequest",
       "required": false,
       "nullable": null,
       "description": "The activated/deactivated output formats for generation",
@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.output_format",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/DocgenTemplateVersionPatchPayload",
         "via": []
       },
@@ -47,7 +47,7 @@
       "examples": null,
       "json_pointer": "$.fragment_mapping",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/DocgenTemplateVersionPatchPayload",
         "via": []
       },
@@ -72,7 +72,7 @@
   "constraints": {},
   "composition": null,
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/DocgenTemplateVersionPatchPayload",
     "via": []
   },
@@ -90,7 +90,9 @@
     "constraints": "absent",
     "composition": "absent",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:PATCH:/document_generation_templates/{id}/versions/{number}"
+  ]
 }

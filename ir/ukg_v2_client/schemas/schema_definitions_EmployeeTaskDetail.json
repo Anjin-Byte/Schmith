@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.form_id",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/EmployeeTaskDetail",
         "via": []
       },
@@ -47,7 +47,7 @@
       "examples": null,
       "json_pointer": "$.pdf_template_id",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/EmployeeTaskDetail",
         "via": []
       },
@@ -73,13 +73,13 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_EmployeeTaskBase",
-      "schema:ref_definitions_TaskComputedFields",
-      "schema:ref_definitions_TaskTimestamps"
+      "schema:definitions/EmployeeTaskBase",
+      "schema:definitions/TaskComputedFields",
+      "schema:definitions/TaskTimestamps"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/EmployeeTaskDetail",
     "via": []
   },

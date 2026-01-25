@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.signature_zones",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/PdfTemplateDetail",
         "via": []
       },
@@ -47,7 +47,7 @@
       "examples": null,
       "json_pointer": "$.form_mapping",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/PdfTemplateDetail",
         "via": []
       },
@@ -73,11 +73,11 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_PdfTemplateList"
+      "schema:definitions/PdfTemplateList"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/PdfTemplateDetail",
     "via": []
   },
@@ -95,7 +95,11 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:GET:/process_pdf_templates/{id}",
+    "op:PUT:/process_pdf_templates/{id}",
+    "op:PUT:/process_pdf_templates/{id}"
+  ]
 }

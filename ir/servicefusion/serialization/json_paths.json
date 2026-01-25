@@ -1,73 +1,51 @@
 {
   "schemas": {
-    "schema:types/OAuthToken": [
-      "$.access_token",
-      "$.token_type",
-      "$.expires_in",
-      "$.refresh_token"
-    ],
-    "schema:types/OAuthTokenError": [
-      "$.error",
-      "$.error_description"
-    ],
-    "schema:types/typ.Error": [
-      "$.code",
-      "$.name",
-      "$.message"
-    ],
-    "schema:types/typ.400Error": [
-      "$.code",
-      "$.name",
-      "$.message"
-    ],
-    "schema:types/typ.404Error": [
-      "$.code",
-      "$.name",
-      "$.message"
-    ],
-    "schema:types/typ.405Error": [
-      "$.code",
-      "$.name",
-      "$.message"
-    ],
-    "schema:types/typ.415Error": [
-      "$.code",
-      "$.name",
-      "$.message"
-    ],
-    "schema:anon/c43bbb9a0c1d95e3fa51ca9c12c9b74d7d887542": [
-      "$.field",
-      "$.message"
-    ],
-    "schema:types/typ.429Error": [
-      "$.code",
-      "$.name",
-      "$.message"
-    ],
-    "schema:types/typ.500Error": [
-      "$.code",
-      "$.name",
-      "$.message"
-    ],
-    "schema:types/typ.Agent": [
+    "schema:anon/692f980ca44072edcc9d38b40d3579bdeba8b6e1": [
       "$.id",
       "$.first_name",
-      "$.last_name"
+      "$.last_name",
+      "$.email",
+      "$._expandable"
     ],
-    "schema:types/typ.AgentBody": [
-      "$.id",
-      "$.first_name",
-      "$.last_name"
+    "schema:anon/099a37415162fd4c2f442fa39ce63ddb33997920": [
+      "$.code",
+      "$.name",
+      "$.message"
     ],
-    "schema:types/typ.AssignedTech": [
-      "$.id",
-      "$.first_name",
-      "$.last_name"
+    "schema:anon/91d7fa18146ac716c68f2523652d7ebf20d80e1b": [
+      "$.code",
+      "$.name",
+      "$.message"
     ],
-    "schema:types/typ.AssignedTechBody": [
-      "$.id",
-      "$.first_name",
-      "$.last_name"
+    "schema:anon/8bc76887d1e77bff7ea7d096d2290fe39e864e23": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:anon/b16d21d747efafa3db8e38e911bfc69af5e904e3": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:anon/2c5d19ad66a293950c52b756f96bd4cbe4d0a586": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:anon/505e5ffe659f1218ee8cf0d887a45d9f2bcaa163": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:anon/fc892967a07690c8cf1bebbc2cff1bcdf4312cde": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:anon/f8faf533e3bb692f746b6d2495639775b91e6df6": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
     ],
     "schema:types/typ.CalendarTask": [
       "$.id",
@@ -88,7 +66,7 @@
       "$.estimates_id",
       "$.repeat"
     ],
-    "schema:types/typ.CalendarTaskView": [
+    "schema:anon/447522725706510c6998afad5f0338c26b80cfd2": [
       "$.id",
       "$.type",
       "$.description",
@@ -108,117 +86,12 @@
       "$.repeat",
       "$._expandable"
     ],
-    "schema:types/typ.CalendarTaskRepeat": [
-      "$.id",
-      "$.repeat_type",
-      "$.repeat_frequency",
-      "$.repeat_weekly_days",
-      "$.repeat_monthly_type",
-      "$.stop_repeat_type",
-      "$.stop_repeat_on_occurrence",
-      "$.stop_repeat_on_date",
-      "$.start_date",
-      "$.end_date"
-    ],
-    "schema:types/typ.CustomField": [
+    "schema:anon/98268aa12b8eb998e36fd5d7bc72dea8b5baea2c": [
+      "$.code",
       "$.name",
-      "$.value",
-      "$.type",
-      "$.group",
-      "$.created_at",
-      "$.updated_at",
-      "$.is_required"
+      "$.message"
     ],
-    "schema:types/typ.CustomFieldBody": [
-      "$.name",
-      "$.value"
-    ],
-    "schema:types/typ.Customer": [
-      "$.id",
-      "$.customer_name",
-      "$.fully_qualified_name",
-      "$.parent_customer",
-      "$.account_number",
-      "$.account_balance",
-      "$.private_notes",
-      "$.public_notes",
-      "$.credit_rating",
-      "$.labor_charge_type",
-      "$.labor_charge_default_rate",
-      "$.last_serviced_date",
-      "$.is_bill_for_drive_time",
-      "$.is_vip",
-      "$.referral_source",
-      "$.agent",
-      "$.discount",
-      "$.discount_type",
-      "$.payment_type",
-      "$.payment_terms",
-      "$.assigned_contract",
-      "$.industry",
-      "$.is_taxable",
-      "$.tax_item_name",
-      "$.qbo_sync_token",
-      "$.qbo_currency",
-      "$.qbo_id",
-      "$.qbd_id",
-      "$.created_at",
-      "$.updated_at",
-      "$.contacts",
-      "$.locations",
-      "$.custom_fields"
-    ],
-    "schema:types/typ.CustomerContact": [
-      "$.prefix",
-      "$.fname",
-      "$.lname",
-      "$.suffix",
-      "$.contact_type",
-      "$.dob",
-      "$.anniversary",
-      "$.job_title",
-      "$.department",
-      "$.created_at",
-      "$.updated_at",
-      "$.is_primary",
-      "$.phones",
-      "$.emails"
-    ],
-    "schema:types/typ.CustomerPhone": [
-      "$.phone",
-      "$.ext",
-      "$.type",
-      "$.created_at",
-      "$.updated_at",
-      "$.is_mobile"
-    ],
-    "schema:types/typ.CustomerEmail": [
-      "$.email",
-      "$.class",
-      "$.types_accepted",
-      "$.created_at",
-      "$.updated_at"
-    ],
-    "schema:types/typ.CustomerLocation": [
-      "$.street_1",
-      "$.street_2",
-      "$.city",
-      "$.state_prov",
-      "$.postal_code",
-      "$.country",
-      "$.nickname",
-      "$.gate_instructions",
-      "$.latitude",
-      "$.longitude",
-      "$.location_type",
-      "$.created_at",
-      "$.updated_at",
-      "$.is_primary",
-      "$.is_gated",
-      "$.is_bill_to",
-      "$.customer_contact"
-    ],
-    "schema:types/typ.CustomerBody": [
+    "schema:anon/dc79ab2fbad707b39f8569207f5237c40035eb7d": [
       "$.customer_name",
       "$.parent_customer",
       "$.account_number",
@@ -287,7 +160,11 @@
       "$.is_bill_to",
       "$.customer_contact"
     ],
-    "schema:types/typ.CustomerView": [
+    "schema:types/typ.CustomFieldBody": [
+      "$.name",
+      "$.value"
+    ],
+    "schema:anon/71ac56426673c47ec84fc4bd3bbd64019266dcb2": [
       "$.id",
       "$.customer_name",
       "$.fully_qualified_name",
@@ -323,6 +200,114 @@
       "$.custom_fields",
       "$._expandable"
     ],
+    "schema:types/typ.CustomerContact": [
+      "$.prefix",
+      "$.fname",
+      "$.lname",
+      "$.suffix",
+      "$.contact_type",
+      "$.dob",
+      "$.anniversary",
+      "$.job_title",
+      "$.department",
+      "$.created_at",
+      "$.updated_at",
+      "$.is_primary",
+      "$.phones",
+      "$.emails"
+    ],
+    "schema:types/typ.CustomerPhone": [
+      "$.phone",
+      "$.ext",
+      "$.type",
+      "$.created_at",
+      "$.updated_at",
+      "$.is_mobile"
+    ],
+    "schema:types/typ.CustomerEmail": [
+      "$.email",
+      "$.class",
+      "$.types_accepted",
+      "$.created_at",
+      "$.updated_at"
+    ],
+    "schema:types/typ.CustomerLocation": [
+      "$.street_1",
+      "$.street_2",
+      "$.city",
+      "$.state_prov",
+      "$.postal_code",
+      "$.country",
+      "$.nickname",
+      "$.gate_instructions",
+      "$.latitude",
+      "$.longitude",
+      "$.location_type",
+      "$.created_at",
+      "$.updated_at",
+      "$.is_primary",
+      "$.is_gated",
+      "$.is_bill_to",
+      "$.customer_contact"
+    ],
+    "schema:types/typ.CustomField": [
+      "$.name",
+      "$.value",
+      "$.type",
+      "$.group",
+      "$.created_at",
+      "$.updated_at",
+      "$.is_required"
+    ],
+    "schema:anon/c43bbb9a0c1d95e3fa51ca9c12c9b74d7d887542": [
+      "$.field",
+      "$.message"
+    ],
+    "schema:anon/d371a6b92b09cacc4e5cec255bb5871fe3db8623": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
+    "schema:types/typ.Customer": [
+      "$.id",
+      "$.customer_name",
+      "$.fully_qualified_name",
+      "$.parent_customer",
+      "$.account_number",
+      "$.account_balance",
+      "$.private_notes",
+      "$.public_notes",
+      "$.credit_rating",
+      "$.labor_charge_type",
+      "$.labor_charge_default_rate",
+      "$.last_serviced_date",
+      "$.is_bill_for_drive_time",
+      "$.is_vip",
+      "$.referral_source",
+      "$.agent",
+      "$.discount",
+      "$.discount_type",
+      "$.payment_type",
+      "$.payment_terms",
+      "$.assigned_contract",
+      "$.industry",
+      "$.is_taxable",
+      "$.tax_item_name",
+      "$.qbo_sync_token",
+      "$.qbo_currency",
+      "$.qbo_id",
+      "$.qbd_id",
+      "$.created_at",
+      "$.updated_at",
+      "$.contacts",
+      "$.locations",
+      "$.custom_fields"
+    ],
+    "schema:anon/257aee94dc27c1c824aaa52648a63f7777316303": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
     "schema:types/typ.Equipment": [
       "$.id",
       "$.type",
@@ -344,24 +329,7 @@
       "$.customer_location",
       "$.custom_fields"
     ],
-    "schema:types/typ.EquipmentBody": [
-      "$.id",
-      "$.type",
-      "$.make",
-      "$.model",
-      "$.sku",
-      "$.serial_number",
-      "$.location",
-      "$.notes",
-      "$.extended_warranty_provider",
-      "$.is_extended_warranty",
-      "$.extended_warranty_date",
-      "$.warranty_date",
-      "$.install_date",
-      "$.customer_location",
-      "$.custom_fields"
-    ],
-    "schema:types/typ.EquipmentView": [
+    "schema:anon/dd1c79d7eb6f5f650368fd26e791fe211a1f5f49": [
       "$.id",
       "$.type",
       "$.make",
@@ -383,23 +351,161 @@
       "$.custom_fields",
       "$._expandable"
     ],
-    "schema:types/typ.Estimate": [
-      "$.id",
-      "$.number",
+    "schema:anon/e7a739127e96f0b8712f345e4ac262d3f234fa63": [
+      "$.check_number",
+      "$.priority",
       "$.description",
       "$.tech_notes",
+      "$.completion_notes",
+      "$.duration",
+      "$.time_frame_promised_start",
+      "$.time_frame_promised_end",
+      "$.start_date",
+      "$.end_date",
+      "$.customer_name",
+      "$.status",
+      "$.contact_first_name",
+      "$.contact_last_name",
+      "$.street_1",
+      "$.street_2",
+      "$.city",
+      "$.state_prov",
+      "$.postal_code",
+      "$.location_name",
+      "$.is_gated",
+      "$.gate_instructions",
+      "$.category",
+      "$.source",
+      "$.payment_type",
       "$.customer_payment_terms",
+      "$.project",
+      "$.phase",
+      "$.po_number",
+      "$.contract",
+      "$.note_to_customer",
+      "$.called_in_by",
+      "$.is_requires_follow_up",
+      "$.agents",
+      "$.custom_fields",
+      "$.equipment",
+      "$.techs_assigned",
+      "$.tasks",
+      "$.notes",
+      "$.products",
+      "$.services",
+      "$.other_charges",
+      "$.labor_charges",
+      "$.expenses"
+    ],
+    "schema:types/typ.AgentBody": [
+      "$.id",
+      "$.first_name",
+      "$.last_name"
+    ],
+    "schema:types/typ.EquipmentBody": [
+      "$.id",
+      "$.type",
+      "$.make",
+      "$.model",
+      "$.sku",
+      "$.serial_number",
+      "$.location",
+      "$.notes",
+      "$.extended_warranty_provider",
+      "$.is_extended_warranty",
+      "$.extended_warranty_date",
+      "$.warranty_date",
+      "$.install_date",
+      "$.customer_location",
+      "$.custom_fields"
+    ],
+    "schema:types/typ.AssignedTechBody": [
+      "$.id",
+      "$.first_name",
+      "$.last_name"
+    ],
+    "schema:types/typ.JobTaskBody": [
+      "$.description",
+      "$.is_completed"
+    ],
+    "schema:types/typ.JobNoteBody": [
+      "$.notes"
+    ],
+    "schema:types/typ.JobProductBody": [
+      "$.name",
+      "$.description",
+      "$.multiplier",
+      "$.rate",
+      "$.cost",
+      "$.is_show_rate_items",
+      "$.tax",
+      "$.product"
+    ],
+    "schema:types/typ.JobServiceBody": [
+      "$.name",
+      "$.description",
+      "$.multiplier",
+      "$.rate",
+      "$.cost",
+      "$.is_show_rate_items",
+      "$.tax",
+      "$.service"
+    ],
+    "schema:types/typ.JobOtherChargeBody": [
+      "$.name",
+      "$.rate",
+      "$.is_percentage",
+      "$.other_charge"
+    ],
+    "schema:types/typ.JobLaborChargeBody": [
+      "$.drive_time",
+      "$.drive_time_rate",
+      "$.drive_time_cost",
+      "$.drive_time_start",
+      "$.drive_time_end",
+      "$.is_drive_time_billed",
+      "$.labor_time",
+      "$.labor_time_rate",
+      "$.labor_time_cost",
+      "$.labor_time_start",
+      "$.labor_time_end",
+      "$.labor_date",
+      "$.is_labor_time_billed",
+      "$.user"
+    ],
+    "schema:types/typ.JobExpenseBody": [
+      "$.purchased_from",
+      "$.notes",
+      "$.amount",
+      "$.is_billable",
+      "$.date",
+      "$.user",
+      "$.category"
+    ],
+    "schema:anon/779c8246b10c27355cb9343d63f5fe2de958f432": [
+      "$.id",
+      "$.number",
+      "$.check_number",
+      "$.priority",
+      "$.description",
+      "$.tech_notes",
+      "$.completion_notes",
       "$.payment_status",
       "$.taxes_fees_total",
+      "$.drive_labor_total",
+      "$.billable_expenses_total",
       "$.total",
+      "$.payments_deposits_total",
       "$.due_total",
       "$.cost_total",
       "$.duration",
       "$.time_frame_promised_start",
       "$.time_frame_promised_end",
       "$.start_date",
+      "$.end_date",
       "$.created_at",
       "$.updated_at",
+      "$.closed_at",
       "$.customer_id",
       "$.customer_name",
       "$.parent_customer",
@@ -418,13 +524,14 @@
       "$.category",
       "$.source",
       "$.payment_type",
+      "$.customer_payment_terms",
       "$.project",
       "$.phase",
       "$.po_number",
       "$.contract",
       "$.note_to_customer",
-      "$.opportunity_rating",
-      "$.opportunity_owner",
+      "$.called_in_by",
+      "$.is_requires_follow_up",
       "$.agents",
       "$.custom_fields",
       "$.pictures",
@@ -436,10 +543,19 @@
       "$.products",
       "$.services",
       "$.other_charges",
+      "$.labor_charges",
+      "$.expenses",
       "$.payments",
+      "$.invoices",
       "$.signatures",
       "$.printable_work_order",
-      "$.tags"
+      "$.visits",
+      "$._expandable"
+    ],
+    "schema:types/typ.Agent": [
+      "$.id",
+      "$.first_name",
+      "$.last_name"
     ],
     "schema:types/typ.Picture": [
       "$.name",
@@ -462,6 +578,11 @@
       "$.created_at",
       "$.updated_at",
       "$.customer_doc_id"
+    ],
+    "schema:types/typ.AssignedTech": [
+      "$.id",
+      "$.first_name",
+      "$.last_name"
     ],
     "schema:types/typ.JobTask": [
       "$.type",
@@ -538,6 +659,42 @@
       "$.qbo_class_id",
       "$.qbd_class_id"
     ],
+    "schema:types/typ.JobLaborCharge": [
+      "$.drive_time",
+      "$.drive_time_rate",
+      "$.drive_time_cost",
+      "$.drive_time_start",
+      "$.drive_time_end",
+      "$.is_drive_time_billed",
+      "$.labor_time",
+      "$.labor_time_rate",
+      "$.labor_time_cost",
+      "$.labor_time_start",
+      "$.labor_time_end",
+      "$.labor_date",
+      "$.is_labor_time_billed",
+      "$.total",
+      "$.created_at",
+      "$.updated_at",
+      "$.is_status_generated",
+      "$.user",
+      "$.visit_id",
+      "$.qbo_class_id",
+      "$.qbd_class_id"
+    ],
+    "schema:types/typ.JobExpense": [
+      "$.purchased_from",
+      "$.notes",
+      "$.amount",
+      "$.is_billable",
+      "$.date",
+      "$.created_at",
+      "$.updated_at",
+      "$.user",
+      "$.category",
+      "$.qbo_class_id",
+      "$.qbd_class_id"
+    ],
     "schema:types/typ.Payment": [
       "$.transaction_type",
       "$.transaction_token",
@@ -565,6 +722,35 @@
       "$.gateway_id",
       "$.receipt_id"
     ],
+    "schema:types/typ.Invoice": [
+      "$.id",
+      "$.number",
+      "$.currency",
+      "$.po_number",
+      "$.terms",
+      "$.customer_message",
+      "$.notes",
+      "$.pay_online_url",
+      "$.qbo_invoice_no",
+      "$.qbo_sync_token",
+      "$.qbo_synced_date",
+      "$.qbo_id",
+      "$.qbd_id",
+      "$.total",
+      "$.is_paid",
+      "$.date",
+      "$.mail_send_date",
+      "$.created_at",
+      "$.updated_at",
+      "$.customer",
+      "$.customer_contact",
+      "$.payment_terms",
+      "$.bill_to_customer_id",
+      "$.bill_to_customer_location_id",
+      "$.bill_to_customer_contact_id",
+      "$.bill_to_email_id",
+      "$.bill_to_phone_id"
+    ],
     "schema:types/typ.JobSignature": [
       "$.type",
       "$.file_name",
@@ -575,10 +761,584 @@
       "$.name",
       "$.url"
     ],
+    "schema:types/typ.JobVisit": [
+      "$.notes_for_techs",
+      "$.time_frame_promised_start",
+      "$.time_frame_promised_end",
+      "$.duration",
+      "$.is_text_notified",
+      "$.is_voice_notified",
+      "$.start_date",
+      "$.techs_assigned"
+    ],
+    "schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af": [
+      "$.id",
+      "$.first_name",
+      "$.last_name",
+      "$.status"
+    ],
+    "schema:anon/35371061f19f4dfb09c17be1c7ffcd69cebf8961": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
+    "schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71": [
+      "$.id",
+      "$.number",
+      "$.check_number",
+      "$.priority",
+      "$.description",
+      "$.tech_notes",
+      "$.completion_notes",
+      "$.payment_status",
+      "$.taxes_fees_total",
+      "$.drive_labor_total",
+      "$.billable_expenses_total",
+      "$.total",
+      "$.payments_deposits_total",
+      "$.due_total",
+      "$.cost_total",
+      "$.duration",
+      "$.time_frame_promised_start",
+      "$.time_frame_promised_end",
+      "$.start_date",
+      "$.end_date",
+      "$.created_at",
+      "$.updated_at",
+      "$.closed_at",
+      "$.customer_id",
+      "$.customer_name",
+      "$.parent_customer",
+      "$.status",
+      "$.sub_status",
+      "$.contact_first_name",
+      "$.contact_last_name",
+      "$.street_1",
+      "$.street_2",
+      "$.city",
+      "$.state_prov",
+      "$.postal_code",
+      "$.location_name",
+      "$.is_gated",
+      "$.gate_instructions",
+      "$.category",
+      "$.source",
+      "$.payment_type",
+      "$.customer_payment_terms",
+      "$.project",
+      "$.phase",
+      "$.po_number",
+      "$.contract",
+      "$.note_to_customer",
+      "$.called_in_by",
+      "$.is_requires_follow_up",
+      "$.agents",
+      "$.custom_fields",
+      "$.pictures",
+      "$.documents",
+      "$.equipment",
+      "$.techs_assigned",
+      "$.tasks",
+      "$.notes",
+      "$.products",
+      "$.services",
+      "$.other_charges",
+      "$.labor_charges",
+      "$.expenses",
+      "$.payments",
+      "$.invoices",
+      "$.signatures",
+      "$.printable_work_order",
+      "$.visits"
+    ],
+    "schema:anon/9ae0a0d47760d8bd0feefbc8e9a99a8b9cfeca6d": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
+    "schema:types/typ.JobCategory": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:anon/c984336cd1a1953e0f051de0bb627243145439a4": [
+      "$.id",
+      "$.name",
+      "$._expandable"
+    ],
+    "schema:anon/bf720f75cc4611e8c110e0608c6e8de5c5b0598d": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
+    "schema:types/typ.JobStatus": [
+      "$.id",
+      "$.code",
+      "$.name",
+      "$.is_custom",
+      "$.category"
+    ],
+    "schema:anon/a08a2141d98e92bab04cd9028209e4ed08660597": [
+      "$.id",
+      "$.code",
+      "$.name",
+      "$.is_custom",
+      "$.category",
+      "$._expandable"
+    ],
+    "schema:anon/5db84c0a48080e189bc85ce08caa8fbd9a526e14": [
+      "$.description",
+      "$.tech_notes",
+      "$.duration",
+      "$.time_frame_promised_start",
+      "$.time_frame_promised_end",
+      "$.start_date",
+      "$.created_at",
+      "$.customer_name",
+      "$.status",
+      "$.contact_first_name",
+      "$.contact_last_name",
+      "$.street_1",
+      "$.street_2",
+      "$.city",
+      "$.state_prov",
+      "$.postal_code",
+      "$.location_name",
+      "$.is_gated",
+      "$.gate_instructions",
+      "$.category",
+      "$.source",
+      "$.project",
+      "$.phase",
+      "$.po_number",
+      "$.contract",
+      "$.note_to_customer",
+      "$.opportunity_rating",
+      "$.opportunity_owner",
+      "$.custom_fields",
+      "$.equipment",
+      "$.techs_assigned",
+      "$.tasks",
+      "$.notes",
+      "$.products",
+      "$.services",
+      "$.other_charges",
+      "$.tags"
+    ],
+    "schema:types/typ.JobTagBody": [
+      "$.tag"
+    ],
+    "schema:anon/49fafe9d1c4825accfb667061210a0f5621c11ae": [
+      "$.id",
+      "$.number",
+      "$.description",
+      "$.tech_notes",
+      "$.customer_payment_terms",
+      "$.payment_status",
+      "$.taxes_fees_total",
+      "$.total",
+      "$.due_total",
+      "$.cost_total",
+      "$.duration",
+      "$.time_frame_promised_start",
+      "$.time_frame_promised_end",
+      "$.start_date",
+      "$.created_at",
+      "$.updated_at",
+      "$.customer_id",
+      "$.customer_name",
+      "$.parent_customer",
+      "$.status",
+      "$.sub_status",
+      "$.contact_first_name",
+      "$.contact_last_name",
+      "$.street_1",
+      "$.street_2",
+      "$.city",
+      "$.state_prov",
+      "$.postal_code",
+      "$.location_name",
+      "$.is_gated",
+      "$.gate_instructions",
+      "$.category",
+      "$.source",
+      "$.payment_type",
+      "$.project",
+      "$.phase",
+      "$.po_number",
+      "$.contract",
+      "$.note_to_customer",
+      "$.opportunity_rating",
+      "$.opportunity_owner",
+      "$.agents",
+      "$.custom_fields",
+      "$.pictures",
+      "$.documents",
+      "$.equipment",
+      "$.techs_assigned",
+      "$.tasks",
+      "$.notes",
+      "$.products",
+      "$.services",
+      "$.other_charges",
+      "$.payments",
+      "$.signatures",
+      "$.printable_work_order",
+      "$.tags",
+      "$._expandable"
+    ],
     "schema:types/typ.JobTag": [
       "$.tag",
       "$.created_at",
       "$.updated_at"
+    ],
+    "schema:anon/416ea02ca2b5453c4e942bc46f725fdc707759f7": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
+    "schema:types/typ.Estimate": [
+      "$.id",
+      "$.number",
+      "$.description",
+      "$.tech_notes",
+      "$.customer_payment_terms",
+      "$.payment_status",
+      "$.taxes_fees_total",
+      "$.total",
+      "$.due_total",
+      "$.cost_total",
+      "$.duration",
+      "$.time_frame_promised_start",
+      "$.time_frame_promised_end",
+      "$.start_date",
+      "$.created_at",
+      "$.updated_at",
+      "$.customer_id",
+      "$.customer_name",
+      "$.parent_customer",
+      "$.status",
+      "$.sub_status",
+      "$.contact_first_name",
+      "$.contact_last_name",
+      "$.street_1",
+      "$.street_2",
+      "$.city",
+      "$.state_prov",
+      "$.postal_code",
+      "$.location_name",
+      "$.is_gated",
+      "$.gate_instructions",
+      "$.category",
+      "$.source",
+      "$.payment_type",
+      "$.project",
+      "$.phase",
+      "$.po_number",
+      "$.contract",
+      "$.note_to_customer",
+      "$.opportunity_rating",
+      "$.opportunity_owner",
+      "$.agents",
+      "$.custom_fields",
+      "$.pictures",
+      "$.documents",
+      "$.equipment",
+      "$.techs_assigned",
+      "$.tasks",
+      "$.notes",
+      "$.products",
+      "$.services",
+      "$.other_charges",
+      "$.payments",
+      "$.signatures",
+      "$.printable_work_order",
+      "$.tags"
+    ],
+    "schema:anon/daf3515cd6ef82100678151a21bebbe884abe8f9": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
+    "schema:anon/6ebdbc53e4598e602a1e6d4efc82821adc1c74e4": [
+      "$.id",
+      "$.number",
+      "$.currency",
+      "$.po_number",
+      "$.terms",
+      "$.customer_message",
+      "$.notes",
+      "$.pay_online_url",
+      "$.qbo_invoice_no",
+      "$.qbo_sync_token",
+      "$.qbo_synced_date",
+      "$.qbo_id",
+      "$.qbd_id",
+      "$.total",
+      "$.is_paid",
+      "$.date",
+      "$.mail_send_date",
+      "$.created_at",
+      "$.updated_at",
+      "$.customer",
+      "$.customer_contact",
+      "$.payment_terms",
+      "$.bill_to_customer_id",
+      "$.bill_to_customer_location_id",
+      "$.bill_to_customer_contact_id",
+      "$.bill_to_email_id",
+      "$.bill_to_phone_id",
+      "$._expandable"
+    ],
+    "schema:anon/fba5b9204ad548f7ce8f6b727c68937a441a7539": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
+    "schema:types/typ.PaymentType": [
+      "$.id",
+      "$.code",
+      "$.short_name",
+      "$.type",
+      "$.is_custom"
+    ],
+    "schema:anon/9fc5450a8e24dc04e5777d247ad3ab2efefaf149": [
+      "$.id",
+      "$.code",
+      "$.short_name",
+      "$.type",
+      "$.is_custom",
+      "$._expandable"
+    ],
+    "schema:anon/9c625ecbb4f030da49332104d170dc4b3a55e2dd": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
+    "schema:types/typ.Source": [
+      "$.id",
+      "$.short_name",
+      "$.long_name"
+    ],
+    "schema:anon/e69bc4f30133c895809dced2eb9a9e932d5e052a": [
+      "$.id",
+      "$.short_name",
+      "$.long_name",
+      "$._expandable"
+    ],
+    "schema:anon/39d5fd8101f63bbddd67a24614f09b4d894fc2df": [
+      "$.items",
+      "$._expandable",
+      "$._meta"
+    ],
+    "schema:types/typ.Tech": [
+      "$.id",
+      "$.first_name",
+      "$.last_name",
+      "$.nickname_on_workorder",
+      "$.nickname_on_dispatch",
+      "$.color_code",
+      "$.email",
+      "$.phone_1",
+      "$.phone_2",
+      "$.gender",
+      "$.department",
+      "$.title",
+      "$.bio",
+      "$.is_phone_1_mobile",
+      "$.is_phone_1_visible_to_client",
+      "$.is_phone_2_mobile",
+      "$.is_phone_2_visible_to_client",
+      "$.is_sales_rep",
+      "$.is_field_worker",
+      "$.created_at",
+      "$.updated_at"
+    ],
+    "schema:anon/f16f83854af0d4c6446f65aa9ab087cc6e3fe230": [
+      "$.id",
+      "$.first_name",
+      "$.last_name",
+      "$.nickname_on_workorder",
+      "$.nickname_on_dispatch",
+      "$.color_code",
+      "$.email",
+      "$.phone_1",
+      "$.phone_2",
+      "$.gender",
+      "$.department",
+      "$.title",
+      "$.bio",
+      "$.is_phone_1_mobile",
+      "$.is_phone_1_visible_to_client",
+      "$.is_phone_2_mobile",
+      "$.is_phone_2_visible_to_client",
+      "$.is_sales_rep",
+      "$.is_field_worker",
+      "$.created_at",
+      "$.updated_at",
+      "$._expandable"
+    ],
+    "schema:types/OAuthToken": [
+      "$.access_token",
+      "$.token_type",
+      "$.expires_in",
+      "$.refresh_token"
+    ],
+    "schema:types/OAuthTokenError": [
+      "$.error",
+      "$.error_description"
+    ],
+    "schema:types/typ.Error": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:types/typ.400Error": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:types/typ.404Error": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:types/typ.405Error": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:types/typ.415Error": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:types/typ.429Error": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:types/typ.500Error": [
+      "$.code",
+      "$.name",
+      "$.message"
+    ],
+    "schema:types/typ.CalendarTaskView": [
+      "$.id",
+      "$.type",
+      "$.description",
+      "$.start_time",
+      "$.end_time",
+      "$.start_date",
+      "$.end_date",
+      "$.created_at",
+      "$.updated_at",
+      "$.is_public",
+      "$.is_completed",
+      "$.repeat_id",
+      "$.users_id",
+      "$.customers_id",
+      "$.jobs_id",
+      "$.estimates_id",
+      "$.repeat",
+      "$._expandable"
+    ],
+    "schema:types/typ.CalendarTaskRepeat": [
+      "$.id",
+      "$.repeat_type",
+      "$.repeat_frequency",
+      "$.repeat_weekly_days",
+      "$.repeat_monthly_type",
+      "$.stop_repeat_type",
+      "$.stop_repeat_on_occurrence",
+      "$.stop_repeat_on_date",
+      "$.start_date",
+      "$.end_date"
+    ],
+    "schema:types/typ.CustomerBody": [
+      "$.customer_name",
+      "$.parent_customer",
+      "$.account_number",
+      "$.private_notes",
+      "$.public_notes",
+      "$.credit_rating",
+      "$.labor_charge_type",
+      "$.labor_charge_default_rate",
+      "$.last_serviced_date",
+      "$.is_bill_for_drive_time",
+      "$.is_vip",
+      "$.referral_source",
+      "$.agent",
+      "$.discount",
+      "$.discount_type",
+      "$.payment_type",
+      "$.payment_terms",
+      "$.assigned_contract",
+      "$.industry",
+      "$.is_taxable",
+      "$.tax_item_name",
+      "$.qbo_sync_token",
+      "$.qbo_currency",
+      "$.contacts",
+      "$.locations",
+      "$.custom_fields"
+    ],
+    "schema:types/typ.CustomerView": [
+      "$.id",
+      "$.customer_name",
+      "$.fully_qualified_name",
+      "$.parent_customer",
+      "$.account_number",
+      "$.account_balance",
+      "$.private_notes",
+      "$.public_notes",
+      "$.credit_rating",
+      "$.labor_charge_type",
+      "$.labor_charge_default_rate",
+      "$.last_serviced_date",
+      "$.is_bill_for_drive_time",
+      "$.is_vip",
+      "$.referral_source",
+      "$.agent",
+      "$.discount",
+      "$.discount_type",
+      "$.payment_type",
+      "$.payment_terms",
+      "$.assigned_contract",
+      "$.industry",
+      "$.is_taxable",
+      "$.tax_item_name",
+      "$.qbo_sync_token",
+      "$.qbo_currency",
+      "$.qbo_id",
+      "$.qbd_id",
+      "$.created_at",
+      "$.updated_at",
+      "$.contacts",
+      "$.locations",
+      "$.custom_fields",
+      "$._expandable"
+    ],
+    "schema:types/typ.EquipmentView": [
+      "$.id",
+      "$.type",
+      "$.make",
+      "$.model",
+      "$.sku",
+      "$.serial_number",
+      "$.location",
+      "$.notes",
+      "$.extended_warranty_provider",
+      "$.is_extended_warranty",
+      "$.extended_warranty_date",
+      "$.warranty_date",
+      "$.install_date",
+      "$.created_at",
+      "$.updated_at",
+      "$.customer_id",
+      "$.customer",
+      "$.customer_location",
+      "$.custom_fields",
+      "$._expandable"
     ],
     "schema:types/typ.EstimateBody": [
       "$.description",
@@ -618,42 +1378,6 @@
       "$.services",
       "$.other_charges",
       "$.tags"
-    ],
-    "schema:types/typ.JobTaskBody": [
-      "$.description",
-      "$.is_completed"
-    ],
-    "schema:types/typ.JobNoteBody": [
-      "$.notes"
-    ],
-    "schema:types/typ.JobProductBody": [
-      "$.name",
-      "$.description",
-      "$.multiplier",
-      "$.rate",
-      "$.cost",
-      "$.is_show_rate_items",
-      "$.tax",
-      "$.product"
-    ],
-    "schema:types/typ.JobServiceBody": [
-      "$.name",
-      "$.description",
-      "$.multiplier",
-      "$.rate",
-      "$.cost",
-      "$.is_show_rate_items",
-      "$.tax",
-      "$.service"
-    ],
-    "schema:types/typ.JobOtherChargeBody": [
-      "$.name",
-      "$.rate",
-      "$.is_percentage",
-      "$.other_charge"
-    ],
-    "schema:types/typ.JobTagBody": [
-      "$.tag"
     ],
     "schema:types/typ.EstimateView": [
       "$.id",
@@ -713,35 +1437,6 @@
       "$.printable_work_order",
       "$.tags",
       "$._expandable"
-    ],
-    "schema:types/typ.Invoice": [
-      "$.id",
-      "$.number",
-      "$.currency",
-      "$.po_number",
-      "$.terms",
-      "$.customer_message",
-      "$.notes",
-      "$.pay_online_url",
-      "$.qbo_invoice_no",
-      "$.qbo_sync_token",
-      "$.qbo_synced_date",
-      "$.qbo_id",
-      "$.qbd_id",
-      "$.total",
-      "$.is_paid",
-      "$.date",
-      "$.mail_send_date",
-      "$.created_at",
-      "$.updated_at",
-      "$.customer",
-      "$.customer_contact",
-      "$.payment_terms",
-      "$.bill_to_customer_id",
-      "$.bill_to_customer_location_id",
-      "$.bill_to_customer_contact_id",
-      "$.bill_to_email_id",
-      "$.bill_to_phone_id"
     ],
     "schema:types/typ.InvoiceView": [
       "$.id",
@@ -842,58 +1537,6 @@
       "$.printable_work_order",
       "$.visits"
     ],
-    "schema:types/typ.JobLaborCharge": [
-      "$.drive_time",
-      "$.drive_time_rate",
-      "$.drive_time_cost",
-      "$.drive_time_start",
-      "$.drive_time_end",
-      "$.is_drive_time_billed",
-      "$.labor_time",
-      "$.labor_time_rate",
-      "$.labor_time_cost",
-      "$.labor_time_start",
-      "$.labor_time_end",
-      "$.labor_date",
-      "$.is_labor_time_billed",
-      "$.total",
-      "$.created_at",
-      "$.updated_at",
-      "$.is_status_generated",
-      "$.user",
-      "$.visit_id",
-      "$.qbo_class_id",
-      "$.qbd_class_id"
-    ],
-    "schema:types/typ.JobExpense": [
-      "$.purchased_from",
-      "$.notes",
-      "$.amount",
-      "$.is_billable",
-      "$.date",
-      "$.created_at",
-      "$.updated_at",
-      "$.user",
-      "$.category",
-      "$.qbo_class_id",
-      "$.qbd_class_id"
-    ],
-    "schema:types/typ.JobVisit": [
-      "$.notes_for_techs",
-      "$.time_frame_promised_start",
-      "$.time_frame_promised_end",
-      "$.duration",
-      "$.is_text_notified",
-      "$.is_voice_notified",
-      "$.start_date",
-      "$.techs_assigned"
-    ],
-    "schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af": [
-      "$.id",
-      "$.first_name",
-      "$.last_name",
-      "$.status"
-    ],
     "schema:types/typ.JobBody": [
       "$.check_number",
       "$.priority",
@@ -939,31 +1582,6 @@
       "$.other_charges",
       "$.labor_charges",
       "$.expenses"
-    ],
-    "schema:types/typ.JobLaborChargeBody": [
-      "$.drive_time",
-      "$.drive_time_rate",
-      "$.drive_time_cost",
-      "$.drive_time_start",
-      "$.drive_time_end",
-      "$.is_drive_time_billed",
-      "$.labor_time",
-      "$.labor_time_rate",
-      "$.labor_time_cost",
-      "$.labor_time_start",
-      "$.labor_time_end",
-      "$.labor_date",
-      "$.is_labor_time_billed",
-      "$.user"
-    ],
-    "schema:types/typ.JobExpenseBody": [
-      "$.purchased_from",
-      "$.notes",
-      "$.amount",
-      "$.is_billable",
-      "$.date",
-      "$.user",
-      "$.category"
     ],
     "schema:types/typ.JobView": [
       "$.id",
@@ -1035,21 +1653,10 @@
       "$.visits",
       "$._expandable"
     ],
-    "schema:types/typ.JobCategory": [
-      "$.id",
-      "$.name"
-    ],
     "schema:types/typ.JobCategoryView": [
       "$.id",
       "$.name",
       "$._expandable"
-    ],
-    "schema:types/typ.JobStatus": [
-      "$.id",
-      "$.code",
-      "$.name",
-      "$.is_custom",
-      "$.category"
     ],
     "schema:types/typ.JobStatusView": [
       "$.id",
@@ -1077,13 +1684,6 @@
       "$.email",
       "$._expandable"
     ],
-    "schema:types/typ.PaymentType": [
-      "$.id",
-      "$.code",
-      "$.short_name",
-      "$.type",
-      "$.is_custom"
-    ],
     "schema:types/typ.PaymentTypeView": [
       "$.id",
       "$.code",
@@ -1092,39 +1692,11 @@
       "$.is_custom",
       "$._expandable"
     ],
-    "schema:types/typ.Source": [
-      "$.id",
-      "$.short_name",
-      "$.long_name"
-    ],
     "schema:types/typ.SourceView": [
       "$.id",
       "$.short_name",
       "$.long_name",
       "$._expandable"
-    ],
-    "schema:types/typ.Tech": [
-      "$.id",
-      "$.first_name",
-      "$.last_name",
-      "$.nickname_on_workorder",
-      "$.nickname_on_dispatch",
-      "$.color_code",
-      "$.email",
-      "$.phone_1",
-      "$.phone_2",
-      "$.gender",
-      "$.department",
-      "$.title",
-      "$.bio",
-      "$.is_phone_1_mobile",
-      "$.is_phone_1_visible_to_client",
-      "$.is_phone_2_mobile",
-      "$.is_phone_2_visible_to_client",
-      "$.is_sales_rep",
-      "$.is_field_worker",
-      "$.created_at",
-      "$.updated_at"
     ],
     "schema:types/typ.TechView": [
       "$.id",

@@ -18,12 +18,12 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_Timestamps",
+      "schema:definitions/Timestamps",
       "schema:anon/b2da65955a02625012cdafba8384339a805e0108"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/DocGenTemplate",
     "via": []
   },
@@ -41,7 +41,12 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:POST:/document_generation_templates",
+    "op:GET:/document_generation_templates/{id}",
+    "op:PATCH:/document_generation_templates/{id}",
+    "op:PUT:/document_generation_templates/{id}"
+  ]
 }

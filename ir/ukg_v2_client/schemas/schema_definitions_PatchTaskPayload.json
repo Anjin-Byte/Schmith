@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.due_date",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/PatchTaskPayload",
         "via": []
       },
@@ -47,7 +47,7 @@
       "examples": null,
       "json_pointer": "$.reminder_offset",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/PatchTaskPayload",
         "via": []
       },
@@ -72,7 +72,7 @@
   "constraints": {},
   "composition": null,
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/PatchTaskPayload",
     "via": []
   },
@@ -90,7 +90,14 @@
     "constraints": "absent",
     "composition": "absent",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:PATCH:/tasks/{id}#acknowledgment",
+    "op:PATCH:/tasks/{id}#basic",
+    "op:PATCH:/tasks/{id}#signature",
+    "op:PATCH:/tasks/{id}#fill_form",
+    "op:PATCH:/tasks/{id}#fill_pdf",
+    "op:PATCH:/tasks/{id}#validation"
+  ]
 }

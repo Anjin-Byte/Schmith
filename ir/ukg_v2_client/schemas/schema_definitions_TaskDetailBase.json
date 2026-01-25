@@ -7,7 +7,7 @@
   "properties": [
     {
       "json_name": "completed_by",
-      "schema_id": "schema:ref_definitions_EmployeeSimplified",
+      "schema_id": "schema:definitions/EmployeeSimplified",
       "required": true,
       "nullable": null,
       "description": "User or Employee who has completed the task",
@@ -17,7 +17,7 @@
       "examples": null,
       "json_pointer": "$.completed_by",
       "provenance": {
-        "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
         "source_pointer": "#/definitions/TaskDetailBase",
         "via": []
       },
@@ -45,11 +45,11 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_TaskListBase"
+      "schema:definitions/TaskListBase"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/TaskDetailBase",
     "via": []
   },

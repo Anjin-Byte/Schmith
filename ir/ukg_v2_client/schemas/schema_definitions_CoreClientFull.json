@@ -12,16 +12,16 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_ClientBase",
-      "schema:ref_definitions_ClientEditableBase",
-      "schema:ref_definitions_CoreClientBase",
-      "schema:ref_definitions_ClientComputedFields",
-      "schema:ref_definitions_CoreClientComputedFields",
-      "schema:ref_definitions_Timestamps"
+      "schema:definitions/ClientBase",
+      "schema:definitions/ClientEditableBase",
+      "schema:definitions/CoreClientBase",
+      "schema:definitions/ClientComputedFields",
+      "schema:definitions/CoreClientComputedFields",
+      "schema:definitions/Timestamps"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/CoreClientFull",
     "via": []
   },
@@ -39,7 +39,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:GET:/client"
+  ]
 }

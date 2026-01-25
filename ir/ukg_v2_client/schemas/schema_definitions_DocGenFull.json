@@ -18,13 +18,13 @@
   "composition": {
     "kind": "allOf",
     "members": [
-      "schema:ref_definitions_CreationTimestamp",
-      "schema:ref_definitions_UpdateTimestamp",
+      "schema:definitions/CreationTimestamp",
+      "schema:definitions/UpdateTimestamp",
       "schema:anon/93704628aa6c9a2b4a867ba9e699de68d32efa52"
     ]
   },
   "provenance": {
-    "source_file": "/Users/taylorhale/Downloads/webService_connectorPractice/service_fusion/spec/ukg_v2_client/api.yml",
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
     "source_pointer": "#/definitions/DocGenFull",
     "via": []
   },
@@ -42,7 +42,9 @@
     "constraints": "absent",
     "composition": "native",
     "provenance": "native",
-    "where_used": "absent"
+    "where_used": "adapter"
   },
-  "where_used": []
+  "where_used": [
+    "op:GET:/document_generations/{id}"
+  ]
 }
