@@ -6,9 +6,12 @@ by calling LLM providers and writing the output files.
 
 import json
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Iterator
 
 from .llm_providers import LLMProvider, extract_code_from_response
+
+FIELDS_START_MARKER = "// BEGIN_FIELDS"
+FIELDS_END_MARKER = "// END_FIELDS"
 
 
 def format_fields_section(fields: list[dict], indent: str = "  ") -> list[str]:
@@ -41,6 +44,219 @@ def format_fields_section(fields: list[dict], indent: str = "  ") -> list[str]:
             lines.append(f"{indent}  Description: {field['description']}")
         lines.append("")
     return lines
+
+
+def _extract_field_block(code: str) -> str:
+    """Extract field-only blocks from generated code."""
+    if FIELDS_START_MARKER in code and FIELDS_END_MARKER in code:
+        start = code.split(FIELDS_START_MARKER, 1)[1]
+        return start.split(FIELDS_END_MARKER, 1)[0].strip()
+    return code.strip()
+
+
+def _insert_fields(base_code: str, fields_code: str) -> str:
+    """Insert fields before the final closing brace in a class block."""
+    insert_at = base_code.rfind("}")
+    if insert_at == -1:
+        return f"{base_code.rstrip()}\n\n{fields_code.strip()}\n"
+
+    before = base_code[:insert_at].rstrip()
+    after = base_code[insert_at:]
+    return f"{before}\n\n{fields_code.strip()}\n{after.lstrip()}"
+
+
+def _schema_output_mode(schema: dict, page_index: int) -> str:
+    """Determine output mode for a schema/page."""
+    if page_index == 1:
+        return "class_only" if schema.get("role") == "nested" else "full_class"
+    return "fields_only"
+
+
+def _resolve_namespace(packet_meta: dict, schema: dict) -> str:
+    """Resolve namespace for the class based on packet metadata."""
+    ir_name = packet_meta.get("ir_name", "api")
+    if schema.get("role") == "nested":
+        parent_context = schema.get("parent_context", {})
+        class_name = parent_context.get("class_name", schema.get("class_name", "DataObject"))
+    else:
+        class_name = schema.get("class_name", "DataObject")
+
+    resource_name = class_name
+    if resource_name.endswith("DataObject"):
+        resource_name = resource_name[: -len("DataObject")]
+
+    return f"Connector.{ir_name}.v1.{resource_name}"
+
+
+def _output_instructions(output_mode: str, class_name: str, namespace: str) -> list[str]:
+    """Build output-mode-specific instructions."""
+    lines = ["OUTPUT MODE:"]
+    if output_mode == "full_class":
+        lines.append(f"- Return a complete C# file for class `{class_name}`.")
+        lines.append(f"- Use file-scoped namespace `{namespace}`.")
+        lines.append("- Include these usings:")
+        lines.append("  using Json.Schema.Generation;")
+        lines.append("  using System.Text.Json.Serialization;")
+        lines.append("  using Xchange.Connector.SDK.CacheWriter;")
+        lines.append("- Include only the fields listed for this page.")
+    elif output_mode == "class_only":
+        lines.append(f"- Return ONLY the class declaration for `{class_name}`.")
+        lines.append("- Do NOT include namespace or using statements.")
+        lines.append("- Include only the fields listed for this page.")
+    else:
+        lines.append("- Return ONLY the property blocks for this page.")
+        lines.append("- Do NOT include namespace, using statements, class declaration, or closing braces.")
+        lines.append(f"- Wrap properties with `{FIELDS_START_MARKER}` and `{FIELDS_END_MARKER}` markers.")
+    return lines
+
+
+def _example_code(output_mode: str, class_name: str, namespace: str) -> str:
+    """Generate example code for the requested output mode."""
+    if output_mode == "fields_only":
+        return f"""{FIELDS_START_MARKER}
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField {{ get; init; }}
+{FIELDS_END_MARKER}"""
+
+    if output_mode == "class_only":
+        return f"""public class {class_name}
+{{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField {{ get; init; }}
+}}"""
+
+    return f"""namespace {namespace};
+
+using Json.Schema.Generation;
+using System.Text.Json.Serialization;
+using Xchange.Connector.SDK.CacheWriter;
+
+/// <summary>
+/// Example description.
+/// </summary>
+[PrimaryKey("id", nameof(Id))]
+[Description("Example description.")]
+public class {class_name}
+{{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id {{ get; init; }}
+}}"""
+
+
+def _related_for_page(fields: list[dict], related_schemas: dict) -> dict:
+    """Filter related schemas to the ones referenced by page fields."""
+    if not related_schemas:
+        return {}
+
+    results: dict[str, dict] = {}
+    for name, info in related_schemas.items():
+        for field in fields:
+            schema_id = field.get("schema_id")
+            type_name = (field.get("csharp_type") or "").rstrip("?")
+            type_name = type_name[:-2] if type_name.endswith("[]") else type_name
+            if schema_id and schema_id == info.get("schema_id"):
+                results[name] = info
+                break
+            if type_name == name:
+                results[name] = info
+                break
+    return results
+
+
+def _build_paged_prompt(
+    packet_meta: dict,
+    schema: dict,
+    page: dict,
+    generation: dict,
+) -> str:
+    """Build prompt for a single schema page."""
+    output_mode = _schema_output_mode(schema, page["page_index"])
+    namespace = _resolve_namespace(packet_meta, schema)
+
+    lines: list[str] = []
+    instructions = generation.get("instructions") if generation else None
+    if instructions:
+        lines.append(instructions)
+        lines.append("")
+
+    lines.extend(_output_instructions(output_mode, schema["class_name"], namespace))
+    lines.append("")
+
+    lines.append("=" * 60)
+    lines.append(f"SCHEMA: {schema['class_name']} ({schema['schema_name']})")
+    lines.append("=" * 60)
+    lines.append(f"API Name: {packet_meta.get('ir_name')}")
+    lines.append(f"Schema ID: {schema.get('schema_id')}")
+    lines.append(f"Description: {schema.get('description') or 'No description'}")
+    if schema.get("primary_key_field"):
+        lines.append(f"Primary Key: {schema['primary_key_field']}")
+    lines.append(f"Namespace: {namespace}")
+    lines.append(f"Role: {schema.get('role')}")
+    lines.append("")
+
+    lines.append("PAGING:")
+    lines.append(f"  Page: {page['page_index']} of {page['page_count']}")
+    lines.append(f"  Fields in this page: {page['field_count']}")
+    lines.append(f"  Total fields: {schema.get('field_count', 0)}")
+    lines.append(f"  All field names: {', '.join(schema.get('field_names', []))}")
+    lines.append("")
+
+    parent_context = schema.get("parent_context")
+    if parent_context:
+        lines.append("PARENT CONTEXT:")
+        lines.append(f"  Parent Class: {parent_context.get('class_name')}")
+        lines.append(f"  Parent Description: {parent_context.get('description') or 'No description'}")
+        lines.append(f"  Parent Field Count: {parent_context.get('field_count', 0)}")
+        lines.append(f"  Parent Field Names: {', '.join(parent_context.get('field_names', []))}")
+        nested_names = parent_context.get("nested_type_names", [])
+        if nested_names:
+            lines.append(f"  Parent Nested Types: {', '.join(nested_names)}")
+        lines.append("")
+
+    nested_type_names = schema.get("nested_type_names", [])
+    if nested_type_names:
+        lines.append(f"NESTED TYPES: {', '.join(nested_type_names)}")
+        lines.append("Use these class names for matching nested object fields in this schema.")
+        lines.append("")
+
+    lines.append("FIELDS (this page):")
+    lines.append("-" * 40)
+    lines.extend(format_fields_section(page["fields"]))
+
+    related = _related_for_page(page["fields"], schema.get("related_schemas", {}))
+    if related:
+        lines.append("")
+        lines.append("RELATED TYPES (for nested objects):")
+        lines.append("-" * 40)
+        for rel_name, rel_info in related.items():
+            lines.append(f"\n  {rel_name}:")
+            if rel_info.get("description"):
+                lines.append(f"    Description: {rel_info['description']}")
+            for rf in rel_info.get("fields", [])[:10]:
+                rf_attrs = []
+                if rf.get("required"):
+                    rf_attrs.append("required")
+                if rf.get("nullable"):
+                    rf_attrs.append("nullable")
+                if rf.get("write_only"):
+                    rf_attrs.append("PII")
+                attr_str = f" [{', '.join(rf_attrs)}]" if rf_attrs else ""
+                lines.append(f"      {rf['json_name']}: {rf['csharp_type']}{attr_str}")
+            if len(rel_info.get("fields", [])) > 10:
+                lines.append(f"      ... and {len(rel_info['fields']) - 10} more fields")
+
+    lines.append("")
+    lines.append("EXAMPLE CODE PATTERN:")
+    lines.append("-" * 40)
+    lines.append(_example_code(output_mode, schema["class_name"], namespace))
+
+    return "\n".join(lines)
 
 
 def build_prompt_from_packet(packet: dict) -> str:
@@ -81,6 +297,8 @@ def _build_flat_prompt(packet: dict) -> str:
     lines.append(f"Description: {metadata['description'] or 'No description'}")
     if metadata.get("primary_key_field"):
         lines.append(f"Primary Key: {metadata['primary_key_field']}")
+    resource_name = metadata["data_object_name"].removesuffix("DataObject")
+    lines.append(f"Namespace: Connector.{metadata['ir_name']}.v1.{resource_name}")
     lines.append("")
 
     # Fields
@@ -142,6 +360,8 @@ def _build_grouped_prompt(packet: dict) -> str:
     lines.append(f"Description: {parent['description'] or 'No description'}")
     if parent.get("primary_key_field"):
         lines.append(f"Primary Key: {parent['primary_key_field']}")
+    resource_name = metadata["data_object_name"].removesuffix("DataObject")
+    lines.append(f"Namespace: Connector.{metadata['ir_name']}.v1.{resource_name}")
     lines.append("")
 
     lines.append("FIELDS:")
@@ -174,6 +394,103 @@ def _build_grouped_prompt(packet: dict) -> str:
     return "\n".join(lines)
 
 
+def _legacy_schema_entry(
+    schema_info: dict,
+    class_name: str,
+    role: str,
+    related_schemas: dict | None = None,
+    parent_context: dict | None = None,
+) -> dict:
+    """Normalize legacy schema info into the paged schema format."""
+    fields = schema_info.get("fields", [])
+    page = {
+        "page_index": 1,
+        "page_count": 1,
+        "field_count": len(fields),
+        "fields": fields,
+    }
+    entry = {
+        "schema_id": schema_info.get("schema_id"),
+        "schema_name": schema_info.get("schema_name") or schema_info.get("name"),
+        "class_name": class_name,
+        "description": schema_info.get("description") or "",
+        "kind": schema_info.get("kind") or "object",
+        "primary_key_field": schema_info.get("primary_key_field"),
+        "field_count": len(fields),
+        "field_names": [field.get("json_name", "") for field in fields],
+        "pages": [page],
+        "related_schemas": related_schemas or {},
+        "role": role,
+    }
+    if parent_context:
+        entry["parent_context"] = parent_context
+    return entry
+
+
+def _normalize_packet_schemas(packet: dict) -> list[dict]:
+    """Return schema entries for both paged and legacy packet formats."""
+    if "schemas" in packet:
+        return packet["schemas"]
+
+    metadata = packet.get("metadata", {})
+    if metadata.get("is_grouped"):
+        parent = packet.get("parent", {})
+        nested_types = packet.get("nested_types", [])
+        parent_class_name = metadata.get("data_object_name") or parent.get("name", "DataObject")
+        parent_entry = _legacy_schema_entry(
+            parent,
+            class_name=parent_class_name,
+            role="parent",
+        )
+        parent_context = {
+            "class_name": parent_entry["class_name"],
+            "schema_name": parent_entry["schema_name"],
+            "description": parent_entry["description"],
+            "field_names": parent_entry["field_names"],
+            "field_count": parent_entry["field_count"],
+        }
+
+        entries = [parent_entry]
+        for nested in nested_types:
+            entries.append(
+                _legacy_schema_entry(
+                    nested,
+                    class_name=nested.get("name", "NestedType"),
+                    role="nested",
+                    parent_context=parent_context,
+                )
+            )
+        return entries
+
+    class_name = metadata.get("data_object_name") or "DataObject"
+    return [
+        _legacy_schema_entry(
+            {
+                "schema_id": metadata.get("schema_id"),
+                "schema_name": metadata.get("schema_name"),
+                "description": metadata.get("description"),
+                "kind": metadata.get("kind"),
+                "primary_key_field": metadata.get("primary_key_field"),
+                "fields": packet.get("fields", []),
+            },
+            class_name=class_name,
+            role="flat",
+            related_schemas=packet.get("related_schemas", {}),
+        )
+    ]
+
+
+def _iter_schema_pages(packet: dict) -> Iterator[tuple[dict, dict, str, str]]:
+    """Yield schema/page/output_mode/prompt tuples for a packet."""
+    metadata = packet.get("metadata", {})
+    generation = packet.get("generation", {})
+    for schema in _normalize_packet_schemas(packet):
+        for page in schema.get("pages", []):
+            output_mode = _schema_output_mode(schema, page["page_index"])
+            prompt = _build_paged_prompt(metadata, schema, page, generation)
+            yield schema, page, output_mode, prompt
+
+
 def generate_from_packet(
     packet: dict,
     provider: LLMProvider,
@@ -189,17 +506,44 @@ def generate_from_packet(
     Returns:
         Generated C# code
     """
-    prompt = build_prompt_from_packet(packet)
+    if "schemas" not in packet:
+        prompt = build_prompt_from_packet(packet)
+        if show_prompt:
+            print("\n--- PROMPT ---")
+            print(prompt[:2000])
+            if len(prompt) > 2000:
+                print(f"\n... ({len(prompt) - 2000} more characters)")
+            print("--- END PROMPT ---\n")
+        response = provider.generate(prompt)
+        return extract_code_from_response(response)
 
-    if show_prompt:
-        print("\n--- PROMPT ---")
-        print(prompt[:2000])
-        if len(prompt) > 2000:
-            print(f"\n... ({len(prompt) - 2000} more characters)")
-        print("--- END PROMPT ---\n")
+    schema_outputs: list[str] = []
+    for schema in _normalize_packet_schemas(packet):
+        page_outputs: list[str] = []
+        for page in schema.get("pages", []):
+            prompt = _build_paged_prompt(packet["metadata"], schema, page, packet.get("generation", {}))
+            if show_prompt:
+                print(
+                    f"\n--- PROMPT ({schema['class_name']} page {page['page_index']}/{page['page_count']}) ---"
+                )
+                print(prompt[:2000])
+                if len(prompt) > 2000:
+                    print(f"\n... ({len(prompt) - 2000} more characters)")
+                print("--- END PROMPT ---\n")
 
-    response = provider.generate(prompt)
-    return extract_code_from_response(response)
+            response = provider.generate(prompt)
+            page_outputs.append(extract_code_from_response(response))
+
+        if not page_outputs:
+            continue
+
+        class_code = page_outputs[0]
+        for extra in page_outputs[1:]:
+            fields_block = _extract_field_block(extra)
+            class_code = _insert_fields(class_code, fields_block)
+        schema_outputs.append(class_code.rstrip())
+
+    return "\n\n".join(schema_outputs).rstrip() + "\n"
 
 
 def generate_from_packets_dir(
@@ -255,14 +599,27 @@ def generate_from_packets_dir(
         print(f"{'=' * 60}")
 
         if dry_run:
-            prompt = build_prompt_from_packet(packet)
-            if show_prompt:
-                print("\n--- PROMPT ---")
-                print(prompt[:2000])
-                if len(prompt) > 2000:
-                    print(f"\n... ({len(prompt) - 2000} more characters)")
-                print("--- END PROMPT ---\n")
-            print(f"  Would generate: {name}.cs")
+            if "schemas" in packet:
+                prompts = list(_iter_schema_pages(packet))
+                if show_prompt:
+                    for schema, page, output_mode, prompt in prompts:
+                        print(
+                            f"\n--- PROMPT ({schema['class_name']} page {page['page_index']}/{page['page_count']}) ---"
+                        )
+                        print(prompt[:2000])
+                        if len(prompt) > 2000:
+                            print(f"\n... ({len(prompt) - 2000} more characters)")
+                        print("--- END PROMPT ---\n")
+                print(f"  Would generate: {name}.cs ({len(prompts)} prompts)")
+            else:
+                prompt = build_prompt_from_packet(packet)
+                if show_prompt:
+                    print("\n--- PROMPT ---")
+                    print(prompt[:2000])
+                    if len(prompt) > 2000:
+                        print(f"\n... ({len(prompt) - 2000} more characters)")
+                    print("--- END PROMPT ---\n")
+                print(f"  Would generate: {name}.cs")
             generated += 1
             continue
 
@@ -274,6 +631,12 @@ def generate_from_packets_dir(
             print(f"  Generated: {output_path}")
             generated += 1
         except Exception as e:
+            message = str(e)
+            if "429" in message or "insufficient_quota" in message:
+                print(f"  Error: {e}")
+                print("  Stopping generation due to quota/rate limit error (HTTP 429).")
+                errors += 1
+                break
             print(f"  Error: {e}")
             errors += 1
 

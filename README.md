@@ -138,6 +138,9 @@ model = ""             # empty = provider default
 [generation]
 grouped = true         # group parent-child schemas
 
+[prompting]
+max_fields_per_page = 10
+
 [filters]
 exclude_patterns = [".*Body$", ".*View$"]
 ```
@@ -165,6 +168,11 @@ python -m codegen list servicefusion --json    # JSON output
 
 # Show parent-child schema groups
 python -m codegen groups servicefusion
+
+# Show prompt pagination view
+python -m codegen pages servicefusion
+python -m codegen pages servicefusion --schema Customer
+python -m codegen pages servicefusion --show-fields
 
 # Generate prompt packets
 python -m codegen packets servicefusion

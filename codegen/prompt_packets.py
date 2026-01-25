@@ -9,8 +9,9 @@ Supports two modes:
 """
 
 import json
+import math
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Iterator
 
 from .ir_loader import IRLoader
 from .type_mapping import (
@@ -30,12 +31,8 @@ from .schema_filter import (
 
 
 def generate_instructions(grouped: bool = False) -> str:
-    """Generate LLM instructions for code generation.
-
-    Args:
-        grouped: Whether this is for grouped packets with nested types
-    """
-    base_instructions = """Generate a C# Trimble XChange DataObject class based on the provided schema information.
+    """Generate base LLM instructions for code generation."""
+    return """Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
 REQUIREMENTS:
 1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
@@ -54,64 +51,12 @@ REQUIREMENTS:
     - DateTime for datetime fields
     - DateOnly for date-only fields
 
-NAMESPACE PATTERN:
-Connector.{ApiName}.v1.{ResourceName}
-
-USINGS:
-using Json.Schema.Generation;
-using System.Text.Json.Serialization;
-using Xchange.Connector.SDK.CacheWriter;
-
 OUTPUT:
 Return ONLY the C# code, no explanations or markdown."""
-
-    if grouped:
-        return base_instructions + """
-
-This prompt includes a PARENT DataObject with NESTED TYPES that should be defined in the same file.
-Generate the parent DataObject class first, then all nested type classes.
-For nested object fields, use the nested type name (defined below in the same file).
-"""
-    return base_instructions
 
 
 def generate_example_code(grouped: bool = False) -> str:
     """Generate example code pattern for the LLM."""
-    if grouped:
-        return '''namespace Connector.servicefusion.v1.CalendarTask;
-
-using Json.Schema.Generation;
-using System.Text.Json.Serialization;
-using Xchange.Connector.SDK.CacheWriter;
-
-[PrimaryKey("id", nameof(Id))]
-[Description("A calendar task")]
-public class CalendarTaskDataObject
-{
-    [JsonPropertyName("id")]
-    [Description("Task identifier")]
-    [Nullable(true)]
-    public int? Id { get; init; }
-
-    [JsonPropertyName("repeat")]
-    [Description("Repeat schedule")]
-    [Nullable(true)]
-    public CalendarTaskRepeat? Repeat { get; init; }
-}
-
-public class CalendarTaskRepeat
-{
-    [JsonPropertyName("id")]
-    [Description("Repeat identifier")]
-    [Nullable(true)]
-    public int? Id { get; init; }
-
-    [JsonPropertyName("repeat_type")]
-    [Description("Type of repeat")]
-    [Nullable(true)]
-    public string? RepeatType { get; init; }
-}'''
-
     return '''namespace Connector.{ApiName}.v1.{ResourceName};
 
 using Json.Schema.Generation;
@@ -123,7 +68,7 @@ using Xchange.Connector.SDK.CacheWriter;
 /// </summary>
 [PrimaryKey("id", nameof({PrimaryKeyProperty}))]
 [Description("{Description}")]
-public class {ClassName}DataObject
+public class {ClassName}
 {
     [JsonPropertyName("id")]
     [Description("Unique identifier")]
@@ -153,9 +98,10 @@ class PromptPacketBuilder:
             print(packet["metadata"]["data_object_name"])
     """
 
-    def __init__(self, loader: IRLoader):
+    def __init__(self, loader: IRLoader, max_fields_per_page: int = 10):
         """Initialize the builder with an IR loader."""
         self.loader = loader
+        self.max_fields_per_page = max_fields_per_page
         self._schemas_by_id: dict[str, dict] | None = None
         self._schemas_by_name: dict[str, dict] | None = None
 
@@ -177,6 +123,107 @@ class PromptPacketBuilder:
                     clean = extract_clean_name(s["schema_id"], name_hint)
                     self._schemas_by_name[clean] = s
         return self._schemas_by_name
+
+    def _paginate_fields(self, fields: list[dict]) -> list[list[dict]]:
+        """Split fields into evenly sized pages with a max cap."""
+        if not fields:
+            return [[]]
+
+        max_fields = self.max_fields_per_page if self.max_fields_per_page > 0 else len(fields)
+        if len(fields) <= max_fields:
+            return [fields]
+
+        page_count = math.ceil(len(fields) / max_fields)
+        base_size = len(fields) // page_count
+        remainder = len(fields) % page_count
+
+        pages: list[list[dict]] = []
+        index = 0
+        for i in range(page_count):
+            size = base_size + (1 if i < remainder else 0)
+            pages.append(fields[index : index + size])
+            index += size
+        return pages
+
+    def _build_pages(self, fields: list[dict]) -> list[dict]:
+        """Build page dictionaries with pagination metadata."""
+        pages = self._paginate_fields(fields)
+        page_count = len(pages)
+        return [
+            {
+                "page_index": i + 1,
+                "page_count": page_count,
+                "field_count": len(page_fields),
+                "fields": page_fields,
+            }
+            for i, page_fields in enumerate(pages)
+        ]
+
+    def _build_related_info(self, schema: dict) -> dict[str, dict]:
+        """Build related schema info for nested object fields."""
+        related = self._find_related_schemas(schema, depth=2)
+        related_info: dict[str, dict] = {}
+        for rel_id, rel_schema in related.items():
+            rel_name = extract_clean_name(rel_id, rel_schema.get("name_hint"))
+            rel_fields = [
+                build_field_info(prop, self.schemas_by_id)
+                for prop in rel_schema.get("properties", [])
+            ]
+            related_info[rel_name] = {
+                "schema_id": rel_id,
+                "description": (rel_schema.get("description") or "").strip(),
+                "fields": rel_fields,
+            }
+        return related_info
+
+    def _build_schema_packet(
+        self,
+        schema: dict,
+        class_name: str,
+        role: str,
+        nested_type_names: set[str] | None = None,
+        parent_context: dict | None = None,
+    ) -> dict:
+        """Build a schema packet with paged fields and context."""
+        schema_id = schema.get("id", "")
+        name_hint = schema.get("name_hint")
+        clean_name = extract_clean_name(schema_id, name_hint)
+
+        fields = [
+            build_field_info(prop, self.schemas_by_id, nested_type_names)
+            for prop in schema.get("properties", [])
+        ]
+
+        # Find primary key
+        primary_key = None
+        for field in fields:
+            if field["json_name"] in ("id", "Id", "ID"):
+                primary_key = field["csharp_name"]
+                break
+
+        pages = self._build_pages(fields)
+
+        packet = {
+            "schema_id": schema_id,
+            "schema_name": clean_name,
+            "class_name": class_name,
+            "description": (schema.get("description") or "").strip(),
+            "kind": schema.get("kind", "object"),
+            "primary_key_field": primary_key,
+            "field_count": len(fields),
+            "field_names": [field["json_name"] for field in fields],
+            "pages": pages,
+            "related_schemas": self._build_related_info(schema),
+            "role": role,
+        }
+
+        if nested_type_names:
+            packet["nested_type_names"] = sorted(nested_type_names)
+
+        if parent_context:
+            packet["parent_context"] = parent_context
+
+        return packet
 
     def build_flat_packet(self, schema_id: str) -> dict | None:
         """Build a flat prompt packet for a single schema.
@@ -200,35 +247,11 @@ class PromptPacketBuilder:
         clean_name = extract_clean_name(schema_id, name_hint)
         data_object_name = format_data_object_name(clean_name)
 
-        # Build field information
-        fields = [
-            build_field_info(prop, self.schemas_by_id)
-            for prop in schema.get("properties", [])
-        ]
-
-        # Find related schemas for nested types
-        related = self._find_related_schemas(schema, depth=2)
-
-        # Build related schemas info
-        related_info = {}
-        for rel_id, rel_schema in related.items():
-            rel_name = extract_clean_name(rel_id, rel_schema.get("name_hint"))
-            rel_fields = [
-                build_field_info(prop, self.schemas_by_id)
-                for prop in rel_schema.get("properties", [])
-            ]
-            related_info[rel_name] = {
-                "schema_id": rel_id,
-                "description": (rel_schema.get("description") or "").strip(),
-                "fields": rel_fields,
-            }
-
-        # Determine primary key candidate
-        primary_key_field = None
-        for field in fields:
-            if field["json_name"] in ("id", "Id", "ID"):
-                primary_key_field = field["csharp_name"]
-                break
+        schema_packet = self._build_schema_packet(
+            schema,
+            class_name=data_object_name,
+            role="flat",
+        )
 
         return {
             "metadata": {
@@ -236,13 +259,15 @@ class PromptPacketBuilder:
                 "schema_name": clean_name,
                 "data_object_name": data_object_name,
                 "ir_name": self.loader.spec_name,
-                "description": (schema.get("description") or "").strip(),
-                "kind": schema.get("kind", "object"),
-                "primary_key_field": primary_key_field,
+                "description": schema_packet["description"],
+                "kind": schema_packet["kind"],
+                "primary_key_field": schema_packet.get("primary_key_field"),
+                "field_count": schema_packet["field_count"],
+                "page_count": len(schema_packet["pages"]),
+                "max_fields_per_page": self.max_fields_per_page,
                 "is_grouped": False,
             },
-            "fields": fields,
-            "related_schemas": related_info,
+            "schemas": [schema_packet],
             "generation": {
                 "instructions": generate_instructions(grouped=False),
                 "example_code": generate_example_code(grouped=False),
@@ -273,9 +298,24 @@ class PromptPacketBuilder:
             return None
 
         nested_type_names = set(child_names)
+        parent_class_name = format_data_object_name(parent_name)
 
-        # Build parent info
-        parent_info = self._build_schema_info(parent_schema, nested_type_names)
+        # Build parent schema packet
+        parent_info = self._build_schema_packet(
+            parent_schema,
+            class_name=parent_class_name,
+            role="parent",
+            nested_type_names=nested_type_names,
+        )
+
+        parent_context = {
+            "class_name": parent_info["class_name"],
+            "schema_name": parent_info["schema_name"],
+            "description": parent_info["description"],
+            "field_names": parent_info["field_names"],
+            "field_count": parent_info["field_count"],
+            "nested_type_names": sorted(nested_type_names),
+        }
 
         # Build nested types info
         nested_types = []
@@ -286,18 +326,24 @@ class PromptPacketBuilder:
             child_schema = self.loader.load_schema_detail(child_entry["schema_id"])
             if not child_schema:
                 continue
-            child_info = self._build_schema_info(child_schema)
+            child_info = self._build_schema_packet(
+                child_schema,
+                class_name=child_name,
+                role="nested",
+                parent_context=parent_context,
+            )
             nested_types.append(child_info)
 
         return {
             "metadata": {
                 "ir_name": self.loader.spec_name,
-                "data_object_name": format_data_object_name(parent_name),
+                "data_object_name": parent_class_name,
                 "is_grouped": True,
+                "schema_count": 1 + len(nested_types),
                 "nested_type_count": len(nested_types),
+                "max_fields_per_page": self.max_fields_per_page,
             },
-            "parent": parent_info,
-            "nested_types": nested_types,
+            "schemas": [parent_info] + nested_types,
             "generation": {
                 "instructions": generate_instructions(grouped=True),
                 "example_code": generate_example_code(grouped=True),
@@ -351,37 +397,6 @@ class PromptPacketBuilder:
             packet = self.build_grouped_packet(parent_name, children)
             if packet:
                 yield packet
-
-    def _build_schema_info(
-        self,
-        schema: dict,
-        nested_type_names: set[str] | None = None,
-    ) -> dict:
-        """Build schema info dict for a packet."""
-        schema_id = schema.get("id", "")
-        name_hint = schema.get("name_hint")
-        clean_name = extract_clean_name(schema_id, name_hint)
-
-        fields = [
-            build_field_info(prop, self.schemas_by_id, nested_type_names)
-            for prop in schema.get("properties", [])
-        ]
-
-        # Find primary key
-        primary_key = None
-        for field in fields:
-            if field["json_name"] in ("id", "Id", "ID"):
-                primary_key = field["csharp_name"]
-                break
-
-        return {
-            "schema_id": schema_id,
-            "name": clean_name,
-            "description": (schema.get("description") or "").strip(),
-            "kind": schema.get("kind", "object"),
-            "primary_key_field": primary_key,
-            "fields": fields,
-        }
 
     def _find_related_schemas(
         self,

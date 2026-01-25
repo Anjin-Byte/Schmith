@@ -60,6 +60,9 @@ def cmd_config(args: argparse.Namespace, config: CodegenConfig) -> int:
     print(f"  include_anonymous = {config.generation.include_anonymous}")
     print(f"  grouped = {config.generation.grouped}")
 
+    print("\n[prompting]")
+    print(f"  max_fields_per_page = {config.prompting.max_fields_per_page}")
+
     print("\n[filters]")
     print(f"  exclude_patterns = {config.filters.exclude_patterns}")
     print(f"  include_patterns = {config.filters.include_patterns}")
@@ -209,7 +212,10 @@ def cmd_packets(args: argparse.Namespace, config: CodegenConfig) -> int:
         print(f"Error: {e}", file=sys.stderr)
         return 1
 
-    builder = PromptPacketBuilder(loader)
+    builder = PromptPacketBuilder(
+        loader,
+        max_fields_per_page=config.prompting.max_fields_per_page,
+    )
 
     # Use config default for grouped if not specified
     grouped = args.grouped if args.grouped else config.generation.grouped
@@ -305,6 +311,80 @@ def cmd_generate(args: argparse.Namespace, config: CodegenConfig) -> int:
         print(f"Output directory: {output_dir}")
 
     return 0 if errors == 0 else 1
+
+
+def cmd_pages(args: argparse.Namespace, config: CodegenConfig) -> int:
+    """Show pagination view for schemas as submitted to the LLM."""
+    paths = config.resolve_paths()
+    ir_base = args.ir_dir or paths.ir_dir
+
+    try:
+        loader = IRLoader(args.ir_name, ir_base)
+    except FileNotFoundError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        return 1
+
+    builder = PromptPacketBuilder(
+        loader,
+        max_fields_per_page=config.prompting.max_fields_per_page,
+    )
+
+    grouped = args.grouped if args.grouped else config.generation.grouped
+    include_errors = args.include_errors or config.generation.include_errors
+
+    if grouped:
+        packets = builder.build_grouped_packets()
+    else:
+        packets = builder.build_flat_packets(include_errors=include_errors)
+
+    schema_filter = args.schema.lower().replace("dataobject", "") if args.schema else None
+    total_pages = 0
+
+    for packet in packets:
+        schemas = packet.get("schemas", [])
+        if not schemas:
+            continue
+
+        if schema_filter:
+            matched = []
+            for schema in schemas:
+                class_name = schema.get("class_name", "").lower()
+                schema_name = schema.get("schema_name", "").lower()
+                if schema_filter in class_name or schema_filter in schema_name:
+                    matched.append(schema)
+            schemas = matched
+            if not schemas:
+                continue
+
+        print("\n" + "=" * 60)
+        print(f"DataObject: {packet['metadata']['data_object_name']}")
+        print(f"Grouped: {packet['metadata'].get('is_grouped', False)}")
+        print(f"Max Fields/Page: {packet['metadata'].get('max_fields_per_page')}")
+
+        for schema in schemas:
+            pages = schema.get("pages", [])
+            page_count = len(pages)
+            total_pages += page_count
+
+            print("\n" + "-" * 60)
+            print(f"Schema: {schema.get('class_name')} ({schema.get('schema_name')})")
+            print(f"Role: {schema.get('role')}")
+            print(f"Total Fields: {schema.get('field_count')}")
+            print(f"Pages: {page_count}")
+
+            for page in pages:
+                fields = page.get("fields", [])
+                field_names = ", ".join(f.get("json_name", "") for f in fields)
+                print(
+                    f"  Page {page['page_index']}/{page['page_count']}"
+                    f" - {page['field_count']} fields"
+                )
+                if args.show_fields:
+                    print(f"    {field_names}")
+
+    print("\n" + "=" * 60)
+    print(f"Total prompt pages: {total_pages}")
+    return 0
 
 
 def main() -> int:
@@ -496,6 +576,42 @@ Examples:
         help="Print prompts being sent to LLM",
     )
     gen_parser.set_defaults(func=cmd_generate)
+
+    # Pagination view command
+    pages_parser = subparsers.add_parser(
+        "pages",
+        help="Show pagination view for LLM prompts",
+        description="Display how schema fields are paged for LLM submission.",
+    )
+    pages_parser.add_argument(
+        "ir_name",
+        help="IR name to analyze",
+    )
+    pages_parser.add_argument(
+        "--schema",
+        help="Filter to a specific schema",
+    )
+    pages_parser.add_argument(
+        "--grouped",
+        action="store_true",
+        help=f"Use grouped packets (config default: {config.generation.grouped})",
+    )
+    pages_parser.add_argument(
+        "--include-errors",
+        action="store_true",
+        help="Include error schemas",
+    )
+    pages_parser.add_argument(
+        "--show-fields",
+        action="store_true",
+        help="Show field names for each page",
+    )
+    pages_parser.add_argument(
+        "--ir-dir",
+        type=Path,
+        help="Base directory containing IR folders",
+    )
+    pages_parser.set_defaults(func=cmd_pages)
 
     args = parser.parse_args()
 

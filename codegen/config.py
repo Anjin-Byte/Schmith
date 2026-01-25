@@ -72,6 +72,13 @@ class GenerationConfig:
 
 
 @dataclass
+class PromptingConfig:
+    """Prompt construction settings."""
+
+    max_fields_per_page: int = 10
+
+
+@dataclass
 class FiltersConfig:
     """Schema filtering configuration."""
 
@@ -107,6 +114,7 @@ class CodegenConfig:
     paths: PathsConfig = field(default_factory=PathsConfig)
     llm: LLMConfig = field(default_factory=LLMConfig)
     generation: GenerationConfig = field(default_factory=GenerationConfig)
+    prompting: PromptingConfig = field(default_factory=PromptingConfig)
     filters: FiltersConfig = field(default_factory=FiltersConfig)
 
     @classmethod
@@ -132,6 +140,7 @@ class CodegenConfig:
             paths=_load_paths(data.get("paths", {})),
             llm=_load_llm(data.get("llm", {})),
             generation=_load_generation(data.get("generation", {})),
+            prompting=_load_prompting(data.get("prompting", {})),
             filters=_load_filters(data.get("filters", {})),
         )
 
@@ -173,6 +182,13 @@ def _load_generation(data: dict[str, Any]) -> GenerationConfig:
         include_errors=data.get("include_errors", False),
         include_anonymous=data.get("include_anonymous", False),
         grouped=data.get("grouped", False),
+    )
+
+
+def _load_prompting(data: dict[str, Any]) -> PromptingConfig:
+    """Load prompt construction configuration from dict."""
+    return PromptingConfig(
+        max_fields_per_page=data.get("max_fields_per_page", 10),
     )
 
 
