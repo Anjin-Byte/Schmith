@@ -132,8 +132,22 @@ def build_field(
     field_schema: Dict[str, Any],
     pointer: str,
     provenance: Provenance,
+    items_schema_id: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """Build a field entry for a schema."""
+    """Build a field entry for a schema.
+
+    Args:
+        name: Field name.
+        schema_id: Schema ID for the field type.
+        required: Whether the field is required.
+        field_schema: Raw field schema dict.
+        pointer: JSON pointer to the field.
+        provenance: Provenance information.
+        items_schema_id: For array fields, the schema ID of the array items.
+
+    Returns:
+        Field record dictionary.
+    """
     field = {
         "json_name": name,
         "schema_id": schema_id,
@@ -145,6 +159,7 @@ def build_field(
         "write_only": field_schema.get("writeOnly"),
         "examples": field_schema.get("examples"),
         "json_pointer": pointer,
+        "items_schema_id": items_schema_id,
         "provenance": provenance.__dict__,
     }
     field["availability"] = {
@@ -158,6 +173,7 @@ def build_field(
         "write_only": "native" if field["write_only"] is not None else "absent",
         "examples": "native" if field["examples"] is not None else "absent",
         "json_pointer": "adapter",
+        "items_schema_id": "native" if items_schema_id else "absent",
         "provenance": "native",
     }
     return field
@@ -206,12 +222,26 @@ def register_schema(
             if prop_required:
                 required_fields.append(prop_name)
             pointer = f"$.{prop_name}"
-            prop_schema_id = schema_id_for_raml_type(prop.get("type"))
+            prop_type = prop.get("type")
+            prop_schema_id = schema_id_for_raml_type(prop_type)
+
+            # For array properties, compute items_schema_id from the items field
+            prop_items_schema_id = None
+            if prop_type == "array":
+                items = prop.get("items")
+                if isinstance(items, dict):
+                    # First check if items content matches an existing named type
+                    items_hash = canonical_json_hash(items)
+                    if items_hash in schema_hashes:
+                        # Use the existing named type's schema ID
+                        prop_items_schema_id = schema_hashes[items_hash]
+                    else:
+                        prop_items_schema_id = schema_id_for_raml_type(items, allow_name_field=False)
+
             properties.append(
-                build_field(prop_name, prop_schema_id, prop_required, prop, pointer, provenance)
+                build_field(prop_name, prop_schema_id, prop_required, prop, pointer, provenance, prop_items_schema_id)
             )
             if register_nested and isinstance(prop, dict):
-                prop_type = prop.get("type")
                 if isinstance(prop_type, dict):
                     nested_id = schema_id_for_raml_type(prop_type, allow_name_field=False)
                     if nested_id:
@@ -347,8 +377,18 @@ def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str,
         provenance = Provenance(spec_path, f"raml:types:{primitive}")
         register_schema(schema_id, primitive, {"type": primitive}, False, provenance, spec, schemas, schema_hashes)
 
-    # Pass 1: Register all top-level named types without nested schemas
+    # Pass 0: Pre-populate schema_hashes with all named types
+    # This ensures array items can reference named types regardless of iteration order
     types = spec.get("types")
+    if isinstance(types, dict):
+        for name, schema in types.items():
+            if not isinstance(schema, dict):
+                continue
+            content_hash = canonical_json_hash(schema)
+            schema_id = f"schema:types/{name}"
+            schema_hashes[content_hash] = schema_id
+
+    # Pass 1: Register all top-level named types without nested schemas
     if isinstance(types, dict):
         for name, schema in types.items():
             if not isinstance(schema, dict):

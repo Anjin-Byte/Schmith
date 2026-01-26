@@ -131,11 +131,27 @@ def build_field_info(
     csharp_type, is_complex = schema_id_to_csharp_type(schema_id, schemas_by_id)
     csharp_name = json_name_to_csharp_property(json_name)
 
-    # Check if this field should use a nested type
+    # For array properties with items_schema_id, resolve the item type
+    items_schema_id = prop.get("items_schema_id")
+    if items_schema_id and csharp_type == "object[]":
+        item_type, _ = schema_id_to_csharp_type(items_schema_id, schemas_by_id)
+        if item_type != "object":
+            csharp_type = f"{item_type}[]"
+            is_complex = True
+
+    # Check if this field should use a nested type (fallback for object fields)
     if nested_type_names and csharp_type == "object":
         for nested_name in nested_type_names:
             if nested_name.lower().endswith(json_name.lower()):
                 csharp_type = nested_name
+                is_complex = True
+                break
+
+    # Check if this field should use a nested type (fallback for object[] fields)
+    if nested_type_names and csharp_type == "object[]":
+        for nested_name in nested_type_names:
+            if nested_name.lower().endswith(json_name.lower()):
+                csharp_type = f"{nested_name}[]"
                 is_complex = True
                 break
 

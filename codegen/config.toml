@@ -21,7 +21,9 @@ provider = "openai"
 # Default model (leave empty to use provider default)
 # Anthropic default: claude-3-5-haiku-20241022
 # OpenAI default: gpt-4o
-model = ""
+#model = "gpt-5-nano-2025-08-07"
+model = "gpt-5"
+#model = "claude-3-5-haiku-20241022"
 
 # Maximum tokens for LLM response
 max_tokens = 4096
@@ -38,14 +40,15 @@ grouped = true
 
 [prompting]
 # Maximum fields per prompt page
-max_fields_per_page = 10
+max_fields_per_page = 6
 
 [filters]
 # Schema name patterns to exclude from generation (regex patterns)
 exclude_patterns = [
-    ".*Body$",      # Exclude Body variants by default
-    ".*View$",      # Exclude View variants by default
+    ".*Body$",      # Exclude Body variants
+    ".*View$",      # Exclude View variants
 ]
 
 # Schema name patterns to always include (overrides exclude_patterns)
-include_patterns = []
+include_patterns = [
+]

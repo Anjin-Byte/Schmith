@@ -111,8 +111,9 @@ def filter_schemas(
         if not include_errors and is_error_schema(schema):
             continue
 
-        # Only include objects by default
-        if kind != "object":
+        # Include objects and schemas with composition (allOf/oneOf/anyOf)
+        has_composition = bool(schema.get("composition"))
+        if kind != "object" and not has_composition:
             continue
 
         object_name = extract_clean_name(schema_id, name_hint)
@@ -146,7 +147,7 @@ def find_parent_child_relationships(schemas: list[dict]) -> dict[str, list[str]]
     Returns:
         Dict mapping parent names to list of child names
     """
-    # Get all valid schema names (excluding errors, primitives, Body/View variants)
+    # Get all valid schema names (excluding errors, primitives)
     names: set[str] = set()
     for schema in schemas:
         name_hint = schema.get("name_hint")
@@ -159,20 +160,15 @@ def find_parent_child_relationships(schemas: list[dict]) -> dict[str, list[str]]
             continue
         names.add(name)
 
-    # Find potential parent names (base names without Body/View suffixes)
+    # Find potential parent names
     potential_parents: set[str] = set()
     for name in names:
-        if not is_variant_schema(name):
-            potential_parents.add(name)
+        potential_parents.add(name)
 
     # Build parent -> children mapping
     parent_children: dict[str, list[str]] = defaultdict(list)
 
     for name in names:
-        # Skip Body/View variants - they're not children
-        if is_variant_schema(name):
-            continue
-
         # Check if this name starts with a potential parent name
         for parent in potential_parents:
             if name == parent:
@@ -198,7 +194,6 @@ def get_root_schemas(
     Root schemas are:
     - Parents with children
     - Schemas that are not children of any parent
-    - Excludes Body/View variants
 
     Args:
         schemas: List of schema dictionaries from IR
@@ -225,10 +220,6 @@ def get_root_schemas(
         if is_error_schema(schema):
             continue
         if is_primitive_schema(schema):
-            continue
-
-        # Skip Body/View variants
-        if is_variant_schema(name):
             continue
 
         # Skip if it's a child

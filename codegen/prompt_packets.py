@@ -13,6 +13,7 @@ import math
 from pathlib import Path
 from typing import Iterator
 
+from .composition import CompositionResolver
 from .ir_loader import IRLoader
 from .type_mapping import (
     IR_TO_CSHARP_TYPE,
@@ -27,11 +28,37 @@ from .schema_filter import (
     get_root_schemas,
     is_error_schema,
     is_primitive_schema,
+    is_variant_schema,
 )
+
+
+_PROMPT_CACHE: dict[str, str] | None = None
+
+
+def _load_prompt_texts() -> dict[str, str]:
+    """Load prompt text from the prompts.json file."""
+    global _PROMPT_CACHE
+    if _PROMPT_CACHE is not None:
+        return _PROMPT_CACHE
+
+    prompt_path = Path(__file__).parent / "prompts.json"
+    if prompt_path.exists():
+        with open(prompt_path, encoding="utf-8") as f:
+            _PROMPT_CACHE = json.load(f)
+            return _PROMPT_CACHE
+
+    _PROMPT_CACHE = {}
+    return _PROMPT_CACHE
 
 
 def generate_instructions(grouped: bool = False) -> str:
     """Generate base LLM instructions for code generation."""
+    prompts = _load_prompt_texts()
+    instructions = prompts.get("instructions")
+    if instructions:
+        if isinstance(instructions, list):
+            return "\n".join(instructions)
+        return instructions
     return """Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
 REQUIREMENTS:
@@ -41,7 +68,7 @@ REQUIREMENTS:
 4. Mark required fields with [Required] attribute and use 'required' keyword
 5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
 6. Use 'init' accessors for immutable data objects: { get; init; }
-7. Include a [PrimaryKey] attribute on the class if an 'id' field exists
+7. Include a [PrimaryKey("id", nameof(Id))] attribute ONLY on the main DataObject class (the one ending in 'DataObject') if an 'id' field exists. Do NOT add [PrimaryKey] to nested/helper types.
 8. Add XML summary comments for the class
 9. Use appropriate C# types:
     - string for text
@@ -57,13 +84,13 @@ Return ONLY the C# code, no explanations or markdown."""
 
 def generate_example_code(grouped: bool = False) -> str:
     """Generate example code pattern for the LLM."""
-    return '''namespace Connector.{ApiName}.v1.{ResourceName};
-
-using Json.Schema.Generation;
-using System.Text.Json.Serialization;
-using Xchange.Connector.SDK.CacheWriter;
-
-/// <summary>
+    prompts = _load_prompt_texts()
+    example_code = prompts.get("example_code")
+    if example_code:
+        if isinstance(example_code, list):
+            return "\n".join(example_code)
+        return example_code
+    return '''/// <summary>
 /// {Description}
 /// </summary>
 [PrimaryKey("id", nameof({PrimaryKeyProperty}))]
@@ -104,6 +131,7 @@ class PromptPacketBuilder:
         self.max_fields_per_page = max_fields_per_page
         self._schemas_by_id: dict[str, dict] | None = None
         self._schemas_by_name: dict[str, dict] | None = None
+        self._composition_resolver: CompositionResolver | None = None
 
     @property
     def schemas_by_id(self) -> dict[str, dict]:
@@ -123,6 +151,16 @@ class PromptPacketBuilder:
                     clean = extract_clean_name(s["schema_id"], name_hint)
                     self._schemas_by_name[clean] = s
         return self._schemas_by_name
+
+    @property
+    def composition_resolver(self) -> CompositionResolver:
+        """Get the composition resolver, creating it lazily."""
+        if self._composition_resolver is None:
+            self._composition_resolver = CompositionResolver(
+                self.loader.load_schema_detail,
+                self.schemas_by_id,
+            )
+        return self._composition_resolver
 
     def _paginate_fields(self, fields: list[dict]) -> list[list[dict]]:
         """Split fields into evenly sized pages with a max cap."""
@@ -165,9 +203,11 @@ class PromptPacketBuilder:
         related_info: dict[str, dict] = {}
         for rel_id, rel_schema in related.items():
             rel_name = extract_clean_name(rel_id, rel_schema.get("name_hint"))
+            # Resolve properties including composition for related schemas
+            rel_resolved, _ = self.composition_resolver.resolve_properties(rel_schema)
             rel_fields = [
                 build_field_info(prop, self.schemas_by_id)
-                for prop in rel_schema.get("properties", [])
+                for prop in rel_resolved
             ]
             related_info[rel_name] = {
                 "schema_id": rel_id,
@@ -189,9 +229,12 @@ class PromptPacketBuilder:
         name_hint = schema.get("name_hint")
         clean_name = extract_clean_name(schema_id, name_hint)
 
+        # Resolve properties including composition (allOf)
+        resolved_properties, _ = self.composition_resolver.resolve_properties(schema)
+
         fields = [
             build_field_info(prop, self.schemas_by_id, nested_type_names)
-            for prop in schema.get("properties", [])
+            for prop in resolved_properties
         ]
 
         # Find primary key
@@ -374,8 +417,11 @@ class PromptPacketBuilder:
             if packet:
                 yield packet
 
-    def build_grouped_packets(self) -> Iterator[dict]:
+    def build_grouped_packets(self, exclude_variants: bool = True) -> Iterator[dict]:
         """Build grouped prompt packets with parent-child relationships.
+
+        Args:
+            exclude_variants: Exclude Body/View variants from grouping (default True)
 
         Yields:
             Grouped prompt packet dictionaries
@@ -388,6 +434,16 @@ class PromptPacketBuilder:
             and s.get("kind") == "object"
             and "anon/" not in s.get("schema_id", "")
         ]
+
+        # Filter out Body/View variants - they shouldn't be grouped with DataObjects
+        if exclude_variants:
+            from .type_mapping import extract_clean_name
+            valid_schemas = [
+                s for s in valid_schemas
+                if not is_variant_schema(
+                    extract_clean_name(s["schema_id"], s.get("name_hint"))
+                )
+            ]
 
         parent_children = find_parent_child_relationships(valid_schemas)
         root_schemas = get_root_schemas(valid_schemas, parent_children)

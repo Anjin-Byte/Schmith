@@ -65,6 +65,26 @@ def _insert_fields(base_code: str, fields_code: str) -> str:
     return f"{before}\n\n{fields_code.strip()}\n{after.lstrip()}"
 
 
+def _normalize_class_indentation(code: str, indent: str = "    ") -> str:
+    """Ensure member lines inside class braces are indented consistently."""
+    lines = code.splitlines()
+    out: list[str] = []
+    depth = 0
+    for line in lines:
+        stripped = line.lstrip()
+        # Update depth after processing line with opening brace
+        if depth > 0 and stripped and not line.startswith(indent):
+            if stripped.startswith(("[", "///", "//", "/*", "*", "public", "private", "protected", "internal")):
+                line = indent + stripped
+        out.append(line)
+        # Update depth based on braces in stripped line
+        depth += stripped.count("{")
+        depth -= stripped.count("}")
+        if depth < 0:
+            depth = 0
+    return "\n".join(out)
+
+
 def _schema_output_mode(schema: dict, page_index: int) -> str:
     """Determine output mode for a schema/page."""
     if page_index == 1:
@@ -88,30 +108,34 @@ def _resolve_namespace(packet_meta: dict, schema: dict) -> str:
     return f"Connector.{ir_name}.v1.{resource_name}"
 
 
-def _output_instructions(output_mode: str, class_name: str, namespace: str) -> list[str]:
-    """Build output-mode-specific instructions."""
-    lines = ["OUTPUT MODE:"]
+def _paging_instructions(output_mode: str, class_name: str) -> list[str]:
+    """Build paging-specific instructions (supplements base instructions from prompts.json)."""
+    lines = []
     if output_mode == "full_class":
-        lines.append(f"- Return a complete C# file for class `{class_name}`.")
-        lines.append(f"- Use file-scoped namespace `{namespace}`.")
-        lines.append("- Include these usings:")
-        lines.append("  using Json.Schema.Generation;")
-        lines.append("  using System.Text.Json.Serialization;")
-        lines.append("  using Xchange.Connector.SDK.CacheWriter;")
+        # Base instructions come from prompts.json, just add paging note
+        lines.append("PAGING NOTE:")
         lines.append("- Include only the fields listed for this page.")
     elif output_mode == "class_only":
+        lines.append("OUTPUT MODE: class_only")
         lines.append(f"- Return ONLY the class declaration for `{class_name}`.")
         lines.append("- Do NOT include namespace or using statements.")
         lines.append("- Include only the fields listed for this page.")
     else:
+        lines.append("OUTPUT MODE: fields_only")
         lines.append("- Return ONLY the property blocks for this page.")
         lines.append("- Do NOT include namespace, using statements, class declaration, or closing braces.")
         lines.append(f"- Wrap properties with `{FIELDS_START_MARKER}` and `{FIELDS_END_MARKER}` markers.")
     return lines
 
 
-def _example_code(output_mode: str, class_name: str, namespace: str) -> str:
-    """Generate example code for the requested output mode."""
+def _paging_example_code(output_mode: str, class_name: str, base_example: str | None) -> str:
+    """Generate example code for paging modes, using base example for full_class.
+
+    Args:
+        output_mode: The output mode (full_class, class_only, fields_only)
+        class_name: The class name for substitution
+        base_example: The example_code from prompts.json (used for full_class)
+    """
     if output_mode == "fields_only":
         return f"""{FIELDS_START_MARKER}
     [JsonPropertyName("example_field")]
@@ -129,13 +153,12 @@ def _example_code(output_mode: str, class_name: str, namespace: str) -> str:
     public string? ExampleField {{ get; init; }}
 }}"""
 
-    return f"""namespace {namespace};
+    # full_class mode: use base example from prompts.json
+    if base_example:
+        return base_example
 
-using Json.Schema.Generation;
-using System.Text.Json.Serialization;
-using Xchange.Connector.SDK.CacheWriter;
-
-/// <summary>
+    # Fallback if no base example provided
+    return f"""/// <summary>
 /// Example description.
 /// </summary>
 [PrimaryKey("id", nameof(Id))]
@@ -180,13 +203,18 @@ def _build_paged_prompt(
     namespace = _resolve_namespace(packet_meta, schema)
 
     lines: list[str] = []
+
+    # Use base instructions from prompts.json
     instructions = generation.get("instructions") if generation else None
     if instructions:
         lines.append(instructions)
         lines.append("")
 
-    lines.extend(_output_instructions(output_mode, schema["class_name"], namespace))
-    lines.append("")
+    # Add paging-specific instructions (supplements, doesn't duplicate)
+    paging_instr = _paging_instructions(output_mode, schema["class_name"])
+    if paging_instr:
+        lines.extend(paging_instr)
+        lines.append("")
 
     lines.append("=" * 60)
     lines.append(f"SCHEMA: {schema['class_name']} ({schema['schema_name']})")
@@ -254,9 +282,81 @@ def _build_paged_prompt(
     lines.append("")
     lines.append("EXAMPLE CODE PATTERN:")
     lines.append("-" * 40)
-    lines.append(_example_code(output_mode, schema["class_name"], namespace))
+    base_example = generation.get("example_code") if generation else None
+    lines.append(_paging_example_code(output_mode, schema["class_name"], base_example))
 
     return "\n".join(lines)
+
+
+def _format_prompt_text(packet: dict) -> str:
+    """Build a human-readable prompt text for storage."""
+    if "schemas" not in packet:
+        return build_prompt_from_packet(packet)
+
+    parts: list[str] = []
+    for schema, page, _, prompt in _iter_schema_pages(packet):
+        header = (
+            f"{schema.get('class_name')} ({schema.get('role')}) "
+            f"page {page.get('page_index')}/{page.get('page_count')}"
+        )
+        parts.append("=" * 80)
+        parts.append(header)
+        parts.append("=" * 80)
+        parts.append(prompt)
+        parts.append("")
+    return "\n".join(parts).strip() + "\n"
+
+
+def _format_schema_markdown(packet: dict) -> str:
+    """Build a simple markdown summary of schema structure."""
+    metadata = packet.get("metadata", {})
+    lines = [f"# {metadata.get('data_object_name', 'DataObject')}", ""]
+
+    for schema in _normalize_packet_schemas(packet):
+        lines.append(f"## {schema.get('class_name', 'Schema')}")
+        lines.append(f"- Role: {schema.get('role', 'schema')}")
+        if schema.get("role") == "nested":
+            parent_context = schema.get("parent_context", {})
+            parent_name = parent_context.get("class_name", "")
+            if parent_name:
+                lines.append(f"- Parent: {parent_name}")
+        lines.append(f"- Schema Name: {schema.get('schema_name', '')}")
+        lines.append(f"- Schema ID: {schema.get('schema_id', '')}")
+        if schema.get("primary_key_field"):
+            lines.append(f"- Primary Key: {schema['primary_key_field']}")
+        lines.append("")
+        lines.append("### Fields")
+        fields = schema.get("fields")
+        if not fields:
+            fields = []
+            for page in schema.get("pages", []):
+                fields.extend(page.get("fields", []))
+        for field in fields:
+            field_name = field.get("json_name", "")
+            field_type = field.get("csharp_type", "")
+            lines.append(f"- `{field_name}`: `{field_type}`")
+        lines.append("")
+
+        if schema.get("role") == "parent":
+            nested = schema.get("nested_type_names", [])
+            if nested:
+                lines.append("### Nested Types")
+                for name in nested:
+                    lines.append(f"- `{name}`")
+                lines.append("")
+
+    return "\n".join(lines).strip() + "\n"
+
+
+def _ensure_symlink(link_path: Path, target_path: Path) -> None:
+    """Create or replace a symlink to the target path."""
+    if link_path.exists() or link_path.is_symlink():
+        link_path.unlink()
+    try:
+        link_path.symlink_to(target_path)
+    except OSError:
+        # Fallback to copying if symlinks aren't supported.
+        link_path.write_text(target_path.read_text(encoding="utf-8"), encoding="utf-8")
 
 
 def build_prompt_from_packet(packet: dict) -> str:
@@ -491,6 +591,28 @@ def _iter_schema_pages(packet: dict) -> Iterator[tuple[dict, dict, str, str]]:
             yield schema, page, output_mode, prompt
 
 
+def _format_page_status(packet_meta: dict, schema: dict, page: dict) -> str:
+    """Format a status line for schema/page processing."""
+    data_object = packet_meta.get("data_object_name", "DataObject")
+    schema_name = schema.get("class_name", "Schema")
+    role = schema.get("role", "schema")
+    parent_context = schema.get("parent_context", {})
+    parent_name = parent_context.get("class_name") if role == "nested" else None
+    field_count = page.get("field_count", 0)
+    page_index = page.get("page_index", 1)
+    page_count = page.get("page_count", 1)
+
+    if parent_name:
+        return (
+            f"Processing: {data_object} -> {schema_name} ({role}) "
+            f"page {page_index}/{page_count} - {field_count} fields"
+        )
+    return (
+        f"Processing: {data_object} -> {schema_name} ({role}) "
+        f"page {page_index}/{page_count} - {field_count} fields"
+    )
+
+
 def generate_from_packet(
     packet: dict,
     provider: LLMProvider,
@@ -521,6 +643,7 @@ def generate_from_packet(
     for schema in _normalize_packet_schemas(packet):
         page_outputs: list[str] = []
         for page in schema.get("pages", []):
+            print(_format_page_status(packet.get("metadata", {}), schema, page))
             prompt = _build_paged_prompt(packet["metadata"], schema, page, packet.get("generation", {}))
             if show_prompt:
                 print(
@@ -541,7 +664,7 @@ def generate_from_packet(
         for extra in page_outputs[1:]:
             fields_block = _extract_field_block(extra)
             class_code = _insert_fields(class_code, fields_block)
-        schema_outputs.append(class_code.rstrip())
+        schema_outputs.append(_normalize_class_indentation(class_code).rstrip())
 
     return "\n\n".join(schema_outputs).rstrip() + "\n"
 
@@ -598,6 +721,20 @@ def generate_from_packets_dir(
         print(f"Processing: {name}")
         print(f"{'=' * 60}")
 
+        object_dir = output_dir / name
+        source_dir = output_dir / "source"
+        object_dir.mkdir(parents=True, exist_ok=True)
+        source_dir.mkdir(parents=True, exist_ok=True)
+        prompt_text = _format_prompt_text(packet)
+        schema_md = _format_schema_markdown(packet)
+
+        prompt_path = object_dir / "prompt.txt"
+        schema_path = object_dir / "schema.md"
+        with open(prompt_path, "w", encoding="utf-8") as f:
+            f.write(prompt_text)
+        with open(schema_path, "w", encoding="utf-8") as f:
+            f.write(schema_md)
+
         if dry_run:
             if "schemas" in packet:
                 prompts = list(_iter_schema_pages(packet))
@@ -610,7 +747,7 @@ def generate_from_packets_dir(
                         if len(prompt) > 2000:
                             print(f"\n... ({len(prompt) - 2000} more characters)")
                         print("--- END PROMPT ---\n")
-                print(f"  Would generate: {name}.cs ({len(prompts)} prompts)")
+                print(f"  Would generate: source/{name}.cs (linked in {name}/)")
             else:
                 prompt = build_prompt_from_packet(packet)
                 if show_prompt:
@@ -619,15 +756,16 @@ def generate_from_packets_dir(
                     if len(prompt) > 2000:
                         print(f"\n... ({len(prompt) - 2000} more characters)")
                     print("--- END PROMPT ---\n")
-                print(f"  Would generate: {name}.cs")
+                print(f"  Would generate: source/{name}.cs (linked in {name}/)")
             generated += 1
             continue
 
         try:
             code = generate_from_packet(packet, provider, show_prompt)
-            output_path = output_dir / f"{name}.cs"
+            output_path = source_dir / f"{name}.cs"
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(code)
+            _ensure_symlink(object_dir / f"{name}.cs", output_path)
             print(f"  Generated: {output_path}")
             generated += 1
         except Exception as e:

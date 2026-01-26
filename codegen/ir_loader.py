@@ -79,9 +79,24 @@ class IRLoader:
         return self._schemas_index
 
     def schemas_by_id(self) -> dict[str, dict]:
-        """Get schemas indexed by schema_id for fast lookup."""
+        """Get schemas indexed by schema_id for fast lookup.
+
+        This includes both named schemas from the index and anonymous schemas
+        from individual files, ensuring all schemas can be resolved during
+        type mapping.
+        """
         if self._schemas_by_id is None:
+            # Start with schemas from the index
             self._schemas_by_id = {s["schema_id"]: s for s in self.schemas()}
+
+            # Add anonymous schemas from individual files
+            schemas_dir = self.ir_path / "schemas"
+            for path in schemas_dir.glob("schema_anon_*.json"):
+                schema_data = self._load_json(path)
+                schema_id = schema_data.get("id")
+                if schema_id and schema_id not in self._schemas_by_id:
+                    self._schemas_by_id[schema_id] = schema_data
+
         return self._schemas_by_id
 
     def operations(self) -> list[dict]:
