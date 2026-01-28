@@ -24,7 +24,8 @@ from .type_mapping import (
 )
 from .schema_filter import (
     filter_schemas,
-    find_parent_child_relationships,
+    find_parent_child_relationships_from_ir,
+    find_reachable_component_names,
     get_root_schemas,
     is_error_schema,
     is_primitive_schema,
@@ -237,14 +238,49 @@ class PromptPacketBuilder:
             for prop in resolved_properties
         ]
 
-        # Find primary key
+        # Find primary key using cascading detection:
+        # 1. Prefer field named 'id' (if non-nullable)
+        # 2. Fall back to first required field
+        # 3. Fall back to first explicitly non-nullable field
+        # 4. If all fail, flag for LLM selection
         primary_key = None
+        primary_key_needs_selection = False
+
+        # Step 1: Look for 'id' field
         for field in fields:
-            if field["json_name"] in ("id", "Id", "ID"):
+            if field["json_name"] in ("id", "Id", "ID") and not field.get("nullable"):
                 primary_key = field["csharp_name"]
                 break
 
+        # Step 2: Fall back to first required field
+        if not primary_key:
+            for field in fields:
+                if field.get("required") and not field.get("nullable"):
+                    primary_key = field["csharp_name"]
+                    break
+
+        # Step 3: Fall back to first explicitly non-nullable field
+        if not primary_key:
+            for field in fields:
+                if field.get("nullable") is False:
+                    primary_key = field["csharp_name"]
+                    break
+
+        # Step 4: Flag for LLM selection if no suitable field found
+        if not primary_key and fields:
+            primary_key_needs_selection = True
+
         pages = self._build_pages(fields)
+
+        # Build related schemas info, but exclude types that will be generated
+        # as nested types (to avoid duplicate class definitions in output)
+        related_schemas = self._build_related_info(schema)
+        if nested_type_names:
+            related_schemas = {
+                name: info
+                for name, info in related_schemas.items()
+                if name not in nested_type_names
+            }
 
         packet = {
             "schema_id": schema_id,
@@ -253,10 +289,11 @@ class PromptPacketBuilder:
             "description": (schema.get("description") or "").strip(),
             "kind": schema.get("kind", "object"),
             "primary_key_field": primary_key,
+            "primary_key_needs_selection": primary_key_needs_selection,
             "field_count": len(fields),
             "field_names": [field["json_name"] for field in fields],
             "pages": pages,
-            "related_schemas": self._build_related_info(schema),
+            "related_schemas": related_schemas,
             "role": role,
         }
 
@@ -396,36 +433,72 @@ class PromptPacketBuilder:
     def build_flat_packets(
         self,
         include_errors: bool = False,
+        only_reachable: bool = True,
     ) -> Iterator[dict]:
         """Build flat prompt packets for all suitable schemas.
 
         Args:
             include_errors: Include error schemas
+            only_reachable: Only include schemas reachable from operations (default True).
+                This filters out orphan schemas that are not used by any operation
+                and are not referenced by any schema that is used by an operation.
+                Uses BFS traversal from operation-used schemas through the adjacency graph.
 
         Yields:
             Prompt packet dictionaries
         """
+        # Find all schemas reachable from operations
+        reachable_names: set[str] | None = None
+        if only_reachable:
+            adjacency = self.loader.adjacency()
+            operations = self.loader.operations()
+            reachable_names = find_reachable_component_names(
+                operations, adjacency, self.schemas_by_id
+            )
+
         schemas = filter_schemas(
             self.loader.schemas(),
             include_errors=include_errors,
             include_primitives=False,
             include_anonymous=False,
+            include_orphans=True,  # We handle orphan filtering via reachability
         )
 
         for schema_info in schemas:
+            # Filter to only reachable schemas
+            if reachable_names is not None and schema_info.name not in reachable_names:
+                continue
             packet = self.build_flat_packet(schema_info.schema_id)
             if packet:
                 yield packet
 
-    def build_grouped_packets(self, exclude_variants: bool = True) -> Iterator[dict]:
+    def build_grouped_packets(
+        self,
+        exclude_variants: bool = True,
+        only_reachable: bool = True,
+    ) -> Iterator[dict]:
         """Build grouped prompt packets with parent-child relationships.
 
         Args:
             exclude_variants: Exclude Body/View variants from grouping (default True)
+            only_reachable: Only include schemas reachable from operations (default True).
+                This filters out orphan schemas that are not used by any operation
+                and are not referenced by any schema that is used by an operation.
 
         Yields:
             Grouped prompt packet dictionaries
         """
+        # Load adjacency data and operations
+        adjacency = self.loader.adjacency()
+        operations = self.loader.operations()
+
+        # Find all schemas reachable from operations via the adjacency graph
+        reachable_names: set[str] | None = None
+        if only_reachable:
+            reachable_names = find_reachable_component_names(
+                operations, adjacency, self.schemas_by_id
+            )
+
         # Get valid schemas for grouping
         valid_schemas = [
             s for s in self.loader.schemas()
@@ -435,9 +508,15 @@ class PromptPacketBuilder:
             and "anon/" not in s.get("schema_id", "")
         ]
 
+        # Filter to only reachable schemas
+        if reachable_names is not None:
+            valid_schemas = [
+                s for s in valid_schemas
+                if extract_clean_name(s["schema_id"], s.get("name_hint")) in reachable_names
+            ]
+
         # Filter out Body/View variants - they shouldn't be grouped with DataObjects
         if exclude_variants:
-            from .type_mapping import extract_clean_name
             valid_schemas = [
                 s for s in valid_schemas
                 if not is_variant_schema(
@@ -445,7 +524,11 @@ class PromptPacketBuilder:
                 )
             ]
 
-        parent_children = find_parent_child_relationships(valid_schemas)
+        # Use IR adjacency data for accurate parent-child relationships
+        # Pass reachable_names to filter relationships to only include reachable schemas
+        parent_children = find_parent_child_relationships_from_ir(
+            adjacency, self.schemas_by_id, reachable_names
+        )
         root_schemas = get_root_schemas(valid_schemas, parent_children)
 
         for parent_name in root_schemas:
@@ -476,11 +559,13 @@ class PromptPacketBuilder:
             if not ref_schema:
                 continue
 
-            # Skip inline/anonymous with no useful info
-            if ref_schema.get("is_inline") and not ref_schema.get("name_hint"):
-                continue
-
             kind = ref_schema.get("kind", "")
+
+            # Skip inline/anonymous with no useful info (but allow arrays
+            # so we can follow their items_schema_id to find nested types)
+            if ref_schema.get("is_inline") and not ref_schema.get("name_hint"):
+                if kind != "array":
+                    continue
 
             # Include objects and named types
             if kind == "object" or ref_schema.get("name_hint"):

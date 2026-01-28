@@ -26,7 +26,12 @@ from pathlib import Path
 
 from .config import CodegenConfig, get_config
 from .ir_loader import IRLoader
-from .schema_filter import filter_schemas, find_parent_child_relationships, get_root_schemas
+from .schema_filter import (
+    filter_schemas,
+    find_parent_child_relationships,
+    find_parent_child_relationships_from_ir,
+    get_root_schemas,
+)
 from .type_mapping import format_data_object_name
 from .prompt_packets import PromptPacketBuilder, write_packets
 from .llm_providers import get_provider
@@ -178,7 +183,10 @@ def cmd_groups(args: argparse.Namespace, config: CodegenConfig) -> int:
         and "anon/" not in s.get("schema_id", "")
     ]
 
-    parent_children = find_parent_child_relationships(valid_schemas)
+    # Use IR adjacency data for accurate parent-child relationships
+    adjacency = loader.adjacency()
+    schemas_by_id = loader.schemas_by_id()
+    parent_children = find_parent_child_relationships_from_ir(adjacency, schemas_by_id)
     root_schemas = get_root_schemas(valid_schemas, parent_children)
 
     print(f"\nParent-Child Relationships for '{args.ir_name}':")

@@ -42,6 +42,12 @@ def format_fields_section(fields: list[dict], indent: str = "  ") -> list[str]:
         lines.append(f"{indent}{field['json_name']}: {type_str}{attr_str}")
         if field.get("description"):
             lines.append(f"{indent}  Description: {field['description']}")
+        enum_values = field.get("enum_values")
+        if isinstance(enum_values, list) and enum_values:
+            lines.append(f"{indent}  Enum: {', '.join(str(v) for v in enum_values)}")
+            enum_names = field.get("enum_names")
+            if isinstance(enum_names, list) and enum_names:
+                lines.append(f"{indent}  Enum Names: {', '.join(str(v) for v in enum_names)}")
         lines.append("")
     return lines
 
@@ -55,8 +61,29 @@ def _extract_field_block(code: str) -> str:
 
 
 def _insert_fields(base_code: str, fields_code: str) -> str:
-    """Insert fields before the final closing brace in a class block."""
-    insert_at = base_code.rfind("}")
+    """Insert fields before the closing brace of the first class block.
+
+    When a class has enums or other types defined after it, we need to find
+    the closing brace of the main class (first block), not the last brace
+    in the file.
+    """
+    # Find the first class's closing brace by tracking brace depth
+    depth = 0
+    insert_at = -1
+    in_first_block = False
+
+    for i, char in enumerate(base_code):
+        if char == "{":
+            if depth == 0:
+                in_first_block = True
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0 and in_first_block:
+                # Found the closing brace of the first top-level block
+                insert_at = i
+                break
+
     if insert_at == -1:
         return f"{base_code.rstrip()}\n\n{fields_code.strip()}\n"
 

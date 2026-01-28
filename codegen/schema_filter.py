@@ -74,6 +74,7 @@ def filter_schemas(
     include_primitives: bool = False,
     include_anonymous: bool = False,
     include_variants: bool = True,
+    include_orphans: bool = True,
 ) -> list[SchemaInfo]:
     """Filter schemas to get the list suitable for DataObject generation.
 
@@ -88,6 +89,7 @@ def filter_schemas(
         include_primitives: Include primitive type schemas
         include_anonymous: Include anonymous/inline schemas
         include_variants: Include Body/View variants (default True)
+        include_orphans: Include schemas not used by any operation (default True)
 
     Returns:
         List of SchemaInfo for schemas suitable for generation
@@ -109,6 +111,10 @@ def filter_schemas(
             continue
 
         if not include_errors and is_error_schema(schema):
+            continue
+
+        # Exclude orphan schemas (not used by any operation or other schema)
+        if not include_orphans and len(where_used) == 0:
             continue
 
         # Include objects and schemas with composition (allOf/oneOf/anyOf)
@@ -134,8 +140,193 @@ def filter_schemas(
     return results
 
 
+def _extract_component_name(schema_id: str) -> str | None:
+    """Extract component name from schema ID.
+
+    Args:
+        schema_id: Full schema ID like 'schema:components/Customer'
+
+    Returns:
+        Component name like 'Customer', or None if not a component
+    """
+    if "components/" in schema_id:
+        return schema_id.split("components/")[-1]
+    if "definitions/" in schema_id:
+        return schema_id.split("definitions/")[-1]
+    return None
+
+
+def find_reachable_schemas(
+    operations: list[dict],
+    adjacency: dict,
+    schemas_by_id: dict[str, dict],
+) -> set[str]:
+    """Find all schema IDs reachable from operations via the adjacency graph.
+
+    This performs a graph traversal starting from schemas used in operations
+    (requests and responses) and follows all schema references to find the
+    complete set of schemas that are actually used by the API.
+
+    Args:
+        operations: List of operation dicts from operations/index.json
+        adjacency: Adjacency graph from refs/adjacency.json
+        schemas_by_id: Dict mapping schema IDs to schema data
+
+    Returns:
+        Set of schema IDs that are reachable from operations
+    """
+    # Collect initial set of schemas from operations
+    root_schemas: set[str] = set()
+    for op in operations:
+        for schema_id in op.get("requests", []):
+            root_schemas.add(schema_id)
+        for schema_id in op.get("responses", []):
+            root_schemas.add(schema_id)
+
+    # BFS to find all reachable schemas
+    reachable: set[str] = set()
+    queue = list(root_schemas)
+    outgoing = adjacency.get("outgoing", {})
+
+    while queue:
+        current_id = queue.pop(0)
+        if current_id in reachable:
+            continue
+        reachable.add(current_id)
+
+        # Follow outgoing references
+        for ref in outgoing.get(current_id, []):
+            target_id = ref.get("to_schema_id", "")
+            if target_id and target_id not in reachable:
+                queue.append(target_id)
+
+                # Also follow items_schema_id for arrays
+                target_schema = schemas_by_id.get(target_id)
+                if target_schema and target_schema.get("kind") == "array":
+                    items_id = target_schema.get("items_schema_id")
+                    if items_id and items_id not in reachable:
+                        queue.append(items_id)
+
+    return reachable
+
+
+def find_reachable_component_names(
+    operations: list[dict],
+    adjacency: dict,
+    schemas_by_id: dict[str, dict],
+) -> set[str]:
+    """Find component names of all schemas reachable from operations.
+
+    This is a convenience wrapper that returns clean component names
+    instead of full schema IDs.
+
+    Args:
+        operations: List of operation dicts from operations/index.json
+        adjacency: Adjacency graph from refs/adjacency.json
+        schemas_by_id: Dict mapping schema IDs to schema data
+
+    Returns:
+        Set of component names (e.g., "Customer", "Order") that are reachable
+    """
+    reachable_ids = find_reachable_schemas(operations, adjacency, schemas_by_id)
+    names: set[str] = set()
+
+    for schema_id in reachable_ids:
+        name = _extract_component_name(schema_id)
+        if name:
+            names.add(name)
+
+    return names
+
+
+def find_parent_child_relationships_from_ir(
+    adjacency: dict,
+    schemas_by_id: dict[str, dict],
+    reachable_names: set[str] | None = None,
+) -> dict[str, list[str]]:
+    """Identify parent-child relationships using actual IR reference data.
+
+    Uses the adjacency graph from the IR to find schemas that are directly
+    referenced by other schemas via property_ref or items_ref.
+
+    Args:
+        adjacency: Adjacency graph from IR (refs/adjacency.json)
+        schemas_by_id: Dict mapping schema IDs to schema data
+        reachable_names: Optional set of schema names to include. If provided,
+            only relationships where BOTH parent and child are in this set
+            will be included. Use find_reachable_component_names() to get this.
+
+    Returns:
+        Dict mapping parent names to list of child schema names
+    """
+    outgoing = adjacency.get("outgoing", {})
+    parent_children: dict[str, set[str]] = defaultdict(set)
+
+    for parent_id, refs in outgoing.items():
+        parent_name = _extract_component_name(parent_id)
+        if not parent_name:
+            continue
+
+        # Skip if not in reachable set (when filtering is enabled)
+        if reachable_names is not None and parent_name not in reachable_names:
+            continue
+
+        # Check if parent is a valid object schema
+        parent_schema = schemas_by_id.get(parent_id)
+        if not parent_schema:
+            continue
+        if parent_schema.get("kind") != "object":
+            continue
+        if is_error_schema(parent_schema):
+            continue
+
+        for ref in refs:
+            child_id = ref.get("to_schema_id", "")
+            ref_kind = ref.get("kind", "")
+
+            # Only follow property_ref and items_ref (not additional_props_ref)
+            if ref_kind not in ("property_ref", "items_ref"):
+                continue
+
+            # If child is anonymous array, follow to its items
+            if "anon/" in child_id:
+                anon_schema = schemas_by_id.get(child_id)
+                if anon_schema and anon_schema.get("kind") == "array":
+                    items_id = anon_schema.get("items_schema_id")
+                    if items_id:
+                        child_id = items_id
+
+            child_name = _extract_component_name(child_id)
+            if not child_name:
+                continue
+
+            # Skip if not in reachable set (when filtering is enabled)
+            if reachable_names is not None and child_name not in reachable_names:
+                continue
+
+            # Check if child is a valid object schema (not primitive, not error)
+            child_schema = schemas_by_id.get(child_id)
+            if not child_schema:
+                continue
+            if child_schema.get("kind") != "object":
+                continue
+            if is_error_schema(child_schema):
+                continue
+            if is_primitive_schema(child_schema):
+                continue
+
+            # Don't add self-references
+            if child_name != parent_name:
+                parent_children[parent_name].add(child_name)
+
+    return {k: sorted(v) for k, v in parent_children.items()}
+
+
 def find_parent_child_relationships(schemas: list[dict]) -> dict[str, list[str]]:
-    """Identify parent-child relationships based on naming conventions.
+    """DEPRECATED: Identify parent-child relationships based on naming conventions.
+
+    WARNING: This function uses naming heuristics which produce false positives.
+    Use find_parent_child_relationships_from_ir() instead for accurate results.
 
     Detects relationships like:
     - Customer -> CustomerContact, CustomerEmail, CustomerLocation

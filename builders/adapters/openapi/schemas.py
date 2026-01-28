@@ -68,6 +68,8 @@ def build_field(
     provenance: Provenance,
 ) -> Dict[str, Any]:
     """Build a field entry for a schema."""
+    enum_values = field_schema.get("enum") if isinstance(field_schema.get("enum"), list) else None
+    enum_names = field_schema.get("x-enumNames") if isinstance(field_schema.get("x-enumNames"), list) else None
     field = {
         "json_name": name,
         "schema_id": schema_id,
@@ -78,6 +80,8 @@ def build_field(
         "read_only": field_schema.get("readOnly"),
         "write_only": field_schema.get("writeOnly"),
         "examples": field_schema.get("examples"),
+        "enum_values": enum_values,
+        "enum_names": enum_names,
         "json_pointer": pointer,
         "provenance": provenance.__dict__,
     }
@@ -91,6 +95,8 @@ def build_field(
         "read_only": "native" if field["read_only"] is not None else "absent",
         "write_only": "native" if field["write_only"] is not None else "absent",
         "examples": "native" if field["examples"] is not None else "absent",
+        "enum_values": "native" if enum_values is not None else "absent",
+        "enum_names": "native" if enum_names is not None else "absent",
         "json_pointer": "adapter",
         "provenance": "native",
     }
@@ -169,6 +175,8 @@ def register_schema(
         "kind": kind or "unknown",
         "title": schema.get("title"),
         "description": schema.get("description"),
+        "enum_values": schema.get("enum") if isinstance(schema.get("enum"), list) else None,
+        "enum_names": schema.get("x-enumNames") if isinstance(schema.get("x-enumNames"), list) else None,
         "properties": properties,
         "required": list(required_fields) if isinstance(required_fields, list) else [],
         "items_schema_id": items_schema_id,
@@ -184,6 +192,8 @@ def register_schema(
         "kind": "native" if schema.get("type") is not None else "absent",
         "title": "native" if schema.get("title") else "absent",
         "description": "native" if schema.get("description") else "absent",
+        "enum_values": "native" if schema_record["enum_values"] is not None else "absent",
+        "enum_names": "native" if schema_record["enum_names"] is not None else "absent",
         "properties": "native" if properties else "absent",
         "required": "native" if required_fields else "absent",
         "items_schema_id": "native" if items_schema_id else "absent",

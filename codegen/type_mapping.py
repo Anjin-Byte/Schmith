@@ -60,6 +60,19 @@ def json_name_to_csharp_property(json_name: str) -> str:
     return "".join(part.capitalize() for part in parts if part)
 
 
+def _enum_meta(schema: dict) -> tuple[list, list] | tuple[None, None]:
+    """Return enum values and names if present on a schema."""
+    enum_values = schema.get("enum_values")
+    if enum_values is None:
+        enum_values = (schema.get("constraints") or {}).get("enum")
+    enum_names = schema.get("enum_names")
+    if enum_names is None:
+        enum_names = schema.get("x-enumNames")
+    if isinstance(enum_values, list):
+        return enum_values, enum_names if isinstance(enum_names, list) else None
+    return None, None
+
+
 def schema_id_to_csharp_type(
     schema_id: str,
     schemas_by_id: dict[str, dict],
@@ -88,6 +101,14 @@ def schema_id_to_csharp_type(
 
     kind = schema.get("kind", "object")
 
+    enum_values, _ = _enum_meta(schema)
+    if enum_values is not None:
+        name_hint = schema.get("name_hint")
+        if name_hint:
+            clean_name = extract_clean_name(schema_id, name_hint)
+            return (clean_name, False)
+        return ("string", False)
+
     # Handle arrays
     if kind == "array":
         items_id = schema.get("items_schema_id")
@@ -112,14 +133,14 @@ def schema_id_to_csharp_type(
 def build_field_info(
     prop: dict,
     schemas_by_id: dict[str, dict],
-    nested_type_names: set[str] | None = None,
+    nested_type_names: set[str] | None = None,  # Deprecated: no longer used
 ) -> dict[str, Any]:
     """Build field information for a schema property.
 
     Args:
         prop: Property definition from schema
         schemas_by_id: Dictionary mapping schema IDs to schema data
-        nested_type_names: Optional set of nested type names for type inference
+        nested_type_names: DEPRECATED - was used for name-based type inference fallback
 
     Returns:
         Dictionary containing field metadata for code generation
@@ -131,7 +152,24 @@ def build_field_info(
     csharp_type, is_complex = schema_id_to_csharp_type(schema_id, schemas_by_id)
     csharp_name = json_name_to_csharp_property(json_name)
 
-    # For array properties with items_schema_id, resolve the item type
+    enum_values = prop.get("enum_values")
+    enum_names = prop.get("enum_names")
+    if enum_values is None:
+        schema = schemas_by_id.get(schema_id) if schema_id else None
+        if schema:
+            enum_values, enum_names = _enum_meta(schema)
+
+    if enum_values is not None:
+        schema = schemas_by_id.get(schema_id) if schema_id else None
+        name_hint = schema.get("name_hint") if schema else None
+        if name_hint:
+            csharp_type = extract_clean_name(schema_id, name_hint)
+        else:
+            csharp_type = f"{csharp_name}Enum"
+
+    # For array properties with items_schema_id on the property itself, resolve the item type
+    # Note: Most arrays have items_schema_id on the referenced schema, which is already
+    # handled by schema_id_to_csharp_type. This handles the rare case where it's on the property.
     items_schema_id = prop.get("items_schema_id")
     if items_schema_id and csharp_type == "object[]":
         item_type, _ = schema_id_to_csharp_type(items_schema_id, schemas_by_id)
@@ -139,21 +177,13 @@ def build_field_info(
             csharp_type = f"{item_type}[]"
             is_complex = True
 
-    # Check if this field should use a nested type (fallback for object fields)
-    if nested_type_names and csharp_type == "object":
-        for nested_name in nested_type_names:
-            if nested_name.lower().endswith(json_name.lower()):
-                csharp_type = nested_name
-                is_complex = True
-                break
-
-    # Check if this field should use a nested type (fallback for object[] fields)
-    if nested_type_names and csharp_type == "object[]":
-        for nested_name in nested_type_names:
-            if nested_name.lower().endswith(json_name.lower()):
-                csharp_type = f"{nested_name}[]"
-                is_complex = True
-                break
+    # Flag fields where type resolution returned 'object' - this indicates
+    # the IR may be missing data or the schema couldn't be resolved.
+    # The LLM will see this flag and can make an informed decision.
+    # NOTE: Previously this code used name-based fallback heuristics which
+    # matched field names to nested type names. This was removed because
+    # the IR provides schema_id references that should be used directly.
+    type_unresolved = csharp_type in ("object", "object[]")
 
     # Determine nullability
     nullable = prop.get("nullable")
@@ -168,6 +198,7 @@ def build_field_info(
         "csharp_name": csharp_name,
         "csharp_type": csharp_type,
         "is_complex_type": is_complex,
+        "type_unresolved": type_unresolved,
         "description": description,
         "required": required,
         "nullable": nullable,
@@ -175,6 +206,8 @@ def build_field_info(
         "write_only": prop.get("write_only"),
         "deprecated": prop.get("deprecated"),
         "schema_id": schema_id,
+        "enum_values": enum_values,
+        "enum_names": enum_names,
     }
 
 

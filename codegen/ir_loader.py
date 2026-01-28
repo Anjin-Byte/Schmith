@@ -89,12 +89,17 @@ class IRLoader:
             # Start with schemas from the index
             self._schemas_by_id = {s["schema_id"]: s for s in self.schemas()}
 
-            # Add anonymous schemas from individual files
+            # Add full schema details from individual files (named + anonymous)
             schemas_dir = self.ir_path / "schemas"
-            for path in schemas_dir.glob("schema_anon_*.json"):
+            for path in schemas_dir.glob("schema_*.json"):
+                if path.name == "index.json":
+                    continue
                 schema_data = self._load_json(path)
                 schema_id = schema_data.get("id")
                 if schema_id and schema_id not in self._schemas_by_id:
+                    self._schemas_by_id[schema_id] = schema_data
+                elif schema_id:
+                    # Prefer full schema detail over index summary
                     self._schemas_by_id[schema_id] = schema_data
 
         return self._schemas_by_id
