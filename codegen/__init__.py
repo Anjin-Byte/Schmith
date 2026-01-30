@@ -3,13 +3,11 @@
 This package provides tools for generating C# DataObject classes from
 API Intermediate Representations (IR).
 
-Modules:
-    ir_loader       Load and query IR data (schemas, operations, refs)
-    type_mapping    Convert IR types to C# types
-    schema_filter   Filter schemas for DataObject generation
-    prompt_packets  Generate prompt packets for LLM code generation
-    llm_providers   LLM provider implementations (Anthropic, OpenAI)
-    cli             Unified command-line interface
+Subpackages:
+    ir          Load and query IR data (schemas, operations, refs)
+    schema      Schema filtering and type mapping
+    generation  Prompt packet and code generation
+    providers   LLM provider implementations (Anthropic, OpenAI)
 
 Usage:
     # Via CLI
@@ -18,12 +16,24 @@ Usage:
     python -m codegen generate servicefusion
 
     # Via API
-    from codegen.ir_loader import IRLoader
-    from codegen.prompt_packets import PromptPacketBuilder
+    from codegen.ir import IRLoader
+    from codegen.generation import PromptPacketBuilder
 
     loader = IRLoader("servicefusion")
     builder = PromptPacketBuilder(loader)
-    packets = builder.build_all()
+    packets = builder.build_grouped_packets()
 """
 
+from .ir.loader import IRLoader
+from .generation.prompt_packets import PromptPacketBuilder
+from .generation.code_generator import generate_from_packets_dir
+from .providers.llm import get_provider
+
 __version__ = "0.1.0"
+
+__all__ = [
+    "IRLoader",
+    "PromptPacketBuilder",
+    "generate_from_packets_dir",
+    "get_provider",
+]

@@ -5,9 +5,9 @@ from pathlib import Path
 
 import pytest
 
-from codegen.composition import CompositionResolver
-from codegen.ir_loader import IRLoader as IrLoader
-from codegen.prompt_packets import PromptPacketBuilder
+from codegen.ir.composition import CompositionResolver
+from codegen.ir.loader import IRLoader as IrLoader
+from codegen.generation.prompt_packets import PromptPacketBuilder
 
 
 class TestCompositionIntegration:

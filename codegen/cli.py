@@ -4,6 +4,7 @@ This module provides a command-line interface with subcommands for:
 - config: Show current configuration
 - list: List available IRs and potential DataObjects
 - groups: Show parent-child schema relationships
+- coverage: Show schema coverage report (what's generated vs filtered)
 - packets: Generate prompt packets from IR
 - generate: Generate C# code from prompt packets
 
@@ -15,6 +16,7 @@ Usage:
     python -m codegen list                    # List available IRs
     python -m codegen list servicefusion      # List DataObjects for an IR
     python -m codegen groups servicefusion    # Show schema groups
+    python -m codegen coverage servicefusion  # Show coverage report
     python -m codegen packets servicefusion   # Generate prompt packets
     python -m codegen generate servicefusion  # Generate C# code
 """
@@ -22,36 +24,35 @@ Usage:
 import argparse
 import json
 import sys
-import warnings
 from pathlib import Path
 
 from .config import CodegenConfig, get_config
-from .ir_loader import IRLoader
-from .schema_filter import (
-    filter_schemas,
+from .filters import get_filters, SchemaFilters
+from .ir.loader import IRLoader
+from .schema.filter import (
     find_parent_child_relationships_from_ir,
     get_root_schemas,
 )
-from .type_mapping import format_data_object_name
-from .prompt_packets import PromptPacketBuilder, write_packets
-from .llm_providers import get_provider
-from .code_generator import generate_from_packets_dir
+from .schema.type_mapping import extract_clean_name, format_data_object_name
+from .generation.prompt_packets import PromptPacketBuilder, write_packets
+from .providers.llm import get_provider
+from .generation.code_generator import generate_from_packets_dir
 
 
 def cmd_config(args: argparse.Namespace, config: CodegenConfig) -> int:
     """Show current configuration."""
     paths = config.resolve_paths()
+    filters = get_filters()
 
     print("XChange DataObject Code Generation Configuration")
     print("=" * 60)
-    print(f"\nConfig file: {Path(__file__).parent / 'config.toml'}")
 
+    print(f"\nConfig file: {Path(__file__).parent / 'config.toml'}")
     print("\n[paths]")
     print(f"  ir_dir = {config.paths.ir_dir}")
     print(f"    -> {paths.ir_dir}")
     print(f"  packets_dir = {config.paths.packets_dir}")
-    print(f"    -> {paths.packets_dir}/flat/<ir>/  [DEPRECATED]")
-    print(f"    -> {paths.packets_dir}/grouped/<ir>/  [RECOMMENDED]")
+    print(f"    -> {paths.packets_dir}/grouped/<ir>/")
     print(f"  generated_dir = {config.paths.generated_dir}")
     print(f"    -> {paths.generated_dir}")
 
@@ -60,17 +61,23 @@ def cmd_config(args: argparse.Namespace, config: CodegenConfig) -> int:
     print(f"  model = {config.llm.model or '(provider default)'}")
     print(f"  max_tokens = {config.llm.max_tokens}")
 
-    print("\n[generation]")
-    print(f"  include_errors = {config.generation.include_errors}")
-    print(f"  include_anonymous = {config.generation.include_anonymous}")
-    print(f"  grouped = {config.generation.grouped}")
-
     print("\n[prompting]")
     print(f"  max_fields_per_page = {config.prompting.max_fields_per_page}")
 
-    print("\n[filters]")
-    print(f"  exclude_patterns = {config.filters.exclude_patterns}")
-    print(f"  include_patterns = {config.filters.include_patterns}")
+    print(f"\nFilters file: {Path(__file__).parent / 'filters.toml'}")
+    print("\n[categories]")
+    print(f"  include_errors = {filters.categories.include_errors}")
+    print(f"  include_anonymous = {filters.categories.include_anonymous}")
+    print(f"  include_variants = {filters.categories.include_variants}")
+    print(f"  include_primitives = {filters.categories.include_primitives}")
+
+    print("\n[patterns]")
+    print(f"  exclude = {filters.patterns.exclude}")
+    print(f"  include = {filters.patterns.include}")
+
+    print("\n[explicit]")
+    print(f"  exclude = {filters.explicit.exclude}")
+    print(f"  include = {filters.explicit.include}")
 
     return 0
 
@@ -79,6 +86,7 @@ def cmd_list(args: argparse.Namespace, config: CodegenConfig) -> int:
     """List available IRs or DataObjects for a specific IR."""
     paths = config.resolve_paths()
     ir_base = args.ir_dir or paths.ir_dir
+    filters = get_filters()
 
     # List available IRs
     if not args.ir_name:
@@ -107,23 +115,25 @@ def cmd_list(args: argparse.Namespace, config: CodegenConfig) -> int:
         print(f"Error: {e}", file=sys.stderr)
         return 1
 
-    # Use config defaults if not specified on command line
-    include_errors = args.include_errors or config.generation.include_errors
-    include_anonymous = args.include_anonymous or config.generation.include_anonymous
+    # Filter schemas using centralized filters
+    all_schemas = list(loader.schemas())
+    filtered_schemas = filters.filter_schemas(all_schemas)
 
-    schemas = filter_schemas(
-        loader.schemas(),
-        include_errors=include_errors,
-        include_primitives=False,
-        include_anonymous=include_anonymous,
-    )
-
-    # Apply filter patterns from config
-    if not args.no_filter:
-        schemas = [s for s in schemas if not config.filters.should_exclude(s.name)]
+    # Build schema info list for display
+    schemas = []
+    for schema in filtered_schemas:
+        schema_id = schema.get("schema_id", "")
+        name_hint = schema.get("name_hint", "")
+        clean_name = extract_clean_name(schema_id, name_hint)
+        schemas.append({
+            "name": clean_name,
+            "schema_id": schema_id,
+            "kind": schema.get("kind", ""),
+            "usage_count": len(schema.get("where_used", [])),
+        })
 
     # Sort by name
-    schemas.sort(key=lambda s: s.name.lower())
+    schemas.sort(key=lambda s: s["name"].lower())
 
     if args.json:
         output = {
@@ -132,11 +142,11 @@ def cmd_list(args: argparse.Namespace, config: CodegenConfig) -> int:
             "filtered_count": len(schemas),
             "xchange_objects": [
                 {
-                    "data_object_name": format_data_object_name(s.name),
-                    "schema_name": s.name,
-                    "schema_id": s.schema_id,
-                    "kind": s.kind,
-                    "usage_count": s.usage_count,
+                    "data_object_name": format_data_object_name(s["name"]),
+                    "schema_name": s["name"],
+                    "schema_id": s["schema_id"],
+                    "kind": s["kind"],
+                    "usage_count": s["usage_count"],
                 }
                 for s in schemas
             ],
@@ -150,12 +160,12 @@ def cmd_list(args: argparse.Namespace, config: CodegenConfig) -> int:
         print()
 
         for schema in schemas:
-            name = format_data_object_name(schema.name)
+            name = format_data_object_name(schema["name"])
             if args.verbose:
                 print(f"  {name}")
-                print(f"    Schema ID: {schema.schema_id}")
-                print(f"    Kind: {schema.kind}")
-                print(f"    Used in {schema.usage_count} operation(s)")
+                print(f"    Schema ID: {schema['schema_id']}")
+                print(f"    Kind: {schema['kind']}")
+                print(f"    Used in {schema['usage_count']} operation(s)")
                 print()
             else:
                 print(f"  {name}")
@@ -266,38 +276,15 @@ def cmd_packets(args: argparse.Namespace, config: CodegenConfig) -> int:
         max_fields_per_page=config.prompting.max_fields_per_page,
     )
 
-    # Use config default for grouped if neither --grouped nor --flat specified
-    if args.flat:
-        grouped = False  # Explicitly use deprecated flat mode
-    elif args.grouped:
-        grouped = True
-    else:
-        grouped = config.generation.grouped
-
     # Determine output directory
     if args.output_dir:
         output_dir = args.output_dir
     else:
-        output_dir = paths.packets_for(args.ir_name, grouped=grouped)
-
-    # Use config defaults for include options
-    include_errors = args.include_errors or config.generation.include_errors
+        output_dir = paths.packets_for(args.ir_name)
 
     print(f"Loading IR from {loader.ir_path}...")
 
-    if grouped:
-        # Generate grouped packets (recommended)
-        packets = builder.build_grouped_packets()
-    else:
-        # Generate flat packets [DEPRECATED]
-        print(
-            "\n[DEPRECATION WARNING] Flat packets are deprecated and will be removed "
-            "in a future version.\nUse --grouped flag for proper nested type support.\n"
-        )
-        # Suppress the DeprecationWarning from build_flat_packets since we already warned
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore", DeprecationWarning)
-            packets = builder.build_flat_packets(include_errors=include_errors)
+    packets = builder.build_grouped_packets()
 
     # Filter to specific schema if requested
     if args.schema:
@@ -321,23 +308,11 @@ def cmd_generate(args: argparse.Namespace, config: CodegenConfig) -> int:
     """Generate C# code from prompt packets."""
     paths = config.resolve_paths()
 
-    # Use config default for grouped if neither --grouped nor --flat specified
-    if args.flat:
-        grouped = False  # Explicitly use deprecated flat mode
-        print(
-            "\n[DEPRECATION WARNING] Flat packets are deprecated and will be removed "
-            "in a future version.\nUse --grouped flag for proper nested type support.\n"
-        )
-    elif args.grouped:
-        grouped = True
-    else:
-        grouped = config.generation.grouped
-
     # Determine packets directory
     if args.packets_dir:
         packets_dir = args.packets_dir
     else:
-        packets_dir = paths.packets_for(args.ir_name, grouped=grouped)
+        packets_dir = paths.packets_for(args.ir_name)
 
     if not packets_dir.exists():
         print(f"Error: Prompt packets directory not found: {packets_dir}", file=sys.stderr)
@@ -383,6 +358,155 @@ def cmd_generate(args: argparse.Namespace, config: CodegenConfig) -> int:
     return 0 if errors == 0 else 1
 
 
+def cmd_coverage(args: argparse.Namespace, config: CodegenConfig) -> int:
+    """Show schema coverage report - what's generated vs filtered."""
+    from datetime import datetime
+
+    paths = config.resolve_paths()
+    ir_base = args.ir_dir or paths.ir_dir
+    filters = get_filters()
+
+    try:
+        loader = IRLoader(args.ir_name, ir_base)
+    except FileNotFoundError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        return 1
+
+    all_schemas = list(loader.schemas())
+
+    # Categorize schemas using centralized filters
+    categories = filters.categorize_schemas(all_schemas)
+
+    # Check for unaccounted
+    total_categorized = sum(len(v) for v in categories.values())
+    unaccounted = len(all_schemas) - total_categorized
+    coverage_pct = (len(categories["generated"]) / len(all_schemas) * 100) if all_schemas else 0
+
+    # Category labels for display
+    filter_categories = [
+        ("anonymous", "Anonymous/inline schemas"),
+        ("primitive", "Primitive types"),
+        ("non_object", "Non-object kinds"),
+        ("error", "Error schemas"),
+        ("variant", "Body/View variants"),
+        ("pattern_exclude", "Pattern excluded"),
+        ("explicit_exclude", "Explicitly excluded"),
+    ]
+
+    # Build markdown report
+    md_lines = [
+        f"# Schema Coverage Report: {args.ir_name}",
+        "",
+        f"**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        f"**IR Source:** `{loader.ir_path}`",
+        "",
+        "## Summary",
+        "",
+        "| Metric | Count |",
+        "|--------|-------|",
+        f"| Total schemas in spec | {len(all_schemas)} |",
+        f"| Generated DataObjects | {len(categories['generated'])} |",
+        f"| Filtered out | {len(all_schemas) - len(categories['generated'])} |",
+        f"| **Coverage** | **{coverage_pct:.1f}%** |",
+        "",
+        "## Filtered Schemas by Category",
+        "",
+        "| Category | Count | Description |",
+        "|----------|-------|-------------|",
+    ]
+
+    for key, label in filter_categories:
+        count = len(categories.get(key, []))
+        if count > 0:
+            md_lines.append(f"| {label} | {count} | Intentionally excluded |")
+
+    if unaccounted != 0:
+        md_lines.append(f"| **UNACCOUNTED** | **{unaccounted}** | **Potential issue!** |")
+
+    # Generated DataObjects section
+    md_lines.extend([
+        "",
+        "## Generated DataObjects",
+        "",
+        f"The following {len(categories['generated'])} schemas will be generated as XChange DataObjects:",
+        "",
+        "| # | DataObject Name | Schema ID |",
+        "|---|-----------------|-----------|",
+    ])
+
+    for i, schema in enumerate(sorted(categories["generated"], key=lambda s: s.get("name_hint", "").lower()), 1):
+        name = schema.get("name_hint", "")
+        schema_id = schema.get("schema_id", "")
+        md_lines.append(f"| {i} | `{format_data_object_name(name)}` | `{schema_id}` |")
+
+    # Filtered schemas details
+    md_lines.extend([
+        "",
+        "## Filtered Schema Details",
+        "",
+    ])
+
+    for key, label in filter_categories:
+        cat_schemas = categories.get(key, [])
+        if cat_schemas:
+            md_lines.extend([
+                f"### {label} ({len(cat_schemas)})",
+                "",
+                "| Name | Schema ID |",
+                "|------|-----------|",
+            ])
+            for schema in sorted(cat_schemas, key=lambda s: s.get("schema_id", "")):
+                schema_id = schema.get("schema_id", "")
+                name = schema.get("name_hint", "(no name)")
+                md_lines.append(f"| `{name}` | `{schema_id}` |")
+            md_lines.append("")
+
+    # Status
+    md_lines.extend([
+        "## Status",
+        "",
+    ])
+    if unaccounted == 0:
+        md_lines.append("✅ **All schemas accounted for** - Every schema in the spec is either generated or intentionally filtered.")
+    else:
+        md_lines.append(f"⚠️ **WARNING:** {unaccounted} schemas are unaccounted for and may indicate a categorization bug.")
+
+    md_content = "\n".join(md_lines)
+
+    # Determine output path
+    if args.output_dir:
+        report_dir = args.output_dir
+    else:
+        report_dir = paths.generated_dir / "reports" / "coverage"
+
+    report_path = report_dir / f"{args.ir_name}_coverage.md"
+
+    # Write report if not dry-run
+    if not args.dry_run:
+        report_dir.mkdir(parents=True, exist_ok=True)
+        with open(report_path, "w", encoding="utf-8") as f:
+            f.write(md_content)
+        print(f"Coverage report written to: {report_path}")
+    else:
+        print("--- DRY RUN: Report would be written to:", report_path)
+
+    # Also print summary to console
+    print(f"\nSchema Coverage Report for '{args.ir_name}'")
+    print("=" * 60)
+    print(f"Total schemas in spec:  {len(all_schemas)}")
+    print(f"Generated DataObjects:  {len(categories['generated'])}")
+    print(f"Filtered out:           {len(all_schemas) - len(categories['generated'])}")
+    print(f"\nCoverage: {coverage_pct:.1f}%")
+
+    if unaccounted == 0:
+        print("All schemas accounted for ✓")
+    else:
+        print(f"WARNING: {unaccounted} schemas unaccounted for!")
+        return 1
+
+    return 0
+
+
 def cmd_pages(args: argparse.Namespace, config: CodegenConfig) -> int:
     """Show pagination view for schemas as submitted to the LLM."""
     paths = config.resolve_paths()
@@ -399,23 +523,7 @@ def cmd_pages(args: argparse.Namespace, config: CodegenConfig) -> int:
         max_fields_per_page=config.prompting.max_fields_per_page,
     )
 
-    # Use config default for grouped if neither --grouped nor --flat specified
-    if args.flat:
-        grouped = False  # Explicitly use deprecated flat mode
-    elif args.grouped:
-        grouped = True
-    else:
-        grouped = config.generation.grouped
-
-    include_errors = args.include_errors or config.generation.include_errors
-
-    if grouped:
-        packets = builder.build_grouped_packets()
-    else:
-        # Suppress the DeprecationWarning from build_flat_packets for cleaner output
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore", DeprecationWarning)
-            packets = builder.build_flat_packets(include_errors=include_errors)
+    packets = builder.build_grouped_packets()
 
     schema_filter = args.schema.lower().replace("dataobject", "") if args.schema else None
     total_pages = 0
@@ -438,7 +546,6 @@ def cmd_pages(args: argparse.Namespace, config: CodegenConfig) -> int:
 
         print("\n" + "=" * 60)
         print(f"DataObject: {packet['metadata']['data_object_name']}")
-        print(f"Grouped: {packet['metadata'].get('is_grouped', False)}")
         print(f"Max Fields/Page: {packet['metadata'].get('max_fields_per_page')}")
 
         for schema in schemas:
@@ -485,8 +592,8 @@ Examples:
     python -m codegen list                      # List available IRs
     python -m codegen list servicefusion -v     # List schemas with details
     python -m codegen groups servicefusion      # Show parent-child groups
+    python -m codegen coverage servicefusion    # Show schema coverage report
     python -m codegen packets servicefusion     # Generate prompt packets
-    python -m codegen packets servicefusion --grouped  # With nested types
     python -m codegen generate servicefusion    # Generate C# code
 """,
     )
@@ -505,27 +612,13 @@ Examples:
     list_parser = subparsers.add_parser(
         "list",
         help="List available IRs or DataObjects",
-        description="List available IRs or show potential DataObjects for a specific IR.",
+        description="List available IRs or show potential DataObjects for a specific IR. "
+                    "Filtering is configured in filters.toml.",
     )
     list_parser.add_argument(
         "ir_name",
         nargs="?",
         help="IR name to list DataObjects for (omit to list available IRs)",
-    )
-    list_parser.add_argument(
-        "--include-errors",
-        action="store_true",
-        help="Include error response schemas",
-    )
-    list_parser.add_argument(
-        "--include-anonymous",
-        action="store_true",
-        help="Include anonymous/inline schemas",
-    )
-    list_parser.add_argument(
-        "--no-filter",
-        action="store_true",
-        help="Disable config exclude_patterns filtering",
     )
     list_parser.add_argument(
         "--json",
@@ -561,6 +654,33 @@ Examples:
     )
     groups_parser.set_defaults(func=cmd_groups)
 
+    # Coverage command
+    coverage_parser = subparsers.add_parser(
+        "coverage",
+        help="Show schema coverage report",
+        description="Show what schemas are generated vs filtered and why.",
+    )
+    coverage_parser.add_argument(
+        "ir_name",
+        help="IR name to analyze",
+    )
+    coverage_parser.add_argument(
+        "--output-dir",
+        type=Path,
+        help="Output directory for report (default: generated/reports/coverage/)",
+    )
+    coverage_parser.add_argument(
+        "--ir-dir",
+        type=Path,
+        help="Base directory containing IR folders",
+    )
+    coverage_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Show what would be written without creating files",
+    )
+    coverage_parser.set_defaults(func=cmd_coverage)
+
     # Packets command
     packets_parser = subparsers.add_parser(
         "packets",
@@ -574,18 +694,6 @@ Examples:
     packets_parser.add_argument(
         "--schema",
         help="Generate packet for specific schema only",
-    )
-    packets_parser.add_argument(
-        "--grouped",
-        action="store_true",
-        help=f"[RECOMMENDED] Generate grouped packets with nested types (config default: {config.generation.grouped}). "
-             "Flat packets are deprecated.",
-    )
-    packets_parser.add_argument(
-        "--flat",
-        action="store_true",
-        help="[DEPRECATED] Generate flat packets (one schema per packet). "
-             "Use --grouped instead for proper nested type support.",
     )
     packets_parser.add_argument(
         "--include-errors",
@@ -622,17 +730,6 @@ Examples:
     gen_parser.add_argument(
         "--schema",
         help="Generate for specific schema only",
-    )
-    gen_parser.add_argument(
-        "--grouped",
-        action="store_true",
-        help=f"[RECOMMENDED] Use grouped packets (config default: {config.generation.grouped}). "
-             "Flat packets are deprecated.",
-    )
-    gen_parser.add_argument(
-        "--flat",
-        action="store_true",
-        help="[DEPRECATED] Use flat packets. Use --grouped instead.",
     )
     gen_parser.add_argument(
         "--provider",
@@ -683,17 +780,6 @@ Examples:
     pages_parser.add_argument(
         "--schema",
         help="Filter to a specific schema",
-    )
-    pages_parser.add_argument(
-        "--grouped",
-        action="store_true",
-        help=f"[RECOMMENDED] Use grouped packets (config default: {config.generation.grouped}). "
-             "Flat packets are deprecated.",
-    )
-    pages_parser.add_argument(
-        "--flat",
-        action="store_true",
-        help="[DEPRECATED] Use flat packets. Use --grouped instead.",
     )
     pages_parser.add_argument(
         "--include-errors",

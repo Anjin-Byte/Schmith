@@ -3,37 +3,28 @@
 This module generates "prompt packets" - self-contained JSON files that
 provide all the information needed by an LLM to generate C# DataObjects.
 
-Supports two modes:
-- Flat packets: One packet per schema [DEPRECATED - use grouped packets]
-- Grouped packets: Parent with nested child types in one packet (recommended)
-
-Note: Flat packets are deprecated and will be removed in a future version.
-Use grouped packets instead, which properly handle nested types.
+Grouped packets include a parent DataObject with all nested child types,
+providing complete context for the LLM to generate cohesive code.
 """
 
 import json
-import warnings
 import math
 from pathlib import Path
 from typing import Iterator
 
-from .composition import CompositionResolver
-from .ir_loader import IRLoader
-from .type_mapping import (
+from ..ir.composition import CompositionResolver
+from ..ir.loader import IRLoader
+from ..schema.type_mapping import (
     IR_TO_CSHARP_TYPE,
     build_field_info,
     extract_clean_name,
     format_data_object_name,
-    schema_id_to_csharp_type,
 )
-from .schema_filter import (
-    filter_schemas,
+from ..filters import get_filters
+from ..schema.filter import (
     find_parent_child_relationships_from_ir,
     find_reachable_component_names,
     get_root_schemas,
-    is_error_schema,
-    is_primitive_schema,
-    is_variant_schema,
 )
 
 
@@ -56,7 +47,7 @@ def _load_prompt_texts() -> dict[str, str]:
     return _PROMPT_CACHE
 
 
-def generate_instructions(grouped: bool = False) -> str:
+def generate_instructions() -> str:
     """Generate base LLM instructions for code generation."""
     prompts = _load_prompt_texts()
     instructions = prompts.get("instructions")
@@ -87,7 +78,7 @@ OUTPUT:
 Return ONLY the C# code, no explanations or markdown."""
 
 
-def generate_example_code(grouped: bool = False) -> str:
+def generate_example_code() -> str:
     """Generate example code pattern for the LLM."""
     prompts = _load_prompt_texts()
     example_code = prompts.get("example_code")
@@ -121,13 +112,8 @@ class PromptPacketBuilder:
         loader = IRLoader("servicefusion")
         builder = PromptPacketBuilder(loader)
 
-        # Build grouped packets (recommended)
         for packet in builder.build_grouped_packets():
             print(packet["metadata"]["data_object_name"])
-
-        # Build flat packets [DEPRECATED - use grouped packets instead]
-        # for packet in builder.build_flat_packets():
-        #     print(packet["metadata"]["data_object_name"])
     """
 
     def __init__(self, loader: IRLoader, max_fields_per_page: int = 10):
@@ -309,65 +295,6 @@ class PromptPacketBuilder:
 
         return packet
 
-    def build_flat_packet(self, schema_id: str) -> dict | None:
-        """Build a flat prompt packet for a single schema.
-
-        .. deprecated::
-            Flat packets are deprecated. Use :meth:`build_grouped_packet` or
-            :meth:`build_grouped_packets` instead for proper nested type support.
-
-        Args:
-            schema_id: The schema ID to build a packet for
-
-        Returns:
-            Prompt packet dictionary or None if schema not found
-        """
-        warnings.warn(
-            "build_flat_packet() is deprecated and will be removed in a future version. "
-            "Use build_grouped_packet() instead for proper nested type support.",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-        schema_index_entry = self.schemas_by_id.get(schema_id)
-        if not schema_index_entry:
-            return None
-
-        # Load full schema details
-        schema = self.loader.load_schema_detail(schema_id)
-        if not schema:
-            return None
-
-        name_hint = schema.get("name_hint")
-        clean_name = extract_clean_name(schema_id, name_hint)
-        data_object_name = format_data_object_name(clean_name)
-
-        schema_packet = self._build_schema_packet(
-            schema,
-            class_name=data_object_name,
-            role="flat",
-        )
-
-        return {
-            "metadata": {
-                "schema_id": schema_id,
-                "schema_name": clean_name,
-                "data_object_name": data_object_name,
-                "ir_name": self.loader.spec_name,
-                "description": schema_packet["description"],
-                "kind": schema_packet["kind"],
-                "primary_key_field": schema_packet.get("primary_key_field"),
-                "field_count": schema_packet["field_count"],
-                "page_count": len(schema_packet["pages"]),
-                "max_fields_per_page": self.max_fields_per_page,
-                "is_grouped": False,
-            },
-            "schemas": [schema_packet],
-            "generation": {
-                "instructions": generate_instructions(grouped=False),
-                "example_code": generate_example_code(grouped=False),
-            },
-        }
-
     def build_grouped_packet(
         self,
         parent_name: str,
@@ -439,62 +366,10 @@ class PromptPacketBuilder:
             },
             "schemas": [parent_info] + nested_types,
             "generation": {
-                "instructions": generate_instructions(grouped=True),
-                "example_code": generate_example_code(grouped=True),
+                "instructions": generate_instructions(),
+                "example_code": generate_example_code(),
             },
         }
-
-    def build_flat_packets(
-        self,
-        include_errors: bool = False,
-        only_reachable: bool = True,
-    ) -> Iterator[dict]:
-        """Build flat prompt packets for all suitable schemas.
-
-        .. deprecated::
-            Flat packets are deprecated. Use :meth:`build_grouped_packets` instead
-            for proper nested type support.
-
-        Args:
-            include_errors: Include error schemas
-            only_reachable: Only include schemas reachable from operations (default True).
-                This filters out orphan schemas that are not used by any operation
-                and are not referenced by any schema that is used by an operation.
-                Uses BFS traversal from operation-used schemas through the adjacency graph.
-
-        Yields:
-            Prompt packet dictionaries
-        """
-        warnings.warn(
-            "build_flat_packets() is deprecated and will be removed in a future version. "
-            "Use build_grouped_packets() instead for proper nested type support.",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-        # Find all schemas reachable from operations
-        reachable_names: set[str] | None = None
-        if only_reachable:
-            adjacency = self.loader.adjacency()
-            operations = self.loader.operations()
-            reachable_names = find_reachable_component_names(
-                operations, adjacency, self.schemas_by_id
-            )
-
-        schemas = filter_schemas(
-            self.loader.schemas(),
-            include_errors=include_errors,
-            include_primitives=False,
-            include_anonymous=False,
-            include_orphans=True,  # We handle orphan filtering via reachability
-        )
-
-        for schema_info in schemas:
-            # Filter to only reachable schemas
-            if reachable_names is not None and schema_info.name not in reachable_names:
-                continue
-            packet = self.build_flat_packet(schema_info.schema_id)
-            if packet:
-                yield packet
 
     def _collect_all_descendants(
         self,
@@ -537,13 +412,13 @@ class PromptPacketBuilder:
 
     def build_grouped_packets(
         self,
-        exclude_variants: bool = True,
         only_reachable: bool = True,
     ) -> Iterator[dict]:
         """Build grouped prompt packets with parent-child relationships.
 
+        Filtering (errors, variants, anonymous, etc.) is controlled by filters.toml.
+
         Args:
-            exclude_variants: Exclude Body/View variants from grouping (default True)
             only_reachable: Only include schemas reachable from operations (default True).
                 This filters out orphan schemas that are not used by any operation
                 and are not referenced by any schema that is used by an operation.
@@ -551,6 +426,8 @@ class PromptPacketBuilder:
         Yields:
             Grouped prompt packet dictionaries
         """
+        filters = get_filters()
+
         # Load adjacency data and operations
         adjacency = self.loader.adjacency()
         operations = self.loader.operations()
@@ -562,29 +439,15 @@ class PromptPacketBuilder:
                 operations, adjacency, self.schemas_by_id
             )
 
-        # Get valid schemas for grouping
-        valid_schemas = [
-            s for s in self.loader.schemas()
-            if s.get("name_hint")
-            and not s.get("is_inline")
-            and s.get("kind") == "object"
-            and "anon/" not in s.get("schema_id", "")
-        ]
+        # Get valid schemas using centralized filters (from filters.toml)
+        all_schemas = list(self.loader.schemas())
+        valid_schemas = filters.filter_schemas(all_schemas)
 
-        # Filter to only reachable schemas
-        if reachable_names is not None:
+        # Filter to only reachable schemas (skip if empty set - means adjacency data is sparse)
+        if reachable_names:
             valid_schemas = [
                 s for s in valid_schemas
                 if extract_clean_name(s["schema_id"], s.get("name_hint")) in reachable_names
-            ]
-
-        # Filter out Body/View variants - they shouldn't be grouped with DataObjects
-        if exclude_variants:
-            valid_schemas = [
-                s for s in valid_schemas
-                if not is_variant_schema(
-                    extract_clean_name(s["schema_id"], s.get("name_hint"))
-                )
             ]
 
         # Use IR adjacency data for accurate parent-child relationships

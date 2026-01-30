@@ -1,0 +1,59 @@
+# Schema Filtering Configuration
+#
+# This file controls which schemas are included or excluded from DataObject generation.
+# These settings are applied consistently across all codegen commands:
+# - list: Shows filtered list of DataObjects
+# - coverage: Reports what's generated vs filtered
+# - packets: Generates prompt packets for filtered schemas
+# - generate: Generates C# code for filtered schemas
+
+[categories]
+# Include/exclude entire categories of schemas
+
+# Include error response schemas (400Error, 404Error, typ.Error, etc.)
+include_errors = false
+
+# Include anonymous/inline schemas (schema:anon/...)
+include_anonymous = false
+
+# Include Body/View variant schemas (CustomerBody, CustomerView, etc.)
+include_variants = false
+
+# Include primitive type schemas (string, integer, object, array)
+include_primitives = false
+
+
+[patterns]
+# Regex patterns for fine-grained control
+# Patterns are matched against the clean schema name (e.g., "Customer", "JobBody")
+
+# Schemas matching these patterns are excluded (unless in include_patterns)
+# Examples: ".*Body$" excludes CustomerBody, JobBody, etc.
+exclude = [
+    # ".*Body$",
+    # ".*View$",
+    # ".*Request$",
+    # ".*Response$",
+]
+
+# Schemas matching these patterns are always included (overrides exclude and categories)
+# Use this to force-include specific schemas that would otherwise be filtered
+include = [
+    # "CustomerBody",  # Include this specific Body variant
+]
+
+
+[explicit]
+# Explicit schema name lists for maximum control
+# These take precedence over patterns and categories
+
+# Always exclude these specific schema names
+exclude = [
+    # "InternalOnlySchema",
+    # "DeprecatedCustomer",
+]
+
+# Always include these specific schema names (overrides all other filters)
+include = [
+    # "SpecialSchema",
+]

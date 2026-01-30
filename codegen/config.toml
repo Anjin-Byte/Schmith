@@ -8,9 +8,7 @@
 ir_dir = "ir"
 
 # Output directory for prompt packets (relative to project root)
-# Packets are organized as:
-#   - packets_dir/grouped/<ir>/  (recommended)
-#   - packets_dir/flat/<ir>/     [DEPRECATED - will be removed]
+# Packets are stored in: packets_dir/grouped/<ir>/
 packets_dir = "prompt_packets"
 
 # Output directory for generated C# code (relative to project root)
@@ -30,29 +28,8 @@ model = "gpt-5"
 # Maximum tokens for LLM response
 max_tokens = 4096
 
-[generation]
-# Include error schemas (400Error, 404Error, etc.) in generation
-include_errors = false
-
-# Include anonymous/inline schemas in generation
-include_anonymous = false
-
-# Use grouped packets (parent with nested types) by default
-# NOTE: Flat packets (grouped=false) are DEPRECATED and will be removed.
-# Keep this set to true for proper nested type support.
-grouped = true
-
 [prompting]
 # Maximum fields per prompt page
 max_fields_per_page = 6
 
-[filters]
-# Schema name patterns to exclude from generation (regex patterns)
-exclude_patterns = [
-    #".*Body$",      # Exclude Body variants
-    #".*View$",      # Exclude View variants
-]
-
-# Schema name patterns to always include (overrides exclude_patterns)
-include_patterns = [
-]
+# Schema filtering is configured in filters.toml

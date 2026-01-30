@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 from typing import Iterator
 
-from .llm_providers import LLMProvider, extract_code_from_response
+from ..providers.llm import LLMProvider, extract_code_from_response
 
 FIELDS_START_MARKER = "// BEGIN_FIELDS"
 FIELDS_END_MARKER = "// END_FIELDS"
@@ -389,79 +389,16 @@ def _ensure_symlink(link_path: Path, target_path: Path) -> None:
 def build_prompt_from_packet(packet: dict) -> str:
     """Build the full LLM prompt from a prompt packet.
 
+    This handles legacy packet formats (without 'schemas' key).
+    New packets with 'schemas' key should use _iter_schema_pages() instead.
+
     Args:
         packet: Prompt packet dictionary
 
     Returns:
         Formatted prompt string
     """
-    # Check if this is a grouped packet
-    if packet.get("metadata", {}).get("is_grouped"):
-        return _build_grouped_prompt(packet)
-    return _build_flat_prompt(packet)
-
-
-def _build_flat_prompt(packet: dict) -> str:
-    """Build prompt for a flat (non-grouped) packet."""
-    metadata = packet["metadata"]
-    fields = packet["fields"]
-    related = packet.get("related_schemas", {})
-    generation = packet["generation"]
-
-    lines = []
-
-    # Instructions
-    lines.append(generation["instructions"])
-    lines.append("")
-
-    # Schema information
-    lines.append("=" * 60)
-    lines.append(f"SCHEMA: {metadata['data_object_name']}")
-    lines.append("=" * 60)
-    lines.append("")
-    lines.append(f"API Name: {metadata['ir_name']}")
-    lines.append(f"Schema ID: {metadata['schema_id']}")
-    lines.append(f"Description: {metadata['description'] or 'No description'}")
-    if metadata.get("primary_key_field"):
-        lines.append(f"Primary Key: {metadata['primary_key_field']}")
-    resource_name = metadata["data_object_name"].removesuffix("DataObject")
-    lines.append(f"Namespace: Connector.{metadata['ir_name']}.v1.{resource_name}")
-    lines.append("")
-
-    # Fields
-    lines.append("FIELDS:")
-    lines.append("-" * 40)
-    lines.extend(format_fields_section(fields))
-
-    # Related schemas
-    if related:
-        lines.append("")
-        lines.append("RELATED TYPES (for nested objects):")
-        lines.append("-" * 40)
-        for rel_name, rel_info in related.items():
-            lines.append(f"\n  {rel_name}:")
-            if rel_info.get("description"):
-                lines.append(f"    Description: {rel_info['description']}")
-            for rf in rel_info.get("fields", [])[:10]:
-                rf_attrs = []
-                if rf.get("required"):
-                    rf_attrs.append("required")
-                if rf.get("nullable"):
-                    rf_attrs.append("nullable")
-                if rf.get("write_only"):
-                    rf_attrs.append("PII")
-                attr_str = f" [{', '.join(rf_attrs)}]" if rf_attrs else ""
-                lines.append(f"      {rf['json_name']}: {rf['csharp_type']}{attr_str}")
-            if len(rel_info.get("fields", [])) > 10:
-                lines.append(f"      ... and {len(rel_info['fields']) - 10} more fields")
-
-    # Example
-    lines.append("")
-    lines.append("EXAMPLE CODE PATTERN:")
-    lines.append("-" * 40)
-    lines.append(generation["example_code"])
-
-    return "\n".join(lines)
+    return _build_grouped_prompt(packet)
 
 
 def _build_grouped_prompt(packet: dict) -> str:
@@ -555,56 +492,39 @@ def _legacy_schema_entry(
 
 
 def _normalize_packet_schemas(packet: dict) -> list[dict]:
-    """Return schema entries for both paged and legacy packet formats."""
+    """Return schema entries for paged and legacy grouped packet formats."""
     if "schemas" in packet:
         return packet["schemas"]
 
+    # Handle legacy grouped format (parent/nested_types keys)
     metadata = packet.get("metadata", {})
-    if metadata.get("is_grouped"):
-        parent = packet.get("parent", {})
-        nested_types = packet.get("nested_types", [])
-        parent_class_name = metadata.get("data_object_name") or parent.get("name", "DataObject")
-        parent_entry = _legacy_schema_entry(
-            parent,
-            class_name=parent_class_name,
-            role="parent",
-        )
-        parent_context = {
-            "class_name": parent_entry["class_name"],
-            "schema_name": parent_entry["schema_name"],
-            "description": parent_entry["description"],
-            "field_names": parent_entry["field_names"],
-            "field_count": parent_entry["field_count"],
-        }
+    parent = packet.get("parent", {})
+    nested_types = packet.get("nested_types", [])
+    parent_class_name = metadata.get("data_object_name") or parent.get("name", "DataObject")
+    parent_entry = _legacy_schema_entry(
+        parent,
+        class_name=parent_class_name,
+        role="parent",
+    )
+    parent_context = {
+        "class_name": parent_entry["class_name"],
+        "schema_name": parent_entry["schema_name"],
+        "description": parent_entry["description"],
+        "field_names": parent_entry["field_names"],
+        "field_count": parent_entry["field_count"],
+    }
 
-        entries = [parent_entry]
-        for nested in nested_types:
-            entries.append(
-                _legacy_schema_entry(
-                    nested,
-                    class_name=nested.get("name", "NestedType"),
-                    role="nested",
-                    parent_context=parent_context,
-                )
+    entries = [parent_entry]
+    for nested in nested_types:
+        entries.append(
+            _legacy_schema_entry(
+                nested,
+                class_name=nested.get("name", "NestedType"),
+                role="nested",
+                parent_context=parent_context,
             )
-        return entries
-
-    class_name = metadata.get("data_object_name") or "DataObject"
-    return [
-        _legacy_schema_entry(
-            {
-                "schema_id": metadata.get("schema_id"),
-                "schema_name": metadata.get("schema_name"),
-                "description": metadata.get("description"),
-                "kind": metadata.get("kind"),
-                "primary_key_field": metadata.get("primary_key_field"),
-                "fields": packet.get("fields", []),
-            },
-            class_name=class_name,
-            role="flat",
-            related_schemas=packet.get("related_schemas", {}),
         )
-    ]
+    return entries
 
 
 def _iter_schema_pages(packet: dict) -> Iterator[tuple[dict, dict, str, str]]:
@@ -749,7 +669,7 @@ def generate_from_packets_dir(
         print(f"{'=' * 60}")
 
         object_dir = output_dir / name
-        source_dir = output_dir / "source"
+        source_dir = output_dir / "_source"
         object_dir.mkdir(parents=True, exist_ok=True)
         source_dir.mkdir(parents=True, exist_ok=True)
         prompt_text = _format_prompt_text(packet)
@@ -774,7 +694,7 @@ def generate_from_packets_dir(
                         if len(prompt) > 2000:
                             print(f"\n... ({len(prompt) - 2000} more characters)")
                         print("--- END PROMPT ---\n")
-                print(f"  Would generate: source/{name}.cs (linked in {name}/)")
+                print(f"  Would generate: _source/{name}.cs (linked in {name}/)")
             else:
                 prompt = build_prompt_from_packet(packet)
                 if show_prompt:
@@ -783,7 +703,7 @@ def generate_from_packets_dir(
                     if len(prompt) > 2000:
                         print(f"\n... ({len(prompt) - 2000} more characters)")
                     print("--- END PROMPT ---\n")
-                print(f"  Would generate: source/{name}.cs (linked in {name}/)")
+                print(f"  Would generate: _source/{name}.cs (linked in {name}/)")
             generated += 1
             continue
 

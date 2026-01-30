@@ -1,7 +1,7 @@
 """Tests for composition resolution."""
 
 import pytest
-from codegen.composition import CompositionResolver, resolve_schema_properties
+from codegen.ir.composition import CompositionResolver, resolve_schema_properties
 
 
 class TestCompositionResolver:
