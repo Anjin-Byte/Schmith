@@ -1,0 +1,47 @@
+# Codegen
+
+LLM-driven C# DataObject generation from IR.
+
+## What Lives Here
+
+- `cli.py`: Unified CLI (`python -m codegen ...`).
+- `config.toml`: Paths + LLM settings.
+- `filters.toml`: Centralized schema filters (include/exclude rules).
+- `generation/`: Prompt packet builder and code generator.
+- `ir/`: IR loader + composition resolver.
+- `schema/`: Schema filtering + C# type mapping.
+- `providers/`: LLM provider adapters (Anthropic/OpenAI).
+
+## Common Commands
+
+```bash
+# Show config + filters
+uv run python -m codegen config
+
+# List DataObjects for an IR (filtered by filters.toml)
+uv run python -m codegen list paycore -v
+
+# Show parent-child schema groups
+uv run python -m codegen groups paycore
+
+# Generate prompt packets
+uv run python -m codegen packets paycore
+
+# Generate C# code
+uv run python -m codegen generate paycore
+
+# Coverage report (writes generated/<ir>/_reports/coverage.md)
+uv run python -m codegen coverage paycore
+```
+
+## Configuration Notes
+
+- `config.toml` controls paths, LLM provider, and prompt paging.
+- `filters.toml` controls what schemas become DataObjects.
+- `generation/prompts.json` overrides the base instructions and example code used in prompts.
+
+## Outputs
+
+- Prompt packets: `prompt_packets/grouped/<ir>/`
+- Generated code: `generated/<ir>/`
+- Coverage report: `generated/<ir>/_reports/coverage.md`

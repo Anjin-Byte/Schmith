@@ -2,7 +2,7 @@
 
 API spec analysis and C# code generation pipeline for Trimble XChange DataObjects.
 
-Schmith processes OpenAPI and RAML specifications into a normalized Intermediate Representation (IR), validates consistency through invariant tests, and generates C# DataObject code using LLMs.
+Schmith ingests OpenAPI/RAML specs, builds a normalized Intermediate Representation (IR), validates it with invariant tests, and generates C# DataObjects using LLM prompt packets.
 
 ## Quick Start
 
@@ -10,14 +10,21 @@ Schmith processes OpenAPI and RAML specifications into a normalized Intermediate
 # Install dependencies
 uv sync
 
-# Run the interactive demo
-./demo.sh
+# Build IR (example: OpenAPI)
+uv run python builders/build_operations.py --config configs/paycore.toml --adapter openapi
+uv run python builders/build_schemas.py --config configs/paycore.toml --adapter openapi
+uv run python builders/build_serialization.py --config configs/paycore.toml --adapter openapi
+uv run python builders/build_refs.py --config configs/paycore.toml
 
-# Or run specific stages
-./demo.sh build      # Build IR for all specs
-./demo.sh test       # Run invariant tests
-./demo.sh codegen    # Demo code generation CLI
+# Run invariant tests
+uv run python tests/invariants/run_all.py --config configs/paycore.toml -v
+
+# Generate prompt packets + C# code
+uv run python -m codegen packets paycore
+uv run python -m codegen generate paycore
 ```
+
+Tip: `run.sh` captures a full end-to-end sequence for a single API.
 
 ## Pipeline Overview
 
@@ -32,7 +39,7 @@ uv sync
 
 ### Stage 1: Spec Ingestion
 - Supports OpenAPI 3.x (YAML/JSON) and RAML 1.0
-- Specs stored in `spec/<api-name>/`
+- Specs stored in `spec/<api-name>/` or referenced by URL
 
 ### Stage 2: IR Building
 Builds a normalized Intermediate Representation across four domains:
@@ -51,6 +58,8 @@ Validates IR consistency:
 - **Invariant 1**: Operation-Schema Usage (all referenced schemas exist)
 - **Invariant 2**: Field Name Serialization (JSON paths match schema fields)
 - **Invariant 3**: Media Type Mapping (content types properly mapped)
+- **Invariant 4**: Reference Edge Consistency (schema refs match edge graph)
+- **Invariant 5**: Provenance Coverage (traceability back to spec)
 
 Output: `analysis/<api-name>/invariants/`
 
@@ -59,53 +68,59 @@ Generate C# DataObjects using LLMs:
 
 ```bash
 # List available DataObjects
-python -m codegen list servicefusion
+uv run python -m codegen list servicefusion
 
 # Generate prompt packets
-python -m codegen packets servicefusion
+uv run python -m codegen packets servicefusion
 
 # Generate C# code
-python -m codegen generate servicefusion
+uv run python -m codegen generate servicefusion
 ```
 
-Output: `prompt_packets/`, `generated/`
+Output: `prompt_packets/grouped/<api>/`, `generated/<api>/`
 
 ## Project Structure
 
 ```
 schmith/
-├── builders/           # IR building scripts
-│   ├── adapters/       # Spec format adapters (OpenAPI, RAML)
-│   ├── shared/         # Shared builder utilities
+├── builders/             # IR build pipeline (OpenAPI/RAML adapters)
+│   ├── adapters/         # Spec format adapters
+│   ├── shared/           # Builder utilities
 │   ├── build_operations.py
 │   ├── build_schemas.py
 │   ├── build_serialization.py
 │   └── build_refs.py
 │
-├── codegen/            # Code generation package
-│   ├── config.toml     # Generation settings
-│   ├── cli.py          # Unified CLI
-│   ├── ir_loader.py    # IR loading utilities
-│   ├── prompt_packets.py
-│   ├── llm_providers.py
-│   └── code_generator.py
+├── codegen/              # LLM code generation tools
+│   ├── cli.py            # Unified CLI
+│   ├── config.toml       # Codegen settings
+│   ├── filters.toml      # Schema filtering rules
+│   ├── generation/       # Prompt packet + code generation
+│   ├── ir/               # IR loading + composition helpers
+│   ├── providers/        # LLM provider adapters
+│   └── schema/           # Schema filters + type mapping
 │
-├── tests/invariants/   # Invariant test suite
-│   ├── framework.py    # Test framework
+├── tests/invariants/     # Invariant test suite (5 tests)
+│   ├── framework.py
 │   ├── test_invariant_1.py
 │   ├── test_invariant_2.py
 │   ├── test_invariant_3.py
+│   ├── test_invariant_4.py
+│   ├── test_invariant_5.py
 │   └── run_all.py
 │
-├── configs/            # Per-API configuration
+├── configs/              # Per-API configs for builders/tests
+│   ├── paycore.toml
 │   ├── servicefusion.toml
 │   └── ukg_v2_client.toml
 │
-├── lib/                # Shared utilities
-├── pipeline/           # Pipeline utilities
-├── ir_requirements/    # IR specification docs (symlink)
-├── DataObjectExamples/ # Reference C# examples
-└── archive/            # Archived/superseded code
+├── docs/                 # Domain docs and SDK notes
+├── pipeline/             # Shared pipeline config helpers
+├── prompt_packets/       # Generated LLM prompt packets
+├── generated/            # Generated C# output + reports
+├── ir/                   # Normalized IR per API
+├── spec/                 # Input specs
+└── reports/              # Pipeline reports
 ```
 
 ## Configuration
@@ -120,30 +135,41 @@ name = "servicefusion"
 url = "https://docs.servicefusion.com/api.json"
 
 [output]
-ir_dir = "ir"
+spec_dir = "spec"
+reports_dir = "reports"
 ```
+
+### Pipeline Default (`config.toml`)
+
+Used by pipeline utilities and invariants when `--config` is not provided.
 
 ### Codegen Configuration (`codegen/config.toml`)
 
 ```toml
 [paths]
 ir_dir = "ir"
-packets_dir = "prompt_packets"
+packets_dir = "prompt_packets"  # packets_dir/grouped/<ir>/
 generated_dir = "generated"
 
 [llm]
 provider = "openai"    # or "anthropic"
 model = ""             # empty = provider default
-
-[generation]
-grouped = true         # group parent-child schemas
+max_tokens = 4096
 
 [prompting]
 max_fields_per_page = 10
-
-[filters]
-exclude_patterns = [".*Body$", ".*View$"]
 ```
+
+### Schema Filters (`codegen/filters.toml`)
+
+Centralized inclusion/exclusion rules for DataObject generation. Use this to:
+- include/exclude errors, anonymous schemas, variants, primitives
+- apply regex filters
+- add explicit include/exclude lists
+
+### Prompt Text (`codegen/generation/prompts.json`)
+
+Override or extend the LLM instruction and example code used when generating C#.
 
 ### Environment Variables (`.env`)
 
@@ -155,35 +181,33 @@ ANTHROPIC_API_KEY=sk-ant-...
 ## Codegen CLI
 
 ```bash
-# Show configuration
-python -m codegen config
+# Show configuration and filters
+uv run python -m codegen config
 
-# List available IRs
-python -m codegen list
-
-# List DataObjects for an IR
-python -m codegen list servicefusion
-python -m codegen list servicefusion -v        # verbose
-python -m codegen list servicefusion --json    # JSON output
+# List available IRs or DataObjects
+uv run python -m codegen list
+uv run python -m codegen list servicefusion -v
+uv run python -m codegen list servicefusion --json
 
 # Show parent-child schema groups
-python -m codegen groups servicefusion
+uv run python -m codegen groups servicefusion
+
+# Show schema coverage report (writes generated/<ir>/_reports/coverage.md)
+uv run python -m codegen coverage servicefusion
 
 # Show prompt pagination view
-python -m codegen pages servicefusion
-python -m codegen pages servicefusion --schema Customer
-python -m codegen pages servicefusion --show-fields
+uv run python -m codegen pages servicefusion --show-fields
 
 # Generate prompt packets
-python -m codegen packets servicefusion
-python -m codegen packets servicefusion --grouped    # with nested types
-python -m codegen packets servicefusion --dry-run   # preview only
+uv run python -m codegen packets servicefusion
+uv run python -m codegen packets servicefusion --schema Customer
+uv run python -m codegen packets servicefusion --dry-run
 
 # Generate C# code
-python -m codegen generate servicefusion
-python -m codegen generate servicefusion --limit 5       # limit count
-python -m codegen generate servicefusion --schema Job    # specific schema
-python -m codegen generate servicefusion --dry-run       # preview prompts
+uv run python -m codegen generate servicefusion
+uv run python -m codegen generate servicefusion --schema Job
+uv run python -m codegen generate servicefusion --limit 5
+uv run python -m codegen generate servicefusion --dry-run --show-prompt
 ```
 
 ## Building IR Manually
@@ -203,6 +227,7 @@ uv run python tests/invariants/run_all.py --config configs/servicefusion.toml -v
 
 | API | Spec Format | Config |
 |-----|-------------|--------|
+| Paycore | OpenAPI 3.x | `configs/paycore.toml` |
 | ServiceFusion | RAML 1.0 | `configs/servicefusion.toml` |
 | UKG V2 Client | OpenAPI 3.x | `configs/ukg_v2_client.toml` |
 

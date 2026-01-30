@@ -473,13 +473,13 @@ def cmd_coverage(args: argparse.Namespace, config: CodegenConfig) -> int:
 
     md_content = "\n".join(md_lines)
 
-    # Determine output path
+    # Determine output path: generated/<ir_name>/reports/
     if args.output_dir:
         report_dir = args.output_dir
     else:
-        report_dir = paths.generated_dir / "reports" / "coverage"
+        report_dir = paths.generated_dir / args.ir_name / "_reports"
 
-    report_path = report_dir / f"{args.ir_name}_coverage.md"
+    report_path = report_dir / "coverage.md"
 
     # Write report if not dry-run
     if not args.dry_run:
@@ -667,7 +667,7 @@ Examples:
     coverage_parser.add_argument(
         "--output-dir",
         type=Path,
-        help="Output directory for report (default: generated/reports/coverage/)",
+        help="Output directory for report (default: generated/<ir_name>/_reports/)",
     )
     coverage_parser.add_argument(
         "--ir-dir",
