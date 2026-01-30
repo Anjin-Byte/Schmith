@@ -8,7 +8,9 @@
 ir_dir = "ir"
 
 # Output directory for prompt packets (relative to project root)
-# Packets are organized as: packets_dir/flat/<ir>/ and packets_dir/grouped/<ir>/
+# Packets are organized as:
+#   - packets_dir/grouped/<ir>/  (recommended)
+#   - packets_dir/flat/<ir>/     [DEPRECATED - will be removed]
 packets_dir = "prompt_packets"
 
 # Output directory for generated C# code (relative to project root)
@@ -36,6 +38,8 @@ include_errors = false
 include_anonymous = false
 
 # Use grouped packets (parent with nested types) by default
+# NOTE: Flat packets (grouped=false) are DEPRECATED and will be removed.
+# Keep this set to true for proper nested type support.
 grouped = true
 
 [prompting]

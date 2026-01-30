@@ -133,14 +133,12 @@ def schema_id_to_csharp_type(
 def build_field_info(
     prop: dict,
     schemas_by_id: dict[str, dict],
-    nested_type_names: set[str] | None = None,  # Deprecated: no longer used
 ) -> dict[str, Any]:
     """Build field information for a schema property.
 
     Args:
         prop: Property definition from schema
         schemas_by_id: Dictionary mapping schema IDs to schema data
-        nested_type_names: DEPRECATED - was used for name-based type inference fallback
 
     Returns:
         Dictionary containing field metadata for code generation

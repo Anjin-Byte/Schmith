@@ -322,60 +322,6 @@ def find_parent_child_relationships_from_ir(
     return {k: sorted(v) for k, v in parent_children.items()}
 
 
-def find_parent_child_relationships(schemas: list[dict]) -> dict[str, list[str]]:
-    """DEPRECATED: Identify parent-child relationships based on naming conventions.
-
-    WARNING: This function uses naming heuristics which produce false positives.
-    Use find_parent_child_relationships_from_ir() instead for accurate results.
-
-    Detects relationships like:
-    - Customer -> CustomerContact, CustomerEmail, CustomerLocation
-    - Job -> JobTask, JobNote, JobExpense
-
-    Args:
-        schemas: List of schema dictionaries from IR
-
-    Returns:
-        Dict mapping parent names to list of child names
-    """
-    # Get all valid schema names (excluding errors, primitives)
-    names: set[str] = set()
-    for schema in schemas:
-        name_hint = schema.get("name_hint")
-        if not name_hint:
-            continue
-        name = extract_clean_name(schema["schema_id"], name_hint)
-        if is_error_schema(schema):
-            continue
-        if is_primitive_schema(schema):
-            continue
-        names.add(name)
-
-    # Find potential parent names
-    potential_parents: set[str] = set()
-    for name in names:
-        potential_parents.add(name)
-
-    # Build parent -> children mapping
-    parent_children: dict[str, list[str]] = defaultdict(list)
-
-    for name in names:
-        # Check if this name starts with a potential parent name
-        for parent in potential_parents:
-            if name == parent:
-                continue
-
-            # Check if name starts with parent name and has additional suffix
-            if name.startswith(parent) and len(name) > len(parent):
-                suffix = name[len(parent) :]
-                # Suffix should start with uppercase (CustomerContact, not Customers)
-                if suffix and suffix[0].isupper():
-                    parent_children[parent].append(name)
-                    break
-
-    return dict(parent_children)
-
-
 def get_root_schemas(
     schemas: list[dict],
     parent_children: dict[str, list[str]],

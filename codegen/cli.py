@@ -22,13 +22,13 @@ Usage:
 import argparse
 import json
 import sys
+import warnings
 from pathlib import Path
 
 from .config import CodegenConfig, get_config
 from .ir_loader import IRLoader
 from .schema_filter import (
     filter_schemas,
-    find_parent_child_relationships,
     find_parent_child_relationships_from_ir,
     get_root_schemas,
 )
@@ -50,8 +50,8 @@ def cmd_config(args: argparse.Namespace, config: CodegenConfig) -> int:
     print(f"  ir_dir = {config.paths.ir_dir}")
     print(f"    -> {paths.ir_dir}")
     print(f"  packets_dir = {config.paths.packets_dir}")
-    print(f"    -> {paths.packets_dir}/flat/<ir>/")
-    print(f"    -> {paths.packets_dir}/grouped/<ir>/")
+    print(f"    -> {paths.packets_dir}/flat/<ir>/  [DEPRECATED]")
+    print(f"    -> {paths.packets_dir}/grouped/<ir>/  [RECOMMENDED]")
     print(f"  generated_dir = {config.paths.generated_dir}")
     print(f"    -> {paths.generated_dir}")
 
@@ -189,20 +189,61 @@ def cmd_groups(args: argparse.Namespace, config: CodegenConfig) -> int:
     parent_children = find_parent_child_relationships_from_ir(adjacency, schemas_by_id)
     root_schemas = get_root_schemas(valid_schemas, parent_children)
 
+    # Helper to collect all descendants recursively
+    def collect_all_descendants(
+        parent_name: str,
+        parent_children: dict[str, list[str]],
+        visited: set[str] | None = None,
+    ) -> list[str]:
+        """Recursively collect all descendants of a parent schema."""
+        if visited is None:
+            visited = set()
+        if parent_name in visited:
+            return []
+        visited.add(parent_name)
+        all_descendants: list[str] = []
+        for child in parent_children.get(parent_name, []):
+            if child not in visited:
+                all_descendants.append(child)
+                all_descendants.extend(collect_all_descendants(child, parent_children, visited))
+        return all_descendants
+
+    # Helper to print tree with proper indentation for deeply nested types
+    def print_tree(
+        name: str,
+        parent_children: dict[str, list[str]],
+        indent: str = "  ",
+        visited: set[str] | None = None,
+    ) -> None:
+        """Recursively print nested types as a tree."""
+        if visited is None:
+            visited = set()
+        if name in visited:
+            return
+        visited.add(name)
+        children = parent_children.get(name, [])
+        for i, child in enumerate(sorted(children)):
+            is_last = i == len(children) - 1
+            prefix = "└── " if is_last else "├── "
+            print(f"{indent}{prefix}{child}")
+            # Recurse with increased indentation
+            next_indent = indent + ("    " if is_last else "│   ")
+            print_tree(child, parent_children, next_indent, visited)
+
     print(f"\nParent-Child Relationships for '{args.ir_name}':")
     print("=" * 50)
 
     for parent in sorted(parent_children.keys()):
-        children = parent_children[parent]
         print(f"\n{parent}DataObject:")
-        for child in sorted(children):
-            print(f"  └── {child}")
+        print_tree(parent, parent_children, "  ", set())
 
     print(f"\n\nRoot Schemas (standalone DataObjects): {len(root_schemas)}")
     print("=" * 50)
     for name in root_schemas:
-        if name in parent_children:
-            print(f"  {name}DataObject (+ {len(parent_children[name])} nested types)")
+        # Show total descendants (including deeply nested), not just direct children
+        all_descendants = collect_all_descendants(name, parent_children)
+        if all_descendants:
+            print(f"  {name}DataObject (+ {len(all_descendants)} nested types)")
         else:
             print(f"  {name}DataObject")
 
@@ -225,8 +266,13 @@ def cmd_packets(args: argparse.Namespace, config: CodegenConfig) -> int:
         max_fields_per_page=config.prompting.max_fields_per_page,
     )
 
-    # Use config default for grouped if not specified
-    grouped = args.grouped if args.grouped else config.generation.grouped
+    # Use config default for grouped if neither --grouped nor --flat specified
+    if args.flat:
+        grouped = False  # Explicitly use deprecated flat mode
+    elif args.grouped:
+        grouped = True
+    else:
+        grouped = config.generation.grouped
 
     # Determine output directory
     if args.output_dir:
@@ -240,11 +286,18 @@ def cmd_packets(args: argparse.Namespace, config: CodegenConfig) -> int:
     print(f"Loading IR from {loader.ir_path}...")
 
     if grouped:
-        # Generate grouped packets
+        # Generate grouped packets (recommended)
         packets = builder.build_grouped_packets()
     else:
-        # Generate flat packets
-        packets = builder.build_flat_packets(include_errors=include_errors)
+        # Generate flat packets [DEPRECATED]
+        print(
+            "\n[DEPRECATION WARNING] Flat packets are deprecated and will be removed "
+            "in a future version.\nUse --grouped flag for proper nested type support.\n"
+        )
+        # Suppress the DeprecationWarning from build_flat_packets since we already warned
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DeprecationWarning)
+            packets = builder.build_flat_packets(include_errors=include_errors)
 
     # Filter to specific schema if requested
     if args.schema:
@@ -268,8 +321,17 @@ def cmd_generate(args: argparse.Namespace, config: CodegenConfig) -> int:
     """Generate C# code from prompt packets."""
     paths = config.resolve_paths()
 
-    # Use config default for grouped if not specified
-    grouped = args.grouped if args.grouped else config.generation.grouped
+    # Use config default for grouped if neither --grouped nor --flat specified
+    if args.flat:
+        grouped = False  # Explicitly use deprecated flat mode
+        print(
+            "\n[DEPRECATION WARNING] Flat packets are deprecated and will be removed "
+            "in a future version.\nUse --grouped flag for proper nested type support.\n"
+        )
+    elif args.grouped:
+        grouped = True
+    else:
+        grouped = config.generation.grouped
 
     # Determine packets directory
     if args.packets_dir:
@@ -337,13 +399,23 @@ def cmd_pages(args: argparse.Namespace, config: CodegenConfig) -> int:
         max_fields_per_page=config.prompting.max_fields_per_page,
     )
 
-    grouped = args.grouped if args.grouped else config.generation.grouped
+    # Use config default for grouped if neither --grouped nor --flat specified
+    if args.flat:
+        grouped = False  # Explicitly use deprecated flat mode
+    elif args.grouped:
+        grouped = True
+    else:
+        grouped = config.generation.grouped
+
     include_errors = args.include_errors or config.generation.include_errors
 
     if grouped:
         packets = builder.build_grouped_packets()
     else:
-        packets = builder.build_flat_packets(include_errors=include_errors)
+        # Suppress the DeprecationWarning from build_flat_packets for cleaner output
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DeprecationWarning)
+            packets = builder.build_flat_packets(include_errors=include_errors)
 
     schema_filter = args.schema.lower().replace("dataobject", "") if args.schema else None
     total_pages = 0
@@ -506,7 +578,14 @@ Examples:
     packets_parser.add_argument(
         "--grouped",
         action="store_true",
-        help=f"Generate grouped packets with nested types (config default: {config.generation.grouped})",
+        help=f"[RECOMMENDED] Generate grouped packets with nested types (config default: {config.generation.grouped}). "
+             "Flat packets are deprecated.",
+    )
+    packets_parser.add_argument(
+        "--flat",
+        action="store_true",
+        help="[DEPRECATED] Generate flat packets (one schema per packet). "
+             "Use --grouped instead for proper nested type support.",
     )
     packets_parser.add_argument(
         "--include-errors",
@@ -547,7 +626,13 @@ Examples:
     gen_parser.add_argument(
         "--grouped",
         action="store_true",
-        help=f"Use grouped packets (config default: {config.generation.grouped})",
+        help=f"[RECOMMENDED] Use grouped packets (config default: {config.generation.grouped}). "
+             "Flat packets are deprecated.",
+    )
+    gen_parser.add_argument(
+        "--flat",
+        action="store_true",
+        help="[DEPRECATED] Use flat packets. Use --grouped instead.",
     )
     gen_parser.add_argument(
         "--provider",
@@ -602,7 +687,13 @@ Examples:
     pages_parser.add_argument(
         "--grouped",
         action="store_true",
-        help=f"Use grouped packets (config default: {config.generation.grouped})",
+        help=f"[RECOMMENDED] Use grouped packets (config default: {config.generation.grouped}). "
+             "Flat packets are deprecated.",
+    )
+    pages_parser.add_argument(
+        "--flat",
+        action="store_true",
+        help="[DEPRECATED] Use flat packets. Use --grouped instead.",
     )
     pages_parser.add_argument(
         "--include-errors",

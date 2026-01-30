@@ -43,7 +43,17 @@ class ResolvedPaths:
     def packets_for(self, ir_name: str, grouped: bool = False) -> Path:
         """Get packets directory for a specific IR.
 
-        Structure: packets_dir/flat/<ir>/ or packets_dir/grouped/<ir>/
+        Structure:
+        - packets_dir/grouped/<ir>/ (recommended)
+        - packets_dir/flat/<ir>/ [DEPRECATED - will be removed in future version]
+
+        Args:
+            ir_name: Name of the IR
+            grouped: If True, use grouped packets (recommended).
+                     If False, use flat packets (deprecated).
+
+        Returns:
+            Path to the packets directory
         """
         subdir = "grouped" if grouped else "flat"
         return self.packets_dir / subdir / ir_name

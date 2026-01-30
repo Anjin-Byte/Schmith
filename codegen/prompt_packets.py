@@ -4,11 +4,15 @@ This module generates "prompt packets" - self-contained JSON files that
 provide all the information needed by an LLM to generate C# DataObjects.
 
 Supports two modes:
-- Flat packets: One packet per schema
-- Grouped packets: Parent with nested child types in one packet
+- Flat packets: One packet per schema [DEPRECATED - use grouped packets]
+- Grouped packets: Parent with nested child types in one packet (recommended)
+
+Note: Flat packets are deprecated and will be removed in a future version.
+Use grouped packets instead, which properly handle nested types.
 """
 
 import json
+import warnings
 import math
 from pathlib import Path
 from typing import Iterator
@@ -117,13 +121,13 @@ class PromptPacketBuilder:
         loader = IRLoader("servicefusion")
         builder = PromptPacketBuilder(loader)
 
-        # Build flat packets
-        for packet in builder.build_flat_packets():
-            print(packet["metadata"]["data_object_name"])
-
-        # Build grouped packets
+        # Build grouped packets (recommended)
         for packet in builder.build_grouped_packets():
             print(packet["metadata"]["data_object_name"])
+
+        # Build flat packets [DEPRECATED - use grouped packets instead]
+        # for packet in builder.build_flat_packets():
+        #     print(packet["metadata"]["data_object_name"])
     """
 
     def __init__(self, loader: IRLoader, max_fields_per_page: int = 10):
@@ -234,7 +238,7 @@ class PromptPacketBuilder:
         resolved_properties, _ = self.composition_resolver.resolve_properties(schema)
 
         fields = [
-            build_field_info(prop, self.schemas_by_id, nested_type_names)
+            build_field_info(prop, self.schemas_by_id)
             for prop in resolved_properties
         ]
 
@@ -308,12 +312,22 @@ class PromptPacketBuilder:
     def build_flat_packet(self, schema_id: str) -> dict | None:
         """Build a flat prompt packet for a single schema.
 
+        .. deprecated::
+            Flat packets are deprecated. Use :meth:`build_grouped_packet` or
+            :meth:`build_grouped_packets` instead for proper nested type support.
+
         Args:
             schema_id: The schema ID to build a packet for
 
         Returns:
             Prompt packet dictionary or None if schema not found
         """
+        warnings.warn(
+            "build_flat_packet() is deprecated and will be removed in a future version. "
+            "Use build_grouped_packet() instead for proper nested type support.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
         schema_index_entry = self.schemas_by_id.get(schema_id)
         if not schema_index_entry:
             return None
@@ -437,6 +451,10 @@ class PromptPacketBuilder:
     ) -> Iterator[dict]:
         """Build flat prompt packets for all suitable schemas.
 
+        .. deprecated::
+            Flat packets are deprecated. Use :meth:`build_grouped_packets` instead
+            for proper nested type support.
+
         Args:
             include_errors: Include error schemas
             only_reachable: Only include schemas reachable from operations (default True).
@@ -447,6 +465,12 @@ class PromptPacketBuilder:
         Yields:
             Prompt packet dictionaries
         """
+        warnings.warn(
+            "build_flat_packets() is deprecated and will be removed in a future version. "
+            "Use build_grouped_packets() instead for proper nested type support.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
         # Find all schemas reachable from operations
         reachable_names: set[str] | None = None
         if only_reachable:
@@ -471,6 +495,45 @@ class PromptPacketBuilder:
             packet = self.build_flat_packet(schema_info.schema_id)
             if packet:
                 yield packet
+
+    def _collect_all_descendants(
+        self,
+        parent_name: str,
+        parent_children: dict[str, list[str]],
+        visited: set[str] | None = None,
+    ) -> list[str]:
+        """Recursively collect all descendants of a parent schema.
+
+        This ensures deeply nested types (grandchildren, great-grandchildren, etc.)
+        are included in grouped packets, not just direct children.
+
+        Args:
+            parent_name: Name of the parent schema
+            parent_children: Direct parent-child relationship mapping
+            visited: Set of already visited names to prevent cycles
+
+        Returns:
+            List of all descendant schema names (including nested descendants)
+        """
+        if visited is None:
+            visited = set()
+
+        if parent_name in visited:
+            return []
+        visited.add(parent_name)
+
+        all_descendants: list[str] = []
+        direct_children = parent_children.get(parent_name, [])
+
+        for child in direct_children:
+            if child not in visited:
+                all_descendants.append(child)
+                # Recursively collect grandchildren, great-grandchildren, etc.
+                all_descendants.extend(
+                    self._collect_all_descendants(child, parent_children, visited)
+                )
+
+        return all_descendants
 
     def build_grouped_packets(
         self,
@@ -532,7 +595,8 @@ class PromptPacketBuilder:
         root_schemas = get_root_schemas(valid_schemas, parent_children)
 
         for parent_name in root_schemas:
-            children = parent_children.get(parent_name, [])
+            # Collect ALL descendants (including deeply nested types), not just direct children
+            children = self._collect_all_descendants(parent_name, parent_children)
             packet = self.build_grouped_packet(parent_name, children)
             if packet:
                 yield packet
