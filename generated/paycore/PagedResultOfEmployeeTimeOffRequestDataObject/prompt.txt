@@ -1,0 +1,382 @@
+================================================================================
+PagedResultOfEmployeeTimeOffRequestDataObject (parent) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: PagedResultOfEmployeeTimeOffRequestDataObject (PagedResultOfEmployeeTimeOffRequest)
+============================================================
+API Name: paycore
+Schema ID: schema:components/PagedResultOfEmployeeTimeOffRequest
+Description: The Paged Result model enables pagination of results if maximum of 100 records per response is exceeded. Additional
+results can be requested by providing calling the AdditionalResultsUrl endpoint containing the continuation token, or
+by building your own URL using the provided continuation token.
+Namespace: Connector.paycore.v1.PagedResultOfEmployeeTimeOffRequest
+Role: parent
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: hasMoreResults, continuationToken, additionalResultsUrl, records
+
+NESTED TYPES: EmployeeTimeOffRequest, TimeOffRequestDay
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  hasMoreResults: bool? [nullable]
+    Description: Whether additional API result records exist on the Paycor system.
+
+  continuationToken: string? [nullable]
+    Description: Paycor generated token string which may be provided in a subsequent request to  release additional records past the maximum. 
+Used when partner is building their own URL.
+
+  additionalResultsUrl: string? [nullable]
+    Description: Provides URL to call with the continuation token included for additional results.
+
+  records: EmployeeTimeOffRequest[]? [nullable]
+    Description: List of the API response records.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+EmployeeTimeOffRequest (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `EmployeeTimeOffRequest`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: EmployeeTimeOffRequest (EmployeeTimeOffRequest)
+============================================================
+API Name: paycore
+Schema ID: schema:components/EmployeeTimeOffRequest
+Description: Employee Time Off Request model represents information about time off requests for specific employee.
+Namespace: Connector.paycore.v1.PagedResultOfEmployeeTimeOffRequest
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 6
+  Total fields: 12
+  All field names: legalEntityId, timeOffRequestId, benefitCode, totalHours, days, comment, status, createdDate, statusUpdateTime, statusUpdateByEmployeeId, createdByEmployeeId, employeeId
+
+PARENT CONTEXT:
+  Parent Class: PagedResultOfEmployeeTimeOffRequestDataObject
+  Parent Description: The Paged Result model enables pagination of results if maximum of 100 records per response is exceeded. Additional
+results can be requested by providing calling the AdditionalResultsUrl endpoint containing the continuation token, or
+by building your own URL using the provided continuation token.
+  Parent Field Count: 4
+  Parent Field Names: hasMoreResults, continuationToken, additionalResultsUrl, records
+  Parent Nested Types: EmployeeTimeOffRequest, TimeOffRequestDay
+
+FIELDS (this page):
+----------------------------------------
+  legalEntityId: int? [nullable]
+
+  timeOffRequestId: string? [nullable]
+    Description: Unique identifier of this time off request.
+
+  benefitCode: string? [nullable]
+
+  totalHours: double? [nullable]
+    Description: Total amount of hours inside this time off request.
+
+  days: TimeOffRequestDay[]? [nullable]
+    Description: Collection of days for this time off request.
+
+  comment: string? [nullable]
+    Description: Additional comment for this time off request. Optional. Currently not available in Get Employee Time Off Requests by EmployeeId.
+
+
+RELATED TYPES (for nested objects):
+----------------------------------------
+
+  TimeOffRequestDay:
+      timeOffRequestDayId: string [nullable]
+      date: string [nullable]
+      hours: double [nullable]
+      startTime: string [nullable]
+      endTime: string [nullable]
+      isPartial: bool [nullable]
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class EmployeeTimeOffRequest
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+EmployeeTimeOffRequest (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: EmployeeTimeOffRequest (EmployeeTimeOffRequest)
+============================================================
+API Name: paycore
+Schema ID: schema:components/EmployeeTimeOffRequest
+Description: Employee Time Off Request model represents information about time off requests for specific employee.
+Namespace: Connector.paycore.v1.PagedResultOfEmployeeTimeOffRequest
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 6
+  Total fields: 12
+  All field names: legalEntityId, timeOffRequestId, benefitCode, totalHours, days, comment, status, createdDate, statusUpdateTime, statusUpdateByEmployeeId, createdByEmployeeId, employeeId
+
+PARENT CONTEXT:
+  Parent Class: PagedResultOfEmployeeTimeOffRequestDataObject
+  Parent Description: The Paged Result model enables pagination of results if maximum of 100 records per response is exceeded. Additional
+results can be requested by providing calling the AdditionalResultsUrl endpoint containing the continuation token, or
+by building your own URL using the provided continuation token.
+  Parent Field Count: 4
+  Parent Field Names: hasMoreResults, continuationToken, additionalResultsUrl, records
+  Parent Nested Types: EmployeeTimeOffRequest, TimeOffRequestDay
+
+FIELDS (this page):
+----------------------------------------
+  status: string? [nullable]
+    Description: Status of this time off request.
+Status could be Pending, Approved, Denied, Removed, Canceled or empty
+
+  createdDate: string? [nullable]
+    Description: Date and time when this time off request is created.
+
+  statusUpdateTime: string? [nullable]
+    Description: Date and time when is the status of this time off request updated.
+
+  statusUpdateByEmployeeId: string? [nullable]
+    Description: Unique identifier of employee who is updated status.
+
+  createdByEmployeeId: string? [nullable]
+    Description: Unique identifier of employee who is created this time off request.
+
+  employeeId: string? [nullable]
+    Description: Unique identifier of this employee.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+TimeOffRequestDay (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `TimeOffRequestDay`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: TimeOffRequestDay (TimeOffRequestDay)
+============================================================
+API Name: paycore
+Schema ID: schema:components/TimeOffRequestDay
+Description: No description
+Namespace: Connector.paycore.v1.PagedResultOfEmployeeTimeOffRequest
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: timeOffRequestDayId, date, hours, startTime, endTime, isPartial
+
+PARENT CONTEXT:
+  Parent Class: PagedResultOfEmployeeTimeOffRequestDataObject
+  Parent Description: The Paged Result model enables pagination of results if maximum of 100 records per response is exceeded. Additional
+results can be requested by providing calling the AdditionalResultsUrl endpoint containing the continuation token, or
+by building your own URL using the provided continuation token.
+  Parent Field Count: 4
+  Parent Field Names: hasMoreResults, continuationToken, additionalResultsUrl, records
+  Parent Nested Types: EmployeeTimeOffRequest, TimeOffRequestDay
+
+FIELDS (this page):
+----------------------------------------
+  timeOffRequestDayId: string? [nullable]
+    Description: Unique identifier of specific day inside time off request model.
+
+  date: string? [nullable]
+    Description: Date for Time off request day
+
+  hours: double? [nullable]
+    Description: Total amount of hours for this day.
+
+  startTime: string? [nullable]
+    Description: Exact start date and time for this day
+
+  endTime: string? [nullable]
+    Description: Exact end date and time for this day
+
+  isPartial: bool? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class TimeOffRequestDay
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

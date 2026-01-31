@@ -1,0 +1,828 @@
+{
+  "manifest_version": "1.0",
+  "api": {
+    "name": "servicefusion"
+  },
+  "generation": {
+    "timestamp": "2026-01-31T20:41:29.190818+00:00",
+    "grouped": true,
+    "packets_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/prompt_packets/grouped/servicefusion"
+  },
+  "outputs": {
+    "root_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/generated/servicefusion",
+    "source_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/generated/servicefusion/_source",
+    "schemas_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/generated/servicefusion/_schemas",
+    "reports_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/generated/servicefusion/_reports"
+  },
+  "counts": {
+    "roots": 23,
+    "nested_only": 26,
+    "eligible": 49
+  },
+  "roots": [
+    {
+      "name": "AgentBodyDataObject",
+      "schema_name": "AgentBody",
+      "schema_id": "schema:types/typ.AgentBody",
+      "nested_types": [],
+      "source_file": "_source/AgentBodyDataObject.cs",
+      "schema_file": "_schemas/AgentBodyDataObject.md",
+      "packet_file": "AgentBodyDataObject.json"
+    },
+    {
+      "name": "AssignedTechBodyDataObject",
+      "schema_name": "AssignedTechBody",
+      "schema_id": "schema:types/typ.AssignedTechBody",
+      "nested_types": [],
+      "source_file": "_source/AssignedTechBodyDataObject.cs",
+      "schema_file": "_schemas/AssignedTechBodyDataObject.md",
+      "packet_file": "AssignedTechBodyDataObject.json"
+    },
+    {
+      "name": "CalendarTaskDataObject",
+      "schema_name": "CalendarTask",
+      "schema_id": "schema:types/typ.CalendarTask",
+      "nested_types": [
+        "CalendarTaskRepeat"
+      ],
+      "source_file": "_source/CalendarTaskDataObject.cs",
+      "schema_file": "_schemas/CalendarTaskDataObject.md",
+      "packet_file": "CalendarTaskDataObject.json"
+    },
+    {
+      "name": "CustomerContactBodyDataObject",
+      "schema_name": "CustomerContactBody",
+      "schema_id": "schema:types/typ.CustomerContactBody",
+      "nested_types": [
+        "CustomerEmailBody",
+        "CustomerPhoneBody"
+      ],
+      "source_file": "_source/CustomerContactBodyDataObject.cs",
+      "schema_file": "_schemas/CustomerContactBodyDataObject.md",
+      "packet_file": "CustomerContactBodyDataObject.json"
+    },
+    {
+      "name": "CustomerDataObject",
+      "schema_name": "Customer",
+      "schema_id": "schema:types/typ.Customer",
+      "nested_types": [
+        "CustomField",
+        "CustomerContact",
+        "CustomerEmail",
+        "CustomerLocation",
+        "CustomerPhone"
+      ],
+      "source_file": "_source/CustomerDataObject.cs",
+      "schema_file": "_schemas/CustomerDataObject.md",
+      "packet_file": "CustomerDataObject.json"
+    },
+    {
+      "name": "CustomerLocationBodyDataObject",
+      "schema_name": "CustomerLocationBody",
+      "schema_id": "schema:types/typ.CustomerLocationBody",
+      "nested_types": [],
+      "source_file": "_source/CustomerLocationBodyDataObject.cs",
+      "schema_file": "_schemas/CustomerLocationBodyDataObject.md",
+      "packet_file": "CustomerLocationBodyDataObject.json"
+    },
+    {
+      "name": "EquipmentBodyDataObject",
+      "schema_name": "EquipmentBody",
+      "schema_id": "schema:types/typ.EquipmentBody",
+      "nested_types": [
+        "CustomFieldBody"
+      ],
+      "source_file": "_source/EquipmentBodyDataObject.cs",
+      "schema_file": "_schemas/EquipmentBodyDataObject.md",
+      "packet_file": "EquipmentBodyDataObject.json"
+    },
+    {
+      "name": "EstimateDataObject",
+      "schema_name": "Estimate",
+      "schema_id": "schema:types/typ.Estimate",
+      "nested_types": [
+        "Agent",
+        "AssignedTech",
+        "CustomField",
+        "Document",
+        "Equipment",
+        "JobNote",
+        "JobOtherCharge",
+        "JobProduct",
+        "JobService",
+        "JobSignature",
+        "JobTag",
+        "JobTask",
+        "Payment",
+        "PrintableWorkOrder"
+      ],
+      "source_file": "_source/EstimateDataObject.cs",
+      "schema_file": "_schemas/EstimateDataObject.md",
+      "packet_file": "EstimateDataObject.json"
+    },
+    {
+      "name": "JobCategoryDataObject",
+      "schema_name": "JobCategory",
+      "schema_id": "schema:types/typ.JobCategory",
+      "nested_types": [],
+      "source_file": "_source/JobCategoryDataObject.cs",
+      "schema_file": "_schemas/JobCategoryDataObject.md",
+      "packet_file": "JobCategoryDataObject.json"
+    },
+    {
+      "name": "JobDataObject",
+      "schema_name": "Job",
+      "schema_id": "schema:types/typ.Job",
+      "nested_types": [
+        "Agent",
+        "AssignedTech",
+        "CustomField",
+        "Document",
+        "Equipment",
+        "Invoice",
+        "JobExpense",
+        "JobLaborCharge",
+        "JobNote",
+        "JobOtherCharge",
+        "JobProduct",
+        "JobService",
+        "JobSignature",
+        "JobTask",
+        "JobVisit",
+        "Payment",
+        "PrintableWorkOrder"
+      ],
+      "source_file": "_source/JobDataObject.cs",
+      "schema_file": "_schemas/JobDataObject.md",
+      "packet_file": "JobDataObject.json"
+    },
+    {
+      "name": "JobExpenseBodyDataObject",
+      "schema_name": "JobExpenseBody",
+      "schema_id": "schema:types/typ.JobExpenseBody",
+      "nested_types": [],
+      "source_file": "_source/JobExpenseBodyDataObject.cs",
+      "schema_file": "_schemas/JobExpenseBodyDataObject.md",
+      "packet_file": "JobExpenseBodyDataObject.json"
+    },
+    {
+      "name": "JobLaborChargeBodyDataObject",
+      "schema_name": "JobLaborChargeBody",
+      "schema_id": "schema:types/typ.JobLaborChargeBody",
+      "nested_types": [],
+      "source_file": "_source/JobLaborChargeBodyDataObject.cs",
+      "schema_file": "_schemas/JobLaborChargeBodyDataObject.md",
+      "packet_file": "JobLaborChargeBodyDataObject.json"
+    },
+    {
+      "name": "JobNoteBodyDataObject",
+      "schema_name": "JobNoteBody",
+      "schema_id": "schema:types/typ.JobNoteBody",
+      "nested_types": [],
+      "source_file": "_source/JobNoteBodyDataObject.cs",
+      "schema_file": "_schemas/JobNoteBodyDataObject.md",
+      "packet_file": "JobNoteBodyDataObject.json"
+    },
+    {
+      "name": "JobOtherChargeBodyDataObject",
+      "schema_name": "JobOtherChargeBody",
+      "schema_id": "schema:types/typ.JobOtherChargeBody",
+      "nested_types": [],
+      "source_file": "_source/JobOtherChargeBodyDataObject.cs",
+      "schema_file": "_schemas/JobOtherChargeBodyDataObject.md",
+      "packet_file": "JobOtherChargeBodyDataObject.json"
+    },
+    {
+      "name": "JobProductBodyDataObject",
+      "schema_name": "JobProductBody",
+      "schema_id": "schema:types/typ.JobProductBody",
+      "nested_types": [],
+      "source_file": "_source/JobProductBodyDataObject.cs",
+      "schema_file": "_schemas/JobProductBodyDataObject.md",
+      "packet_file": "JobProductBodyDataObject.json"
+    },
+    {
+      "name": "JobServiceBodyDataObject",
+      "schema_name": "JobServiceBody",
+      "schema_id": "schema:types/typ.JobServiceBody",
+      "nested_types": [],
+      "source_file": "_source/JobServiceBodyDataObject.cs",
+      "schema_file": "_schemas/JobServiceBodyDataObject.md",
+      "packet_file": "JobServiceBodyDataObject.json"
+    },
+    {
+      "name": "JobStatusDataObject",
+      "schema_name": "JobStatus",
+      "schema_id": "schema:types/typ.JobStatus",
+      "nested_types": [],
+      "source_file": "_source/JobStatusDataObject.cs",
+      "schema_file": "_schemas/JobStatusDataObject.md",
+      "packet_file": "JobStatusDataObject.json"
+    },
+    {
+      "name": "JobTagBodyDataObject",
+      "schema_name": "JobTagBody",
+      "schema_id": "schema:types/typ.JobTagBody",
+      "nested_types": [],
+      "source_file": "_source/JobTagBodyDataObject.cs",
+      "schema_file": "_schemas/JobTagBodyDataObject.md",
+      "packet_file": "JobTagBodyDataObject.json"
+    },
+    {
+      "name": "JobTaskBodyDataObject",
+      "schema_name": "JobTaskBody",
+      "schema_id": "schema:types/typ.JobTaskBody",
+      "nested_types": [],
+      "source_file": "_source/JobTaskBodyDataObject.cs",
+      "schema_file": "_schemas/JobTaskBodyDataObject.md",
+      "packet_file": "JobTaskBodyDataObject.json"
+    },
+    {
+      "name": "PaymentTypeDataObject",
+      "schema_name": "PaymentType",
+      "schema_id": "schema:types/typ.PaymentType",
+      "nested_types": [],
+      "source_file": "_source/PaymentTypeDataObject.cs",
+      "schema_file": "_schemas/PaymentTypeDataObject.md",
+      "packet_file": "PaymentTypeDataObject.json"
+    },
+    {
+      "name": "PictureDataObject",
+      "schema_name": "Picture",
+      "schema_id": "schema:types/typ.Picture",
+      "nested_types": [],
+      "source_file": "_source/PictureDataObject.cs",
+      "schema_file": "_schemas/PictureDataObject.md",
+      "packet_file": "PictureDataObject.json"
+    },
+    {
+      "name": "SourceDataObject",
+      "schema_name": "Source",
+      "schema_id": "schema:types/typ.Source",
+      "nested_types": [],
+      "source_file": "_source/SourceDataObject.cs",
+      "schema_file": "_schemas/SourceDataObject.md",
+      "packet_file": "SourceDataObject.json"
+    },
+    {
+      "name": "TechDataObject",
+      "schema_name": "Tech",
+      "schema_id": "schema:types/typ.Tech",
+      "nested_types": [],
+      "source_file": "_source/TechDataObject.cs",
+      "schema_file": "_schemas/TechDataObject.md",
+      "packet_file": "TechDataObject.json"
+    }
+  ],
+  "nested_only": [
+    {
+      "name": "Agent",
+      "schema_id": "schema:types/typ.Agent",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "AssignedTech",
+      "schema_id": "schema:types/typ.AssignedTech",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "CalendarTaskRepeat",
+      "schema_id": "schema:types/typ.CalendarTaskRepeat",
+      "parent_roots": [
+        "CalendarTaskDataObject"
+      ]
+    },
+    {
+      "name": "CustomField",
+      "schema_id": "schema:types/typ.CustomField",
+      "parent_roots": [
+        "CustomerDataObject",
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "CustomFieldBody",
+      "schema_id": "schema:types/typ.CustomFieldBody",
+      "parent_roots": [
+        "EquipmentBodyDataObject"
+      ]
+    },
+    {
+      "name": "CustomerContact",
+      "schema_id": "schema:types/typ.CustomerContact",
+      "parent_roots": [
+        "CustomerDataObject"
+      ]
+    },
+    {
+      "name": "CustomerEmail",
+      "schema_id": "schema:types/typ.CustomerEmail",
+      "parent_roots": [
+        "CustomerDataObject"
+      ]
+    },
+    {
+      "name": "CustomerEmailBody",
+      "schema_id": "schema:types/typ.CustomerEmailBody",
+      "parent_roots": [
+        "CustomerContactBodyDataObject"
+      ]
+    },
+    {
+      "name": "CustomerLocation",
+      "schema_id": "schema:types/typ.CustomerLocation",
+      "parent_roots": [
+        "CustomerDataObject"
+      ]
+    },
+    {
+      "name": "CustomerPhone",
+      "schema_id": "schema:types/typ.CustomerPhone",
+      "parent_roots": [
+        "CustomerDataObject"
+      ]
+    },
+    {
+      "name": "CustomerPhoneBody",
+      "schema_id": "schema:types/typ.CustomerPhoneBody",
+      "parent_roots": [
+        "CustomerContactBodyDataObject"
+      ]
+    },
+    {
+      "name": "Document",
+      "schema_id": "schema:types/typ.Document",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "Equipment",
+      "schema_id": "schema:types/typ.Equipment",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "Invoice",
+      "schema_id": "schema:types/typ.Invoice",
+      "parent_roots": [
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "JobExpense",
+      "schema_id": "schema:types/typ.JobExpense",
+      "parent_roots": [
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "JobLaborCharge",
+      "schema_id": "schema:types/typ.JobLaborCharge",
+      "parent_roots": [
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "JobNote",
+      "schema_id": "schema:types/typ.JobNote",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "JobOtherCharge",
+      "schema_id": "schema:types/typ.JobOtherCharge",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "JobProduct",
+      "schema_id": "schema:types/typ.JobProduct",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "JobService",
+      "schema_id": "schema:types/typ.JobService",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "JobSignature",
+      "schema_id": "schema:types/typ.JobSignature",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "JobTag",
+      "schema_id": "schema:types/typ.JobTag",
+      "parent_roots": [
+        "EstimateDataObject"
+      ]
+    },
+    {
+      "name": "JobTask",
+      "schema_id": "schema:types/typ.JobTask",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "JobVisit",
+      "schema_id": "schema:types/typ.JobVisit",
+      "parent_roots": [
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "Payment",
+      "schema_id": "schema:types/typ.Payment",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    },
+    {
+      "name": "PrintableWorkOrder",
+      "schema_id": "schema:types/typ.PrintableWorkOrder",
+      "parent_roots": [
+        "EstimateDataObject",
+        "JobDataObject"
+      ]
+    }
+  ],
+  "index": {
+    "by_name": {
+      "AgentBodyDataObject": {
+        "name": "AgentBodyDataObject",
+        "schema_name": "AgentBody",
+        "schema_id": "schema:types/typ.AgentBody",
+        "nested_types": [],
+        "source_file": "_source/AgentBodyDataObject.cs",
+        "schema_file": "_schemas/AgentBodyDataObject.md",
+        "packet_file": "AgentBodyDataObject.json"
+      },
+      "AssignedTechBodyDataObject": {
+        "name": "AssignedTechBodyDataObject",
+        "schema_name": "AssignedTechBody",
+        "schema_id": "schema:types/typ.AssignedTechBody",
+        "nested_types": [],
+        "source_file": "_source/AssignedTechBodyDataObject.cs",
+        "schema_file": "_schemas/AssignedTechBodyDataObject.md",
+        "packet_file": "AssignedTechBodyDataObject.json"
+      },
+      "CalendarTaskDataObject": {
+        "name": "CalendarTaskDataObject",
+        "schema_name": "CalendarTask",
+        "schema_id": "schema:types/typ.CalendarTask",
+        "nested_types": [
+          "CalendarTaskRepeat"
+        ],
+        "source_file": "_source/CalendarTaskDataObject.cs",
+        "schema_file": "_schemas/CalendarTaskDataObject.md",
+        "packet_file": "CalendarTaskDataObject.json"
+      },
+      "CustomerContactBodyDataObject": {
+        "name": "CustomerContactBodyDataObject",
+        "schema_name": "CustomerContactBody",
+        "schema_id": "schema:types/typ.CustomerContactBody",
+        "nested_types": [
+          "CustomerEmailBody",
+          "CustomerPhoneBody"
+        ],
+        "source_file": "_source/CustomerContactBodyDataObject.cs",
+        "schema_file": "_schemas/CustomerContactBodyDataObject.md",
+        "packet_file": "CustomerContactBodyDataObject.json"
+      },
+      "CustomerDataObject": {
+        "name": "CustomerDataObject",
+        "schema_name": "Customer",
+        "schema_id": "schema:types/typ.Customer",
+        "nested_types": [
+          "CustomField",
+          "CustomerContact",
+          "CustomerEmail",
+          "CustomerLocation",
+          "CustomerPhone"
+        ],
+        "source_file": "_source/CustomerDataObject.cs",
+        "schema_file": "_schemas/CustomerDataObject.md",
+        "packet_file": "CustomerDataObject.json"
+      },
+      "CustomerLocationBodyDataObject": {
+        "name": "CustomerLocationBodyDataObject",
+        "schema_name": "CustomerLocationBody",
+        "schema_id": "schema:types/typ.CustomerLocationBody",
+        "nested_types": [],
+        "source_file": "_source/CustomerLocationBodyDataObject.cs",
+        "schema_file": "_schemas/CustomerLocationBodyDataObject.md",
+        "packet_file": "CustomerLocationBodyDataObject.json"
+      },
+      "EquipmentBodyDataObject": {
+        "name": "EquipmentBodyDataObject",
+        "schema_name": "EquipmentBody",
+        "schema_id": "schema:types/typ.EquipmentBody",
+        "nested_types": [
+          "CustomFieldBody"
+        ],
+        "source_file": "_source/EquipmentBodyDataObject.cs",
+        "schema_file": "_schemas/EquipmentBodyDataObject.md",
+        "packet_file": "EquipmentBodyDataObject.json"
+      },
+      "EstimateDataObject": {
+        "name": "EstimateDataObject",
+        "schema_name": "Estimate",
+        "schema_id": "schema:types/typ.Estimate",
+        "nested_types": [
+          "Agent",
+          "AssignedTech",
+          "CustomField",
+          "Document",
+          "Equipment",
+          "JobNote",
+          "JobOtherCharge",
+          "JobProduct",
+          "JobService",
+          "JobSignature",
+          "JobTag",
+          "JobTask",
+          "Payment",
+          "PrintableWorkOrder"
+        ],
+        "source_file": "_source/EstimateDataObject.cs",
+        "schema_file": "_schemas/EstimateDataObject.md",
+        "packet_file": "EstimateDataObject.json"
+      },
+      "JobCategoryDataObject": {
+        "name": "JobCategoryDataObject",
+        "schema_name": "JobCategory",
+        "schema_id": "schema:types/typ.JobCategory",
+        "nested_types": [],
+        "source_file": "_source/JobCategoryDataObject.cs",
+        "schema_file": "_schemas/JobCategoryDataObject.md",
+        "packet_file": "JobCategoryDataObject.json"
+      },
+      "JobDataObject": {
+        "name": "JobDataObject",
+        "schema_name": "Job",
+        "schema_id": "schema:types/typ.Job",
+        "nested_types": [
+          "Agent",
+          "AssignedTech",
+          "CustomField",
+          "Document",
+          "Equipment",
+          "Invoice",
+          "JobExpense",
+          "JobLaborCharge",
+          "JobNote",
+          "JobOtherCharge",
+          "JobProduct",
+          "JobService",
+          "JobSignature",
+          "JobTask",
+          "JobVisit",
+          "Payment",
+          "PrintableWorkOrder"
+        ],
+        "source_file": "_source/JobDataObject.cs",
+        "schema_file": "_schemas/JobDataObject.md",
+        "packet_file": "JobDataObject.json"
+      },
+      "JobExpenseBodyDataObject": {
+        "name": "JobExpenseBodyDataObject",
+        "schema_name": "JobExpenseBody",
+        "schema_id": "schema:types/typ.JobExpenseBody",
+        "nested_types": [],
+        "source_file": "_source/JobExpenseBodyDataObject.cs",
+        "schema_file": "_schemas/JobExpenseBodyDataObject.md",
+        "packet_file": "JobExpenseBodyDataObject.json"
+      },
+      "JobLaborChargeBodyDataObject": {
+        "name": "JobLaborChargeBodyDataObject",
+        "schema_name": "JobLaborChargeBody",
+        "schema_id": "schema:types/typ.JobLaborChargeBody",
+        "nested_types": [],
+        "source_file": "_source/JobLaborChargeBodyDataObject.cs",
+        "schema_file": "_schemas/JobLaborChargeBodyDataObject.md",
+        "packet_file": "JobLaborChargeBodyDataObject.json"
+      },
+      "JobNoteBodyDataObject": {
+        "name": "JobNoteBodyDataObject",
+        "schema_name": "JobNoteBody",
+        "schema_id": "schema:types/typ.JobNoteBody",
+        "nested_types": [],
+        "source_file": "_source/JobNoteBodyDataObject.cs",
+        "schema_file": "_schemas/JobNoteBodyDataObject.md",
+        "packet_file": "JobNoteBodyDataObject.json"
+      },
+      "JobOtherChargeBodyDataObject": {
+        "name": "JobOtherChargeBodyDataObject",
+        "schema_name": "JobOtherChargeBody",
+        "schema_id": "schema:types/typ.JobOtherChargeBody",
+        "nested_types": [],
+        "source_file": "_source/JobOtherChargeBodyDataObject.cs",
+        "schema_file": "_schemas/JobOtherChargeBodyDataObject.md",
+        "packet_file": "JobOtherChargeBodyDataObject.json"
+      },
+      "JobProductBodyDataObject": {
+        "name": "JobProductBodyDataObject",
+        "schema_name": "JobProductBody",
+        "schema_id": "schema:types/typ.JobProductBody",
+        "nested_types": [],
+        "source_file": "_source/JobProductBodyDataObject.cs",
+        "schema_file": "_schemas/JobProductBodyDataObject.md",
+        "packet_file": "JobProductBodyDataObject.json"
+      },
+      "JobServiceBodyDataObject": {
+        "name": "JobServiceBodyDataObject",
+        "schema_name": "JobServiceBody",
+        "schema_id": "schema:types/typ.JobServiceBody",
+        "nested_types": [],
+        "source_file": "_source/JobServiceBodyDataObject.cs",
+        "schema_file": "_schemas/JobServiceBodyDataObject.md",
+        "packet_file": "JobServiceBodyDataObject.json"
+      },
+      "JobStatusDataObject": {
+        "name": "JobStatusDataObject",
+        "schema_name": "JobStatus",
+        "schema_id": "schema:types/typ.JobStatus",
+        "nested_types": [],
+        "source_file": "_source/JobStatusDataObject.cs",
+        "schema_file": "_schemas/JobStatusDataObject.md",
+        "packet_file": "JobStatusDataObject.json"
+      },
+      "JobTagBodyDataObject": {
+        "name": "JobTagBodyDataObject",
+        "schema_name": "JobTagBody",
+        "schema_id": "schema:types/typ.JobTagBody",
+        "nested_types": [],
+        "source_file": "_source/JobTagBodyDataObject.cs",
+        "schema_file": "_schemas/JobTagBodyDataObject.md",
+        "packet_file": "JobTagBodyDataObject.json"
+      },
+      "JobTaskBodyDataObject": {
+        "name": "JobTaskBodyDataObject",
+        "schema_name": "JobTaskBody",
+        "schema_id": "schema:types/typ.JobTaskBody",
+        "nested_types": [],
+        "source_file": "_source/JobTaskBodyDataObject.cs",
+        "schema_file": "_schemas/JobTaskBodyDataObject.md",
+        "packet_file": "JobTaskBodyDataObject.json"
+      },
+      "PaymentTypeDataObject": {
+        "name": "PaymentTypeDataObject",
+        "schema_name": "PaymentType",
+        "schema_id": "schema:types/typ.PaymentType",
+        "nested_types": [],
+        "source_file": "_source/PaymentTypeDataObject.cs",
+        "schema_file": "_schemas/PaymentTypeDataObject.md",
+        "packet_file": "PaymentTypeDataObject.json"
+      },
+      "PictureDataObject": {
+        "name": "PictureDataObject",
+        "schema_name": "Picture",
+        "schema_id": "schema:types/typ.Picture",
+        "nested_types": [],
+        "source_file": "_source/PictureDataObject.cs",
+        "schema_file": "_schemas/PictureDataObject.md",
+        "packet_file": "PictureDataObject.json"
+      },
+      "SourceDataObject": {
+        "name": "SourceDataObject",
+        "schema_name": "Source",
+        "schema_id": "schema:types/typ.Source",
+        "nested_types": [],
+        "source_file": "_source/SourceDataObject.cs",
+        "schema_file": "_schemas/SourceDataObject.md",
+        "packet_file": "SourceDataObject.json"
+      },
+      "TechDataObject": {
+        "name": "TechDataObject",
+        "schema_name": "Tech",
+        "schema_id": "schema:types/typ.Tech",
+        "nested_types": [],
+        "source_file": "_source/TechDataObject.cs",
+        "schema_file": "_schemas/TechDataObject.md",
+        "packet_file": "TechDataObject.json"
+      }
+    },
+    "by_schema_id": {
+      "schema:types/typ.AgentBody": "AgentBodyDataObject",
+      "schema:types/typ.AssignedTechBody": "AssignedTechBodyDataObject",
+      "schema:types/typ.CalendarTask": "CalendarTaskDataObject",
+      "schema:types/typ.CustomerContactBody": "CustomerContactBodyDataObject",
+      "schema:types/typ.Customer": "CustomerDataObject",
+      "schema:types/typ.CustomerLocationBody": "CustomerLocationBodyDataObject",
+      "schema:types/typ.EquipmentBody": "EquipmentBodyDataObject",
+      "schema:types/typ.Estimate": "EstimateDataObject",
+      "schema:types/typ.JobCategory": "JobCategoryDataObject",
+      "schema:types/typ.Job": "JobDataObject",
+      "schema:types/typ.JobExpenseBody": "JobExpenseBodyDataObject",
+      "schema:types/typ.JobLaborChargeBody": "JobLaborChargeBodyDataObject",
+      "schema:types/typ.JobNoteBody": "JobNoteBodyDataObject",
+      "schema:types/typ.JobOtherChargeBody": "JobOtherChargeBodyDataObject",
+      "schema:types/typ.JobProductBody": "JobProductBodyDataObject",
+      "schema:types/typ.JobServiceBody": "JobServiceBodyDataObject",
+      "schema:types/typ.JobStatus": "JobStatusDataObject",
+      "schema:types/typ.JobTagBody": "JobTagBodyDataObject",
+      "schema:types/typ.JobTaskBody": "JobTaskBodyDataObject",
+      "schema:types/typ.PaymentType": "PaymentTypeDataObject",
+      "schema:types/typ.Picture": "PictureDataObject",
+      "schema:types/typ.Source": "SourceDataObject",
+      "schema:types/typ.Tech": "TechDataObject"
+    },
+    "by_root": {
+      "AgentBodyDataObject": [],
+      "AssignedTechBodyDataObject": [],
+      "CalendarTaskDataObject": [
+        "CalendarTaskRepeat"
+      ],
+      "CustomerContactBodyDataObject": [
+        "CustomerEmailBody",
+        "CustomerPhoneBody"
+      ],
+      "CustomerDataObject": [
+        "CustomField",
+        "CustomerContact",
+        "CustomerEmail",
+        "CustomerLocation",
+        "CustomerPhone"
+      ],
+      "CustomerLocationBodyDataObject": [],
+      "EquipmentBodyDataObject": [
+        "CustomFieldBody"
+      ],
+      "EstimateDataObject": [
+        "Agent",
+        "AssignedTech",
+        "CustomField",
+        "Document",
+        "Equipment",
+        "JobNote",
+        "JobOtherCharge",
+        "JobProduct",
+        "JobService",
+        "JobSignature",
+        "JobTag",
+        "JobTask",
+        "Payment",
+        "PrintableWorkOrder"
+      ],
+      "JobCategoryDataObject": [],
+      "JobDataObject": [
+        "Agent",
+        "AssignedTech",
+        "CustomField",
+        "Document",
+        "Equipment",
+        "Invoice",
+        "JobExpense",
+        "JobLaborCharge",
+        "JobNote",
+        "JobOtherCharge",
+        "JobProduct",
+        "JobService",
+        "JobSignature",
+        "JobTask",
+        "JobVisit",
+        "Payment",
+        "PrintableWorkOrder"
+      ],
+      "JobExpenseBodyDataObject": [],
+      "JobLaborChargeBodyDataObject": [],
+      "JobNoteBodyDataObject": [],
+      "JobOtherChargeBodyDataObject": [],
+      "JobProductBodyDataObject": [],
+      "JobServiceBodyDataObject": [],
+      "JobStatusDataObject": [],
+      "JobTagBodyDataObject": [],
+      "JobTaskBodyDataObject": [],
+      "PaymentTypeDataObject": [],
+      "PictureDataObject": [],
+      "SourceDataObject": [],
+      "TechDataObject": []
+    }
+  }
+}

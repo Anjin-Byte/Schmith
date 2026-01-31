@@ -1,0 +1,45 @@
+# PagedResultOfMissedPunchRequestDataObject
+
+## PagedResultOfMissedPunchRequestDataObject
+- Role: parent
+- Schema Name: PagedResultOfMissedPunchRequest
+- Schema ID: schema:components/PagedResultOfMissedPunchRequest
+
+### Fields
+- `hasMoreResults`: `bool`
+- `continuationToken`: `string`
+- `additionalResultsUrl`: `string`
+- `records`: `MissedPunchRequest[]`
+
+### Nested Types
+- `LaborCode3`
+- `MissedPunchRequest`
+
+## LaborCode3
+- Role: nested
+- Parent: PagedResultOfMissedPunchRequestDataObject
+- Schema Name: LaborCode3
+- Schema ID: schema:components/LaborCode3
+
+### Fields
+- `laborCategoryId`: `string`
+- `laborCodeId`: `string`
+
+## MissedPunchRequest
+- Role: nested
+- Parent: PagedResultOfMissedPunchRequestDataObject
+- Schema Name: MissedPunchRequest
+- Schema ID: schema:components/MissedPunchRequest
+
+### Fields
+- `employeeId`: `string`
+- `punchId`: `string`
+- `punchRefId`: `string`
+- `punchDateTime`: `string`
+- `punchStatusType`: `PunchStatusType`
+- `isTransfer`: `bool`
+- `activityTypeId`: `string`
+- `departmentId`: `string`
+- `note`: `string`
+- `laborCodes`: `LaborCode3[]`
+- `workLocationId`: `string`

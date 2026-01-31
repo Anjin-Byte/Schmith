@@ -29,6 +29,7 @@ uv run python -m codegen packets paycore
 
 # Generate C# code
 uv run python -m codegen generate paycore
+uv run python -m codegen generate paycore --no-clean
 
 # Coverage report (writes generated/<ir>/_reports/coverage.md)
 uv run python -m codegen coverage paycore
@@ -43,5 +44,11 @@ uv run python -m codegen coverage paycore
 ## Outputs
 
 - Prompt packets: `prompt_packets/grouped/<ir>/`
-- Generated code: `generated/<ir>/`
+- Generated code: `generated/<ir>/_source/` (symlinked into object folders)
+- Schema markdown: `generated/<ir>/_schemas/` (symlinked into object folders)
 - Coverage report: `generated/<ir>/_reports/coverage.md`
+- Manifest: `generated/<ir>/manifest.json`
+
+Notes:
+- `codegen generate --dry-run` still writes scaffolding and manifest, but skips LLM calls and `.cs` output.
+- Output directories are cleaned by default; use `--no-clean` to keep existing files.

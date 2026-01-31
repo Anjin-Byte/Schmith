@@ -1,0 +1,1403 @@
+================================================================================
+CustomerDataObject (parent) page 1/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomerDataObject (Customer)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.Customer
+Description: A customer's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: parent
+
+PAGING:
+  Page: 1 of 6
+  Fields in this page: 6
+  Total fields: 33
+  All field names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+
+NESTED TYPES: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: The customer's identifier.
+
+  customer_name: string? [nullable]
+    Description: The customer's name.
+
+  fully_qualified_name: string? [nullable]
+    Description: The customer's fully qualified name.
+
+  parent_customer: string? [nullable]
+    Description: The `header` of attached parent customer to the customer (Note: `header` - [string] the parent customer's fields concatenated by pattern `{first_name} {last_name}` with space as separator).
+
+  account_number: string? [nullable]
+    Description: The customer's account number.
+
+  account_balance: double? [nullable]
+    Description: The customer's account balance.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+CustomerDataObject (parent) page 2/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomerDataObject (Customer)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.Customer
+Description: A customer's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: parent
+
+PAGING:
+  Page: 2 of 6
+  Fields in this page: 6
+  Total fields: 33
+  All field names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+
+NESTED TYPES: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  private_notes: string? [nullable]
+    Description: The customer's private notes.
+
+  public_notes: string? [nullable]
+    Description: The customer's public notes.
+
+  credit_rating: string? [nullable]
+    Description: The customer's credit rating.
+
+  labor_charge_type: string? [nullable]
+    Description: The customer's labor charge type.
+
+  labor_charge_default_rate: double? [nullable]
+    Description: The customer's labor charge default rate.
+
+  last_serviced_date: DateTime? [nullable]
+    Description: The customer's last serviced date.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomerDataObject (parent) page 3/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomerDataObject (Customer)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.Customer
+Description: A customer's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: parent
+
+PAGING:
+  Page: 3 of 6
+  Fields in this page: 6
+  Total fields: 33
+  All field names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+
+NESTED TYPES: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  is_bill_for_drive_time: bool? [nullable]
+    Description: The customer's is bill for drive time flag.
+
+  is_vip: bool? [nullable]
+    Description: The customer's is vip flag.
+
+  referral_source: string? [nullable]
+    Description: The `header` of attached referral source to the customer (Note: `header` - [string] the referral source's fields concatenated by pattern `{short_name}`).
+
+  agent: string? [nullable]
+    Description: The `header` of attached agent to the customer (Note: `header` - [string] the agent's fields concatenated by pattern `{first_name} {last_name}` with space as separator).
+
+  discount: double? [nullable]
+    Description: The customer's discount.
+
+  discount_type: string? [nullable]
+    Description: The customer's discount type.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomerDataObject (parent) page 4/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomerDataObject (Customer)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.Customer
+Description: A customer's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: parent
+
+PAGING:
+  Page: 4 of 6
+  Fields in this page: 5
+  Total fields: 33
+  All field names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+
+NESTED TYPES: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  payment_type: string? [nullable]
+    Description: The `header` of attached payment type to the customer (Note: `header` - [string] the payment type's fields concatenated by pattern `{name}`).
+
+  payment_terms: string? [nullable]
+    Description: The customer's payment terms.
+
+  assigned_contract: string? [nullable]
+    Description: The `header` of attached contract to the customer (Note: `header` - [string] the contract's fields concatenated by pattern `{contract_title}`).
+
+  industry: string? [nullable]
+    Description: The `header` of attached industry to the customer (Note: `header` - [string] the industry's fields concatenated by pattern `{industry}`).
+
+  is_taxable: bool? [nullable]
+    Description: The customer's is taxable flag.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomerDataObject (parent) page 5/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomerDataObject (Customer)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.Customer
+Description: A customer's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: parent
+
+PAGING:
+  Page: 5 of 6
+  Fields in this page: 5
+  Total fields: 33
+  All field names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+
+NESTED TYPES: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  tax_item_name: string? [nullable]
+    Description: The `header` of attached tax item to the customer (Note: `header` - [string] the tax item's fields concatenated by pattern `{short_name}` with space as separator).
+
+  qbo_sync_token: int? [nullable]
+    Description: The customer's qbo sync token.
+
+  qbo_currency: string? [nullable]
+    Description: The customer's qbo currency.
+
+  qbo_id: int? [nullable]
+    Description: The customer's qbo id.
+
+  qbd_id: string? [nullable]
+    Description: The customer's qbd id.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomerDataObject (parent) page 6/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomerDataObject (Customer)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.Customer
+Description: A customer's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: parent
+
+PAGING:
+  Page: 6 of 6
+  Fields in this page: 5
+  Total fields: 33
+  All field names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+
+NESTED TYPES: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  created_at: DateTime? [nullable]
+    Description: The customer's created date.
+
+  updated_at: DateTime? [nullable]
+    Description: The customer's updated date.
+
+  contacts: CustomerContact[]? [nullable]
+    Description: The customer's contacts list.
+
+  locations: CustomerLocation[]? [nullable]
+    Description: The customer's locations list.
+
+  custom_fields: CustomField[]? [nullable]
+    Description: The customer's custom fields list.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomField (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomField`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomField (CustomField)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomField
+Description: A custom field's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 4
+  Total fields: 7
+  All field names: name, value, type, group, created_at, updated_at, is_required
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  name: string? [nullable]
+    Description: The custom field's name.
+
+  value: object? [nullable]
+    Description: The custom field's value.
+
+  type: string? [nullable]
+    Description: The custom field's type.
+
+  group: string? [nullable]
+    Description: The custom field's group.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomField
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+CustomField (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomField (CustomField)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomField
+Description: A custom field's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 3
+  Total fields: 7
+  All field names: name, value, type, group, created_at, updated_at, is_required
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  created_at: DateTime? [nullable]
+    Description: The custom field's created date.
+
+  updated_at: DateTime? [nullable]
+    Description: The custom field's updated date.
+
+  is_required: bool? [nullable]
+    Description: The custom field's is required flag.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomerContact (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomerContact`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomerContact (CustomerContact)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomerContact
+Description: A customer contact's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 5
+  Total fields: 14
+  All field names: prefix, fname, lname, suffix, contact_type, dob, anniversary, job_title, department, created_at, updated_at, is_primary, phones, emails
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  prefix: string? [nullable]
+    Description: The contact's prefix.
+
+  fname: string? [nullable]
+    Description: The contact's first name.
+
+  lname: string? [nullable]
+    Description: The contact's last name.
+
+  suffix: string? [nullable]
+    Description: The contact's suffix.
+
+  contact_type: string? [nullable]
+    Description: The contact's type.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomerContact
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+CustomerContact (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomerContact (CustomerContact)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomerContact
+Description: A customer contact's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 5
+  Total fields: 14
+  All field names: prefix, fname, lname, suffix, contact_type, dob, anniversary, job_title, department, created_at, updated_at, is_primary, phones, emails
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  dob: string? [nullable]
+    Description: The contact's dob.
+
+  anniversary: string? [nullable]
+    Description: The contact's anniversary.
+
+  job_title: string? [nullable]
+    Description: The contact's job title.
+
+  department: string? [nullable]
+    Description: The contact's department.
+
+  created_at: DateTime? [nullable]
+    Description: The contact's created date.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomerContact (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomerContact (CustomerContact)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomerContact
+Description: A customer contact's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 4
+  Total fields: 14
+  All field names: prefix, fname, lname, suffix, contact_type, dob, anniversary, job_title, department, created_at, updated_at, is_primary, phones, emails
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  updated_at: DateTime? [nullable]
+    Description: The contact's updated date.
+
+  is_primary: bool? [nullable]
+    Description: The contact's is primary flag.
+
+  phones: CustomerPhone[]? [nullable]
+    Description: The contact's phones list.
+
+  emails: CustomerEmail[]? [nullable]
+    Description: The contact's emails list.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomerEmail (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomerEmail`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomerEmail (CustomerEmail)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomerEmail
+Description: A customer email's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 5
+  Total fields: 5
+  All field names: email, class, types_accepted, created_at, updated_at
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  email: string? [nullable]
+    Description: The email's address.
+
+  class: string? [nullable]
+    Description: The email's class.
+
+  types_accepted: string? [nullable]
+    Description: The email's types accepted.
+
+  created_at: DateTime? [nullable]
+    Description: The email's created date.
+
+  updated_at: DateTime? [nullable]
+    Description: The email's updated date.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomerEmail
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+CustomerLocation (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomerLocation`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomerLocation (CustomerLocation)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomerLocation
+Description: A customer location's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 6
+  Total fields: 17
+  All field names: street_1, street_2, city, state_prov, postal_code, country, nickname, gate_instructions, latitude, longitude, location_type, created_at, updated_at, is_primary, is_gated, is_bill_to, customer_contact
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  street_1: string? [nullable]
+    Description: The location's street 1.
+
+  street_2: string? [nullable]
+    Description: The location's street 2.
+
+  city: string? [nullable]
+    Description: The location's city.
+
+  state_prov: string? [nullable]
+    Description: The location's state.
+
+  postal_code: string? [nullable]
+    Description: The location's postal code.
+
+  country: string? [nullable]
+    Description: The location's country.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomerLocation
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+CustomerLocation (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomerLocation (CustomerLocation)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomerLocation
+Description: A customer location's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 6
+  Total fields: 17
+  All field names: street_1, street_2, city, state_prov, postal_code, country, nickname, gate_instructions, latitude, longitude, location_type, created_at, updated_at, is_primary, is_gated, is_bill_to, customer_contact
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  nickname: string? [nullable]
+    Description: The location's nickname.
+
+  gate_instructions: string? [nullable]
+    Description: The location's gate instructions.
+
+  latitude: double? [nullable]
+    Description: The location's latitude.
+
+  longitude: double? [nullable]
+    Description: The location's longitude.
+
+  location_type: string? [nullable]
+    Description: The location's type.
+
+  created_at: DateTime? [nullable]
+    Description: The location's created date.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomerLocation (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: CustomerLocation (CustomerLocation)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomerLocation
+Description: A customer location's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 5
+  Total fields: 17
+  All field names: street_1, street_2, city, state_prov, postal_code, country, nickname, gate_instructions, latitude, longitude, location_type, created_at, updated_at, is_primary, is_gated, is_bill_to, customer_contact
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  updated_at: DateTime? [nullable]
+    Description: The location's updated date.
+
+  is_primary: bool? [nullable]
+    Description: The location's is primary flag.
+
+  is_gated: bool? [nullable]
+    Description: The location's is gated flag.
+
+  is_bill_to: bool? [nullable]
+    Description: The location's is bill to flag.
+
+  customer_contact: string? [nullable]
+    Description: The `header` of attached customer contact to the location (Note: `header` - [string] the customer contact's fields concatenated by pattern `{fname} {lname}` with space as separator).
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+CustomerPhone (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomerPhone`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomerPhone (CustomerPhone)
+============================================================
+API Name: servicefusion
+Schema ID: schema:types/typ.CustomerPhone
+Description: A customer phone's schema.
+Namespace: Connector.servicefusion.v1.Customer
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: phone, ext, type, created_at, updated_at, is_mobile
+
+PARENT CONTEXT:
+  Parent Class: CustomerDataObject
+  Parent Description: A customer's schema.
+  Parent Field Count: 33
+  Parent Field Names: id, customer_name, fully_qualified_name, parent_customer, account_number, account_balance, private_notes, public_notes, credit_rating, labor_charge_type, labor_charge_default_rate, last_serviced_date, is_bill_for_drive_time, is_vip, referral_source, agent, discount, discount_type, payment_type, payment_terms, assigned_contract, industry, is_taxable, tax_item_name, qbo_sync_token, qbo_currency, qbo_id, qbd_id, created_at, updated_at, contacts, locations, custom_fields
+  Parent Nested Types: CustomField, CustomerContact, CustomerEmail, CustomerLocation, CustomerPhone
+
+FIELDS (this page):
+----------------------------------------
+  phone: string? [nullable]
+    Description: The phone's number.
+
+  ext: int? [nullable]
+    Description: The phone's extension.
+
+  type: string? [nullable]
+    Description: The phone's type.
+
+  created_at: DateTime? [nullable]
+    Description: The phone's created date.
+
+  updated_at: DateTime? [nullable]
+    Description: The phone's updated date.
+
+  is_mobile: bool? [nullable]
+    Description: The phone's is mobile flag.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomerPhone
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

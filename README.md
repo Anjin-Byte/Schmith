@@ -78,6 +78,11 @@ uv run python -m codegen generate servicefusion
 ```
 
 Output: `prompt_packets/grouped/<api>/`, `generated/<api>/`
+Generated output layout:
+- `generated/<api>/_source/` C# source files (symlinked into object folders)
+- `generated/<api>/_schemas/` schema markdown (symlinked into object folders)
+- `generated/<api>/_reports/` coverage and other reports
+- `generated/<api>/manifest.json` manifest for traversal and lookup
 
 ## Project Structure
 
@@ -117,7 +122,7 @@ schmith/
 ├── docs/                 # Domain docs and SDK notes
 ├── pipeline/             # Shared pipeline config helpers
 ├── prompt_packets/       # Generated LLM prompt packets
-├── generated/            # Generated C# output + reports
+├── generated/            # Generated C# output + reports + manifest
 ├── ir/                   # Normalized IR per API
 ├── spec/                 # Input specs
 └── reports/              # Pipeline reports
@@ -192,7 +197,7 @@ uv run python -m codegen list servicefusion --json
 # Show parent-child schema groups
 uv run python -m codegen groups servicefusion
 
-# Show schema coverage report (writes generated/<ir>/_reports/coverage.md)
+# Show schema coverage report (roots vs nested, writes generated/<ir>/_reports/coverage.md)
 uv run python -m codegen coverage servicefusion
 
 # Show prompt pagination view
@@ -208,6 +213,11 @@ uv run python -m codegen generate servicefusion
 uv run python -m codegen generate servicefusion --schema Job
 uv run python -m codegen generate servicefusion --limit 5
 uv run python -m codegen generate servicefusion --dry-run --show-prompt
+uv run python -m codegen generate servicefusion --no-clean
+
+Notes:
+- `--dry-run` skips LLM calls and `.cs` output, but still writes scaffolding and `manifest.json`.
+- Output directories are cleaned by default; use `--no-clean` to keep existing files.
 ```
 
 ## Building IR Manually

@@ -1,0 +1,89 @@
+================================================================================
+RedirectionUrlsDataObject (parent) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RedirectionUrlsDataObject (RedirectionUrls)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/RedirectionUrls
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.RedirectionUrls
+Role: parent
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 5
+  Total fields: 5
+  All field names: employee_space/employee_root_folder_url, document/employee_document_upload, account/employee_root_folder_url, employee_space/employee_folder, document/enterprise_document_upload
+
+FIELDS (this page):
+----------------------------------------
+  employee_space/employee_root_folder_url: string? [nullable]
+    Description: Redirect to the folder of the current employee.
+
+  document/employee_document_upload: string? [nullable]
+    Description: Redirect to the employee document upload page (for a manager).
+
+  account/employee_root_folder_url: string? [nullable]
+    Description: If an employee technical id is provided, this field contains the url to the employee's folder.
+
+  employee_space/employee_folder: string? [nullable]
+    Description: If a doctype id is provided, contains the url to the folder of the current employee, in the destination folder of the given doctype
+
+  document/enterprise_document_upload: string? [nullable]
+    Description: If a doctype id of an enterprise doctype is provided, this field contains the url to the enterprise document upload page (for a manager), with a doc_type query parameter corresponding to the given doctype.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}

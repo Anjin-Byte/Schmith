@@ -1,0 +1,1 @@
+/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/generated/paycore/_schemas/EmployeePunch2DataObject.md

@@ -1,0 +1,341 @@
+================================================================================
+SignerFullDataObject (parent) page 1/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: SignerFullDataObject (SignerFull)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/SignerFull
+Description: No description
+Primary Key: FirstName
+Namespace: Connector.ukg_v2_client.v1.SignerFull
+Role: parent
+
+PAGING:
+  Page: 1 of 4
+  Fields in this page: 5
+  Total fields: 20
+  All field names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
+
+FIELDS (this page):
+----------------------------------------
+  type: TypeEnum? [nullable]
+    Description: Type of the signer
+- `organization`: this type represents the delegation seal. If the signature type has delegation activated, exactly one signer of this type must be defined on the signature process, otherwise this type is not allowed. This will materialize the position of the seal in the signed document
+- `user`: the signer is a user
+- `employee`: the signer is an employee already registered in the HRIS
+- `external`: the signer can be anyone with a valid e-mail address
+    Enum: organization, user, employee, external
+
+  signature_positions: SignaturePosition[]? [nullable]
+    Description: This attribute is only used with Protect & Sign
+
+  user_id: string? [nullable]
+    Description: ID of the signer user, mandatory if the signer type is `user`, unused otherwise
+
+  employee_id: string? [nullable]
+    Description: ID of the signer employee, mandatory if the signer type is `employee`, unused otherwise
+
+  first_name: string [required]
+    Description: First name of the signer. Only mandatory when `type` is `external`
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+SignerFullDataObject (parent) page 2/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: SignerFullDataObject (SignerFull)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/SignerFull
+Description: No description
+Primary Key: FirstName
+Namespace: Connector.ukg_v2_client.v1.SignerFull
+Role: parent
+
+PAGING:
+  Page: 2 of 4
+  Fields in this page: 5
+  Total fields: 20
+  All field names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
+
+FIELDS (this page):
+----------------------------------------
+  last_name: string [required]
+    Description: Last name of the signer. Only mandatory when `type` is `external`
+
+  language: string? [nullable]
+    Description: Language of the signer. Used only when `type` is `external`
+
+  email_address: string? [nullable]
+    Description: Email address used for the signature process. Only mandatory when `type` is `external`. If the email address is not indicated and the `type` is `employee` or `user`, the email address registered under the user or employee’s profile will be used
+
+  mobile_phone_number: string? [nullable]
+    Description: Mobile phone number used for the signature process
+
+  signature_process_id: string [required]
+    Description: ID of the signature process
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+SignerFullDataObject (parent) page 3/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: SignerFullDataObject (SignerFull)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/SignerFull
+Description: No description
+Primary Key: FirstName
+Namespace: Connector.ukg_v2_client.v1.SignerFull
+Role: parent
+
+PAGING:
+  Page: 3 of 4
+  Fields in this page: 5
+  Total fields: 20
+  All field names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
+
+FIELDS (this page):
+----------------------------------------
+  signing_order: int? [nullable]
+    Description: The signers will be assigned in the order defined by this parameter
+
+  access_code: string? [nullable]
+    Description: Access code to use by the signer when `external_authentication` is enabled on the signature type.
+
+  sms_notification: bool? [nullable]
+    Description: Enable text notification for this signer
+
+  two_factor_auth: TwoFactorAuthenticationMethod? [nullable]
+    Description: Two factor authentication methods to use for this signer
+
+  message: string? [nullable]
+    Description: Personal message that will be sent to the signer
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+SignerFullDataObject (parent) page 4/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: SignerFullDataObject (SignerFull)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/SignerFull
+Description: No description
+Primary Key: FirstName
+Namespace: Connector.ukg_v2_client.v1.SignerFull
+Role: parent
+
+PAGING:
+  Page: 4 of 4
+  Fields in this page: 5
+  Total fields: 20
+  All field names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
+
+FIELDS (this page):
+----------------------------------------
+  send_signed_document: bool? [nullable]
+    Description: Send the signed document to the signer once it's signed by all signers. Only used when the `type` is `user`
+
+  signing_url: string? [nullable]
+    Description: Signing URL for this signer, only available when `include_signer_link` is enabled on the signature type and if the state of the signer is `in_progress`
+
+  id: string? [nullable]
+    Description: ID of the signer
+
+  signed_at: string? [nullable]
+    Description: Timestamp by which the signer has signed the document
+
+  state: SignerState? [nullable]
+    Enum: pending, in_progress, signed, rejected, error, done, delivered, delayed
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
