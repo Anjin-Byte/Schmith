@@ -15,6 +15,28 @@ RAML_BODY_STRUCTURE_FIELDS = {"properties", "items", "additionalProperties", "fa
 RAML_BODY_EXCLUDE_FIELDS = {"name", "displayName", "examples", "example", "key"}
 
 
+def normalize_raml_schema_content(schema: Dict[str, Any]) -> Dict[str, Any]:
+    """Strip non-structural fields before hashing or matching schemas."""
+    return {k: v for k, v in schema.items() if k not in RAML_BODY_EXCLUDE_FIELDS}
+
+
+def raml_structural_fingerprint(schema: Dict[str, Any]) -> Dict[str, Any]:
+    """Return a minimal, structural payload for deterministic schema matching."""
+    kind = schema.get("type")
+    if kind == "object":
+        if isinstance(schema.get("properties"), list):
+            return {"type": "object", "properties": schema.get("properties")}
+        if isinstance(schema.get("additionalProperties"), dict):
+            return {"type": "object", "additionalProperties": schema.get("additionalProperties")}
+        return {"type": "object"}
+    if kind == "array":
+        return {"type": "array", "items": schema.get("items")}
+    if kind:
+        return {"type": kind, "constraints": extract_constraints(schema)}
+    # Fallback to normalized content when type is missing or unknown.
+    return normalize_raml_schema_content(schema)
+
+
 def schema_id_for_raml_type(type_decl: Any, allow_name_field: bool = True) -> Optional[str]:
     """
     Generate schema ID for RAML type declarations.
@@ -61,10 +83,8 @@ def extract_inline_schema_from_body(
     has_structure = any(body.get(field) for field in RAML_BODY_STRUCTURE_FIELDS)
 
     if has_structure:
-        schema_content = {
-            k: v for k, v in body.items() if k not in RAML_BODY_EXCLUDE_FIELDS
-        }
-        schema_id = f"schema:anon/{canonical_json_hash(schema_content)}"
+        schema_content = normalize_raml_schema_content(body)
+        schema_id = f"schema:anon/{canonical_json_hash(raml_structural_fingerprint(schema_content))}"
         return (schema_id, schema_content)
 
     body_type = body.get("type")
@@ -225,13 +245,30 @@ def register_schema(
             prop_type = prop.get("type")
             prop_schema_id = schema_id_for_raml_type(prop_type)
 
+            # Inline object properties should be treated as structured schemas.
+            if prop_type == "object" and isinstance(prop.get("properties"), list):
+                schema_content = normalize_raml_schema_content(prop)
+                content_hash = canonical_json_hash(raml_structural_fingerprint(schema_content))
+                if content_hash in schema_hashes:
+                    # Exact structural match to a named schema.
+                    prop_schema_id = schema_hashes[content_hash]
+                else:
+                    prop_schema_id = f"schema:anon/{content_hash}"
+                    if register_nested:
+                        register_schema(
+                            prop_schema_id, None, schema_content, True, provenance,
+                            spec, schemas, schema_hashes
+                        )
+
             # For array properties, compute items_schema_id from the items field
             prop_items_schema_id = None
             if prop_type == "array":
                 items = prop.get("items")
                 if isinstance(items, dict):
                     # First check if items content matches an existing named type
-                    items_hash = canonical_json_hash(items)
+                    items_hash = canonical_json_hash(
+                        raml_structural_fingerprint(normalize_raml_schema_content(items))
+                    )
                     if items_hash in schema_hashes:
                         # Use the existing named type's schema ID
                         prop_items_schema_id = schema_hashes[items_hash]
@@ -331,7 +368,15 @@ def register_nested_schemas(
             if not isinstance(prop, dict):
                 continue
             prop_type = prop.get("type")
-            if isinstance(prop_type, dict):
+            if prop_type == "object" and isinstance(prop.get("properties"), list):
+                schema_content = normalize_raml_schema_content(prop)
+                content_hash = canonical_json_hash(raml_structural_fingerprint(schema_content))
+                if content_hash in schema_hashes:
+                    nested_id = schema_hashes[content_hash]
+                else:
+                    nested_id = f"schema:anon/{content_hash}"
+                register_schema(nested_id, None, schema_content, True, provenance, spec, schemas, schema_hashes)
+            elif isinstance(prop_type, dict):
                 nested_id = schema_id_for_raml_type(prop_type, allow_name_field=False)
                 if nested_id:
                     register_schema(nested_id, None, prop_type, True, provenance, spec, schemas, schema_hashes)
@@ -384,7 +429,9 @@ def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str,
         for name, schema in types.items():
             if not isinstance(schema, dict):
                 continue
-            content_hash = canonical_json_hash(schema)
+            content_hash = canonical_json_hash(
+                raml_structural_fingerprint(normalize_raml_schema_content(schema))
+            )
             schema_id = f"schema:types/{name}"
             schema_hashes[content_hash] = schema_id
 
