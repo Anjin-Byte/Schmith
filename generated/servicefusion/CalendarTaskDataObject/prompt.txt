@@ -243,16 +243,16 @@ Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  users_id: int[] [required]
+  users_id: items[] [required]
     Description: The calendar task's users list of identifiers.
 
-  customers_id: int[] [required]
+  customers_id: items[] [required]
     Description: The calendar task's customers list of identifiers.
 
-  jobs_id: int[] [required]
+  jobs_id: items[] [required]
     Description: The calendar task's jobs list of identifiers.
 
-  estimates_id: int[] [required]
+  estimates_id: items[] [required]
     Description: The calendar task's estimates list of identifiers.
 
   repeat: CalendarTaskRepeat? [nullable]
@@ -341,7 +341,7 @@ FIELDS (this page):
   repeat_frequency: int? [nullable]
     Description: The repeat's frequency.
 
-  repeat_weekly_days: string[] [required]
+  repeat_weekly_days: items[] [required]
     Description: The repeat's weekly days list.
 
   repeat_monthly_type: string? [nullable]

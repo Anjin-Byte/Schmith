@@ -3,7 +3,7 @@
 ## JobDataObject
 - Role: parent
 - Schema Name: Job
-- Schema ID: schema:types/typ.Job
+- Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 
 ### Fields
 
@@ -114,7 +114,7 @@
 - Role: nested
 - Parent: JobDataObject
 - Schema Name: AssignedTech
-- Schema ID: schema:types/typ.AssignedTech
+- Schema ID: schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af
 
 ### Fields
 
@@ -123,6 +123,7 @@
 | `id` | `int` |
 | `first_name` | `string` |
 | `last_name` | `string` |
+| `status` | `string` |
 
 ## CustomField
 - Role: nested
@@ -436,7 +437,7 @@
 | `is_text_notified` | `bool` |
 | `is_voice_notified` | `bool` |
 | `start_date` | `DateTime` |
-| `techs_assigned` | `object[]` |
+| `techs_assigned` | `AssignedTech[]` |
 
 ## Payment
 - Role: nested

@@ -37,6 +37,17 @@ def raml_structural_fingerprint(schema: Dict[str, Any]) -> Dict[str, Any]:
     return normalize_raml_schema_content(schema)
 
 
+def inline_name_hint(schema: Dict[str, Any]) -> Optional[str]:
+    """Return a name hint for inline schemas when RAML provides one."""
+    name = schema.get("name")
+    if isinstance(name, str) and name:
+        return name
+    display = schema.get("displayName")
+    if isinstance(display, str) and display:
+        return display
+    return None
+
+
 def schema_id_for_raml_type(type_decl: Any, allow_name_field: bool = True) -> Optional[str]:
     """
     Generate schema ID for RAML type declarations.
@@ -214,6 +225,10 @@ def register_schema(
     if schema_id in schemas:
         return
 
+    if is_inline and not name_hint:
+        # Use inline name/displayName if present to improve nested type naming.
+        name_hint = inline_name_hint(schema)
+
     # Check if this schema is already registered under a different ID
     if schema_id.startswith("schema:anon/"):
         content_hash = schema_id.split("/")[-1]
@@ -256,7 +271,7 @@ def register_schema(
                     prop_schema_id = f"schema:anon/{content_hash}"
                     if register_nested:
                         register_schema(
-                            prop_schema_id, None, schema_content, True, provenance,
+                            prop_schema_id, inline_name_hint(prop), schema_content, True, provenance,
                             spec, schemas, schema_hashes
                         )
 
@@ -290,11 +305,11 @@ def register_schema(
                     items = prop.get("items")
                     if isinstance(items, dict):
                         items_id = schema_id_for_raml_type(items, allow_name_field=False)
-                        if items_id:
-                            register_schema(
-                                items_id, None, items, True, provenance,
-                                spec, schemas, schema_hashes
-                            )
+                    if items_id:
+                        register_schema(
+                            items_id, inline_name_hint(items), items, True, provenance,
+                            spec, schemas, schema_hashes
+                        )
 
     items_schema_id = None
     if kind == "array":
@@ -303,7 +318,7 @@ def register_schema(
             items_schema_id = schema_id_for_raml_type(items, allow_name_field=False)
             if register_nested and items_schema_id:
                 register_schema(
-                    items_schema_id, None, items, True, provenance,
+                    items_schema_id, inline_name_hint(items), items, True, provenance,
                     spec, schemas, schema_hashes
                 )
 
@@ -313,7 +328,7 @@ def register_schema(
         additional_properties_schema_id = schema_id_for_raml_type(additional_props, allow_name_field=False)
         if register_nested and additional_properties_schema_id:
             register_schema(
-                additional_properties_schema_id, None, additional_props, True, provenance,
+                additional_properties_schema_id, inline_name_hint(additional_props), additional_props, True, provenance,
                 spec, schemas, schema_hashes
             )
 
@@ -375,7 +390,10 @@ def register_nested_schemas(
                     nested_id = schema_hashes[content_hash]
                 else:
                     nested_id = f"schema:anon/{content_hash}"
-                register_schema(nested_id, None, schema_content, True, provenance, spec, schemas, schema_hashes)
+                register_schema(
+                    nested_id, inline_name_hint(prop), schema_content, True, provenance,
+                    spec, schemas, schema_hashes
+                )
             elif isinstance(prop_type, dict):
                 nested_id = schema_id_for_raml_type(prop_type, allow_name_field=False)
                 if nested_id:
@@ -385,7 +403,10 @@ def register_nested_schemas(
                 if isinstance(items, dict):
                     items_id = schema_id_for_raml_type(items, allow_name_field=False)
                     if items_id:
-                        register_schema(items_id, None, items, True, provenance, spec, schemas, schema_hashes)
+                        register_schema(
+                            items_id, inline_name_hint(items), items, True, provenance,
+                            spec, schemas, schema_hashes
+                        )
 
     kind = schema.get("type") or "unknown"
     if kind == "array":

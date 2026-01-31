@@ -22,10 +22,10 @@
 | `is_public` | `bool` |
 | `is_completed` | `bool` |
 | `repeat_id` | `int` |
-| `users_id` | `int[]` |
-| `customers_id` | `int[]` |
-| `jobs_id` | `int[]` |
-| `estimates_id` | `int[]` |
+| `users_id` | `items[]` |
+| `customers_id` | `items[]` |
+| `jobs_id` | `items[]` |
+| `estimates_id` | `items[]` |
 | `repeat` | `CalendarTaskRepeat` |
 
 ### Nested Types
@@ -45,7 +45,7 @@
 | `id` | `int` |
 | `repeat_type` | `string` |
 | `repeat_frequency` | `int` |
-| `repeat_weekly_days` | `string[]` |
+| `repeat_weekly_days` | `items[]` |
 | `repeat_monthly_type` | `string` |
 | `stop_repeat_type` | `string` |
 | `stop_repeat_on_occurrence` | `int` |

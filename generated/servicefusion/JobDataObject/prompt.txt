@@ -39,7 +39,7 @@ PAGING NOTE:
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -137,7 +137,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -224,7 +224,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -311,7 +311,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -398,7 +398,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -485,7 +485,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -572,7 +572,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -659,7 +659,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -743,7 +743,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -827,7 +827,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -911,7 +911,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -995,7 +995,7 @@ OUTPUT MODE: fields_only
 SCHEMA: JobDataObject (Job)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.Job
+Schema ID: schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71
 Description: A job's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: parent
@@ -1162,16 +1162,16 @@ OUTPUT MODE: class_only
 SCHEMA: AssignedTech (AssignedTech)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:types/typ.AssignedTech
+Schema ID: schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af
 Description: An assigned tech's schema.
 Namespace: Connector.servicefusion.v1.Job
 Role: nested
 
 PAGING:
   Page: 1 of 1
-  Fields in this page: 3
-  Total fields: 3
-  All field names: id, first_name, last_name
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, first_name, last_name, status
 
 PARENT CONTEXT:
   Parent Class: JobDataObject
@@ -1190,6 +1190,9 @@ FIELDS (this page):
 
   last_name: string? [nullable]
     Description: The assigned tech's last name.
+
+  status: string? [nullable]
+    Description: The assigned tech's status.
 
 
 EXAMPLE CODE PATTERN:
@@ -4343,7 +4346,7 @@ FIELDS (this page):
   start_date: DateTime? [nullable]
     Description: The visit's start date.
 
-  techs_assigned: object[]? [nullable]
+  techs_assigned: AssignedTech[]? [nullable]
     Description: The visit's techs assigned list.
 
 

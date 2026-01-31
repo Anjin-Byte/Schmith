@@ -1,6 +1,6 @@
 # Schema Coverage Report: servicefusion
 
-**Generated:** 2026-01-31 14:57:55
+**Generated:** 2026-01-31 15:20:05
 **IR Source:** `/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/ir/servicefusion`
 
 ## Summary
@@ -168,23 +168,23 @@ The following 26 schemas are included as nested types under roots:
 | `None` | `schema:anon/0a001c6b5b204d66e1d536a7e82a8aac7e133b8d` |
 | `None` | `schema:anon/124d7e495fe798ba9c648496f2b833e2ed2f1ea1` |
 | `None` | `schema:anon/1dfe40b15f8339052c1208956acd01e486182051` |
-| `None` | `schema:anon/49e60392e4b641f4c7cd787e2d2f056ed7315a31` |
-| `None` | `schema:anon/4aef56ef1b5df2d8eedd0c54df071b3b2d3e9a0c` |
-| `None` | `schema:anon/4b0ddaabb4fa2a259c7effc43eb30e05adfce2de` |
+| `items` | `schema:anon/49e60392e4b641f4c7cd787e2d2f056ed7315a31` |
+| `_meta` | `schema:anon/4aef56ef1b5df2d8eedd0c54df071b3b2d3e9a0c` |
+| `items` | `schema:anon/4b0ddaabb4fa2a259c7effc43eb30e05adfce2de` |
 | `None` | `schema:anon/5099ea82d845cee3899e956816856e24d1424f3b` |
 | `None` | `schema:anon/50fd9975c7782c0811c1aca63f2e95e42f362200` |
 | `None` | `schema:anon/56cecfad266bf953db2b3c6fa598418203a6592a` |
 | `None` | `schema:anon/5ccd2dd5603bcd7e53d41c9bd5d4fcdc77c76118` |
-| `None` | `schema:anon/7cb68b1b7ee21eea168641a1efa7871424b3bf4b` |
-| `None` | `schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af` |
+| `items` | `schema:anon/7cb68b1b7ee21eea168641a1efa7871424b3bf4b` |
+| `AssignedTech` | `schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af` |
 | `None` | `schema:anon/8ed6ccde9e78b86a5e48f91db61009acd0f077bc` |
 | `None` | `schema:anon/a9aa79b8a530ebccf52a3891930e373e790da323` |
-| `None` | `schema:anon/ab3f875c8616f895b8d8898634bbc9497d42411c` |
-| `None` | `schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71` |
+| `items` | `schema:anon/ab3f875c8616f895b8d8898634bbc9497d42411c` |
+| `Job` | `schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71` |
 | `None` | `schema:anon/bd6f96bd182650c63771bc69acd0b3ba2262187a` |
-| `None` | `schema:anon/c43bbb9a0c1d95e3fa51ca9c12c9b74d7d887542` |
-| `None` | `schema:anon/c83c88cdba15cb620be5734bbe2168d4b373f343` |
-| `None` | `schema:anon/e6d7c085f06d737cd8db642516e1a28fc507570b` |
+| `items` | `schema:anon/c43bbb9a0c1d95e3fa51ca9c12c9b74d7d887542` |
+| `items` | `schema:anon/c83c88cdba15cb620be5734bbe2168d4b373f343` |
+| `items` | `schema:anon/e6d7c085f06d737cd8db642516e1a28fc507570b` |
 | `None` | `schema:anon/ee256c5fb2e71146c623815d25ec3bac3be32af3` |
 
 ### Primitive types (2)
