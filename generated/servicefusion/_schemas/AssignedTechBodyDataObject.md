@@ -6,6 +6,9 @@
 - Schema ID: schema:types/typ.AssignedTechBody
 
 ### Fields
-- `id`: `int`
-- `first_name`: `string`
-- `last_name`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `int` |
+| `first_name` | `string` |
+| `last_name` | `string` |

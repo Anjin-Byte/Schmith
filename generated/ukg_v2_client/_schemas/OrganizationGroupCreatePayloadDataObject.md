@@ -7,5 +7,8 @@
 - Primary Key: Name
 
 ### Fields
-- `name`: `string`
-- `organizations_ids`: `string[]`
+
+| Field | Type |
+|------|------|
+| `name` | `string` |
+| `organizations_ids` | `string[]` |

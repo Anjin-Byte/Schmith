@@ -7,4 +7,7 @@
 - Primary Key: UploadId
 
 ### Fields
-- `upload_id`: `string`
+
+| Field | Type |
+|------|------|
+| `upload_id` | `string` |

@@ -7,6 +7,9 @@
 - Primary Key: UploadId
 
 ### Fields
-- `upload_id`: `string`
-- `task_id`: `string`
-- `field_id`: `string`
+
+| Field | Type |
+|------|------|
+| `upload_id` | `string` |
+| `task_id` | `string` |
+| `field_id` | `string` |

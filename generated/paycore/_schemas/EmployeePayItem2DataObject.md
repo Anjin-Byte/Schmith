@@ -7,14 +7,17 @@
 - Primary Key: Payitemid
 
 ### Fields
-- `payItemId`: `string`
-- `payItemRefId`: `string`
-- `legalEntityEarningId`: `string`
-- `amount`: `double`
-- `departmentId`: `string`
-- `note`: `string`
-- `laborCodes`: `LaborCode3[]`
-- `workLocationId`: `string`
+
+| Field | Type |
+|------|------|
+| `payItemId` | `string` |
+| `payItemRefId` | `string` |
+| `legalEntityEarningId` | `string` |
+| `amount` | `double` |
+| `departmentId` | `string` |
+| `note` | `string` |
+| `laborCodes` | `LaborCode3[]` |
+| `workLocationId` | `string` |
 
 ### Nested Types
 - `LaborCode3`
@@ -26,5 +29,8 @@
 - Schema ID: schema:components/LaborCode3
 
 ### Fields
-- `laborCategoryId`: `string`
-- `laborCodeId`: `string`
+
+| Field | Type |
+|------|------|
+| `laborCategoryId` | `string` |
+| `laborCodeId` | `string` |

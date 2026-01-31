@@ -7,10 +7,13 @@
 - Primary Key: Employeeid
 
 ### Fields
-- `employeeId`: `string`
-- `punchId`: `string`
-- `punchRefId`: `string`
-- `status`: `MissedPunchRequestStatus`
-- `note`: `string`
-- `reasonCodeId`: `string`
-- `workLocationId`: `string`
+
+| Field | Type |
+|------|------|
+| `employeeId` | `string` |
+| `punchId` | `string` |
+| `punchRefId` | `string` |
+| `status` | `MissedPunchRequestStatus` |
+| `note` | `string` |
+| `reasonCodeId` | `string` |
+| `workLocationId` | `string` |

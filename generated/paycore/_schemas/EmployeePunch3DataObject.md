@@ -7,5 +7,8 @@
 - Primary Key: Punchid
 
 ### Fields
-- `punchId`: `string`
-- `punchRefId`: `string`
+
+| Field | Type |
+|------|------|
+| `punchId` | `string` |
+| `punchRefId` | `string` |

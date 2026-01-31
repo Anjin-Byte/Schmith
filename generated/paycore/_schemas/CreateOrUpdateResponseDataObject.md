@@ -6,7 +6,10 @@
 - Schema ID: schema:components/CreateOrUpdateResponse
 
 ### Fields
-- `resourceUrl`: `ResourceReference`
+
+| Field | Type |
+|------|------|
+| `resourceUrl` | `ResourceReference` |
 
 ### Nested Types
 - `ResourceReference`
@@ -18,5 +21,8 @@
 - Schema ID: schema:components/ResourceReference
 
 ### Fields
-- `id`: `string`
-- `url`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `url` | `string` |

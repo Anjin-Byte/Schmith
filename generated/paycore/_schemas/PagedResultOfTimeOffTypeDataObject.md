@@ -6,10 +6,13 @@
 - Schema ID: schema:components/PagedResultOfTimeOffType
 
 ### Fields
-- `hasMoreResults`: `bool`
-- `continuationToken`: `string`
-- `additionalResultsUrl`: `string`
-- `records`: `TimeOffType[]`
+
+| Field | Type |
+|------|------|
+| `hasMoreResults` | `bool` |
+| `continuationToken` | `string` |
+| `additionalResultsUrl` | `string` |
+| `records` | `TimeOffType[]` |
 
 ### Nested Types
 - `TimeOffType`
@@ -21,6 +24,9 @@
 - Schema ID: schema:components/TimeOffType
 
 ### Fields
-- `id`: `string`
-- `name`: `string`
-- `code`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `name` | `string` |
+| `code` | `string` |

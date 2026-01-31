@@ -7,16 +7,19 @@
 - Primary Key: Name
 
 ### Fields
-- `name`: `string`
-- `description`: `string`
-- `parent_organization_id`: `string`
-- `corporate_name`: `string`
-- `address1`: `string`
-- `address2`: `string`
-- `zip_code`: `string`
-- `city`: `string`
-- `country`: `string`
-- `contact_firstname`: `string`
-- `contact_lastname`: `string`
-- `contact_email`: `string`
-- `contact_phone_number`: `string`
+
+| Field | Type |
+|------|------|
+| `name` | `string` |
+| `description` | `string` |
+| `parent_organization_id` | `string` |
+| `corporate_name` | `string` |
+| `address1` | `string` |
+| `address2` | `string` |
+| `zip_code` | `string` |
+| `city` | `string` |
+| `country` | `string` |
+| `contact_firstname` | `string` |
+| `contact_lastname` | `string` |
+| `contact_email` | `string` |
+| `contact_phone_number` | `string` |

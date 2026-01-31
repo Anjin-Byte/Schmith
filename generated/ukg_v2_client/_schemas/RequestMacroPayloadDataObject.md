@@ -6,4 +6,7 @@
 - Schema ID: schema:definitions/RequestMacroPayload
 
 ### Fields
-- `macro_id`: `string`
+
+| Field | Type |
+|------|------|
+| `macro_id` | `string` |

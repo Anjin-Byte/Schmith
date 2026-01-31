@@ -6,4 +6,7 @@
 - Schema ID: schema:definitions/DocumentExpirationDatePayload
 
 ### Fields
-- `expiration_date`: `string`
+
+| Field | Type |
+|------|------|
+| `expiration_date` | `string` |

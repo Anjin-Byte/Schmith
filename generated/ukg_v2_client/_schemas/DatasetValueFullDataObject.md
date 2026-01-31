@@ -7,9 +7,12 @@
 - Primary Key: LocalizedNames
 
 ### Fields
-- `localized_names`: `LocalizedString[]`
-- `code`: `string`
-- `name`: `string`
-- `id`: `string`
-- `dataset_id`: `string`
-- `dimension_id`: `string`
+
+| Field | Type |
+|------|------|
+| `localized_names` | `LocalizedString[]` |
+| `code` | `string` |
+| `name` | `string` |
+| `id` | `string` |
+| `dataset_id` | `string` |
+| `dimension_id` | `string` |

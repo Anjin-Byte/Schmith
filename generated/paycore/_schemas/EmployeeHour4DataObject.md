@@ -7,5 +7,8 @@
 - Primary Key: Hourid
 
 ### Fields
-- `hourId`: `string`
-- `hourRefId`: `string`
+
+| Field | Type |
+|------|------|
+| `hourId` | `string` |
+| `hourRefId` | `string` |

@@ -6,9 +6,12 @@
 - Schema ID: schema:components/Schedule2
 
 ### Fields
-- `startDateTime`: `string`
-- `endDateTime`: `string`
-- `beforeStartTimeInMinutes`: `int`
-- `afterEndTimeInMinutes`: `int`
-- `label`: `string`
-- `shiftDepeartmentId`: `string`
+
+| Field | Type |
+|------|------|
+| `startDateTime` | `string` |
+| `endDateTime` | `string` |
+| `beforeStartTimeInMinutes` | `int` |
+| `afterEndTimeInMinutes` | `int` |
+| `label` | `string` |
+| `shiftDepeartmentId` | `string` |

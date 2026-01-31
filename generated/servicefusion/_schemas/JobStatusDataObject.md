@@ -6,8 +6,11 @@
 - Schema ID: schema:types/typ.JobStatus
 
 ### Fields
-- `id`: `int`
-- `code`: `string`
-- `name`: `string`
-- `is_custom`: `string`
-- `category`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `int` |
+| `code` | `string` |
+| `name` | `string` |
+| `is_custom` | `string` |
+| `category` | `string` |

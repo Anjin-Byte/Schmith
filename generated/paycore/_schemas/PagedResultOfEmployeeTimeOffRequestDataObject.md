@@ -6,10 +6,13 @@
 - Schema ID: schema:components/PagedResultOfEmployeeTimeOffRequest
 
 ### Fields
-- `hasMoreResults`: `bool`
-- `continuationToken`: `string`
-- `additionalResultsUrl`: `string`
-- `records`: `EmployeeTimeOffRequest[]`
+
+| Field | Type |
+|------|------|
+| `hasMoreResults` | `bool` |
+| `continuationToken` | `string` |
+| `additionalResultsUrl` | `string` |
+| `records` | `EmployeeTimeOffRequest[]` |
 
 ### Nested Types
 - `EmployeeTimeOffRequest`
@@ -22,18 +25,21 @@
 - Schema ID: schema:components/EmployeeTimeOffRequest
 
 ### Fields
-- `legalEntityId`: `int`
-- `timeOffRequestId`: `string`
-- `benefitCode`: `string`
-- `totalHours`: `double`
-- `days`: `TimeOffRequestDay[]`
-- `comment`: `string`
-- `status`: `string`
-- `createdDate`: `string`
-- `statusUpdateTime`: `string`
-- `statusUpdateByEmployeeId`: `string`
-- `createdByEmployeeId`: `string`
-- `employeeId`: `string`
+
+| Field | Type |
+|------|------|
+| `legalEntityId` | `int` |
+| `timeOffRequestId` | `string` |
+| `benefitCode` | `string` |
+| `totalHours` | `double` |
+| `days` | `TimeOffRequestDay[]` |
+| `comment` | `string` |
+| `status` | `string` |
+| `createdDate` | `string` |
+| `statusUpdateTime` | `string` |
+| `statusUpdateByEmployeeId` | `string` |
+| `createdByEmployeeId` | `string` |
+| `employeeId` | `string` |
 
 ## TimeOffRequestDay
 - Role: nested
@@ -42,9 +48,12 @@
 - Schema ID: schema:components/TimeOffRequestDay
 
 ### Fields
-- `timeOffRequestDayId`: `string`
-- `date`: `string`
-- `hours`: `double`
-- `startTime`: `string`
-- `endTime`: `string`
-- `isPartial`: `bool`
+
+| Field | Type |
+|------|------|
+| `timeOffRequestDayId` | `string` |
+| `date` | `string` |
+| `hours` | `double` |
+| `startTime` | `string` |
+| `endTime` | `string` |
+| `isPartial` | `bool` |

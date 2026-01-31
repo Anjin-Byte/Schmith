@@ -7,5 +7,8 @@
 - Primary Key: Type
 
 ### Fields
-- `type`: `TypeEnum`
-- `ids`: `string[]`
+
+| Field | Type |
+|------|------|
+| `type` | `TypeEnum` |
+| `ids` | `string[]` |

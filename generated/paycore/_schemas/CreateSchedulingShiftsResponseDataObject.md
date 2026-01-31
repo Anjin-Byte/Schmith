@@ -6,7 +6,10 @@
 - Schema ID: schema:components/CreateSchedulingShiftsResponse
 
 ### Fields
-- `shifts`: `SchedulingShiftResponseItem[]`
+
+| Field | Type |
+|------|------|
+| `shifts` | `SchedulingShiftResponseItem[]` |
 
 ### Nested Types
 - `SchedulingShiftResponseItem`
@@ -18,6 +21,9 @@
 - Schema ID: schema:components/SchedulingShiftResponseItem
 
 ### Fields
-- `shiftId`: `string`
-- `shiftModelId`: `string`
-- `warningsOrErrors`: `string[]`
+
+| Field | Type |
+|------|------|
+| `shiftId` | `string` |
+| `shiftModelId` | `string` |
+| `warningsOrErrors` | `string[]` |

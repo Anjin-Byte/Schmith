@@ -6,8 +6,11 @@
 - Schema ID: schema:definitions/DocgenTemplateVersionPatchPayload
 
 ### Fields
-- `output_format`: `OutputFormatPatchRequest`
-- `fragment_mapping`: `FragmentFieldsetField[]`
+
+| Field | Type |
+|------|------|
+| `output_format` | `OutputFormatPatchRequest` |
+| `fragment_mapping` | `FragmentFieldsetField[]` |
 
 ### Nested Types
 - `FragmentFieldsetField`
@@ -21,8 +24,11 @@
 - Primary Key: Slug
 
 ### Fields
-- `slug`: `string`
-- `fragment_id`: `string`
+
+| Field | Type |
+|------|------|
+| `slug` | `string` |
+| `fragment_id` | `string` |
 
 ## OutputFormatPatchRequest
 - Role: nested
@@ -31,4 +37,7 @@
 - Schema ID: schema:definitions/OutputFormatPatchRequest
 
 ### Fields
-- `format`: `FormatEnum`
+
+| Field | Type |
+|------|------|
+| `format` | `FormatEnum` |

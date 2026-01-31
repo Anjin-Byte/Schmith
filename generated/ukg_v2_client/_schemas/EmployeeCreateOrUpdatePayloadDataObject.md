@@ -7,8 +7,11 @@
 - Primary Key: Firstname
 
 ### Fields
-- `firstname`: `string`
-- `lastname`: `string`
-- `email`: `string`
-- `language`: `string`
-- `saml_token`: `string`
+
+| Field | Type |
+|------|------|
+| `firstname` | `string` |
+| `lastname` | `string` |
+| `email` | `string` |
+| `language` | `string` |
+| `saml_token` | `string` |

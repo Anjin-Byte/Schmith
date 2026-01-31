@@ -7,4 +7,7 @@
 - Primary Key: DocumentId
 
 ### Fields
-- `document_id`: `int`
+
+| Field | Type |
+|------|------|
+| `document_id` | `int` |

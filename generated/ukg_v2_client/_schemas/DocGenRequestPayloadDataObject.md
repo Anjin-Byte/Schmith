@@ -7,4 +7,7 @@
 - Primary Key: Fields
 
 ### Fields
-- `fields`: `DatasetField[]`
+
+| Field | Type |
+|------|------|
+| `fields` | `DatasetField[]` |

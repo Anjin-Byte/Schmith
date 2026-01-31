@@ -7,18 +7,21 @@
 - Primary Key: Fname
 
 ### Fields
-- `prefix`: `string`
-- `fname`: `string`
-- `lname`: `string`
-- `suffix`: `string`
-- `contact_type`: `string`
-- `dob`: `string`
-- `anniversary`: `string`
-- `job_title`: `string`
-- `department`: `string`
-- `is_primary`: `bool`
-- `phones`: `CustomerPhoneBody[]`
-- `emails`: `CustomerEmailBody[]`
+
+| Field | Type |
+|------|------|
+| `prefix` | `string` |
+| `fname` | `string` |
+| `lname` | `string` |
+| `suffix` | `string` |
+| `contact_type` | `string` |
+| `dob` | `string` |
+| `anniversary` | `string` |
+| `job_title` | `string` |
+| `department` | `string` |
+| `is_primary` | `bool` |
+| `phones` | `CustomerPhoneBody[]` |
+| `emails` | `CustomerEmailBody[]` |
 
 ### Nested Types
 - `CustomerEmailBody`
@@ -32,9 +35,12 @@
 - Primary Key: Email
 
 ### Fields
-- `email`: `string`
-- `class`: `string`
-- `types_accepted`: `string`
+
+| Field | Type |
+|------|------|
+| `email` | `string` |
+| `class` | `string` |
+| `types_accepted` | `string` |
 
 ## CustomerPhoneBody
 - Role: nested
@@ -44,6 +50,9 @@
 - Primary Key: Phone
 
 ### Fields
-- `phone`: `string`
-- `ext`: `int`
-- `type`: `string`
+
+| Field | Type |
+|------|------|
+| `phone` | `string` |
+| `ext` | `int` |
+| `type` | `string` |

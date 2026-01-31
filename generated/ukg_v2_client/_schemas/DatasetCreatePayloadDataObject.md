@@ -7,5 +7,8 @@
 - Primary Key: Dimensions
 
 ### Fields
-- `localized_names`: `LocalizedString[]`
-- `dimensions`: `DatasetDimensionCreatePayload[]`
+
+| Field | Type |
+|------|------|
+| `localized_names` | `LocalizedString[]` |
+| `dimensions` | `DatasetDimensionCreatePayload[]` |

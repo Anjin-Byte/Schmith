@@ -7,15 +7,18 @@
 - Primary Key: Id
 
 ### Fields
-- `id`: `string`
-- `activated`: `bool`
-- `enable_sp_session`: `bool`
-- `entity_id`: `string`
-- `name`: `string`
-- `next_logout_url`: `string`
-- `scope`: `ScopeEnum`
-- `sso_endpoint`: `string`
-- `workflow_type`: `WorkflowTypeEnum`
-- `x509_certificate`: `string`
-- `created_at`: `string`
-- `updated_at`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `activated` | `bool` |
+| `enable_sp_session` | `bool` |
+| `entity_id` | `string` |
+| `name` | `string` |
+| `next_logout_url` | `string` |
+| `scope` | `ScopeEnum` |
+| `sso_endpoint` | `string` |
+| `workflow_type` | `WorkflowTypeEnum` |
+| `x509_certificate` | `string` |
+| `created_at` | `string` |
+| `updated_at` | `string` |

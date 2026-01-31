@@ -7,12 +7,15 @@
 - Primary Key: Id
 
 ### Fields
-- `id`: `string`
-- `type`: `string`
-- `name`: `string`
-- `created_at`: `string`
-- `actor`: `EventActor`
-- `data`: `object`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `type` | `string` |
+| `name` | `string` |
+| `created_at` | `string` |
+| `actor` | `EventActor` |
+| `data` | `object` |
 
 ### Nested Types
 - `EventActor`
@@ -25,6 +28,9 @@
 - Primary Key: Type
 
 ### Fields
-- `type`: `TypeEnum`
-- `name`: `string`
-- `data`: `object`
+
+| Field | Type |
+|------|------|
+| `type` | `TypeEnum` |
+| `name` | `string` |
+| `data` | `object` |

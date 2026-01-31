@@ -6,15 +6,18 @@
 - Schema ID: schema:definitions/DocGenTemplatePatchPayload
 
 ### Fields
-- `title`: `string`
-- `description`: `string`
-- `locale`: `string`
-- `format`: `FormatEnum`
-- `enabled`: `bool`
-- `validity_start_date`: `string`
-- `validity_end_date`: `string`
-- `active_version`: `int`
-- `restrictions`: `TemplateRestriction[]`
+
+| Field | Type |
+|------|------|
+| `title` | `string` |
+| `description` | `string` |
+| `locale` | `string` |
+| `format` | `FormatEnum` |
+| `enabled` | `bool` |
+| `validity_start_date` | `string` |
+| `validity_end_date` | `string` |
+| `active_version` | `int` |
+| `restrictions` | `TemplateRestriction[]` |
 
 ### Nested Types
 - `TemplateRestriction`
@@ -26,5 +29,8 @@
 - Schema ID: schema:definitions/TemplateRestriction
 
 ### Fields
-- `organization_id`: `string`
-- `include_children`: `bool`
+
+| Field | Type |
+|------|------|
+| `organization_id` | `string` |
+| `include_children` | `bool` |

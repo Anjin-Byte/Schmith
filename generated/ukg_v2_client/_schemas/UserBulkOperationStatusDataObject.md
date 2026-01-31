@@ -6,5 +6,8 @@
 - Schema ID: schema:definitions/UserBulkOperationStatus
 
 ### Fields
-- `summary`: `object`
-- `results`: `object[]`
+
+| Field | Type |
+|------|------|
+| `summary` | `object` |
+| `results` | `object[]` |

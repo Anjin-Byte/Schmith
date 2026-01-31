@@ -6,9 +6,12 @@
 - Schema ID: schema:definitions/EventExportFields
 
 ### Fields
-- `Trigger Type`: `TriggerTypeEnum`
-- `Trigger`: `string`
-- `Action`: `string`
-- `Item Type`: `string`
-- `Affected Item`: `string`
-- `Date`: `string`
+
+| Field | Type |
+|------|------|
+| `Trigger Type` | `TriggerTypeEnum` |
+| `Trigger` | `string` |
+| `Action` | `string` |
+| `Item Type` | `string` |
+| `Affected Item` | `string` |
+| `Date` | `string` |

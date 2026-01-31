@@ -6,5 +6,8 @@
 - Schema ID: schema:definitions/TwoFactorAuthenticationMethod
 
 ### Fields
-- `sms`: `bool`
-- `email`: `bool`
+
+| Field | Type |
+|------|------|
+| `sms` | `bool` |
+| `email` | `bool` |

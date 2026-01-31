@@ -7,4 +7,7 @@
 - Primary Key: ViewEvents
 
 ### Fields
-- `view_events`: `bool`
+
+| Field | Type |
+|------|------|
+| `view_events` | `bool` |

@@ -7,5 +7,8 @@
 - Primary Key: Description
 
 ### Fields
-- `description`: `string`
-- `is_completed`: `bool`
+
+| Field | Type |
+|------|------|
+| `description` | `string` |
+| `is_completed` | `bool` |

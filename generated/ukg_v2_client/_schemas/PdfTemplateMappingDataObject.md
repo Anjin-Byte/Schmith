@@ -6,5 +6,8 @@
 - Schema ID: schema:definitions/PdfTemplateMapping
 
 ### Fields
-- `pdf_field_name`: `string`
-- `form_field_id`: `string`
+
+| Field | Type |
+|------|------|
+| `pdf_field_name` | `string` |
+| `form_field_id` | `string` |

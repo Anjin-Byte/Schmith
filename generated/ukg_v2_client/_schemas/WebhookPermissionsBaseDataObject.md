@@ -7,4 +7,7 @@
 - Primary Key: ManageWebhooks
 
 ### Fields
-- `manage_webhooks`: `bool`
+
+| Field | Type |
+|------|------|
+| `manage_webhooks` | `bool` |

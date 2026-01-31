@@ -6,4 +6,7 @@
 - Schema ID: schema:definitions/EmployeeBulkOperationResult
 
 ### Fields
-- `request_id`: `string`
+
+| Field | Type |
+|------|------|
+| `request_id` | `string` |

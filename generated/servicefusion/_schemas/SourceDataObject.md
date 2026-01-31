@@ -6,6 +6,9 @@
 - Schema ID: schema:types/typ.Source
 
 ### Fields
-- `id`: `int`
-- `short_name`: `string`
-- `long_name`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `int` |
+| `short_name` | `string` |
+| `long_name` | `string` |

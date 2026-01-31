@@ -6,16 +6,19 @@
 - Schema ID: schema:definitions/ProcessTemplate
 
 ### Fields
-- `id`: `string`
-- `title`: `string`
-- `public_title`: `string`
-- `description`: `string`
-- `created_at`: `string`
-- `created_by`: `object`
-- `updated_at`: `string`
-- `updated_by`: `object`
-- `automatic_archiving`: `bool`
-- `restrictions`: `ProcessTemplateRestriction[]`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `title` | `string` |
+| `public_title` | `string` |
+| `description` | `string` |
+| `created_at` | `string` |
+| `created_by` | `object` |
+| `updated_at` | `string` |
+| `updated_by` | `object` |
+| `automatic_archiving` | `bool` |
+| `restrictions` | `ProcessTemplateRestriction[]` |
 
 ### Nested Types
 - `Organization`
@@ -28,8 +31,11 @@
 - Schema ID: schema:definitions/Organization
 
 ### Fields
-- `id`: `string`
-- `operator`: `OperatorEnum`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `operator` | `OperatorEnum` |
 
 ## ProcessTemplateRestriction
 - Role: nested
@@ -38,4 +44,7 @@
 - Schema ID: schema:definitions/ProcessTemplateRestriction
 
 ### Fields
-- `organizations`: `Organization[]`
+
+| Field | Type |
+|------|------|
+| `organizations` | `Organization[]` |

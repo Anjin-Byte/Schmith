@@ -1,6 +1,6 @@
 # Schema Coverage Report: servicefusion
 
-**Generated:** 2026-01-31 14:41:29
+**Generated:** 2026-01-31 14:57:55
 **IR Source:** `/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/ir/servicefusion`
 
 ## Summary

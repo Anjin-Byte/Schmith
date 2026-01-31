@@ -7,8 +7,11 @@
 - Primary Key: UploadId
 
 ### Fields
-- `upload_id`: `string`
-- `document_type_id`: `string`
-- `document_title`: `string`
-- `document_date`: `string`
-- `send_notification`: `bool`
+
+| Field | Type |
+|------|------|
+| `upload_id` | `string` |
+| `document_type_id` | `string` |
+| `document_title` | `string` |
+| `document_date` | `string` |
+| `send_notification` | `bool` |

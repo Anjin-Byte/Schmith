@@ -6,5 +6,8 @@
 - Schema ID: schema:definitions/EventActionFilterComputedFields
 
 ### Fields
-- `application_name`: `string`
-- `resources`: `object[]`
+
+| Field | Type |
+|------|------|
+| `application_name` | `string` |
+| `resources` | `object[]` |

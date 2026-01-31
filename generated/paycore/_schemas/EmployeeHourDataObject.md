@@ -7,16 +7,19 @@
 - Primary Key: Employeeid
 
 ### Fields
-- `employeeId`: `string`
-- `departmentId`: `string`
-- `legalEntityEarningId`: `string`
-- `startDateTime`: `string`
-- `total`: `double`
-- `activityTypeId`: `string`
-- `applyAllPolicies`: `bool`
-- `note`: `string`
-- `laborCodes`: `LaborCode3[]`
-- `workLocationId`: `string`
+
+| Field | Type |
+|------|------|
+| `employeeId` | `string` |
+| `departmentId` | `string` |
+| `legalEntityEarningId` | `string` |
+| `startDateTime` | `string` |
+| `total` | `double` |
+| `activityTypeId` | `string` |
+| `applyAllPolicies` | `bool` |
+| `note` | `string` |
+| `laborCodes` | `LaborCode3[]` |
+| `workLocationId` | `string` |
 
 ### Nested Types
 - `LaborCode3`
@@ -28,5 +31,8 @@
 - Schema ID: schema:components/LaborCode3
 
 ### Fields
-- `laborCategoryId`: `string`
-- `laborCodeId`: `string`
+
+| Field | Type |
+|------|------|
+| `laborCategoryId` | `string` |
+| `laborCodeId` | `string` |

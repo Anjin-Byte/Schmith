@@ -7,6 +7,9 @@
 - Primary Key: Id
 
 ### Fields
-- `id`: `string`
-- `name`: `string`
-- `description`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `name` | `string` |
+| `description` | `string` |

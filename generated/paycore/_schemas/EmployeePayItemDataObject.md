@@ -7,5 +7,8 @@
 - Primary Key: Payitemid
 
 ### Fields
-- `payItemId`: `string`
-- `payItemRefId`: `string`
+
+| Field | Type |
+|------|------|
+| `payItemId` | `string` |
+| `payItemRefId` | `string` |

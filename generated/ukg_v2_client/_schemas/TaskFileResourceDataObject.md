@@ -7,7 +7,10 @@
 - Primary Key: Id
 
 ### Fields
-- `id`: `string`
-- `task_id`: `string`
-- `filename`: `string`
-- `field_id`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `task_id` | `string` |
+| `filename` | `string` |
+| `field_id` | `string` |

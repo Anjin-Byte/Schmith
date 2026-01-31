@@ -6,7 +6,10 @@
 - Schema ID: schema:components/PagedResultOfTimeCardV3
 
 ### Fields
-- `hasMoreResults`: `bool`
-- `continuationToken`: `string`
-- `additionalResultsUrl`: `string`
-- `records`: `TimeCardV3[]`
+
+| Field | Type |
+|------|------|
+| `hasMoreResults` | `bool` |
+| `continuationToken` | `string` |
+| `additionalResultsUrl` | `string` |
+| `records` | `TimeCardV3[]` |

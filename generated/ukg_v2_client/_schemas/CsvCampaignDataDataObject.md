@@ -6,8 +6,11 @@
 - Schema ID: schema:definitions/CsvCampaignData
 
 ### Fields
-- `ref`: `string`
-- `fields`: `DatasetField[]`
+
+| Field | Type |
+|------|------|
+| `ref` | `string` |
+| `fields` | `DatasetField[]` |
 
 ### Nested Types
 - `DatasetField`
@@ -19,6 +22,9 @@
 - Schema ID: schema:definitions/DatasetField
 
 ### Fields
-- `slug`: `string`
-- `value`: `string`
-- `type`: `TypeEnum`
+
+| Field | Type |
+|------|------|
+| `slug` | `string` |
+| `value` | `string` |
+| `type` | `TypeEnum` |

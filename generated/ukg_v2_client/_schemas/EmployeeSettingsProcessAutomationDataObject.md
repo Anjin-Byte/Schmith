@@ -6,5 +6,8 @@
 - Schema ID: schema:definitions/EmployeeSettingsProcessAutomation
 
 ### Fields
-- `employee_id`: `string`
-- `onboarding`: `object`
+
+| Field | Type |
+|------|------|
+| `employee_id` | `string` |
+| `onboarding` | `object` |

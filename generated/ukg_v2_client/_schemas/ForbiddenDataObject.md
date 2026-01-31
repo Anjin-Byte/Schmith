@@ -6,5 +6,8 @@
 - Schema ID: schema:definitions/Forbidden
 
 ### Fields
-- `message`: `string`
-- `code`: `string`
+
+| Field | Type |
+|------|------|
+| `message` | `string` |
+| `code` | `string` |

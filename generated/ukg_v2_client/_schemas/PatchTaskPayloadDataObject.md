@@ -6,5 +6,8 @@
 - Schema ID: schema:definitions/PatchTaskPayload
 
 ### Fields
-- `due_date`: `string`
-- `reminder_offset`: `int`
+
+| Field | Type |
+|------|------|
+| `due_date` | `string` |
+| `reminder_offset` | `int` |

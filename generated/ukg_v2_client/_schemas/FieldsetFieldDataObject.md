@@ -6,4 +6,7 @@
 - Schema ID: schema:definitions/FieldsetField
 
 ### Fields
-- `slug`: `string`
+
+| Field | Type |
+|------|------|
+| `slug` | `string` |

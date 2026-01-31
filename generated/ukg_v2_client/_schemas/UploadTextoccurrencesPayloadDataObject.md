@@ -7,4 +7,7 @@
 - Primary Key: Keyword
 
 ### Fields
-- `keyword`: `string`
+
+| Field | Type |
+|------|------|
+| `keyword` | `string` |

@@ -7,6 +7,9 @@
 - Primary Key: Enabled
 
 ### Fields
-- `enabled`: `bool`
-- `new_hire_experience`: `bool`
-- `url`: `string`
+
+| Field | Type |
+|------|------|
+| `enabled` | `bool` |
+| `new_hire_experience` | `bool` |
+| `url` | `string` |

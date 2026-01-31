@@ -7,14 +7,17 @@
 - Primary Key: Title
 
 ### Fields
-- `title`: `string`
-- `description`: `string`
-- `locale`: `string`
-- `validity_start_date`: `string`
-- `validity_end_date`: `string`
-- `enabled`: `bool`
-- `is_injectable`: `bool`
-- `restrictions`: `TemplateRestriction[]`
+
+| Field | Type |
+|------|------|
+| `title` | `string` |
+| `description` | `string` |
+| `locale` | `string` |
+| `validity_start_date` | `string` |
+| `validity_end_date` | `string` |
+| `enabled` | `bool` |
+| `is_injectable` | `bool` |
+| `restrictions` | `TemplateRestriction[]` |
 
 ### Nested Types
 - `TemplateRestriction`
@@ -26,5 +29,8 @@
 - Schema ID: schema:definitions/TemplateRestriction
 
 ### Fields
-- `organization_id`: `string`
-- `include_children`: `bool`
+
+| Field | Type |
+|------|------|
+| `organization_id` | `string` |
+| `include_children` | `bool` |

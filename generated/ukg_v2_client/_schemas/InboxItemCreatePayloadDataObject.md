@@ -7,9 +7,12 @@
 - Primary Key: Title
 
 ### Fields
-- `title`: `string`
-- `type`: `string`
-- `description`: `string`
-- `creator_email`: `string`
-- `to_users_ids`: `string[]`
-- `to_inbox_id`: `string`
+
+| Field | Type |
+|------|------|
+| `title` | `string` |
+| `type` | `string` |
+| `description` | `string` |
+| `creator_email` | `string` |
+| `to_users_ids` | `string[]` |
+| `to_inbox_id` | `string` |

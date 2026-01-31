@@ -7,10 +7,13 @@
 - Primary Key: Operator
 
 ### Fields
-- `operator`: `OperatorEnum`
-- `organization_id`: `string`
-- `organization_group_id`: `string`
-- `custom_field_filters`: `CustomFieldFilterRule[]`
+
+| Field | Type |
+|------|------|
+| `operator` | `OperatorEnum` |
+| `organization_id` | `string` |
+| `organization_group_id` | `string` |
+| `custom_field_filters` | `CustomFieldFilterRule[]` |
 
 ### Nested Types
 - `CustomFieldFilterRule`
@@ -23,6 +26,9 @@
 - Primary Key: CustomFieldId
 
 ### Fields
-- `custom_field_id`: `string`
-- `operator`: `OperatorEnum`
-- `value`: `string`
+
+| Field | Type |
+|------|------|
+| `custom_field_id` | `string` |
+| `operator` | `OperatorEnum` |
+| `value` | `string` |

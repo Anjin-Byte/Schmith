@@ -6,15 +6,18 @@
 - Schema ID: schema:components/EmployeePunchProfileData
 
 ### Fields
-- `punchProfileId`: `string`
-- `hasAllDeparmentsSelected`: `bool`
-- `hasAllWorkLocationsSelected`: `bool`
-- `hasAllActivityTypesSelected`: `bool`
-- `hasDetailPunch`: `bool`
-- `departments`: `Department4[]`
-- `workLocations`: `PunchProfileWorkLocation[]`
-- `laborProfile`: `LaborProfile2`
-- `activityTypes`: `ActivityTypeBasic[]`
+
+| Field | Type |
+|------|------|
+| `punchProfileId` | `string` |
+| `hasAllDeparmentsSelected` | `bool` |
+| `hasAllWorkLocationsSelected` | `bool` |
+| `hasAllActivityTypesSelected` | `bool` |
+| `hasDetailPunch` | `bool` |
+| `departments` | `Department4[]` |
+| `workLocations` | `PunchProfileWorkLocation[]` |
+| `laborProfile` | `LaborProfile2` |
+| `activityTypes` | `ActivityTypeBasic[]` |
 
 ### Nested Types
 - `ActivityTypeBasic`
@@ -31,8 +34,11 @@
 - Schema ID: schema:components/ActivityTypeBasic
 
 ### Fields
-- `activityTypeId`: `string`
-- `activityName`: `string`
+
+| Field | Type |
+|------|------|
+| `activityTypeId` | `string` |
+| `activityName` | `string` |
 
 ## Department4
 - Role: nested
@@ -41,8 +47,11 @@
 - Schema ID: schema:components/Department4
 
 ### Fields
-- `departmentId`: `string`
-- `departmentName`: `string`
+
+| Field | Type |
+|------|------|
+| `departmentId` | `string` |
+| `departmentName` | `string` |
 
 ## LaborCategory
 - Role: nested
@@ -51,9 +60,12 @@
 - Schema ID: schema:components/LaborCategory
 
 ### Fields
-- `laborCategoryId`: `string`
-- `laborCategoryName`: `string`
-- `laborCodes`: `LaborCode7[]`
+
+| Field | Type |
+|------|------|
+| `laborCategoryId` | `string` |
+| `laborCategoryName` | `string` |
+| `laborCodes` | `LaborCode7[]` |
 
 ## LaborCode7
 - Role: nested
@@ -62,8 +74,11 @@
 - Schema ID: schema:components/LaborCode7
 
 ### Fields
-- `laborCodeId`: `string`
-- `laborCodeName`: `string`
+
+| Field | Type |
+|------|------|
+| `laborCodeId` | `string` |
+| `laborCodeName` | `string` |
 
 ## LaborProfile2
 - Role: nested
@@ -72,9 +87,12 @@
 - Schema ID: schema:components/LaborProfile2
 
 ### Fields
-- `laborProfileId`: `string`
-- `laborProfileName`: `string`
-- `laborCategories`: `LaborCategory[]`
+
+| Field | Type |
+|------|------|
+| `laborProfileId` | `string` |
+| `laborProfileName` | `string` |
+| `laborCategories` | `LaborCategory[]` |
 
 ## PunchProfileWorkLocation
 - Role: nested
@@ -83,5 +101,8 @@
 - Schema ID: schema:components/PunchProfileWorkLocation
 
 ### Fields
-- `workLocationId`: `string`
-- `workLocationName`: `string`
+
+| Field | Type |
+|------|------|
+| `workLocationId` | `string` |
+| `workLocationName` | `string` |

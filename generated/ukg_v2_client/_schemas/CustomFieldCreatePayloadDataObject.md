@@ -7,10 +7,13 @@
 - Primary Key: Type
 
 ### Fields
-- `type`: `TypeEnum`
-- `authorized_values`: `AuthorizedValue[]`
-- `hierarchical`: `bool`
-- `default_value`: `string`
-- `localized_labels`: `LocalizedString[]`
-- `visible`: `bool`
-- `allow_access_restrictions`: `bool`
+
+| Field | Type |
+|------|------|
+| `type` | `TypeEnum` |
+| `authorized_values` | `AuthorizedValue[]` |
+| `hierarchical` | `bool` |
+| `default_value` | `string` |
+| `localized_labels` | `LocalizedString[]` |
+| `visible` | `bool` |
+| `allow_access_restrictions` | `bool` |

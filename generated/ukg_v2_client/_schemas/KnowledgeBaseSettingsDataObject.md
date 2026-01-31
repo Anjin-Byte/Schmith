@@ -7,10 +7,13 @@
 - Primary Key: Enabled
 
 ### Fields
-- `enabled`: `bool`
-- `url`: `string`
-- `display_popular_forms`: `bool`
-- `display_popular_articles`: `bool`
-- `display_featured_forms`: `bool`
-- `display_featured_articles`: `bool`
-- `display_employee_search_by_scope`: `bool`
+
+| Field | Type |
+|------|------|
+| `enabled` | `bool` |
+| `url` | `string` |
+| `display_popular_forms` | `bool` |
+| `display_popular_articles` | `bool` |
+| `display_featured_forms` | `bool` |
+| `display_featured_articles` | `bool` |
+| `display_employee_search_by_scope` | `bool` |

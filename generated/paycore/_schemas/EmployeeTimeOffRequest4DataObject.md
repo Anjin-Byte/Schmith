@@ -7,6 +7,9 @@
 - Primary Key: Status
 
 ### Fields
-- `timeOffRequestId`: `string`
-- `status`: `EmployeeTimeOffRequestStatus2`
-- `comment`: `string`
+
+| Field | Type |
+|------|------|
+| `timeOffRequestId` | `string` |
+| `status` | `EmployeeTimeOffRequestStatus2` |
+| `comment` | `string` |

@@ -7,4 +7,7 @@
 - Primary Key: ConfigUpdateId
 
 ### Fields
-- `config_update_id`: `string`
+
+| Field | Type |
+|------|------|
+| `config_update_id` | `string` |

@@ -6,10 +6,13 @@
 - Schema ID: schema:components/PagedResultOfMissedPunchRequest
 
 ### Fields
-- `hasMoreResults`: `bool`
-- `continuationToken`: `string`
-- `additionalResultsUrl`: `string`
-- `records`: `MissedPunchRequest[]`
+
+| Field | Type |
+|------|------|
+| `hasMoreResults` | `bool` |
+| `continuationToken` | `string` |
+| `additionalResultsUrl` | `string` |
+| `records` | `MissedPunchRequest[]` |
 
 ### Nested Types
 - `LaborCode3`
@@ -22,8 +25,11 @@
 - Schema ID: schema:components/LaborCode3
 
 ### Fields
-- `laborCategoryId`: `string`
-- `laborCodeId`: `string`
+
+| Field | Type |
+|------|------|
+| `laborCategoryId` | `string` |
+| `laborCodeId` | `string` |
 
 ## MissedPunchRequest
 - Role: nested
@@ -32,14 +38,17 @@
 - Schema ID: schema:components/MissedPunchRequest
 
 ### Fields
-- `employeeId`: `string`
-- `punchId`: `string`
-- `punchRefId`: `string`
-- `punchDateTime`: `string`
-- `punchStatusType`: `PunchStatusType`
-- `isTransfer`: `bool`
-- `activityTypeId`: `string`
-- `departmentId`: `string`
-- `note`: `string`
-- `laborCodes`: `LaborCode3[]`
-- `workLocationId`: `string`
+
+| Field | Type |
+|------|------|
+| `employeeId` | `string` |
+| `punchId` | `string` |
+| `punchRefId` | `string` |
+| `punchDateTime` | `string` |
+| `punchStatusType` | `PunchStatusType` |
+| `isTransfer` | `bool` |
+| `activityTypeId` | `string` |
+| `departmentId` | `string` |
+| `note` | `string` |
+| `laborCodes` | `LaborCode3[]` |
+| `workLocationId` | `string` |

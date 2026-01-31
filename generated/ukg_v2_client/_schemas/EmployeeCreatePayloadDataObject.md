@@ -7,9 +7,12 @@
 - Primary Key: Firstname
 
 ### Fields
-- `external_id`: `string`
-- `firstname`: `string`
-- `lastname`: `string`
-- `email`: `string`
-- `language`: `string`
-- `saml_token`: `string`
+
+| Field | Type |
+|------|------|
+| `external_id` | `string` |
+| `firstname` | `string` |
+| `lastname` | `string` |
+| `email` | `string` |
+| `language` | `string` |
+| `saml_token` | `string` |

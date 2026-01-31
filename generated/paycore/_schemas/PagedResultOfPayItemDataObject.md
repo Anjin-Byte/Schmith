@@ -6,10 +6,13 @@
 - Schema ID: schema:components/PagedResultOfPayItem
 
 ### Fields
-- `hasMoreResults`: `bool`
-- `continuationToken`: `string`
-- `additionalResultsUrl`: `string`
-- `records`: `PayItem[]`
+
+| Field | Type |
+|------|------|
+| `hasMoreResults` | `bool` |
+| `continuationToken` | `string` |
+| `additionalResultsUrl` | `string` |
+| `records` | `PayItem[]` |
 
 ### Nested Types
 - `LaborCode3`
@@ -22,8 +25,11 @@
 - Schema ID: schema:components/LaborCode3
 
 ### Fields
-- `laborCategoryId`: `string`
-- `laborCodeId`: `string`
+
+| Field | Type |
+|------|------|
+| `laborCategoryId` | `string` |
+| `laborCodeId` | `string` |
 
 ## PayItem
 - Role: nested
@@ -32,13 +38,16 @@
 - Schema ID: schema:components/PayItem
 
 ### Fields
-- `payItemId`: `string`
-- `payItemRefId`: `string`
-- `employeeId`: `string`
-- `legalEntityEarningId`: `string`
-- `amount`: `double`
-- `departmentId`: `string`
-- `note`: `string`
-- `laborCodes`: `LaborCode3[]`
-- `date`: `string`
-- `workLocationId`: `string`
+
+| Field | Type |
+|------|------|
+| `payItemId` | `string` |
+| `payItemRefId` | `string` |
+| `employeeId` | `string` |
+| `legalEntityEarningId` | `string` |
+| `amount` | `double` |
+| `departmentId` | `string` |
+| `note` | `string` |
+| `laborCodes` | `LaborCode3[]` |
+| `date` | `string` |
+| `workLocationId` | `string` |

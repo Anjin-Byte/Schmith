@@ -7,4 +7,7 @@
 - Primary Key: Tag
 
 ### Fields
-- `tag`: `string`
+
+| Field | Type |
+|------|------|
+| `tag` | `string` |

@@ -6,5 +6,8 @@
 - Schema ID: schema:definitions/EmployeeBulkOperationStatus
 
 ### Fields
-- `summary`: `object`
-- `results`: `object[]`
+
+| Field | Type |
+|------|------|
+| `summary` | `object` |
+| `results` | `object[]` |

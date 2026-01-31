@@ -6,5 +6,8 @@
 - Schema ID: schema:types/typ.JobCategory
 
 ### Fields
-- `id`: `int`
-- `name`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `int` |
+| `name` | `string` |

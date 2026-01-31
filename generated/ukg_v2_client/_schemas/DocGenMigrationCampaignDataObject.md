@@ -6,5 +6,8 @@
 - Schema ID: schema:definitions/DocGenMigrationCampaign
 
 ### Fields
-- `status`: `StatusEnum`
-- `new_migration_available`: `bool`
+
+| Field | Type |
+|------|------|
+| `status` | `StatusEnum` |
+| `new_migration_available` | `bool` |

@@ -6,11 +6,14 @@
 - Schema ID: schema:definitions/DocGenTemplateVersionUpdatePayload
 
 ### Fields
-- `format`: `FormatEnum`
-- `output_format`: `OutputFormatPatchRequest`
-- `syntax_version`: `SyntaxVersionEnum`
-- `template_information`: `GenerationInfo[]`
-- `fragment_mapping`: `FragmentFieldsetField[]`
+
+| Field | Type |
+|------|------|
+| `format` | `FormatEnum` |
+| `output_format` | `OutputFormatPatchRequest` |
+| `syntax_version` | `SyntaxVersionEnum` |
+| `template_information` | `GenerationInfo[]` |
+| `fragment_mapping` | `FragmentFieldsetField[]` |
 
 ### Nested Types
 - `FragmentFieldsetField`
@@ -25,8 +28,11 @@
 - Primary Key: Slug
 
 ### Fields
-- `slug`: `string`
-- `fragment_id`: `string`
+
+| Field | Type |
+|------|------|
+| `slug` | `string` |
+| `fragment_id` | `string` |
 
 ## GenerationInfo
 - Role: nested
@@ -35,10 +41,13 @@
 - Schema ID: schema:definitions/GenerationInfo
 
 ### Fields
-- `code`: `string`
-- `field`: `string`
-- `message`: `string`
-- `severity`: `SeverityEnum`
+
+| Field | Type |
+|------|------|
+| `code` | `string` |
+| `field` | `string` |
+| `message` | `string` |
+| `severity` | `SeverityEnum` |
 
 ## OutputFormatPatchRequest
 - Role: nested
@@ -47,4 +56,7 @@
 - Schema ID: schema:definitions/OutputFormatPatchRequest
 
 ### Fields
-- `format`: `FormatEnum`
+
+| Field | Type |
+|------|------|
+| `format` | `FormatEnum` |

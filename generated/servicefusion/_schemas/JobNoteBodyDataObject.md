@@ -7,4 +7,7 @@
 - Primary Key: Notes
 
 ### Fields
-- `notes`: `string`
+
+| Field | Type |
+|------|------|
+| `notes` | `string` |

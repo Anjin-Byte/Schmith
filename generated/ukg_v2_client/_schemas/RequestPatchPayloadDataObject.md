@@ -6,7 +6,10 @@
 - Schema ID: schema:definitions/RequestPatchPayload
 
 ### Fields
-- `form_data`: `RequestFormDataFieldValue[]`
+
+| Field | Type |
+|------|------|
+| `form_data` | `RequestFormDataFieldValue[]` |
 
 ### Nested Types
 - `RequestFormDataFieldValue`
@@ -19,5 +22,8 @@
 - Primary Key: FieldId
 
 ### Fields
-- `field_id`: `string`
-- `values`: `string[]`
+
+| Field | Type |
+|------|------|
+| `field_id` | `string` |
+| `values` | `string[]` |

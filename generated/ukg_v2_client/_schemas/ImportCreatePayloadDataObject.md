@@ -7,5 +7,8 @@
 - Primary Key: Type
 
 ### Fields
-- `type`: `TypeEnum`
-- `creator`: `string`
+
+| Field | Type |
+|------|------|
+| `type` | `TypeEnum` |
+| `creator` | `string` |

@@ -7,10 +7,13 @@
 - Primary Key: Id
 
 ### Fields
-- `id`: `string`
-- `position_x`: `string`
-- `position_y`: `string`
-- `width`: `string`
-- `height`: `string`
-- `page`: `string`
-- `pdf_template_id`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `position_x` | `string` |
+| `position_y` | `string` |
+| `width` | `string` |
+| `height` | `string` |
+| `page` | `string` |
+| `pdf_template_id` | `string` |

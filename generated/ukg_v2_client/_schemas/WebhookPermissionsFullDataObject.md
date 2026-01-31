@@ -7,5 +7,8 @@
 - Primary Key: ManageWebhooks
 
 ### Fields
-- `manage_webhooks`: `bool`
-- `role_id`: `string`
+
+| Field | Type |
+|------|------|
+| `manage_webhooks` | `bool` |
+| `role_id` | `string` |

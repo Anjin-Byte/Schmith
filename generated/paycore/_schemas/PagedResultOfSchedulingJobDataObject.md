@@ -6,10 +6,13 @@
 - Schema ID: schema:components/PagedResultOfSchedulingJob
 
 ### Fields
-- `hasMoreResults`: `bool`
-- `continuationToken`: `string`
-- `additionalResultsUrl`: `string`
-- `records`: `SchedulingJob[]`
+
+| Field | Type |
+|------|------|
+| `hasMoreResults` | `bool` |
+| `continuationToken` | `string` |
+| `additionalResultsUrl` | `string` |
+| `records` | `SchedulingJob[]` |
 
 ### Nested Types
 - `SchedulingJob`
@@ -21,5 +24,8 @@
 - Schema ID: schema:components/SchedulingJob
 
 ### Fields
-- `schedulingJobId`: `string`
-- `schedulingJobName`: `string`
+
+| Field | Type |
+|------|------|
+| `schedulingJobId` | `string` |
+| `schedulingJobName` | `string` |

@@ -7,5 +7,8 @@
 - Primary Key: FieldId
 
 ### Fields
-- `field_id`: `string`
-- `values`: `string[]`
+
+| Field | Type |
+|------|------|
+| `field_id` | `string` |
+| `values` | `string[]` |

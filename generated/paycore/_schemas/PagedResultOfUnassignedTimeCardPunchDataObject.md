@@ -6,10 +6,13 @@
 - Schema ID: schema:components/PagedResultOfUnassignedTimeCardPunch
 
 ### Fields
-- `hasMoreResults`: `bool`
-- `continuationToken`: `string`
-- `additionalResultsUrl`: `string`
-- `records`: `UnassignedTimeCardPunch[]`
+
+| Field | Type |
+|------|------|
+| `hasMoreResults` | `bool` |
+| `continuationToken` | `string` |
+| `additionalResultsUrl` | `string` |
+| `records` | `UnassignedTimeCardPunch[]` |
 
 ### Nested Types
 - `UnassignedTimeCardPunch`
@@ -21,12 +24,15 @@
 - Schema ID: schema:components/UnassignedTimeCardPunch
 
 ### Fields
-- `punchId`: `string`
-- `badgeNumber`: `int`
-- `employeeId`: `string`
-- `punchDateTime`: `string`
-- `departmentId`: `string`
-- `reason`: `string`
-- `activityTypeName`: `string`
-- `activityTypeId`: `string`
-- `workLocationId`: `string`
+
+| Field | Type |
+|------|------|
+| `punchId` | `string` |
+| `badgeNumber` | `int` |
+| `employeeId` | `string` |
+| `punchDateTime` | `string` |
+| `departmentId` | `string` |
+| `reason` | `string` |
+| `activityTypeName` | `string` |
+| `activityTypeId` | `string` |
+| `workLocationId` | `string` |

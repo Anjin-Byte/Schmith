@@ -6,9 +6,12 @@
 - Schema ID: schema:components/PolicyGroup
 
 ### Fields
-- `policyGroupId`: `string`
-- `policyGroupName`: `string`
-- `policies`: `Policy[]`
+
+| Field | Type |
+|------|------|
+| `policyGroupId` | `string` |
+| `policyGroupName` | `string` |
+| `policies` | `Policy[]` |
 
 ### Nested Types
 - `Policy`
@@ -20,5 +23,8 @@
 - Schema ID: schema:components/Policy
 
 ### Fields
-- `policyName`: `string`
-- `policyType`: `string`
+
+| Field | Type |
+|------|------|
+| `policyName` | `string` |
+| `policyType` | `string` |

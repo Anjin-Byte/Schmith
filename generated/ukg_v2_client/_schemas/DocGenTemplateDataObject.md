@@ -7,5 +7,8 @@
 - Primary Key: CreatedAt
 
 ### Fields
-- `created_at`: `string`
-- `updated_at`: `string`
+
+| Field | Type |
+|------|------|
+| `created_at` | `string` |
+| `updated_at` | `string` |

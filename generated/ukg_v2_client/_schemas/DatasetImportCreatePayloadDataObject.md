@@ -7,4 +7,7 @@
 - Primary Key: DatasetId
 
 ### Fields
-- `dataset_id`: `string`
+
+| Field | Type |
+|------|------|
+| `dataset_id` | `string` |

@@ -6,16 +6,19 @@
 - Schema ID: schema:definitions/RequestComment
 
 ### Fields
-- `attachments`: `RequestAttachment[]`
-- `id`: `string`
-- `creator`: `UserSimplified`
-- `creator_id`: `string`
-- `created_at`: `string`
-- `content`: `string`
-- `is_informative`: `bool`
-- `is_internal`: `bool`
-- `comment_source`: `string`
-- `is_deleted`: `bool`
+
+| Field | Type |
+|------|------|
+| `attachments` | `RequestAttachment[]` |
+| `id` | `string` |
+| `creator` | `UserSimplified` |
+| `creator_id` | `string` |
+| `created_at` | `string` |
+| `content` | `string` |
+| `is_informative` | `bool` |
+| `is_internal` | `bool` |
+| `comment_source` | `string` |
+| `is_deleted` | `bool` |
 
 ### Nested Types
 - `UserSimplified`
@@ -28,8 +31,11 @@
 - Primary Key: Id
 
 ### Fields
-- `id`: `string`
-- `firstname`: `string`
-- `lastname`: `string`
-- `email`: `string`
-- `external_id`: `string`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `firstname` | `string` |
+| `lastname` | `string` |
+| `email` | `string` |
+| `external_id` | `string` |

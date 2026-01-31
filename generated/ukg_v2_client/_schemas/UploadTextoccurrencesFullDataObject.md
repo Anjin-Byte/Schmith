@@ -7,9 +7,12 @@
 - Primary Key: Keyword
 
 ### Fields
-- `keyword`: `string`
-- `page_number`: `int`
-- `left`: `double`
-- `top`: `double`
-- `width`: `double`
-- `height`: `double`
+
+| Field | Type |
+|------|------|
+| `keyword` | `string` |
+| `page_number` | `int` |
+| `left` | `double` |
+| `top` | `double` |
+| `width` | `double` |
+| `height` | `double` |

@@ -7,4 +7,7 @@
 - Primary Key: LocalizedNames
 
 ### Fields
-- `localized_names`: `LocalizedString[]`
+
+| Field | Type |
+|------|------|
+| `localized_names` | `LocalizedString[]` |

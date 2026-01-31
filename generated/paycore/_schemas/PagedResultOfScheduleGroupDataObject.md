@@ -6,10 +6,13 @@
 - Schema ID: schema:components/PagedResultOfScheduleGroup
 
 ### Fields
-- `hasMoreResults`: `bool`
-- `continuationToken`: `string`
-- `additionalResultsUrl`: `string`
-- `records`: `ScheduleGroup[]`
+
+| Field | Type |
+|------|------|
+| `hasMoreResults` | `bool` |
+| `continuationToken` | `string` |
+| `additionalResultsUrl` | `string` |
+| `records` | `ScheduleGroup[]` |
 
 ### Nested Types
 - `ScheduleGroup`
@@ -21,6 +24,9 @@
 - Schema ID: schema:components/ScheduleGroup
 
 ### Fields
-- `id`: `string`
-- `name`: `string`
-- `isActive`: `bool`
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `name` | `string` |
+| `isActive` | `bool` |

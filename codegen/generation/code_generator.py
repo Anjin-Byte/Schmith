@@ -359,10 +359,14 @@ def _format_schema_markdown(packet: dict) -> str:
             fields = []
             for page in schema.get("pages", []):
                 fields.extend(page.get("fields", []))
-        for field in fields:
-            field_name = field.get("json_name", "")
-            field_type = field.get("csharp_type", "")
-            lines.append(f"- `{field_name}`: `{field_type}`")
+        if fields:
+            lines.append("")
+            lines.append("| Field | Type |")
+            lines.append("|------|------|")
+            for field in fields:
+                field_name = field.get("json_name", "")
+                field_type = field.get("csharp_type", "")
+                lines.append(f"| `{field_name}` | `{field_type}` |")
         lines.append("")
 
         if schema.get("role") == "parent":

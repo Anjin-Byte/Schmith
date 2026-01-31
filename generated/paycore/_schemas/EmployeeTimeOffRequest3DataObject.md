@@ -6,4 +6,7 @@
 - Schema ID: schema:components/EmployeeTimeOffRequest3
 
 ### Fields
-- `timeOffRequestId`: `string`
+
+| Field | Type |
+|------|------|
+| `timeOffRequestId` | `string` |

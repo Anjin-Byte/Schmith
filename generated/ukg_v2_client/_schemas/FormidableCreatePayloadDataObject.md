@@ -7,7 +7,10 @@
 - Primary Key: Fields
 
 ### Fields
-- `title`: `string`
-- `description`: `string`
-- `fields`: `FormidableField[]`
-- `conditions`: `FormidableConditionalRule[]`
+
+| Field | Type |
+|------|------|
+| `title` | `string` |
+| `description` | `string` |
+| `fields` | `FormidableField[]` |
+| `conditions` | `FormidableConditionalRule[]` |

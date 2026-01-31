@@ -6,10 +6,13 @@
 - Schema ID: schema:components/PagedResultOfReasonCode
 
 ### Fields
-- `hasMoreResults`: `bool`
-- `continuationToken`: `string`
-- `additionalResultsUrl`: `string`
-- `records`: `ReasonCode[]`
+
+| Field | Type |
+|------|------|
+| `hasMoreResults` | `bool` |
+| `continuationToken` | `string` |
+| `additionalResultsUrl` | `string` |
+| `records` | `ReasonCode[]` |
 
 ### Nested Types
 - `ReasonCode`
@@ -21,7 +24,10 @@
 - Schema ID: schema:components/ReasonCode
 
 ### Fields
-- `reasonCodeId`: `string`
-- `reasonCodeName`: `string`
-- `effectiveStartDate`: `string`
-- `effectiveEndDate`: `string`
+
+| Field | Type |
+|------|------|
+| `reasonCodeId` | `string` |
+| `reasonCodeName` | `string` |
+| `effectiveStartDate` | `string` |
+| `effectiveEndDate` | `string` |

@@ -7,7 +7,10 @@
 - Primary Key: OtherCharge
 
 ### Fields
-- `name`: `string`
-- `rate`: `double`
-- `is_percentage`: `bool`
-- `other_charge`: `string`
+
+| Field | Type |
+|------|------|
+| `name` | `string` |
+| `rate` | `double` |
+| `is_percentage` | `bool` |
+| `other_charge` | `string` |

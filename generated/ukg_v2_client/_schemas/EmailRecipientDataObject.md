@@ -6,7 +6,10 @@
 - Schema ID: schema:definitions/EmailRecipient
 
 ### Fields
-- `firstname`: `string`
-- `lastname`: `string`
-- `email`: `string`
-- `language`: `string`
+
+| Field | Type |
+|------|------|
+| `firstname` | `string` |
+| `lastname` | `string` |
+| `email` | `string` |
+| `language` | `string` |

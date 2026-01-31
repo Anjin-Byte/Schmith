@@ -7,9 +7,12 @@
 - Primary Key: DocumentTypeId
 
 ### Fields
-- `document_type_id`: `string`
-- `title`: `string`
-- `date`: `string`
-- `organization_ids`: `string[]`
-- `metadata`: `MetaDataBase[]`
-- `external_reference`: `string`
+
+| Field | Type |
+|------|------|
+| `document_type_id` | `string` |
+| `title` | `string` |
+| `date` | `string` |
+| `organization_ids` | `string[]` |
+| `metadata` | `MetaDataBase[]` |
+| `external_reference` | `string` |

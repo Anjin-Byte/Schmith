@@ -6,4 +6,7 @@
 - Schema ID: schema:definitions/DocGenRequestStatusResponse
 
 ### Fields
-- `status`: `StatusEnum`
+
+| Field | Type |
+|------|------|
+| `status` | `StatusEnum` |

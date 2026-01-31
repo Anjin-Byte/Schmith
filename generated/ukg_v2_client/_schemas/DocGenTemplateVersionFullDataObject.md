@@ -7,9 +7,12 @@
 - Primary Key: CreatedAt
 
 ### Fields
-- `format`: `FormatEnum`
-- `syntax_version`: `SyntaxVersionEnum`
-- `template_information`: `GenerationInfo[]`
-- `fragment_mapping`: `FragmentFieldsetField[]`
-- `created_at`: `string`
-- `updated_at`: `string`
+
+| Field | Type |
+|------|------|
+| `format` | `FormatEnum` |
+| `syntax_version` | `SyntaxVersionEnum` |
+| `template_information` | `GenerationInfo[]` |
+| `fragment_mapping` | `FragmentFieldsetField[]` |
+| `created_at` | `string` |
+| `updated_at` | `string` |

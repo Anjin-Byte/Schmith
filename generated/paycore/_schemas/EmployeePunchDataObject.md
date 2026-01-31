@@ -7,15 +7,18 @@
 - Primary Key: Employeeid
 
 ### Fields
-- `employeeId`: `string`
-- `departmentId`: `string`
-- `punchDateTime`: `string`
-- `punchStatusType`: `PunchStatusType`
-- `activityTypeId`: `string`
-- `isTransfer`: `bool`
-- `note`: `string`
-- `laborCodes`: `LaborCode3[]`
-- `workLocationId`: `string`
+
+| Field | Type |
+|------|------|
+| `employeeId` | `string` |
+| `departmentId` | `string` |
+| `punchDateTime` | `string` |
+| `punchStatusType` | `PunchStatusType` |
+| `activityTypeId` | `string` |
+| `isTransfer` | `bool` |
+| `note` | `string` |
+| `laborCodes` | `LaborCode3[]` |
+| `workLocationId` | `string` |
 
 ### Nested Types
 - `LaborCode3`
@@ -27,5 +30,8 @@
 - Schema ID: schema:components/LaborCode3
 
 ### Fields
-- `laborCategoryId`: `string`
-- `laborCodeId`: `string`
+
+| Field | Type |
+|------|------|
+| `laborCategoryId` | `string` |
+| `laborCodeId` | `string` |

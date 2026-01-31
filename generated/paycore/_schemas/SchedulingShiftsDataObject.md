@@ -7,8 +7,11 @@
 - Primary Key: Ignorewarnings
 
 ### Fields
-- `ignoreWarnings`: `bool`
-- `shifts`: `SchedulingShiftItem[]`
+
+| Field | Type |
+|------|------|
+| `ignoreWarnings` | `bool` |
+| `shifts` | `SchedulingShiftItem[]` |
 
 ### Nested Types
 - `LaborCode3`
@@ -22,8 +25,11 @@
 - Schema ID: schema:components/LaborCode3
 
 ### Fields
-- `laborCategoryId`: `string`
-- `laborCodeId`: `string`
+
+| Field | Type |
+|------|------|
+| `laborCategoryId` | `string` |
+| `laborCodeId` | `string` |
 
 ## SchedulingShiftBreak
 - Role: nested
@@ -32,8 +38,11 @@
 - Schema ID: schema:components/SchedulingShiftBreak
 
 ### Fields
-- `startTime`: `string`
-- `endTime`: `string`
+
+| Field | Type |
+|------|------|
+| `startTime` | `string` |
+| `endTime` | `string` |
 
 ## SchedulingShiftItem
 - Role: nested
@@ -43,18 +52,21 @@
 - Primary Key: Ispublished
 
 ### Fields
-- `isPublished`: `bool`
-- `title`: `string`
-- `employeeId`: `string`
-- `scheduleGroupId`: `string`
-- `schedulingJobId`: `string`
-- `startDateTime`: `string`
-- `endDateTime`: `string`
-- `notes`: `string`
-- `departmentId`: `string`
-- `workSiteId`: `string`
-- `activityTypeId`: `string`
-- `breaks`: `SchedulingShiftBreak[]`
-- `laborCodes`: `LaborCode3[]`
-- `shiftModelId`: `string`
-- `workLocationId`: `string`
+
+| Field | Type |
+|------|------|
+| `isPublished` | `bool` |
+| `title` | `string` |
+| `employeeId` | `string` |
+| `scheduleGroupId` | `string` |
+| `schedulingJobId` | `string` |
+| `startDateTime` | `string` |
+| `endDateTime` | `string` |
+| `notes` | `string` |
+| `departmentId` | `string` |
+| `workSiteId` | `string` |
+| `activityTypeId` | `string` |
+| `breaks` | `SchedulingShiftBreak[]` |
+| `laborCodes` | `LaborCode3[]` |
+| `shiftModelId` | `string` |
+| `workLocationId` | `string` |
