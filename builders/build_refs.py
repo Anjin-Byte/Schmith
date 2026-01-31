@@ -62,6 +62,18 @@ def build_edges(schemas: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                 "kind": "property_ref",
                 "provenance": field.get("provenance") or provenance,
             })
+            items_id = field.get("items_schema_id")
+            if items_id:
+                # Array item relationships live on properties, not just array schemas.
+                # Emit an items_ref edge so refs/adjacency can represent nested array item types.
+                json_pointer = field.get("json_pointer") or f"$.{field.get('json_name', '')}"
+                edges.append({
+                    "from_schema_id": schema_id,
+                    "from_json_pointer": f"{json_pointer}[]",
+                    "to_schema_id": items_id,
+                    "kind": "items_ref",
+                    "provenance": field.get("provenance") or provenance,
+                })
 
         items_schema_id = schema.get("items_schema_id")
         if items_schema_id:

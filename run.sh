@@ -33,8 +33,8 @@ uv run python -m codegen generate ukg_v2_client --dry-run
 uv run python -m codegen generate paycore --dry-run
 
 uv run python -m codegen groups servicefusion 
-uv run python -m codegen groups ukg_v2_client 
-uv run python -m codegen groups paycore
+#uv run python -m codegen groups ukg_v2_client 
+#uv run python -m codegen groups paycore
 
 uv run python -m codegen coverage servicefusion    
 uv run python -m codegen coverage ukg_v2_client       

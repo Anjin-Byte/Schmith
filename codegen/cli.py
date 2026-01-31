@@ -23,6 +23,7 @@ Usage:
 
 import argparse
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -295,6 +296,9 @@ def cmd_packets(args: argparse.Namespace, config: CodegenConfig) -> int:
         )
 
     print(f"Processing schemas...")
+    if not args.dry_run and not args.no_clean and output_dir.exists():
+        # Avoid stale packets by clearing the target directory unless opted out.
+        shutil.rmtree(output_dir)
     count = write_packets(packets, output_dir, dry_run=args.dry_run)
 
     print(f"\nGenerated {count} prompt packets")
@@ -336,6 +340,9 @@ def cmd_generate(args: argparse.Namespace, config: CodegenConfig) -> int:
     print(f"Processing packets from {packets_dir}...")
     if not args.dry_run:
         print(f"Using {provider_name}" + (f" ({model})" if model else ""))
+        if not args.no_clean and output_dir.exists():
+            # Avoid stale generated code by clearing the target directory unless opted out.
+            shutil.rmtree(output_dir)
 
     generated, errors = generate_from_packets_dir(
         packets_dir,
@@ -715,6 +722,11 @@ Examples:
         action="store_true",
         help="Show what would be generated without writing files",
     )
+    packets_parser.add_argument(
+        "--no-clean",
+        action="store_true",
+        help="Do not clear existing output before generating packets",
+    )
     packets_parser.set_defaults(func=cmd_packets)
 
     # Generate command
@@ -764,6 +776,11 @@ Examples:
         "--show-prompt",
         action="store_true",
         help="Print prompts being sent to LLM",
+    )
+    gen_parser.add_argument(
+        "--no-clean",
+        action="store_true",
+        help="Do not clear existing output before generating code",
     )
     gen_parser.set_defaults(func=cmd_generate)
 

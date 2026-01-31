@@ -153,6 +153,18 @@ def _extract_component_name(schema_id: str) -> str | None:
         return schema_id.split("components/")[-1]
     if "definitions/" in schema_id:
         return schema_id.split("definitions/")[-1]
+    # Support RAML-style IR names (schema:types/typ.Name or schema:types/typ/Name).
+    # This keeps grouping logic format-agnostic across OpenAPI/RAML.
+    if schema_id.startswith("schema:types/typ."):
+        return schema_id.split("schema:types/typ.", 1)[-1]
+    if schema_id.startswith("schema:types/typ/"):
+        return schema_id.split("schema:types/typ/", 1)[-1]
+    # Avoid treating primitive and generic container schemas as named components.
+    if schema_id.startswith("schema:types/"):
+        tail = schema_id.split("schema:types/", 1)[-1]
+        if tail in {"string", "integer", "number", "boolean", "null", "object", "array", "any"}:
+            return None
+        return tail
     return None
 
 
@@ -288,13 +300,12 @@ def find_parent_child_relationships_from_ir(
             if ref_kind not in ("property_ref", "items_ref"):
                 continue
 
-            # If child is anonymous array, follow to its items
-            if "anon/" in child_id:
-                anon_schema = schemas_by_id.get(child_id)
-                if anon_schema and anon_schema.get("kind") == "array":
-                    items_id = anon_schema.get("items_schema_id")
-                    if items_id:
-                        child_id = items_id
+            # If child is an array (named or anonymous), follow its items_schema_id
+            child_schema = schemas_by_id.get(child_id)
+            if child_schema and child_schema.get("kind") == "array":
+                items_id = child_schema.get("items_schema_id")
+                if items_id:
+                    child_id = items_id
 
             child_name = _extract_component_name(child_id)
             if not child_name:

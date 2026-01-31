@@ -223,14 +223,6 @@ uv run python builders/build_refs.py --config configs/servicefusion.toml
 uv run python tests/invariants/run_all.py --config configs/servicefusion.toml -v
 ```
 
-## Supported APIs
-
-| API | Spec Format | Config |
-|-----|-------------|--------|
-| Paycore | OpenAPI 3.x | `configs/paycore.toml` |
-| ServiceFusion | RAML 1.0 | `configs/servicefusion.toml` |
-| UKG V2 Client | OpenAPI 3.x | `configs/ukg_v2_client.toml` |
-
 ## Requirements
 
 - Python 3.11+

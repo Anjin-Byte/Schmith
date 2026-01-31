@@ -140,6 +140,12 @@ class ReferenceEdgeConsistencyTest(InvariantTest):
                 if ref_schema_id and ref_schema_id not in self.PRIMITIVE_TYPES:
                     edges.add((schema_id, ref_schema_id, "property_ref", json_pointer))
 
+                items_schema_id = prop.get("items_schema_id")
+                if items_schema_id and items_schema_id not in self.PRIMITIVE_TYPES:
+                    # Property-level array items should be represented in refs so adjacency
+                    # captures nested array item relationships, not just array wrappers.
+                    edges.add((schema_id, items_schema_id, "items_ref", f"{json_pointer}[]"))
+
             # Items reference (for arrays)
             items_schema_id = schema.get("items_schema_id")
             if items_schema_id and items_schema_id not in self.PRIMITIVE_TYPES:
