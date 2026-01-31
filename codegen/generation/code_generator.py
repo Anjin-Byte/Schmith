@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Iterator
 
 from ..providers.llm import LLMProvider, extract_code_from_response
+from .manifest import write_manifest
 
 FIELDS_START_MARKER = "// BEGIN_FIELDS"
 FIELDS_END_MARKER = "// END_FIELDS"
@@ -659,9 +660,12 @@ def generate_from_packets_dir(
     generated = 0
     errors = 0
 
+    packets_for_manifest: list[dict] = []
+
     for packet_file in packet_files:
         with open(packet_file, encoding="utf-8") as f:
             packet = json.load(f)
+        packets_for_manifest.append(packet)
 
         name = packet["metadata"]["data_object_name"]
         print(f"\n{'=' * 60}")
@@ -670,17 +674,21 @@ def generate_from_packets_dir(
 
         object_dir = output_dir / name
         source_dir = output_dir / "_source"
+        schema_dir = output_dir / "_schemas"
         object_dir.mkdir(parents=True, exist_ok=True)
         source_dir.mkdir(parents=True, exist_ok=True)
+        schema_dir.mkdir(parents=True, exist_ok=True)
         prompt_text = _format_prompt_text(packet)
         schema_md = _format_schema_markdown(packet)
 
         prompt_path = object_dir / "prompt.txt"
         schema_path = object_dir / "schema.md"
+        schema_target_path = schema_dir / f"{name}.md"
         with open(prompt_path, "w", encoding="utf-8") as f:
             f.write(prompt_text)
-        with open(schema_path, "w", encoding="utf-8") as f:
+        with open(schema_target_path, "w", encoding="utf-8") as f:
             f.write(schema_md)
+        _ensure_symlink(schema_path, schema_target_path)
 
         if dry_run:
             if "schemas" in packet:
@@ -724,5 +732,8 @@ def generate_from_packets_dir(
                 break
             print(f"  Error: {e}")
             errors += 1
+
+    # Write manifest even in dry-run since scaffolding is written above.
+    write_manifest(packets_for_manifest, output_dir, packets_dir)
 
     return generated, errors

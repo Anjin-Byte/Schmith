@@ -33,8 +33,9 @@ from .ir.loader import IRLoader
 from .schema.filter import (
     find_parent_child_relationships_from_ir,
     get_root_schemas,
+    find_reachable_component_names,  # coverage aligns roots with reachable schemas
 )
-from .schema.type_mapping import extract_clean_name, format_data_object_name
+from .schema.type_mapping import extract_clean_name, format_data_object_name  # normalize names in coverage
 from .generation.prompt_packets import PromptPacketBuilder, write_packets
 from .providers.llm import get_provider
 from .generation.code_generator import generate_from_packets_dir
@@ -384,10 +385,40 @@ def cmd_coverage(args: argparse.Namespace, config: CodegenConfig) -> int:
     # Categorize schemas using centralized filters
     categories = filters.categorize_schemas(all_schemas)
 
+    # Build reachability-aware root vs nested sets for coverage reporting.
+    adjacency = loader.adjacency()  # refs/adjacency.json for parent/child links
+    operations = loader.operations()  # operations/index.json for reachability
+    schemas_by_id = loader.schemas_by_id()  # needed for relationship resolution
+    reachable_names = find_reachable_component_names(
+        operations, adjacency, schemas_by_id
+    )  # align coverage with packet generation
+
+    eligible_schemas = categories["generated"]  # eligible for DataObject generation
+    eligible_names = {
+        extract_clean_name(s.get("schema_id", ""), s.get("name_hint"))
+        for s in eligible_schemas
+    }  # normalize for RAML/OpenAPI naming
+
+    # Restrict to reachable schemas to match packet generation semantics.
+    if reachable_names:
+        eligible_names = {name for name in eligible_names if name in reachable_names}  # filter by reachability
+        eligible_schemas = [
+            s for s in eligible_schemas
+            if extract_clean_name(s.get("schema_id", ""), s.get("name_hint")) in reachable_names
+        ]  # keep schemas in sync with name filter
+
+    parent_children = find_parent_child_relationships_from_ir(
+        adjacency, schemas_by_id, reachable_names
+    )  # parent/child mapping for roots vs nested
+    root_names = set(get_root_schemas(eligible_schemas, parent_children))  # roots that generate scaffolding
+    nested_only_names = sorted(eligible_names - root_names)  # nested-only schemas included under roots
+
     # Check for unaccounted
     total_categorized = sum(len(v) for v in categories.values())
     unaccounted = len(all_schemas) - total_categorized
     coverage_pct = (len(categories["generated"]) / len(all_schemas) * 100) if all_schemas else 0
+    reachable_root_count = len(root_names)  # roots that generate standalone scaffolding
+    nested_only_count = len(nested_only_names)  # nested-only schemas under roots
 
     # Category labels for display
     filter_categories = [
@@ -413,6 +444,8 @@ def cmd_coverage(args: argparse.Namespace, config: CodegenConfig) -> int:
         "|--------|-------|",
         f"| Total schemas in spec | {len(all_schemas)} |",
         f"| Generated DataObjects | {len(categories['generated'])} |",
+        f"| Generated Roots | {reachable_root_count} |",
+        f"| Nested-only Schemas | {nested_only_count} |",
         f"| Filtered out | {len(all_schemas) - len(categories['generated'])} |",
         f"| **Coverage** | **{coverage_pct:.1f}%** |",
         "",
@@ -430,21 +463,47 @@ def cmd_coverage(args: argparse.Namespace, config: CodegenConfig) -> int:
     if unaccounted != 0:
         md_lines.append(f"| **UNACCOUNTED** | **{unaccounted}** | **Potential issue!** |")
 
-    # Generated DataObjects section
+    # Generated DataObjects section (eligible schemas)
     md_lines.extend([
         "",
-        "## Generated DataObjects",
+        "## Generated DataObjects (Eligible Schemas)",
         "",
-        f"The following {len(categories['generated'])} schemas will be generated as XChange DataObjects:",
+        f"The following {len(categories['generated'])} schemas are eligible for generation (before root/nested split):",
         "",
         "| # | DataObject Name | Schema ID |",
         "|---|-----------------|-----------|",
     ])
 
     for i, schema in enumerate(sorted(categories["generated"], key=lambda s: s.get("name_hint", "").lower()), 1):
-        name = schema.get("name_hint", "")
+        name = extract_clean_name(schema.get("schema_id", ""), schema.get("name_hint"))  # normalized name for consistency
         schema_id = schema.get("schema_id", "")
         md_lines.append(f"| {i} | `{format_data_object_name(name)}` | `{schema_id}` |")
+
+    # Roots section (actual scaffolding)
+    md_lines.extend([
+        "",
+        "## Generated Roots (Standalone DataObjects)",
+        "",
+        f"The following {reachable_root_count} schemas produce standalone scaffolding:",
+        "",
+        "| # | DataObject Name |",
+        "|---|-----------------|",
+    ])
+    for i, name in enumerate(sorted(root_names), 1):
+        md_lines.append(f"| {i} | `{format_data_object_name(name)}` |")
+
+    # Nested-only section
+    md_lines.extend([
+        "",
+        "## Nested-only Schemas",
+        "",
+        f"The following {nested_only_count} schemas are included as nested types under roots:",
+        "",
+        "| # | Schema Name |",
+        "|---|-------------|",
+    ])
+    for i, name in enumerate(nested_only_names, 1):
+        md_lines.append(f"| {i} | `{name}` |")
 
     # Filtered schemas details
     md_lines.extend([
@@ -502,6 +561,8 @@ def cmd_coverage(args: argparse.Namespace, config: CodegenConfig) -> int:
     print("=" * 60)
     print(f"Total schemas in spec:  {len(all_schemas)}")
     print(f"Generated DataObjects:  {len(categories['generated'])}")
+    print(f"Generated Roots:        {reachable_root_count}")
+    print(f"Nested-only Schemas:    {nested_only_count}")
     print(f"Filtered out:           {len(all_schemas) - len(categories['generated'])}")
     print(f"\nCoverage: {coverage_pct:.1f}%")
 
