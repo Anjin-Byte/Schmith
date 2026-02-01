@@ -24,6 +24,7 @@
 - Parent: PagedResultOfEmployeeBalanceDataObject
 - Schema Name: EarningCodeLight
 - Schema ID: schema:components/EarningCodeLight
+- Primary Key: Id
 
 ### Fields
 

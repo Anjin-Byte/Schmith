@@ -26,6 +26,7 @@ from ..schema.filter import (
     find_reachable_component_names,
     get_root_schemas,
 )
+from ..schema.type_tree import collect_type_closure, resolve_type_name
 
 
 _PROMPT_CACHE: dict[str, str] | None = None
@@ -278,6 +279,9 @@ class PromptPacketBuilder:
             "class_name": class_name,
             "description": (schema.get("description") or "").strip(),
             "kind": schema.get("kind", "object"),
+            "enum_values": schema.get("enum_values"),
+            "enum_names": schema.get("enum_names"),
+            "sources": schema.get("sources"),
             "primary_key_field": primary_key,
             "primary_key_needs_selection": primary_key_needs_selection,
             "field_count": len(fields),
@@ -371,6 +375,199 @@ class PromptPacketBuilder:
             },
         }
 
+    def build_packet_from_root_schema(
+        self,
+        root_schema: dict,
+    ) -> dict | None:
+        """Build a grouped prompt packet with complete type tree.
+
+        This method uses recursive type resolution to include ALL types
+        reachable from the root schema, including:
+        - Anonymous inline schemas
+        - Named schemas referenced by properties
+        - Types from allOf/oneOf/anyOf composition
+        - Deeply nested types (any depth)
+
+        The recursion continues until only primitive types remain.
+
+        Args:
+            root_schema: The root schema to build a packet for
+
+        Returns:
+            Grouped prompt packet with full type definitions, or None if invalid
+        """
+        root_id = root_schema.get("id", "")
+        root_name = resolve_type_name(root_id, root_schema)
+        if not root_name:
+            return None
+
+        # Collect all types reachable from root
+        all_types = collect_type_closure(
+            root_schema,
+            self.schemas_by_id,
+            self.loader.load_schema_detail,
+        )
+
+        if not all_types:
+            return None
+
+        parent_class_name = format_data_object_name(root_name)
+
+        # Build schema packets from collected types
+        root_type_info = all_types.pop(root_name, None)
+        if not root_type_info:
+            return None
+
+        # Get nested type names for context (exclude composition-only)
+        composition_only = {
+            name
+            for name, info in all_types.items()
+            if info.get("sources") and set(info["sources"]) == {"composition"}
+        }
+        nested_type_names = set(all_types.keys()) - composition_only
+
+        # Build parent schema packet from type tree info
+        parent_info = self._build_schema_packet_from_type_info(
+            root_type_info,
+            class_name=parent_class_name,
+            role="parent",
+            nested_type_names=nested_type_names,
+        )
+
+        parent_context = {
+            "class_name": parent_info["class_name"],
+            "schema_name": parent_info["schema_name"],
+            "description": parent_info.get("description", ""),
+            "field_names": parent_info["field_names"],
+            "field_count": parent_info["field_count"],
+            "nested_type_names": sorted(nested_type_names),
+        }
+
+        # Build nested type packets (exclude composition-only)
+        nested_schemas = []
+        for type_name in sorted(all_types.keys()):
+            if type_name in composition_only:
+                continue
+            type_info = all_types[type_name]
+            child_info = self._build_schema_packet_from_type_info(
+                type_info,
+                class_name=type_name,
+                role="nested",
+                parent_context=parent_context,
+            )
+            nested_schemas.append(child_info)
+
+        return {
+            "metadata": {
+                "ir_name": self.loader.spec_name,
+                "data_object_name": parent_class_name,
+                "is_grouped": True,
+                "schema_count": 1 + len(nested_schemas),
+                "nested_type_count": len(nested_schemas),
+                "max_fields_per_page": self.max_fields_per_page,
+                "composition_only_types": sorted(composition_only),
+            },
+            "schemas": [parent_info] + nested_schemas,
+            "generation": {
+                "instructions": generate_instructions(),
+                "example_code": generate_example_code(),
+            },
+        }
+
+    def _build_schema_packet_from_type_info(
+        self,
+        type_info: dict,
+        class_name: str,
+        role: str = "standalone",
+        nested_type_names: set[str] | None = None,
+        parent_context: dict | None = None,
+    ) -> dict:
+        """Build a schema packet from type_tree type info.
+
+        Args:
+            type_info: Type info from collect_type_closure
+            class_name: C# class name to use
+            role: One of 'parent', 'nested', or 'standalone'
+            nested_type_names: Set of nested type names (for parent schemas)
+            parent_context: Context about the parent (for nested schemas)
+
+        Returns:
+            Schema packet dictionary
+        """
+        schema_id = type_info.get("schema_id", "")
+        clean_name = type_info.get("name", class_name)
+        properties = type_info.get("properties", [])
+
+        # Build field info from properties
+        fields = []
+        for prop in properties:
+            field = build_field_info(prop, self.schemas_by_id)
+
+            # Use resolved_type from type_tree if available
+            resolved_type = prop.get("resolved_type")
+            if resolved_type:
+                field["csharp_type"] = resolved_type
+                field["is_complex_type"] = True
+                field["type_unresolved"] = False
+
+            fields.append(field)
+
+        # Determine primary key
+        primary_key = None
+        primary_key_needs_selection = False
+
+        # Step 1: Look for field named "id"
+        for field in fields:
+            if field["json_name"].lower() == "id":
+                primary_key = field["csharp_name"]
+                break
+
+        # Step 2: Look for field ending with "_id" or "Id"
+        if not primary_key:
+            for field in fields:
+                if field["json_name"].lower().endswith("_id"):
+                    primary_key = field["csharp_name"]
+                    break
+
+        # Step 3: Fall back to first non-nullable field
+        if not primary_key:
+            for field in fields:
+                if field.get("nullable") is False:
+                    primary_key = field["csharp_name"]
+                    break
+
+        # Step 4: Flag for LLM selection if no suitable field found
+        if not primary_key and fields:
+            primary_key_needs_selection = True
+
+        pages = self._build_pages(fields)
+
+        packet = {
+            "schema_id": schema_id,
+            "schema_name": clean_name,
+            "class_name": class_name,
+            "description": type_info.get("description") or "",
+            "kind": type_info.get("kind", "object"),
+            "enum_values": type_info.get("enum_values"),
+            "enum_names": type_info.get("enum_names"),
+            "sources": type_info.get("sources"),
+            "primary_key_field": primary_key,
+            "primary_key_needs_selection": primary_key_needs_selection,
+            "field_count": len(fields),
+            "field_names": [field["json_name"] for field in fields],
+            "pages": pages,
+            "related_schemas": {},
+            "role": role,
+        }
+
+        if nested_type_names:
+            packet["nested_type_names"] = sorted(nested_type_names)
+
+        if parent_context:
+            packet["parent_context"] = parent_context
+
+        return packet
+
     def _collect_all_descendants(
         self,
         parent_name: str,
@@ -458,9 +655,16 @@ class PromptPacketBuilder:
         root_schemas = get_root_schemas(valid_schemas, parent_children)
 
         for parent_name in root_schemas:
-            # Collect ALL descendants (including deeply nested types), not just direct children
-            children = self._collect_all_descendants(parent_name, parent_children)
-            packet = self.build_grouped_packet(parent_name, children)
+            # Look up the schema entry and load full details
+            parent_entry = self.schemas_by_name.get(parent_name)
+            if not parent_entry:
+                continue
+            root_schema = self.loader.load_schema_detail(parent_entry["schema_id"])
+            if not root_schema:
+                continue
+
+            # Use type tree to recursively collect ALL nested types
+            packet = self.build_packet_from_root_schema(root_schema)
             if packet:
                 yield packet
 

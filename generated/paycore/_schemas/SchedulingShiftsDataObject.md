@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: SchedulingShifts
 - Schema ID: schema:components/SchedulingShifts
-- Primary Key: Ignorewarnings
 
 ### Fields
 
@@ -49,7 +48,6 @@
 - Parent: SchedulingShiftsDataObject
 - Schema Name: SchedulingShiftItem
 - Schema ID: schema:components/SchedulingShiftItem
-- Primary Key: Ispublished
 
 ### Fields
 

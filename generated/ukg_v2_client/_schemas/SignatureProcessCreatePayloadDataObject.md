@@ -33,3 +33,19 @@
 | `sender_id` | `string` |
 | `document_organization_ids` | `string[]` |
 | `upload_id` | `string` |
+
+### Nested Types
+- `MetaDataBase`
+
+## MetaDataBase
+- Role: nested
+- Parent: SignatureProcessCreatePayloadDataObject
+- Schema Name: MetaDataBase
+- Schema ID: schema:definitions/MetaDataBase
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `code` | `string` |
+| `value` | `string` |

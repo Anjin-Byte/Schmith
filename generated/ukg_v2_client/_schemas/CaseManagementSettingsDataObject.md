@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: CaseManagementSettings
 - Schema ID: schema:definitions/CaseManagementSettings
-- Primary Key: Enabled
 
 ### Fields
 

@@ -22,6 +22,7 @@
 - Parent: PagedResultOfTimeOffTypeDataObject
 - Schema Name: TimeOffType
 - Schema ID: schema:components/TimeOffType
+- Primary Key: Id
 
 ### Fields
 

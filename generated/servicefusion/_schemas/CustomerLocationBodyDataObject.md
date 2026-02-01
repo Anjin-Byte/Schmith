@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: CustomerLocationBody
 - Schema ID: schema:types/typ.CustomerLocationBody
-- Primary Key: Street1
 
 ### Fields
 

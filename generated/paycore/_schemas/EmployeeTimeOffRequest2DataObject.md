@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: EmployeeTimeOffRequest2
 - Schema ID: schema:components/EmployeeTimeOffRequest2
-- Primary Key: Employeeid
 
 ### Fields
 
@@ -17,14 +16,25 @@
 | `days` | `TimeOffRequestDay2[]` |
 
 ### Nested Types
+- `EmployeeTimeOffRequestStatus`
 - `TimeOffRequestDay2`
+
+## EmployeeTimeOffRequestStatus
+- Role: nested
+- Parent: EmployeeTimeOffRequest2DataObject
+- Schema Name: EmployeeTimeOffRequestStatus
+- Schema ID: schema:components/EmployeeTimeOffRequestStatus
+
+### Enum
+
+Values: Pending, Approved, Denied, Canceled, Removed
+Names: Pending, Approved, Denied, Canceled, Removed
 
 ## TimeOffRequestDay2
 - Role: nested
 - Parent: EmployeeTimeOffRequest2DataObject
 - Schema Name: TimeOffRequestDay2
 - Schema ID: schema:components/TimeOffRequestDay2
-- Primary Key: Date
 
 ### Fields
 

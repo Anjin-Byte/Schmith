@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: UploadTextoccurrencesFull
 - Schema ID: schema:definitions/UploadTextoccurrencesFull
-- Primary Key: Keyword
 
 ### Fields
 

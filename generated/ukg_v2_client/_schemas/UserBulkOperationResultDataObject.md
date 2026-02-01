@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: UserBulkOperationResult
 - Schema ID: schema:definitions/UserBulkOperationResult
+- Primary Key: RequestId
 
 ### Fields
 

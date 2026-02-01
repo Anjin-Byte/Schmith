@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: EmployeePunch3
 - Schema ID: schema:components/EmployeePunch3
-- Primary Key: Punchid
 
 ### Fields
 

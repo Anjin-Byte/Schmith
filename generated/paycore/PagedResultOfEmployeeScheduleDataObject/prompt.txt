@@ -170,24 +170,6 @@ Format: YYYY-MM-DDTHH:MM:SSZ  (ISO-8601 standard)
     Description: List of type Schedule containing the employee's schedule information.
 
 
-RELATED TYPES (for nested objects):
-----------------------------------------
-
-  Schedule:
-    Description: The Schedule model represents all related employee schedule information.
-Provides link to the Shift's Department
-      scheduleId: string [nullable]
-      startDateTime: string [nullable]
-      endDateTime: string [nullable]
-      beforeStartTimeInMinutes: int [nullable]
-      afterEndTimeInMinutes: int [nullable]
-      shiftDepartmentName: string [nullable]
-      shiftName: string [nullable]
-      totalMinutesWorked: int [nullable]
-      totalHoursWorked: double [nullable]
-      startDateTimeWithBefore: string [nullable]
-      ... and 3 more fields
-
 EXAMPLE CODE PATTERN:
 ----------------------------------------
 public class EmployeeSchedule
@@ -273,14 +255,6 @@ FIELDS (this page):
     Description: URL to access the Employee resource for additional information about the employee.
 
 
-RELATED TYPES (for nested objects):
-----------------------------------------
-
-  ResourceReference:
-    Description: The Resource Reference model is used to provide URL links to resources.
-      id: string [nullable]
-      url: string [nullable]
-
 EXAMPLE CODE PATTERN:
 ----------------------------------------
 // BEGIN_FIELDS
@@ -335,6 +309,7 @@ SCHEMA: ResourceReference (ResourceReference)
 API Name: paycore
 Schema ID: schema:components/ResourceReference
 Description: The Resource Reference model is used to provide URL links to resources.
+Primary Key: Id
 Namespace: Connector.paycore.v1.PagedResultOfEmployeeSchedule
 Role: nested
 
@@ -634,14 +609,6 @@ Format: YYYY-MM-DDTHH:MM:SSZ  (ISO-8601 standard)
   shiftDepartment: ResourceReference? [nullable]
     Description: URL to access the Department resource for additional information.
 
-
-RELATED TYPES (for nested objects):
-----------------------------------------
-
-  ResourceReference:
-    Description: The Resource Reference model is used to provide URL links to resources.
-      id: string [nullable]
-      url: string [nullable]
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------

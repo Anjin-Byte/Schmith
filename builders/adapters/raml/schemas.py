@@ -65,6 +65,11 @@ def schema_id_for_raml_type(type_decl: Any, allow_name_field: bool = True) -> Op
         return f"schema:types/{type_decl}"
     if isinstance(type_decl, dict):
         type_dict = cast(Dict[str, Any], type_decl)
+        type_value = type_dict.get("type")
+        if isinstance(type_value, str) and not any(
+            type_dict.get(field) for field in RAML_BODY_STRUCTURE_FIELDS
+        ):
+            return f"schema:types/{type_value}"
         if allow_name_field:
             name = type_dict.get("name")
             if isinstance(name, str):
@@ -303,6 +308,7 @@ def register_schema(
                         )
                 elif prop_type == "array":
                     items = prop.get("items")
+                    items_id = None
                     if isinstance(items, dict):
                         items_id = schema_id_for_raml_type(items, allow_name_field=False)
                     if items_id:

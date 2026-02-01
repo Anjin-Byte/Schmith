@@ -41,7 +41,6 @@ SCHEMA: CustomFieldCreatePayloadDataObject (CustomFieldCreatePayload)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/CustomFieldCreatePayload
 Description: No description
-Primary Key: Type
 Namespace: Connector.ukg_v2_client.v1.CustomFieldCreatePayload
 Role: parent
 
@@ -51,9 +50,12 @@ PAGING:
   Total fields: 7
   All field names: type, authorized_values, hierarchical, default_value, localized_labels, visible, allow_access_restrictions
 
+NESTED TYPES: AuthorizedValue, CustomFieldBaseType, LocalizedString
+Use these class names for matching nested object fields in this schema.
+
 FIELDS (this page):
 ----------------------------------------
-  type: TypeEnum [required]
+  type: CustomFieldBaseType [required]
     Description: Custom Field type
     Enum: bool, string, list, int
 
@@ -132,7 +134,6 @@ SCHEMA: CustomFieldCreatePayloadDataObject (CustomFieldCreatePayload)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/CustomFieldCreatePayload
 Description: No description
-Primary Key: Type
 Namespace: Connector.ukg_v2_client.v1.CustomFieldCreatePayload
 Role: parent
 
@@ -141,6 +142,9 @@ PAGING:
   Fields in this page: 3
   Total fields: 7
   All field names: type, authorized_values, hierarchical, default_value, localized_labels, visible, allow_access_restrictions
+
+NESTED TYPES: AuthorizedValue, CustomFieldBaseType, LocalizedString
+Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
@@ -161,3 +165,241 @@ EXAMPLE CODE PATTERN:
     [Nullable(true)]
     public string? ExampleField { get; init; }
 // END_FIELDS
+
+================================================================================
+AuthorizedValue (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `AuthorizedValue`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: AuthorizedValue (AuthorizedValue)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/AuthorizedValue
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.CustomFieldCreatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: value, label, code
+
+PARENT CONTEXT:
+  Parent Class: CustomFieldCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 7
+  Parent Field Names: type, authorized_values, hierarchical, default_value, localized_labels, visible, allow_access_restrictions
+  Parent Nested Types: AuthorizedValue, CustomFieldBaseType, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+  value: string [required]
+    Description: Value of the option. If `type` is set to `list`, the value can contain spaces and special characters, except comma. Note that values are slugified during comparison to detect duplicates.
+
+  label: string [required]
+    Description: Label for the value as displayed under the Employee's profile
+
+  code: string? [nullable]
+    Description: Code read from employee creation/update API or employee CSV imports that maps to this value when the custom field's type is `int`
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class AuthorizedValue
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+CustomFieldBaseType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomFieldBaseType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomFieldBaseType (CustomFieldBaseType)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/c11f399cc043cca752c567eceac832c67e990779
+Description: Custom Field type
+Namespace: Connector.ukg_v2_client.v1.CustomFieldCreatePayload
+Role: nested
+
+ENUM:
+  Values: bool, string, list, int
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: CustomFieldCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 7
+  Parent Field Names: type, authorized_values, hierarchical, default_value, localized_labels, visible, allow_access_restrictions
+  Parent Nested Types: AuthorizedValue, CustomFieldBaseType, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomFieldBaseType
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+LocalizedString (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `LocalizedString`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: LocalizedString (LocalizedString)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/LocalizedString
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.CustomFieldCreatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: language_code, value
+
+PARENT CONTEXT:
+  Parent Class: CustomFieldCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 7
+  Parent Field Names: type, authorized_values, hierarchical, default_value, localized_labels, visible, allow_access_restrictions
+  Parent Nested Types: AuthorizedValue, CustomFieldBaseType, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+  language_code: string [required]
+
+  value: string [required]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class LocalizedString
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

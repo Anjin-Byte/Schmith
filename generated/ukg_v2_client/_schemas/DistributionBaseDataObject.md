@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: DistributionBase
 - Schema ID: schema:definitions/DistributionBase
-- Primary Key: Name
+- Primary Key: DistributionTypeId
 
 ### Fields
 
@@ -14,4 +14,35 @@
 | `distribution_type_id` | `string` |
 | `distribution_project_id` | `string` |
 | `file_id` | `string` |
-| `distribution_error` | `object` |
+| `distribution_error` | `Anonymous_850a291e` |
+
+### Nested Types
+- `Anonymous_850a291e`
+- `DistributionErrorErrorType`
+
+## Anonymous_850a291e
+- Role: nested
+- Parent: DistributionBaseDataObject
+- Schema Name: Anonymous_850a291e
+- Schema ID: schema:anon/850a291e339f1b592811ed97bc7a8664d8219476
+- Primary Key: Id
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `message` | `string` |
+| `error_type` | `DistributionErrorErrorType` |
+| `code` | `string` |
+| `created_at` | `string` |
+
+## DistributionErrorErrorType
+- Role: nested
+- Parent: DistributionBaseDataObject
+- Schema Name: DistributionErrorErrorType
+- Schema ID: schema:anon/461dbb693cb764f81757f8554a9e436541412fd0
+
+### Enum
+
+Values: external, internal

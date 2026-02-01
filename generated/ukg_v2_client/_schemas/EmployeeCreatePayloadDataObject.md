@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: EmployeeCreatePayload
 - Schema ID: schema:definitions/EmployeeCreatePayload
-- Primary Key: Firstname
+- Primary Key: ExternalId
 
 ### Fields
 

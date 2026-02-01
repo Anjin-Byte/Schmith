@@ -17,6 +17,7 @@ IR_TO_CSHARP_TYPE: dict[str, str] = {
     "schema:types/datetime": "DateTime",
     "schema:types/date": "DateOnly",
     "schema:types/time": "TimeOnly",
+    "schema:types/any": "JsonElement",
     "schema:types/array": "object[]",
     "schema:types/object": "object",
 }
@@ -100,6 +101,9 @@ def schema_id_to_csharp_type(
         return ("object", False)
 
     kind = schema.get("kind", "object")
+
+    if kind in ("string", "integer", "number", "boolean", "datetime", "date", "time", "any"):
+        return (IR_TO_CSHARP_TYPE.get(f"schema:types/{kind}", "object"), False)
 
     enum_values, _ = _enum_meta(schema)
     if enum_values is not None:

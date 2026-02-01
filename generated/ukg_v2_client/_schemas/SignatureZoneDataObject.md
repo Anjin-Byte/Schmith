@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: SignatureZone
 - Schema ID: schema:definitions/SignatureZone
+- Primary Key: Id
 
 ### Fields
 

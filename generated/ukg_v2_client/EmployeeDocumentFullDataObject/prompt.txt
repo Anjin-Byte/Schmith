@@ -51,6 +51,9 @@ PAGING:
   Total fields: 21
   All field names: employee_id, employee_external_id, document_type_id, title, date, organization_ids, metadata, external_reference, id, origin, origin_details, sender_id, name, trashed, expired, expiry_date, created_at, updated_at, code, value, label
 
+NESTED TYPES: EmployeeDocumentComputedFieldsOrigin, EmployeeDocumentComputedFieldsOriginDetails, MetaDataBase
+Use these class names for matching nested object fields in this schema.
+
 FIELDS (this page):
 ----------------------------------------
   employee_id: string? [nullable]
@@ -147,6 +150,9 @@ PAGING:
   Total fields: 21
   All field names: employee_id, employee_external_id, document_type_id, title, date, organization_ids, metadata, external_reference, id, origin, origin_details, sender_id, name, trashed, expired, expiry_date, created_at, updated_at, code, value, label
 
+NESTED TYPES: EmployeeDocumentComputedFieldsOrigin, EmployeeDocumentComputedFieldsOriginDetails, MetaDataBase
+Use these class names for matching nested object fields in this schema.
+
 FIELDS (this page):
 ----------------------------------------
   metadata: MetaDataBase[]? [nullable]
@@ -157,11 +163,11 @@ FIELDS (this page):
   id: string [required]
     Description: ID of the Document
 
-  origin: OriginEnum [required]
+  origin: EmployeeDocumentComputedFieldsOrigin [required]
     Description: Origin of the Document
     Enum: api, distribution, doc_management, mass_mailing, signature, web
 
-  origin_details: OriginDetailsEnum [required]
+  origin_details: EmployeeDocumentComputedFieldsOriginDetails [required]
     Description: Depending on the origin of the document and when suitable, provides more details on its origin. Otherwise its value is set to null
     Enum: drop_in_vault, employee, mass_mailing, signature, user
 
@@ -229,6 +235,9 @@ PAGING:
   Fields in this page: 5
   Total fields: 21
   All field names: employee_id, employee_external_id, document_type_id, title, date, organization_ids, metadata, external_reference, id, origin, origin_details, sender_id, name, trashed, expired, expiry_date, created_at, updated_at, code, value, label
+
+NESTED TYPES: EmployeeDocumentComputedFieldsOrigin, EmployeeDocumentComputedFieldsOriginDetails, MetaDataBase
+Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
@@ -312,6 +321,9 @@ PAGING:
   Total fields: 21
   All field names: employee_id, employee_external_id, document_type_id, title, date, organization_ids, metadata, external_reference, id, origin, origin_details, sender_id, name, trashed, expired, expiry_date, created_at, updated_at, code, value, label
 
+NESTED TYPES: EmployeeDocumentComputedFieldsOrigin, EmployeeDocumentComputedFieldsOriginDetails, MetaDataBase
+Use these class names for matching nested object fields in this schema.
+
 FIELDS (this page):
 ----------------------------------------
   created_at: string [required]
@@ -336,3 +348,236 @@ EXAMPLE CODE PATTERN:
     [Nullable(true)]
     public string? ExampleField { get; init; }
 // END_FIELDS
+
+================================================================================
+EmployeeDocumentComputedFieldsOrigin (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `EmployeeDocumentComputedFieldsOrigin`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: EmployeeDocumentComputedFieldsOrigin (EmployeeDocumentComputedFieldsOrigin)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/da2408f83f2afd3b041ed3f588208b3d92fe7080
+Description: Origin of the Document
+Namespace: Connector.ukg_v2_client.v1.EmployeeDocumentFull
+Role: nested
+
+ENUM:
+  Values: api, distribution, doc_management, mass_mailing, signature, web
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: EmployeeDocumentFullDataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: employee_id, employee_external_id, document_type_id, title, date, organization_ids, metadata, external_reference, id, origin, origin_details, sender_id, name, trashed, expired, expiry_date, created_at, updated_at, code, value, label
+  Parent Nested Types: EmployeeDocumentComputedFieldsOrigin, EmployeeDocumentComputedFieldsOriginDetails, MetaDataBase
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class EmployeeDocumentComputedFieldsOrigin
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+EmployeeDocumentComputedFieldsOriginDetails (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `EmployeeDocumentComputedFieldsOriginDetails`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: EmployeeDocumentComputedFieldsOriginDetails (EmployeeDocumentComputedFieldsOriginDetails)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/8431fe4a00b2656a6bbf17e3bdb1b278a8abec19
+Description: Depending on the origin of the document and when suitable, provides more details on its origin. Otherwise its value is set to null
+Namespace: Connector.ukg_v2_client.v1.EmployeeDocumentFull
+Role: nested
+
+ENUM:
+  Values: drop_in_vault, employee, mass_mailing, signature, user
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: EmployeeDocumentFullDataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: employee_id, employee_external_id, document_type_id, title, date, organization_ids, metadata, external_reference, id, origin, origin_details, sender_id, name, trashed, expired, expiry_date, created_at, updated_at, code, value, label
+  Parent Nested Types: EmployeeDocumentComputedFieldsOrigin, EmployeeDocumentComputedFieldsOriginDetails, MetaDataBase
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class EmployeeDocumentComputedFieldsOriginDetails
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+MetaDataBase (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `MetaDataBase`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: MetaDataBase (MetaDataBase)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/MetaDataBase
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.EmployeeDocumentFull
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: code, value
+
+PARENT CONTEXT:
+  Parent Class: EmployeeDocumentFullDataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: employee_id, employee_external_id, document_type_id, title, date, organization_ids, metadata, external_reference, id, origin, origin_details, sender_id, name, trashed, expired, expiry_date, created_at, updated_at, code, value, label
+  Parent Nested Types: EmployeeDocumentComputedFieldsOrigin, EmployeeDocumentComputedFieldsOriginDetails, MetaDataBase
+
+FIELDS (this page):
+----------------------------------------
+  code: string [required]
+
+  value: string [required]
+    Description: The type depends on the type of the metadata. Can be one of integer, string or boolean.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class MetaDataBase
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

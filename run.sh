@@ -23,20 +23,20 @@ uv run python tests/invariants/run_all.py --config configs/paycore.toml -v
 # Codegen (Grouped Packets + Scaffolding + C# Generation)
 # ---------------------------------------------------------------------------
 # Generate grouped prompt packets
-uv run python -m codegen packets servicefusion 
+#uv run python -m codegen packets servicefusion 
 uv run python -m codegen packets ukg_v2_client 
 uv run python -m codegen packets paycore 
 
 # Generate scaffolding (directories + prompt.txt + schema.md)
-uv run python -m codegen generate servicefusion --dry-run
+#uv run python -m codegen generate servicefusion --dry-run
 uv run python -m codegen generate ukg_v2_client --dry-run
 uv run python -m codegen generate paycore --dry-run
 
-uv run python -m codegen groups servicefusion 
+#uv run python -m codegen groups servicefusion 
 uv run python -m codegen groups ukg_v2_client 
 uv run python -m codegen groups paycore
 
-uv run python -m codegen coverage servicefusion    
+#uv run python -m codegen coverage servicefusion    
 uv run python -m codegen coverage ukg_v2_client       
 uv run python -m codegen coverage paycore                      
 
@@ -44,6 +44,6 @@ uv run python -m codegen coverage paycore
 #uv run python -m codegen pages paycore --grouped
 
 # Generate C# code using OpenAI API (per codegen/config.toml)
-#uv run python -m codegen generate servicefusion --grouped
-#uv run python -m codegen generate ukg_v2_client --grouped
-#uv run python -m codegen generate paycore --grouped
+#uv run python -m codegen generate servicefusion
+#uv run python -m codegen generate ukg_v2_client
+#uv run python -m codegen generate paycore 

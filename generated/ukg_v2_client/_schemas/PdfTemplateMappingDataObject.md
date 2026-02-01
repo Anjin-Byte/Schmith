@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: PdfTemplateMapping
 - Schema ID: schema:definitions/PdfTemplateMapping
+- Primary Key: FormFieldId
 
 ### Fields
 

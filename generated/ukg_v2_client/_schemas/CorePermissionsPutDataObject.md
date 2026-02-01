@@ -4,12 +4,12 @@
 - Role: parent
 - Schema Name: CorePermissionsPut
 - Schema ID: schema:definitions/CorePermissionsPut
-- Primary Key: ViewEmployees
 
 ### Fields
 
 | Field | Type |
 |------|------|
+| `manage_retention_policies` | `bool` |
 | `view_employees` | `bool` |
 | `view_former_employees` | `bool` |
 | `view_employees_without_registration_reference` | `bool` |
@@ -28,4 +28,3 @@
 | `manage_advanced_analytics` | `bool` |
 | `view_audit_trail` | `bool` |
 | `view_private_custom_fields` | `bool` |
-| `manage_retention_policies` | `bool` |

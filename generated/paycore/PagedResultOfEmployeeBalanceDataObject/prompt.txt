@@ -136,6 +136,7 @@ SCHEMA: EarningCodeLight (EarningCodeLight)
 API Name: paycore
 Schema ID: schema:components/EarningCodeLight
 Description: No description
+Primary Key: Id
 Namespace: Connector.paycore.v1.PagedResultOfEmployeeBalance
 Role: nested
 
@@ -224,6 +225,7 @@ SCHEMA: EarningCodeLight (EarningCodeLight)
 API Name: paycore
 Schema ID: schema:components/EarningCodeLight
 Description: No description
+Primary Key: Id
 Namespace: Connector.paycore.v1.PagedResultOfEmployeeBalance
 Role: nested
 
@@ -342,22 +344,6 @@ FIELDS (this page):
   typeBalances: TypeBalance[]? [nullable]
     Description: Employee accrual balances information, for each plan the Employee participates in.
 
-
-RELATED TYPES (for nested objects):
-----------------------------------------
-
-  TypeBalance:
-      timeOffPlanName: string [nullable]
-      timeOffTypeId: string [nullable]
-      timeOffTypeCode: string [nullable]
-      timeOffTypeName: string [nullable]
-      activityStartDate: string [nullable]
-      activityEndDate: string [nullable]
-      currentBalance: double [nullable]
-      accruedBalance: double [nullable]
-      usedBalance: double [nullable]
-      scheduledBalance: double [nullable]
-      ... and 1 more fields
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
@@ -543,18 +529,6 @@ FIELDS (this page):
   defaultEarning: EarningCodeLight? [nullable]
     Description: Earning information related to this time off plan.
 
-
-RELATED TYPES (for nested objects):
-----------------------------------------
-
-  EarningCodeLight:
-      id: string [nullable]
-      legalEntityId: string [nullable]
-      tenantId: int [nullable]
-      code: string [nullable]
-      description: string [nullable]
-      effectiveStartDate: string [nullable]
-      effectiveEndDate: string [nullable]
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------

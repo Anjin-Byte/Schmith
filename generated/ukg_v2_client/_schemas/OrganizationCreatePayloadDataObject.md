@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: OrganizationCreatePayload
 - Schema ID: schema:definitions/OrganizationCreatePayload
-- Primary Key: Name
+- Primary Key: ParentOrganizationId
 
 ### Fields
 

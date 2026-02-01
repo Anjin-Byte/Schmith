@@ -10,10 +10,10 @@
 
 | Field | Type |
 |------|------|
+| `pdf_template_id` | `string` |
 | `id` | `string` |
 | `position_x` | `string` |
 | `position_y` | `string` |
 | `width` | `string` |
 | `height` | `string` |
 | `page` | `string` |
-| `pdf_template_id` | `string` |

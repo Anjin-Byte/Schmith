@@ -41,6 +41,7 @@ SCHEMA: EmployeePunchProfileDataDataObject (EmployeePunchProfileData)
 API Name: paycore
 Schema ID: schema:components/EmployeePunchProfileData
 Description: EmployeePunchProfileData model represents the response payload for the Employee Punch Profile.
+            
 Namespace: Connector.paycore.v1.EmployeePunchProfileData
 Role: parent
 
@@ -136,6 +137,7 @@ SCHEMA: EmployeePunchProfileDataDataObject (EmployeePunchProfileData)
 API Name: paycore
 Schema ID: schema:components/EmployeePunchProfileData
 Description: EmployeePunchProfileData model represents the response payload for the Employee Punch Profile.
+            
 Namespace: Connector.paycore.v1.EmployeePunchProfileData
 Role: parent
 
@@ -229,6 +231,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EmployeePunchProfileDataDataObject
   Parent Description: EmployeePunchProfileData model represents the response payload for the Employee Punch Profile.
+            
   Parent Field Count: 9
   Parent Field Names: punchProfileId, hasAllDeparmentsSelected, hasAllWorkLocationsSelected, hasAllActivityTypesSelected, hasDetailPunch, departments, workLocations, laborProfile, activityTypes
   Parent Nested Types: ActivityTypeBasic, Department4, LaborCategory, LaborCode7, LaborProfile2, PunchProfileWorkLocation
@@ -309,6 +312,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EmployeePunchProfileDataDataObject
   Parent Description: EmployeePunchProfileData model represents the response payload for the Employee Punch Profile.
+            
   Parent Field Count: 9
   Parent Field Names: punchProfileId, hasAllDeparmentsSelected, hasAllWorkLocationsSelected, hasAllActivityTypesSelected, hasDetailPunch, departments, workLocations, laborProfile, activityTypes
   Parent Nested Types: ActivityTypeBasic, Department4, LaborCategory, LaborCode7, LaborProfile2, PunchProfileWorkLocation
@@ -389,6 +393,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EmployeePunchProfileDataDataObject
   Parent Description: EmployeePunchProfileData model represents the response payload for the Employee Punch Profile.
+            
   Parent Field Count: 9
   Parent Field Names: punchProfileId, hasAllDeparmentsSelected, hasAllWorkLocationsSelected, hasAllActivityTypesSelected, hasDetailPunch, departments, workLocations, laborProfile, activityTypes
   Parent Nested Types: ActivityTypeBasic, Department4, LaborCategory, LaborCode7, LaborProfile2, PunchProfileWorkLocation
@@ -404,13 +409,6 @@ FIELDS (this page):
   laborCodes: LaborCode7[]? [nullable]
     Description: List of Labor Codes of the employee including Labor Code Id and Name in Paycor's system.
 
-
-RELATED TYPES (for nested objects):
-----------------------------------------
-
-  LaborCode7:
-      laborCodeId: string [nullable]
-      laborCodeName: string [nullable]
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
@@ -479,6 +477,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EmployeePunchProfileDataDataObject
   Parent Description: EmployeePunchProfileData model represents the response payload for the Employee Punch Profile.
+            
   Parent Field Count: 9
   Parent Field Names: punchProfileId, hasAllDeparmentsSelected, hasAllWorkLocationsSelected, hasAllActivityTypesSelected, hasDetailPunch, departments, workLocations, laborProfile, activityTypes
   Parent Nested Types: ActivityTypeBasic, Department4, LaborCategory, LaborCode7, LaborProfile2, PunchProfileWorkLocation
@@ -559,6 +558,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EmployeePunchProfileDataDataObject
   Parent Description: EmployeePunchProfileData model represents the response payload for the Employee Punch Profile.
+            
   Parent Field Count: 9
   Parent Field Names: punchProfileId, hasAllDeparmentsSelected, hasAllWorkLocationsSelected, hasAllActivityTypesSelected, hasDetailPunch, departments, workLocations, laborProfile, activityTypes
   Parent Nested Types: ActivityTypeBasic, Department4, LaborCategory, LaborCode7, LaborProfile2, PunchProfileWorkLocation
@@ -574,14 +574,6 @@ FIELDS (this page):
   laborCategories: LaborCategory[]? [nullable]
     Description: List of Labor Categories of the employee including Labor Categor  Id and Name and list of labor codes in Paycor's system.
 
-
-RELATED TYPES (for nested objects):
-----------------------------------------
-
-  LaborCategory:
-      laborCategoryId: string [nullable]
-      laborCategoryName: string [nullable]
-      laborCodes: LaborCode7[] [nullable]
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
@@ -650,6 +642,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EmployeePunchProfileDataDataObject
   Parent Description: EmployeePunchProfileData model represents the response payload for the Employee Punch Profile.
+            
   Parent Field Count: 9
   Parent Field Names: punchProfileId, hasAllDeparmentsSelected, hasAllWorkLocationsSelected, hasAllActivityTypesSelected, hasDetailPunch, departments, workLocations, laborProfile, activityTypes
   Parent Nested Types: ActivityTypeBasic, Department4, LaborCategory, LaborCode7, LaborProfile2, PunchProfileWorkLocation

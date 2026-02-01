@@ -19,6 +19,7 @@
 - Parent: CreateOrUpdateResponseDataObject
 - Schema Name: ResourceReference
 - Schema ID: schema:components/ResourceReference
+- Primary Key: Id
 
 ### Fields
 

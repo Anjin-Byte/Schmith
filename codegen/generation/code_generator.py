@@ -229,6 +229,7 @@ def _build_paged_prompt(
     """Build prompt for a single schema page."""
     output_mode = _schema_output_mode(schema, page["page_index"])
     namespace = _resolve_namespace(packet_meta, schema)
+    composition_only = set(packet_meta.get("composition_only_types", []))
 
     lines: list[str] = []
 
@@ -254,6 +255,14 @@ def _build_paged_prompt(
         lines.append(f"Primary Key: {schema['primary_key_field']}")
     lines.append(f"Namespace: {namespace}")
     lines.append(f"Role: {schema.get('role')}")
+    enum_values = schema.get("enum_values")
+    if isinstance(enum_values, list) and enum_values:
+        lines.append("")
+        lines.append("ENUM:")
+        lines.append(f"  Values: {', '.join(str(v) for v in enum_values)}")
+        enum_names = schema.get("enum_names")
+        if isinstance(enum_names, list) and enum_names:
+            lines.append(f"  Names: {', '.join(str(v) for v in enum_names)}")
     lines.append("")
 
     lines.append("PAGING:")
@@ -271,11 +280,15 @@ def _build_paged_prompt(
         lines.append(f"  Parent Field Count: {parent_context.get('field_count', 0)}")
         lines.append(f"  Parent Field Names: {', '.join(parent_context.get('field_names', []))}")
         nested_names = parent_context.get("nested_type_names", [])
+        if composition_only and nested_names:
+            nested_names = [name for name in nested_names if name not in composition_only]
         if nested_names:
             lines.append(f"  Parent Nested Types: {', '.join(nested_names)}")
         lines.append("")
 
     nested_type_names = schema.get("nested_type_names", [])
+    if composition_only and nested_type_names:
+        nested_type_names = [name for name in nested_type_names if name not in composition_only]
     if nested_type_names:
         lines.append(f"NESTED TYPES: {', '.join(nested_type_names)}")
         lines.append("Use these class names for matching nested object fields in this schema.")
@@ -340,6 +353,7 @@ def _format_schema_markdown(packet: dict) -> str:
     metadata = packet.get("metadata", {})
     lines = [f"# {metadata.get('data_object_name', 'DataObject')}", ""]
 
+    composition_only = set(packet.get("metadata", {}).get("composition_only_types", []))
     for schema in _normalize_packet_schemas(packet):
         lines.append(f"## {schema.get('class_name', 'Schema')}")
         lines.append(f"- Role: {schema.get('role', 'schema')}")
@@ -353,12 +367,25 @@ def _format_schema_markdown(packet: dict) -> str:
         if schema.get("primary_key_field"):
             lines.append(f"- Primary Key: {schema['primary_key_field']}")
         lines.append("")
-        lines.append("### Fields")
+        enum_values = schema.get("enum_values")
+        has_enum = isinstance(enum_values, list) and enum_values
+        if has_enum:
+            lines.append("### Enum")
+            lines.append("")
+            lines.append(f"Values: {', '.join(str(v) for v in enum_values)}")
+            enum_names = schema.get("enum_names")
+            if isinstance(enum_names, list) and enum_names:
+                lines.append(f"Names: {', '.join(str(v) for v in enum_names)}")
+            lines.append("")
         fields = schema.get("fields")
         if not fields:
             fields = []
             for page in schema.get("pages", []):
                 fields.extend(page.get("fields", []))
+        if has_enum and not fields:
+            #lines.append("")
+            continue
+        lines.append("### Fields")
         if fields:
             lines.append("")
             lines.append("| Field | Type |")
@@ -370,7 +397,7 @@ def _format_schema_markdown(packet: dict) -> str:
         lines.append("")
 
         if schema.get("role") == "parent":
-            nested = schema.get("nested_type_names", [])
+            nested = [name for name in schema.get("nested_type_names", []) if name not in composition_only]
             if nested:
                 lines.append("### Nested Types")
                 for name in nested:
@@ -536,7 +563,13 @@ def _iter_schema_pages(packet: dict) -> Iterator[tuple[dict, dict, str, str]]:
     """Yield schema/page/output_mode/prompt tuples for a packet."""
     metadata = packet.get("metadata", {})
     generation = packet.get("generation", {})
+    composition_only = set(metadata.get("composition_only_types", []))
     for schema in _normalize_packet_schemas(packet):
+        if schema.get("role") == "nested" and schema.get("class_name") in composition_only:
+            continue
+        sources = schema.get("sources") or []
+        if schema.get("role") == "nested" and set(sources) == {"composition"}:
+            continue
         for page in schema.get("pages", []):
             output_mode = _schema_output_mode(schema, page["page_index"])
             prompt = _build_paged_prompt(metadata, schema, page, generation)

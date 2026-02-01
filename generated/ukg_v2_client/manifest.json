@@ -4,7 +4,7 @@
     "name": "ukg_v2_client"
   },
   "generation": {
-    "timestamp": "2026-01-31T21:20:05.160567+00:00",
+    "timestamp": "2026-02-01T18:04:57.481419+00:00",
     "grouped": true,
     "packets_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/prompt_packets/grouped/ukg_v2_client"
   },
@@ -16,8 +16,8 @@
   },
   "counts": {
     "roots": 116,
-    "nested_only": 11,
-    "eligible": 127
+    "nested_only": 106,
+    "eligible": 222
   },
   "roots": [
     {
@@ -60,7 +60,9 @@
       "name": "CompanyDocumentCreatePayloadDataObject",
       "schema_name": "CompanyDocumentCreatePayload",
       "schema_id": "schema:definitions/CompanyDocumentCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "MetaDataBase"
+      ],
       "source_file": "_source/CompanyDocumentCreatePayloadDataObject.cs",
       "schema_file": "_schemas/CompanyDocumentCreatePayloadDataObject.md",
       "packet_file": "CompanyDocumentCreatePayloadDataObject.json"
@@ -69,7 +71,11 @@
       "name": "CompanyDocumentFullDataObject",
       "schema_name": "CompanyDocumentFull",
       "schema_id": "schema:definitions/CompanyDocumentFull",
-      "nested_types": [],
+      "nested_types": [
+        "CompanyDocumentComputedFieldsOrigin",
+        "CompanyDocumentComputedFieldsOriginDetails",
+        "MetaDataBase"
+      ],
       "source_file": "_source/CompanyDocumentFullDataObject.cs",
       "schema_file": "_schemas/CompanyDocumentFullDataObject.md",
       "packet_file": "CompanyDocumentFullDataObject.json"
@@ -78,7 +84,9 @@
       "name": "CompanyDocumentUpdatePayloadDataObject",
       "schema_name": "CompanyDocumentUpdatePayload",
       "schema_id": "schema:definitions/CompanyDocumentUpdatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "MetaDataBase"
+      ],
       "source_file": "_source/CompanyDocumentUpdatePayloadDataObject.cs",
       "schema_file": "_schemas/CompanyDocumentUpdatePayloadDataObject.md",
       "packet_file": "CompanyDocumentUpdatePayloadDataObject.json"
@@ -115,7 +123,8 @@
       "schema_name": "CsvCampaignData",
       "schema_id": "schema:definitions/CsvCampaignData",
       "nested_types": [
-        "DatasetField"
+        "DatasetField",
+        "DatasetFieldTypeType"
       ],
       "source_file": "_source/CsvCampaignDataDataObject.cs",
       "schema_file": "_schemas/CsvCampaignDataDataObject.md",
@@ -125,7 +134,11 @@
       "name": "CustomFieldCreatePayloadDataObject",
       "schema_name": "CustomFieldCreatePayload",
       "schema_id": "schema:definitions/CustomFieldCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "AuthorizedValue",
+        "CustomFieldBaseType",
+        "LocalizedString"
+      ],
       "source_file": "_source/CustomFieldCreatePayloadDataObject.cs",
       "schema_file": "_schemas/CustomFieldCreatePayloadDataObject.md",
       "packet_file": "CustomFieldCreatePayloadDataObject.json"
@@ -134,7 +147,11 @@
       "name": "CustomFieldFullDataObject",
       "schema_name": "CustomFieldFull",
       "schema_id": "schema:definitions/CustomFieldFull",
-      "nested_types": [],
+      "nested_types": [
+        "AuthorizedValue",
+        "CustomFieldBaseType",
+        "LocalizedString"
+      ],
       "source_file": "_source/CustomFieldFullDataObject.cs",
       "schema_file": "_schemas/CustomFieldFullDataObject.md",
       "packet_file": "CustomFieldFullDataObject.json"
@@ -143,7 +160,10 @@
       "name": "DatasetCreatePayloadDataObject",
       "schema_name": "DatasetCreatePayload",
       "schema_id": "schema:definitions/DatasetCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "DatasetDimensionCreatePayload",
+        "LocalizedString"
+      ],
       "source_file": "_source/DatasetCreatePayloadDataObject.cs",
       "schema_file": "_schemas/DatasetCreatePayloadDataObject.md",
       "packet_file": "DatasetCreatePayloadDataObject.json"
@@ -152,7 +172,12 @@
       "name": "DatasetFullDataObject",
       "schema_name": "DatasetFull",
       "schema_id": "schema:definitions/DatasetFull",
-      "nested_types": [],
+      "nested_types": [
+        "DatasetComputedFieldsLastImportResult",
+        "DatasetComputedFieldsLastImportStatus",
+        "DatasetDimensionFull",
+        "LocalizedString"
+      ],
       "source_file": "_source/DatasetFullDataObject.cs",
       "schema_file": "_schemas/DatasetFullDataObject.md",
       "packet_file": "DatasetFullDataObject.json"
@@ -170,7 +195,11 @@
       "name": "DatasetImportFullDataObject",
       "schema_name": "DatasetImportFull",
       "schema_id": "schema:definitions/DatasetImportFull",
-      "nested_types": [],
+      "nested_types": [
+        "DatasetImportComputedFieldsOrigin",
+        "DatasetImportComputedFieldsResult",
+        "DatasetImportComputedFieldsStatus"
+      ],
       "source_file": "_source/DatasetImportFullDataObject.cs",
       "schema_file": "_schemas/DatasetImportFullDataObject.md",
       "packet_file": "DatasetImportFullDataObject.json"
@@ -179,7 +208,9 @@
       "name": "DatasetValueCreatePayloadDataObject",
       "schema_name": "DatasetValueCreatePayload",
       "schema_id": "schema:definitions/DatasetValueCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "LocalizedString"
+      ],
       "source_file": "_source/DatasetValueCreatePayloadDataObject.cs",
       "schema_file": "_schemas/DatasetValueCreatePayloadDataObject.md",
       "packet_file": "DatasetValueCreatePayloadDataObject.json"
@@ -188,7 +219,9 @@
       "name": "DatasetValueFullDataObject",
       "schema_name": "DatasetValueFull",
       "schema_id": "schema:definitions/DatasetValueFull",
-      "nested_types": [],
+      "nested_types": [
+        "LocalizedString"
+      ],
       "source_file": "_source/DatasetValueFullDataObject.cs",
       "schema_file": "_schemas/DatasetValueFullDataObject.md",
       "packet_file": "DatasetValueFullDataObject.json"
@@ -197,7 +230,10 @@
       "name": "DistributionBaseDataObject",
       "schema_name": "DistributionBase",
       "schema_id": "schema:definitions/DistributionBase",
-      "nested_types": [],
+      "nested_types": [
+        "Anonymous_850a291e",
+        "DistributionErrorErrorType"
+      ],
       "source_file": "_source/DistributionBaseDataObject.cs",
       "schema_file": "_schemas/DistributionBaseDataObject.md",
       "packet_file": "DistributionBaseDataObject.json"
@@ -215,7 +251,9 @@
       "name": "DocGenCampaignPayloadDataObject",
       "schema_name": "DocGenCampaignPayload",
       "schema_id": "schema:definitions/DocGenCampaignPayload",
-      "nested_types": [],
+      "nested_types": [
+        "DocGenCampaignBaseOutputAction"
+      ],
       "source_file": "_source/DocGenCampaignPayloadDataObject.cs",
       "schema_file": "_schemas/DocGenCampaignPayloadDataObject.md",
       "packet_file": "DocGenCampaignPayloadDataObject.json"
@@ -224,7 +262,9 @@
       "name": "DocGenCampaignResponseDataObject",
       "schema_name": "DocGenCampaignResponse",
       "schema_id": "schema:definitions/DocGenCampaignResponse",
-      "nested_types": [],
+      "nested_types": [
+        "DocGenCampaignBaseOutputAction"
+      ],
       "source_file": "_source/DocGenCampaignResponseDataObject.cs",
       "schema_file": "_schemas/DocGenCampaignResponseDataObject.md",
       "packet_file": "DocGenCampaignResponseDataObject.json"
@@ -242,7 +282,9 @@
       "name": "DocGenMigrationCampaignDataObject",
       "schema_name": "DocGenMigrationCampaign",
       "schema_id": "schema:definitions/DocGenMigrationCampaign",
-      "nested_types": [],
+      "nested_types": [
+        "DocGenMigrationCampaignStatus"
+      ],
       "source_file": "_source/DocGenMigrationCampaignDataObject.cs",
       "schema_file": "_schemas/DocGenMigrationCampaignDataObject.md",
       "packet_file": "DocGenMigrationCampaignDataObject.json"
@@ -251,7 +293,10 @@
       "name": "DocGenRequestPayloadDataObject",
       "schema_name": "DocGenRequestPayload",
       "schema_id": "schema:definitions/DocGenRequestPayload",
-      "nested_types": [],
+      "nested_types": [
+        "DatasetField",
+        "DatasetFieldTypeType"
+      ],
       "source_file": "_source/DocGenRequestPayloadDataObject.cs",
       "schema_file": "_schemas/DocGenRequestPayloadDataObject.md",
       "packet_file": "DocGenRequestPayloadDataObject.json"
@@ -260,7 +305,9 @@
       "name": "DocGenRequestStatusResponseDataObject",
       "schema_name": "DocGenRequestStatusResponse",
       "schema_id": "schema:definitions/DocGenRequestStatusResponse",
-      "nested_types": [],
+      "nested_types": [
+        "DocGenRequestStatusResponseStatus"
+      ],
       "source_file": "_source/DocGenRequestStatusResponseDataObject.cs",
       "schema_file": "_schemas/DocGenRequestStatusResponseDataObject.md",
       "packet_file": "DocGenRequestStatusResponseDataObject.json"
@@ -279,6 +326,7 @@
       "schema_name": "DocGenTemplatePatchPayload",
       "schema_id": "schema:definitions/DocGenTemplatePatchPayload",
       "nested_types": [
+        "DocGenTemplatePatchPayloadFormat",
         "TemplateRestriction"
       ],
       "source_file": "_source/DocGenTemplatePatchPayloadDataObject.cs",
@@ -309,7 +357,13 @@
       "name": "DocGenTemplateVersionFullDataObject",
       "schema_name": "DocGenTemplateVersionFull",
       "schema_id": "schema:definitions/DocGenTemplateVersionFull",
-      "nested_types": [],
+      "nested_types": [
+        "DocGenTemplateVersionBaseFormat",
+        "DocGenTemplateVersionBaseSyntaxVersion",
+        "FragmentFieldsetField",
+        "GenerationInfo",
+        "GenerationInfoSeverity"
+      ],
       "source_file": "_source/DocGenTemplateVersionFullDataObject.cs",
       "schema_file": "_schemas/DocGenTemplateVersionFullDataObject.md",
       "packet_file": "DocGenTemplateVersionFullDataObject.json"
@@ -319,9 +373,13 @@
       "schema_name": "DocGenTemplateVersionUpdatePayload",
       "schema_id": "schema:definitions/DocGenTemplateVersionUpdatePayload",
       "nested_types": [
+        "DocGenTemplateVersionUpdatePayloadFormat",
+        "DocGenTemplateVersionUpdatePayloadSyntaxVersion",
         "FragmentFieldsetField",
         "GenerationInfo",
-        "OutputFormatPatchRequest"
+        "GenerationInfoSeverity",
+        "OutputFormatPatchRequest",
+        "OutputFormatPatchRequestFormat"
       ],
       "source_file": "_source/DocGenTemplateVersionUpdatePayloadDataObject.cs",
       "schema_file": "_schemas/DocGenTemplateVersionUpdatePayloadDataObject.md",
@@ -333,7 +391,8 @@
       "schema_id": "schema:definitions/DocgenTemplateVersionPatchPayload",
       "nested_types": [
         "FragmentFieldsetField",
-        "OutputFormatPatchRequest"
+        "OutputFormatPatchRequest",
+        "OutputFormatPatchRequestFormat"
       ],
       "source_file": "_source/DocgenTemplateVersionPatchPayloadDataObject.cs",
       "schema_file": "_schemas/DocgenTemplateVersionPatchPayloadDataObject.md",
@@ -370,7 +429,10 @@
       "name": "DocumentTypePredictionRunDataObject",
       "schema_name": "DocumentTypePredictionRun",
       "schema_id": "schema:definitions/DocumentTypePredictionRun",
-      "nested_types": [],
+      "nested_types": [
+        "DocumentTypePredictionResult",
+        "_RunStatus"
+      ],
       "source_file": "_source/DocumentTypePredictionRunDataObject.cs",
       "schema_file": "_schemas/DocumentTypePredictionRunDataObject.md",
       "packet_file": "DocumentTypePredictionRunDataObject.json"
@@ -388,7 +450,10 @@
       "name": "ElectronicVaultFullDataObject",
       "schema_name": "ElectronicVaultFull",
       "schema_id": "schema:definitions/ElectronicVaultFull",
-      "nested_types": [],
+      "nested_types": [
+        "ElectronicVaultOptionsComputedFieldsElectronicPayslipsChoiceOrigin",
+        "ElectronicVaultOptionsComputedFieldsElectronicVaultState"
+      ],
       "source_file": "_source/ElectronicVaultFullDataObject.cs",
       "schema_file": "_schemas/ElectronicVaultFullDataObject.md",
       "packet_file": "ElectronicVaultFullDataObject.json"
@@ -424,7 +489,12 @@
       "name": "EmployeeBulkOperationStatusDataObject",
       "schema_name": "EmployeeBulkOperationStatus",
       "schema_id": "schema:definitions/EmployeeBulkOperationStatus",
-      "nested_types": [],
+      "nested_types": [
+        "Anonymous_39fe8827",
+        "Anonymous_b1e7cfcd",
+        "EmployeeComputedFieldsProfileStatus",
+        "EmployeeFull"
+      ],
       "source_file": "_source/EmployeeBulkOperationStatusDataObject.cs",
       "schema_file": "_schemas/EmployeeBulkOperationStatusDataObject.md",
       "packet_file": "EmployeeBulkOperationStatusDataObject.json"
@@ -451,7 +521,9 @@
       "name": "EmployeeDocumentCreatePayloadDataObject",
       "schema_name": "EmployeeDocumentCreatePayload",
       "schema_id": "schema:definitions/EmployeeDocumentCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "MetaDataBase"
+      ],
       "source_file": "_source/EmployeeDocumentCreatePayloadDataObject.cs",
       "schema_file": "_schemas/EmployeeDocumentCreatePayloadDataObject.md",
       "packet_file": "EmployeeDocumentCreatePayloadDataObject.json"
@@ -460,7 +532,11 @@
       "name": "EmployeeDocumentFullDataObject",
       "schema_name": "EmployeeDocumentFull",
       "schema_id": "schema:definitions/EmployeeDocumentFull",
-      "nested_types": [],
+      "nested_types": [
+        "EmployeeDocumentComputedFieldsOrigin",
+        "EmployeeDocumentComputedFieldsOriginDetails",
+        "MetaDataBase"
+      ],
       "source_file": "_source/EmployeeDocumentFullDataObject.cs",
       "schema_file": "_schemas/EmployeeDocumentFullDataObject.md",
       "packet_file": "EmployeeDocumentFullDataObject.json"
@@ -469,7 +545,9 @@
       "name": "EmployeeDocumentUpdatePayloadDataObject",
       "schema_name": "EmployeeDocumentUpdatePayload",
       "schema_id": "schema:definitions/EmployeeDocumentUpdatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "MetaDataBase"
+      ],
       "source_file": "_source/EmployeeDocumentUpdatePayloadDataObject.cs",
       "schema_file": "_schemas/EmployeeDocumentUpdatePayloadDataObject.md",
       "packet_file": "EmployeeDocumentUpdatePayloadDataObject.json"
@@ -496,7 +574,9 @@
       "name": "EmployeeSettingsProcessAutomationDataObject",
       "schema_name": "EmployeeSettingsProcessAutomation",
       "schema_id": "schema:definitions/EmployeeSettingsProcessAutomation",
-      "nested_types": [],
+      "nested_types": [
+        "Anonymous_d29703d5"
+      ],
       "source_file": "_source/EmployeeSettingsProcessAutomationDataObject.cs",
       "schema_file": "_schemas/EmployeeSettingsProcessAutomationDataObject.md",
       "packet_file": "EmployeeSettingsProcessAutomationDataObject.json"
@@ -515,7 +595,9 @@
       "schema_name": "EmployeesPerimeterBase",
       "schema_id": "schema:definitions/EmployeesPerimeterBase",
       "nested_types": [
-        "CustomFieldFilterRule"
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBaseOperator"
       ],
       "source_file": "_source/EmployeesPerimeterBaseDataObject.cs",
       "schema_file": "_schemas/EmployeesPerimeterBaseDataObject.md",
@@ -525,7 +607,9 @@
       "name": "EventActionFilterComputedFieldsDataObject",
       "schema_name": "EventActionFilterComputedFields",
       "schema_id": "schema:definitions/EventActionFilterComputedFields",
-      "nested_types": [],
+      "nested_types": [
+        "Anonymous_6790023f"
+      ],
       "source_file": "_source/EventActionFilterComputedFieldsDataObject.cs",
       "schema_file": "_schemas/EventActionFilterComputedFieldsDataObject.md",
       "packet_file": "EventActionFilterComputedFieldsDataObject.json"
@@ -535,7 +619,8 @@
       "schema_name": "EventBase",
       "schema_id": "schema:definitions/EventBase",
       "nested_types": [
-        "EventActor"
+        "EventActor",
+        "EventActorType"
       ],
       "source_file": "_source/EventBaseDataObject.cs",
       "schema_file": "_schemas/EventBaseDataObject.md",
@@ -545,7 +630,9 @@
       "name": "EventExportFieldsDataObject",
       "schema_name": "EventExportFields",
       "schema_id": "schema:definitions/EventExportFields",
-      "nested_types": [],
+      "nested_types": [
+        "EventExportFieldsTriggerType"
+      ],
       "source_file": "_source/EventExportFieldsDataObject.cs",
       "schema_file": "_schemas/EventExportFieldsDataObject.md",
       "packet_file": "EventExportFieldsDataObject.json"
@@ -599,7 +686,17 @@
       "name": "FormidableCreatePayloadDataObject",
       "schema_name": "FormidableCreatePayload",
       "schema_id": "schema:definitions/FormidableCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "FormidableConditionalRule",
+        "FormidableConditionalRuleAction",
+        "FormidableConditionalRuleTest",
+        "FormidableConditionalRuleTestOperator",
+        "FormidableField",
+        "FormidableFieldItems",
+        "FormidableFieldTypeId",
+        "FormidableFieldValidation",
+        "FormidableFieldValidationType"
+      ],
       "source_file": "_source/FormidableCreatePayloadDataObject.cs",
       "schema_file": "_schemas/FormidableCreatePayloadDataObject.md",
       "packet_file": "FormidableCreatePayloadDataObject.json"
@@ -608,7 +705,9 @@
       "name": "ImportCreatePayloadDataObject",
       "schema_name": "ImportCreatePayload",
       "schema_id": "schema:definitions/ImportCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "ImportBaseType"
+      ],
       "source_file": "_source/ImportCreatePayloadDataObject.cs",
       "schema_file": "_schemas/ImportCreatePayloadDataObject.md",
       "packet_file": "ImportCreatePayloadDataObject.json"
@@ -617,7 +716,11 @@
       "name": "ImportFullDataObject",
       "schema_name": "ImportFull",
       "schema_id": "schema:definitions/ImportFull",
-      "nested_types": [],
+      "nested_types": [
+        "ImportBaseType",
+        "ImportComputedFieldsOrigin",
+        "ImportComputedFieldsStatus"
+      ],
       "source_file": "_source/ImportFullDataObject.cs",
       "schema_file": "_schemas/ImportFullDataObject.md",
       "packet_file": "ImportFullDataObject.json"
@@ -644,7 +747,17 @@
       "name": "KbArticleUpdatePayloadDataObject",
       "schema_name": "KbArticleUpdatePayload",
       "schema_id": "schema:definitions/KbArticleUpdatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "Anonymous_8ad3c996",
+        "Anonymous_cbcd60e0",
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "KbArticleBaseStatus",
+        "KbArticleVersion",
+        "LocalizedString"
+      ],
       "source_file": "_source/KbArticleUpdatePayloadDataObject.cs",
       "schema_file": "_schemas/KbArticleUpdatePayloadDataObject.md",
       "packet_file": "KbArticleUpdatePayloadDataObject.json"
@@ -653,7 +766,9 @@
       "name": "KbCategoryFullDataObject",
       "schema_name": "KbCategoryFull",
       "schema_id": "schema:definitions/KbCategoryFull",
-      "nested_types": [],
+      "nested_types": [
+        "LocalizedString"
+      ],
       "source_file": "_source/KbCategoryFullDataObject.cs",
       "schema_file": "_schemas/KbCategoryFullDataObject.md",
       "packet_file": "KbCategoryFullDataObject.json"
@@ -743,7 +858,9 @@
       "name": "ProcessPostActionSharedBaseDataObject",
       "schema_name": "ProcessPostActionSharedBase",
       "schema_id": "schema:definitions/ProcessPostActionSharedBase",
-      "nested_types": [],
+      "nested_types": [
+        "ProcessPostActionSharedBaseType"
+      ],
       "source_file": "_source/ProcessPostActionSharedBaseDataObject.cs",
       "schema_file": "_schemas/ProcessPostActionSharedBaseDataObject.md",
       "packet_file": "ProcessPostActionSharedBaseDataObject.json"
@@ -752,7 +869,9 @@
       "name": "ProcessPostActionUserBaseDataObject",
       "schema_name": "ProcessPostActionUserBase",
       "schema_id": "schema:definitions/ProcessPostActionUserBase",
-      "nested_types": [],
+      "nested_types": [
+        "ProcessPostActionUserBaseType"
+      ],
       "source_file": "_source/ProcessPostActionUserBaseDataObject.cs",
       "schema_file": "_schemas/ProcessPostActionUserBaseDataObject.md",
       "packet_file": "ProcessPostActionUserBaseDataObject.json"
@@ -762,7 +881,12 @@
       "schema_name": "ProcessTemplate",
       "schema_id": "schema:definitions/ProcessTemplate",
       "nested_types": [
+        "Anonymous_0d7385a1",
+        "Anonymous_0d7385a1Origin",
+        "Anonymous_ab9b1eb9",
+        "Anonymous_ab9b1eb9Origin",
         "Organization",
+        "OrganizationOperator",
         "ProcessTemplateRestriction"
       ],
       "source_file": "_source/ProcessTemplateDataObject.cs",
@@ -783,6 +907,7 @@
       "schema_name": "RequestComment",
       "schema_id": "schema:definitions/RequestComment",
       "nested_types": [
+        "RequestAttachment",
         "UserSimplified"
       ],
       "source_file": "_source/RequestCommentDataObject.cs",
@@ -793,7 +918,18 @@
       "name": "RequestFullWithAttachmentsDataObject",
       "schema_name": "RequestFullWithAttachments",
       "schema_id": "schema:definitions/RequestFullWithAttachments",
-      "nested_types": [],
+      "nested_types": [
+        "CustomStatusField",
+        "EmployeeSimplified",
+        "FormFile",
+        "RequestAttachment",
+        "RequestBasePriority",
+        "RequestCategory",
+        "RequestComputedFieldsStatus",
+        "RequestFeedback",
+        "RequestFormDataFieldValue",
+        "UserSimplified"
+      ],
       "source_file": "_source/RequestFullWithAttachmentsDataObject.cs",
       "schema_file": "_schemas/RequestFullWithAttachmentsDataObject.md",
       "packet_file": "RequestFullWithAttachmentsDataObject.json"
@@ -802,7 +938,9 @@
       "name": "RequestListingDtoDataObject",
       "schema_name": "RequestListingDto",
       "schema_id": "schema:definitions/RequestListingDto",
-      "nested_types": [],
+      "nested_types": [
+        "RequestListingDtoStatus"
+      ],
       "source_file": "_source/RequestListingDtoDataObject.cs",
       "schema_file": "_schemas/RequestListingDtoDataObject.md",
       "packet_file": "RequestListingDtoDataObject.json"
@@ -858,7 +996,10 @@
       "name": "SamlIdentityProviderCreatePayloadDataObject",
       "schema_name": "SamlIdentityProviderCreatePayload",
       "schema_id": "schema:definitions/SamlIdentityProviderCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "SamlIdentityProviderBaseScope",
+        "SamlIdentityProviderBaseWorkflowType"
+      ],
       "source_file": "_source/SamlIdentityProviderCreatePayloadDataObject.cs",
       "schema_file": "_schemas/SamlIdentityProviderCreatePayloadDataObject.md",
       "packet_file": "SamlIdentityProviderCreatePayloadDataObject.json"
@@ -867,7 +1008,10 @@
       "name": "SamlIdentityProviderFullDataObject",
       "schema_name": "SamlIdentityProviderFull",
       "schema_id": "schema:definitions/SamlIdentityProviderFull",
-      "nested_types": [],
+      "nested_types": [
+        "SamlIdentityProviderBaseScope",
+        "SamlIdentityProviderBaseWorkflowType"
+      ],
       "source_file": "_source/SamlIdentityProviderFullDataObject.cs",
       "schema_file": "_schemas/SamlIdentityProviderFullDataObject.md",
       "packet_file": "SamlIdentityProviderFullDataObject.json"
@@ -876,7 +1020,10 @@
       "name": "SamlIdentityProviderUpdatePayloadDataObject",
       "schema_name": "SamlIdentityProviderUpdatePayload",
       "schema_id": "schema:definitions/SamlIdentityProviderUpdatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "SamlIdentityProviderBaseScope",
+        "SamlIdentityProviderBaseWorkflowType"
+      ],
       "source_file": "_source/SamlIdentityProviderUpdatePayloadDataObject.cs",
       "schema_file": "_schemas/SamlIdentityProviderUpdatePayloadDataObject.md",
       "packet_file": "SamlIdentityProviderUpdatePayloadDataObject.json"
@@ -885,7 +1032,9 @@
       "name": "SignatureProcessCreatePayloadDataObject",
       "schema_name": "SignatureProcessCreatePayload",
       "schema_id": "schema:definitions/SignatureProcessCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "MetaDataBase"
+      ],
       "source_file": "_source/SignatureProcessCreatePayloadDataObject.cs",
       "schema_file": "_schemas/SignatureProcessCreatePayloadDataObject.md",
       "packet_file": "SignatureProcessCreatePayloadDataObject.json"
@@ -894,7 +1043,14 @@
       "name": "SignatureProcessFullDataObject",
       "schema_name": "SignatureProcessFull",
       "schema_id": "schema:definitions/SignatureProcessFull",
-      "nested_types": [],
+      "nested_types": [
+        "Anonymous_2eda0077",
+        "Anonymous_4424aa26",
+        "Anonymous_ffa30592",
+        "MetaDataBase",
+        "SignatureProcessStateState",
+        "SignerState"
+      ],
       "source_file": "_source/SignatureProcessFullDataObject.cs",
       "schema_file": "_schemas/SignatureProcessFullDataObject.md",
       "packet_file": "SignatureProcessFullDataObject.json"
@@ -903,7 +1059,10 @@
       "name": "SignatureProcessUpdatePayloadDataObject",
       "schema_name": "SignatureProcessUpdatePayload",
       "schema_id": "schema:definitions/SignatureProcessUpdatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "MetaDataBase",
+        "SignatureProcessStateState"
+      ],
       "source_file": "_source/SignatureProcessUpdatePayloadDataObject.cs",
       "schema_file": "_schemas/SignatureProcessUpdatePayloadDataObject.md",
       "packet_file": "SignatureProcessUpdatePayloadDataObject.json"
@@ -912,7 +1071,16 @@
       "name": "SignatureTypeFullDataObject",
       "schema_name": "SignatureTypeFull",
       "schema_id": "schema:definitions/SignatureTypeFull",
-      "nested_types": [],
+      "nested_types": [
+        "2FASettings",
+        "2FASettingsMode",
+        "DocusignProtectAndSignSettings",
+        "DocusignSettings",
+        "LocalizedString",
+        "SignatureTypePayloadBackendCode",
+        "SignatureTypePayloadStorageProfile",
+        "SmsNotificationSettings"
+      ],
       "source_file": "_source/SignatureTypeFullDataObject.cs",
       "schema_file": "_schemas/SignatureTypeFullDataObject.md",
       "packet_file": "SignatureTypeFullDataObject.json"
@@ -939,7 +1107,13 @@
       "name": "SignerFullDataObject",
       "schema_name": "SignerFull",
       "schema_id": "schema:definitions/SignerFull",
-      "nested_types": [],
+      "nested_types": [
+        "SignaturePosition",
+        "SignaturePositionUnit",
+        "SignerBaseType",
+        "SignerState",
+        "TwoFactorAuthenticationMethod"
+      ],
       "source_file": "_source/SignerFullDataObject.cs",
       "schema_file": "_schemas/SignerFullDataObject.md",
       "packet_file": "SignerFullDataObject.json"
@@ -984,7 +1158,10 @@
       "name": "TaskTemplatesDataObject",
       "schema_name": "TaskTemplates",
       "schema_id": "schema:definitions/TaskTemplates",
-      "nested_types": [],
+      "nested_types": [
+        "TaskTemplatesAssignedTo",
+        "TaskTemplatesType"
+      ],
       "source_file": "_source/TaskTemplatesDataObject.cs",
       "schema_file": "_schemas/TaskTemplatesDataObject.md",
       "packet_file": "TaskTemplatesDataObject.json"
@@ -1029,7 +1206,16 @@
       "name": "UserBulkOperationStatusDataObject",
       "schema_name": "UserBulkOperationStatus",
       "schema_id": "schema:definitions/UserBulkOperationStatus",
-      "nested_types": [],
+      "nested_types": [
+        "Anonymous_0c52d65c",
+        "Anonymous_39fe8827",
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase",
+        "UserFull"
+      ],
       "source_file": "_source/UserBulkOperationStatusDataObject.cs",
       "schema_file": "_schemas/UserBulkOperationStatusDataObject.md",
       "packet_file": "UserBulkOperationStatusDataObject.json"
@@ -1038,7 +1224,13 @@
       "name": "UserCreatePayloadDataObject",
       "schema_name": "UserCreatePayload",
       "schema_id": "schema:definitions/UserCreatePayload",
-      "nested_types": [],
+      "nested_types": [
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase"
+      ],
       "source_file": "_source/UserCreatePayloadDataObject.cs",
       "schema_file": "_schemas/UserCreatePayloadDataObject.md",
       "packet_file": "UserCreatePayloadDataObject.json"
@@ -1047,7 +1239,13 @@
       "name": "UserFullDataObject",
       "schema_name": "UserFull",
       "schema_id": "schema:definitions/UserFull",
-      "nested_types": [],
+      "nested_types": [
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase"
+      ],
       "source_file": "_source/UserFullDataObject.cs",
       "schema_file": "_schemas/UserFullDataObject.md",
       "packet_file": "UserFullDataObject.json"
@@ -1056,7 +1254,13 @@
       "name": "UserPatchPayloadDataObject",
       "schema_name": "UserPatchPayload",
       "schema_id": "schema:definitions/UserPatchPayload",
-      "nested_types": [],
+      "nested_types": [
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase"
+      ],
       "source_file": "_source/UserPatchPayloadDataObject.cs",
       "schema_file": "_schemas/UserPatchPayloadDataObject.md",
       "packet_file": "UserPatchPayloadDataObject.json"
@@ -1065,7 +1269,13 @@
       "name": "UserPutPayloadDataObject",
       "schema_name": "UserPutPayload",
       "schema_id": "schema:definitions/UserPutPayload",
-      "nested_types": [],
+      "nested_types": [
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase"
+      ],
       "source_file": "_source/UserPutPayloadDataObject.cs",
       "schema_file": "_schemas/UserPutPayloadDataObject.md",
       "packet_file": "UserPutPayloadDataObject.json"
@@ -1091,17 +1301,398 @@
   ],
   "nested_only": [
     {
+      "name": "2FASettings",
+      "schema_id": "schema:definitions/2FASettings",
+      "parent_roots": [
+        "SignatureTypeFullDataObject"
+      ]
+    },
+    {
+      "name": "2FASettingsMode",
+      "schema_id": "schema:anon/9970d86896c3c76fd11109bdecf721d29e51eb6d",
+      "parent_roots": [
+        "SignatureTypeFullDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_0c52d65c",
+      "schema_id": "schema:anon/0c52d65c16a36ed6c66a62de28d422b8df2e4d4e",
+      "parent_roots": [
+        "UserBulkOperationStatusDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_0d7385a1",
+      "schema_id": "schema:anon/0d7385a1fd0dee8a6a8af687eef3daccb05b6bdf",
+      "parent_roots": [
+        "ProcessTemplateDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_0d7385a1Origin",
+      "schema_id": "schema:anon/0aaefd2bf3798a1d9f1532a5c42d9b2c45bad2ad",
+      "parent_roots": [
+        "ProcessTemplateDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_2eda0077",
+      "schema_id": "schema:anon/2eda0077944596f5a8508bfdd7980efbb51b5678",
+      "parent_roots": [
+        "SignatureProcessFullDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_39fe8827",
+      "schema_id": "schema:anon/39fe882738081e4d32998aa911bf3bb8a42da006",
+      "parent_roots": [
+        "EmployeeBulkOperationStatusDataObject",
+        "UserBulkOperationStatusDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_4424aa26",
+      "schema_id": "schema:anon/4424aa26b85dd20ae1ca81506c7322cef8e82281",
+      "parent_roots": [
+        "SignatureProcessFullDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_6790023f",
+      "schema_id": "schema:anon/6790023f2eeabfd26706286439c8b415fa6f8a7c",
+      "parent_roots": [
+        "EventActionFilterComputedFieldsDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_850a291e",
+      "schema_id": "schema:anon/850a291e339f1b592811ed97bc7a8664d8219476",
+      "parent_roots": [
+        "DistributionBaseDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_8ad3c996",
+      "schema_id": "schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a",
+      "parent_roots": [
+        "KbArticleUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_ab9b1eb9",
+      "schema_id": "schema:anon/ab9b1eb99565d72ba3964883bdfd91eb98d86676",
+      "parent_roots": [
+        "ProcessTemplateDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_ab9b1eb9Origin",
+      "schema_id": "schema:anon/9b842f7b316392d1701e64835e16e2d91781271c",
+      "parent_roots": [
+        "ProcessTemplateDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_b1e7cfcd",
+      "schema_id": "schema:anon/b1e7cfcd7f50fa70605feb2b00b7756d178cec94",
+      "parent_roots": [
+        "EmployeeBulkOperationStatusDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_cbcd60e0",
+      "schema_id": "schema:anon/cbcd60e0defd1088b9363273e505c0249931d345",
+      "parent_roots": [
+        "KbArticleUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_d29703d5",
+      "schema_id": "schema:anon/d29703d577a7ab59f6c0f19f7a24de171bb75928",
+      "parent_roots": [
+        "EmployeeSettingsProcessAutomationDataObject"
+      ]
+    },
+    {
+      "name": "Anonymous_ffa30592",
+      "schema_id": "schema:anon/ffa305924e481b1c8132496caf32364f1bddbc9f",
+      "parent_roots": [
+        "SignatureProcessFullDataObject"
+      ]
+    },
+    {
+      "name": "AuthorizedValue",
+      "schema_id": "schema:definitions/AuthorizedValue",
+      "parent_roots": [
+        "CustomFieldCreatePayloadDataObject",
+        "CustomFieldFullDataObject"
+      ]
+    },
+    {
+      "name": "CompanyDocumentComputedFieldsOrigin",
+      "schema_id": "schema:anon/cadbfbddfd821060b2551746f93be6daaba3e372",
+      "parent_roots": [
+        "CompanyDocumentFullDataObject"
+      ]
+    },
+    {
+      "name": "CompanyDocumentComputedFieldsOriginDetails",
+      "schema_id": "schema:anon/ce12bec151cb5a7977620d36961eb985d5a7f529",
+      "parent_roots": [
+        "CompanyDocumentFullDataObject"
+      ]
+    },
+    {
+      "name": "CustomFieldBaseType",
+      "schema_id": "schema:anon/c11f399cc043cca752c567eceac832c67e990779",
+      "parent_roots": [
+        "CustomFieldCreatePayloadDataObject",
+        "CustomFieldFullDataObject"
+      ]
+    },
+    {
       "name": "CustomFieldFilterRule",
       "schema_id": "schema:definitions/CustomFieldFilterRule",
       "parent_roots": [
-        "EmployeesPerimeterBaseDataObject"
+        "EmployeesPerimeterBaseDataObject",
+        "KbArticleUpdatePayloadDataObject",
+        "UserBulkOperationStatusDataObject",
+        "UserCreatePayloadDataObject",
+        "UserFullDataObject",
+        "UserPatchPayloadDataObject",
+        "UserPutPayloadDataObject"
+      ]
+    },
+    {
+      "name": "CustomFieldFilterRuleOperator",
+      "schema_id": "schema:anon/b89353968483881566a17091aa85441d29825efb",
+      "parent_roots": [
+        "EmployeesPerimeterBaseDataObject",
+        "KbArticleUpdatePayloadDataObject",
+        "UserBulkOperationStatusDataObject",
+        "UserCreatePayloadDataObject",
+        "UserFullDataObject",
+        "UserPatchPayloadDataObject",
+        "UserPutPayloadDataObject"
+      ]
+    },
+    {
+      "name": "CustomStatusField",
+      "schema_id": "schema:definitions/CustomStatusField",
+      "parent_roots": [
+        "RequestFullWithAttachmentsDataObject"
+      ]
+    },
+    {
+      "name": "DatasetComputedFieldsLastImportResult",
+      "schema_id": "schema:anon/27905151b61e69f2c7fdcdcd6a2e88113c9b5839",
+      "parent_roots": [
+        "DatasetFullDataObject"
+      ]
+    },
+    {
+      "name": "DatasetComputedFieldsLastImportStatus",
+      "schema_id": "schema:anon/171d3fcd1ce50c97dff5ab570d8f5850b325c322",
+      "parent_roots": [
+        "DatasetFullDataObject"
+      ]
+    },
+    {
+      "name": "DatasetDimensionCreatePayload",
+      "schema_id": "schema:definitions/DatasetDimensionCreatePayload",
+      "parent_roots": [
+        "DatasetCreatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "DatasetDimensionFull",
+      "schema_id": "schema:definitions/DatasetDimensionFull",
+      "parent_roots": [
+        "DatasetFullDataObject"
       ]
     },
     {
       "name": "DatasetField",
       "schema_id": "schema:definitions/DatasetField",
       "parent_roots": [
-        "CsvCampaignDataDataObject"
+        "CsvCampaignDataDataObject",
+        "DocGenRequestPayloadDataObject"
+      ]
+    },
+    {
+      "name": "DatasetFieldTypeType",
+      "schema_id": "schema:anon/07b949304bddf335c6eb4571c1c40044809b0b32",
+      "parent_roots": [
+        "CsvCampaignDataDataObject",
+        "DocGenRequestPayloadDataObject"
+      ]
+    },
+    {
+      "name": "DatasetImportComputedFieldsOrigin",
+      "schema_id": "schema:anon/4d4d275cc204995dd90bd4455ecb42d571db2f75",
+      "parent_roots": [
+        "DatasetImportFullDataObject"
+      ]
+    },
+    {
+      "name": "DatasetImportComputedFieldsResult",
+      "schema_id": "schema:anon/452069ce22972a77787cecc0440ef4539efc41b1",
+      "parent_roots": [
+        "DatasetImportFullDataObject"
+      ]
+    },
+    {
+      "name": "DatasetImportComputedFieldsStatus",
+      "schema_id": "schema:anon/b1565af67104674e5c1f8bcc9f427c452a60eab0",
+      "parent_roots": [
+        "DatasetImportFullDataObject"
+      ]
+    },
+    {
+      "name": "DistributionErrorErrorType",
+      "schema_id": "schema:anon/461dbb693cb764f81757f8554a9e436541412fd0",
+      "parent_roots": [
+        "DistributionBaseDataObject"
+      ]
+    },
+    {
+      "name": "DocGenCampaignBaseOutputAction",
+      "schema_id": "schema:anon/eb14f41fa7ebdcdf7b0d9f067de7ed5d09baec3b",
+      "parent_roots": [
+        "DocGenCampaignPayloadDataObject",
+        "DocGenCampaignResponseDataObject"
+      ]
+    },
+    {
+      "name": "DocGenMigrationCampaignStatus",
+      "schema_id": "schema:anon/90d3539a873fedbd9b0a95acf3ed43b1770dd996",
+      "parent_roots": [
+        "DocGenMigrationCampaignDataObject"
+      ]
+    },
+    {
+      "name": "DocGenRequestStatusResponseStatus",
+      "schema_id": "schema:anon/7379e1388fa281105e6205ef776649cb5b861682",
+      "parent_roots": [
+        "DocGenRequestStatusResponseDataObject"
+      ]
+    },
+    {
+      "name": "DocGenTemplatePatchPayloadFormat",
+      "schema_id": "schema:anon/e3cd8861cef5df5d102527143fa24cd1c5df9928",
+      "parent_roots": [
+        "DocGenTemplatePatchPayloadDataObject"
+      ]
+    },
+    {
+      "name": "DocGenTemplateVersionBaseFormat",
+      "schema_id": "schema:anon/e3cd8861cef5df5d102527143fa24cd1c5df9928",
+      "parent_roots": [
+        "DocGenTemplateVersionFullDataObject"
+      ]
+    },
+    {
+      "name": "DocGenTemplateVersionBaseSyntaxVersion",
+      "schema_id": "schema:anon/8d85afe60184732869114b50fe8771f6f97ba872",
+      "parent_roots": [
+        "DocGenTemplateVersionFullDataObject"
+      ]
+    },
+    {
+      "name": "DocGenTemplateVersionUpdatePayloadFormat",
+      "schema_id": "schema:anon/e3cd8861cef5df5d102527143fa24cd1c5df9928",
+      "parent_roots": [
+        "DocGenTemplateVersionUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "DocGenTemplateVersionUpdatePayloadSyntaxVersion",
+      "schema_id": "schema:anon/8d85afe60184732869114b50fe8771f6f97ba872",
+      "parent_roots": [
+        "DocGenTemplateVersionUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "DocumentTypePredictionResult",
+      "schema_id": "schema:definitions/DocumentTypePredictionResult",
+      "parent_roots": [
+        "DocumentTypePredictionRunDataObject"
+      ]
+    },
+    {
+      "name": "DocusignProtectAndSignSettings",
+      "schema_id": "schema:definitions/DocusignProtectAndSignSettings",
+      "parent_roots": [
+        "SignatureTypeFullDataObject"
+      ]
+    },
+    {
+      "name": "DocusignSettings",
+      "schema_id": "schema:definitions/DocusignSettings",
+      "parent_roots": [
+        "SignatureTypeFullDataObject"
+      ]
+    },
+    {
+      "name": "ElectronicVaultOptionsComputedFieldsElectronicPayslipsChoiceOrigin",
+      "schema_id": "schema:anon/855aaad6f78bb50aea3213fc3b97f2db52cebbdc",
+      "parent_roots": [
+        "ElectronicVaultFullDataObject"
+      ]
+    },
+    {
+      "name": "ElectronicVaultOptionsComputedFieldsElectronicVaultState",
+      "schema_id": "schema:anon/248fbeab8e9d9f6c8f5d218cec765ac4d5d495e5",
+      "parent_roots": [
+        "ElectronicVaultFullDataObject"
+      ]
+    },
+    {
+      "name": "EmployeeComputedFieldsProfileStatus",
+      "schema_id": "schema:anon/95b3056d977de9e6d053e7dbc04860fae8aa59ac",
+      "parent_roots": [
+        "EmployeeBulkOperationStatusDataObject"
+      ]
+    },
+    {
+      "name": "EmployeeDocumentComputedFieldsOrigin",
+      "schema_id": "schema:anon/da2408f83f2afd3b041ed3f588208b3d92fe7080",
+      "parent_roots": [
+        "EmployeeDocumentFullDataObject"
+      ]
+    },
+    {
+      "name": "EmployeeDocumentComputedFieldsOriginDetails",
+      "schema_id": "schema:anon/8431fe4a00b2656a6bbf17e3bdb1b278a8abec19",
+      "parent_roots": [
+        "EmployeeDocumentFullDataObject"
+      ]
+    },
+    {
+      "name": "EmployeeFull",
+      "schema_id": "schema:definitions/EmployeeFull",
+      "parent_roots": [
+        "EmployeeBulkOperationStatusDataObject"
+      ]
+    },
+    {
+      "name": "EmployeeSimplified",
+      "schema_id": "schema:definitions/EmployeeSimplified",
+      "parent_roots": [
+        "RequestFullWithAttachmentsDataObject"
+      ]
+    },
+    {
+      "name": "EmployeesPerimeterBaseOperator",
+      "schema_id": "schema:anon/62bc992a0d5496dc75fdaeee1de43be7a94f91c1",
+      "parent_roots": [
+        "EmployeesPerimeterBaseDataObject",
+        "KbArticleUpdatePayloadDataObject",
+        "UserBulkOperationStatusDataObject",
+        "UserCreatePayloadDataObject",
+        "UserFullDataObject",
+        "UserPatchPayloadDataObject",
+        "UserPutPayloadDataObject"
       ]
     },
     {
@@ -1112,9 +1703,94 @@
       ]
     },
     {
+      "name": "EventActorType",
+      "schema_id": "schema:anon/81cb7f1d9d8dc3887763ce93ffd50cf032fd9511",
+      "parent_roots": [
+        "EventBaseDataObject"
+      ]
+    },
+    {
+      "name": "EventExportFieldsTriggerType",
+      "schema_id": "schema:anon/dfc10acdc3514f7392c4caefb2e20781289454dc",
+      "parent_roots": [
+        "EventExportFieldsDataObject"
+      ]
+    },
+    {
+      "name": "FormFile",
+      "schema_id": "schema:definitions/FormFile",
+      "parent_roots": [
+        "RequestFullWithAttachmentsDataObject"
+      ]
+    },
+    {
+      "name": "FormidableConditionalRule",
+      "schema_id": "schema:definitions/FormidableConditionalRule",
+      "parent_roots": [
+        "FormidableCreatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "FormidableConditionalRuleAction",
+      "schema_id": "schema:anon/d5f114e0b3fa376dd19b5f7ffa612552f55c2dc5",
+      "parent_roots": [
+        "FormidableCreatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "FormidableConditionalRuleTest",
+      "schema_id": "schema:definitions/FormidableConditionalRuleTest",
+      "parent_roots": [
+        "FormidableCreatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "FormidableConditionalRuleTestOperator",
+      "schema_id": "schema:anon/b40f96ef930b4fc9ef8697311f51c1d6fd3aa307",
+      "parent_roots": [
+        "FormidableCreatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "FormidableField",
+      "schema_id": "schema:definitions/FormidableField",
+      "parent_roots": [
+        "FormidableCreatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "FormidableFieldItems",
+      "schema_id": "schema:definitions/FormidableFieldItems",
+      "parent_roots": [
+        "FormidableCreatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "FormidableFieldTypeId",
+      "schema_id": "schema:anon/057fa3bc81021a3b35bd8a0331e97db7749eef73",
+      "parent_roots": [
+        "FormidableCreatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "FormidableFieldValidation",
+      "schema_id": "schema:definitions/FormidableFieldValidation",
+      "parent_roots": [
+        "FormidableCreatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "FormidableFieldValidationType",
+      "schema_id": "schema:anon/94bbaf27be1d81f66a680870754e99c30d4923c8",
+      "parent_roots": [
+        "FormidableCreatePayloadDataObject"
+      ]
+    },
+    {
       "name": "FragmentFieldsetField",
       "schema_id": "schema:definitions/FragmentFieldsetField",
       "parent_roots": [
+        "DocGenTemplateVersionFullDataObject",
         "DocGenTemplateVersionUpdatePayloadDataObject",
         "DocgenTemplateVersionPatchPayloadDataObject"
       ]
@@ -1123,12 +1799,94 @@
       "name": "GenerationInfo",
       "schema_id": "schema:definitions/GenerationInfo",
       "parent_roots": [
+        "DocGenTemplateVersionFullDataObject",
         "DocGenTemplateVersionUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "GenerationInfoSeverity",
+      "schema_id": "schema:anon/4bc512f0c93de388afdbd8a134f1b285fb86a137",
+      "parent_roots": [
+        "DocGenTemplateVersionFullDataObject",
+        "DocGenTemplateVersionUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "ImportBaseType",
+      "schema_id": "schema:anon/0e325a09191808a827013f95b158266db695cc5c",
+      "parent_roots": [
+        "ImportCreatePayloadDataObject",
+        "ImportFullDataObject"
+      ]
+    },
+    {
+      "name": "ImportComputedFieldsOrigin",
+      "schema_id": "schema:anon/4d4d275cc204995dd90bd4455ecb42d571db2f75",
+      "parent_roots": [
+        "ImportFullDataObject"
+      ]
+    },
+    {
+      "name": "ImportComputedFieldsStatus",
+      "schema_id": "schema:anon/729b7a06e7564973799358ca464f9dfd723a8d0c",
+      "parent_roots": [
+        "ImportFullDataObject"
+      ]
+    },
+    {
+      "name": "KbArticleBaseStatus",
+      "schema_id": "schema:anon/e37f3bbd184e14499f9222bf4665a4a6812c017b",
+      "parent_roots": [
+        "KbArticleUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "KbArticleVersion",
+      "schema_id": "schema:definitions/KbArticleVersion",
+      "parent_roots": [
+        "KbArticleUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "LocalizedString",
+      "schema_id": "schema:definitions/LocalizedString",
+      "parent_roots": [
+        "CustomFieldCreatePayloadDataObject",
+        "CustomFieldFullDataObject",
+        "DatasetCreatePayloadDataObject",
+        "DatasetFullDataObject",
+        "DatasetValueCreatePayloadDataObject",
+        "DatasetValueFullDataObject",
+        "KbArticleUpdatePayloadDataObject",
+        "KbCategoryFullDataObject",
+        "SignatureTypeFullDataObject"
+      ]
+    },
+    {
+      "name": "MetaDataBase",
+      "schema_id": "schema:definitions/MetaDataBase",
+      "parent_roots": [
+        "CompanyDocumentCreatePayloadDataObject",
+        "CompanyDocumentFullDataObject",
+        "CompanyDocumentUpdatePayloadDataObject",
+        "EmployeeDocumentCreatePayloadDataObject",
+        "EmployeeDocumentFullDataObject",
+        "EmployeeDocumentUpdatePayloadDataObject",
+        "SignatureProcessCreatePayloadDataObject",
+        "SignatureProcessFullDataObject",
+        "SignatureProcessUpdatePayloadDataObject"
       ]
     },
     {
       "name": "Organization",
       "schema_id": "schema:definitions/Organization",
+      "parent_roots": [
+        "ProcessTemplateDataObject"
+      ]
+    },
+    {
+      "name": "OrganizationOperator",
+      "schema_id": "schema:anon/194956ec5ec1aa6b913c3da0fea7e3642f6f7534",
       "parent_roots": [
         "ProcessTemplateDataObject"
       ]
@@ -1142,6 +1900,28 @@
       ]
     },
     {
+      "name": "OutputFormatPatchRequestFormat",
+      "schema_id": "schema:anon/0811d6e7055431074ebf9eb0d3986ae92377bd06",
+      "parent_roots": [
+        "DocGenTemplateVersionUpdatePayloadDataObject",
+        "DocgenTemplateVersionPatchPayloadDataObject"
+      ]
+    },
+    {
+      "name": "ProcessPostActionSharedBaseType",
+      "schema_id": "schema:anon/43ccf591e152cacca0e4fd5359cc42d23c0c5adf",
+      "parent_roots": [
+        "ProcessPostActionSharedBaseDataObject"
+      ]
+    },
+    {
+      "name": "ProcessPostActionUserBaseType",
+      "schema_id": "schema:anon/88f9f5339dbd458683aeaa5db4ba272060bb74d3",
+      "parent_roots": [
+        "ProcessPostActionUserBaseDataObject"
+      ]
+    },
+    {
       "name": "ProcessTemplateRestriction",
       "schema_id": "schema:definitions/ProcessTemplateRestriction",
       "parent_roots": [
@@ -1149,10 +1929,155 @@
       ]
     },
     {
+      "name": "ProfileBase",
+      "schema_id": "schema:definitions/ProfileBase",
+      "parent_roots": [
+        "UserBulkOperationStatusDataObject",
+        "UserCreatePayloadDataObject",
+        "UserFullDataObject",
+        "UserPatchPayloadDataObject",
+        "UserPutPayloadDataObject"
+      ]
+    },
+    {
+      "name": "RequestAttachment",
+      "schema_id": "schema:definitions/RequestAttachment",
+      "parent_roots": [
+        "RequestCommentDataObject",
+        "RequestFullWithAttachmentsDataObject"
+      ]
+    },
+    {
+      "name": "RequestBasePriority",
+      "schema_id": "schema:anon/e616cc07e9e84b75aae74f0c458061091d611755",
+      "parent_roots": [
+        "RequestFullWithAttachmentsDataObject"
+      ]
+    },
+    {
+      "name": "RequestCategory",
+      "schema_id": "schema:definitions/RequestCategory",
+      "parent_roots": [
+        "RequestFullWithAttachmentsDataObject"
+      ]
+    },
+    {
+      "name": "RequestComputedFieldsStatus",
+      "schema_id": "schema:anon/5614592567f7ba3571f08b43d9d3a9b8456db10d",
+      "parent_roots": [
+        "RequestFullWithAttachmentsDataObject"
+      ]
+    },
+    {
+      "name": "RequestFeedback",
+      "schema_id": "schema:definitions/RequestFeedback",
+      "parent_roots": [
+        "RequestFullWithAttachmentsDataObject"
+      ]
+    },
+    {
       "name": "RequestFormDataFieldValue",
       "schema_id": "schema:definitions/RequestFormDataFieldValue",
       "parent_roots": [
+        "RequestFullWithAttachmentsDataObject",
         "RequestPatchPayloadDataObject"
+      ]
+    },
+    {
+      "name": "RequestListingDtoStatus",
+      "schema_id": "schema:anon/7379e1388fa281105e6205ef776649cb5b861682",
+      "parent_roots": [
+        "RequestListingDtoDataObject"
+      ]
+    },
+    {
+      "name": "SamlIdentityProviderBaseScope",
+      "schema_id": "schema:anon/1d05f72b2e1ad71094b5be98b9124c1f23ff04f8",
+      "parent_roots": [
+        "SamlIdentityProviderCreatePayloadDataObject",
+        "SamlIdentityProviderFullDataObject",
+        "SamlIdentityProviderUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "SamlIdentityProviderBaseWorkflowType",
+      "schema_id": "schema:anon/fb7ddeacbe32677a4677ae29f11c0aed5d0071ec",
+      "parent_roots": [
+        "SamlIdentityProviderCreatePayloadDataObject",
+        "SamlIdentityProviderFullDataObject",
+        "SamlIdentityProviderUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "SignaturePosition",
+      "schema_id": "schema:definitions/SignaturePosition",
+      "parent_roots": [
+        "SignerFullDataObject"
+      ]
+    },
+    {
+      "name": "SignaturePositionUnit",
+      "schema_id": "schema:anon/27002a2e7ea816d4d0cae24173ff27461c6937e0",
+      "parent_roots": [
+        "SignerFullDataObject"
+      ]
+    },
+    {
+      "name": "SignatureProcessStateState",
+      "schema_id": "schema:anon/2fcab3527a3bca80b6d200978e58b5e325e792e4",
+      "parent_roots": [
+        "SignatureProcessFullDataObject",
+        "SignatureProcessUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "SignatureTypePayloadBackendCode",
+      "schema_id": "schema:anon/60af20961278fb80f49cbabf38e72e6deeba3c2e",
+      "parent_roots": [
+        "SignatureTypeFullDataObject"
+      ]
+    },
+    {
+      "name": "SignatureTypePayloadStorageProfile",
+      "schema_id": "schema:anon/01a117cfabdc02f2bbcd3fd98cb4aba6f40887c6",
+      "parent_roots": [
+        "SignatureTypeFullDataObject"
+      ]
+    },
+    {
+      "name": "SignerBaseType",
+      "schema_id": "schema:anon/2b360fd31e8c89122e3db638daa1ac4b28b81830",
+      "parent_roots": [
+        "SignerFullDataObject"
+      ]
+    },
+    {
+      "name": "SignerState",
+      "schema_id": "schema:definitions/SignerState",
+      "parent_roots": [
+        "SignatureProcessFullDataObject",
+        "SignerFullDataObject"
+      ]
+    },
+    {
+      "name": "SmsNotificationSettings",
+      "schema_id": "schema:definitions/SmsNotificationSettings",
+      "parent_roots": [
+        "SignatureTypeFullDataObject"
+      ]
+    },
+    {
+      "name": "TaskTemplatesAssignedTo",
+      "schema_id": "schema:anon/3c734967a8ec04138d53e679e95e4a3943c81225",
+      "parent_roots": [
+        "TaskTemplatesDataObject"
+      ]
+    },
+    {
+      "name": "TaskTemplatesType",
+      "schema_id": "schema:anon/8a28ac285e30a4f43d1d16a5b199c7ac2f1f35ed",
+      "parent_roots": [
+        "TaskTemplatesDataObject"
       ]
     },
     {
@@ -1167,7 +2092,15 @@
       "name": "UserSimplified",
       "schema_id": "schema:definitions/UserSimplified",
       "parent_roots": [
-        "RequestCommentDataObject"
+        "RequestCommentDataObject",
+        "RequestFullWithAttachmentsDataObject"
+      ]
+    },
+    {
+      "name": "_RunStatus",
+      "schema_id": "schema:anon/74af9ce652d5438531b418fef7e7f5f529ac55f2",
+      "parent_roots": [
+        "DocumentTypePredictionRunDataObject"
       ]
     }
   ],
@@ -1213,7 +2146,9 @@
         "name": "CompanyDocumentCreatePayloadDataObject",
         "schema_name": "CompanyDocumentCreatePayload",
         "schema_id": "schema:definitions/CompanyDocumentCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "MetaDataBase"
+        ],
         "source_file": "_source/CompanyDocumentCreatePayloadDataObject.cs",
         "schema_file": "_schemas/CompanyDocumentCreatePayloadDataObject.md",
         "packet_file": "CompanyDocumentCreatePayloadDataObject.json"
@@ -1222,7 +2157,11 @@
         "name": "CompanyDocumentFullDataObject",
         "schema_name": "CompanyDocumentFull",
         "schema_id": "schema:definitions/CompanyDocumentFull",
-        "nested_types": [],
+        "nested_types": [
+          "CompanyDocumentComputedFieldsOrigin",
+          "CompanyDocumentComputedFieldsOriginDetails",
+          "MetaDataBase"
+        ],
         "source_file": "_source/CompanyDocumentFullDataObject.cs",
         "schema_file": "_schemas/CompanyDocumentFullDataObject.md",
         "packet_file": "CompanyDocumentFullDataObject.json"
@@ -1231,7 +2170,9 @@
         "name": "CompanyDocumentUpdatePayloadDataObject",
         "schema_name": "CompanyDocumentUpdatePayload",
         "schema_id": "schema:definitions/CompanyDocumentUpdatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "MetaDataBase"
+        ],
         "source_file": "_source/CompanyDocumentUpdatePayloadDataObject.cs",
         "schema_file": "_schemas/CompanyDocumentUpdatePayloadDataObject.md",
         "packet_file": "CompanyDocumentUpdatePayloadDataObject.json"
@@ -1268,7 +2209,8 @@
         "schema_name": "CsvCampaignData",
         "schema_id": "schema:definitions/CsvCampaignData",
         "nested_types": [
-          "DatasetField"
+          "DatasetField",
+          "DatasetFieldTypeType"
         ],
         "source_file": "_source/CsvCampaignDataDataObject.cs",
         "schema_file": "_schemas/CsvCampaignDataDataObject.md",
@@ -1278,7 +2220,11 @@
         "name": "CustomFieldCreatePayloadDataObject",
         "schema_name": "CustomFieldCreatePayload",
         "schema_id": "schema:definitions/CustomFieldCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "AuthorizedValue",
+          "CustomFieldBaseType",
+          "LocalizedString"
+        ],
         "source_file": "_source/CustomFieldCreatePayloadDataObject.cs",
         "schema_file": "_schemas/CustomFieldCreatePayloadDataObject.md",
         "packet_file": "CustomFieldCreatePayloadDataObject.json"
@@ -1287,7 +2233,11 @@
         "name": "CustomFieldFullDataObject",
         "schema_name": "CustomFieldFull",
         "schema_id": "schema:definitions/CustomFieldFull",
-        "nested_types": [],
+        "nested_types": [
+          "AuthorizedValue",
+          "CustomFieldBaseType",
+          "LocalizedString"
+        ],
         "source_file": "_source/CustomFieldFullDataObject.cs",
         "schema_file": "_schemas/CustomFieldFullDataObject.md",
         "packet_file": "CustomFieldFullDataObject.json"
@@ -1296,7 +2246,10 @@
         "name": "DatasetCreatePayloadDataObject",
         "schema_name": "DatasetCreatePayload",
         "schema_id": "schema:definitions/DatasetCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "DatasetDimensionCreatePayload",
+          "LocalizedString"
+        ],
         "source_file": "_source/DatasetCreatePayloadDataObject.cs",
         "schema_file": "_schemas/DatasetCreatePayloadDataObject.md",
         "packet_file": "DatasetCreatePayloadDataObject.json"
@@ -1305,7 +2258,12 @@
         "name": "DatasetFullDataObject",
         "schema_name": "DatasetFull",
         "schema_id": "schema:definitions/DatasetFull",
-        "nested_types": [],
+        "nested_types": [
+          "DatasetComputedFieldsLastImportResult",
+          "DatasetComputedFieldsLastImportStatus",
+          "DatasetDimensionFull",
+          "LocalizedString"
+        ],
         "source_file": "_source/DatasetFullDataObject.cs",
         "schema_file": "_schemas/DatasetFullDataObject.md",
         "packet_file": "DatasetFullDataObject.json"
@@ -1323,7 +2281,11 @@
         "name": "DatasetImportFullDataObject",
         "schema_name": "DatasetImportFull",
         "schema_id": "schema:definitions/DatasetImportFull",
-        "nested_types": [],
+        "nested_types": [
+          "DatasetImportComputedFieldsOrigin",
+          "DatasetImportComputedFieldsResult",
+          "DatasetImportComputedFieldsStatus"
+        ],
         "source_file": "_source/DatasetImportFullDataObject.cs",
         "schema_file": "_schemas/DatasetImportFullDataObject.md",
         "packet_file": "DatasetImportFullDataObject.json"
@@ -1332,7 +2294,9 @@
         "name": "DatasetValueCreatePayloadDataObject",
         "schema_name": "DatasetValueCreatePayload",
         "schema_id": "schema:definitions/DatasetValueCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "LocalizedString"
+        ],
         "source_file": "_source/DatasetValueCreatePayloadDataObject.cs",
         "schema_file": "_schemas/DatasetValueCreatePayloadDataObject.md",
         "packet_file": "DatasetValueCreatePayloadDataObject.json"
@@ -1341,7 +2305,9 @@
         "name": "DatasetValueFullDataObject",
         "schema_name": "DatasetValueFull",
         "schema_id": "schema:definitions/DatasetValueFull",
-        "nested_types": [],
+        "nested_types": [
+          "LocalizedString"
+        ],
         "source_file": "_source/DatasetValueFullDataObject.cs",
         "schema_file": "_schemas/DatasetValueFullDataObject.md",
         "packet_file": "DatasetValueFullDataObject.json"
@@ -1350,7 +2316,10 @@
         "name": "DistributionBaseDataObject",
         "schema_name": "DistributionBase",
         "schema_id": "schema:definitions/DistributionBase",
-        "nested_types": [],
+        "nested_types": [
+          "Anonymous_850a291e",
+          "DistributionErrorErrorType"
+        ],
         "source_file": "_source/DistributionBaseDataObject.cs",
         "schema_file": "_schemas/DistributionBaseDataObject.md",
         "packet_file": "DistributionBaseDataObject.json"
@@ -1368,7 +2337,9 @@
         "name": "DocGenCampaignPayloadDataObject",
         "schema_name": "DocGenCampaignPayload",
         "schema_id": "schema:definitions/DocGenCampaignPayload",
-        "nested_types": [],
+        "nested_types": [
+          "DocGenCampaignBaseOutputAction"
+        ],
         "source_file": "_source/DocGenCampaignPayloadDataObject.cs",
         "schema_file": "_schemas/DocGenCampaignPayloadDataObject.md",
         "packet_file": "DocGenCampaignPayloadDataObject.json"
@@ -1377,7 +2348,9 @@
         "name": "DocGenCampaignResponseDataObject",
         "schema_name": "DocGenCampaignResponse",
         "schema_id": "schema:definitions/DocGenCampaignResponse",
-        "nested_types": [],
+        "nested_types": [
+          "DocGenCampaignBaseOutputAction"
+        ],
         "source_file": "_source/DocGenCampaignResponseDataObject.cs",
         "schema_file": "_schemas/DocGenCampaignResponseDataObject.md",
         "packet_file": "DocGenCampaignResponseDataObject.json"
@@ -1395,7 +2368,9 @@
         "name": "DocGenMigrationCampaignDataObject",
         "schema_name": "DocGenMigrationCampaign",
         "schema_id": "schema:definitions/DocGenMigrationCampaign",
-        "nested_types": [],
+        "nested_types": [
+          "DocGenMigrationCampaignStatus"
+        ],
         "source_file": "_source/DocGenMigrationCampaignDataObject.cs",
         "schema_file": "_schemas/DocGenMigrationCampaignDataObject.md",
         "packet_file": "DocGenMigrationCampaignDataObject.json"
@@ -1404,7 +2379,10 @@
         "name": "DocGenRequestPayloadDataObject",
         "schema_name": "DocGenRequestPayload",
         "schema_id": "schema:definitions/DocGenRequestPayload",
-        "nested_types": [],
+        "nested_types": [
+          "DatasetField",
+          "DatasetFieldTypeType"
+        ],
         "source_file": "_source/DocGenRequestPayloadDataObject.cs",
         "schema_file": "_schemas/DocGenRequestPayloadDataObject.md",
         "packet_file": "DocGenRequestPayloadDataObject.json"
@@ -1413,7 +2391,9 @@
         "name": "DocGenRequestStatusResponseDataObject",
         "schema_name": "DocGenRequestStatusResponse",
         "schema_id": "schema:definitions/DocGenRequestStatusResponse",
-        "nested_types": [],
+        "nested_types": [
+          "DocGenRequestStatusResponseStatus"
+        ],
         "source_file": "_source/DocGenRequestStatusResponseDataObject.cs",
         "schema_file": "_schemas/DocGenRequestStatusResponseDataObject.md",
         "packet_file": "DocGenRequestStatusResponseDataObject.json"
@@ -1432,6 +2412,7 @@
         "schema_name": "DocGenTemplatePatchPayload",
         "schema_id": "schema:definitions/DocGenTemplatePatchPayload",
         "nested_types": [
+          "DocGenTemplatePatchPayloadFormat",
           "TemplateRestriction"
         ],
         "source_file": "_source/DocGenTemplatePatchPayloadDataObject.cs",
@@ -1462,7 +2443,13 @@
         "name": "DocGenTemplateVersionFullDataObject",
         "schema_name": "DocGenTemplateVersionFull",
         "schema_id": "schema:definitions/DocGenTemplateVersionFull",
-        "nested_types": [],
+        "nested_types": [
+          "DocGenTemplateVersionBaseFormat",
+          "DocGenTemplateVersionBaseSyntaxVersion",
+          "FragmentFieldsetField",
+          "GenerationInfo",
+          "GenerationInfoSeverity"
+        ],
         "source_file": "_source/DocGenTemplateVersionFullDataObject.cs",
         "schema_file": "_schemas/DocGenTemplateVersionFullDataObject.md",
         "packet_file": "DocGenTemplateVersionFullDataObject.json"
@@ -1472,9 +2459,13 @@
         "schema_name": "DocGenTemplateVersionUpdatePayload",
         "schema_id": "schema:definitions/DocGenTemplateVersionUpdatePayload",
         "nested_types": [
+          "DocGenTemplateVersionUpdatePayloadFormat",
+          "DocGenTemplateVersionUpdatePayloadSyntaxVersion",
           "FragmentFieldsetField",
           "GenerationInfo",
-          "OutputFormatPatchRequest"
+          "GenerationInfoSeverity",
+          "OutputFormatPatchRequest",
+          "OutputFormatPatchRequestFormat"
         ],
         "source_file": "_source/DocGenTemplateVersionUpdatePayloadDataObject.cs",
         "schema_file": "_schemas/DocGenTemplateVersionUpdatePayloadDataObject.md",
@@ -1486,7 +2477,8 @@
         "schema_id": "schema:definitions/DocgenTemplateVersionPatchPayload",
         "nested_types": [
           "FragmentFieldsetField",
-          "OutputFormatPatchRequest"
+          "OutputFormatPatchRequest",
+          "OutputFormatPatchRequestFormat"
         ],
         "source_file": "_source/DocgenTemplateVersionPatchPayloadDataObject.cs",
         "schema_file": "_schemas/DocgenTemplateVersionPatchPayloadDataObject.md",
@@ -1523,7 +2515,10 @@
         "name": "DocumentTypePredictionRunDataObject",
         "schema_name": "DocumentTypePredictionRun",
         "schema_id": "schema:definitions/DocumentTypePredictionRun",
-        "nested_types": [],
+        "nested_types": [
+          "DocumentTypePredictionResult",
+          "_RunStatus"
+        ],
         "source_file": "_source/DocumentTypePredictionRunDataObject.cs",
         "schema_file": "_schemas/DocumentTypePredictionRunDataObject.md",
         "packet_file": "DocumentTypePredictionRunDataObject.json"
@@ -1541,7 +2536,10 @@
         "name": "ElectronicVaultFullDataObject",
         "schema_name": "ElectronicVaultFull",
         "schema_id": "schema:definitions/ElectronicVaultFull",
-        "nested_types": [],
+        "nested_types": [
+          "ElectronicVaultOptionsComputedFieldsElectronicPayslipsChoiceOrigin",
+          "ElectronicVaultOptionsComputedFieldsElectronicVaultState"
+        ],
         "source_file": "_source/ElectronicVaultFullDataObject.cs",
         "schema_file": "_schemas/ElectronicVaultFullDataObject.md",
         "packet_file": "ElectronicVaultFullDataObject.json"
@@ -1577,7 +2575,12 @@
         "name": "EmployeeBulkOperationStatusDataObject",
         "schema_name": "EmployeeBulkOperationStatus",
         "schema_id": "schema:definitions/EmployeeBulkOperationStatus",
-        "nested_types": [],
+        "nested_types": [
+          "Anonymous_39fe8827",
+          "Anonymous_b1e7cfcd",
+          "EmployeeComputedFieldsProfileStatus",
+          "EmployeeFull"
+        ],
         "source_file": "_source/EmployeeBulkOperationStatusDataObject.cs",
         "schema_file": "_schemas/EmployeeBulkOperationStatusDataObject.md",
         "packet_file": "EmployeeBulkOperationStatusDataObject.json"
@@ -1604,7 +2607,9 @@
         "name": "EmployeeDocumentCreatePayloadDataObject",
         "schema_name": "EmployeeDocumentCreatePayload",
         "schema_id": "schema:definitions/EmployeeDocumentCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "MetaDataBase"
+        ],
         "source_file": "_source/EmployeeDocumentCreatePayloadDataObject.cs",
         "schema_file": "_schemas/EmployeeDocumentCreatePayloadDataObject.md",
         "packet_file": "EmployeeDocumentCreatePayloadDataObject.json"
@@ -1613,7 +2618,11 @@
         "name": "EmployeeDocumentFullDataObject",
         "schema_name": "EmployeeDocumentFull",
         "schema_id": "schema:definitions/EmployeeDocumentFull",
-        "nested_types": [],
+        "nested_types": [
+          "EmployeeDocumentComputedFieldsOrigin",
+          "EmployeeDocumentComputedFieldsOriginDetails",
+          "MetaDataBase"
+        ],
         "source_file": "_source/EmployeeDocumentFullDataObject.cs",
         "schema_file": "_schemas/EmployeeDocumentFullDataObject.md",
         "packet_file": "EmployeeDocumentFullDataObject.json"
@@ -1622,7 +2631,9 @@
         "name": "EmployeeDocumentUpdatePayloadDataObject",
         "schema_name": "EmployeeDocumentUpdatePayload",
         "schema_id": "schema:definitions/EmployeeDocumentUpdatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "MetaDataBase"
+        ],
         "source_file": "_source/EmployeeDocumentUpdatePayloadDataObject.cs",
         "schema_file": "_schemas/EmployeeDocumentUpdatePayloadDataObject.md",
         "packet_file": "EmployeeDocumentUpdatePayloadDataObject.json"
@@ -1649,7 +2660,9 @@
         "name": "EmployeeSettingsProcessAutomationDataObject",
         "schema_name": "EmployeeSettingsProcessAutomation",
         "schema_id": "schema:definitions/EmployeeSettingsProcessAutomation",
-        "nested_types": [],
+        "nested_types": [
+          "Anonymous_d29703d5"
+        ],
         "source_file": "_source/EmployeeSettingsProcessAutomationDataObject.cs",
         "schema_file": "_schemas/EmployeeSettingsProcessAutomationDataObject.md",
         "packet_file": "EmployeeSettingsProcessAutomationDataObject.json"
@@ -1668,7 +2681,9 @@
         "schema_name": "EmployeesPerimeterBase",
         "schema_id": "schema:definitions/EmployeesPerimeterBase",
         "nested_types": [
-          "CustomFieldFilterRule"
+          "CustomFieldFilterRule",
+          "CustomFieldFilterRuleOperator",
+          "EmployeesPerimeterBaseOperator"
         ],
         "source_file": "_source/EmployeesPerimeterBaseDataObject.cs",
         "schema_file": "_schemas/EmployeesPerimeterBaseDataObject.md",
@@ -1678,7 +2693,9 @@
         "name": "EventActionFilterComputedFieldsDataObject",
         "schema_name": "EventActionFilterComputedFields",
         "schema_id": "schema:definitions/EventActionFilterComputedFields",
-        "nested_types": [],
+        "nested_types": [
+          "Anonymous_6790023f"
+        ],
         "source_file": "_source/EventActionFilterComputedFieldsDataObject.cs",
         "schema_file": "_schemas/EventActionFilterComputedFieldsDataObject.md",
         "packet_file": "EventActionFilterComputedFieldsDataObject.json"
@@ -1688,7 +2705,8 @@
         "schema_name": "EventBase",
         "schema_id": "schema:definitions/EventBase",
         "nested_types": [
-          "EventActor"
+          "EventActor",
+          "EventActorType"
         ],
         "source_file": "_source/EventBaseDataObject.cs",
         "schema_file": "_schemas/EventBaseDataObject.md",
@@ -1698,7 +2716,9 @@
         "name": "EventExportFieldsDataObject",
         "schema_name": "EventExportFields",
         "schema_id": "schema:definitions/EventExportFields",
-        "nested_types": [],
+        "nested_types": [
+          "EventExportFieldsTriggerType"
+        ],
         "source_file": "_source/EventExportFieldsDataObject.cs",
         "schema_file": "_schemas/EventExportFieldsDataObject.md",
         "packet_file": "EventExportFieldsDataObject.json"
@@ -1752,7 +2772,17 @@
         "name": "FormidableCreatePayloadDataObject",
         "schema_name": "FormidableCreatePayload",
         "schema_id": "schema:definitions/FormidableCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "FormidableConditionalRule",
+          "FormidableConditionalRuleAction",
+          "FormidableConditionalRuleTest",
+          "FormidableConditionalRuleTestOperator",
+          "FormidableField",
+          "FormidableFieldItems",
+          "FormidableFieldTypeId",
+          "FormidableFieldValidation",
+          "FormidableFieldValidationType"
+        ],
         "source_file": "_source/FormidableCreatePayloadDataObject.cs",
         "schema_file": "_schemas/FormidableCreatePayloadDataObject.md",
         "packet_file": "FormidableCreatePayloadDataObject.json"
@@ -1761,7 +2791,9 @@
         "name": "ImportCreatePayloadDataObject",
         "schema_name": "ImportCreatePayload",
         "schema_id": "schema:definitions/ImportCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "ImportBaseType"
+        ],
         "source_file": "_source/ImportCreatePayloadDataObject.cs",
         "schema_file": "_schemas/ImportCreatePayloadDataObject.md",
         "packet_file": "ImportCreatePayloadDataObject.json"
@@ -1770,7 +2802,11 @@
         "name": "ImportFullDataObject",
         "schema_name": "ImportFull",
         "schema_id": "schema:definitions/ImportFull",
-        "nested_types": [],
+        "nested_types": [
+          "ImportBaseType",
+          "ImportComputedFieldsOrigin",
+          "ImportComputedFieldsStatus"
+        ],
         "source_file": "_source/ImportFullDataObject.cs",
         "schema_file": "_schemas/ImportFullDataObject.md",
         "packet_file": "ImportFullDataObject.json"
@@ -1797,7 +2833,17 @@
         "name": "KbArticleUpdatePayloadDataObject",
         "schema_name": "KbArticleUpdatePayload",
         "schema_id": "schema:definitions/KbArticleUpdatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "Anonymous_8ad3c996",
+          "Anonymous_cbcd60e0",
+          "CustomFieldFilterRule",
+          "CustomFieldFilterRuleOperator",
+          "EmployeesPerimeterBase",
+          "EmployeesPerimeterBaseOperator",
+          "KbArticleBaseStatus",
+          "KbArticleVersion",
+          "LocalizedString"
+        ],
         "source_file": "_source/KbArticleUpdatePayloadDataObject.cs",
         "schema_file": "_schemas/KbArticleUpdatePayloadDataObject.md",
         "packet_file": "KbArticleUpdatePayloadDataObject.json"
@@ -1806,7 +2852,9 @@
         "name": "KbCategoryFullDataObject",
         "schema_name": "KbCategoryFull",
         "schema_id": "schema:definitions/KbCategoryFull",
-        "nested_types": [],
+        "nested_types": [
+          "LocalizedString"
+        ],
         "source_file": "_source/KbCategoryFullDataObject.cs",
         "schema_file": "_schemas/KbCategoryFullDataObject.md",
         "packet_file": "KbCategoryFullDataObject.json"
@@ -1896,7 +2944,9 @@
         "name": "ProcessPostActionSharedBaseDataObject",
         "schema_name": "ProcessPostActionSharedBase",
         "schema_id": "schema:definitions/ProcessPostActionSharedBase",
-        "nested_types": [],
+        "nested_types": [
+          "ProcessPostActionSharedBaseType"
+        ],
         "source_file": "_source/ProcessPostActionSharedBaseDataObject.cs",
         "schema_file": "_schemas/ProcessPostActionSharedBaseDataObject.md",
         "packet_file": "ProcessPostActionSharedBaseDataObject.json"
@@ -1905,7 +2955,9 @@
         "name": "ProcessPostActionUserBaseDataObject",
         "schema_name": "ProcessPostActionUserBase",
         "schema_id": "schema:definitions/ProcessPostActionUserBase",
-        "nested_types": [],
+        "nested_types": [
+          "ProcessPostActionUserBaseType"
+        ],
         "source_file": "_source/ProcessPostActionUserBaseDataObject.cs",
         "schema_file": "_schemas/ProcessPostActionUserBaseDataObject.md",
         "packet_file": "ProcessPostActionUserBaseDataObject.json"
@@ -1915,7 +2967,12 @@
         "schema_name": "ProcessTemplate",
         "schema_id": "schema:definitions/ProcessTemplate",
         "nested_types": [
+          "Anonymous_0d7385a1",
+          "Anonymous_0d7385a1Origin",
+          "Anonymous_ab9b1eb9",
+          "Anonymous_ab9b1eb9Origin",
           "Organization",
+          "OrganizationOperator",
           "ProcessTemplateRestriction"
         ],
         "source_file": "_source/ProcessTemplateDataObject.cs",
@@ -1936,6 +2993,7 @@
         "schema_name": "RequestComment",
         "schema_id": "schema:definitions/RequestComment",
         "nested_types": [
+          "RequestAttachment",
           "UserSimplified"
         ],
         "source_file": "_source/RequestCommentDataObject.cs",
@@ -1946,7 +3004,18 @@
         "name": "RequestFullWithAttachmentsDataObject",
         "schema_name": "RequestFullWithAttachments",
         "schema_id": "schema:definitions/RequestFullWithAttachments",
-        "nested_types": [],
+        "nested_types": [
+          "CustomStatusField",
+          "EmployeeSimplified",
+          "FormFile",
+          "RequestAttachment",
+          "RequestBasePriority",
+          "RequestCategory",
+          "RequestComputedFieldsStatus",
+          "RequestFeedback",
+          "RequestFormDataFieldValue",
+          "UserSimplified"
+        ],
         "source_file": "_source/RequestFullWithAttachmentsDataObject.cs",
         "schema_file": "_schemas/RequestFullWithAttachmentsDataObject.md",
         "packet_file": "RequestFullWithAttachmentsDataObject.json"
@@ -1955,7 +3024,9 @@
         "name": "RequestListingDtoDataObject",
         "schema_name": "RequestListingDto",
         "schema_id": "schema:definitions/RequestListingDto",
-        "nested_types": [],
+        "nested_types": [
+          "RequestListingDtoStatus"
+        ],
         "source_file": "_source/RequestListingDtoDataObject.cs",
         "schema_file": "_schemas/RequestListingDtoDataObject.md",
         "packet_file": "RequestListingDtoDataObject.json"
@@ -2011,7 +3082,10 @@
         "name": "SamlIdentityProviderCreatePayloadDataObject",
         "schema_name": "SamlIdentityProviderCreatePayload",
         "schema_id": "schema:definitions/SamlIdentityProviderCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "SamlIdentityProviderBaseScope",
+          "SamlIdentityProviderBaseWorkflowType"
+        ],
         "source_file": "_source/SamlIdentityProviderCreatePayloadDataObject.cs",
         "schema_file": "_schemas/SamlIdentityProviderCreatePayloadDataObject.md",
         "packet_file": "SamlIdentityProviderCreatePayloadDataObject.json"
@@ -2020,7 +3094,10 @@
         "name": "SamlIdentityProviderFullDataObject",
         "schema_name": "SamlIdentityProviderFull",
         "schema_id": "schema:definitions/SamlIdentityProviderFull",
-        "nested_types": [],
+        "nested_types": [
+          "SamlIdentityProviderBaseScope",
+          "SamlIdentityProviderBaseWorkflowType"
+        ],
         "source_file": "_source/SamlIdentityProviderFullDataObject.cs",
         "schema_file": "_schemas/SamlIdentityProviderFullDataObject.md",
         "packet_file": "SamlIdentityProviderFullDataObject.json"
@@ -2029,7 +3106,10 @@
         "name": "SamlIdentityProviderUpdatePayloadDataObject",
         "schema_name": "SamlIdentityProviderUpdatePayload",
         "schema_id": "schema:definitions/SamlIdentityProviderUpdatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "SamlIdentityProviderBaseScope",
+          "SamlIdentityProviderBaseWorkflowType"
+        ],
         "source_file": "_source/SamlIdentityProviderUpdatePayloadDataObject.cs",
         "schema_file": "_schemas/SamlIdentityProviderUpdatePayloadDataObject.md",
         "packet_file": "SamlIdentityProviderUpdatePayloadDataObject.json"
@@ -2038,7 +3118,9 @@
         "name": "SignatureProcessCreatePayloadDataObject",
         "schema_name": "SignatureProcessCreatePayload",
         "schema_id": "schema:definitions/SignatureProcessCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "MetaDataBase"
+        ],
         "source_file": "_source/SignatureProcessCreatePayloadDataObject.cs",
         "schema_file": "_schemas/SignatureProcessCreatePayloadDataObject.md",
         "packet_file": "SignatureProcessCreatePayloadDataObject.json"
@@ -2047,7 +3129,14 @@
         "name": "SignatureProcessFullDataObject",
         "schema_name": "SignatureProcessFull",
         "schema_id": "schema:definitions/SignatureProcessFull",
-        "nested_types": [],
+        "nested_types": [
+          "Anonymous_2eda0077",
+          "Anonymous_4424aa26",
+          "Anonymous_ffa30592",
+          "MetaDataBase",
+          "SignatureProcessStateState",
+          "SignerState"
+        ],
         "source_file": "_source/SignatureProcessFullDataObject.cs",
         "schema_file": "_schemas/SignatureProcessFullDataObject.md",
         "packet_file": "SignatureProcessFullDataObject.json"
@@ -2056,7 +3145,10 @@
         "name": "SignatureProcessUpdatePayloadDataObject",
         "schema_name": "SignatureProcessUpdatePayload",
         "schema_id": "schema:definitions/SignatureProcessUpdatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "MetaDataBase",
+          "SignatureProcessStateState"
+        ],
         "source_file": "_source/SignatureProcessUpdatePayloadDataObject.cs",
         "schema_file": "_schemas/SignatureProcessUpdatePayloadDataObject.md",
         "packet_file": "SignatureProcessUpdatePayloadDataObject.json"
@@ -2065,7 +3157,16 @@
         "name": "SignatureTypeFullDataObject",
         "schema_name": "SignatureTypeFull",
         "schema_id": "schema:definitions/SignatureTypeFull",
-        "nested_types": [],
+        "nested_types": [
+          "2FASettings",
+          "2FASettingsMode",
+          "DocusignProtectAndSignSettings",
+          "DocusignSettings",
+          "LocalizedString",
+          "SignatureTypePayloadBackendCode",
+          "SignatureTypePayloadStorageProfile",
+          "SmsNotificationSettings"
+        ],
         "source_file": "_source/SignatureTypeFullDataObject.cs",
         "schema_file": "_schemas/SignatureTypeFullDataObject.md",
         "packet_file": "SignatureTypeFullDataObject.json"
@@ -2092,7 +3193,13 @@
         "name": "SignerFullDataObject",
         "schema_name": "SignerFull",
         "schema_id": "schema:definitions/SignerFull",
-        "nested_types": [],
+        "nested_types": [
+          "SignaturePosition",
+          "SignaturePositionUnit",
+          "SignerBaseType",
+          "SignerState",
+          "TwoFactorAuthenticationMethod"
+        ],
         "source_file": "_source/SignerFullDataObject.cs",
         "schema_file": "_schemas/SignerFullDataObject.md",
         "packet_file": "SignerFullDataObject.json"
@@ -2137,7 +3244,10 @@
         "name": "TaskTemplatesDataObject",
         "schema_name": "TaskTemplates",
         "schema_id": "schema:definitions/TaskTemplates",
-        "nested_types": [],
+        "nested_types": [
+          "TaskTemplatesAssignedTo",
+          "TaskTemplatesType"
+        ],
         "source_file": "_source/TaskTemplatesDataObject.cs",
         "schema_file": "_schemas/TaskTemplatesDataObject.md",
         "packet_file": "TaskTemplatesDataObject.json"
@@ -2182,7 +3292,16 @@
         "name": "UserBulkOperationStatusDataObject",
         "schema_name": "UserBulkOperationStatus",
         "schema_id": "schema:definitions/UserBulkOperationStatus",
-        "nested_types": [],
+        "nested_types": [
+          "Anonymous_0c52d65c",
+          "Anonymous_39fe8827",
+          "CustomFieldFilterRule",
+          "CustomFieldFilterRuleOperator",
+          "EmployeesPerimeterBase",
+          "EmployeesPerimeterBaseOperator",
+          "ProfileBase",
+          "UserFull"
+        ],
         "source_file": "_source/UserBulkOperationStatusDataObject.cs",
         "schema_file": "_schemas/UserBulkOperationStatusDataObject.md",
         "packet_file": "UserBulkOperationStatusDataObject.json"
@@ -2191,7 +3310,13 @@
         "name": "UserCreatePayloadDataObject",
         "schema_name": "UserCreatePayload",
         "schema_id": "schema:definitions/UserCreatePayload",
-        "nested_types": [],
+        "nested_types": [
+          "CustomFieldFilterRule",
+          "CustomFieldFilterRuleOperator",
+          "EmployeesPerimeterBase",
+          "EmployeesPerimeterBaseOperator",
+          "ProfileBase"
+        ],
         "source_file": "_source/UserCreatePayloadDataObject.cs",
         "schema_file": "_schemas/UserCreatePayloadDataObject.md",
         "packet_file": "UserCreatePayloadDataObject.json"
@@ -2200,7 +3325,13 @@
         "name": "UserFullDataObject",
         "schema_name": "UserFull",
         "schema_id": "schema:definitions/UserFull",
-        "nested_types": [],
+        "nested_types": [
+          "CustomFieldFilterRule",
+          "CustomFieldFilterRuleOperator",
+          "EmployeesPerimeterBase",
+          "EmployeesPerimeterBaseOperator",
+          "ProfileBase"
+        ],
         "source_file": "_source/UserFullDataObject.cs",
         "schema_file": "_schemas/UserFullDataObject.md",
         "packet_file": "UserFullDataObject.json"
@@ -2209,7 +3340,13 @@
         "name": "UserPatchPayloadDataObject",
         "schema_name": "UserPatchPayload",
         "schema_id": "schema:definitions/UserPatchPayload",
-        "nested_types": [],
+        "nested_types": [
+          "CustomFieldFilterRule",
+          "CustomFieldFilterRuleOperator",
+          "EmployeesPerimeterBase",
+          "EmployeesPerimeterBaseOperator",
+          "ProfileBase"
+        ],
         "source_file": "_source/UserPatchPayloadDataObject.cs",
         "schema_file": "_schemas/UserPatchPayloadDataObject.md",
         "packet_file": "UserPatchPayloadDataObject.json"
@@ -2218,7 +3355,13 @@
         "name": "UserPutPayloadDataObject",
         "schema_name": "UserPutPayload",
         "schema_id": "schema:definitions/UserPutPayload",
-        "nested_types": [],
+        "nested_types": [
+          "CustomFieldFilterRule",
+          "CustomFieldFilterRuleOperator",
+          "EmployeesPerimeterBase",
+          "EmployeesPerimeterBaseOperator",
+          "ProfileBase"
+        ],
         "source_file": "_source/UserPutPayloadDataObject.cs",
         "schema_file": "_schemas/UserPutPayloadDataObject.md",
         "packet_file": "UserPutPayloadDataObject.json"
@@ -2365,88 +3508,203 @@
       "AuditPermissionsFullDataObject": [],
       "BadRequestDataObject": [],
       "CaseManagementSettingsDataObject": [],
-      "CompanyDocumentCreatePayloadDataObject": [],
-      "CompanyDocumentFullDataObject": [],
-      "CompanyDocumentUpdatePayloadDataObject": [],
+      "CompanyDocumentCreatePayloadDataObject": [
+        "MetaDataBase"
+      ],
+      "CompanyDocumentFullDataObject": [
+        "CompanyDocumentComputedFieldsOrigin",
+        "CompanyDocumentComputedFieldsOriginDetails",
+        "MetaDataBase"
+      ],
+      "CompanyDocumentUpdatePayloadDataObject": [
+        "MetaDataBase"
+      ],
       "CorePermissionsFullDataObject": [],
       "CorePermissionsGetDataObject": [],
       "CorePermissionsPutDataObject": [],
       "CsvCampaignDataDataObject": [
-        "DatasetField"
+        "DatasetField",
+        "DatasetFieldTypeType"
       ],
-      "CustomFieldCreatePayloadDataObject": [],
-      "CustomFieldFullDataObject": [],
-      "DatasetCreatePayloadDataObject": [],
-      "DatasetFullDataObject": [],
+      "CustomFieldCreatePayloadDataObject": [
+        "AuthorizedValue",
+        "CustomFieldBaseType",
+        "LocalizedString"
+      ],
+      "CustomFieldFullDataObject": [
+        "AuthorizedValue",
+        "CustomFieldBaseType",
+        "LocalizedString"
+      ],
+      "DatasetCreatePayloadDataObject": [
+        "DatasetDimensionCreatePayload",
+        "LocalizedString"
+      ],
+      "DatasetFullDataObject": [
+        "DatasetComputedFieldsLastImportResult",
+        "DatasetComputedFieldsLastImportStatus",
+        "DatasetDimensionFull",
+        "LocalizedString"
+      ],
       "DatasetImportCreatePayloadDataObject": [],
-      "DatasetImportFullDataObject": [],
-      "DatasetValueCreatePayloadDataObject": [],
-      "DatasetValueFullDataObject": [],
-      "DistributionBaseDataObject": [],
+      "DatasetImportFullDataObject": [
+        "DatasetImportComputedFieldsOrigin",
+        "DatasetImportComputedFieldsResult",
+        "DatasetImportComputedFieldsStatus"
+      ],
+      "DatasetValueCreatePayloadDataObject": [
+        "LocalizedString"
+      ],
+      "DatasetValueFullDataObject": [
+        "LocalizedString"
+      ],
+      "DistributionBaseDataObject": [
+        "Anonymous_850a291e",
+        "DistributionErrorErrorType"
+      ],
       "DistributionProjectBaseDataObject": [],
-      "DocGenCampaignPayloadDataObject": [],
-      "DocGenCampaignResponseDataObject": [],
+      "DocGenCampaignPayloadDataObject": [
+        "DocGenCampaignBaseOutputAction"
+      ],
+      "DocGenCampaignResponseDataObject": [
+        "DocGenCampaignBaseOutputAction"
+      ],
       "DocGenFullDataObject": [],
-      "DocGenMigrationCampaignDataObject": [],
-      "DocGenRequestPayloadDataObject": [],
-      "DocGenRequestStatusResponseDataObject": [],
+      "DocGenMigrationCampaignDataObject": [
+        "DocGenMigrationCampaignStatus"
+      ],
+      "DocGenRequestPayloadDataObject": [
+        "DatasetField",
+        "DatasetFieldTypeType"
+      ],
+      "DocGenRequestStatusResponseDataObject": [
+        "DocGenRequestStatusResponseStatus"
+      ],
       "DocGenTemplateDataObject": [],
       "DocGenTemplatePatchPayloadDataObject": [
+        "DocGenTemplatePatchPayloadFormat",
         "TemplateRestriction"
       ],
       "DocGenTemplatePayloadDataObject": [
         "TemplateRestriction"
       ],
       "DocGenTemplateVersionDataObject": [],
-      "DocGenTemplateVersionFullDataObject": [],
-      "DocGenTemplateVersionUpdatePayloadDataObject": [
+      "DocGenTemplateVersionFullDataObject": [
+        "DocGenTemplateVersionBaseFormat",
+        "DocGenTemplateVersionBaseSyntaxVersion",
         "FragmentFieldsetField",
         "GenerationInfo",
-        "OutputFormatPatchRequest"
+        "GenerationInfoSeverity"
+      ],
+      "DocGenTemplateVersionUpdatePayloadDataObject": [
+        "DocGenTemplateVersionUpdatePayloadFormat",
+        "DocGenTemplateVersionUpdatePayloadSyntaxVersion",
+        "FragmentFieldsetField",
+        "GenerationInfo",
+        "GenerationInfoSeverity",
+        "OutputFormatPatchRequest",
+        "OutputFormatPatchRequestFormat"
       ],
       "DocgenTemplateVersionPatchPayloadDataObject": [
         "FragmentFieldsetField",
-        "OutputFormatPatchRequest"
+        "OutputFormatPatchRequest",
+        "OutputFormatPatchRequestFormat"
       ],
       "DocumentExpirationDatePayloadDataObject": [],
       "DocumentExpiryDatePayloadDataObject": [],
       "DocumentTypePredictionClientPayloadDataObject": [],
-      "DocumentTypePredictionRunDataObject": [],
+      "DocumentTypePredictionRunDataObject": [
+        "DocumentTypePredictionResult",
+        "_RunStatus"
+      ],
       "EFMPermissionsFullDataObject": [],
-      "ElectronicVaultFullDataObject": [],
+      "ElectronicVaultFullDataObject": [
+        "ElectronicVaultOptionsComputedFieldsElectronicPayslipsChoiceOrigin",
+        "ElectronicVaultOptionsComputedFieldsElectronicVaultState"
+      ],
       "ElectronicVaultOptionsUpdatePayloadDataObject": [],
       "EmailRecipientDataObject": [],
       "EmployeeBulkOperationResultDataObject": [],
-      "EmployeeBulkOperationStatusDataObject": [],
+      "EmployeeBulkOperationStatusDataObject": [
+        "Anonymous_39fe8827",
+        "Anonymous_b1e7cfcd",
+        "EmployeeComputedFieldsProfileStatus",
+        "EmployeeFull"
+      ],
       "EmployeeCreateOrUpdatePayloadDataObject": [],
       "EmployeeCreatePayloadDataObject": [],
-      "EmployeeDocumentCreatePayloadDataObject": [],
-      "EmployeeDocumentFullDataObject": [],
-      "EmployeeDocumentUpdatePayloadDataObject": [],
+      "EmployeeDocumentCreatePayloadDataObject": [
+        "MetaDataBase"
+      ],
+      "EmployeeDocumentFullDataObject": [
+        "EmployeeDocumentComputedFieldsOrigin",
+        "EmployeeDocumentComputedFieldsOriginDetails",
+        "MetaDataBase"
+      ],
+      "EmployeeDocumentUpdatePayloadDataObject": [
+        "MetaDataBase"
+      ],
       "EmployeeElectronicVaultDocumentsDataObject": [],
       "EmployeePartialUpdatePayloadDataObject": [],
-      "EmployeeSettingsProcessAutomationDataObject": [],
+      "EmployeeSettingsProcessAutomationDataObject": [
+        "Anonymous_d29703d5"
+      ],
       "EmployeeUpdatePayloadDataObject": [],
       "EmployeesPerimeterBaseDataObject": [
-        "CustomFieldFilterRule"
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBaseOperator"
       ],
-      "EventActionFilterComputedFieldsDataObject": [],
+      "EventActionFilterComputedFieldsDataObject": [
+        "Anonymous_6790023f"
+      ],
       "EventBaseDataObject": [
-        "EventActor"
+        "EventActor",
+        "EventActorType"
       ],
-      "EventExportFieldsDataObject": [],
+      "EventExportFieldsDataObject": [
+        "EventExportFieldsTriggerType"
+      ],
       "FieldsetFieldDataObject": [],
       "FillFormDataFieldValueDataObject": [],
       "FillFormTaskFileDataObject": [],
       "ForbiddenDataObject": [],
       "FormDataFieldDataObject": [],
-      "FormidableCreatePayloadDataObject": [],
-      "ImportCreatePayloadDataObject": [],
-      "ImportFullDataObject": [],
+      "FormidableCreatePayloadDataObject": [
+        "FormidableConditionalRule",
+        "FormidableConditionalRuleAction",
+        "FormidableConditionalRuleTest",
+        "FormidableConditionalRuleTestOperator",
+        "FormidableField",
+        "FormidableFieldItems",
+        "FormidableFieldTypeId",
+        "FormidableFieldValidation",
+        "FormidableFieldValidationType"
+      ],
+      "ImportCreatePayloadDataObject": [
+        "ImportBaseType"
+      ],
+      "ImportFullDataObject": [
+        "ImportBaseType",
+        "ImportComputedFieldsOrigin",
+        "ImportComputedFieldsStatus"
+      ],
       "InboxItemCreatePayloadDataObject": [],
       "InboxItemFullDataObject": [],
-      "KbArticleUpdatePayloadDataObject": [],
-      "KbCategoryFullDataObject": [],
+      "KbArticleUpdatePayloadDataObject": [
+        "Anonymous_8ad3c996",
+        "Anonymous_cbcd60e0",
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "KbArticleBaseStatus",
+        "KbArticleVersion",
+        "LocalizedString"
+      ],
+      "KbCategoryFullDataObject": [
+        "LocalizedString"
+      ],
       "KnowledgeBaseSettingsDataObject": [],
       "OrganizationCreatePayloadDataObject": [],
       "OrganizationGroupCreatePayloadDataObject": [],
@@ -2456,18 +3714,41 @@
       "PlatformUpdatePayloadDataObject": [],
       "ProcessAutomationSettingsFullDataObject": [],
       "ProcessCreatePayloadDataObject": [],
-      "ProcessPostActionSharedBaseDataObject": [],
-      "ProcessPostActionUserBaseDataObject": [],
+      "ProcessPostActionSharedBaseDataObject": [
+        "ProcessPostActionSharedBaseType"
+      ],
+      "ProcessPostActionUserBaseDataObject": [
+        "ProcessPostActionUserBaseType"
+      ],
       "ProcessTemplateDataObject": [
+        "Anonymous_0d7385a1",
+        "Anonymous_0d7385a1Origin",
+        "Anonymous_ab9b1eb9",
+        "Anonymous_ab9b1eb9Origin",
         "Organization",
+        "OrganizationOperator",
         "ProcessTemplateRestriction"
       ],
       "RedirectionUrlsDataObject": [],
       "RequestCommentDataObject": [
+        "RequestAttachment",
         "UserSimplified"
       ],
-      "RequestFullWithAttachmentsDataObject": [],
-      "RequestListingDtoDataObject": [],
+      "RequestFullWithAttachmentsDataObject": [
+        "CustomStatusField",
+        "EmployeeSimplified",
+        "FormFile",
+        "RequestAttachment",
+        "RequestBasePriority",
+        "RequestCategory",
+        "RequestComputedFieldsStatus",
+        "RequestFeedback",
+        "RequestFormDataFieldValue",
+        "UserSimplified"
+      ],
+      "RequestListingDtoDataObject": [
+        "RequestListingDtoStatus"
+      ],
       "RequestMacroPayloadDataObject": [],
       "RequestPatchPayloadDataObject": [
         "RequestFormDataFieldValue"
@@ -2475,30 +3756,102 @@
       "RequestPostCommentDataObject": [],
       "RoleCreatePayloadDataObject": [],
       "RoleFullDataObject": [],
-      "SamlIdentityProviderCreatePayloadDataObject": [],
-      "SamlIdentityProviderFullDataObject": [],
-      "SamlIdentityProviderUpdatePayloadDataObject": [],
-      "SignatureProcessCreatePayloadDataObject": [],
-      "SignatureProcessFullDataObject": [],
-      "SignatureProcessUpdatePayloadDataObject": [],
-      "SignatureTypeFullDataObject": [],
+      "SamlIdentityProviderCreatePayloadDataObject": [
+        "SamlIdentityProviderBaseScope",
+        "SamlIdentityProviderBaseWorkflowType"
+      ],
+      "SamlIdentityProviderFullDataObject": [
+        "SamlIdentityProviderBaseScope",
+        "SamlIdentityProviderBaseWorkflowType"
+      ],
+      "SamlIdentityProviderUpdatePayloadDataObject": [
+        "SamlIdentityProviderBaseScope",
+        "SamlIdentityProviderBaseWorkflowType"
+      ],
+      "SignatureProcessCreatePayloadDataObject": [
+        "MetaDataBase"
+      ],
+      "SignatureProcessFullDataObject": [
+        "Anonymous_2eda0077",
+        "Anonymous_4424aa26",
+        "Anonymous_ffa30592",
+        "MetaDataBase",
+        "SignatureProcessStateState",
+        "SignerState"
+      ],
+      "SignatureProcessUpdatePayloadDataObject": [
+        "MetaDataBase",
+        "SignatureProcessStateState"
+      ],
+      "SignatureTypeFullDataObject": [
+        "2FASettings",
+        "2FASettingsMode",
+        "DocusignProtectAndSignSettings",
+        "DocusignSettings",
+        "LocalizedString",
+        "SignatureTypePayloadBackendCode",
+        "SignatureTypePayloadStorageProfile",
+        "SmsNotificationSettings"
+      ],
       "SignatureZoneDataObject": [],
       "SignatureZoneFieldDataObject": [],
-      "SignerFullDataObject": [],
+      "SignerFullDataObject": [
+        "SignaturePosition",
+        "SignaturePositionUnit",
+        "SignerBaseType",
+        "SignerState",
+        "TwoFactorAuthenticationMethod"
+      ],
       "TaskFileDataObject": [],
       "TaskFilePatchPayloadDataObject": [],
       "TaskFilePostPayloadDataObject": [],
       "TaskFileResourceDataObject": [],
-      "TaskTemplatesDataObject": [],
+      "TaskTemplatesDataObject": [
+        "TaskTemplatesAssignedTo",
+        "TaskTemplatesType"
+      ],
       "TwoFactorAuthenticationMethodDataObject": [],
       "UploadTextoccurrencesFullDataObject": [],
       "UploadTextoccurrencesPayloadDataObject": [],
       "UserBulkOperationResultDataObject": [],
-      "UserBulkOperationStatusDataObject": [],
-      "UserCreatePayloadDataObject": [],
-      "UserFullDataObject": [],
-      "UserPatchPayloadDataObject": [],
-      "UserPutPayloadDataObject": [],
+      "UserBulkOperationStatusDataObject": [
+        "Anonymous_0c52d65c",
+        "Anonymous_39fe8827",
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase",
+        "UserFull"
+      ],
+      "UserCreatePayloadDataObject": [
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase"
+      ],
+      "UserFullDataObject": [
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase"
+      ],
+      "UserPatchPayloadDataObject": [
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase"
+      ],
+      "UserPutPayloadDataObject": [
+        "CustomFieldFilterRule",
+        "CustomFieldFilterRuleOperator",
+        "EmployeesPerimeterBase",
+        "EmployeesPerimeterBaseOperator",
+        "ProfileBase"
+      ],
       "WebhookPermissionsBaseDataObject": [],
       "WebhookPermissionsFullDataObject": []
     }

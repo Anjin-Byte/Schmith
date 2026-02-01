@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: DistributionProjectBase
 - Schema ID: schema:definitions/DistributionProjectBase
-- Primary Key: Name
+- Primary Key: UserId
 
 ### Fields
 

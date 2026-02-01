@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: DatasetValueFull
 - Schema ID: schema:definitions/DatasetValueFull
-- Primary Key: LocalizedNames
+- Primary Key: Id
 
 ### Fields
 
@@ -16,3 +16,19 @@
 | `id` | `string` |
 | `dataset_id` | `string` |
 | `dimension_id` | `string` |
+
+### Nested Types
+- `LocalizedString`
+
+## LocalizedString
+- Role: nested
+- Parent: DatasetValueFullDataObject
+- Schema Name: LocalizedString
+- Schema ID: schema:definitions/LocalizedString
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `language_code` | `string` |
+| `value` | `string` |

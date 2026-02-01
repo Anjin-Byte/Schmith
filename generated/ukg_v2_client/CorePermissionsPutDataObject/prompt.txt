@@ -41,7 +41,6 @@ SCHEMA: CorePermissionsPutDataObject (CorePermissionsPut)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/CorePermissionsPut
 Description: No description
-Primary Key: ViewEmployees
 Namespace: Connector.ukg_v2_client.v1.CorePermissionsPut
 Role: parent
 
@@ -49,10 +48,13 @@ PAGING:
   Page: 1 of 4
   Fields in this page: 5
   Total fields: 19
-  All field names: view_employees, view_former_employees, view_employees_without_registration_reference, manage_employees, manage_employees_saml_token, delete_employees, export_employee_csv, manage_employee_imports, manage_organization_imports, manage_custom_fields, manage_users, manage_roles, manage_organizations, manage_datasets, view_advanced_analytics, manage_advanced_analytics, view_audit_trail, view_private_custom_fields, manage_retention_policies
+  All field names: manage_retention_policies, view_employees, view_former_employees, view_employees_without_registration_reference, manage_employees, manage_employees_saml_token, delete_employees, export_employee_csv, manage_employee_imports, manage_organization_imports, manage_custom_fields, manage_users, manage_roles, manage_organizations, manage_datasets, view_advanced_analytics, manage_advanced_analytics, view_audit_trail, view_private_custom_fields
 
 FIELDS (this page):
 ----------------------------------------
+  manage_retention_policies: bool? [nullable]
+    Description: Allow to manage the Process and Request retentions policies. This permission can be attributed only if the Request Manager and/or the Digital Process Manager are activated.
+
   view_employees: bool [required]
     Description: Allow to list and view Employee details
 
@@ -64,9 +66,6 @@ FIELDS (this page):
 
   manage_employees: bool [required]
     Description: Allow Employee management (needs view_employees)
-
-  manage_employees_saml_token: bool [required]
-    Description: Allow to manage employees SAML tokens
 
 
 EXAMPLE CODE PATTERN:
@@ -134,7 +133,6 @@ SCHEMA: CorePermissionsPutDataObject (CorePermissionsPut)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/CorePermissionsPut
 Description: No description
-Primary Key: ViewEmployees
 Namespace: Connector.ukg_v2_client.v1.CorePermissionsPut
 Role: parent
 
@@ -142,10 +140,13 @@ PAGING:
   Page: 2 of 4
   Fields in this page: 5
   Total fields: 19
-  All field names: view_employees, view_former_employees, view_employees_without_registration_reference, manage_employees, manage_employees_saml_token, delete_employees, export_employee_csv, manage_employee_imports, manage_organization_imports, manage_custom_fields, manage_users, manage_roles, manage_organizations, manage_datasets, view_advanced_analytics, manage_advanced_analytics, view_audit_trail, view_private_custom_fields, manage_retention_policies
+  All field names: manage_retention_policies, view_employees, view_former_employees, view_employees_without_registration_reference, manage_employees, manage_employees_saml_token, delete_employees, export_employee_csv, manage_employee_imports, manage_organization_imports, manage_custom_fields, manage_users, manage_roles, manage_organizations, manage_datasets, view_advanced_analytics, manage_advanced_analytics, view_audit_trail, view_private_custom_fields
 
 FIELDS (this page):
 ----------------------------------------
+  manage_employees_saml_token: bool [required]
+    Description: Allow to manage employees SAML tokens
+
   delete_employees: bool [required]
     Description: Allow Employee deletion
 
@@ -157,9 +158,6 @@ FIELDS (this page):
 
   manage_organization_imports: bool? [nullable]
     Description: Allow to manage organization imports (needs manage_organizations)
-
-  manage_custom_fields: bool [required]
-    Description: Allow Custom Field management
 
 
 EXAMPLE CODE PATTERN:
@@ -216,7 +214,6 @@ SCHEMA: CorePermissionsPutDataObject (CorePermissionsPut)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/CorePermissionsPut
 Description: No description
-Primary Key: ViewEmployees
 Namespace: Connector.ukg_v2_client.v1.CorePermissionsPut
 Role: parent
 
@@ -224,10 +221,13 @@ PAGING:
   Page: 3 of 4
   Fields in this page: 5
   Total fields: 19
-  All field names: view_employees, view_former_employees, view_employees_without_registration_reference, manage_employees, manage_employees_saml_token, delete_employees, export_employee_csv, manage_employee_imports, manage_organization_imports, manage_custom_fields, manage_users, manage_roles, manage_organizations, manage_datasets, view_advanced_analytics, manage_advanced_analytics, view_audit_trail, view_private_custom_fields, manage_retention_policies
+  All field names: manage_retention_policies, view_employees, view_former_employees, view_employees_without_registration_reference, manage_employees, manage_employees_saml_token, delete_employees, export_employee_csv, manage_employee_imports, manage_organization_imports, manage_custom_fields, manage_users, manage_roles, manage_organizations, manage_datasets, view_advanced_analytics, manage_advanced_analytics, view_audit_trail, view_private_custom_fields
 
 FIELDS (this page):
 ----------------------------------------
+  manage_custom_fields: bool [required]
+    Description: Allow Custom Field management
+
   manage_users: bool [required]
     Description: Allow User management
 
@@ -239,9 +239,6 @@ FIELDS (this page):
 
   manage_datasets: bool [required]
     Description: Allow Data Sets management
-
-  view_advanced_analytics: bool [required]
-    Description: Allow access to Advanced Analytics (read only)
 
 
 EXAMPLE CODE PATTERN:
@@ -298,7 +295,6 @@ SCHEMA: CorePermissionsPutDataObject (CorePermissionsPut)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/CorePermissionsPut
 Description: No description
-Primary Key: ViewEmployees
 Namespace: Connector.ukg_v2_client.v1.CorePermissionsPut
 Role: parent
 
@@ -306,10 +302,13 @@ PAGING:
   Page: 4 of 4
   Fields in this page: 4
   Total fields: 19
-  All field names: view_employees, view_former_employees, view_employees_without_registration_reference, manage_employees, manage_employees_saml_token, delete_employees, export_employee_csv, manage_employee_imports, manage_organization_imports, manage_custom_fields, manage_users, manage_roles, manage_organizations, manage_datasets, view_advanced_analytics, manage_advanced_analytics, view_audit_trail, view_private_custom_fields, manage_retention_policies
+  All field names: manage_retention_policies, view_employees, view_former_employees, view_employees_without_registration_reference, manage_employees, manage_employees_saml_token, delete_employees, export_employee_csv, manage_employee_imports, manage_organization_imports, manage_custom_fields, manage_users, manage_roles, manage_organizations, manage_datasets, view_advanced_analytics, manage_advanced_analytics, view_audit_trail, view_private_custom_fields
 
 FIELDS (this page):
 ----------------------------------------
+  view_advanced_analytics: bool [required]
+    Description: Allow access to Advanced Analytics (read only)
+
   manage_advanced_analytics: bool [required]
     Description: Allow Advanced Analytics management (read & write) (needs view_advanced_analytics)
 
@@ -318,9 +317,6 @@ FIELDS (this page):
 
   view_private_custom_fields: bool [required]
     Description: Allow access to private custom fields
-
-  manage_retention_policies: bool? [nullable]
-    Description: Allow to manage the Process and Request retentions policies. This permission can be attributed only if the Request Manager and/or the Digital Process Manager are activated.
 
 
 EXAMPLE CODE PATTERN:

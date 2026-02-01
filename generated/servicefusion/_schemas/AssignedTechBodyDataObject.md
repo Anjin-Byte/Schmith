@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: AssignedTechBody
 - Schema ID: schema:types/typ.AssignedTechBody
+- Primary Key: Id
 
 ### Fields
 

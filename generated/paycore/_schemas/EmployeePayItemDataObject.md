@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: EmployeePayItem
 - Schema ID: schema:components/EmployeePayItem
-- Primary Key: Payitemid
 
 ### Fields
 

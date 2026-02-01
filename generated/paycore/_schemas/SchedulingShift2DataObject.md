@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: SchedulingShift2
 - Schema ID: schema:components/SchedulingShift2
-- Primary Key: Ignorewarnings
 
 ### Fields
 

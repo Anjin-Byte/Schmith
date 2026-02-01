@@ -17,6 +17,7 @@
 ### Nested Types
 - `LaborCode3`
 - `MissedPunchRequest`
+- `PunchStatusType`
 
 ## LaborCode3
 - Role: nested
@@ -52,3 +53,14 @@
 | `note` | `string` |
 | `laborCodes` | `LaborCode3[]` |
 | `workLocationId` | `string` |
+
+## PunchStatusType
+- Role: nested
+- Parent: PagedResultOfMissedPunchRequestDataObject
+- Schema Name: PunchStatusType
+- Schema ID: schema:components/PunchStatusType
+
+### Enum
+
+Values: Auto, In, Out, Transfer
+Names: Auto, In, Out, Transfer

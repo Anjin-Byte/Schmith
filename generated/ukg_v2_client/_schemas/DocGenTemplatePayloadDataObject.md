@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: DocGenTemplatePayload
 - Schema ID: schema:definitions/DocGenTemplatePayload
-- Primary Key: Title
 
 ### Fields
 
@@ -27,6 +26,7 @@
 - Parent: DocGenTemplatePayloadDataObject
 - Schema Name: TemplateRestriction
 - Schema ID: schema:definitions/TemplateRestriction
+- Primary Key: OrganizationId
 
 ### Fields
 

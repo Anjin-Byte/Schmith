@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: Estimate
 - Schema ID: schema:types/typ.Estimate
+- Primary Key: Id
 
 ### Fields
 
@@ -87,6 +88,7 @@
 - Parent: EstimateDataObject
 - Schema Name: Agent
 - Schema ID: schema:types/typ.Agent
+- Primary Key: Id
 
 ### Fields
 
@@ -100,7 +102,8 @@
 - Role: nested
 - Parent: EstimateDataObject
 - Schema Name: AssignedTech
-- Schema ID: schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af
+- Schema ID: schema:types/typ.AssignedTech
+- Primary Key: Id
 
 ### Fields
 
@@ -109,7 +112,6 @@
 | `id` | `int` |
 | `first_name` | `string` |
 | `last_name` | `string` |
-| `status` | `string` |
 
 ## CustomField
 - Role: nested
@@ -134,6 +136,7 @@
 - Parent: EstimateDataObject
 - Schema Name: Document
 - Schema ID: schema:types/typ.Document
+- Primary Key: CustomerDocId
 
 ### Fields
 
@@ -154,6 +157,7 @@
 - Parent: EstimateDataObject
 - Schema Name: Equipment
 - Schema ID: schema:types/typ.Equipment
+- Primary Key: Id
 
 ### Fields
 
@@ -198,6 +202,7 @@
 - Parent: EstimateDataObject
 - Schema Name: JobOtherCharge
 - Schema ID: schema:types/typ.JobOtherCharge
+- Primary Key: ServiceListId
 
 ### Fields
 
@@ -225,6 +230,7 @@
 - Parent: EstimateDataObject
 - Schema Name: JobProduct
 - Schema ID: schema:types/typ.JobProduct
+- Primary Key: ProductListId
 
 ### Fields
 
@@ -255,6 +261,7 @@
 - Parent: EstimateDataObject
 - Schema Name: JobService
 - Schema ID: schema:types/typ.JobService
+- Primary Key: ServiceListId
 
 ### Fields
 
@@ -333,6 +340,7 @@
 - Parent: EstimateDataObject
 - Schema Name: Payment
 - Schema ID: schema:types/typ.Payment
+- Primary Key: TransactionId
 
 ### Fields
 

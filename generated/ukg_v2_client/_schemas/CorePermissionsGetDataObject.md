@@ -4,12 +4,13 @@
 - Role: parent
 - Schema Name: CorePermissionsGet
 - Schema ID: schema:definitions/CorePermissionsGet
-- Primary Key: ViewEmployees
+- Primary Key: RoleId
 
 ### Fields
 
 | Field | Type |
 |------|------|
+| `manage_retention_policies` | `bool` |
 | `view_employees` | `bool` |
 | `view_former_employees` | `bool` |
 | `view_employees_without_registration_reference` | `bool` |
@@ -29,4 +30,3 @@
 | `view_audit_trail` | `bool` |
 | `view_private_custom_fields` | `bool` |
 | `role_id` | `string` |
-| `manage_retention_policies` | `bool` |

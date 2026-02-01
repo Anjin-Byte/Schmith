@@ -15,13 +15,14 @@
 ### Nested Types
 - `FragmentFieldsetField`
 - `OutputFormatPatchRequest`
+- `OutputFormatPatchRequestFormat`
 
 ## FragmentFieldsetField
 - Role: nested
 - Parent: DocgenTemplateVersionPatchPayloadDataObject
 - Schema Name: FragmentFieldsetField
 - Schema ID: schema:definitions/FragmentFieldsetField
-- Primary Key: Slug
+- Primary Key: FragmentId
 
 ### Fields
 
@@ -40,4 +41,14 @@
 
 | Field | Type |
 |------|------|
-| `format` | `FormatEnum` |
+| `format` | `OutputFormatPatchRequestFormat` |
+
+## OutputFormatPatchRequestFormat
+- Role: nested
+- Parent: DocgenTemplateVersionPatchPayloadDataObject
+- Schema Name: OutputFormatPatchRequestFormat
+- Schema ID: schema:anon/0811d6e7055431074ebf9eb0d3986ae92377bd06
+
+### Enum
+
+Values: DOC, DOCX, ODT, PDF

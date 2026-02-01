@@ -41,7 +41,6 @@ SCHEMA: FormidableCreatePayloadDataObject (FormidableCreatePayload)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/FormidableCreatePayload
 Description: No description
-Primary Key: Fields
 Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
 Role: parent
 
@@ -50,6 +49,9 @@ PAGING:
   Fields in this page: 4
   Total fields: 4
   All field names: title, description, fields, conditions
+
+NESTED TYPES: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
@@ -84,4 +86,932 @@ public class {ClassName}
     [Description("Display name")]
     [Nullable(true)]
     public string? Name { get; init; }
+}
+
+================================================================================
+FormidableConditionalRule (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormidableConditionalRule`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormidableConditionalRule (FormidableConditionalRule)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/FormidableConditionalRule
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: fields_ids, action, tests
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+  fields_ids: string[] [required]
+    Description: Identify which field(s) will be triggered for the condition
+
+  action: FormidableConditionalRuleAction [required]
+    Description: Objects that define the conditional rule behavior.
+    Enum: display_iff
+
+  tests: FormidableConditionalRuleTest[] [required]
+    Description: Array containing the field that will trigger the condition
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormidableConditionalRule
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+FormidableConditionalRuleAction (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormidableConditionalRuleAction`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormidableConditionalRuleAction (FormidableConditionalRuleAction)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/d5f114e0b3fa376dd19b5f7ffa612552f55c2dc5
+Description: Objects that define the conditional rule behavior.
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+ENUM:
+  Values: display_iff
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormidableConditionalRuleAction
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+FormidableConditionalRuleTest (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormidableConditionalRuleTest`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormidableConditionalRuleTest (FormidableConditionalRuleTest)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/FormidableConditionalRuleTest
+Description: No description
+Primary Key: FieldId
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: field_id, operator, values
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+  field_id: string [required]
+    Description: Identifies which field will trigger the conditional rule
+
+  operator: FormidableConditionalRuleTestOperator [required]
+    Description: operator for the condition.
+    Enum: eq
+
+  values: Anonymous_bf21a9e8[] [required]
+    Description: value to check to trigger the condition
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormidableConditionalRuleTest
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+FormidableConditionalRuleTestOperator (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormidableConditionalRuleTestOperator`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormidableConditionalRuleTestOperator (FormidableConditionalRuleTestOperator)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/b40f96ef930b4fc9ef8697311f51c1d6fd3aa307
+Description: operator for the condition.
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+ENUM:
+  Values: eq
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormidableConditionalRuleTestOperator
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+FormidableField (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormidableField`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormidableField (FormidableField)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/FormidableField
+Description: No description
+Primary Key: TypeId
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 5
+  Total fields: 13
+  All field names: type_id, slug, name, required, items, description, content, validations, button_selection, multiple_selection, placeholder, defaults, dataset_id
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+  type_id: FormidableFieldTypeId [required]
+    Description: Type of the field.
+    Enum: short_text, number, date, dropdown, multiple_answer, single_answer, long_text, checkbox, email, title, separator, dataset, instruction, file
+
+  slug: string [required]
+    Description: Field slug, it's the identifier inside the Form scope.
+When you create a form you can tailor it to your need,
+but as soon as the Form is recorded in the database, for this Form,
+this slug should not be made editable.
+WIP, expect things to change:
+Editing this property would result in creating a new Form or a new version of the Form.
+
+  name: string [required]
+    Description: Name of the field
+
+  required: bool [required]
+    Description: Specifies if the field is mandatory or not
+
+  items: FormidableFieldItems[]? [nullable]
+    Description: items
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormidableField
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+FormidableField (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: FormidableField (FormidableField)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/FormidableField
+Description: No description
+Primary Key: TypeId
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 4
+  Total fields: 13
+  All field names: type_id, slug, name, required, items, description, content, validations, button_selection, multiple_selection, placeholder, defaults, dataset_id
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+  description: string? [nullable]
+    Description: The description of the field as it will appear as a "help-text" when the user would fill the form.
+
+  content: string? [nullable]
+    Description: Available **ONLY** for the **instruction** and **title** fields.
+Content that the field will display.
+In the case of an instruction field, it will be the instructions displayed to the user.
+
+  validations: FormidableFieldValidation[]? [nullable]
+    Description: an array of validations
+
+  button_selection: bool? [nullable]
+    Description: Available **ONLY** for the **single_answer** field. Purely informative field that stores how a frontend should display the field. The value does not impact data validation on submit. If omitted it is set to false by default.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+FormidableField (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: FormidableField (FormidableField)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/FormidableField
+Description: No description
+Primary Key: TypeId
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 4
+  Total fields: 13
+  All field names: type_id, slug, name, required, items, description, content, validations, button_selection, multiple_selection, placeholder, defaults, dataset_id
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+  multiple_selection: bool? [nullable]
+    Description: Available **ONLY** for the **dropdown** field.
+Allow users to select more than one answer.
+Valid values: 'true' to allow users to select several answer choices and 'false' to allow users to select only one answer choice.
+
+  placeholder: string? [nullable]
+    Description: Placeholder is an attribute used to populate indicative text in a form field.
+This is a value that clears when the user activates the form field or on submit.
+This item is available for the fields with next types ['short text', 'long_text', 'dropdown', 'date', 'number', 'email'].
+If you send it for the not supported field this item will be ignored.
+
+  defaults: object[]? [nullable]
+    Description: A default value is an attribute used to populate a field in a form on creation that can be submitted upon submission of the form on the contrary of a placeholder.
+
+  dataset_id: string? [nullable]
+    Description: Available **ONLY** for the **dataset** field.
+This is an ID of the dataset. It should already exist in the database
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+FormidableFieldItems (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormidableFieldItems`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormidableFieldItems (FormidableFieldItems)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/FormidableFieldItems
+Description: Items for the fields with a predefined values. e.g. dropdown, multiple_answer, single_answer
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: value, label
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+  value: string [required]
+
+  label: string [required]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormidableFieldItems
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+FormidableFieldTypeId (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormidableFieldTypeId`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormidableFieldTypeId (FormidableFieldTypeId)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/057fa3bc81021a3b35bd8a0331e97db7749eef73
+Description: Type of the field.
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+ENUM:
+  Values: short_text, number, date, dropdown, multiple_answer, single_answer, long_text, checkbox, email, title, separator, dataset, instruction, file
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormidableFieldTypeId
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+FormidableFieldValidation (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormidableFieldValidation`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormidableFieldValidation (FormidableFieldValidation)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/FormidableFieldValidation
+Description: Formidable field validation rules
+In order to make sure a form data value follows your business logic rules, you may add a validation rule to your field.
+
+Available validations:
+
+| Field type | Validation rules             |
+|------------|------------------------------|
+| short_text | MINLENGTH, MAXLENGTH, REGEXP |
+| long_text  | MINLENGTH, MAXLENGTH         |
+| number     | EQ, NEQ, GT, GTE, LT, LTE    |
+| date     | EQ, NEQ, GT, GTE, LT, LTE, IS_AGE_UNDER, IS_AGE_ABOVE, IS_DATE_IN_THE_FUTURE |
+
+Primary Key: Value
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: type, value, message
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+  type: FormidableFieldValidationType [required]
+    Description: Validator ID. This is a unique id of the validator
+    Enum: MAXLENGTH, MINLENGTH, EQ, NEQ, GT, GTE, LT, LTE, IS_AGE_UNDER, IS_AGE_ABOVE, IS_DATE_IN_THE_FUTURE, REGEXP
+
+  value: string [required]
+    Description: Value to be used by the validation rule. For example validator with a type `MAXLENGTH` and value `10`
+will validate that submitted data length should be less or equal than `10`
+
+  message: string? [nullable]
+    Description: Custom error message for the validation
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormidableFieldValidation
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+FormidableFieldValidationType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormidableFieldValidationType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormidableFieldValidationType (FormidableFieldValidationType)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/94bbaf27be1d81f66a680870754e99c30d4923c8
+Description: Validator ID. This is a unique id of the validator
+Namespace: Connector.ukg_v2_client.v1.FormidableCreatePayload
+Role: nested
+
+ENUM:
+  Values: MAXLENGTH, MINLENGTH, EQ, NEQ, GT, GTE, LT, LTE, IS_AGE_UNDER, IS_AGE_ABOVE, IS_DATE_IN_THE_FUTURE, REGEXP
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: FormidableCreatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 4
+  Parent Field Names: title, description, fields, conditions
+  Parent Nested Types: FormidableConditionalRule, FormidableConditionalRuleAction, FormidableConditionalRuleTest, FormidableConditionalRuleTestOperator, FormidableField, FormidableFieldItems, FormidableFieldTypeId, FormidableFieldValidation, FormidableFieldValidationType
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormidableFieldValidationType
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
 }

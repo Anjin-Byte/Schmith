@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: AgentBody
 - Schema ID: schema:types/typ.AgentBody
+- Primary Key: Id
 
 ### Fields
 

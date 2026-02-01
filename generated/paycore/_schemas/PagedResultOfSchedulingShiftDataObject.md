@@ -17,6 +17,8 @@
 ### Nested Types
 - `BreakRuleWithDates`
 - `SchedulingShift`
+- `ShiftAcknowledgementStatus`
+- `ShiftLaborCode`
 
 ## BreakRuleWithDates
 - Role: nested
@@ -38,6 +40,7 @@
 - Parent: PagedResultOfSchedulingShiftDataObject
 - Schema Name: SchedulingShift
 - Schema ID: schema:components/SchedulingShift
+- Primary Key: Id
 
 ### Fields
 
@@ -70,3 +73,27 @@
 | `laborCodes` | `ShiftLaborCode[]` |
 | `workLocationId` | `string` |
 | `workLocationName` | `string` |
+
+## ShiftAcknowledgementStatus
+- Role: nested
+- Parent: PagedResultOfSchedulingShiftDataObject
+- Schema Name: ShiftAcknowledgementStatus
+- Schema ID: schema:components/ShiftAcknowledgementStatus
+
+### Enum
+
+Values: Pending, Confirmed, Rejected
+Names: Pending, Confirmed, Rejected
+
+## ShiftLaborCode
+- Role: nested
+- Parent: PagedResultOfSchedulingShiftDataObject
+- Schema Name: ShiftLaborCode
+- Schema ID: schema:components/ShiftLaborCode
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `laborCategoryId` | `string` |
+| `laborCodeId` | `string` |

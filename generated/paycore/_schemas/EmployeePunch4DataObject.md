@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: EmployeePunch4
 - Schema ID: schema:components/EmployeePunch4
-- Primary Key: Punchid
 
 ### Fields
 
@@ -23,6 +22,7 @@
 
 ### Nested Types
 - `LaborCode3`
+- `PunchStatusType`
 
 ## LaborCode3
 - Role: nested
@@ -36,3 +36,14 @@
 |------|------|
 | `laborCategoryId` | `string` |
 | `laborCodeId` | `string` |
+
+## PunchStatusType
+- Role: nested
+- Parent: EmployeePunch4DataObject
+- Schema Name: PunchStatusType
+- Schema ID: schema:components/PunchStatusType
+
+### Enum
+
+Values: Auto, In, Out, Transfer
+Names: Auto, In, Out, Transfer

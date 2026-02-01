@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: CustomerContactBody
 - Schema ID: schema:types/typ.CustomerContactBody
-- Primary Key: Fname
 
 ### Fields
 
@@ -32,7 +31,6 @@
 - Parent: CustomerContactBodyDataObject
 - Schema Name: CustomerEmailBody
 - Schema ID: schema:types/typ.CustomerEmailBody
-- Primary Key: Email
 
 ### Fields
 
@@ -47,7 +45,6 @@
 - Parent: CustomerContactBodyDataObject
 - Schema Name: CustomerPhoneBody
 - Schema ID: schema:types/typ.CustomerPhoneBody
-- Primary Key: Phone
 
 ### Fields
 

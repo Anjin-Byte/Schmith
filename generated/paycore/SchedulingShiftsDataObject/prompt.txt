@@ -41,7 +41,6 @@ SCHEMA: SchedulingShiftsDataObject (SchedulingShifts)
 API Name: paycore
 Schema ID: schema:components/SchedulingShifts
 Description: No description
-Primary Key: Ignorewarnings
 Namespace: Connector.paycore.v1.SchedulingShifts
 Role: parent
 
@@ -288,7 +287,6 @@ SCHEMA: SchedulingShiftItem (SchedulingShiftItem)
 API Name: paycore
 Schema ID: schema:components/SchedulingShiftItem
 Description: No description
-Primary Key: Ispublished
 Namespace: Connector.paycore.v1.SchedulingShifts
 Role: nested
 
@@ -378,7 +376,6 @@ SCHEMA: SchedulingShiftItem (SchedulingShiftItem)
 API Name: paycore
 Schema ID: schema:components/SchedulingShiftItem
 Description: No description
-Primary Key: Ispublished
 Namespace: Connector.paycore.v1.SchedulingShifts
 Role: nested
 
@@ -467,7 +464,6 @@ SCHEMA: SchedulingShiftItem (SchedulingShiftItem)
 API Name: paycore
 Schema ID: schema:components/SchedulingShiftItem
 Description: No description
-Primary Key: Ispublished
 Namespace: Connector.paycore.v1.SchedulingShifts
 Role: nested
 
@@ -503,17 +499,6 @@ Shift Model Id must be a unique value inside shift bach.
   workLocationId: string? [nullable]
     Description: Unique identifier of the work location associated with the shift, from the Paycor system.
 
-
-RELATED TYPES (for nested objects):
-----------------------------------------
-
-  SchedulingShiftBreak:
-      startTime: string [nullable]
-      endTime: string [nullable]
-
-  LaborCode3:
-      laborCategoryId: string [nullable]
-      laborCodeId: string [nullable]
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------

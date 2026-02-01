@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: CorePermissionsFull
 - Schema ID: schema:definitions/CorePermissionsFull
-- Primary Key: ViewEmployees
+- Primary Key: RoleId
 
 ### Fields
 

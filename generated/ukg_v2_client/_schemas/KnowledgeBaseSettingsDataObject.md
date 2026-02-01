@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: KnowledgeBaseSettings
 - Schema ID: schema:definitions/KnowledgeBaseSettings
-- Primary Key: Enabled
 
 ### Fields
 

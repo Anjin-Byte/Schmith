@@ -4,11 +4,23 @@
 - Role: parent
 - Schema Name: ProcessPostActionSharedBase
 - Schema ID: schema:definitions/ProcessPostActionSharedBase
-- Primary Key: Type
 
 ### Fields
 
 | Field | Type |
 |------|------|
-| `type` | `TypeEnum` |
+| `type` | `ProcessPostActionSharedBaseType` |
 | `ids` | `string[]` |
+
+### Nested Types
+- `ProcessPostActionSharedBaseType`
+
+## ProcessPostActionSharedBaseType
+- Role: nested
+- Parent: ProcessPostActionSharedBaseDataObject
+- Schema Name: ProcessPostActionSharedBaseType
+- Schema ID: schema:anon/43ccf591e152cacca0e4fd5359cc42d23c0c5adf
+
+### Enum
+
+Values: shared_inboxes

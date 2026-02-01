@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: ProcessAutomationSettingsFull
 - Schema ID: schema:definitions/ProcessAutomationSettingsFull
-- Primary Key: Enabled
 
 ### Fields
 

@@ -41,7 +41,7 @@ SCHEMA: AuditPermissionsFullDataObject (AuditPermissionsFull)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/AuditPermissionsFull
 Description: No description
-Primary Key: ViewEvents
+Primary Key: RoleId
 Namespace: Connector.ukg_v2_client.v1.AuditPermissionsFull
 Role: parent
 
@@ -49,15 +49,15 @@ PAGING:
   Page: 1 of 1
   Fields in this page: 2
   Total fields: 2
-  All field names: view_events, role_id
+  All field names: role_id, view_events
 
 FIELDS (this page):
 ----------------------------------------
-  view_events: bool [required]
-    Description: Allow to view audit events
-
   role_id: string [required]
     Description: `ID` of the role
+
+  view_events: bool [required]
+    Description: Allow to view audit events
 
 
 EXAMPLE CODE PATTERN:

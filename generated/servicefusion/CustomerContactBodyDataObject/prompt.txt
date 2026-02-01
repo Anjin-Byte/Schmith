@@ -41,7 +41,7 @@ SCHEMA: CustomerContactBodyDataObject (CustomerContactBody)
 API Name: servicefusion
 Schema ID: schema:types/typ.CustomerContactBody
 Description: A customer contact's body schema.
-Primary Key: Fname
+
 Namespace: Connector.servicefusion.v1.CustomerContactBody
 Role: parent
 
@@ -140,7 +140,7 @@ SCHEMA: CustomerContactBodyDataObject (CustomerContactBody)
 API Name: servicefusion
 Schema ID: schema:types/typ.CustomerContactBody
 Description: A customer contact's body schema.
-Primary Key: Fname
+
 Namespace: Connector.servicefusion.v1.CustomerContactBody
 Role: parent
 
@@ -228,7 +228,7 @@ SCHEMA: CustomerEmailBody (CustomerEmailBody)
 API Name: servicefusion
 Schema ID: schema:types/typ.CustomerEmailBody
 Description: A customer email's body schema.
-Primary Key: Email
+
 Namespace: Connector.servicefusion.v1.CustomerContactBody
 Role: nested
 
@@ -241,6 +241,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: CustomerContactBodyDataObject
   Parent Description: A customer contact's body schema.
+
   Parent Field Count: 12
   Parent Field Names: prefix, fname, lname, suffix, contact_type, dob, anniversary, job_title, department, is_primary, phones, emails
   Parent Nested Types: CustomerEmailBody, CustomerPhoneBody
@@ -313,7 +314,7 @@ SCHEMA: CustomerPhoneBody (CustomerPhoneBody)
 API Name: servicefusion
 Schema ID: schema:types/typ.CustomerPhoneBody
 Description: A customer phone's body schema.
-Primary Key: Phone
+
 Namespace: Connector.servicefusion.v1.CustomerContactBody
 Role: nested
 
@@ -326,6 +327,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: CustomerContactBodyDataObject
   Parent Description: A customer contact's body schema.
+
   Parent Field Count: 12
   Parent Field Names: prefix, fname, lname, suffix, contact_type, dob, anniversary, job_title, department, is_primary, phones, emails
   Parent Nested Types: CustomerEmailBody, CustomerPhoneBody

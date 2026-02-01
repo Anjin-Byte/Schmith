@@ -4,7 +4,7 @@
     "name": "paycore"
   },
   "generation": {
-    "timestamp": "2026-01-31T21:20:05.218179+00:00",
+    "timestamp": "2026-02-01T18:04:57.537444+00:00",
     "grouped": true,
     "packets_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/prompt_packets/grouped/paycore"
   },
@@ -16,8 +16,8 @@
   },
   "counts": {
     "roots": 39,
-    "nested_only": 32,
-    "eligible": 71
+    "nested_only": 41,
+    "eligible": 80
   },
   "roots": [
     {
@@ -118,7 +118,8 @@
       "schema_name": "EmployeePunch2",
       "schema_id": "schema:components/EmployeePunch2",
       "nested_types": [
-        "LaborCode3"
+        "LaborCode3",
+        "PunchStatusType"
       ],
       "source_file": "_source/EmployeePunch2DataObject.cs",
       "schema_file": "_schemas/EmployeePunch2DataObject.md",
@@ -138,7 +139,8 @@
       "schema_name": "EmployeePunch4",
       "schema_id": "schema:components/EmployeePunch4",
       "nested_types": [
-        "LaborCode3"
+        "LaborCode3",
+        "PunchStatusType"
       ],
       "source_file": "_source/EmployeePunch4DataObject.cs",
       "schema_file": "_schemas/EmployeePunch4DataObject.md",
@@ -149,7 +151,8 @@
       "schema_name": "EmployeePunch",
       "schema_id": "schema:components/EmployeePunch",
       "nested_types": [
-        "LaborCode3"
+        "LaborCode3",
+        "PunchStatusType"
       ],
       "source_file": "_source/EmployeePunchDataObject.cs",
       "schema_file": "_schemas/EmployeePunchDataObject.md",
@@ -185,6 +188,7 @@
       "schema_name": "EmployeeTimeOffRequest2",
       "schema_id": "schema:components/EmployeeTimeOffRequest2",
       "nested_types": [
+        "EmployeeTimeOffRequestStatus",
         "TimeOffRequestDay2"
       ],
       "source_file": "_source/EmployeeTimeOffRequest2DataObject.cs",
@@ -204,7 +208,9 @@
       "name": "EmployeeTimeOffRequest4DataObject",
       "schema_name": "EmployeeTimeOffRequest4",
       "schema_id": "schema:components/EmployeeTimeOffRequest4",
-      "nested_types": [],
+      "nested_types": [
+        "EmployeeTimeOffRequestStatus2"
+      ],
       "source_file": "_source/EmployeeTimeOffRequest4DataObject.cs",
       "schema_file": "_schemas/EmployeeTimeOffRequest4DataObject.md",
       "packet_file": "EmployeeTimeOffRequest4DataObject.json"
@@ -213,7 +219,9 @@
       "name": "MissedPunchRequest2DataObject",
       "schema_name": "MissedPunchRequest2",
       "schema_id": "schema:components/MissedPunchRequest2",
-      "nested_types": [],
+      "nested_types": [
+        "MissedPunchRequestStatus"
+      ],
       "source_file": "_source/MissedPunchRequest2DataObject.cs",
       "schema_file": "_schemas/MissedPunchRequest2DataObject.md",
       "packet_file": "MissedPunchRequest2DataObject.json"
@@ -223,7 +231,8 @@
       "schema_name": "MissedPunchRequest3",
       "schema_id": "schema:components/MissedPunchRequest3",
       "nested_types": [
-        "LaborCode3"
+        "LaborCode3",
+        "PunchStatusType"
       ],
       "source_file": "_source/MissedPunchRequest3DataObject.cs",
       "schema_file": "_schemas/MissedPunchRequest3DataObject.md",
@@ -273,7 +282,8 @@
       "schema_id": "schema:components/PagedResultOfMissedPunchRequest",
       "nested_types": [
         "LaborCode3",
-        "MissedPunchRequest"
+        "MissedPunchRequest",
+        "PunchStatusType"
       ],
       "source_file": "_source/PagedResultOfMissedPunchRequestDataObject.cs",
       "schema_file": "_schemas/PagedResultOfMissedPunchRequestDataObject.md",
@@ -296,7 +306,8 @@
       "schema_name": "PagedResultOfPayPeriod",
       "schema_id": "schema:components/PagedResultOfPayPeriod",
       "nested_types": [
-        "PayPeriod"
+        "PayPeriod",
+        "PayrollStatus"
       ],
       "source_file": "_source/PagedResultOfPayPeriodDataObject.cs",
       "schema_file": "_schemas/PagedResultOfPayPeriodDataObject.md",
@@ -341,7 +352,9 @@
       "schema_id": "schema:components/PagedResultOfSchedulingShift",
       "nested_types": [
         "BreakRuleWithDates",
-        "SchedulingShift"
+        "SchedulingShift",
+        "ShiftAcknowledgementStatus",
+        "ShiftLaborCode"
       ],
       "source_file": "_source/PagedResultOfSchedulingShiftDataObject.cs",
       "schema_file": "_schemas/PagedResultOfSchedulingShiftDataObject.md",
@@ -351,7 +364,10 @@
       "name": "PagedResultOfTimeCardV3DataObject",
       "schema_name": "PagedResultOfTimeCardV3",
       "schema_id": "schema:components/PagedResultOfTimeCardV3",
-      "nested_types": [],
+      "nested_types": [
+        "LaborCodeV2",
+        "TimeCardV3"
+      ],
       "source_file": "_source/PagedResultOfTimeCardV3DataObject.cs",
       "schema_file": "_schemas/PagedResultOfTimeCardV3DataObject.md",
       "packet_file": "PagedResultOfTimeCardV3DataObject.json"
@@ -497,6 +513,20 @@
       ]
     },
     {
+      "name": "EmployeeTimeOffRequestStatus",
+      "schema_id": "schema:components/EmployeeTimeOffRequestStatus",
+      "parent_roots": [
+        "EmployeeTimeOffRequest2DataObject"
+      ]
+    },
+    {
+      "name": "EmployeeTimeOffRequestStatus2",
+      "schema_id": "schema:components/EmployeeTimeOffRequestStatus2",
+      "parent_roots": [
+        "EmployeeTimeOffRequest4DataObject"
+      ]
+    },
+    {
       "name": "LaborCategory",
       "schema_id": "schema:components/LaborCategory",
       "parent_roots": [
@@ -528,6 +558,13 @@
       ]
     },
     {
+      "name": "LaborCodeV2",
+      "schema_id": "schema:components/LaborCodeV2",
+      "parent_roots": [
+        "PagedResultOfTimeCardV3DataObject"
+      ]
+    },
+    {
       "name": "LaborCodeV3",
       "schema_id": "schema:components/LaborCodeV3",
       "parent_roots": [
@@ -550,6 +587,13 @@
       ]
     },
     {
+      "name": "MissedPunchRequestStatus",
+      "schema_id": "schema:components/MissedPunchRequestStatus",
+      "parent_roots": [
+        "MissedPunchRequest2DataObject"
+      ]
+    },
+    {
       "name": "PayItem",
       "schema_id": "schema:components/PayItem",
       "parent_roots": [
@@ -559,6 +603,13 @@
     {
       "name": "PayPeriod",
       "schema_id": "schema:components/PayPeriod",
+      "parent_roots": [
+        "PagedResultOfPayPeriodDataObject"
+      ]
+    },
+    {
+      "name": "PayrollStatus",
+      "schema_id": "schema:components/PayrollStatus",
       "parent_roots": [
         "PagedResultOfPayPeriodDataObject"
       ]
@@ -575,6 +626,17 @@
       "schema_id": "schema:components/PunchProfileWorkLocation",
       "parent_roots": [
         "EmployeePunchProfileDataDataObject"
+      ]
+    },
+    {
+      "name": "PunchStatusType",
+      "schema_id": "schema:components/PunchStatusType",
+      "parent_roots": [
+        "EmployeePunch2DataObject",
+        "EmployeePunch4DataObject",
+        "EmployeePunchDataObject",
+        "MissedPunchRequest3DataObject",
+        "PagedResultOfMissedPunchRequestDataObject"
       ]
     },
     {
@@ -640,6 +702,27 @@
       "schema_id": "schema:components/SchedulingShiftResponseItem",
       "parent_roots": [
         "CreateSchedulingShiftsResponseDataObject"
+      ]
+    },
+    {
+      "name": "ShiftAcknowledgementStatus",
+      "schema_id": "schema:components/ShiftAcknowledgementStatus",
+      "parent_roots": [
+        "PagedResultOfSchedulingShiftDataObject"
+      ]
+    },
+    {
+      "name": "ShiftLaborCode",
+      "schema_id": "schema:components/ShiftLaborCode",
+      "parent_roots": [
+        "PagedResultOfSchedulingShiftDataObject"
+      ]
+    },
+    {
+      "name": "TimeCardV3",
+      "schema_id": "schema:components/TimeCardV3",
+      "parent_roots": [
+        "PagedResultOfTimeCardV3DataObject"
       ]
     },
     {
@@ -785,7 +868,8 @@
         "schema_name": "EmployeePunch2",
         "schema_id": "schema:components/EmployeePunch2",
         "nested_types": [
-          "LaborCode3"
+          "LaborCode3",
+          "PunchStatusType"
         ],
         "source_file": "_source/EmployeePunch2DataObject.cs",
         "schema_file": "_schemas/EmployeePunch2DataObject.md",
@@ -805,7 +889,8 @@
         "schema_name": "EmployeePunch4",
         "schema_id": "schema:components/EmployeePunch4",
         "nested_types": [
-          "LaborCode3"
+          "LaborCode3",
+          "PunchStatusType"
         ],
         "source_file": "_source/EmployeePunch4DataObject.cs",
         "schema_file": "_schemas/EmployeePunch4DataObject.md",
@@ -816,7 +901,8 @@
         "schema_name": "EmployeePunch",
         "schema_id": "schema:components/EmployeePunch",
         "nested_types": [
-          "LaborCode3"
+          "LaborCode3",
+          "PunchStatusType"
         ],
         "source_file": "_source/EmployeePunchDataObject.cs",
         "schema_file": "_schemas/EmployeePunchDataObject.md",
@@ -852,6 +938,7 @@
         "schema_name": "EmployeeTimeOffRequest2",
         "schema_id": "schema:components/EmployeeTimeOffRequest2",
         "nested_types": [
+          "EmployeeTimeOffRequestStatus",
           "TimeOffRequestDay2"
         ],
         "source_file": "_source/EmployeeTimeOffRequest2DataObject.cs",
@@ -871,7 +958,9 @@
         "name": "EmployeeTimeOffRequest4DataObject",
         "schema_name": "EmployeeTimeOffRequest4",
         "schema_id": "schema:components/EmployeeTimeOffRequest4",
-        "nested_types": [],
+        "nested_types": [
+          "EmployeeTimeOffRequestStatus2"
+        ],
         "source_file": "_source/EmployeeTimeOffRequest4DataObject.cs",
         "schema_file": "_schemas/EmployeeTimeOffRequest4DataObject.md",
         "packet_file": "EmployeeTimeOffRequest4DataObject.json"
@@ -880,7 +969,9 @@
         "name": "MissedPunchRequest2DataObject",
         "schema_name": "MissedPunchRequest2",
         "schema_id": "schema:components/MissedPunchRequest2",
-        "nested_types": [],
+        "nested_types": [
+          "MissedPunchRequestStatus"
+        ],
         "source_file": "_source/MissedPunchRequest2DataObject.cs",
         "schema_file": "_schemas/MissedPunchRequest2DataObject.md",
         "packet_file": "MissedPunchRequest2DataObject.json"
@@ -890,7 +981,8 @@
         "schema_name": "MissedPunchRequest3",
         "schema_id": "schema:components/MissedPunchRequest3",
         "nested_types": [
-          "LaborCode3"
+          "LaborCode3",
+          "PunchStatusType"
         ],
         "source_file": "_source/MissedPunchRequest3DataObject.cs",
         "schema_file": "_schemas/MissedPunchRequest3DataObject.md",
@@ -940,7 +1032,8 @@
         "schema_id": "schema:components/PagedResultOfMissedPunchRequest",
         "nested_types": [
           "LaborCode3",
-          "MissedPunchRequest"
+          "MissedPunchRequest",
+          "PunchStatusType"
         ],
         "source_file": "_source/PagedResultOfMissedPunchRequestDataObject.cs",
         "schema_file": "_schemas/PagedResultOfMissedPunchRequestDataObject.md",
@@ -963,7 +1056,8 @@
         "schema_name": "PagedResultOfPayPeriod",
         "schema_id": "schema:components/PagedResultOfPayPeriod",
         "nested_types": [
-          "PayPeriod"
+          "PayPeriod",
+          "PayrollStatus"
         ],
         "source_file": "_source/PagedResultOfPayPeriodDataObject.cs",
         "schema_file": "_schemas/PagedResultOfPayPeriodDataObject.md",
@@ -1008,7 +1102,9 @@
         "schema_id": "schema:components/PagedResultOfSchedulingShift",
         "nested_types": [
           "BreakRuleWithDates",
-          "SchedulingShift"
+          "SchedulingShift",
+          "ShiftAcknowledgementStatus",
+          "ShiftLaborCode"
         ],
         "source_file": "_source/PagedResultOfSchedulingShiftDataObject.cs",
         "schema_file": "_schemas/PagedResultOfSchedulingShiftDataObject.md",
@@ -1018,7 +1114,10 @@
         "name": "PagedResultOfTimeCardV3DataObject",
         "schema_name": "PagedResultOfTimeCardV3",
         "schema_id": "schema:components/PagedResultOfTimeCardV3",
-        "nested_types": [],
+        "nested_types": [
+          "LaborCodeV2",
+          "TimeCardV3"
+        ],
         "source_file": "_source/PagedResultOfTimeCardV3DataObject.cs",
         "schema_file": "_schemas/PagedResultOfTimeCardV3DataObject.md",
         "packet_file": "PagedResultOfTimeCardV3DataObject.json"
@@ -1177,14 +1276,17 @@
       "EmployeePayItemDataObject": [],
       "EmployeePlanDetailsDataObject": [],
       "EmployeePunch2DataObject": [
-        "LaborCode3"
+        "LaborCode3",
+        "PunchStatusType"
       ],
       "EmployeePunch3DataObject": [],
       "EmployeePunch4DataObject": [
-        "LaborCode3"
+        "LaborCode3",
+        "PunchStatusType"
       ],
       "EmployeePunchDataObject": [
-        "LaborCode3"
+        "LaborCode3",
+        "PunchStatusType"
       ],
       "EmployeePunchProfileDataDataObject": [
         "ActivityTypeBasic",
@@ -1196,13 +1298,19 @@
       ],
       "EmployeeTimeOffPlanAssignmentDataObject": [],
       "EmployeeTimeOffRequest2DataObject": [
+        "EmployeeTimeOffRequestStatus",
         "TimeOffRequestDay2"
       ],
       "EmployeeTimeOffRequest3DataObject": [],
-      "EmployeeTimeOffRequest4DataObject": [],
-      "MissedPunchRequest2DataObject": [],
+      "EmployeeTimeOffRequest4DataObject": [
+        "EmployeeTimeOffRequestStatus2"
+      ],
+      "MissedPunchRequest2DataObject": [
+        "MissedPunchRequestStatus"
+      ],
       "MissedPunchRequest3DataObject": [
-        "LaborCode3"
+        "LaborCode3",
+        "PunchStatusType"
       ],
       "PagedResultOfEmployeeBalanceDataObject": [
         "EarningCodeLight",
@@ -1220,14 +1328,16 @@
       ],
       "PagedResultOfMissedPunchRequestDataObject": [
         "LaborCode3",
-        "MissedPunchRequest"
+        "MissedPunchRequest",
+        "PunchStatusType"
       ],
       "PagedResultOfPayItemDataObject": [
         "LaborCode3",
         "PayItem"
       ],
       "PagedResultOfPayPeriodDataObject": [
-        "PayPeriod"
+        "PayPeriod",
+        "PayrollStatus"
       ],
       "PagedResultOfReasonCodeDataObject": [
         "ReasonCode"
@@ -1240,9 +1350,14 @@
       ],
       "PagedResultOfSchedulingShiftDataObject": [
         "BreakRuleWithDates",
-        "SchedulingShift"
+        "SchedulingShift",
+        "ShiftAcknowledgementStatus",
+        "ShiftLaborCode"
       ],
-      "PagedResultOfTimeCardV3DataObject": [],
+      "PagedResultOfTimeCardV3DataObject": [
+        "LaborCodeV2",
+        "TimeCardV3"
+      ],
       "PagedResultOfTimeOffPlanDataObject": [
         "TimeOffPlan"
       ],

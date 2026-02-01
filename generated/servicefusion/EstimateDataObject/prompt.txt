@@ -41,6 +41,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -139,6 +141,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -226,6 +230,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -313,6 +319,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -400,6 +408,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -487,6 +497,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -574,6 +586,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -658,6 +672,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -742,6 +758,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -826,6 +844,8 @@ SCHEMA: EstimateDataObject (Estimate)
 API Name: servicefusion
 Schema ID: schema:types/typ.Estimate
 Description: An estimate's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: parent
 
@@ -910,6 +930,8 @@ SCHEMA: Agent (Agent)
 API Name: servicefusion
 Schema ID: schema:types/typ.Agent
 Description: An agent's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -922,6 +944,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -991,20 +1014,23 @@ OUTPUT MODE: class_only
 SCHEMA: AssignedTech (AssignedTech)
 ============================================================
 API Name: servicefusion
-Schema ID: schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af
+Schema ID: schema:types/typ.AssignedTech
 Description: An assigned tech's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
 PAGING:
   Page: 1 of 1
-  Fields in this page: 4
-  Total fields: 4
-  All field names: id, first_name, last_name, status
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, first_name, last_name
 
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1019,9 +1045,6 @@ FIELDS (this page):
 
   last_name: string? [nullable]
     Description: The assigned tech's last name.
-
-  status: string? [nullable]
-    Description: The assigned tech's status.
 
 
 EXAMPLE CODE PATTERN:
@@ -1079,6 +1102,7 @@ SCHEMA: CustomField (CustomField)
 API Name: servicefusion
 Schema ID: schema:types/typ.CustomField
 Description: A custom field's schema.
+
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1091,6 +1115,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1165,6 +1190,7 @@ SCHEMA: CustomField (CustomField)
 API Name: servicefusion
 Schema ID: schema:types/typ.CustomField
 Description: A custom field's schema.
+
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1177,6 +1203,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1247,6 +1274,8 @@ SCHEMA: Document (Document)
 API Name: servicefusion
 Schema ID: schema:types/typ.Document
 Description: A document's schema.
+
+Primary Key: CustomerDocId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1259,6 +1288,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1336,6 +1366,8 @@ SCHEMA: Document (Document)
 API Name: servicefusion
 Schema ID: schema:types/typ.Document
 Description: A document's schema.
+
+Primary Key: CustomerDocId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1348,6 +1380,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1421,6 +1454,8 @@ SCHEMA: Equipment (Equipment)
 API Name: servicefusion
 Schema ID: schema:types/typ.Equipment
 Description: An equipment's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1433,6 +1468,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1510,6 +1546,8 @@ SCHEMA: Equipment (Equipment)
 API Name: servicefusion
 Schema ID: schema:types/typ.Equipment
 Description: An equipment's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1522,6 +1560,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1598,6 +1637,8 @@ SCHEMA: Equipment (Equipment)
 API Name: servicefusion
 Schema ID: schema:types/typ.Equipment
 Description: An equipment's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1610,6 +1651,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1686,6 +1728,8 @@ SCHEMA: Equipment (Equipment)
 API Name: servicefusion
 Schema ID: schema:types/typ.Equipment
 Description: An equipment's schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1698,6 +1742,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1771,6 +1816,7 @@ SCHEMA: JobNote (JobNote)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobNote
 Description: A job note's schema.
+
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1783,6 +1829,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1854,6 +1901,8 @@ SCHEMA: JobOtherCharge (JobOtherCharge)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobOtherCharge
 Description: A job other charge's schema.
+
+Primary Key: ServiceListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1866,6 +1915,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -1946,6 +1996,8 @@ SCHEMA: JobOtherCharge (JobOtherCharge)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobOtherCharge
 Description: A job other charge's schema.
+
+Primary Key: ServiceListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -1958,6 +2010,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2034,6 +2087,8 @@ SCHEMA: JobOtherCharge (JobOtherCharge)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobOtherCharge
 Description: A job other charge's schema.
+
+Primary Key: ServiceListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2046,6 +2101,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2122,6 +2178,8 @@ SCHEMA: JobProduct (JobProduct)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobProduct
 Description: A job product's schema.
+
+Primary Key: ProductListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2134,6 +2192,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2211,6 +2270,8 @@ SCHEMA: JobProduct (JobProduct)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobProduct
 Description: A job product's schema.
+
+Primary Key: ProductListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2223,6 +2284,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2299,6 +2361,8 @@ SCHEMA: JobProduct (JobProduct)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobProduct
 Description: A job product's schema.
+
+Primary Key: ProductListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2311,6 +2375,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2387,6 +2452,8 @@ SCHEMA: JobProduct (JobProduct)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobProduct
 Description: A job product's schema.
+
+Primary Key: ProductListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2399,6 +2466,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2472,6 +2540,8 @@ SCHEMA: JobService (JobService)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobService
 Description: A job service's schema.
+
+Primary Key: ServiceListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2484,6 +2554,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2561,6 +2632,8 @@ SCHEMA: JobService (JobService)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobService
 Description: A job service's schema.
+
+Primary Key: ServiceListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2573,6 +2646,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2649,6 +2723,8 @@ SCHEMA: JobService (JobService)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobService
 Description: A job service's schema.
+
+Primary Key: ServiceListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2661,6 +2737,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2737,6 +2814,8 @@ SCHEMA: JobService (JobService)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobService
 Description: A job service's schema.
+
+Primary Key: ServiceListId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2749,6 +2828,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2822,6 +2902,7 @@ SCHEMA: JobSignature (JobSignature)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobSignature
 Description: A job signature's schema.
+
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2834,6 +2915,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2908,6 +2990,7 @@ SCHEMA: JobTag (JobTag)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobTag
 Description: A job tag's schema.
+
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -2920,6 +3003,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -2991,6 +3075,7 @@ SCHEMA: JobTask (JobTask)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobTask
 Description: A job task's schema.
+
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -3003,6 +3088,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -3077,6 +3163,7 @@ SCHEMA: JobTask (JobTask)
 API Name: servicefusion
 Schema ID: schema:types/typ.JobTask
 Description: A job task's schema.
+
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -3089,6 +3176,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -3162,6 +3250,8 @@ SCHEMA: Payment (Payment)
 API Name: servicefusion
 Schema ID: schema:types/typ.Payment
 Description: A payment's schema.
+
+Primary Key: TransactionId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -3174,6 +3264,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -3251,6 +3342,8 @@ SCHEMA: Payment (Payment)
 API Name: servicefusion
 Schema ID: schema:types/typ.Payment
 Description: A payment's schema.
+
+Primary Key: TransactionId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -3263,6 +3356,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -3339,6 +3433,8 @@ SCHEMA: Payment (Payment)
 API Name: servicefusion
 Schema ID: schema:types/typ.Payment
 Description: A payment's schema.
+
+Primary Key: TransactionId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -3351,6 +3447,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -3427,6 +3524,8 @@ SCHEMA: Payment (Payment)
 API Name: servicefusion
 Schema ID: schema:types/typ.Payment
 Description: A payment's schema.
+
+Primary Key: TransactionId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -3439,6 +3538,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -3515,6 +3615,8 @@ SCHEMA: Payment (Payment)
 API Name: servicefusion
 Schema ID: schema:types/typ.Payment
 Description: A payment's schema.
+
+Primary Key: TransactionId
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -3527,6 +3629,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder
@@ -3604,6 +3707,7 @@ SCHEMA: PrintableWorkOrder (PrintableWorkOrder)
 API Name: servicefusion
 Schema ID: schema:types/typ.PrintableWorkOrder
 Description: A printable work order's schema.
+
 Namespace: Connector.servicefusion.v1.Estimate
 Role: nested
 
@@ -3616,6 +3720,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EstimateDataObject
   Parent Description: An estimate's schema.
+
   Parent Field Count: 56
   Parent Field Names: id, number, description, tech_notes, customer_payment_terms, payment_status, taxes_fees_total, total, due_total, cost_total, duration, time_frame_promised_start, time_frame_promised_end, start_date, created_at, updated_at, customer_id, customer_name, parent_customer, status, sub_status, contact_first_name, contact_last_name, street_1, street_2, city, state_prov, postal_code, location_name, is_gated, gate_instructions, category, source, payment_type, project, phase, po_number, contract, note_to_customer, opportunity_rating, opportunity_owner, agents, custom_fields, pictures, documents, equipment, techs_assigned, tasks, notes, products, services, other_charges, payments, signatures, printable_work_order, tags
   Parent Nested Types: Agent, AssignedTech, CustomField, Document, Equipment, JobNote, JobOtherCharge, JobProduct, JobService, JobSignature, JobTag, JobTask, Payment, PrintableWorkOrder

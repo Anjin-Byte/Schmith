@@ -50,7 +50,7 @@ PAGING:
   Total fields: 2
   All field names: ref, fields
 
-NESTED TYPES: DatasetField
+NESTED TYPES: DatasetField, DatasetFieldTypeType
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -141,7 +141,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: ref, fields
-  Parent Nested Types: DatasetField
+  Parent Nested Types: DatasetField, DatasetFieldTypeType
 
 FIELDS (this page):
 ----------------------------------------
@@ -151,7 +151,7 @@ FIELDS (this page):
   value: string? [nullable]
     Description: The value that will replace the placeholder. It could be any primitive type (string, number, boolean, array) or an object containing a value and a label (which can be used to represent a custom field of type list for instance).
 
-  type: TypeEnum? [nullable]
+  type: DatasetFieldTypeType? [nullable]
     Description: This field is only meant to be present in case of the placeholder field is a date, therefore its value should be date.
     Enum: date
 
@@ -159,6 +159,83 @@ FIELDS (this page):
 EXAMPLE CODE PATTERN:
 ----------------------------------------
 public class DatasetField
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+DatasetFieldTypeType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `DatasetFieldTypeType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: DatasetFieldTypeType (DatasetFieldTypeType)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/07b949304bddf335c6eb4571c1c40044809b0b32
+Description: This field is only meant to be present in case of the placeholder field is a date, therefore its value should be date.
+Namespace: Connector.ukg_v2_client.v1.CsvCampaignData
+Role: nested
+
+ENUM:
+  Values: date
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: CsvCampaignDataDataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: ref, fields
+  Parent Nested Types: DatasetField, DatasetFieldTypeType
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class DatasetFieldTypeType
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]

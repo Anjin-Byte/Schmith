@@ -41,7 +41,7 @@ SCHEMA: WebhookPermissionsFullDataObject (WebhookPermissionsFull)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/WebhookPermissionsFull
 Description: No description
-Primary Key: ManageWebhooks
+Primary Key: RoleId
 Namespace: Connector.ukg_v2_client.v1.WebhookPermissionsFull
 Role: parent
 
@@ -49,15 +49,15 @@ PAGING:
   Page: 1 of 1
   Fields in this page: 2
   Total fields: 2
-  All field names: manage_webhooks, role_id
+  All field names: role_id, manage_webhooks
 
 FIELDS (this page):
 ----------------------------------------
-  manage_webhooks: bool [required]
-    Description: Allow to manage webhooks
-
   role_id: string [required]
     Description: `ID` of the role
+
+  manage_webhooks: bool [required]
+    Description: Allow to manage webhooks
 
 
 EXAMPLE CODE PATTERN:

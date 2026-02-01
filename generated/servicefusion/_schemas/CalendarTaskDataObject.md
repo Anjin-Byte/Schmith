@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: CalendarTask
 - Schema ID: schema:types/typ.CalendarTask
-- Primary Key: UsersId
+- Primary Key: Id
 
 ### Fields
 
@@ -22,10 +22,10 @@
 | `is_public` | `bool` |
 | `is_completed` | `bool` |
 | `repeat_id` | `int` |
-| `users_id` | `items[]` |
-| `customers_id` | `items[]` |
-| `jobs_id` | `items[]` |
-| `estimates_id` | `items[]` |
+| `users_id` | `int[]` |
+| `customers_id` | `int[]` |
+| `jobs_id` | `int[]` |
+| `estimates_id` | `int[]` |
 | `repeat` | `CalendarTaskRepeat` |
 
 ### Nested Types
@@ -36,7 +36,7 @@
 - Parent: CalendarTaskDataObject
 - Schema Name: CalendarTaskRepeat
 - Schema ID: schema:types/typ.CalendarTaskRepeat
-- Primary Key: RepeatWeeklyDays
+- Primary Key: Id
 
 ### Fields
 
@@ -45,7 +45,7 @@
 | `id` | `int` |
 | `repeat_type` | `string` |
 | `repeat_frequency` | `int` |
-| `repeat_weekly_days` | `items[]` |
+| `repeat_weekly_days` | `string[]` |
 | `repeat_monthly_type` | `string` |
 | `stop_repeat_type` | `string` |
 | `stop_repeat_on_occurrence` | `int` |

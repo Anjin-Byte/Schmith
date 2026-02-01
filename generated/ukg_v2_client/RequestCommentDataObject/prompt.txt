@@ -41,6 +41,7 @@ SCHEMA: RequestCommentDataObject (RequestComment)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/RequestComment
 Description: No description
+Primary Key: Id
 Namespace: Connector.ukg_v2_client.v1.RequestComment
 Role: parent
 
@@ -48,16 +49,13 @@ PAGING:
   Page: 1 of 2
   Fields in this page: 5
   Total fields: 10
-  All field names: attachments, id, creator, creator_id, created_at, content, is_informative, is_internal, comment_source, is_deleted
+  All field names: id, creator, creator_id, created_at, content, is_informative, is_internal, comment_source, is_deleted, attachments
 
-NESTED TYPES: UserSimplified
+NESTED TYPES: RequestAttachment, UserSimplified
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  attachments: RequestAttachment[]? [nullable]
-    Description: list of attachments
-
   id: string? [nullable]
     Description: ID of the comment
 
@@ -69,6 +67,9 @@ FIELDS (this page):
 
   created_at: string? [nullable]
     Description: Timestamp of the comment creation
+
+  content: string? [nullable]
+    Description: Content of the comment
 
 
 EXAMPLE CODE PATTERN:
@@ -136,6 +137,7 @@ SCHEMA: RequestCommentDataObject (RequestComment)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/RequestComment
 Description: No description
+Primary Key: Id
 Namespace: Connector.ukg_v2_client.v1.RequestComment
 Role: parent
 
@@ -143,16 +145,13 @@ PAGING:
   Page: 2 of 2
   Fields in this page: 5
   Total fields: 10
-  All field names: attachments, id, creator, creator_id, created_at, content, is_informative, is_internal, comment_source, is_deleted
+  All field names: id, creator, creator_id, created_at, content, is_informative, is_internal, comment_source, is_deleted, attachments
 
-NESTED TYPES: UserSimplified
+NESTED TYPES: RequestAttachment, UserSimplified
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  content: string? [nullable]
-    Description: Content of the comment
-
   is_informative: bool? [nullable]
     Description: True if not user-generated
 
@@ -165,6 +164,9 @@ FIELDS (this page):
   is_deleted: bool? [nullable]
     Description: True if the user deleted the comment
 
+  attachments: RequestAttachment[]? [nullable]
+    Description: list of attachments
+
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
@@ -174,6 +176,87 @@ EXAMPLE CODE PATTERN:
     [Nullable(true)]
     public string? ExampleField { get; init; }
 // END_FIELDS
+
+================================================================================
+RequestAttachment (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RequestAttachment`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RequestAttachment (RequestAttachment)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/RequestAttachment
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.RequestComment
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, name
+
+PARENT CONTEXT:
+  Parent Class: RequestCommentDataObject
+  Parent Description: No description
+  Parent Field Count: 10
+  Parent Field Names: id, creator, creator_id, created_at, content, is_informative, is_internal, comment_source, is_deleted, attachments
+  Parent Nested Types: RequestAttachment, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+  id: string? [nullable]
+    Description: ID of the attachment
+
+  name: string? [nullable]
+    Description: Filename of the attachment
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RequestAttachment
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
 
 ================================================================================
 UserSimplified (nested) page 1/1
@@ -234,8 +317,8 @@ PARENT CONTEXT:
   Parent Class: RequestCommentDataObject
   Parent Description: No description
   Parent Field Count: 10
-  Parent Field Names: attachments, id, creator, creator_id, created_at, content, is_informative, is_internal, comment_source, is_deleted
-  Parent Nested Types: UserSimplified
+  Parent Field Names: id, creator, creator_id, created_at, content, is_informative, is_internal, comment_source, is_deleted, attachments
+  Parent Nested Types: RequestAttachment, UserSimplified
 
 FIELDS (this page):
 ----------------------------------------

@@ -42,6 +42,7 @@
 - Parent: PagedResultOfEmployeeScheduleDataObject
 - Schema Name: ResourceReference
 - Schema ID: schema:components/ResourceReference
+- Primary Key: Id
 
 ### Fields
 

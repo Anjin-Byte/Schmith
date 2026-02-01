@@ -48,11 +48,17 @@ PAGING:
   Page: 1 of 3
   Fields in this page: 5
   Total fields: 15
-  All field names: localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions, slug
+  All field names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+
+NESTED TYPES: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  localized_tags: object[]? [nullable]
+  slug: string? [nullable]
+    Description: slug of the Article. Warning, one day, this field will be deprecated.
+
+  localized_tags: Anonymous_8ad3c996[]? [nullable]
     Description: Tag list in all available languages
 
   localized_search_keywords: LocalizedString[]? [nullable]
@@ -63,9 +69,6 @@ FIELDS (this page):
 
   once_on_employee_homepage: bool? [nullable]
     Description: Tells if the article is displayed at least once on employee homepage
-
-  permanent_on_employee_homepage: bool? [nullable]
-    Description: Tells if the article is displayed permanently on employee homepage
 
 
 EXAMPLE CODE PATTERN:
@@ -140,10 +143,16 @@ PAGING:
   Page: 2 of 3
   Fields in this page: 5
   Total fields: 15
-  All field names: localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions, slug
+  All field names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+
+NESTED TYPES: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
+  permanent_on_employee_homepage: bool? [nullable]
+    Description: Tells if the article is displayed permanently on employee homepage
+
   versions: KbArticleVersion[]? [nullable]
     Description: Article versions in all available languages
 
@@ -155,10 +164,6 @@ FIELDS (this page):
 
   scheduled_publication_date: string? [nullable]
     Description: Date on which article publication is scheduled
-
-  status: StatusEnum? [nullable]
-    Description: The status of the article (can be `published`, `draft` or `scheduled`)
-    Enum: published, draft, scheduled
 
 
 EXAMPLE CODE PATTERN:
@@ -222,10 +227,17 @@ PAGING:
   Page: 3 of 3
   Fields in this page: 5
   Total fields: 15
-  All field names: localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions, slug
+  All field names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+
+NESTED TYPES: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
+  status: KbArticleBaseStatus? [nullable]
+    Description: The status of the article (can be `published`, `draft` or `scheduled`)
+    Enum: published, draft, scheduled
+
   accessible_by_hr: bool? [nullable]
     Description: tells if the article is accessible by HR users
 
@@ -234,10 +246,7 @@ FIELDS (this page):
 
   employees_perimeters: EmployeesPerimeterBase[]? [nullable]
 
-  role_restrictions: object[]? [nullable]
-
-  slug: string? [nullable]
-    Description: slug of the Article. Warning, one day, this field will be deprecated.
+  role_restrictions: Anonymous_cbcd60e0[]? [nullable]
 
 
 EXAMPLE CODE PATTERN:
@@ -248,3 +257,831 @@ EXAMPLE CODE PATTERN:
     [Nullable(true)]
     public string? ExampleField { get; init; }
 // END_FIELDS
+
+================================================================================
+Anonymous_8ad3c996 (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `Anonymous_8ad3c996`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: Anonymous_8ad3c996 (Anonymous_8ad3c996)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: language_code, values
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+  language_code: string? [nullable]
+
+  values: string[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class Anonymous_8ad3c996
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+Anonymous_cbcd60e0 (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `Anonymous_cbcd60e0`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: Anonymous_cbcd60e0 (Anonymous_cbcd60e0)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/cbcd60e0defd1088b9363273e505c0249931d345
+Description: No description
+Primary Key: RoleId
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: role_id, role_name
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+  role_id: string? [nullable]
+    Description: ID of the role
+
+  role_name: string? [nullable]
+    Description: Name of the role
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class Anonymous_cbcd60e0
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+CustomFieldFilterRule (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomFieldFilterRule`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomFieldFilterRule (CustomFieldFilterRule)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/CustomFieldFilterRule
+Description: No description
+Primary Key: CustomFieldId
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: custom_field_id, operator, value
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+  custom_field_id: string [required]
+    Description: `ID` of the Custom Field used in the Filter
+
+  operator: CustomFieldFilterRuleOperator [required]
+    Description: Operator used to filter the values of the Custom Field:
+"=" and "!=" can be used for any type of custom fields;
+"<=", "<", ">" and ">=" are only allowed for custom fields of type `integer`
+for which the hierarchical attribute has been set to `true`
+    Enum: =, !=, <=, <, >=, >
+
+  value: string [required]
+    Description: Value to compare with the value of the custom field. This attribute is always a string, but can represent a string, an integer or a boolean depending on the type of the custom field
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomFieldFilterRule
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+CustomFieldFilterRuleOperator (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomFieldFilterRuleOperator`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomFieldFilterRuleOperator (CustomFieldFilterRuleOperator)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/b89353968483881566a17091aa85441d29825efb
+Description: Operator used to filter the values of the Custom Field:
+"=" and "!=" can be used for any type of custom fields;
+"<=", "<", ">" and ">=" are only allowed for custom fields of type `integer`
+for which the hierarchical attribute has been set to `true`
+
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+ENUM:
+  Values: =, !=, <=, <, >=, >
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomFieldFilterRuleOperator
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+EmployeesPerimeterBase (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `EmployeesPerimeterBase`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: EmployeesPerimeterBase (EmployeesPerimeterBase)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/EmployeesPerimeterBase
+Description: No description
+Primary Key: OrganizationId
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: operator, organization_id, organization_group_id, custom_field_filters
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+  operator: EmployeesPerimeterBaseOperator [required]
+    Description: Defines the organizations to include in the perimeter.
+If an `organization_id` is specified, can be one of "=" or "<=".
+Otherwise if an `organization_group_id` is specified, it must be set to "="
+    Enum: =, <=
+
+  organization_id: string? [nullable]
+    Description: The User will have access to employees associated to this organization, or its children organizations depending on the operator
+
+  organization_group_id: string? [nullable]
+    Description: The User will have access to employees associated to the organizations included in this group of organizations
+
+  custom_field_filters: CustomFieldFilterRule[] [required]
+    Description: From the employees the User has access to, filters can further restrict the list of employees
+visible to the User based on custom fields. Two filters based on the same
+custom field will be combined with the `OR` operator.
+Conversely, two filters based on different custom fields will be
+combined with the `AND` operator
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class EmployeesPerimeterBase
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+EmployeesPerimeterBaseOperator (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `EmployeesPerimeterBaseOperator`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: EmployeesPerimeterBaseOperator (EmployeesPerimeterBaseOperator)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/62bc992a0d5496dc75fdaeee1de43be7a94f91c1
+Description: Defines the organizations to include in the perimeter.
+If an `organization_id` is specified, can be one of "=" or "<=".
+Otherwise if an `organization_group_id` is specified, it must be set to "="
+
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+ENUM:
+  Values: =, <=
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class EmployeesPerimeterBaseOperator
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+KbArticleBaseStatus (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `KbArticleBaseStatus`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: KbArticleBaseStatus (KbArticleBaseStatus)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/e37f3bbd184e14499f9222bf4665a4a6812c017b
+Description: The status of the article (can be `published`, `draft` or `scheduled`)
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+ENUM:
+  Values: published, draft, scheduled
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class KbArticleBaseStatus
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+KbArticleVersion (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `KbArticleVersion`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: KbArticleVersion (KbArticleVersion)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/KbArticleVersion
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: id, language_code, title, body, creator_id, updator_id, created_at, updated_at
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+  id: string? [nullable]
+    Description: id of the version (uuid)
+
+  language_code: string? [nullable]
+    Description: language code of the version
+
+  title: string? [nullable]
+    Description: title of the version
+
+  body: string? [nullable]
+    Description: body of the version
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class KbArticleVersion
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+KbArticleVersion (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: KbArticleVersion (KbArticleVersion)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/KbArticleVersion
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: id, language_code, title, body, creator_id, updator_id, created_at, updated_at
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+  creator_id: string? [nullable]
+    Description: id of the creator (uuid)
+
+  updator_id: string? [nullable]
+    Description: id of the updator (uuid)
+
+  created_at: string [required]
+
+  updated_at: string [required]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+LocalizedString (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `LocalizedString`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: LocalizedString (LocalizedString)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/LocalizedString
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.KbArticleUpdatePayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: language_code, value
+
+PARENT CONTEXT:
+  Parent Class: KbArticleUpdatePayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 15
+  Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
+  Parent Nested Types: Anonymous_8ad3c996, Anonymous_cbcd60e0, CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseStatus, KbArticleVersion, LocalizedString
+
+FIELDS (this page):
+----------------------------------------
+  language_code: string [required]
+
+  value: string [required]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class LocalizedString
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

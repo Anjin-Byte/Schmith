@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: InboxItemCreatePayload
 - Schema ID: schema:definitions/InboxItemCreatePayload
-- Primary Key: Title
+- Primary Key: ToInboxId
 
 ### Fields
 

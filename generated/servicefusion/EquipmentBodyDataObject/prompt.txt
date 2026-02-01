@@ -41,6 +41,8 @@ SCHEMA: EquipmentBodyDataObject (EquipmentBody)
 API Name: servicefusion
 Schema ID: schema:types/typ.EquipmentBody
 Description: An equipment's body schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.EquipmentBody
 Role: parent
 
@@ -136,6 +138,8 @@ SCHEMA: EquipmentBodyDataObject (EquipmentBody)
 API Name: servicefusion
 Schema ID: schema:types/typ.EquipmentBody
 Description: An equipment's body schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.EquipmentBody
 Role: parent
 
@@ -220,6 +224,8 @@ SCHEMA: EquipmentBodyDataObject (EquipmentBody)
 API Name: servicefusion
 Schema ID: schema:types/typ.EquipmentBody
 Description: An equipment's body schema.
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.EquipmentBody
 Role: parent
 
@@ -304,7 +310,7 @@ SCHEMA: CustomFieldBody (CustomFieldBody)
 API Name: servicefusion
 Schema ID: schema:types/typ.CustomFieldBody
 Description: A custom field's body schema.
-Primary Key: Name
+
 Namespace: Connector.servicefusion.v1.EquipmentBody
 Role: nested
 
@@ -317,6 +323,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EquipmentBodyDataObject
   Parent Description: An equipment's body schema.
+
   Parent Field Count: 15
   Parent Field Names: id, type, make, model, sku, serial_number, location, notes, extended_warranty_provider, is_extended_warranty, extended_warranty_date, warranty_date, install_date, customer_location, custom_fields
   Parent Nested Types: CustomFieldBody

@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: RequestMacroPayload
 - Schema ID: schema:definitions/RequestMacroPayload
+- Primary Key: MacroId
 
 ### Fields
 

@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: DocGenTemplate
 - Schema ID: schema:definitions/DocGenTemplate
-- Primary Key: CreatedAt
 
 ### Fields
 

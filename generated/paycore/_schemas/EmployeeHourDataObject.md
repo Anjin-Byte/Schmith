@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: EmployeeHour
 - Schema ID: schema:components/EmployeeHour
-- Primary Key: Employeeid
 
 ### Fields
 

@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: EquipmentBody
 - Schema ID: schema:types/typ.EquipmentBody
+- Primary Key: Id
 
 ### Fields
 
@@ -33,7 +34,6 @@
 - Parent: EquipmentBodyDataObject
 - Schema Name: CustomFieldBody
 - Schema ID: schema:types/typ.CustomFieldBody
-- Primary Key: Name
 
 ### Fields
 

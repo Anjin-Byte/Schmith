@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: PdfTemplateList
 - Schema ID: schema:definitions/PdfTemplateList
+- Primary Key: Id
 
 ### Fields
 

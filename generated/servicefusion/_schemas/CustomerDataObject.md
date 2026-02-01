@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: Customer
 - Schema ID: schema:types/typ.Customer
+- Primary Key: Id
 
 ### Fields
 

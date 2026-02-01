@@ -16,6 +16,7 @@
 
 ### Nested Types
 - `PayPeriod`
+- `PayrollStatus`
 
 ## PayPeriod
 - Role: nested
@@ -33,3 +34,14 @@
 | `processDate` | `string` |
 | `plannerId` | `string` |
 | `payrollStatus` | `PayrollStatus` |
+
+## PayrollStatus
+- Role: nested
+- Parent: PagedResultOfPayPeriodDataObject
+- Schema Name: PayrollStatus
+- Schema ID: schema:components/PayrollStatus
+
+### Enum
+
+Values: B, D, E, H, I, P, R, S, W
+Names: B, D, E, H, I, P, R, S, W

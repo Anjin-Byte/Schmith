@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: EmployeeCreateOrUpdatePayload
 - Schema ID: schema:definitions/EmployeeCreateOrUpdatePayload
-- Primary Key: Firstname
 
 ### Fields
 

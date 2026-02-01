@@ -22,6 +22,7 @@
 
 ### Nested Types
 - `LaborCode3`
+- `PunchStatusType`
 
 ## LaborCode3
 - Role: nested
@@ -35,3 +36,14 @@
 |------|------|
 | `laborCategoryId` | `string` |
 | `laborCodeId` | `string` |
+
+## PunchStatusType
+- Role: nested
+- Parent: EmployeePunch2DataObject
+- Schema Name: PunchStatusType
+- Schema ID: schema:components/PunchStatusType
+
+### Enum
+
+Values: Auto, In, Out, Transfer
+Names: Auto, In, Out, Transfer

@@ -51,6 +51,9 @@ PAGING:
   Total fields: 35
   All field names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
 
+NESTED TYPES: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+Use these class names for matching nested object fields in this schema.
+
 FIELDS (this page):
 ----------------------------------------
   id: string [required]
@@ -59,7 +62,7 @@ FIELDS (this page):
   request_number: string [required]
     Description: Number of the request. The number of the request is a simple integer that can be used as a reference in HR teams. It can be use to search a specific request as an example.
 
-  status: StatusEnum [required]
+  status: RequestComputedFieldsStatus [required]
     Description: Status of the request. Possible values: `created`, `opened`, `pending`, `closed` and `archived`.
     Enum: created, opened, pending, closed, archived
 
@@ -148,6 +151,9 @@ PAGING:
   Total fields: 35
   All field names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
 
+NESTED TYPES: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+Use these class names for matching nested object fields in this schema.
+
 FIELDS (this page):
 ----------------------------------------
   total_comment_count: int? [nullable]
@@ -232,6 +238,9 @@ PAGING:
   Fields in this page: 6
   Total fields: 35
   All field names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+
+NESTED TYPES: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
@@ -318,12 +327,15 @@ PAGING:
   Total fields: 35
   All field names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
 
+NESTED TYPES: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+Use these class names for matching nested object fields in this schema.
+
 FIELDS (this page):
 ----------------------------------------
   name: string [required]
     Description: Name of the request. The name of the request can be inherited from the name of the form that has been use to create the request OR from the subject of the request if the request has been created from a default form.
 
-  priority: PriorityEnum? [nullable]
+  priority: RequestBasePriority? [nullable]
     Description: Priority of the request - 1: low, 2: normal, 3: high
     Enum: 1, 2, 3
 
@@ -403,6 +415,9 @@ PAGING:
   Fields in this page: 6
   Total fields: 35
   All field names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+
+NESTED TYPES: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
@@ -489,6 +504,9 @@ PAGING:
   Total fields: 35
   All field names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
 
+NESTED TYPES: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+Use these class names for matching nested object fields in this schema.
+
 FIELDS (this page):
 ----------------------------------------
   custom_status: CustomStatusField? [nullable]
@@ -514,3 +532,827 @@ EXAMPLE CODE PATTERN:
     [Nullable(true)]
     public string? ExampleField { get; init; }
 // END_FIELDS
+
+================================================================================
+CustomStatusField (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomStatusField`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomStatusField (CustomStatusField)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/CustomStatusField
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, name
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+  id: string [required]
+    Description: Unique ID of the custom status
+
+  name: string [required]
+    Description: Name of the custom status.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomStatusField
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+EmployeeSimplified (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `EmployeeSimplified`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: EmployeeSimplified (EmployeeSimplified)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/EmployeeSimplified
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 5
+  Total fields: 5
+  All field names: external_id, firstname, lastname, email, id
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+  external_id: string? [nullable]
+    Description: Unique identifier of the employee as defined in the client HRIS.
+
+  firstname: string [required]
+
+  lastname: string [required]
+
+  email: string? [nullable]
+    Description: Professional email of the Employee in the company. Mandatory if the address is not complete OR if there is no saml_token. ASCII characters only.
+
+  id: string [required]
+    Description: ID of the Employee
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class EmployeeSimplified
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+FormFile (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `FormFile`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: FormFile (FormFile)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/FormFile
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, filename, field_id
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+  id: string [required]
+    Description: Unique ID of the file uploaded in the form
+
+  filename: string [required]
+    Description: Name of the file uploaded in the form
+
+  field_id: string [required]
+    Description: Unique ID of the form field used to upload the file
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class FormFile
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RequestAttachment (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RequestAttachment`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RequestAttachment (RequestAttachment)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/RequestAttachment
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, name
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+  id: string? [nullable]
+    Description: ID of the attachment
+
+  name: string? [nullable]
+    Description: Filename of the attachment
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RequestAttachment
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RequestBasePriority (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RequestBasePriority`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RequestBasePriority (RequestBasePriority)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/e616cc07e9e84b75aae74f0c458061091d611755
+Description: Priority of the request - 1: low, 2: normal, 3: high
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+ENUM:
+  Values: 1, 2, 3
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RequestBasePriority
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RequestCategory (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RequestCategory`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RequestCategory (RequestCategory)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/RequestCategory
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, name
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+  id: string [required]
+    Description: Unique ID of the category (slug ID)
+
+  name: string [required]
+    Description: Name of the category
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RequestCategory
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RequestComputedFieldsStatus (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RequestComputedFieldsStatus`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RequestComputedFieldsStatus (RequestComputedFieldsStatus)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/5614592567f7ba3571f08b43d9d3a9b8456db10d
+Description: Status of the request. Possible values: `created`, `opened`, `pending`, `closed` and `archived`.
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+ENUM:
+  Values: created, opened, pending, closed, archived
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RequestComputedFieldsStatus
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RequestFeedback (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RequestFeedback`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RequestFeedback (RequestFeedback)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/RequestFeedback
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: created_at, rate, comment
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+  created_at: string? [nullable]
+
+  rate: double? [nullable]
+    Description: Rate of the feedback, between 1 and 5
+
+  comment: string? [nullable]
+    Description: Comment of the feedback
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RequestFeedback
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RequestFormDataFieldValue (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RequestFormDataFieldValue`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RequestFormDataFieldValue (RequestFormDataFieldValue)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/RequestFormDataFieldValue
+Description: No description
+Primary Key: FieldId
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: field_id, values
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+  field_id: string [required]
+    Description: Unique ID of the form field
+
+  values: string[] [required]
+    Description: Answer given by the assignee in the form field as an array of values. Value type depends of the field type:
+  - dataset: {"id": string, "name": string}
+  - file: {"upload_id": string}
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RequestFormDataFieldValue
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+UserSimplified (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `UserSimplified`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: UserSimplified (UserSimplified)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/UserSimplified
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.RequestFullWithAttachments
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 5
+  Total fields: 5
+  All field names: id, firstname, lastname, email, external_id
+
+PARENT CONTEXT:
+  Parent Class: RequestFullWithAttachmentsDataObject
+  Parent Description: No description
+  Parent Field Count: 35
+  Parent Field Names: id, request_number, status, read_by_employee, public_comment_count, internal_comment_count, total_comment_count, public_deleted_comment_count, internal_deleted_comment_count, total_deleted_comment_count, attachment_count, read_only, visible_by_employee, need_edit_by_employee, created_at, updated_at, closed_at, archived_at, name, priority, employee, employee_id, creator, creator_id, closed_by, closed_by_id, organization_ids, form_id, form_files, due_date, custom_status, category, form_data, feedback, attachments
+  Parent Nested Types: CustomStatusField, EmployeeSimplified, FormFile, RequestAttachment, RequestBasePriority, RequestCategory, RequestComputedFieldsStatus, RequestFeedback, RequestFormDataFieldValue, UserSimplified
+
+FIELDS (this page):
+----------------------------------------
+  id: string [required]
+    Description: Unique ID of the User
+
+  firstname: string [required]
+    Description: First name of the User
+
+  lastname: string [required]
+    Description: Last name of the User
+
+  email: string? [nullable]
+    Description: Email address of the User
+
+  external_id: string? [nullable]
+    Description: Unique ID of the User defined in the HRIS
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class UserSimplified
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

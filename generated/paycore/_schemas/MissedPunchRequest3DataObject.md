@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: MissedPunchRequest3
 - Schema ID: schema:components/MissedPunchRequest3
-- Primary Key: Employeeid
 
 ### Fields
 
@@ -22,6 +21,7 @@
 
 ### Nested Types
 - `LaborCode3`
+- `PunchStatusType`
 
 ## LaborCode3
 - Role: nested
@@ -35,3 +35,14 @@
 |------|------|
 | `laborCategoryId` | `string` |
 | `laborCodeId` | `string` |
+
+## PunchStatusType
+- Role: nested
+- Parent: MissedPunchRequest3DataObject
+- Schema Name: PunchStatusType
+- Schema ID: schema:components/PunchStatusType
+
+### Enum
+
+Values: Auto, In, Out, Transfer
+Names: Auto, In, Out, Transfer

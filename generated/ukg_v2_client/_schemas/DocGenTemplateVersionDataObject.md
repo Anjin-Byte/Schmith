@@ -4,7 +4,6 @@
 - Role: parent
 - Schema Name: DocGenTemplateVersion
 - Schema ID: schema:definitions/DocGenTemplateVersion
-- Primary Key: CreatedAt
 
 ### Fields
 

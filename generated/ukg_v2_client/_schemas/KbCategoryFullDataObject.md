@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: KbCategoryFull
 - Schema ID: schema:definitions/KbCategoryFull
-- Primary Key: CreatedAt
+- Primary Key: Id
 
 ### Fields
 
@@ -22,3 +22,19 @@
 | `id` | `string` |
 | `slug` | `string` |
 | `order` | `double` |
+
+### Nested Types
+- `LocalizedString`
+
+## LocalizedString
+- Role: nested
+- Parent: KbCategoryFullDataObject
+- Schema Name: LocalizedString
+- Schema ID: schema:definitions/LocalizedString
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `language_code` | `string` |
+| `value` | `string` |

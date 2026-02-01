@@ -4,6 +4,7 @@
 - Role: parent
 - Schema Name: RequestPostComment
 - Schema ID: schema:definitions/RequestPostComment
+- Primary Key: CreatorId
 
 ### Fields
 

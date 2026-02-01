@@ -22,6 +22,7 @@
 - Parent: PagedResultOfScheduleGroupDataObject
 - Schema Name: ScheduleGroup
 - Schema ID: schema:components/ScheduleGroup
+- Primary Key: Id
 
 ### Fields
 

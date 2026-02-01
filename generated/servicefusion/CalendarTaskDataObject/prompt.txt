@@ -41,7 +41,8 @@ SCHEMA: CalendarTaskDataObject (CalendarTask)
 API Name: servicefusion
 Schema ID: schema:types/typ.CalendarTask
 Description: A calendar task's schema.
-Primary Key: UsersId
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.CalendarTask
 Role: parent
 
@@ -140,7 +141,8 @@ SCHEMA: CalendarTaskDataObject (CalendarTask)
 API Name: servicefusion
 Schema ID: schema:types/typ.CalendarTask
 Description: A calendar task's schema.
-Primary Key: UsersId
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.CalendarTask
 Role: parent
 
@@ -228,7 +230,8 @@ SCHEMA: CalendarTaskDataObject (CalendarTask)
 API Name: servicefusion
 Schema ID: schema:types/typ.CalendarTask
 Description: A calendar task's schema.
-Primary Key: UsersId
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.CalendarTask
 Role: parent
 
@@ -243,16 +246,16 @@ Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  users_id: items[] [required]
+  users_id: int[] [required]
     Description: The calendar task's users list of identifiers.
 
-  customers_id: items[] [required]
+  customers_id: int[] [required]
     Description: The calendar task's customers list of identifiers.
 
-  jobs_id: items[] [required]
+  jobs_id: int[] [required]
     Description: The calendar task's jobs list of identifiers.
 
-  estimates_id: items[] [required]
+  estimates_id: int[] [required]
     Description: The calendar task's estimates list of identifiers.
 
   repeat: CalendarTaskRepeat? [nullable]
@@ -313,7 +316,8 @@ SCHEMA: CalendarTaskRepeat (CalendarTaskRepeat)
 API Name: servicefusion
 Schema ID: schema:types/typ.CalendarTaskRepeat
 Description: A calendar task repeat's schema.
-Primary Key: RepeatWeeklyDays
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.CalendarTask
 Role: nested
 
@@ -326,6 +330,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: CalendarTaskDataObject
   Parent Description: A calendar task's schema.
+
   Parent Field Count: 17
   Parent Field Names: id, type, description, start_time, end_time, start_date, end_date, created_at, updated_at, is_public, is_completed, repeat_id, users_id, customers_id, jobs_id, estimates_id, repeat
   Parent Nested Types: CalendarTaskRepeat
@@ -341,7 +346,7 @@ FIELDS (this page):
   repeat_frequency: int? [nullable]
     Description: The repeat's frequency.
 
-  repeat_weekly_days: items[] [required]
+  repeat_weekly_days: string[] [required]
     Description: The repeat's weekly days list.
 
   repeat_monthly_type: string? [nullable]
@@ -403,7 +408,8 @@ SCHEMA: CalendarTaskRepeat (CalendarTaskRepeat)
 API Name: servicefusion
 Schema ID: schema:types/typ.CalendarTaskRepeat
 Description: A calendar task repeat's schema.
-Primary Key: RepeatWeeklyDays
+
+Primary Key: Id
 Namespace: Connector.servicefusion.v1.CalendarTask
 Role: nested
 
@@ -416,6 +422,7 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: CalendarTaskDataObject
   Parent Description: A calendar task's schema.
+
   Parent Field Count: 17
   Parent Field Names: id, type, description, start_time, end_time, start_date, end_date, created_at, updated_at, is_public, is_completed, repeat_id, users_id, customers_id, jobs_id, estimates_id, repeat
   Parent Nested Types: CalendarTaskRepeat

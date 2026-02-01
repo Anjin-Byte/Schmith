@@ -41,7 +41,7 @@ SCHEMA: EmployeePunch4DataObject (EmployeePunch4)
 API Name: paycore
 Schema ID: schema:components/EmployeePunch4
 Description: The Update EmployeePunch model includes fields that can be updated on an existing EmployeePunch.
-Primary Key: Punchid
+            
 Namespace: Connector.paycore.v1.EmployeePunch4
 Role: parent
 
@@ -51,7 +51,7 @@ PAGING:
   Total fields: 10
   All field names: punchId, punchRefId, punchDateTime, punchStatusType, isTransfer, activityTypeId, departmentId, note, laborCodes, workLocationId
 
-NESTED TYPES: LaborCode3
+NESTED TYPES: LaborCode3, PunchStatusType
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -82,12 +82,6 @@ By adding a transfer punch the application effectively captures these transition
 providing an overview of employee movements between different departments or labor types.
 While updating a punch, if 'IsTransfer' is set to 'null', It will keep the current state.
 
-
-RELATED TYPES (for nested objects):
-----------------------------------------
-
-  PunchStatusType:
-    Description: Enumeration of Valid Type of Status values. Default value is 'Auto'. If not provided, the system will default to 'Auto'.
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
@@ -154,7 +148,7 @@ SCHEMA: EmployeePunch4DataObject (EmployeePunch4)
 API Name: paycore
 Schema ID: schema:components/EmployeePunch4
 Description: The Update EmployeePunch model includes fields that can be updated on an existing EmployeePunch.
-Primary Key: Punchid
+            
 Namespace: Connector.paycore.v1.EmployeePunch4
 Role: parent
 
@@ -164,7 +158,7 @@ PAGING:
   Total fields: 10
   All field names: punchId, punchRefId, punchDateTime, punchStatusType, isTransfer, activityTypeId, departmentId, note, laborCodes, workLocationId
 
-NESTED TYPES: LaborCode3
+NESTED TYPES: LaborCode3, PunchStatusType
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -254,9 +248,10 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: EmployeePunch4DataObject
   Parent Description: The Update EmployeePunch model includes fields that can be updated on an existing EmployeePunch.
+            
   Parent Field Count: 10
   Parent Field Names: punchId, punchRefId, punchDateTime, punchStatusType, isTransfer, activityTypeId, departmentId, note, laborCodes, workLocationId
-  Parent Nested Types: LaborCode3
+  Parent Nested Types: LaborCode3, PunchStatusType
 
 FIELDS (this page):
 ----------------------------------------
@@ -270,6 +265,85 @@ FIELDS (this page):
 EXAMPLE CODE PATTERN:
 ----------------------------------------
 public class LaborCode3
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+PunchStatusType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `PunchStatusType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: PunchStatusType (PunchStatusType)
+============================================================
+API Name: paycore
+Schema ID: schema:components/PunchStatusType
+Description: Enumeration of Valid Type of Status values. Default value is 'Auto'. If not provided, the system will default to 'Auto'.
+Namespace: Connector.paycore.v1.EmployeePunch4
+Role: nested
+
+ENUM:
+  Values: Auto, In, Out, Transfer
+  Names: Auto, In, Out, Transfer
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: EmployeePunch4DataObject
+  Parent Description: The Update EmployeePunch model includes fields that can be updated on an existing EmployeePunch.
+            
+  Parent Field Count: 10
+  Parent Field Names: punchId, punchRefId, punchDateTime, punchStatusType, isTransfer, activityTypeId, departmentId, note, laborCodes, workLocationId
+  Parent Nested Types: LaborCode3, PunchStatusType
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class PunchStatusType
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]

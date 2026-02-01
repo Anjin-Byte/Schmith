@@ -4,7 +4,7 @@
 - Role: parent
 - Schema Name: EmployeePartialUpdatePayload
 - Schema ID: schema:definitions/EmployeePartialUpdatePayload
-- Primary Key: Firstname
+- Primary Key: ExternalId
 
 ### Fields
 
