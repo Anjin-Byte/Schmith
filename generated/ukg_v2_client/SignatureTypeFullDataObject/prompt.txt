@@ -58,15 +58,17 @@ FIELDS (this page):
 ----------------------------------------
   id: string [required]
     Description: ID of the signature type
+    Constraints: maxLength=100
 
   backend_code: SignatureTypePayloadBackendCode [required]
     Description: ID of the signature backend that is used for this signature type
     Enum: docusign, docusign_protect_and_sign, adobesign
+    Constraints: enum=['docusign', 'docusign_protect_and_sign', 'adobesign']
 
   display_in_ui: bool? [nullable]
     Description: Should the signature type be displayed in the interface (`true`) or invisible in the interface and only used by API (`false)`
 
-  title: string? [nullable]
+  title: string? [nullable, read-only]
     Description: Title of the signature type in the client default language
 
   localized_title: LocalizedString[] [required]
@@ -153,7 +155,7 @@ Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  description: string? [nullable]
+  description: string? [nullable, read-only]
     Description: Description of the signature type in the client default language
 
   localized_description: LocalizedString[] [required]
@@ -241,6 +243,7 @@ FIELDS (this page):
   storage_profile: SignatureTypePayloadStorageProfile? [nullable]
     Description: Only available if `backend_code` is set to `docusign_protect_and_sign`. Should signed document (employee copy only) and the proof audit trail be archived in Document Manager internal archiving system only (``peopledoc_sae``) or also separately archived in other systems. Other system include CDC Arkhinéo (France): ``fr_cdc``. External storage can only be activated according to specific contract terms
     Enum: peopledoc-sae, fr-cdc
+    Constraints: enum=['peopledoc-sae', 'fr-cdc']
 
   signer_can_reject: bool? [nullable]
     Description: Only available if `backend_code` is set to `docusign_protect_and_sign`. Should the signer be able to reject a document
@@ -250,6 +253,7 @@ FIELDS (this page):
 
   template_id: string? [nullable]
     Description: Only available if `backend_code` is set to `docusign`. DocuSign template ID. If set, the provided DocuSign template will be used instead of an uploaded document in the signature process
+    Constraints: maxLength=36
 
   external_authentication: bool? [nullable]
     Description: Only available if `backend_code` is set to `docusign` and `display_in_ui` is set to `false`. Should the DocuSign authentication feature be enabled. An access code will be passed via API for each signer. DocuSign will then handle the double authentication with the passed code. UKG HR Service Delivery is not responsible to provide the code to the employee. Only use when made mandatory by the client
@@ -329,6 +333,7 @@ FIELDS (this page):
 
   docusign_provider: string? [nullable]
     Description: DocuSign signature provider code to use for Advanced Electronic Signature and/or Qualified Electronic Signature
+    Constraints: maxLength=100
 
   docusign_protect_and_sign_settings: DocusignProtectAndSignSettings? [nullable]
     Description: "Only available (and required) if `backend_code` is set to `docusign_protect_and_sign`"
@@ -414,6 +419,7 @@ FIELDS (this page):
   mode: 2FASettingsMode? [nullable]
     Description: Selection of the two factor authentication (2FA) methods that the user will be able to choose for protecting signature processes linked to this signature type. If `sms` is set, only SMS will be available. If `email` is set, both SMS and email will be available. When email is available, it will always appear initially selected in the interface. The email 2FA method doesn't add the same level of protection and should only be activated on last resort, when the users can't access the signers phone number
     Enum: sms, email
+    Constraints: enum=['sms', 'email']
 
   value_user: bool? [nullable]
     Description: Default value indicating whether the SMS 2FA will be initially selected or not in the signature process creation interface when adding a signer of type `user`. The final choice on whether or not to activate the SMS 2FA will always be made at signature process creation time
@@ -578,12 +584,15 @@ FIELDS (this page):
 ----------------------------------------
   app_id: string [required]
     Description: ID of the DocuSign Protect & Sign application
+    Constraints: maxLength=100
 
   server_id: string [required]
     Description: ID of the DocuSign Protect & Sign server
+    Constraints: maxLength=100
 
   spare_id: string [required]
     Description: Spare ID
+    Constraints: maxLength=14
 
 
 EXAMPLE CODE PATTERN:
@@ -662,18 +671,23 @@ FIELDS (this page):
 ----------------------------------------
   root_url: string [required]
     Description: URL of the DocuSign service
+    Constraints: maxLength=100
 
   username: string [required]
     Description: Username of the DocuSign user
+    Constraints: maxLength=100
 
   password: string [required]
     Description: Password of the DocuSign user
+    Constraints: maxLength=100
 
   integrator_key: string [required]
     Description: DocuSign Integrator Key
+    Constraints: maxLength=100
 
   account_id: string [required]
     Description: DocuSign Account ID
+    Constraints: maxLength=100
 
 
 EXAMPLE CODE PATTERN:

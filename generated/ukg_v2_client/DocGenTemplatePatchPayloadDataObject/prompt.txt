@@ -67,6 +67,7 @@ FIELDS (this page):
   format: DocGenTemplatePatchPayloadFormat? [nullable]
     Description: The template document format
     Enum: DOCX, PDF, DOC, ODT, UNKNOWN
+    Constraints: enum=['DOCX', 'PDF', 'DOC', 'ODT', 'UNKNOWN']
 
   enabled: bool? [nullable]
     Description: A flag that describes if it is possible to generate a document using the template

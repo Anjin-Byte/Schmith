@@ -158,6 +158,7 @@ FIELDS (this page):
   electronic_vault_state: ElectronicVaultOptionsComputedFieldsElectronicVaultState? [nullable]
     Description: Every new employee has to activate their electronic vault. Therefore the state is first described as `not_activated`. Then, when an employee opens their electronic vault, it is reported as `activated`. However the owner of an electronic vault can request its deletion. When it is the case, the state of the Electronic Vault is updated to `pending_deletion`. When the deletion is effective, the state of the Electronic Vault is then `deleted`. At last, when `electronic_vault_subscription_enabled` is set to `false`, the employee can not open an electronic vault, its state is then `not_available`
     Enum: activated, not_activated, not_available, pending_deletion, deleted
+    Constraints: enum=['activated', 'not_activated', 'not_available', 'pending_deletion', 'deleted']
 
   electronic_payslips_choice_updated_at: string? [nullable]
     Description: Date of the last update regarding the choice of the Employee to receive their payslips digitally or not
@@ -165,6 +166,7 @@ FIELDS (this page):
   electronic_payslips_choice_origin: ElectronicVaultOptionsComputedFieldsElectronicPayslipsChoiceOrigin? [nullable]
     Description: Origin of the Employee choice regarding the distribution of their payslips digitally. `mypeopledoc` if the Employee did their choice from their electronic vault. `peopledoc` if the choice has been executed on behalf of the Employee in UKG HR Service Delivery
     Enum: mypeopledoc, peopledoc
+    Constraints: enum=['mypeopledoc', 'peopledoc']
 
 
 EXAMPLE CODE PATTERN:

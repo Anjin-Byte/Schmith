@@ -34,6 +34,10 @@ def format_fields_section(fields: list[dict], indent: str = "  ") -> list[str]:
             attrs.append("nullable")
         if field.get("deprecated"):
             attrs.append("deprecated")
+        if field.get("read_only"):
+            attrs.append("read-only")
+        if field.get("write_only"):
+            attrs.append("write-only")
 
         attr_str = f" [{', '.join(attrs)}]" if attrs else ""
         type_str = field["csharp_type"]
@@ -49,6 +53,10 @@ def format_fields_section(fields: list[dict], indent: str = "  ") -> list[str]:
             enum_names = field.get("enum_names")
             if isinstance(enum_names, list) and enum_names:
                 lines.append(f"{indent}  Enum Names: {', '.join(str(v) for v in enum_names)}")
+        constraints = field.get("constraints") or {}
+        if constraints:
+            parts = [f"{k}={v}" for k, v in constraints.items()]
+            lines.append(f"{indent}  Constraints: {', '.join(parts)}")
         lines.append("")
     return lines
 

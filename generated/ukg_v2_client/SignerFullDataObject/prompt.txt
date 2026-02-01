@@ -63,6 +63,7 @@ FIELDS (this page):
 - `employee`: the signer is an employee already registered in the HRIS
 - `external`: the signer can be anyone with a valid e-mail address
     Enum: organization, user, employee, external
+    Constraints: enum=['organization', 'user', 'employee', 'external']
 
   signature_positions: SignaturePosition[]? [nullable]
     Description: This attribute is only used with Protect & Sign
@@ -75,6 +76,7 @@ FIELDS (this page):
 
   first_name: string [required]
     Description: First name of the signer. Only mandatory when `type` is `external`
+    Constraints: maxLength=70
 
 
 EXAMPLE CODE PATTERN:
@@ -159,15 +161,18 @@ FIELDS (this page):
 ----------------------------------------
   last_name: string [required]
     Description: Last name of the signer. Only mandatory when `type` is `external`
+    Constraints: maxLength=70
 
   language: string? [nullable]
     Description: Language of the signer. Used only when `type` is `external`
 
   email_address: string? [nullable]
     Description: Email address used for the signature process. Only mandatory when `type` is `external`. If the email address is not indicated and the `type` is `employee` or `user`, the email address registered under the user or employee’s profile will be used
+    Constraints: maxLength=254
 
   mobile_phone_number: string? [nullable]
     Description: Mobile phone number used for the signature process
+    Constraints: maxLength=50
 
   signature_process_id: string [required]
     Description: ID of the signature process
@@ -256,6 +261,7 @@ FIELDS (this page):
 
   message: string? [nullable]
     Description: Personal message that will be sent to the signer
+    Constraints: maxLength=550
 
 
 EXAMPLE CODE PATTERN:
@@ -336,7 +342,7 @@ FIELDS (this page):
   id: string? [nullable]
     Description: ID of the signer
 
-  signed_at: string? [nullable]
+  signed_at: string? [nullable, read-only]
     Description: Timestamp by which the signer has signed the document
 
   state: SignerState? [nullable]
@@ -422,6 +428,7 @@ FIELDS (this page):
     Description: Specifies the unit used for the `x`, `y`, `width` and `height` attributes
 When the server sends the resource, the unit is always `pt`
     Enum: cm, inch, pt
+    Constraints: enum=['cm', 'inch', 'pt']
 
   x: double? [nullable]
     Description: Distance between the left edge of the document and the left border of the signer's seal

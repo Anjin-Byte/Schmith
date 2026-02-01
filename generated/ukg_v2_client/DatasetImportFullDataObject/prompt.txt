@@ -67,10 +67,12 @@ FIELDS (this page):
   status: DatasetImportComputedFieldsStatus [required]
     Description: Status of the Import
     Enum: queued, in_progress, finished
+    Constraints: enum=['queued', 'in_progress', 'finished']
 
   result: DatasetImportComputedFieldsResult [required]
     Description: Result of the Import
     Enum: success, partial_success, error
+    Constraints: enum=['success', 'partial_success', 'error']
 
 
 EXAMPLE CODE PATTERN:
@@ -156,6 +158,7 @@ FIELDS (this page):
   origin: DatasetImportComputedFieldsOrigin? [nullable]
     Description: The origin of the request
     Enum: api, sftp, web
+    Constraints: enum=['api', 'sftp', 'web']
 
   creator_id: string? [nullable]
     Description: `ID` of the user who created the import

@@ -58,6 +58,7 @@ FIELDS (this page):
   format: DocGenTemplateVersionUpdatePayloadFormat? [nullable]
     Description: The template document format
     Enum: DOCX, PDF, DOC, ODT, UNKNOWN
+    Constraints: enum=['DOCX', 'PDF', 'DOC', 'ODT', 'UNKNOWN']
 
   output_format: OutputFormatPatchRequest? [nullable]
     Description: The activated/deactivated output formats for generation
@@ -65,6 +66,7 @@ FIELDS (this page):
   syntax_version: DocGenTemplateVersionUpdatePayloadSyntaxVersion? [nullable]
     Description: Specifies which syntax version to use (the old syntax using mergefields is `V1`, the new syntax is `V2`).
     Enum: V1, V2
+    Constraints: enum=['V1', 'V2']
 
   template_information: GenerationInfo[]? [nullable]
     Description: List of errors found in the document template. This parameter will be absent if there are no errors
@@ -403,6 +405,7 @@ FIELDS (this page):
   severity: GenerationInfoSeverity? [nullable]
     Description: Criticity of the error. When strict is true, the field must be an exact match with the template. Otherwise the severity will be ERROR.
     Enum: ERROR, WARNING
+    Constraints: enum=['ERROR', 'WARNING']
 
 
 EXAMPLE CODE PATTERN:
@@ -558,6 +561,7 @@ FIELDS (this page):
   format: OutputFormatPatchRequestFormat? [nullable]
     Description: Each key of this object is a format from the enum below. It's possible to only specify the values you want to edit. The value of the pair is a boolean that specifies if the format is activated or not. (true = activated). In the example here we forbid ODT and allow PDF, all other output formats are not modified.
     Enum: DOC, DOCX, ODT, PDF
+    Constraints: enum=['DOC', 'DOCX', 'ODT', 'PDF']
 
 
 EXAMPLE CODE PATTERN:

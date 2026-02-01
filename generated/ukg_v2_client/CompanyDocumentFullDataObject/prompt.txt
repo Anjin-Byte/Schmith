@@ -163,10 +163,12 @@ FIELDS (this page):
   origin: CompanyDocumentComputedFieldsOrigin [required]
     Description: Origin of the Document
     Enum: api, doc_management, mass_mailing, web
+    Constraints: enum=['api', 'doc_management', 'mass_mailing', 'web']
 
   origin_details: CompanyDocumentComputedFieldsOriginDetails [required]
     Description: Depending on the origin of the document and when suitable, provides more details on its origin. Otherwise its value is set to null
     Enum: mass_mailing, user
+    Constraints: enum=['mass_mailing', 'user']
 
   sender_id: string? [nullable]
     Description: ID of the user or employee who uploaded the document

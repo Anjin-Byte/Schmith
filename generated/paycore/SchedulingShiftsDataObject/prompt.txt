@@ -316,9 +316,11 @@ FIELDS (this page):
 
   scheduleGroupId: string [required]
     Description: Unique identifier of the schedule group associated with the shift.
+    Constraints: minLength=1
 
   schedulingJobId: string [required]
     Description: Unique identifier of the job associated with the shift.
+    Constraints: minLength=1
 
 
 EXAMPLE CODE PATTERN:
@@ -396,15 +398,18 @@ FIELDS (this page):
 ----------------------------------------
   startDateTime: string [required]
     Description: Begin date and time of the shift, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ (ISO-8601 standard)
+    Constraints: minLength=1
 
   endDateTime: string [required]
     Description: End date and time of the shift, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ (ISO-8601 standard)
+    Constraints: minLength=1
 
   notes: string? [nullable]
     Description: Shift's notes.
 
   departmentId: string [required]
     Description: Unique identifier of the department associated with the shift.
+    Constraints: minLength=1
 
   workSiteId: string? [nullable]
     Description: Unique identifier of the work site associated with the shift.
@@ -495,6 +500,7 @@ FIELDS (this page):
     Description: Unique identifier representing this Shift.
 This is not ID of the shift, but a unique identifier of the shift during the process of creation.
 Shift Model Id must be a unique value inside shift bach.
+    Constraints: minLength=1
 
   workLocationId: string? [nullable]
     Description: Unique identifier of the work location associated with the shift, from the Paycor system.

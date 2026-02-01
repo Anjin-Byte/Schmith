@@ -500,6 +500,7 @@ The field is computed from `terminated` and `starting_date` fields:
 - Otherwise, if `starting_date` is in the future, `status` is `pre_hired`.
 - Finally, if `starting_date` is anterior to today, `status` is `active`.
     Enum: pre_hired, active, terminated
+    Constraints: enum=['pre_hired', 'active', 'terminated']
 
   id: string [required]
     Description: ID of the Employee

@@ -57,12 +57,14 @@ FIELDS (this page):
 ----------------------------------------
   title: string? [nullable]
     Description: A title to identify the Form. e.g.: 'I am changing my address.'
+    Constraints: maxLength=256
 
   description: string? [nullable]
     Description: A full-length description of the Form.
 
   fields: FormidableField[] [required]
     Description: Array of objects that specify the fields of the form
+    Constraints: uniqueItems=True
 
   conditions: FormidableConditionalRule[]? [nullable]
     Description: Object sets the conditions for executing the condition
@@ -157,6 +159,7 @@ FIELDS (this page):
   action: FormidableConditionalRuleAction [required]
     Description: Objects that define the conditional rule behavior.
     Enum: display_iff
+    Constraints: enum=['display_iff']
 
   tests: FormidableConditionalRuleTest[] [required]
     Description: Array containing the field that will trigger the condition
@@ -319,6 +322,7 @@ FIELDS (this page):
   operator: FormidableConditionalRuleTestOperator [required]
     Description: operator for the condition.
     Enum: eq
+    Constraints: enum=['eq']
 
   values: Anonymous_bf21a9e8[] [required]
     Description: value to check to trigger the condition
@@ -478,6 +482,7 @@ FIELDS (this page):
   type_id: FormidableFieldTypeId [required]
     Description: Type of the field.
     Enum: short_text, number, date, dropdown, multiple_answer, single_answer, long_text, checkbox, email, title, separator, dataset, instruction, file
+    Constraints: enum=['short_text', 'number', 'date', 'dropdown', 'multiple_answer', 'single_answer', 'long_text', 'checkbox', 'email', 'title', 'separator', 'dataset', 'instruction', 'file']
 
   slug: string [required]
     Description: Field slug, it's the identifier inside the Form scope.
@@ -920,6 +925,7 @@ FIELDS (this page):
   type: FormidableFieldValidationType [required]
     Description: Validator ID. This is a unique id of the validator
     Enum: MAXLENGTH, MINLENGTH, EQ, NEQ, GT, GTE, LT, LTE, IS_AGE_UNDER, IS_AGE_ABOVE, IS_DATE_IN_THE_FUTURE, REGEXP
+    Constraints: enum=['MAXLENGTH', 'MINLENGTH', 'EQ', 'NEQ', 'GT', 'GTE', 'LT', 'LTE', 'IS_AGE_UNDER', 'IS_AGE_ABOVE', 'IS_DATE_IN_THE_FUTURE', 'REGEXP']
 
   value: string [required]
     Description: Value to be used by the validation rule. For example validator with a type `MAXLENGTH` and value `10`

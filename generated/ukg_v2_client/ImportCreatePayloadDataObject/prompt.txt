@@ -58,6 +58,7 @@ FIELDS (this page):
   type: ImportBaseType [required]
     Description: Type of import
     Enum: employee, manager, organization
+    Constraints: enum=['employee', 'manager', 'organization']
 
   creator: string? [nullable]
     Description: The `ID` of the user who created the import

@@ -194,6 +194,7 @@ def build_field(
         "read_only": field_schema.get("readOnly"),
         "write_only": field_schema.get("writeOnly"),
         "examples": field_schema.get("examples"),
+        "constraints": extract_constraints(field_schema),
         "json_pointer": pointer,
         "items_schema_id": items_schema_id,
         "provenance": provenance.__dict__,

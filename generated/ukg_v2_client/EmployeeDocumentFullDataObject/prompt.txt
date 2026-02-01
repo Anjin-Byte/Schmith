@@ -166,10 +166,12 @@ FIELDS (this page):
   origin: EmployeeDocumentComputedFieldsOrigin [required]
     Description: Origin of the Document
     Enum: api, distribution, doc_management, mass_mailing, signature, web
+    Constraints: enum=['api', 'distribution', 'doc_management', 'mass_mailing', 'signature', 'web']
 
   origin_details: EmployeeDocumentComputedFieldsOriginDetails [required]
     Description: Depending on the origin of the document and when suitable, provides more details on its origin. Otherwise its value is set to null
     Enum: drop_in_vault, employee, mass_mailing, signature, user
+    Constraints: enum=['drop_in_vault', 'employee', 'mass_mailing', 'signature', 'user']
 
 
 EXAMPLE CODE PATTERN:

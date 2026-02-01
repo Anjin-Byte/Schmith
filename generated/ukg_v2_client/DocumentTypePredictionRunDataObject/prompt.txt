@@ -65,6 +65,7 @@ FIELDS (this page):
   status: _RunStatus [required]
     Description: Status of the run
     Enum: SCHEDULED, IN_PROGRESS, DONE, FAILED
+    Constraints: enum=['SCHEDULED', 'IN_PROGRESS', 'DONE', 'FAILED']
 
   error_code: string [required]
     Description: An error code if the prediction `FAILED`. `null` otherwise.

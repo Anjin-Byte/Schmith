@@ -53,8 +53,9 @@ PAGING:
 
 FIELDS (this page):
 ----------------------------------------
-  id: string? [nullable]
+  id: string? [nullable, read-only]
     Description: Unique ID of the pdf template
+    Constraints: pattern=^[a-z0-9\-\_]+$
 
   name: string? [nullable]
     Description: The name of the pdf template
@@ -65,8 +66,9 @@ FIELDS (this page):
   document_type_id: string? [nullable]
     Description: The document type ID, if the document is send to rh2
 
-  process_form_id: string? [nullable]
+  process_form_id: string? [nullable, read-only]
     Description: The ID of the process form associated to the pdf template
+    Constraints: pattern=^[a-z0-9\-\_]+$
 
 
 EXAMPLE CODE PATTERN:

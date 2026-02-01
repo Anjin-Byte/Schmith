@@ -56,12 +56,14 @@ Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  id: string? [nullable]
+  id: string? [nullable, read-only]
     Description: The ID of the task template
+    Constraints: pattern=^[a-z0-9\-\_]+$
 
   type: TaskTemplatesType? [nullable]
     Description: The type of the task template. The type can't be modified
     Enum: acknowledgment, basic, fill_form, fill_pdf, signature, validation
+    Constraints: enum=['acknowledgment', 'basic', 'fill_form', 'fill_pdf', 'signature', 'validation']
 
   name: string? [nullable]
     Description: The name of the task template
@@ -69,8 +71,9 @@ FIELDS (this page):
   description: string? [nullable]
     Description: Optional text to describe the task template
 
-  process_template_id: string? [nullable]
+  process_template_id: string? [nullable, read-only]
     Description: Unique id of the associated process template
+    Constraints: pattern=^[a-z0-9\-\_]+$
 
 
 EXAMPLE CODE PATTERN:
@@ -156,15 +159,18 @@ FIELDS (this page):
   assigned_to: TaskTemplatesAssignedTo? [nullable]
     Description: Indicate who will complete the task
     Enum: users, employee
+    Constraints: enum=['users', 'employee']
 
   depends_on_id: string? [nullable]
     Description: The ID of the task template ran before
+    Constraints: pattern=^[a-z0-9\-\_]+$
 
   fetch_previous_data: bool? [nullable]
     Description: Share information with the parent task
 
   role_id: string? [nullable]
     Description: ID of the role who will complete or monitor the task
+    Constraints: pattern=^[a-z0-9\-\_]+$
 
 
 EXAMPLE CODE PATTERN:

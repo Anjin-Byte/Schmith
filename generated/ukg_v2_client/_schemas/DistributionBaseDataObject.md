@@ -14,17 +14,17 @@
 | `distribution_type_id` | `string` |
 | `distribution_project_id` | `string` |
 | `file_id` | `string` |
-| `distribution_error` | `Anonymous_850a291e` |
+| `distribution_error` | `DistributionError` |
 
 ### Nested Types
-- `Anonymous_850a291e`
+- `DistributionError`
 - `DistributionErrorErrorType`
 
-## Anonymous_850a291e
+## DistributionError
 - Role: nested
 - Parent: DistributionBaseDataObject
-- Schema Name: Anonymous_850a291e
-- Schema ID: schema:anon/850a291e339f1b592811ed97bc7a8664d8219476
+- Schema Name: DistributionError
+- Schema ID: schema:definitions/DistributionError
 - Primary Key: Id
 
 ### Fields

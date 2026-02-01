@@ -61,6 +61,7 @@ FIELDS (this page):
 If an `organization_id` is specified, can be one of "=" or "<=".
 Otherwise if an `organization_group_id` is specified, it must be set to "="
     Enum: =, <=
+    Constraints: enum=['=', '<=']
 
   organization_id: string? [nullable]
     Description: The User will have access to employees associated to this organization, or its children organizations depending on the operator
@@ -169,6 +170,7 @@ FIELDS (this page):
 "<=", "<", ">" and ">=" are only allowed for custom fields of type `integer`
 for which the hierarchical attribute has been set to `true`
     Enum: =, !=, <=, <, >=, >
+    Constraints: enum=['=', '!=', '<=', '<', '>=', '>']
 
   value: string [required]
     Description: Value to compare with the value of the custom field. This attribute is always a string, but can represent a string, an integer or a boolean depending on the type of the custom field

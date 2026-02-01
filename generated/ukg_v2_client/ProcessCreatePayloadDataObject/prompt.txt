@@ -56,11 +56,12 @@ FIELDS (this page):
   title: string [required]
     Description: Title of the process
 
-  public_title: string? [nullable]
+  public_title: string? [nullable, read-only]
     Description: Employee-facing title of the process
 
   reference: string? [nullable]
     Description: Reference of the process
+    Constraints: pattern=^proc-[0-9]+$
 
   employee_id: string [required]
     Description: Unique ID of the employee assigned to the process

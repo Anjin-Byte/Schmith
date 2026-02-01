@@ -1,6 +1,6 @@
 # Schema Coverage Report: paycore
 
-**Generated:** 2026-02-01 12:04:58
+**Generated:** 2026-02-01 13:54:05
 **IR Source:** `/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/ir/paycore`
 
 ## Summary

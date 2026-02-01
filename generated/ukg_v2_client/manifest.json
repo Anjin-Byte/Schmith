@@ -4,7 +4,7 @@
     "name": "ukg_v2_client"
   },
   "generation": {
-    "timestamp": "2026-02-01T18:04:57.481419+00:00",
+    "timestamp": "2026-02-01T19:54:05.273614+00:00",
     "grouped": true,
     "packets_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/prompt_packets/grouped/ukg_v2_client"
   },
@@ -231,7 +231,7 @@
       "schema_name": "DistributionBase",
       "schema_id": "schema:definitions/DistributionBase",
       "nested_types": [
-        "Anonymous_850a291e",
+        "DistributionError",
         "DistributionErrorErrorType"
       ],
       "source_file": "_source/DistributionBaseDataObject.cs",
@@ -1365,13 +1365,6 @@
       ]
     },
     {
-      "name": "Anonymous_850a291e",
-      "schema_id": "schema:anon/850a291e339f1b592811ed97bc7a8664d8219476",
-      "parent_roots": [
-        "DistributionBaseDataObject"
-      ]
-    },
-    {
       "name": "Anonymous_8ad3c996",
       "schema_id": "schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a",
       "parent_roots": [
@@ -1546,6 +1539,13 @@
       "schema_id": "schema:anon/b1565af67104674e5c1f8bcc9f427c452a60eab0",
       "parent_roots": [
         "DatasetImportFullDataObject"
+      ]
+    },
+    {
+      "name": "DistributionError",
+      "schema_id": "schema:definitions/DistributionError",
+      "parent_roots": [
+        "DistributionBaseDataObject"
       ]
     },
     {
@@ -2317,7 +2317,7 @@
         "schema_name": "DistributionBase",
         "schema_id": "schema:definitions/DistributionBase",
         "nested_types": [
-          "Anonymous_850a291e",
+          "DistributionError",
           "DistributionErrorErrorType"
         ],
         "source_file": "_source/DistributionBaseDataObject.cs",
@@ -3559,7 +3559,7 @@
         "LocalizedString"
       ],
       "DistributionBaseDataObject": [
-        "Anonymous_850a291e",
+        "DistributionError",
         "DistributionErrorErrorType"
       ],
       "DistributionProjectBaseDataObject": [],

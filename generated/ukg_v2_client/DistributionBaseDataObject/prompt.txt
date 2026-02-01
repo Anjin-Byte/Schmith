@@ -51,7 +51,7 @@ PAGING:
   Total fields: 5
   All field names: name, distribution_type_id, distribution_project_id, file_id, distribution_error
 
-NESTED TYPES: Anonymous_850a291e, DistributionErrorErrorType
+NESTED TYPES: DistributionError, DistributionErrorErrorType
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -68,7 +68,7 @@ FIELDS (this page):
   file_id: string [required]
     Description: Spool of files, previously uploaded, to be distributed to the employees
 
-  distribution_error: Anonymous_850a291e? [nullable]
+  distribution_error: DistributionError? [nullable, read-only]
 
 
 EXAMPLE CODE PATTERN:
@@ -92,7 +92,7 @@ public class {ClassName}
 }
 
 ================================================================================
-Anonymous_850a291e (nested) page 1/1
+DistributionError (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -126,16 +126,16 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `Anonymous_850a291e`.
+- Return ONLY the class declaration for `DistributionError`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: Anonymous_850a291e (Anonymous_850a291e)
+SCHEMA: DistributionError (DistributionError)
 ============================================================
 API Name: ukg_v2_client
-Schema ID: schema:anon/850a291e339f1b592811ed97bc7a8664d8219476
-Description: No description
+Schema ID: schema:definitions/DistributionError
+Description: Error data related to a distribution
 Primary Key: Id
 Namespace: Connector.ukg_v2_client.v1.DistributionBase
 Role: nested
@@ -151,7 +151,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 5
   Parent Field Names: name, distribution_type_id, distribution_project_id, file_id, distribution_error
-  Parent Nested Types: Anonymous_850a291e, DistributionErrorErrorType
+  Parent Nested Types: DistributionError, DistributionErrorErrorType
 
 FIELDS (this page):
 ----------------------------------------
@@ -164,6 +164,7 @@ FIELDS (this page):
   error_type: DistributionErrorErrorType [required]
     Description: Type of the error
     Enum: external, internal
+    Constraints: enum=['external', 'internal']
 
   code: string [required]
     Description: Error code describing the error
@@ -174,7 +175,7 @@ FIELDS (this page):
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class Anonymous_850a291e
+public class DistributionError
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -244,7 +245,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 5
   Parent Field Names: name, distribution_type_id, distribution_project_id, file_id, distribution_error
-  Parent Nested Types: Anonymous_850a291e, DistributionErrorErrorType
+  Parent Nested Types: DistributionError, DistributionErrorErrorType
 
 FIELDS (this page):
 ----------------------------------------

@@ -155,10 +155,12 @@ FIELDS (this page):
   last_import_status: DatasetComputedFieldsLastImportStatus? [nullable]
     Description: Status of the last import for the Data Set. `queued` if the last import has been added to the list. `in_progress` if the last import is still running. And `finished` when the last import is over.
     Enum: queued, in_progress, finished
+    Constraints: enum=['queued', 'in_progress', 'finished']
 
   last_import_result: DatasetComputedFieldsLastImportResult? [nullable]
     Description: Result of the last import for the Data Set. `error` if the last import terminated in error. `success` if the last import terminated successfully
     Enum: error, success
+    Constraints: enum=['error', 'success']
 
   created_at: string [required]
 

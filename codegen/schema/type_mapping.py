@@ -195,6 +195,11 @@ def build_field_info(
     if not required and nullable is None:
         nullable = True
 
+    constraints = prop.get("constraints")
+    if constraints is None:
+        schema = schemas_by_id.get(schema_id) if schema_id else None
+        constraints = (schema or {}).get("constraints")
+
     return {
         "json_name": json_name,
         "csharp_name": csharp_name,
@@ -210,6 +215,7 @@ def build_field_info(
         "schema_id": schema_id,
         "enum_values": enum_values,
         "enum_names": enum_names,
+        "constraints": constraints,
     }
 
 

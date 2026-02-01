@@ -65,6 +65,7 @@ FIELDS (this page):
   type: CustomFieldBaseType [required]
     Description: Custom Field type
     Enum: bool, string, list, int
+    Constraints: enum=['bool', 'string', 'list', 'int']
 
   authorized_values: AuthorizedValue[]? [nullable]
     Description: List of authorized values. Mandatory if `type` is set to `list` or `integer`

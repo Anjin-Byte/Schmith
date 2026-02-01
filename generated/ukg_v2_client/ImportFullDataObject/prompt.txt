@@ -59,6 +59,7 @@ FIELDS (this page):
   type: ImportBaseType [required]
     Description: Type of import
     Enum: employee, manager, organization
+    Constraints: enum=['employee', 'manager', 'organization']
 
   creator: string? [nullable]
     Description: The `ID` of the user who created the import
@@ -68,10 +69,12 @@ FIELDS (this page):
   status: ImportComputedFieldsStatus [required]
     Description: Status of the Import
     Enum: created, failed, in_progress, partial_success, success
+    Constraints: enum=['created', 'failed', 'in_progress', 'partial_success', 'success']
 
   origin: ImportComputedFieldsOrigin? [nullable]
     Description: The origin of the request
     Enum: api, sftp, web
+    Constraints: enum=['api', 'sftp', 'web']
 
   rows_count: int [required]
     Description: Number of rows processed during import

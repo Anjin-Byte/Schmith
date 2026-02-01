@@ -61,12 +61,15 @@ FIELDS (this page):
 
   title: string [required]
     Description: Title of the signature process that will be displayed in the UI and the various e-mails (255 characters max)
+    Constraints: maxLength=255
 
-  name: string? [nullable]
+  name: string? [nullable, read-only]
     Description: Name of the signature process generated from title or filename
+    Constraints: maxLength=255
 
   location: string? [nullable]
     Description: Location of the signature process, if applicable, will be embedded in the PDF digital signature details (255 characters max)
+    Constraints: maxLength=255
 
   expiry_date: string? [nullable]
     Description: Date after which the signature process will be expired. The expiration will occur at the end of the given day, UTC
@@ -169,8 +172,9 @@ FIELDS (this page):
 
   cancellation_comment: string? [nullable]
     Description: Optional comment when cancelling a signature
+    Constraints: maxLength=255
 
-  file_number: string? [nullable]
+  file_number: string? [nullable, read-only]
     Description: File number of the document to sign. This file number is referenced in all the notifications sent to the signers
 
 
@@ -243,10 +247,10 @@ Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  is_cancelable: bool? [nullable]
+  is_cancelable: bool? [nullable, read-only]
     Description: Indicates if the signature process can be canceled
 
-  is_deletable: bool? [nullable]
+  is_deletable: bool? [nullable, read-only]
     Description: Indicates if the signature process can be deleted
 
   message: string? [nullable]
@@ -354,6 +358,7 @@ FIELDS (this page):
 - `canceled`: set the state to `canceled` on a signature process in `draft`, `signing` or `signed` to cancel it. This state is final
 - `id_check_failed`: one signer has failed the to verify its identity. This state is final
     Enum: draft, signing, signed, sending, done, expired, rejected, error, canceled, id_check_failed
+    Constraints: enum=['draft', 'signing', 'signed', 'sending', 'done', 'expired', 'rejected', 'error', 'canceled', 'id_check_failed']
 
 
 EXAMPLE CODE PATTERN:
@@ -431,10 +436,10 @@ FIELDS (this page):
 
   sender: Anonymous_2eda0077? [nullable]
 
-  signers: Anonymous_ffa30592[]? [nullable]
+  signers: Anonymous_ffa30592[]? [nullable, read-only]
     Description: List of signers
 
-  document_organizations: Anonymous_4424aa26[]? [nullable]
+  document_organizations: Anonymous_4424aa26[]? [nullable, read-only]
     Description: Organizations used to restrict access to the document
 
 

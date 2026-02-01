@@ -56,8 +56,9 @@ Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  id: string? [nullable]
+  id: string? [nullable, read-only]
     Description: Unique ID of the process template
+    Constraints: pattern=^[a-z0-9\-\_]+$
 
   title: string? [nullable]
     Description: Title of the process template
@@ -68,7 +69,7 @@ FIELDS (this page):
   description: string? [nullable]
     Description: Optional text to describe the process
 
-  created_at: string? [nullable]
+  created_at: string? [nullable, read-only]
     Description: The process template creation date
 
 
@@ -152,12 +153,12 @@ Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  created_by: Anonymous_0d7385a1? [nullable]
+  created_by: Anonymous_0d7385a1? [nullable, read-only]
 
-  updated_at: string? [nullable]
+  updated_at: string? [nullable, read-only]
     Description: The last time the process template has been modified
 
-  updated_by: Anonymous_ab9b1eb9? [nullable]
+  updated_by: Anonymous_ab9b1eb9? [nullable, read-only]
 
   automatic_archiving: bool? [nullable]
     Description: True is there is an employee archive post process action set on this template. False by default
@@ -242,6 +243,7 @@ FIELDS (this page):
   origin: Anonymous_0d7385a1Origin? [nullable]
     Description: The origin of the process_template creation
     Enum: application, user
+    Constraints: enum=['application', 'user']
 
   id: string? [nullable]
     Description: The ID of the User who has created the process template (only applicable if origin is "user")
@@ -401,6 +403,7 @@ FIELDS (this page):
   origin: Anonymous_ab9b1eb9Origin? [nullable]
     Description: The origin of the last update of the process template
     Enum: application, user
+    Constraints: enum=['application', 'user']
 
   id: string? [nullable]
     Description: The ID of the User who has updated the process template (only applicable if origin is "user")
@@ -557,12 +560,14 @@ PARENT CONTEXT:
 
 FIELDS (this page):
 ----------------------------------------
-  id: string? [nullable]
+  id: string? [nullable, read-only]
     Description: Unique ID of the organization
+    Constraints: pattern=^[a-z0-9\-\_]+$
 
-  operator: OrganizationOperator? [nullable]
+  operator: OrganizationOperator? [nullable, read-only]
     Description: Describe hierarchy of organization
     Enum: =, <=
+    Constraints: enum=['=', '<=']
 
 
 EXAMPLE CODE PATTERN:

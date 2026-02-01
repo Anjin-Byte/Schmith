@@ -69,6 +69,7 @@ FIELDS (this page):
 
   scheduleGroupId: string [required]
     Description: Unique identifier of the schedule group associated with the shift.
+    Constraints: minLength=1
 
 
 EXAMPLE CODE PATTERN:
@@ -152,18 +153,22 @@ FIELDS (this page):
 ----------------------------------------
   schedulingJobId: string [required]
     Description: Unique identifier of the job associated with the shift.
+    Constraints: minLength=1
 
   startDateTime: string [required]
     Description: Begin date and time of the shift, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ (ISO-8601 standard)
+    Constraints: minLength=1
 
   endDateTime: string [required]
     Description: End date and time of the shift, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ (ISO-8601 standard)
+    Constraints: minLength=1
 
   notes: string? [nullable]
     Description: Shift's notes.
 
   departmentId: string [required]
     Description: Unique identifier of the department associated with the shift.
+    Constraints: minLength=1
 
 
 EXAMPLE CODE PATTERN:

@@ -54,6 +54,7 @@ FIELDS (this page):
 ----------------------------------------
   hourId: string [required]
     Description: Unique identifer of the Hour in Paycor's system.
+    Constraints: minLength=1
 
   hourRefId: string? [nullable]
     Description: Unique Reference Identifier of the hour. If this property is not null and you are attempting to update or delete a hour, it is required to provide the HourRefId of the hour that is received from Get Employee Hours by EmployeeID.

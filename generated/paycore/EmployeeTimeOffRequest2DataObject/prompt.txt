@@ -57,9 +57,11 @@ FIELDS (this page):
 ----------------------------------------
   employeeId: string [required]
     Description: Unique identifier of this employee.
+    Constraints: minLength=1
 
   timeOffTypeId: string [required]
     Description: Unique identifier used to represent the Time Off Type. TimeOffTypeID associated to an Employee. Sometimes called as Benefit Code.
+    Constraints: minLength=1
 
   status: EmployeeTimeOffRequestStatus [required]
     Description: Status of this time off request.
@@ -237,6 +239,7 @@ FIELDS (this page):
 ----------------------------------------
   date: string [required]
     Description: Date for which Time Off is being requested.
+    Constraints: minLength=1
 
   startTime: string? [nullable]
     Description: Exact start date and time for this day. Time component is needed in case of partial time off (when IsPartial is true). This is local time of the associated employee.

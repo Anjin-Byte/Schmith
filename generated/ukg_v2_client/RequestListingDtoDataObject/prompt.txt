@@ -62,6 +62,7 @@ FIELDS (this page):
   status: RequestListingDtoStatus? [nullable]
     Description: Status of the generation request
     Enum: PROCESSED, NOT_PROCESSED, RECEIVED_ASYNC, SENT_ASYNC, FAILED
+    Constraints: enum=['PROCESSED', 'NOT_PROCESSED', 'RECEIVED_ASYNC', 'SENT_ASYNC', 'FAILED']
 
   title: string? [nullable]
     Description: Title of the template used to generate document

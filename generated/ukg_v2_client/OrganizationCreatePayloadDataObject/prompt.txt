@@ -54,8 +54,10 @@ PAGING:
 FIELDS (this page):
 ----------------------------------------
   name: string [required]
+    Constraints: maxLength=255
 
   description: string? [nullable]
+    Constraints: maxLength=255
 
   parent_organization_id: string? [nullable]
 

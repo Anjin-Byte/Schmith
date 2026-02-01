@@ -57,6 +57,7 @@ FIELDS (this page):
 ----------------------------------------
   status: DocGenMigrationCampaignStatus? [nullable]
     Enum: created, started, completed, failed, canceled
+    Constraints: enum=['created', 'started', 'completed', 'failed', 'canceled']
 
   new_migration_available: bool? [nullable]
     Description: A flag that describes if a new migration can be started again.

@@ -57,18 +57,23 @@ FIELDS (this page):
 
   page_number: int [required]
     Description: Page where the occurrence was found
+    Constraints: minimum=1
 
   left: double [required]
     Description: Coordinates of the leftmost point of the smallest rectangle that can enclose all the content of the text of the found occurrence.
+    Constraints: minimum=0
 
   top: double [required]
     Description: Coordinates of the topmost point of the smallest rectangle that can enclose all the content of the text of the found occurrence.
+    Constraints: minimum=0
 
   width: double [required]
     Description: Width of the smallest rectangle that can enclose all the content of the text of the found occurrence.
+    Constraints: minimum=0
 
   height: double [required]
     Description: Height of the smallest rectangle that can enclose all the content of the text of the found occurrence.
+    Constraints: minimum=0
 
 
 EXAMPLE CODE PATTERN:

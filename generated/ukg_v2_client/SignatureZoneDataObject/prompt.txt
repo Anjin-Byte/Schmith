@@ -55,6 +55,7 @@ FIELDS (this page):
 ----------------------------------------
   id: string? [nullable]
     Description: ID of the signature zone
+    Constraints: pattern=^[a-z0-9\-\_]+$
 
   name: string? [nullable]
     Description: The name of the signature zone

@@ -58,10 +58,12 @@ FIELDS (this page):
   format: DocGenTemplateVersionBaseFormat? [nullable]
     Description: The template document format
     Enum: DOCX, PDF, DOC, ODT, UNKNOWN
+    Constraints: enum=['DOCX', 'PDF', 'DOC', 'ODT', 'UNKNOWN']
 
   syntax_version: DocGenTemplateVersionBaseSyntaxVersion? [nullable]
     Description: Specifies which syntax version to use (the old syntax using mergefields is `V1`, the new syntax is `V2`).
     Enum: V1, V2
+    Constraints: enum=['V1', 'V2']
 
   template_information: GenerationInfo[]? [nullable]
     Description: List of errors found in the document template.
@@ -404,6 +406,7 @@ FIELDS (this page):
   severity: GenerationInfoSeverity? [nullable]
     Description: Criticity of the error. When strict is true, the field must be an exact match with the template. Otherwise the severity will be ERROR.
     Enum: ERROR, WARNING
+    Constraints: enum=['ERROR', 'WARNING']
 
 
 EXAMPLE CODE PATTERN:

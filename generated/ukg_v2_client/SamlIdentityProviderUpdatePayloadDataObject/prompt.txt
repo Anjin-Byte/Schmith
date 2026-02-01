@@ -155,6 +155,7 @@ FIELDS (this page):
   scope: SamlIdentityProviderBaseScope? [nullable]
     Description: HR users (manager) or employees (employee). Default: ''
     Enum: employee, manager
+    Constraints: enum=['employee', 'manager']
 
   sso_endpoint: string? [nullable]
     Description: URL to redirect the user to their Saml Identity Provider when the connection is SP initiated (available in the metadata under EntityDescriptor &gt; IDPSSODescriptor &gt; SingleSignOnService(Binding='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'))
@@ -162,6 +163,7 @@ FIELDS (this page):
   workflow_type: SamlIdentityProviderBaseWorkflowType? [nullable]
     Description: Specify if the connection is SP or IdP initiated. The values are case-sensitive: ['IdP initiated', 'SP initiated']. Default: null.
     Enum: IdP initiated, SP initiated
+    Constraints: enum=['IdP initiated', 'SP initiated']
 
   x509_certificate: string? [nullable]
     Description: Saml Identity Provider public key extracted from the metadata (available in the metadata under EntityDescriptor &gt; IDPSSODescriptor(signing) &gt; KeyInfo &gt; X509Data &gt; X509Certificate)

@@ -58,6 +58,7 @@ FIELDS (this page):
   status: DocGenRequestStatusResponseStatus? [nullable]
     Description: Status of the generation request
     Enum: PROCESSED, NOT_PROCESSED, RECEIVED_ASYNC, SENT_ASYNC, FAILED
+    Constraints: enum=['PROCESSED', 'NOT_PROCESSED', 'RECEIVED_ASYNC', 'SENT_ASYNC', 'FAILED']
 
 
 EXAMPLE CODE PATTERN:

@@ -65,6 +65,7 @@ FIELDS (this page):
   status: RequestComputedFieldsStatus [required]
     Description: Status of the request. Possible values: `created`, `opened`, `pending`, `closed` and `archived`.
     Enum: created, opened, pending, closed, archived
+    Constraints: enum=['created', 'opened', 'pending', 'closed', 'archived']
 
   read_by_employee: bool [required]
     Description: Indicate if the request has been read by employee since last modification.
@@ -338,6 +339,7 @@ FIELDS (this page):
   priority: RequestBasePriority? [nullable]
     Description: Priority of the request - 1: low, 2: normal, 3: high
     Enum: 1, 2, 3
+    Constraints: enum=['1', '2', '3']
 
   employee: EmployeeSimplified? [nullable]
     Description: Only exists if `embed=employee` query string parameter was used. Gives full information on the employee the request has been created for. Exist only if the request has been created for an employee.

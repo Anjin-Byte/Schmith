@@ -1,24 +1,24 @@
 # Schema Coverage Report: ukg_v2_client
 
-**Generated:** 2026-02-01 12:04:57
+**Generated:** 2026-02-01 13:54:05
 **IR Source:** `/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/ir/ukg_v2_client`
 
 ## Summary
 
 | Metric | Count |
 |--------|-------|
-| Total schemas in spec | 2536 |
+| Total schemas in spec | 2533 |
 | Generated DataObjects | 458 |
 | Generated Roots | 116 |
 | Nested-only Schemas | 11 |
-| Filtered out | 2078 |
+| Filtered out | 2075 |
 | **Coverage** | **18.1%** |
 
 ## Filtered Schemas by Category
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| Anonymous/inline schemas | 1808 | Intentionally excluded |
+| Anonymous/inline schemas | 1805 | Intentionally excluded |
 | Primitive types | 7 | Intentionally excluded |
 | Non-object kinds | 245 | Intentionally excluded |
 | Error schemas | 18 | Intentionally excluded |
@@ -631,7 +631,7 @@ The following 11 schemas are included as nested types under roots:
 
 ## Filtered Schema Details
 
-### Anonymous/inline schemas (1808)
+### Anonymous/inline schemas (1805)
 
 | Name | Schema ID |
 |------|-----------|
@@ -653,7 +653,6 @@ The following 11 schemas are included as nested types under roots:
 | `None` | `schema:anon/01600562a05319d875ed9bc0c6ac04989db89e78` |
 | `None` | `schema:anon/01a117cfabdc02f2bbcd3fd98cb4aba6f40887c6` |
 | `None` | `schema:anon/01a8935de4e624124d7c0ba67b2f6feb868cc547` |
-| `None` | `schema:anon/01f25a4508f44345df9f09024f241bb9866953a5` |
 | `None` | `schema:anon/02615425dcd674c5b45aafdd7f65e2213c6fc5fa` |
 | `None` | `schema:anon/026ace46a693b15515bcad86435d7fec30a82c26` |
 | `None` | `schema:anon/02a0da8690d14ebce631c14aa02c4aaf54b80990` |
@@ -1566,7 +1565,6 @@ The following 11 schemas are included as nested types under roots:
 | `None` | `schema:anon/8472f7a7588635c687b2a31eab1f4e4a16281e10` |
 | `None` | `schema:anon/84c4175d02f1541d8ae7838b6638dd40aa49c1b0` |
 | `None` | `schema:anon/84ea64efb1e8d780ab056bfbf861345f9e364d07` |
-| `None` | `schema:anon/850a291e339f1b592811ed97bc7a8664d8219476` |
 | `None` | `schema:anon/851fc615bc1753d726ae7185974bb916aaccd67d` |
 | `None` | `schema:anon/8549e1ea62d652f444c437abf75e53e3565921e9` |
 | `None` | `schema:anon/854a2ad49184b44fc0871294d002f02a55395bb5` |
@@ -2050,7 +2048,6 @@ The following 11 schemas are included as nested types under roots:
 | `None` | `schema:anon/c61bb931f49780f593ec668c01292f49132c4a32` |
 | `None` | `schema:anon/c65dbc141d12741afbc265714d4099354ef583fa` |
 | `None` | `schema:anon/c6b3904ecca289ef3d5d61dae0d95e7c86a75e3e` |
-| `None` | `schema:anon/c6ba07646a6067081dba2e1099786403faa33dc3` |
 | `None` | `schema:anon/c6e19f772ca08ad586622a2cbf72eef82379e943` |
 | `None` | `schema:anon/c6e719439cb16efc1d588734262fa68b3656ea68` |
 | `None` | `schema:anon/c6e7944a11adfd0334983b5983a398d6cc315f3f` |

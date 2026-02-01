@@ -7,6 +7,40 @@ from builders.shared.provenance import Provenance
 from builders.shared.schema_ids import schema_id_for_schema, schema_id_from_ref
 
 
+def _collapse_single_ref_schema(schema: dict) -> str | None:
+    """Return $ref if schema is a pure single-ref allOf wrapper."""
+    if not isinstance(schema, dict):
+        return None
+    all_of = schema.get("allOf")
+    if not isinstance(all_of, list) or len(all_of) != 1:
+        return None
+    entry = all_of[0]
+    if not isinstance(entry, dict):
+        return None
+    ref = entry.get("$ref")
+    if not isinstance(ref, str):
+        return None
+
+    # Only allow non-structural metadata keys in the wrapper.
+    allowed_keys = {
+        "allOf",
+        "title",
+        "description",
+        "readOnly",
+        "deprecated",
+        "nullable",
+        "example",
+        "examples",
+        "default",
+    }
+    for key in schema.keys():
+        if key in allowed_keys or key.startswith("x-"):
+            continue
+        # Any structural key means this isn't a pure ref wrapper.
+        return None
+    return ref
+
+
 def resolve_ref(spec: Dict[str, Any], ref: str) -> Optional[Dict[str, Any]]:
     """Resolve a JSON reference within the spec."""
     if not ref.startswith("#/"):
@@ -80,6 +114,7 @@ def build_field(
         "read_only": field_schema.get("readOnly"),
         "write_only": field_schema.get("writeOnly"),
         "examples": field_schema.get("examples"),
+        "constraints": extract_constraints(field_schema),
         "enum_values": enum_values,
         "enum_names": enum_names,
         "json_pointer": pointer,
@@ -139,6 +174,8 @@ def register_schema(
             if not isinstance(prop_schema, dict):
                 continue
             prop_ref = prop_schema.get("$ref")
+            if not isinstance(prop_ref, str):
+                prop_ref = _collapse_single_ref_schema(prop_schema)
             if isinstance(prop_ref, str):
                 prop_schema_id = schema_id_from_ref(prop_ref)
             else:
@@ -147,7 +184,7 @@ def register_schema(
             properties.append(
                 build_field(prop_name, prop_schema_id, prop_name in required_fields, prop_schema, pointer, provenance)
             )
-            if register_nested and isinstance(prop_schema, dict) and "$ref" not in prop_schema:
+            if register_nested and isinstance(prop_schema, dict) and "$ref" not in prop_schema and not _collapse_single_ref_schema(prop_schema):
                 nested_id = schema_id_for_schema(prop_schema)
                 if nested_id:
                     register_schema(nested_id, None, prop_schema, True, provenance, spec, schemas, schema_hashes)
@@ -156,17 +193,29 @@ def register_schema(
     if kind == "array":
         items = schema.get("items") if isinstance(schema.get("items"), dict) else None
         if isinstance(items, dict):
-            items_schema_id = schema_id_for_schema(items)
+            items_ref = items.get("$ref")
+            if not isinstance(items_ref, str):
+                items_ref = _collapse_single_ref_schema(items)
+            if isinstance(items_ref, str):
+                items_schema_id = schema_id_from_ref(items_ref)
+            else:
+                items_schema_id = schema_id_for_schema(items)
             # Don't register $ref schemas - they will be registered when their target is processed
-            if register_nested and items_schema_id and "$ref" not in items:
+            if register_nested and items_schema_id and "$ref" not in items and not _collapse_single_ref_schema(items):
                 register_schema(items_schema_id, None, items, True, provenance, spec, schemas, schema_hashes)
 
     additional_properties_schema_id = None
     additional_props = schema.get("additionalProperties")
     if isinstance(additional_props, dict):
-        additional_properties_schema_id = schema_id_for_schema(additional_props)
+        addl_ref = additional_props.get("$ref")
+        if not isinstance(addl_ref, str):
+            addl_ref = _collapse_single_ref_schema(additional_props)
+        if isinstance(addl_ref, str):
+            additional_properties_schema_id = schema_id_from_ref(addl_ref)
+        else:
+            additional_properties_schema_id = schema_id_for_schema(additional_props)
         # Don't register $ref schemas - they will be registered when their target is processed
-        if register_nested and additional_properties_schema_id and "$ref" not in additional_props:
+        if register_nested and additional_properties_schema_id and "$ref" not in additional_props and not _collapse_single_ref_schema(additional_props):
             register_schema(additional_properties_schema_id, None, additional_props, True, provenance, spec, schemas, schema_hashes)
 
     schema_record = {

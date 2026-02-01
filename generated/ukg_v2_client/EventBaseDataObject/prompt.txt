@@ -161,6 +161,7 @@ FIELDS (this page):
   type: EventActorType [required]
     Description: Type of the event. Can be `user`, `application` (when th event is triggered from an API call), or `system` (when the event is a result from an internal system action)
     Enum: user, employee, application, system
+    Constraints: enum=['user', 'employee', 'application', 'system']
 
   name: string? [nullable]
     Description: The name of the actor, computed by the application, depending on actor type and actor data.
