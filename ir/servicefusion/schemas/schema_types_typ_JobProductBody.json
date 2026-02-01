@@ -1,0 +1,306 @@
+{
+  "id": "schema:types/typ.JobProductBody",
+  "name_hint": "typ.JobProductBody",
+  "kind": "object",
+  "title": null,
+  "description": "A job product's body schema.\n",
+  "properties": [
+    {
+      "json_name": "name",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the product's name that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 1024
+      },
+      "json_pointer": "$.name",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobProductBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "description",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the product's description that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.description",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobProductBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "multiplier",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the product's quantity that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "minimum": 1
+      },
+      "json_pointer": "$.multiplier",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobProductBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "rate",
+      "schema_id": "schema:types/number",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the product's rate that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.rate",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobProductBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "cost",
+      "schema_id": "schema:types/number",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the product's cost that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.cost",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobProductBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "is_show_rate_items",
+      "schema_id": "schema:types/boolean",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the product's is show rate items flag that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.is_show_rate_items",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobProductBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "tax",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send a tax'es `id` or `header` that will be attached to the product (Note: `id` - [integer] the tax'es identifier, `header` - [string] the tax'es fields concatenated by pattern `{short_name}`).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.tax",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobProductBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "product",
+      "schema_id": "schema:types/string",
+      "required": true,
+      "nullable": null,
+      "description": "Used to send a product's `id` or `header` that will be attached to the product (Note: `id` - [integer] the product's identifier, `header` - [string] the product's fields concatenated by pattern `{make}`).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.product",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.JobProductBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "product"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+    "source_pointer": "raml:types:typ.JobProductBody",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

@@ -1,0 +1,323 @@
+{
+  "id": "op:GET:/v1/legalentities/{legalEntityId}/timeoffplans",
+  "method": "GET",
+  "path_template": "/v1/legalentities/{legalEntityId}/timeoffplans",
+  "declared": {
+    "parameters": [
+      {
+        "name": "legalEntityId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4f7acea0a43a99f3bc82c544663899166a72a92c",
+        "description": "ID of an Legal Entity for which you want to get the Time Off Plans",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "continuationToken",
+        "location": "query",
+        "required": null,
+        "schema_id": "schema:anon/ea815089dd1bb842fa2d3506257b68c8ac81edae",
+        "description": "Token to get the next set of results",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PagedResultOfTimeOffPlan",
+        "description": "Returns a collection of Time Off Plans based on Legal Entity Id provided",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "legalEntityId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4f7acea0a43a99f3bc82c544663899166a72a92c",
+        "description": "ID of an Legal Entity for which you want to get the Time Off Plans",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "continuationToken",
+        "location": "query",
+        "required": null,
+        "schema_id": "schema:anon/ea815089dd1bb842fa2d3506257b68c8ac81edae",
+        "description": "Token to get the next set of results",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PagedResultOfTimeOffPlan",
+        "description": "Returns a collection of Time Off Plans based on Legal Entity Id provided",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Legal Entity Time Off Plans"
+  ],
+  "summary": "Get Legal Entity Time Off Plans",
+  "description": "Data Access= View Legal Entity Time Off Plans",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+    "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/timeoffplans/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

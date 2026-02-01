@@ -1,0 +1,375 @@
+{
+  "id": "op:GET:/v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}",
+  "method": "GET",
+  "path_template": "/v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}",
+  "declared": {
+    "parameters": [
+      {
+        "name": "legalEntityId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/3a24bbc4c6253def69cbde851f739d25e606e1ae",
+        "description": "ID of the Legal Entity for which you want to get the PayItem error logs.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "trackingId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/584459970c9b699c17ae5f48a00999f8cfdf75f3",
+        "description": "ID of the Employee PayItem Failure result.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "continuationToken",
+        "location": "query",
+        "required": null,
+        "schema_id": "schema:anon/ea815089dd1bb842fa2d3506257b68c8ac81edae",
+        "description": null,
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "adapter",
+          "description": "absent",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PagedResultOfPayItemErrorLog",
+        "description": "Returns Pay Item Request Error log for specific Legal Entity and tracking ID.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "legalEntityId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/3a24bbc4c6253def69cbde851f739d25e606e1ae",
+        "description": "ID of the Legal Entity for which you want to get the PayItem error logs.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "trackingId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/584459970c9b699c17ae5f48a00999f8cfdf75f3",
+        "description": "ID of the Employee PayItem Failure result.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "continuationToken",
+        "location": "query",
+        "required": null,
+        "schema_id": "schema:anon/ea815089dd1bb842fa2d3506257b68c8ac81edae",
+        "description": null,
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "adapter",
+          "description": "absent",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PagedResultOfPayItemErrorLog",
+        "description": "Returns Pay Item Request Error log for specific Legal Entity and tracking ID.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Legal Entity Time Data"
+  ],
+  "summary": "Get Employee PayItem Request error logs by Legal Entity Id And Tracking Id",
+  "description": "Data Access: View Pay Item Error Log",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+    "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/payItemErrorLog/{trackingId}/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

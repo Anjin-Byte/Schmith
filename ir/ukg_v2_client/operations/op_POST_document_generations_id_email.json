@@ -1,0 +1,293 @@
+{
+  "id": "op:POST:/document_generations/{id}/email",
+  "method": "POST",
+  "path_template": "/document_generations/{id}/email",
+  "declared": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "The generated document `ID`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "body",
+        "location": "body",
+        "required": true,
+        "schema_id": "schema:anon/9c349bf754b92e3106f490eda0a9eb824b64e6d2",
+        "description": "Contains up to 5 recipients data if we want to send the generated document by email",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/9c349bf754b92e3106f490eda0a9eb824b64e6d2",
+        "required": true,
+        "description": "Contains up to 5 recipients data if we want to send the generated document by email",
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "native",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/DocGenFullWithErrors",
+        "description": "The generated document metadata",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": null,
+        "description": "Bad request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "424",
+        "media_type": "application/json",
+        "schema_id": null,
+        "description": "External dependency error: one dependency service (sae, formidable, mailcast...) has failed, more details in the response body.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/responses/424",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "The generated document `ID`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "body",
+        "location": "body",
+        "required": true,
+        "schema_id": "schema:anon/9c349bf754b92e3106f490eda0a9eb824b64e6d2",
+        "description": "Contains up to 5 recipients data if we want to send the generated document by email",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/9c349bf754b92e3106f490eda0a9eb824b64e6d2",
+        "required": true,
+        "description": "Contains up to 5 recipients data if we want to send the generated document by email",
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "native",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/DocGenFullWithErrors",
+        "description": "The generated document metadata",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": null,
+        "description": "Bad request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "424",
+        "media_type": "application/json",
+        "schema_id": null,
+        "description": "External dependency error: one dependency service (sae, formidable, mailcast...) has failed, more details in the response body.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/email/post/responses/424",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Document Manager: Document Generations"
+  ],
+  "summary": "Send email",
+  "description": "Send an email with a generated document to the given recipients.",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//document_generations/{id}/email/post",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

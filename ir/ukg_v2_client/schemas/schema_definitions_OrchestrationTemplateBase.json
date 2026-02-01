@@ -1,0 +1,331 @@
+{
+  "id": "schema:definitions/OrchestrationTemplateBase",
+  "name_hint": "OrchestrationTemplateBase",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "title",
+      "schema_id": "schema:anon/b882e1d4fe30bfce6f95e1bc5787b2ef11de38cb",
+      "required": true,
+      "nullable": null,
+      "description": "Title of the orchestration template",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.title",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/OrchestrationTemplateBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "description",
+      "schema_id": "schema:anon/2b8fdc028eab071da0c9fa46874d11be2417d55f",
+      "required": true,
+      "nullable": null,
+      "description": "Description of the orchestration template",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.description",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/OrchestrationTemplateBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "enabled",
+      "schema_id": "schema:anon/3d9333e5e9d170aca0d404cee894e82834548c4a",
+      "required": false,
+      "nullable": null,
+      "description": "Deprecated - A flag that allows a user to start a new orchestration based on that template (default: true)",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.enabled",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/OrchestrationTemplateBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "orchestration_error_count",
+      "schema_id": "schema:anon/cf34df64cf282750d7a0a67e4f4046d361db1fad",
+      "required": false,
+      "nullable": null,
+      "description": "Number of orchestrations, based on this template, that ended with errors in the last three months",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.orchestration_error_count",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/OrchestrationTemplateBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "sequences",
+      "schema_id": "schema:anon/c34be77154db43abd2091f8d336efde6b3db802d",
+      "required": false,
+      "nullable": null,
+      "description": "Mandatory when creating a RPA custom template\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.sequences",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/OrchestrationTemplateBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "orchestration_master_template_id",
+      "schema_id": "schema:anon/4d9323150616e1d0aac73ee2c557b4e958bac1b2",
+      "required": false,
+      "nullable": null,
+      "description": "ID of the master template used to create this template instance\nMandatory when creating a RPA standard template\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.orchestration_master_template_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/OrchestrationTemplateBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "attributes",
+      "schema_id": "schema:anon/622385f9631f00aeca2ecc7b6d340dd486182d60",
+      "required": false,
+      "nullable": null,
+      "description": "List of RPA standard template attributes\nMandatory when creating a RPA standard template\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.attributes",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/OrchestrationTemplateBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "aggregation_mode",
+      "schema_id": "schema:anon/3cadd1361633f010e9b354fe6e362e4d69ebf084",
+      "required": false,
+      "nullable": null,
+      "description": "Aggregation mode defines the format of the aggregated data (default: `legacy`)\n- `legacy`: The aggregated data will have a nested structure\n- `flat`: The aggregated data will have a flat structure\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "legacy",
+          "flat"
+        ]
+      },
+      "enum_values": [
+        "legacy",
+        "flat"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.aggregation_mode",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/OrchestrationTemplateBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "title",
+    "description"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/OrchestrationTemplateBase",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

@@ -1,0 +1,77 @@
+{
+  "id": "schema:definitions/DocumentExpirationDatePayload",
+  "name_hint": "DocumentExpirationDatePayload",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "expiration_date",
+      "schema_id": "schema:anon/66ab4777d9862d2047dc8bba910ac8b483075136",
+      "required": false,
+      "nullable": null,
+      "description": "Real Expiration Date for the document. If the Expiration Date is set in the past then the document will be marked as expired and will no longer be valid. If the Expiration Date is set to `null`, it means document doesn't have expiration at all.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.expiration_date",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DocumentExpirationDatePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/DocumentExpirationDatePayload",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:PUT:/employee_documents/{id}/expiration/update"
+  ]
+}

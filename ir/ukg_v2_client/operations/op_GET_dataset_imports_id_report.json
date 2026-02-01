@@ -1,0 +1,163 @@
+{
+  "id": "op:GET:/dataset_imports/{id}/report",
+  "method": "GET",
+  "path_template": "/dataset_imports/{id}/report",
+  "declared": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "`ID` of the Dataset Import",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//dataset_imports/{id}/report/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "text/csv",
+        "schema_id": "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//dataset_imports/{id}/report/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "text/csv",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Not Found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//dataset_imports/{id}/report/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "`ID` of the Dataset Import",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//dataset_imports/{id}/report/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "text/csv",
+        "schema_id": "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//dataset_imports/{id}/report/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "text/csv",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Not Found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//dataset_imports/{id}/report/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Platform: Dataset Imports"
+  ],
+  "summary": "Get report file of Data Set Import",
+  "description": "Return the report file with the errors and the warnings of a `Dataset Import`",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//dataset_imports/{id}/report/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "id": "op:GET:/document_generations/{id}/preview/{page}",
+  "method": "GET",
+  "path_template": "/document_generations/{id}/preview/{page}",
+  "declared": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "Generated document `ID`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/preview/{page}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "page",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "Page to be displayed",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/preview/{page}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "image/png",
+        "schema_id": "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "description": "Preview of the generated document",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/preview/{page}/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "image/png",
+        "schema_id": "schema:definitions/BaseError",
+        "description": "Not found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/preview/{page}/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "Generated document `ID`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/preview/{page}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "page",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "Page to be displayed",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/preview/{page}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "image/png",
+        "schema_id": "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "description": "Preview of the generated document",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/preview/{page}/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "image/png",
+        "schema_id": "schema:definitions/BaseError",
+        "description": "Not found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//document_generations/{id}/preview/{page}/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Document Manager: Document Generations"
+  ],
+  "summary": "Preview the generated document",
+  "description": "Preview an existing generated document.",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//document_generations/{id}/preview/{page}/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

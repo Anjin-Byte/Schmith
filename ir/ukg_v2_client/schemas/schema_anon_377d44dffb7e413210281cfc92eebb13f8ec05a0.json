@@ -1,0 +1,113 @@
+{
+  "id": "schema:anon/377d44dffb7e413210281cfc92eebb13f8ec05a0",
+  "name_hint": null,
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "manager_id",
+      "schema_id": "schema:anon/39b12efb82bf150ed0101c756b46a3e982feaa3c",
+      "required": true,
+      "nullable": null,
+      "description": "ID of the user to update",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.manager_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/UserBulkUpdatePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "data",
+      "schema_id": "schema:definitions/UserPutPayload",
+      "required": true,
+      "nullable": null,
+      "description": null,
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.data",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/UserBulkUpdatePayload",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "absent",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "manager_id",
+    "data"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/UserBulkUpdatePayload",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

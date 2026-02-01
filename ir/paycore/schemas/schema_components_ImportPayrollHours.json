@@ -1,0 +1,153 @@
+{
+  "id": "schema:components/ImportPayrollHours",
+  "name_hint": "ImportPayrollHours",
+  "kind": "object",
+  "title": null,
+  "description": "Request body object for importing Payroll data into Paycor's Payroll system (not Time system).",
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "integrationVendor",
+      "schema_id": "schema:anon/3bc5251b7efa66e6853a656c0545307fa52192f8",
+      "required": true,
+      "nullable": null,
+      "description": "Required freeform field for tracking purposes. You can input your company or application name.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "minLength": 1
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.integrationVendor",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+        "source_pointer": "#/components/schemas/ImportPayrollHours",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "processId",
+      "schema_id": "schema:anon/63390c447d1908c7363925a4ff4e389f0eeeb746",
+      "required": true,
+      "nullable": null,
+      "description": "Unique identifier of the transaction to prevent double-posting in Paycor's systems. \nPlease generate a new GUID (using any method) for every API call.\nUse the same GUID only when you want to replace existing data.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "minLength": 1
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.processId",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+        "source_pointer": "#/components/schemas/ImportPayrollHours",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "importEmployees",
+      "schema_id": "schema:anon/0c858ca2ca72399ed64f425ae5389b414005d782",
+      "required": true,
+      "nullable": null,
+      "description": "List of Employees, with nested lists of Earnings, to import into Paycor's Paygrid system. ",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.importEmployees",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+        "source_pointer": "#/components/schemas/ImportPayrollHours",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "integrationVendor",
+    "processId",
+    "importEmployees"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+    "source_pointer": "#/components/schemas/ImportPayrollHours",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

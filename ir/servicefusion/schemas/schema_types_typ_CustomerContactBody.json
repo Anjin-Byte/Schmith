@@ -1,0 +1,478 @@
+{
+  "id": "schema:types/typ.CustomerContactBody",
+  "name_hint": "typ.CustomerContactBody",
+  "kind": "object",
+  "title": null,
+  "description": "A customer contact's body schema.\n",
+  "properties": [
+    {
+      "json_name": "prefix",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's prefix that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "Dr.",
+          "Atty.",
+          "Prof.",
+          "Hon.",
+          "Gov.",
+          "Ofc.",
+          "Rep.",
+          "Sen.",
+          "Amb.",
+          "Sec.",
+          "Pvt.",
+          "Cpl.",
+          "Sgt.",
+          "Adm.",
+          "Gen.",
+          "Maj.",
+          "Capt.",
+          "Cmdr.",
+          "Lt.",
+          "Lt Col.",
+          "Col."
+        ]
+      },
+      "json_pointer": "$.prefix",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "fname",
+      "schema_id": "schema:types/string",
+      "required": true,
+      "nullable": null,
+      "description": "Used to send the contact's first name that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 255
+      },
+      "json_pointer": "$.fname",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "lname",
+      "schema_id": "schema:types/string",
+      "required": true,
+      "nullable": null,
+      "description": "Used to send the contact's last name that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 255
+      },
+      "json_pointer": "$.lname",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "suffix",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's suffix that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 255
+      },
+      "json_pointer": "$.suffix",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "contact_type",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's type that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 255
+      },
+      "json_pointer": "$.contact_type",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "dob",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's dob that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 250
+      },
+      "json_pointer": "$.dob",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "anniversary",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's anniversary that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 250
+      },
+      "json_pointer": "$.anniversary",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "job_title",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's job title that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 200
+      },
+      "json_pointer": "$.job_title",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "department",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's department that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 200
+      },
+      "json_pointer": "$.department",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "is_primary",
+      "schema_id": "schema:types/boolean",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's is primary flag that will be set. When it is passed as `true`, then the customer's existing primary contact (if any) will become secondary, and this one will become the primary one.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.is_primary",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "phones",
+      "schema_id": "schema:types/array",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's phones list that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.phones",
+      "items_schema_id": "schema:types/typ.CustomerPhoneBody",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "native",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "emails",
+      "schema_id": "schema:types/array",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the contact's emails list that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.emails",
+      "items_schema_id": "schema:types/typ.CustomerEmailBody",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CustomerContactBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "native",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "fname",
+    "lname"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+    "source_pointer": "raml:types:typ.CustomerContactBody",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

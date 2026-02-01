@@ -1,0 +1,313 @@
+{
+  "id": "op:POST:/v1/legalentities/{legalEntityId}/CreateHours",
+  "method": "POST",
+  "path_template": "/v1/legalentities/{legalEntityId}/CreateHours",
+  "declared": {
+    "parameters": [
+      {
+        "name": "legalEntityId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/3a24bbc4c6253def69cbde851f739d25e606e1ae",
+        "description": "ID of the Legal Entity for whose employees you want to create hours",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/8e7002625d2f80f285ef2f1eb38269f6ee275486",
+        "required": true,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "202",
+        "media_type": "application/json",
+        "schema_id": "schema:components/CreateOrUpdateResponse",
+        "description": "Returns a CreateOrUpdateResponse object.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/202",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "legalEntityId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/3a24bbc4c6253def69cbde851f739d25e606e1ae",
+        "description": "ID of the Legal Entity for whose employees you want to create hours",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/8e7002625d2f80f285ef2f1eb38269f6ee275486",
+        "required": true,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "202",
+        "media_type": "application/json",
+        "schema_id": "schema:components/CreateOrUpdateResponse",
+        "description": "Returns a CreateOrUpdateResponse object.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/202",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Legal Entity Time Data"
+  ],
+  "summary": "Create Hours for Employee(s) under Legal Entity",
+  "description": "Data access= Create Hours for Employee(s)\n\nTip=\n* Use the Tracking ID for the hours being created to check if there are any errors with the hours.\n* To check Hour error logs by Legal Entity ID and Tracking ID, use the following GET endpoint= Get Employee Hour error logs by Legal Entity Id and Tracking Id",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+    "source_pointer": "#/paths//v1/legalentities/{legalEntityId}/CreateHours/post",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

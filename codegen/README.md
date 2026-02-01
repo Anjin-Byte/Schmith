@@ -52,3 +52,10 @@ uv run python -m codegen coverage paycore
 Notes:
 - `codegen generate --dry-run` still writes scaffolding and manifest, but skips LLM calls and `.cs` output.
 - Output directories are cleaned by default; use `--no-clean` to keep existing files.
+
+## Prompt Packet Details
+
+- Uses type-tree resolution to collect all reachable types.
+- Composition-only members are excluded from nested schema sections.
+- Inline enums are assigned stable names derived from parent + field name.
+- Field metadata (read-only/write-only/deprecated) and constraints are surfaced in prompts.

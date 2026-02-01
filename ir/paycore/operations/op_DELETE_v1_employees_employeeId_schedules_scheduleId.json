@@ -1,0 +1,323 @@
+{
+  "id": "op:DELETE:/v1/employees/{employeeId}/schedules/{scheduleId}",
+  "method": "DELETE",
+  "path_template": "/v1/employees/{employeeId}/schedules/{scheduleId}",
+  "declared": {
+    "parameters": [
+      {
+        "name": "employeeId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/584459970c9b699c17ae5f48a00999f8cfdf75f3",
+        "description": "Employee ID of the schedule record you want to delete",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "scheduleId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/584459970c9b699c17ae5f48a00999f8cfdf75f3",
+        "description": "Schedule ID to delete",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "204",
+        "media_type": null,
+        "schema_id": null,
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/204",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "absent",
+          "schema_id": "absent",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "employeeId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/584459970c9b699c17ae5f48a00999f8cfdf75f3",
+        "description": "Employee ID of the schedule record you want to delete",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "scheduleId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/584459970c9b699c17ae5f48a00999f8cfdf75f3",
+        "description": "Schedule ID to delete",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "204",
+        "media_type": null,
+        "schema_id": null,
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/204",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "absent",
+          "schema_id": "absent",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Employee (Legacy / Perform Time) Schedules"
+  ],
+  "summary": "Delete Employee Schedule",
+  "description": "Data Access: Delete Legacy/Perform Time Employee Schedule",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+    "source_pointer": "#/paths//v1/employees/{employeeId}/schedules/{scheduleId}/delete",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

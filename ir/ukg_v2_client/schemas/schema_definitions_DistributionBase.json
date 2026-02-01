@@ -1,0 +1,222 @@
+{
+  "id": "schema:definitions/DistributionBase",
+  "name_hint": "DistributionBase",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "name",
+      "schema_id": "schema:anon/12fda1872954f75bfdff6cdca0461990b79fb53d",
+      "required": true,
+      "nullable": null,
+      "description": "The name of the Distribution inside the Distribution Project",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.name",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DistributionBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "distribution_type_id",
+      "schema_id": "schema:anon/19375e482afd6975359fb5afe68c613e166845f4",
+      "required": true,
+      "nullable": null,
+      "description": "ID of the distribution type. The distribution types are defined during the implementation phase and the IDs will be provided at that stage",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.distribution_type_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DistributionBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "distribution_project_id",
+      "schema_id": "schema:anon/6c98d715742e7493e1777f79c67ac014fabffb7b",
+      "required": true,
+      "nullable": null,
+      "description": "ID of the Distribution Project to attach the Distribution to",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.distribution_project_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DistributionBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "file_id",
+      "schema_id": "schema:anon/b4adbfbb2f1bc601d4c47564b2b98faba3048767",
+      "required": true,
+      "nullable": null,
+      "description": "Spool of files, previously uploaded, to be distributed to the employees",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.file_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DistributionBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "distribution_error",
+      "schema_id": "schema:definitions/DistributionError",
+      "required": false,
+      "nullable": null,
+      "description": null,
+      "deprecated": null,
+      "read_only": true,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.distribution_error",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/DistributionBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "absent",
+        "deprecated": "absent",
+        "read_only": "native",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "name",
+    "distribution_type_id",
+    "distribution_project_id",
+    "file_id"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/DistributionBase",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:POST:/distributions"
+  ]
+}

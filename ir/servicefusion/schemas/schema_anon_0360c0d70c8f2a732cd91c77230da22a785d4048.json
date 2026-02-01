@@ -1,0 +1,358 @@
+{
+  "id": "schema:anon/0360c0d70c8f2a732cd91c77230da22a785d4048",
+  "name_hint": null,
+  "kind": "object",
+  "title": null,
+  "description": "The calendar task's repeat.\n",
+  "properties": [
+    {
+      "json_name": "id",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The repeat's identifier.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.id",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "repeat_type",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The repeat's type.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.repeat_type",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "repeat_frequency",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The repeat's frequency.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.repeat_frequency",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "repeat_weekly_days",
+      "schema_id": "schema:types/array",
+      "required": true,
+      "nullable": null,
+      "description": "The repeat's weekly days list.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.repeat_weekly_days",
+      "items_schema_id": "schema:anon/e6d7c085f06d737cd8db642516e1a28fc507570b",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "native",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "repeat_monthly_type",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The repeat's monthly type.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.repeat_monthly_type",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "stop_repeat_type",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The repeat's stop type.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.stop_repeat_type",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "stop_repeat_on_occurrence",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The repeat's stop on occurrence.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.stop_repeat_on_occurrence",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "stop_repeat_on_date",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "The repeat's stop on date.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.stop_repeat_on_date",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "start_date",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "The repeat's start date.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.start_date",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "end_date",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "The repeat's end date.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.end_date",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.CalendarTask",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "repeat_weekly_days"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+    "source_pointer": "raml:types:typ.CalendarTask",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

@@ -1,0 +1,277 @@
+{
+  "id": "op:POST:/saml/identity_providers",
+  "method": "POST",
+  "path_template": "/saml/identity_providers",
+  "declared": {
+    "parameters": [
+      {
+        "name": "body",
+        "location": "body",
+        "required": true,
+        "schema_id": "schema:definitions/SamlIdentityProviderCreatePayload",
+        "description": "Saml Identity Provider properties",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/SamlIdentityProviderCreatePayload",
+        "required": true,
+        "description": "Saml Identity Provider properties",
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "native",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "201",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/SamlIdentityProviderFull",
+        "description": "The created `Saml Identity Provider`",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/responses/201",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "409",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Conflict, an active saml identity provider with the same scope and/or name already exists",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/responses/409",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/Error",
+        "description": "Unprocessable Entity",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/responses/422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "body",
+        "location": "body",
+        "required": true,
+        "schema_id": "schema:definitions/SamlIdentityProviderCreatePayload",
+        "description": "Saml Identity Provider properties",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/SamlIdentityProviderCreatePayload",
+        "required": true,
+        "description": "Saml Identity Provider properties",
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "native",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "201",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/SamlIdentityProviderFull",
+        "description": "The created `Saml Identity Provider`",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/responses/201",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "409",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Conflict, an active saml identity provider with the same scope and/or name already exists",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/responses/409",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/Error",
+        "description": "Unprocessable Entity",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//saml/identity_providers/post/responses/422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Platform: Saml Identity Providers"
+  ],
+  "summary": "Saml Identity Provider Creation",
+  "description": "Create a new `Saml Identity Providers` for a client on UKG HR Service Delivery",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//saml/identity_providers/post",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

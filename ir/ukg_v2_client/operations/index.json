@@ -1,0 +1,4542 @@
+{
+  "operations": [
+    {
+      "operation_id": "op:GET:/custom_fields",
+      "method": "GET",
+      "path": "/custom_fields",
+      "requests": [],
+      "responses": [
+        "schema:anon/ef8a93997d834fc0787d5023a82362d99e83839f"
+      ],
+      "tags": [
+        "Platform: Custom Fields"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/custom_fields/{id}",
+      "method": "GET",
+      "path": "/custom_fields/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/CustomFieldFull"
+      ],
+      "tags": [
+        "Platform: Custom Fields"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/custom_fields/{id}",
+      "method": "PUT",
+      "path": "/custom_fields/{id}",
+      "requests": [
+        "schema:definitions/CustomFieldCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/CustomFieldFull",
+        "schema:definitions/CustomFieldFull",
+        "schema:definitions/Error",
+        "schema:definitions/CustomFieldFull"
+      ],
+      "tags": [
+        "Platform: Custom Fields"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/custom_fields/{id}",
+      "method": "PATCH",
+      "path": "/custom_fields/{id}",
+      "requests": [
+        "schema:definitions/CustomFieldCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/CustomFieldFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error",
+        "schema:definitions/CustomFieldFull"
+      ],
+      "tags": [
+        "Platform: Custom Fields"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/employees/{id}",
+      "method": "PUT",
+      "path": "/employees/{id}",
+      "requests": [
+        "schema:definitions/EmployeeUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/employees/{id}",
+      "method": "PATCH",
+      "path": "/employees/{id}",
+      "requests": [
+        "schema:definitions/EmployeePartialUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employees/{id}",
+      "method": "GET",
+      "path": "/employees/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employees",
+      "method": "GET",
+      "path": "/employees",
+      "requests": [],
+      "responses": [
+        "schema:anon/3043869d9d959dbd70c0572f1c48f37687317660",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/employees",
+      "method": "POST",
+      "path": "/employees",
+      "requests": [
+        "schema:definitions/EmployeeCreatePayload"
+      ],
+      "responses": [
+        "schema:anon/3043869d9d959dbd70c0572f1c48f37687317660",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/employees/bulk",
+      "method": "PATCH",
+      "path": "/employees/bulk",
+      "requests": [
+        "schema:definitions/EmployeeBulkPatchPayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeBulkOperationResult",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/employees/bulk",
+      "method": "PUT",
+      "path": "/employees/bulk",
+      "requests": [
+        "schema:definitions/EmployeeBulkUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeBulkOperationResult",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/employees/bulk",
+      "method": "POST",
+      "path": "/employees/bulk",
+      "requests": [
+        "schema:definitions/EmployeeBulkCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeBulkOperationResult",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employees/bulk/{request_id}",
+      "method": "GET",
+      "path": "/employees/bulk/{request_id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/EmployeeBulkOperationStatus",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/employees/{id}/electronic_vault_invite",
+      "method": "POST",
+      "path": "/employees/{id}/electronic_vault_invite",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/employees/{id}/portal_invite",
+      "method": "POST",
+      "path": "/employees/{id}/portal_invite",
+      "requests": [],
+      "responses": [
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/employees/{id}/electronic_vault_link",
+      "method": "DELETE",
+      "path": "/employees/{id}/electronic_vault_link",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/employees/by_external_id/{external_id}",
+      "method": "PUT",
+      "path": "/employees/by_external_id/{external_id}",
+      "requests": [
+        "schema:definitions/EmployeeCreateOrUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/EmployeeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/employees/{id}/electronic_vault_documents",
+      "method": "POST",
+      "path": "/employees/{id}/electronic_vault_documents",
+      "requests": [
+        "schema:definitions/EmployeeElectronicVaultDocuments"
+      ],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employees"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_subscriptions",
+      "method": "GET",
+      "path": "/employee_subscriptions",
+      "requests": [],
+      "responses": [
+        "schema:anon/aa0cfc068e025c28d6d580b4397375e997e965bd"
+      ],
+      "tags": [
+        "Platform: Employee Subscriptions"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_subscriptions/{id}",
+      "method": "GET",
+      "path": "/employee_subscriptions/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/EmployeeSubscriptionFull"
+      ],
+      "tags": [
+        "Platform: Employee Subscriptions"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/electronic_vault_options",
+      "method": "GET",
+      "path": "/electronic_vault_options",
+      "requests": [],
+      "responses": [
+        "schema:anon/c194bdf2ca6aa88d63a9f86b63ae43f3e0ad2674"
+      ],
+      "tags": [
+        "Document Manager: Electronic Vaults"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/electronic_vault_options/{id}",
+      "method": "PATCH",
+      "path": "/electronic_vault_options/{id}",
+      "requests": [
+        "schema:definitions/ElectronicVaultOptionsUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/ElectronicVaultFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Electronic Vaults"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/electronic_vault_options/{id}",
+      "method": "GET",
+      "path": "/electronic_vault_options/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/ElectronicVaultFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Electronic Vaults"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/roles",
+      "method": "GET",
+      "path": "/roles",
+      "requests": [],
+      "responses": [
+        "schema:anon/713127302efd3e065589fb6ffc2c924ea6dfa3d8"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/roles/{id}",
+      "method": "PUT",
+      "path": "/roles/{id}",
+      "requests": [
+        "schema:definitions/RoleCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/RoleFull",
+        "schema:definitions/RoleFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/roles/{id}",
+      "method": "GET",
+      "path": "/roles/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/RoleFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/roles/{role_id}/permissions/core",
+      "method": "GET",
+      "path": "/roles/{role_id}/permissions/core",
+      "requests": [],
+      "responses": [
+        "schema:definitions/CorePermissionsGet"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/roles/{role_id}/permissions/core",
+      "method": "PUT",
+      "path": "/roles/{role_id}/permissions/core",
+      "requests": [
+        "schema:definitions/CorePermissionsPut"
+      ],
+      "responses": [
+        "schema:definitions/CorePermissionsFull",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/roles/{role_id}/permissions/efm",
+      "method": "GET",
+      "path": "/roles/{role_id}/permissions/efm",
+      "requests": [],
+      "responses": [
+        "schema:definitions/EFMPermissionsFull"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/users",
+      "method": "GET",
+      "path": "/users",
+      "requests": [],
+      "responses": [
+        "schema:anon/c8499daacd0b84ab9982b5a6f1c38a7171d8f366",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/users",
+      "method": "POST",
+      "path": "/users",
+      "requests": [
+        "schema:definitions/UserCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/UserFull",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/users",
+      "method": "HEAD",
+      "path": "/users",
+      "requests": [],
+      "responses": [
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/users/{id}",
+      "method": "PUT",
+      "path": "/users/{id}",
+      "requests": [
+        "schema:definitions/UserPutPayload"
+      ],
+      "responses": [
+        "schema:definitions/UserFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error",
+        "schema:definitions/RateLimitErrors"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/users/{id}",
+      "method": "PATCH",
+      "path": "/users/{id}",
+      "requests": [
+        "schema:definitions/UserPatchPayload"
+      ],
+      "responses": [
+        "schema:definitions/UserFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/users/{id}",
+      "method": "GET",
+      "path": "/users/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/UserFull"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/users/bulk",
+      "method": "POST",
+      "path": "/users/bulk",
+      "requests": [
+        "schema:definitions/UserBulkCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/UserBulkOperationResult",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/users/bulk",
+      "method": "PUT",
+      "path": "/users/bulk",
+      "requests": [
+        "schema:definitions/UserBulkUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/UserBulkOperationResult",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/users/bulk",
+      "method": "PATCH",
+      "path": "/users/bulk",
+      "requests": [
+        "schema:definitions/UserBulkPatchPayload"
+      ],
+      "responses": [
+        "schema:definitions/UserBulkOperationResult",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/users/bulk/{request_id}",
+      "method": "GET",
+      "path": "/users/bulk/{request_id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/UserBulkOperationStatus",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/users/{id}/invite",
+      "method": "POST",
+      "path": "/users/{id}/invite",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Users"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_document_types",
+      "method": "GET",
+      "path": "/employee_document_types",
+      "requests": [],
+      "responses": [
+        "schema:anon/aa296d5d3ced8247f5b49d4c0ca0bc5840c26f62"
+      ],
+      "tags": [
+        "Document Manager: Employee Document Types"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/employee_document_types/{id}",
+      "method": "PUT",
+      "path": "/employee_document_types/{id}",
+      "requests": [
+        "schema:definitions/EmployeeDocumentTypeCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeDocumentTypeFull",
+        "schema:definitions/EmployeeDocumentTypeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Employee Document Types"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/employee_document_types/{id}",
+      "method": "PATCH",
+      "path": "/employee_document_types/{id}",
+      "requests": [
+        "schema:definitions/EmployeeDocumentTypePatchPayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeDocumentTypeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Employee Document Types"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_document_types/{id}",
+      "method": "GET",
+      "path": "/employee_document_types/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/EmployeeDocumentTypeFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Document Types"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_document_types",
+      "method": "GET",
+      "path": "/company_document_types",
+      "requests": [],
+      "responses": [
+        "schema:anon/784c9c2066d6295cc3b049eacb69d4815eea3400"
+      ],
+      "tags": [
+        "Document Manager: Company Document Types"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/company_document_types/{id}",
+      "method": "PUT",
+      "path": "/company_document_types/{id}",
+      "requests": [
+        "schema:definitions/CompanyDocumentTypeCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/CompanyDocumentTypeFull",
+        "schema:definitions/CompanyDocumentTypeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Company Document Types"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/company_document_types/{id}",
+      "method": "PATCH",
+      "path": "/company_document_types/{id}",
+      "requests": [
+        "schema:definitions/CompanyDocumentTypeCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/CompanyDocumentTypeFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Company Document Types"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_document_types/{id}",
+      "method": "GET",
+      "path": "/company_document_types/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/CompanyDocumentTypeFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Document Types"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_folders",
+      "method": "GET",
+      "path": "/employee_folders",
+      "requests": [],
+      "responses": [
+        "schema:anon/a6dc079ddf9eff65144267392e407e1f5ead40cc"
+      ],
+      "tags": [
+        "Document Manager: Employee Folders"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_folders/{id}",
+      "method": "GET",
+      "path": "/employee_folders/{id}",
+      "requests": [],
+      "responses": [
+        "schema:anon/a6dc079ddf9eff65144267392e407e1f5ead40cc"
+      ],
+      "tags": [
+        "Document Manager: Employee Folders"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_folders",
+      "method": "GET",
+      "path": "/company_folders",
+      "requests": [],
+      "responses": [
+        "schema:anon/a6dc079ddf9eff65144267392e407e1f5ead40cc"
+      ],
+      "tags": [
+        "Document Manager: Company Folders"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_folders/{id}",
+      "method": "GET",
+      "path": "/company_folders/{id}",
+      "requests": [],
+      "responses": [
+        "schema:anon/a6dc079ddf9eff65144267392e407e1f5ead40cc"
+      ],
+      "tags": [
+        "Document Manager: Company Folders"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/organizations",
+      "method": "GET",
+      "path": "/organizations",
+      "requests": [],
+      "responses": [
+        "schema:anon/c33cf55f8516018dfec2345eadb6c3b8a504c947",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Organizations"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/organizations",
+      "method": "HEAD",
+      "path": "/organizations",
+      "requests": [],
+      "responses": [
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Organizations"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/organizations/{id}",
+      "method": "PUT",
+      "path": "/organizations/{id}",
+      "requests": [
+        "schema:definitions/OrganizationCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/OrganizationFull",
+        "schema:definitions/OrganizationFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Organizations"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/organizations/{id}",
+      "method": "GET",
+      "path": "/organizations/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/OrganizationFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Organizations"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/organizations/{id}",
+      "method": "PATCH",
+      "path": "/organizations/{id}",
+      "requests": [
+        "schema:definitions/OrganizationCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/OrganizationFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Organizations"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/organization_groups",
+      "method": "GET",
+      "path": "/organization_groups",
+      "requests": [],
+      "responses": [
+        "schema:anon/d66080a6d8906ee35e18b5732d6197fe03d5a6ef",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Organizations"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/organization_groups/{id}",
+      "method": "PUT",
+      "path": "/organization_groups/{id}",
+      "requests": [
+        "schema:definitions/OrganizationGroupCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/OrganizationGroupFull",
+        "schema:definitions/OrganizationGroupFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Organizations"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/organization_groups/{id}",
+      "method": "GET",
+      "path": "/organization_groups/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/OrganizationGroupFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Organizations"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/organization_groups/{id}",
+      "method": "PATCH",
+      "path": "/organization_groups/{id}",
+      "requests": [
+        "schema:definitions/OrganizationGroupCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/OrganizationGroupFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Organizations"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document",
+      "method": "POST",
+      "path": "/document",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocumentFileId",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/redirection_urls",
+      "method": "GET",
+      "path": "/redirection_urls",
+      "requests": [],
+      "responses": [
+        "schema:definitions/RedirectionUrls"
+      ],
+      "tags": [
+        "Document Manager: Redirection Urls"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_documents",
+      "method": "GET",
+      "path": "/employee_documents",
+      "requests": [],
+      "responses": [
+        "schema:anon/b0c37f04150f97e8cac6df1a54929b8a5cfb8bd0"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/employee_documents",
+      "method": "POST",
+      "path": "/employee_documents",
+      "requests": [
+        "schema:definitions/EmployeeDocumentCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_documents/{id}/file",
+      "method": "GET",
+      "path": "/employee_documents/{id}/file",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/employee_documents/{id}/file",
+      "method": "HEAD",
+      "path": "/employee_documents/{id}/file",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_documents/{id}/duplicate",
+      "method": "GET",
+      "path": "/employee_documents/{id}/duplicate",
+      "requests": [],
+      "responses": [
+        "schema:anon/510932133ea32afb1165548fc5d46b15720f18ef",
+        "schema:anon/510932133ea32afb1165548fc5d46b15720f18ef",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_documents/{id}/preview",
+      "method": "GET",
+      "path": "/employee_documents/{id}/preview",
+      "requests": [],
+      "responses": [
+        "schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9",
+        "schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9",
+        "schema:definitions/Error",
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_documents/{id}/receipt",
+      "method": "GET",
+      "path": "/employee_documents/{id}/receipt",
+      "requests": [],
+      "responses": [
+        "schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf",
+        "schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/employee_documents/{id}/expiration/update",
+      "method": "PUT",
+      "path": "/employee_documents/{id}/expiration/update",
+      "requests": [
+        "schema:definitions/DocumentExpirationDatePayload"
+      ],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_documents/{id}",
+      "method": "GET",
+      "path": "/employee_documents/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/EmployeeDocumentFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/employee_documents/{id}",
+      "method": "DELETE",
+      "path": "/employee_documents/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/employee_documents/{id}",
+      "method": "PUT",
+      "path": "/employee_documents/{id}",
+      "requests": [
+        "schema:definitions/EmployeeDocumentUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/employee_documents/{id}",
+      "method": "PATCH",
+      "path": "/employee_documents/{id}",
+      "requests": [
+        "schema:definitions/EmployeeDocumentUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/EmployeeDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/employee_documents/{id}/trash",
+      "method": "PUT",
+      "path": "/employee_documents/{id}/trash",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/employee_documents/{id}/untrash",
+      "method": "PUT",
+      "path": "/employee_documents/{id}/untrash",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/employee_documents/trash",
+      "method": "DELETE",
+      "path": "/employee_documents/trash",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/employee_documents/{id}/expire",
+      "method": "PUT",
+      "path": "/employee_documents/{id}/expire",
+      "requests": [
+        "schema:definitions/DocumentExpiryDatePayload"
+      ],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/employee_documents/search",
+      "method": "POST",
+      "path": "/employee_documents/search",
+      "requests": [
+        "schema:anon/e85abe7c3772c2e9b36158cd2ce2d890964ec2a0"
+      ],
+      "responses": [
+        "schema:anon/b0c37f04150f97e8cac6df1a54929b8a5cfb8bd0"
+      ],
+      "tags": [
+        "Document Manager: Employee Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_documents",
+      "method": "GET",
+      "path": "/company_documents",
+      "requests": [],
+      "responses": [
+        "schema:anon/c071e6cecd79b1e634f7dc4aafb3e664234a67e8"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/company_documents",
+      "method": "POST",
+      "path": "/company_documents",
+      "requests": [
+        "schema:definitions/CompanyDocumentCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/CompanyDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_documents/{id}",
+      "method": "GET",
+      "path": "/company_documents/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/CompanyDocumentFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/company_documents/{id}",
+      "method": "DELETE",
+      "path": "/company_documents/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/company_documents/{id}",
+      "method": "PUT",
+      "path": "/company_documents/{id}",
+      "requests": [
+        "schema:definitions/CompanyDocumentUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/CompanyDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/company_documents/{id}",
+      "method": "PATCH",
+      "path": "/company_documents/{id}",
+      "requests": [
+        "schema:definitions/CompanyDocumentUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/CompanyDocumentFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_documents/{id}/file",
+      "method": "GET",
+      "path": "/company_documents/{id}/file",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/company_documents/{id}/file",
+      "method": "HEAD",
+      "path": "/company_documents/{id}/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_documents/{id}/duplicate",
+      "method": "GET",
+      "path": "/company_documents/{id}/duplicate",
+      "requests": [],
+      "responses": [
+        "schema:anon/510932133ea32afb1165548fc5d46b15720f18ef",
+        "schema:anon/510932133ea32afb1165548fc5d46b15720f18ef",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_documents/{id}/preview",
+      "method": "GET",
+      "path": "/company_documents/{id}/preview",
+      "requests": [],
+      "responses": [
+        "schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9",
+        "schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9",
+        "schema:definitions/Error",
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/company_documents/{id}/receipt",
+      "method": "GET",
+      "path": "/company_documents/{id}/receipt",
+      "requests": [],
+      "responses": [
+        "schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf",
+        "schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/company_documents/{id}/trash",
+      "method": "PUT",
+      "path": "/company_documents/{id}/trash",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/company_documents/{id}/untrash",
+      "method": "PUT",
+      "path": "/company_documents/{id}/untrash",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/company_documents/trash",
+      "method": "DELETE",
+      "path": "/company_documents/trash",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/company_documents/{id}/expire",
+      "method": "PUT",
+      "path": "/company_documents/{id}/expire",
+      "requests": [
+        "schema:definitions/DocumentExpiryDatePayload"
+      ],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Company Documents"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/uploads",
+      "method": "POST",
+      "path": "/uploads",
+      "requests": [],
+      "responses": [
+        "schema:definitions/UploadDocument",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Uploads"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/uploads/{id}/text_occurrences",
+      "method": "POST",
+      "path": "/uploads/{id}/text_occurrences",
+      "requests": [
+        "schema:definitions/UploadTextoccurrencesPayload"
+      ],
+      "responses": [
+        "schema:anon/a7d973accdf4c2c2660945da290d177c9b727cd0",
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Uploads"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/signature_processes",
+      "method": "GET",
+      "path": "/signature_processes",
+      "requests": [],
+      "responses": [
+        "schema:anon/574132e6e898a6dde6c146408dacf2510e9fe68f"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/signature_processes",
+      "method": "POST",
+      "path": "/signature_processes",
+      "requests": [
+        "schema:definitions/SignatureProcessCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/SignatureProcessFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/signature_processes/cancel",
+      "method": "POST",
+      "path": "/signature_processes/cancel",
+      "requests": [
+        "schema:definitions/SignatureProcessCancelPayload"
+      ],
+      "responses": [
+        "schema:anon/574132e6e898a6dde6c146408dacf2510e9fe68f",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/signature_processes/{id}",
+      "method": "PUT",
+      "path": "/signature_processes/{id}",
+      "requests": [
+        "schema:definitions/SignatureProcessUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/SignatureProcessFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/signature_processes/{id}",
+      "method": "PATCH",
+      "path": "/signature_processes/{id}",
+      "requests": [
+        "schema:definitions/SignatureProcessUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/SignatureProcessFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/signature_processes/{id}",
+      "method": "GET",
+      "path": "/signature_processes/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/SignatureProcessFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/signature_processes/{id}",
+      "method": "DELETE",
+      "path": "/signature_processes/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/signature_processes/{id}/preview",
+      "method": "GET",
+      "path": "/signature_processes/{id}/preview",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/signature_processes/{id}/file",
+      "method": "GET",
+      "path": "/signature_processes/{id}/file",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/signature_processes/{id}/archive",
+      "method": "POST",
+      "path": "/signature_processes/{id}/archive",
+      "requests": [
+        "schema:definitions/SignatureProcessArchivePayload"
+      ],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/signature_processes/{id}/send",
+      "method": "POST",
+      "path": "/signature_processes/{id}/send",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signature Processes"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/signature_types",
+      "method": "GET",
+      "path": "/signature_types",
+      "requests": [],
+      "responses": [
+        "schema:anon/dadb9bfad9410c9ba708c98acf88909c6e0730ab"
+      ],
+      "tags": [
+        "Document Manager: Signature Type"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/signature_types/{id}",
+      "method": "GET",
+      "path": "/signature_types/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/SignatureTypeFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signature Type"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/signers",
+      "method": "GET",
+      "path": "/signers",
+      "requests": [],
+      "responses": [
+        "schema:anon/bb4cf25bfe441228ba77915ab5cb2edad954dbd4"
+      ],
+      "tags": [
+        "Document Manager: Signer"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/signers",
+      "method": "POST",
+      "path": "/signers",
+      "requests": [
+        "schema:definitions/SignerBase"
+      ],
+      "responses": [
+        "schema:definitions/SignerFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Signer"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/signers/remind",
+      "method": "POST",
+      "path": "/signers/remind",
+      "requests": [
+        "schema:definitions/SignerRemindPayload"
+      ],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signer"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/signers/{id}",
+      "method": "GET",
+      "path": "/signers/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/SignerFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signer"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/signers/{id}",
+      "method": "DELETE",
+      "path": "/signers/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Signer"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/signers/{id}",
+      "method": "PATCH",
+      "path": "/signers/{id}",
+      "requests": [
+        "schema:definitions/SignerBase"
+      ],
+      "responses": [
+        "schema:definitions/SignerFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Signer"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/signers/{id}",
+      "method": "PUT",
+      "path": "/signers/{id}",
+      "requests": [
+        "schema:definitions/SignerBase"
+      ],
+      "responses": [
+        "schema:definitions/SignerFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Signer"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/signers/{id}/remind",
+      "method": "POST",
+      "path": "/signers/{id}/remind",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Signer"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/inbox_items",
+      "method": "GET",
+      "path": "/inbox_items",
+      "requests": [],
+      "responses": [
+        "schema:anon/c6e719439cb16efc1d588734262fa68b3656ea68"
+      ],
+      "tags": [
+        "Document Manager: Inbox"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/inbox_items",
+      "method": "POST",
+      "path": "/inbox_items",
+      "requests": [
+        "schema:definitions/InboxItemCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/InboxItemFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Inbox"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/inbox_items/{id}",
+      "method": "GET",
+      "path": "/inbox_items/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/InboxItemFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Inbox"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/imports",
+      "method": "POST",
+      "path": "/imports",
+      "requests": [
+        "schema:definitions/ImportCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/ImportFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Imports"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/imports",
+      "method": "GET",
+      "path": "/imports",
+      "requests": [],
+      "responses": [
+        "schema:anon/b20d699cf7b14746324dbd42bf959b87d0a930ec"
+      ],
+      "tags": [
+        "Platform: Imports"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/imports/{id}",
+      "method": "GET",
+      "path": "/imports/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/ImportFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Imports"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/imports/{id}/source",
+      "method": "GET",
+      "path": "/imports/{id}/source",
+      "requests": [],
+      "responses": [
+        "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Imports"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/imports/{id}/report",
+      "method": "GET",
+      "path": "/imports/{id}/report",
+      "requests": [],
+      "responses": [
+        "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Imports"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/imports/{id}/errors_report",
+      "method": "GET",
+      "path": "/imports/{id}/errors_report",
+      "requests": [],
+      "responses": [
+        "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Imports"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/dataset_imports",
+      "method": "POST",
+      "path": "/dataset_imports",
+      "requests": [
+        "schema:definitions/DatasetImportCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/DatasetImportFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Dataset Imports"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/dataset_imports",
+      "method": "GET",
+      "path": "/dataset_imports",
+      "requests": [],
+      "responses": [
+        "schema:anon/12e4c29a4d55d063dc86bebeaf38bf8fdab962e5"
+      ],
+      "tags": [
+        "Platform: Dataset Imports"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/dataset_imports/{id}",
+      "method": "GET",
+      "path": "/dataset_imports/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DatasetImportFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Dataset Imports"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/dataset_imports/{id}/source",
+      "method": "GET",
+      "path": "/dataset_imports/{id}/source",
+      "requests": [],
+      "responses": [
+        "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Dataset Imports"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/dataset_imports/{id}/report",
+      "method": "GET",
+      "path": "/dataset_imports/{id}/report",
+      "requests": [],
+      "responses": [
+        "schema:anon/f19a35a40a7859425a63281011673eb6c82b360f",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Dataset Imports"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/processes",
+      "method": "POST",
+      "path": "/processes",
+      "requests": [
+        "schema:definitions/ProcessCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/ProcessFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Processes"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/processes",
+      "method": "GET",
+      "path": "/processes",
+      "requests": [],
+      "responses": [
+        "schema:anon/4fda8799c92e57c81aff0b5fec0301de1a3a79c5"
+      ],
+      "tags": [
+        "People Assist: Processes"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/processes/{id}",
+      "method": "GET",
+      "path": "/processes/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/ProcessFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Processes"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/processes/{id}",
+      "method": "DELETE",
+      "path": "/processes/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "People Assist: Processes"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/processes/{id}/publish",
+      "method": "PUT",
+      "path": "/processes/{id}/publish",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Processes"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/processes/{id}/post_process_action#shared_inboxes",
+      "method": "POST",
+      "path": "/processes/{id}/post_process_action#shared_inboxes",
+      "requests": [
+        "schema:definitions/ProcessPostActionSharedBase"
+      ],
+      "responses": [
+        "schema:definitions/ProcessPostActionSharedPayload",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Processes"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/processes/{id}/post_process_action#user_inboxes",
+      "method": "POST",
+      "path": "/processes/{id}/post_process_action#user_inboxes",
+      "requests": [
+        "schema:definitions/ProcessPostActionUserBase"
+      ],
+      "responses": [
+        "schema:definitions/ProcessPostActionUserPayload",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Processes"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_templates",
+      "method": "GET",
+      "path": "/process_templates",
+      "requests": [],
+      "responses": [
+        "schema:anon/810ccd9b714002635c36ac4a9a1b0991dc0fd449"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/process_templates",
+      "method": "HEAD",
+      "path": "/process_templates",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_templates/{id}",
+      "method": "GET",
+      "path": "/process_templates/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/ProcessTemplate",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/process_templates/{id}",
+      "method": "PUT",
+      "path": "/process_templates/{id}",
+      "requests": [
+        "schema:definitions/ProcessTemplate"
+      ],
+      "responses": [
+        "schema:definitions/ProcessTemplate",
+        "schema:definitions/ProcessTemplate",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_templates/{process_template_id}/task_templates",
+      "method": "GET",
+      "path": "/process_templates/{process_template_id}/task_templates",
+      "requests": [],
+      "responses": [
+        "schema:anon/49e966dbb2286958e7bd268f2b7f00e279570463",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
+      "method": "GET",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
+      "requests": [],
+      "responses": [
+        "schema:definitions/AcknowledgmentTaskTemplates",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
+      "method": "PUT",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#acknowledgment",
+      "requests": [
+        "schema:definitions/AcknowledgmentTaskTemplatesWrite"
+      ],
+      "responses": [
+        "schema:definitions/AcknowledgmentTaskTemplates",
+        "schema:definitions/AcknowledgmentTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_templates/{process_template_id}/task_templates/{id}#basic",
+      "method": "GET",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#basic",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BasicTaskTemplates",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#basic",
+      "method": "PUT",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#basic",
+      "requests": [
+        "schema:definitions/BasicTaskTemplates"
+      ],
+      "responses": [
+        "schema:definitions/BasicTaskTemplates",
+        "schema:definitions/BasicTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+      "method": "GET",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+      "requests": [],
+      "responses": [
+        "schema:definitions/FillFormTaskTemplates",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+      "method": "PUT",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#fill_form",
+      "requests": [
+        "schema:definitions/FillFormTaskTemplates"
+      ],
+      "responses": [
+        "schema:definitions/FillFormTaskTemplates",
+        "schema:definitions/FillFormTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+      "method": "GET",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+      "requests": [],
+      "responses": [
+        "schema:definitions/FillPdfTaskTemplates",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+      "method": "PUT",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#fill_pdf",
+      "requests": [
+        "schema:definitions/FillPdfTaskTemplates"
+      ],
+      "responses": [
+        "schema:definitions/FillPdfTaskTemplates",
+        "schema:definitions/FillPdfTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_templates/{process_template_id}/task_templates/{id}#signature",
+      "method": "GET",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#signature",
+      "requests": [],
+      "responses": [
+        "schema:definitions/SignatureTaskTemplates",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#signature",
+      "method": "PUT",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#signature",
+      "requests": [
+        "schema:definitions/SignatureTaskTemplates"
+      ],
+      "responses": [
+        "schema:definitions/SignatureTaskTemplates",
+        "schema:definitions/SignatureTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_templates/{process_template_id}/task_templates/{id}#validation",
+      "method": "GET",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#validation",
+      "requests": [],
+      "responses": [
+        "schema:definitions/ValidationTaskTemplates",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/process_templates/{process_template_id}/task_templates/{id}#validation",
+      "method": "PUT",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}#validation",
+      "requests": [
+        "schema:definitions/ValidationTaskTemplates"
+      ],
+      "responses": [
+        "schema:definitions/ValidationTaskTemplates",
+        "schema:definitions/ValidationTaskTemplates",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/process_templates/{process_template_id}/task_templates/{id}",
+      "method": "DELETE",
+      "path": "/process_templates/{process_template_id}/task_templates/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Process Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_pdf_templates",
+      "method": "GET",
+      "path": "/process_pdf_templates",
+      "requests": [],
+      "responses": [
+        "schema:anon/0943141efa0200182a6c0bb0d6b9444b716abe26"
+      ],
+      "tags": [
+        "People Assist: PDF Templates"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/process_pdf_templates",
+      "method": "HEAD",
+      "path": "/process_pdf_templates",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "People Assist: PDF Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/process_pdf_templates/{id}",
+      "method": "GET",
+      "path": "/process_pdf_templates/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/PdfTemplateDetail",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: PDF Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/process_pdf_templates/{id}",
+      "method": "PUT",
+      "path": "/process_pdf_templates/{id}",
+      "requests": [
+        "schema:definitions/PdfTemplateWrite"
+      ],
+      "responses": [
+        "schema:definitions/PdfTemplateDetail",
+        "schema:definitions/PdfTemplateDetail",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: PDF Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks",
+      "method": "GET",
+      "path": "/tasks",
+      "requests": [],
+      "responses": [
+        "schema:anon/d14f6e39b9c2423c40bdac150f0e9a1cbaa65bc2"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/tasks/{id}#acknowledgment",
+      "method": "PATCH",
+      "path": "/tasks/{id}#acknowledgment",
+      "requests": [
+        "schema:definitions/PatchTaskPayload"
+      ],
+      "responses": [
+        "schema:definitions/AckTaskPayload",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks/{id}#acknowledgment",
+      "method": "GET",
+      "path": "/tasks/{id}#acknowledgment",
+      "requests": [],
+      "responses": [
+        "schema:definitions/AckTaskPayload",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/tasks/{id}#basic",
+      "method": "PATCH",
+      "path": "/tasks/{id}#basic",
+      "requests": [
+        "schema:definitions/PatchTaskPayload"
+      ],
+      "responses": [
+        "schema:definitions/BasicTaskPayload",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks/{id}#basic",
+      "method": "GET",
+      "path": "/tasks/{id}#basic",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BasicTaskPayload",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/tasks/{id}#signature",
+      "method": "PATCH",
+      "path": "/tasks/{id}#signature",
+      "requests": [
+        "schema:definitions/PatchTaskPayload"
+      ],
+      "responses": [
+        "schema:definitions/SignatureTaskPayload",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks/{id}#signature",
+      "method": "GET",
+      "path": "/tasks/{id}#signature",
+      "requests": [],
+      "responses": [
+        "schema:definitions/SignatureTaskPayload",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/tasks/{id}#fill_form",
+      "method": "PATCH",
+      "path": "/tasks/{id}#fill_form",
+      "requests": [
+        "schema:definitions/PatchTaskPayload"
+      ],
+      "responses": [
+        "schema:definitions/FillFormTaskPayload",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks/{id}#fill_form",
+      "method": "GET",
+      "path": "/tasks/{id}#fill_form",
+      "requests": [],
+      "responses": [
+        "schema:definitions/FillFormTaskPayload",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/tasks/{id}#fill_pdf",
+      "method": "PATCH",
+      "path": "/tasks/{id}#fill_pdf",
+      "requests": [
+        "schema:definitions/PatchTaskPayload"
+      ],
+      "responses": [
+        "schema:definitions/FillPdfTaskPayload",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks/{id}#fill_pdf",
+      "method": "GET",
+      "path": "/tasks/{id}#fill_pdf",
+      "requests": [],
+      "responses": [
+        "schema:definitions/FillPdfTaskPayload",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/tasks/{id}#validation",
+      "method": "PATCH",
+      "path": "/tasks/{id}#validation",
+      "requests": [
+        "schema:definitions/PatchTaskPayload"
+      ],
+      "responses": [
+        "schema:definitions/ValidationTaskPayload",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks/{id}#validation",
+      "method": "GET",
+      "path": "/tasks/{id}#validation",
+      "requests": [],
+      "responses": [
+        "schema:definitions/ValidationTaskPayload",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/tasks/{id}/files",
+      "method": "POST",
+      "path": "/tasks/{id}/files",
+      "requests": [
+        "schema:definitions/TaskFilePostPayload"
+      ],
+      "responses": [
+        "schema:definitions/TaskFileResource",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks/{id}/files/{file_id}",
+      "method": "GET",
+      "path": "/tasks/{id}/files/{file_id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/TaskFileResource",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/tasks/{id}/files/{file_id}",
+      "method": "DELETE",
+      "path": "/tasks/{id}/files/{file_id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/tasks/{id}/files/{file_id}",
+      "method": "PATCH",
+      "path": "/tasks/{id}/files/{file_id}",
+      "requests": [
+        "schema:definitions/TaskFilePatchPayload"
+      ],
+      "responses": [
+        "schema:definitions/TaskFileResource",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks/{id}/files/{file_id}/download",
+      "method": "GET",
+      "path": "/tasks/{id}/files/{file_id}/download",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/tasks/{id}/workingfiles/{file_id}",
+      "method": "GET",
+      "path": "/tasks/{id}/workingfiles/{file_id}",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/tasks/{id}/fill",
+      "method": "POST",
+      "path": "/tasks/{id}/fill",
+      "requests": [
+        "schema:definitions/FillTaskPayload"
+      ],
+      "responses": [
+        "schema:definitions/TaskFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Tasks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_settings/{employee_id}/process_automation",
+      "method": "GET",
+      "path": "/employee_settings/{employee_id}/process_automation",
+      "requests": [],
+      "responses": [
+        "schema:definitions/EmployeeSettingsProcessAutomation",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employee Settings"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/employee_settings/{employee_id}/process_automation/welcome_file",
+      "method": "GET",
+      "path": "/employee_settings/{employee_id}/process_automation/welcome_file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Employee Settings"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/kb_categories",
+      "method": "GET",
+      "path": "/kb_categories",
+      "requests": [],
+      "responses": [
+        "schema:anon/6585ded45263b3acb3c85a031b33d07ddb5838ce"
+      ],
+      "tags": [
+        "People Assist: Categories"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/kb_categories/{id}",
+      "method": "GET",
+      "path": "/kb_categories/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/KbCategoryFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Categories"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/kb_categories/{id}",
+      "method": "DELETE",
+      "path": "/kb_categories/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/KbCategoryDeletionError",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Categories"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/kb_categories/{id}",
+      "method": "PATCH",
+      "path": "/kb_categories/{id}",
+      "requests": [
+        "schema:definitions/KbCategoryPatchOrderPayload"
+      ],
+      "responses": [
+        "schema:definitions/KbCategoryFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Categories"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/kb_categories/{id}",
+      "method": "PUT",
+      "path": "/kb_categories/{id}",
+      "requests": [
+        "schema:definitions/KbCategoryUpdatePayload"
+      ],
+      "responses": [
+        "schema:anon/6585ded45263b3acb3c85a031b33d07ddb5838ce",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Categories"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/article_resources/{id}",
+      "method": "GET",
+      "path": "/article_resources/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Articles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/article_documents/{id}",
+      "method": "GET",
+      "path": "/article_documents/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Articles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/kb_articles",
+      "method": "GET",
+      "path": "/kb_articles",
+      "requests": [],
+      "responses": [
+        "schema:anon/888d6facb4aefdffb6ce9cb24b8f6dbf3ebf2b94",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Articles"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/kb_articles/images",
+      "method": "POST",
+      "path": "/kb_articles/images",
+      "requests": [],
+      "responses": [
+        "schema:definitions/KbArticleImage",
+        "schema:definitions/Error",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Articles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/kb_articles/{id}",
+      "method": "GET",
+      "path": "/kb_articles/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/KbArticleFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Articles"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/kb_articles/{id}",
+      "method": "PUT",
+      "path": "/kb_articles/{id}",
+      "requests": [
+        "schema:definitions/KbArticleUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/KbArticleFull",
+        "schema:definitions/KbArticleFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Articles"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/kb_articles/{id}",
+      "method": "DELETE",
+      "path": "/kb_articles/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Articles"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/kb_articles/{id}",
+      "method": "PATCH",
+      "path": "/kb_articles/{id}",
+      "requests": [
+        "schema:definitions/KbArticlePatchPayload"
+      ],
+      "responses": [
+        "schema:definitions/KbArticleFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Articles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/kb_tags",
+      "method": "GET",
+      "path": "/kb_tags",
+      "requests": [],
+      "responses": [
+        "schema:anon/64b27ab8c3c56801e744779c2582279b8bd7eb40",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Articles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests",
+      "method": "GET",
+      "path": "/requests",
+      "requests": [],
+      "responses": [
+        "schema:anon/775063622faa0c3238bbe8e30f977893a59e85f0",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/requests",
+      "method": "POST",
+      "path": "/requests",
+      "requests": [
+        "schema:definitions/RequestPostCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/RequestFullWithAttachments",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/comments",
+      "method": "GET",
+      "path": "/requests/{id}/comments",
+      "requests": [],
+      "responses": [
+        "schema:anon/c4ab9b52f95636e64eb20c166044935588f1c435",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/requests/{id}/comments",
+      "method": "POST",
+      "path": "/requests/{id}/comments",
+      "requests": [
+        "schema:definitions/RequestPostComment"
+      ],
+      "responses": [
+        "schema:definitions/RequestComment",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/requests/{id}/comments/{comment_id}/attachments/{attachment_id}/preview",
+      "method": "HEAD",
+      "path": "/requests/{id}/comments/{comment_id}/attachments/{attachment_id}/preview",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/comments/{comment_id}/attachments/{attachment_id}/preview/{page}",
+      "method": "GET",
+      "path": "/requests/{id}/comments/{comment_id}/attachments/{attachment_id}/preview/{page}",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}",
+      "method": "GET",
+      "path": "/requests/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/RequestFullWithAttachments",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/requests/{id}",
+      "method": "DELETE",
+      "path": "/requests/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/requests/{id}",
+      "method": "PATCH",
+      "path": "/requests/{id}",
+      "requests": [
+        "schema:definitions/RequestPatchPayload"
+      ],
+      "responses": [
+        "schema:definitions/RequestFullWithAttachments",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Forbidden",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/requests/{id}/files/{file_id}",
+      "method": "DELETE",
+      "path": "/requests/{id}/files/{file_id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/files/{file_id}/download",
+      "method": "GET",
+      "path": "/requests/{id}/files/{file_id}/download",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/requests/{id}/files/{file_id}/preview",
+      "method": "HEAD",
+      "path": "/requests/{id}/files/{file_id}/preview",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/files/{file_id}/preview/{page}",
+      "method": "GET",
+      "path": "/requests/{id}/files/{file_id}/preview/{page}",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/requests/{id}/attachments/{attachment_id}",
+      "method": "DELETE",
+      "path": "/requests/{id}/attachments/{attachment_id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/attachments/{attachment_id}/download",
+      "method": "GET",
+      "path": "/requests/{id}/attachments/{attachment_id}/download",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/requests/{id}/attachments/{attachment_id}/preview",
+      "method": "HEAD",
+      "path": "/requests/{id}/attachments/{attachment_id}/preview",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/attachments/{attachment_id}/preview/{page}",
+      "method": "GET",
+      "path": "/requests/{id}/attachments/{attachment_id}/preview/{page}",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/pdf",
+      "method": "GET",
+      "path": "/requests/{id}/pdf",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/assignees",
+      "method": "GET",
+      "path": "/requests/{id}/assignees",
+      "requests": [],
+      "responses": [
+        "schema:anon/3bfb95c39dd9c9740e366c2a0f63f7597632a6cc"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/macros",
+      "method": "GET",
+      "path": "/requests/{id}/macros",
+      "requests": [],
+      "responses": [
+        "schema:anon/1f57037e5c42b4db439332c55f0a1c6802ae7a84",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/requests/{id}/macros",
+      "method": "POST",
+      "path": "/requests/{id}/macros",
+      "requests": [
+        "schema:definitions/RequestMacroPayload"
+      ],
+      "responses": [
+        "schema:definitions/Forbidden",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/requests/{id}/linked_requests",
+      "method": "GET",
+      "path": "/requests/{id}/linked_requests",
+      "requests": [],
+      "responses": [
+        "schema:anon/775063622faa0c3238bbe8e30f977893a59e85f0",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/requests/{id}/linked_requests",
+      "method": "POST",
+      "path": "/requests/{id}/linked_requests",
+      "requests": [
+        "schema:anon/1e597aca270857d81b90843f1e8aacbf62f90b3c"
+      ],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/request_forms",
+      "method": "HEAD",
+      "path": "/request_forms",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/request_forms",
+      "method": "GET",
+      "path": "/request_forms",
+      "requests": [],
+      "responses": [
+        "schema:anon/089ee1bd66e109c974975933f2010b60b1ccab71",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/request_forms/{id}",
+      "method": "GET",
+      "path": "/request_forms/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/RequestFormFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/request_forms/{id}",
+      "method": "PATCH",
+      "path": "/request_forms/{id}",
+      "requests": [
+        "schema:definitions/RequestFormPatch"
+      ],
+      "responses": [
+        "schema:definitions/RequestFormPatch",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/request_forms/{id}",
+      "method": "PUT",
+      "path": "/request_forms/{id}",
+      "requests": [
+        "schema:definitions/RequestFormPut"
+      ],
+      "responses": [
+        "schema:definitions/RequestFormPut",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/client",
+      "method": "GET",
+      "path": "/client",
+      "requests": [],
+      "responses": [
+        "schema:definitions/CoreClientFull"
+      ],
+      "tags": [
+        "Platform: Clients"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/platform_updates",
+      "method": "POST",
+      "path": "/platform_updates",
+      "requests": [
+        "schema:definitions/PlatformUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Platform Updates"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/distribution_projects",
+      "method": "POST",
+      "path": "/distribution_projects",
+      "requests": [
+        "schema:definitions/DistributionProjectBase"
+      ],
+      "responses": [
+        "schema:definitions/DistributionProjectFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Distribution Projects"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/distribution_projects",
+      "method": "GET",
+      "path": "/distribution_projects",
+      "requests": [],
+      "responses": [
+        "schema:anon/906cd7d087081a0d824839e56dd6cb2fef2bfdb9",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Distribution Projects"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/distribution_projects/{id}",
+      "method": "GET",
+      "path": "/distribution_projects/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DistributionProjectFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Distribution Projects"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/distributions",
+      "method": "POST",
+      "path": "/distributions",
+      "requests": [
+        "schema:definitions/DistributionBase"
+      ],
+      "responses": [
+        "schema:definitions/DistributionFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Distributions"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/distributions",
+      "method": "GET",
+      "path": "/distributions",
+      "requests": [],
+      "responses": [
+        "schema:anon/373db6efdc978baa34136c20670e74cb22fc3cbc"
+      ],
+      "tags": [
+        "Document Manager: Distributions"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/distributions/{id}",
+      "method": "GET",
+      "path": "/distributions/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DistributionFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Distributions"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/distributions/{id}/report",
+      "method": "GET",
+      "path": "/distributions/{id}/report",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Distributions"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/tokens",
+      "method": "POST",
+      "path": "/tokens",
+      "requests": [],
+      "responses": [
+        "schema:definitions/TokenFull",
+        "schema:definitions/OAuthError",
+        "schema:definitions/OAuthError"
+      ],
+      "tags": [
+        "Platform: OAuth - Tokens"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/revoke_token",
+      "method": "POST",
+      "path": "/revoke_token",
+      "requests": [],
+      "responses": [
+        "schema:definitions/OAuthError"
+      ],
+      "tags": [
+        "Platform: OAuth - Tokens"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generations",
+      "method": "POST",
+      "path": "/document_generations",
+      "requests": [
+        "schema:definitions/DocGenRequestPayload"
+      ],
+      "responses": [
+        "schema:definitions/DocGenFullWithErrors"
+      ],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generations/async",
+      "method": "POST",
+      "path": "/document_generations/async",
+      "requests": [
+        "schema:definitions/DocGenRequestPayload"
+      ],
+      "responses": [],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/document_generations/{id}",
+      "method": "DELETE",
+      "path": "/document_generations/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generations/{id}",
+      "method": "GET",
+      "path": "/document_generations/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocGenFull",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/document_generations/{id}/file",
+      "method": "HEAD",
+      "path": "/document_generations/{id}/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generations/{id}/file",
+      "method": "GET",
+      "path": "/document_generations/{id}/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generations/{id}/preview",
+      "method": "GET",
+      "path": "/document_generations/{id}/preview",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generations/{id}/preview/{page}",
+      "method": "GET",
+      "path": "/document_generations/{id}/preview/{page}",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generations/{id}/archive",
+      "method": "POST",
+      "path": "/document_generations/{id}/archive",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generations/{id}/email",
+      "method": "POST",
+      "path": "/document_generations/{id}/email",
+      "requests": [
+        "schema:anon/9c349bf754b92e3106f490eda0a9eb824b64e6d2"
+      ],
+      "responses": [
+        "schema:definitions/DocGenFullWithErrors"
+      ],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generations/{id}/vault",
+      "method": "POST",
+      "path": "/document_generations/{id}/vault",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "Document Manager: Document Generations"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/{number}/doc_fields",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/{number}/doc_fields",
+      "requests": [],
+      "responses": [
+        "schema:definitions/FormidableCreatePayload",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/document_generation_templates/{id}/versions/{number}/doc_fields",
+      "method": "PUT",
+      "path": "/document_generation_templates/{id}/versions/{number}/doc_fields",
+      "requests": [
+        "schema:definitions/FormidableCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/FormidableCreatePayload",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates",
+      "method": "GET",
+      "path": "/document_generation_templates",
+      "requests": [],
+      "responses": [
+        "schema:anon/b06a702c0cc5b75c38a2f13547adf26fae995cd8"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generation_templates",
+      "method": "POST",
+      "path": "/document_generation_templates",
+      "requests": [
+        "schema:definitions/DocGenTemplatePayload"
+      ],
+      "responses": [
+        "schema:definitions/DocGenTemplate",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/document_generation_templates/{id}",
+      "method": "DELETE",
+      "path": "/document_generation_templates/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocGenTemplate",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/document_generation_templates/{id}",
+      "method": "PATCH",
+      "path": "/document_generation_templates/{id}",
+      "requests": [
+        "schema:definitions/DocGenTemplatePatchPayload"
+      ],
+      "responses": [
+        "schema:definitions/DocGenTemplate",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/document_generation_templates/{id}",
+      "method": "PUT",
+      "path": "/document_generation_templates/{id}",
+      "requests": [
+        "schema:definitions/DocGenTemplatePayload"
+      ],
+      "responses": [
+        "schema:definitions/DocGenTemplate",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generation_templates/{id}/file",
+      "method": "POST",
+      "path": "/document_generation_templates/{id}/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocGenTemplateVersion",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/fragment_usages",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/fragment_usages",
+      "requests": [],
+      "responses": [
+        "schema:anon/04f3aee7230e3fba1c509255862123dfc9f22cd2",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions",
+      "requests": [],
+      "responses": [
+        "schema:anon/6e85c5ca7ec2767e831b3fa8eaec108d8fee8a8c"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/document_generation_templates/{id}/versions/{number}",
+      "method": "DELETE",
+      "path": "/document_generation_templates/{id}/versions/{number}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/{number}",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/{number}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocGenTemplateVersion",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/document_generation_templates/{id}/versions/{number}",
+      "method": "PUT",
+      "path": "/document_generation_templates/{id}/versions/{number}",
+      "requests": [
+        "schema:definitions/DocGenTemplateVersionUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/DocGenTemplateVersion",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/document_generation_templates/{id}/versions/{number}",
+      "method": "PATCH",
+      "path": "/document_generation_templates/{id}/versions/{number}",
+      "requests": [
+        "schema:definitions/DocgenTemplateVersionPatchPayload"
+      ],
+      "responses": [
+        "schema:definitions/DocGenTemplateVersionFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/document_generation_templates/{id}/versions/{number}/file",
+      "method": "HEAD",
+      "path": "/document_generation_templates/{id}/versions/{number}/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/{number}/file",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/{number}/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/document_generation_templates/{id}/versions/active/file",
+      "method": "HEAD",
+      "path": "/document_generation_templates/{id}/versions/active/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/active/file",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/active/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/document_generation_templates/{id}/versions/latest/file",
+      "method": "HEAD",
+      "path": "/document_generation_templates/{id}/versions/latest/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/latest/file",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/latest/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/{number}/fields",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/{number}/fields",
+      "requests": [],
+      "responses": [
+        "schema:definitions/FieldSet",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/active/fields",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/active/fields",
+      "requests": [],
+      "responses": [
+        "schema:definitions/FieldSet",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/latest/fields",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/latest/fields",
+      "requests": [],
+      "responses": [
+        "schema:definitions/FieldSet",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/{number}/preview",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/{number}/preview",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/active/preview",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/active/preview",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/latest/preview",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/latest/preview",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/{number}/preview/{page}",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/{number}/preview/{page}",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/active/preview/{page}",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/active/preview/{page}",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_templates/{id}/versions/latest/preview/{page}",
+      "method": "GET",
+      "path": "/document_generation_templates/{id}/versions/latest/preview/{page}",
+      "requests": [],
+      "responses": [
+        "schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generations/syntax_migration/status",
+      "method": "GET",
+      "path": "/document_generations/syntax_migration/status",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocGenMigrationCampaign"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates Syntax Migration"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/document_generations/syntax_migration/status",
+      "method": "PUT",
+      "path": "/document_generations/syntax_migration/status",
+      "requests": [
+        "schema:definitions/DocGenMigrationCampaign"
+      ],
+      "responses": [
+        "schema:definitions/DocGenMigrationCampaign"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates Syntax Migration"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generations/syntax_migration/restart",
+      "method": "POST",
+      "path": "/document_generations/syntax_migration/restart",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocGenMigrationCampaign",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates Syntax Migration"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generations/syntax_migration/list",
+      "method": "GET",
+      "path": "/document_generations/syntax_migration/list",
+      "requests": [],
+      "responses": [
+        "schema:anon/775ab4200a85248650330620627c3191895b6b8f"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates Syntax Migration"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generations/syntax_migration/{id}",
+      "method": "POST",
+      "path": "/document_generations/syntax_migration/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocGenTemplateVersionFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Templates Syntax Migration"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generation_campaigns",
+      "method": "POST",
+      "path": "/document_generation_campaigns",
+      "requests": [
+        "schema:definitions/DocGenCampaignPayload"
+      ],
+      "responses": [
+        "schema:definitions/DocGenCampaignResponse"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Campaigns"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_campaigns",
+      "method": "GET",
+      "path": "/document_generation_campaigns",
+      "requests": [],
+      "responses": [
+        "schema:anon/ac6d1dc118b25a7ed1b92b83b08dd27fe2febb2f"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Campaigns"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_generation_campaigns/csv",
+      "method": "POST",
+      "path": "/document_generation_campaigns/csv",
+      "requests": [],
+      "responses": [
+        "schema:definitions/CsvCampaign",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Campaigns"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_campaigns/{id}",
+      "method": "GET",
+      "path": "/document_generation_campaigns/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocGenCampaignResponse"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Campaigns"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_campaigns/{id}/file",
+      "method": "GET",
+      "path": "/document_generation_campaigns/{id}/file",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BaseError",
+        "schema:definitions/BaseError"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Campaigns"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_requests/{id}/status",
+      "method": "GET",
+      "path": "/document_generation_requests/{id}/status",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocGenRequestStatusResponse"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Requests"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_generation_requests",
+      "method": "GET",
+      "path": "/document_generation_requests",
+      "requests": [],
+      "responses": [
+        "schema:anon/0b6db8ffe97262bfb8d32aa75ed908d16f3913e6"
+      ],
+      "tags": [
+        "Document Manager: Document Generation Requests"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/saml/identity_providers",
+      "method": "POST",
+      "path": "/saml/identity_providers",
+      "requests": [
+        "schema:definitions/SamlIdentityProviderCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Saml Identity Providers"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/saml/identity_providers",
+      "method": "GET",
+      "path": "/saml/identity_providers",
+      "requests": [],
+      "responses": [
+        "schema:anon/7848fbf9d588bc0223492736dd5178fcfacc18aa"
+      ],
+      "tags": [
+        "Platform: Saml Identity Providers"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/saml/identity_providers/{id}",
+      "method": "GET",
+      "path": "/saml/identity_providers/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Saml Identity Providers"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/saml/identity_providers/{id}",
+      "method": "HEAD",
+      "path": "/saml/identity_providers/{id}",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "Platform: Saml Identity Providers"
+      ]
+    },
+    {
+      "operation_id": "op:PATCH:/saml/identity_providers/{id}",
+      "method": "PATCH",
+      "path": "/saml/identity_providers/{id}",
+      "requests": [
+        "schema:definitions/SamlIdentityProviderUpdatePayload"
+      ],
+      "responses": [
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Saml Identity Providers"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/saml/identity_providers/{id}",
+      "method": "PUT",
+      "path": "/saml/identity_providers/{id}",
+      "requests": [
+        "schema:definitions/SamlIdentityProviderCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/SamlIdentityProviderFull",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Saml Identity Providers"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/saml/identity_providers/{id}",
+      "method": "DELETE",
+      "path": "/saml/identity_providers/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Saml Identity Providers"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/events",
+      "method": "GET",
+      "path": "/events",
+      "requests": [],
+      "responses": [
+        "schema:anon/05f5b629ed8097ca7cddfd668e515f1e85181448"
+      ],
+      "tags": [
+        "Platform: Events"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/roles/{role_id}/permissions/audit",
+      "method": "GET",
+      "path": "/roles/{role_id}/permissions/audit",
+      "requests": [],
+      "responses": [
+        "schema:definitions/AuditPermissionsFull"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/roles/{role_id}/permissions/audit",
+      "method": "PUT",
+      "path": "/roles/{role_id}/permissions/audit",
+      "requests": [
+        "schema:definitions/AuditPermissionsBase"
+      ],
+      "responses": [
+        "schema:definitions/AuditPermissionsFull",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/events/{id}",
+      "method": "GET",
+      "path": "/events/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/EventBase",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Events"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/events/export",
+      "method": "GET",
+      "path": "/events/export",
+      "requests": [],
+      "responses": [
+        "schema:anon/2edaec8241dcf7c871fc19b8b6f92bae66cfaf10",
+        "schema:anon/2edaec8241dcf7c871fc19b8b6f92bae66cfaf10"
+      ],
+      "tags": [
+        "Platform: Events"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/events/filters/actions",
+      "method": "GET",
+      "path": "/events/filters/actions",
+      "requests": [],
+      "responses": [
+        "schema:anon/08ade60f52657cdad656585770b0ed0603dfa5a4"
+      ],
+      "tags": [
+        "Platform: Events"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/webhooks",
+      "method": "GET",
+      "path": "/webhooks",
+      "requests": [],
+      "responses": [
+        "schema:anon/80021de2832ff47b51d3143a1ab9f9d6d0782bb9"
+      ],
+      "tags": [
+        "Platform: Webhooks"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/webhooks",
+      "method": "POST",
+      "path": "/webhooks",
+      "requests": [
+        "schema:definitions/WebhookCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/WebhookFull",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Webhooks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/webhooks/{id}",
+      "method": "GET",
+      "path": "/webhooks/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/WebhookFull"
+      ],
+      "tags": [
+        "Platform: Webhooks"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/webhooks/{id}",
+      "method": "DELETE",
+      "path": "/webhooks/{id}",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "Platform: Webhooks"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/webhooks/{id}",
+      "method": "PUT",
+      "path": "/webhooks/{id}",
+      "requests": [
+        "schema:definitions/WebhookCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/WebhookFull",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Webhooks"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/webhooks/{id}/refresh_signature_key",
+      "method": "POST",
+      "path": "/webhooks/{id}/refresh_signature_key",
+      "requests": [],
+      "responses": [
+        "schema:definitions/WebhookFull"
+      ],
+      "tags": [
+        "Platform: Webhooks"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/webhooks/{id}/tests",
+      "method": "POST",
+      "path": "/webhooks/{id}/tests",
+      "requests": [],
+      "responses": [
+        "schema:definitions/WebhookFull"
+      ],
+      "tags": [
+        "Platform: Webhooks"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/roles/{role_id}/permissions/webhook",
+      "method": "GET",
+      "path": "/roles/{role_id}/permissions/webhook",
+      "requests": [],
+      "responses": [
+        "schema:definitions/WebhookPermissionsFull"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/roles/{role_id}/permissions/webhook",
+      "method": "PUT",
+      "path": "/roles/{role_id}/permissions/webhook",
+      "requests": [
+        "schema:definitions/WebhookPermissionsBase"
+      ],
+      "responses": [
+        "schema:definitions/WebhookPermissionsFull",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Roles"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/settings/core",
+      "method": "GET",
+      "path": "/settings/core",
+      "requests": [],
+      "responses": [
+        "schema:definitions/CoreSettingsFull"
+      ],
+      "tags": [
+        "Platform: Settings"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/settings/process_automation",
+      "method": "GET",
+      "path": "/settings/process_automation",
+      "requests": [],
+      "responses": [
+        "schema:definitions/ProcessAutomationSettingsFull"
+      ],
+      "tags": [
+        "Platform: Settings"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/settings/knowledge_base",
+      "method": "GET",
+      "path": "/settings/knowledge_base",
+      "requests": [],
+      "responses": [
+        "schema:definitions/KnowledgeBaseSettings"
+      ],
+      "tags": [
+        "Platform: Settings"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/settings/case_management",
+      "method": "GET",
+      "path": "/settings/case_management",
+      "requests": [],
+      "responses": [
+        "schema:definitions/CaseManagementSettings"
+      ],
+      "tags": [
+        "Platform: Settings"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/datasets",
+      "method": "GET",
+      "path": "/datasets",
+      "requests": [],
+      "responses": [
+        "schema:anon/ecc811652a928c2fe8ecf0bfeab4342ce84786be",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Datasets"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/datasets/{id}",
+      "method": "GET",
+      "path": "/datasets/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DatasetFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Datasets"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/datasets/{id}",
+      "method": "PUT",
+      "path": "/datasets/{id}",
+      "requests": [
+        "schema:definitions/DatasetCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/DatasetFull",
+        "schema:definitions/DatasetFull",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Datasets"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/datasets/{id}/values",
+      "method": "GET",
+      "path": "/datasets/{id}/values",
+      "requests": [],
+      "responses": [
+        "schema:anon/766eaf4007e238e701301c1cc85e64116d4b270e",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Datasets"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/datasets/{id}/values/{value_id}",
+      "method": "GET",
+      "path": "/datasets/{id}/values/{value_id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DatasetValueFull",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Datasets"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/datasets/{id}/values/{value_id}",
+      "method": "HEAD",
+      "path": "/datasets/{id}/values/{value_id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Platform: Datasets"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/datasets/{id}/values/{value_id}",
+      "method": "PUT",
+      "path": "/datasets/{id}/values/{value_id}",
+      "requests": [
+        "schema:definitions/DatasetValueCreatePayload"
+      ],
+      "responses": [
+        "schema:definitions/DatasetValueFull",
+        "schema:definitions/DatasetValueFull",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Datasets"
+      ]
+    },
+    {
+      "operation_id": "op:DELETE:/datasets/{id}/values/{value_id}",
+      "method": "DELETE",
+      "path": "/datasets/{id}/values/{value_id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Platform: Datasets"
+      ]
+    },
+    {
+      "operation_id": "op:POST:/document_type_prediction_run",
+      "method": "POST",
+      "path": "/document_type_prediction_run",
+      "requests": [
+        "schema:definitions/DocumentTypePredictionClientPayload"
+      ],
+      "responses": [
+        "schema:definitions/DocumentTypePredictionRun",
+        "schema:definitions/BadRequest",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "Document Manager: Document Classification"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/document_type_prediction_run/{id}",
+      "method": "GET",
+      "path": "/document_type_prediction_run/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/DocumentTypePredictionRun",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "Document Manager: Document Classification"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/macros",
+      "method": "HEAD",
+      "path": "/macros",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "People Assist: Macros"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/macros",
+      "method": "GET",
+      "path": "/macros",
+      "requests": [],
+      "responses": [
+        "schema:anon/38b2796c882026cacb10dc2047ba6da0283fcb15"
+      ],
+      "tags": [
+        "People Assist: Macros"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/macros/{id}",
+      "method": "GET",
+      "path": "/macros/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/MacroDetail",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Macros"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/macros/{id}",
+      "method": "PUT",
+      "path": "/macros/{id}",
+      "requests": [
+        "schema:definitions/MacroPutPayload"
+      ],
+      "responses": [
+        "schema:definitions/MacroDetail",
+        "schema:definitions/MacroDetail",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Macros"
+      ]
+    },
+    {
+      "operation_id": "op:HEAD:/custom_status",
+      "method": "HEAD",
+      "path": "/custom_status",
+      "requests": [],
+      "responses": [],
+      "tags": [
+        "People Assist: Custom Status"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/custom_status",
+      "method": "GET",
+      "path": "/custom_status",
+      "requests": [],
+      "responses": [
+        "schema:anon/2ea0111c6225430d57de709997a73a74c59d4337"
+      ],
+      "tags": [
+        "People Assist: Custom Status"
+      ]
+    },
+    {
+      "operation_id": "op:GET:/custom_status/{id}",
+      "method": "GET",
+      "path": "/custom_status/{id}",
+      "requests": [],
+      "responses": [
+        "schema:definitions/CustomStatusDetail",
+        "schema:definitions/BadRequest"
+      ],
+      "tags": [
+        "People Assist: Custom Status"
+      ]
+    },
+    {
+      "operation_id": "op:PUT:/custom_status/{id}",
+      "method": "PUT",
+      "path": "/custom_status/{id}",
+      "requests": [
+        "schema:definitions/CustomStatusPutPayload"
+      ],
+      "responses": [
+        "schema:definitions/CustomStatusDetail",
+        "schema:definitions/CustomStatusDetail",
+        "schema:definitions/Error"
+      ],
+      "tags": [
+        "People Assist: Custom Status"
+      ]
+    }
+  ]
+}

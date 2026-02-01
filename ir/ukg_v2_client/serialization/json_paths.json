@@ -1,0 +1,3288 @@
+{
+  "schemas": {
+    "schema:anon/e85abe7c3772c2e9b36158cd2ce2d890964ec2a0": [
+      "$.per_page",
+      "$.page",
+      "$.compact_response",
+      "$.employee_id",
+      "$.document_type_id",
+      "$.q",
+      "$.trashed",
+      "$.external_reference",
+      "$.organization_ids",
+      "$.employee_numbers",
+      "$.organization_id_below",
+      "$.date_since",
+      "$.date_until",
+      "$.created_at_since",
+      "$.created_at_until",
+      "$.origin",
+      "$.expired",
+      "$.expiry_date_since",
+      "$.expiry_date_until",
+      "$.expiration_date_until"
+    ],
+    "schema:anon/1e597aca270857d81b90843f1e8aacbf62f90b3c": [
+      "$.uuid"
+    ],
+    "schema:definitions/RedirectionUrls": [
+      "$.employee_space/employee_root_folder_url",
+      "$.document/employee_document_upload",
+      "$.account/employee_root_folder_url",
+      "$.employee_space/employee_folder",
+      "$.document/enterprise_document_upload"
+    ],
+    "schema:definitions/ApplicationBase": [
+      "$.client_ids",
+      "$.description",
+      "$.expiration_delay",
+      "$.name",
+      "$.scope"
+    ],
+    "schema:definitions/ApplicationComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/ApplicationAddClientIdPayload": [
+      "$.client_id"
+    ],
+    "schema:definitions/Timestamps": [
+      "$.created_at",
+      "$.updated_at"
+    ],
+    "schema:definitions/CreationTimestamp": [
+      "$.created_at"
+    ],
+    "schema:definitions/UpdateTimestamp": [
+      "$.updated_at"
+    ],
+    "schema:definitions/LocalizedString": [
+      "$.language_code",
+      "$.value"
+    ],
+    "schema:definitions/RequestPostSite": [
+      "$.login",
+      "$.password",
+      "$.email",
+      "$.site_uuid",
+      "$.coreuuid",
+      "$.domain"
+    ],
+    "schema:definitions/OrganizationBase": [
+      "$.name",
+      "$.description",
+      "$.parent_organization_id",
+      "$.corporate_name",
+      "$.address1",
+      "$.address2",
+      "$.zip_code",
+      "$.city",
+      "$.country",
+      "$.contact_firstname",
+      "$.contact_lastname",
+      "$.contact_email",
+      "$.contact_phone_number"
+    ],
+    "schema:definitions/OrganizationComputedFields": [
+      "$.id",
+      "$.has_children"
+    ],
+    "schema:definitions/OrganizationGroupBase": [
+      "$.name",
+      "$.organizations_ids"
+    ],
+    "schema:definitions/OrganizationGroupComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/RequestEmbededOrganization": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:definitions/MessageUserBase": [
+      "$.level",
+      "$.message",
+      "$.tags"
+    ],
+    "schema:definitions/CustomField": [
+      "$.code",
+      "$.value"
+    ],
+    "schema:definitions/CustomFieldComputedFieldsForEmployee": [
+      "$.label"
+    ],
+    "schema:definitions/RegistrationReferenceBase": [
+      "$.organization_id",
+      "$.employee_number",
+      "$.active",
+      "$.departure_date"
+    ],
+    "schema:definitions/EmployeeExternalId": [
+      "$.external_id"
+    ],
+    "schema:definitions/EmployeeLanguage": [
+      "$.language"
+    ],
+    "schema:definitions/EmployeeBaseSimplified": [
+      "$.firstname",
+      "$.lastname",
+      "$.email"
+    ],
+    "schema:definitions/EmployeeComputedFieldsSimplified": [
+      "$.id"
+    ],
+    "schema:definitions/EmployeeComputedFieldsProfile": [
+      "$.status"
+    ],
+    "schema:definitions/EmployeeCreateOptions": [
+      "$.saml_token"
+    ],
+    "schema:definitions/EmployeeVaultAccountStatus": [
+      "$.vault_account_status"
+    ],
+    "schema:anon/e492166b439231613cc05a18bf913e0ef0cc6ee4": [
+      "$.employee_id",
+      "$.data"
+    ],
+    "schema:anon/56021dfc223cbe6d7a9db3846cb5f79529c2ab70": [
+      "$.employee_id",
+      "$.data"
+    ],
+    "schema:definitions/EmployeeBulkOperationResult": [
+      "$.request_id"
+    ],
+    "schema:definitions/EmployeeBulkOperationStatus": [
+      "$.summary",
+      "$.results"
+    ],
+    "schema:anon/39fe882738081e4d32998aa911bf3bb8a42da006": [
+      "$.total",
+      "$.processed",
+      "$.success",
+      "$.failed",
+      "$.status"
+    ],
+    "schema:anon/b1e7cfcd7f50fa70605feb2b00b7756d178cec94": [
+      "$.index",
+      "$.status",
+      "$.message",
+      "$.Result"
+    ],
+    "schema:definitions/AuthorizedValue": [
+      "$.value",
+      "$.label",
+      "$.code"
+    ],
+    "schema:definitions/CustomFieldUpdatableFields": [
+      "$.default_value",
+      "$.localized_labels",
+      "$.visible",
+      "$.allow_access_restrictions"
+    ],
+    "schema:definitions/CustomFieldBase": [
+      "$.type",
+      "$.authorized_values",
+      "$.hierarchical"
+    ],
+    "schema:definitions/CustomFieldComputedFields": [
+      "$.id",
+      "$.label"
+    ],
+    "schema:definitions/ElectronicVaultOptionsBase": [
+      "$.electronic_vault_subscription_enabled",
+      "$.paper_documents_distribution_enabled",
+      "$.electronic_documents_distribution_enabled",
+      "$.electronic_payslips_opted_out"
+    ],
+    "schema:definitions/ElectronicVaultOptionsComputedFields": [
+      "$.id",
+      "$.electronic_vault_id",
+      "$.electronic_vault_state",
+      "$.electronic_payslips_choice_updated_at",
+      "$.electronic_payslips_choice_origin"
+    ],
+    "schema:definitions/EmployeeElectronicVaultDocuments": [
+      "$.upload_id",
+      "$.document_type_id",
+      "$.document_title",
+      "$.document_date",
+      "$.send_notification"
+    ],
+    "schema:definitions/ElectronicVaultDeletionBase": [
+      "$.requested_at",
+      "$.locked_at",
+      "$.planned_at",
+      "$.deleted_at"
+    ],
+    "schema:definitions/ElectronicVaultDeletionComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/CustomFieldFilterRule": [
+      "$.custom_field_id",
+      "$.operator",
+      "$.value"
+    ],
+    "schema:definitions/EmployeesPerimeterBase": [
+      "$.operator",
+      "$.organization_id",
+      "$.organization_group_id",
+      "$.custom_field_filters"
+    ],
+    "schema:definitions/EmployeesPerimeterComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/SubscriptionBase": [
+      "$.employee_document_type_id",
+      "$.employee_choice"
+    ],
+    "schema:definitions/SubscriptionComputedFields": [
+      "$.calculated_employee_choice"
+    ],
+    "schema:definitions/RoleBase": [
+      "$.id",
+      "$.name",
+      "$.description"
+    ],
+    "schema:definitions/CorePermissionsBase": [
+      "$.view_employees",
+      "$.view_former_employees",
+      "$.view_employees_without_registration_reference",
+      "$.manage_employees",
+      "$.manage_employees_saml_token",
+      "$.delete_employees",
+      "$.export_employee_csv",
+      "$.manage_employee_imports",
+      "$.manage_organization_imports",
+      "$.manage_custom_fields",
+      "$.manage_users",
+      "$.manage_roles",
+      "$.manage_organizations",
+      "$.manage_datasets",
+      "$.view_advanced_analytics",
+      "$.manage_advanced_analytics",
+      "$.view_audit_trail",
+      "$.view_private_custom_fields"
+    ],
+    "schema:definitions/CorePermissionsComputed": [
+      "$.role_id"
+    ],
+    "schema:definitions/CorePermissionsGet": [
+      "$.manage_retention_policies"
+    ],
+    "schema:definitions/CorePermissionsPut": [
+      "$.manage_retention_policies"
+    ],
+    "schema:definitions/KnowledgeBasePermission": [
+      "$.code",
+      "$.enabled",
+      "$.category",
+      "$.label"
+    ],
+    "schema:definitions/ProcessAutomationPermission": [
+      "$.code",
+      "$.enabled",
+      "$.label",
+      "$.category"
+    ],
+    "schema:definitions/RequestManagementPermission": [
+      "$.code",
+      "$.enabled",
+      "$.category",
+      "$.label"
+    ],
+    "schema:definitions/EmployeeDocumentTypeAccessPermissions": [
+      "$.employee_document_type_id",
+      "$.permissions"
+    ],
+    "schema:definitions/CompanyDocumentTypeAccessPermissions": [
+      "$.company_document_type_id",
+      "$.permissions"
+    ],
+    "schema:definitions/EFMPermissionsBase": [
+      "$.manage_settings",
+      "$.view_statistics",
+      "$.manage_document_types_and_folder",
+      "$.create_distribution",
+      "$.manage_distributions",
+      "$.manage_mass_mailings",
+      "$.manage_document_deposit",
+      "$.view_employee_documents",
+      "$.view_company_documents",
+      "$.manage_document_deletion",
+      "$.manage_expired_deletion",
+      "$.generate_documents",
+      "$.manage_document_templates",
+      "$.manage_shared_folders",
+      "$.create_signatures",
+      "$.manage_signatures",
+      "$.manage_legal_holds",
+      "$.manage_third_party_apps",
+      "$.manage_export_invitation_codes",
+      "$.manage_rpa"
+    ],
+    "schema:definitions/AuditPermissionsBase": [
+      "$.view_events"
+    ],
+    "schema:definitions/AuditPermissionsFull": [
+      "$.role_id"
+    ],
+    "schema:definitions/WebhookPermissionsBase": [
+      "$.manage_webhooks"
+    ],
+    "schema:definitions/WebhookPermissionsFull": [
+      "$.role_id"
+    ],
+    "schema:definitions/UserBase": [
+      "$.external_id",
+      "$.firstname",
+      "$.lastname",
+      "$.middlename",
+      "$.email",
+      "$.language",
+      "$.timezone",
+      "$.mobile_phone_number",
+      "$.profiles"
+    ],
+    "schema:definitions/UserComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/UserCreateParams": [
+      "$.saml_token"
+    ],
+    "schema:definitions/ProfileBase": [
+      "$.role_id",
+      "$.employees_perimeter"
+    ],
+    "schema:definitions/RequestProfileBase": [
+      "$.role_id",
+      "$.role_code",
+      "$.employees_perimeter"
+    ],
+    "schema:definitions/ProfileComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/UserSimplified": [
+      "$.id",
+      "$.firstname",
+      "$.lastname",
+      "$.email",
+      "$.external_id"
+    ],
+    "schema:anon/377d44dffb7e413210281cfc92eebb13f8ec05a0": [
+      "$.manager_id",
+      "$.data"
+    ],
+    "schema:definitions/UserBulkOperationResult": [
+      "$.request_id"
+    ],
+    "schema:anon/b9e259dd8b9dd2201d8a48b937c3f87b9359019b": [
+      "$.manager_id",
+      "$.data"
+    ],
+    "schema:definitions/UserBulkOperationStatus": [
+      "$.summary",
+      "$.results"
+    ],
+    "schema:anon/0c52d65c16a36ed6c66a62de28d422b8df2e4d4e": [
+      "$.index",
+      "$.status",
+      "$.message",
+      "$.Result"
+    ],
+    "schema:definitions/MetaDataDefinition": [
+      "$.code",
+      "$.type",
+      "$.authorized_values",
+      "$.label",
+      "$.localized_labels",
+      "$.is_required"
+    ],
+    "schema:definitions/EmployeeDocumentTypeBase": [
+      "$.label",
+      "$.localized_labels",
+      "$.folder_id",
+      "$.file_type_restrictions",
+      "$.update_documents_on_employee_transfer",
+      "$.policies",
+      "$.employee_access_permissions",
+      "$.user_access_permissions",
+      "$.metadata",
+      "$.templates",
+      "$.synchronized_custom_fields"
+    ],
+    "schema:definitions/EmployeeDocumentTypeComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/EmployeeDocumentTypeAddRemoveTemplates": [
+      "$.add_templates",
+      "$.remove_templates"
+    ],
+    "schema:definitions/CompanyDocumentTypeBase": [
+      "$.label",
+      "$.localized_labels",
+      "$.folder_id",
+      "$.file_type_restrictions",
+      "$.expiry_date_policy_type",
+      "$.expiry_date_policy_options",
+      "$.metadata",
+      "$.user_access_permissions"
+    ],
+    "schema:definitions/CompanyDocumentTypeComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/UserAccessPermissions": [
+      "$.role_id",
+      "$.permissions"
+    ],
+    "schema:definitions/OverwriteExpiryDateWhenEmployeeLeavesOptions": [
+      "$.years",
+      "$.months",
+      "$.days"
+    ],
+    "schema:definitions/ExpiryDatePolicyOptions": [
+      "$.metadata",
+      "$.years",
+      "$.months",
+      "$.days",
+      "$.date"
+    ],
+    "schema:definitions/FolderBase": [
+      "$.id",
+      "$.label",
+      "$.localized_labels",
+      "$.parent_folder_id"
+    ],
+    "schema:definitions/DocumentOwnerCustomField": [
+      "$.code",
+      "$.value",
+      "$.label"
+    ],
+    "schema:definitions/MetaDataWithLabels": [
+      "$.code",
+      "$.label",
+      "$.value",
+      "$.value_label"
+    ],
+    "schema:definitions/MetaDataBase": [
+      "$.code",
+      "$.value"
+    ],
+    "schema:definitions/MetaDataList": [
+      "$.metadata"
+    ],
+    "schema:definitions/DocumentFileId": [
+      "$.filename",
+      "$.file_id"
+    ],
+    "schema:definitions/DocumentExpirationDatePayload": [
+      "$.expiration_date"
+    ],
+    "schema:definitions/DocumentExpiryDatePayload": [
+      "$.expiry_date"
+    ],
+    "schema:definitions/EmployeeDocumentBase": [
+      "$.employee_id",
+      "$.employee_external_id",
+      "$.document_type_id",
+      "$.title",
+      "$.date",
+      "$.organization_ids",
+      "$.metadata",
+      "$.external_reference"
+    ],
+    "schema:definitions/EmployeeDocumentComputedFields": [
+      "$.id",
+      "$.origin",
+      "$.origin_details",
+      "$.sender_id",
+      "$.name",
+      "$.trashed",
+      "$.expired",
+      "$.expiry_date"
+    ],
+    "schema:definitions/EmployeeDocumentExternalRefUnique": [
+      "$.external_reference_is_unique"
+    ],
+    "schema:definitions/CompanyDocumentBase": [
+      "$.document_type_id",
+      "$.title",
+      "$.date",
+      "$.organization_ids",
+      "$.metadata",
+      "$.external_reference"
+    ],
+    "schema:definitions/CompanyDocumentComputedFields": [
+      "$.id",
+      "$.name",
+      "$.origin",
+      "$.origin_details",
+      "$.sender_id",
+      "$.trashed",
+      "$.expired",
+      "$.expiry_date"
+    ],
+    "schema:definitions/SignatureDocumentBase": [
+      "$.signature_id",
+      "$.document_type_id",
+      "$.title",
+      "$.date",
+      "$.organization_ids",
+      "$.metadata",
+      "$.external_reference"
+    ],
+    "schema:definitions/SignatureDocumentComputedFields": [
+      "$.id",
+      "$.origin",
+      "$.origin_details",
+      "$.sender_id",
+      "$.name",
+      "$.trashed",
+      "$.expired",
+      "$.expiry_date"
+    ],
+    "schema:definitions/InboxItemBase": [
+      "$.title",
+      "$.type",
+      "$.description",
+      "$.creator_email",
+      "$.to_users_ids",
+      "$.to_inbox_id"
+    ],
+    "schema:definitions/InboxItemComputedFields": [
+      "$.id",
+      "$.state",
+      "$.documents_count",
+      "$.creator_id",
+      "$.send_notification",
+      "$.origin"
+    ],
+    "schema:definitions/SharedInboxBase": [
+      "$.title",
+      "$.users_ids"
+    ],
+    "schema:definitions/SharedInboxComputedFields": [
+      "$.id",
+      "$.external_id",
+      "$.email"
+    ],
+    "schema:definitions/SignatureTypePayload": [
+      "$.id",
+      "$.backend_code",
+      "$.display_in_ui",
+      "$.title",
+      "$.localized_title",
+      "$.description",
+      "$.localized_description",
+      "$.default_sms_notification",
+      "$.two_factor_auth_settings",
+      "$.include_signer_link",
+      "$.storage_profile",
+      "$.signer_can_reject",
+      "$.delegation",
+      "$.template_id",
+      "$.external_authentication",
+      "$.docusign_settings",
+      "$.docusign_provider",
+      "$.docusign_protect_and_sign_settings",
+      "$.display_terms_on_signature_portal"
+    ],
+    "schema:definitions/2FASettings": [
+      "$.mode",
+      "$.value_user",
+      "$.value_employee",
+      "$.value_guest"
+    ],
+    "schema:definitions/SmsNotificationSettings": [
+      "$.user",
+      "$.employee",
+      "$.guest"
+    ],
+    "schema:definitions/DocusignProtectAndSignSettings": [
+      "$.app_id",
+      "$.server_id",
+      "$.spare_id"
+    ],
+    "schema:definitions/DocusignSettings": [
+      "$.root_url",
+      "$.username",
+      "$.password",
+      "$.integrator_key",
+      "$.account_id"
+    ],
+    "schema:definitions/SignatureProcessBase": [
+      "$.signature_type_id",
+      "$.title",
+      "$.name",
+      "$.location",
+      "$.expiry_date",
+      "$.notify_on_signature",
+      "$.notify_on_refusal",
+      "$.document_type_id",
+      "$.document_metadata",
+      "$.document_date",
+      "$.cancellation_comment",
+      "$.file_number",
+      "$.is_cancelable",
+      "$.is_deletable",
+      "$.message",
+      "$.notify_employee_ids",
+      "$.external_id",
+      "$.auto_send",
+      "$.callback_url",
+      "$.reason"
+    ],
+    "schema:definitions/SignatureProcessState": [
+      "$.state"
+    ],
+    "schema:definitions/SignatureProcessSenderId": [
+      "$.sender_id"
+    ],
+    "schema:definitions/SignatureProcessUploadId": [
+      "$.upload_id"
+    ],
+    "schema:definitions/SignatureProcessNestedSender": [
+      "$.sender"
+    ],
+    "schema:anon/2eda0077944596f5a8508bfdd7980efbb51b5678": [
+      "$.id",
+      "$.first_name",
+      "$.last_name"
+    ],
+    "schema:definitions/SignatureProcessOrganizationIds": [
+      "$.document_organization_ids"
+    ],
+    "schema:definitions/SignatureProcessOrganizations": [
+      "$.document_organizations"
+    ],
+    "schema:anon/4424aa26b85dd20ae1ca81506c7322cef8e82281": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:definitions/SignatureProcessComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/SignatureProcessSigners": [
+      "$.signers"
+    ],
+    "schema:anon/ffa305924e481b1c8132496caf32364f1bddbc9f": [
+      "$.id",
+      "$.first_name",
+      "$.last_name",
+      "$.state"
+    ],
+    "schema:definitions/SignatureProcessCancelPayload": [
+      "$.signature_ids",
+      "$.cancellation_comment"
+    ],
+    "schema:definitions/SignatureProcessArchivePayload": [
+      "$.employee_id"
+    ],
+    "schema:definitions/TwoFactorAuthenticationMethod": [
+      "$.sms",
+      "$.email"
+    ],
+    "schema:definitions/SignerBase": [
+      "$.type",
+      "$.signature_positions",
+      "$.user_id",
+      "$.employee_id",
+      "$.first_name",
+      "$.last_name",
+      "$.language",
+      "$.email_address",
+      "$.mobile_phone_number",
+      "$.signature_process_id",
+      "$.signing_order",
+      "$.access_code",
+      "$.sms_notification",
+      "$.two_factor_auth",
+      "$.message",
+      "$.send_signed_document",
+      "$.signing_url"
+    ],
+    "schema:definitions/SignaturePosition": [
+      "$.page",
+      "$.unit",
+      "$.x",
+      "$.y",
+      "$.width",
+      "$.height"
+    ],
+    "schema:definitions/SignerComputedFields": [
+      "$.id",
+      "$.signed_at",
+      "$.state"
+    ],
+    "schema:definitions/SignerRemindPayload": [
+      "$.signer_ids"
+    ],
+    "schema:definitions/SignatureSettingsFull": [
+      "$.two_factor_authentication",
+      "$.text_message_notifications",
+      "$.mandatory_organizations"
+    ],
+    "schema:definitions/TwoFactorAuthentication": [
+      "$.user",
+      "$.employee",
+      "$.guest",
+      "$.phone_message_content"
+    ],
+    "schema:definitions/TwoFactorAuthenticationSettings": [
+      "$.force_value",
+      "$.phone",
+      "$.email"
+    ],
+    "schema:definitions/TextMessageNotifications": [
+      "$.user",
+      "$.employee",
+      "$.guest",
+      "$.phone_message_content"
+    ],
+    "schema:definitions/DocusignProviderFullFields": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:definitions/ImportBase": [
+      "$.type",
+      "$.creator"
+    ],
+    "schema:definitions/ImportComputedFields": [
+      "$.id",
+      "$.status",
+      "$.origin",
+      "$.rows_count",
+      "$.created_objects_count",
+      "$.updated_objects_count",
+      "$.deleted_objects_count",
+      "$.errors_count"
+    ],
+    "schema:definitions/DatasetImportBase": [
+      "$.dataset_id"
+    ],
+    "schema:definitions/DatasetImportComputedFields": [
+      "$.id",
+      "$.filename",
+      "$.status",
+      "$.result",
+      "$.origin",
+      "$.creator_id",
+      "$.total_dimensions_count",
+      "$.total_values_count",
+      "$.started_at",
+      "$.finished_at"
+    ],
+    "schema:definitions/DatasetImportStats": [
+      "$.rows",
+      "$.global_errors",
+      "$.row_errors",
+      "$.warnings",
+      "$.internal_errors",
+      "$.dimensions_created",
+      "$.values_created",
+      "$.values_updated",
+      "$.values_deleted"
+    ],
+    "schema:definitions/ProcessBase": [
+      "$.title",
+      "$.public_title",
+      "$.reference",
+      "$.employee_id",
+      "$.creator_id",
+      "$.process_template_id",
+      "$.description",
+      "$.publication_date",
+      "$.due_date"
+    ],
+    "schema:definitions/ProcessTasks": [
+      "$.tasks",
+      "$.tasks_ids"
+    ],
+    "schema:definitions/ProcessComputedFields": [
+      "$.id",
+      "$.state",
+      "$.employee_status",
+      "$.company_status",
+      "$.employee_tasks_count",
+      "$.company_tasks_count",
+      "$.done_employee_tasks_count",
+      "$.done_company_tasks_count",
+      "$.published"
+    ],
+    "schema:definitions/ProcessPostActionCommonPayload": [
+      "$.id",
+      "$.type"
+    ],
+    "schema:definitions/ProcessPostActionSharedBase": [
+      "$.type",
+      "$.ids"
+    ],
+    "schema:definitions/ProcessPostActionUserBase": [
+      "$.type",
+      "$.ids"
+    ],
+    "schema:definitions/ProcessPostActionSharedPayload": [
+      "$.id"
+    ],
+    "schema:definitions/ProcessPostActionUserPayload": [
+      "$.id"
+    ],
+    "schema:definitions/Organization": [
+      "$.id",
+      "$.operator"
+    ],
+    "schema:definitions/ProcessTemplateRestriction": [
+      "$.organizations"
+    ],
+    "schema:definitions/ProcessTemplate": [
+      "$.id",
+      "$.title",
+      "$.public_title",
+      "$.description",
+      "$.created_at",
+      "$.created_by",
+      "$.updated_at",
+      "$.updated_by",
+      "$.automatic_archiving",
+      "$.restrictions"
+    ],
+    "schema:anon/0d7385a1fd0dee8a6a8af687eef3daccb05b6bdf": [
+      "$.origin",
+      "$.id"
+    ],
+    "schema:anon/ab9b1eb99565d72ba3964883bdfd91eb98d86676": [
+      "$.origin",
+      "$.id"
+    ],
+    "schema:definitions/PdfTemplateMapping": [
+      "$.pdf_field_name",
+      "$.form_field_id"
+    ],
+    "schema:definitions/SignatureZone": [
+      "$.id",
+      "$.name",
+      "$.page",
+      "$.x",
+      "$.y"
+    ],
+    "schema:definitions/PdfTemplateList": [
+      "$.id",
+      "$.name",
+      "$.file_name",
+      "$.document_type_id",
+      "$.process_form_id"
+    ],
+    "schema:definitions/PdfTemplateDetail": [
+      "$.signature_zones",
+      "$.form_mapping"
+    ],
+    "schema:definitions/PdfTemplateWrite": [
+      "$.upload_id"
+    ],
+    "schema:definitions/TaskTemplates": [
+      "$.id",
+      "$.type",
+      "$.name",
+      "$.description",
+      "$.process_template_id",
+      "$.assigned_to",
+      "$.depends_on_id",
+      "$.fetch_previous_data",
+      "$.role_id"
+    ],
+    "schema:definitions/TaskTemplateNotification": [
+      "$.subject",
+      "$.body",
+      "$.role_ids"
+    ],
+    "schema:definitions/TaskTemplateDetail": [
+      "$.email_notifications"
+    ],
+    "schema:definitions/AcknowledgmentTaskTemplatesWrite": [
+      "$.upload_id"
+    ],
+    "schema:definitions/BasicTaskTemplates": [
+      "$.message"
+    ],
+    "schema:definitions/FillFormTaskTemplates": [
+      "$.process_form_id"
+    ],
+    "schema:definitions/FillPdfTaskTemplates": [
+      "$.pdf_template_id"
+    ],
+    "schema:definitions/SignatureTaskTemplates": [
+      "$.pdf_template_id",
+      "$.signature_zone_id"
+    ],
+    "schema:definitions/ValidationTaskTemplates": [
+      "$.assigned_to"
+    ],
+    "schema:definitions/TaskTimestamps": [
+      "$.created_at",
+      "$.updated_at"
+    ],
+    "schema:definitions/TaskFile": [
+      "$.id",
+      "$.filename"
+    ],
+    "schema:definitions/FormDataFieldValue": [
+      "$.value"
+    ],
+    "schema:definitions/FillFormDataFieldValue": [
+      "$.field_id",
+      "$.values"
+    ],
+    "schema:definitions/FillFormTaskFile": [
+      "$.id",
+      "$.filename",
+      "$.field_id"
+    ],
+    "schema:definitions/FormDataField": [
+      "$.field_id",
+      "$.values"
+    ],
+    "schema:definitions/EmployeeSignatureZoneField": [
+      "$.id",
+      "$.position_x",
+      "$.position_y",
+      "$.width",
+      "$.height",
+      "$.page"
+    ],
+    "schema:definitions/SignatureZoneField": [
+      "$.pdf_template_id"
+    ],
+    "schema:definitions/TaskCommonBase": [
+      "$.name",
+      "$.description",
+      "$.type",
+      "$.process_id",
+      "$.depends_on_id",
+      "$.assigned_to",
+      "$.due_date",
+      "$.scheduled_reminder_at",
+      "$.reminder_offset",
+      "$.validation_events_ids"
+    ],
+    "schema:definitions/TaskComputedFields": [
+      "$.id",
+      "$.status",
+      "$.completed_at"
+    ],
+    "schema:definitions/TaskListBase": [
+      "$.template_task_id",
+      "$.fetch_previous_data"
+    ],
+    "schema:definitions/TaskListPayload": [
+      "$.completed_by_id"
+    ],
+    "schema:definitions/TaskDetailBase": [
+      "$.completed_by"
+    ],
+    "schema:definitions/AckTaskPayload": [
+      "$.files",
+      "$.uploaded_document"
+    ],
+    "schema:definitions/BasicTaskPayload": [
+      "$.message"
+    ],
+    "schema:definitions/SignatureTaskPayload": [
+      "$.files",
+      "$.signature_zone"
+    ],
+    "schema:definitions/FillFormTaskPayload": [
+      "$.form_id",
+      "$.form_data",
+      "$.form_files"
+    ],
+    "schema:definitions/FillPdfTaskPayload": [
+      "$.pdf_template_id",
+      "$.files"
+    ],
+    "schema:definitions/PatchTaskPayload": [
+      "$.due_date",
+      "$.reminder_offset"
+    ],
+    "schema:definitions/EmployeeTaskListPayload": [
+      "$.completed_by_id"
+    ],
+    "schema:definitions/EmployeeTaskDetailBase": [
+      "$.completed_by"
+    ],
+    "schema:definitions/EmployeeAckTaskPayload": [
+      "$.files"
+    ],
+    "schema:definitions/EmployeeBasicTaskPayload": [
+      "$.message"
+    ],
+    "schema:definitions/EmployeeSignatureTaskPayload": [
+      "$.files",
+      "$.signature_zone"
+    ],
+    "schema:definitions/EmployeeFillFormTaskPayload": [
+      "$.form_id",
+      "$.form_data",
+      "$.form_files"
+    ],
+    "schema:definitions/EmployeeFillPdfTaskPayload": [
+      "$.files"
+    ],
+    "schema:definitions/EmployeeTaskBase": [
+      "$.name",
+      "$.description",
+      "$.type",
+      "$.process_id",
+      "$.depends_on_id",
+      "$.completed_at"
+    ],
+    "schema:definitions/EmployeeTaskDetail": [
+      "$.form_id",
+      "$.pdf_template_id"
+    ],
+    "schema:definitions/ValidationTaskPostPayload": [
+      "$.state",
+      "$.reason"
+    ],
+    "schema:definitions/SignatureTaskPostPayload": [
+      "$.signature",
+      "$.img"
+    ],
+    "schema:definitions/FillTaskPayload": [
+      "$.form_data"
+    ],
+    "schema:definitions/TaskFilePostPayload": [
+      "$.upload_id",
+      "$.task_id",
+      "$.field_id"
+    ],
+    "schema:definitions/TaskFilePatchPayload": [
+      "$.upload_id"
+    ],
+    "schema:definitions/TaskFileResource": [
+      "$.id",
+      "$.task_id",
+      "$.filename",
+      "$.field_id"
+    ],
+    "schema:definitions/TaskValidationEvent": [
+      "$.id",
+      "$.emitter",
+      "$.receiver",
+      "$.created_at",
+      "$.completed_by",
+      "$.reason",
+      "$.state"
+    ],
+    "schema:definitions/NumberOfAssignedTasks": [
+      "$.number_of_assigned_tasks"
+    ],
+    "schema:definitions/FormDefinitionConditionTest": [
+      "$.field_id",
+      "$.operator",
+      "$.values"
+    ],
+    "schema:definitions/FormDefinitionCondition": [
+      "$.name",
+      "$.field_ids",
+      "$.action",
+      "$.tests"
+    ],
+    "schema:definitions/FormDefinitionItem": [
+      "$.label",
+      "$.description",
+      "$.value"
+    ],
+    "schema:definitions/FormDefinitionFieldValidation": [
+      "$.type",
+      "$.value",
+      "$.message"
+    ],
+    "schema:definitions/FormDefinitionContextField": [
+      "$.slug",
+      "$.label",
+      "$.type_id",
+      "$.placeholder",
+      "$.description",
+      "$.multiple",
+      "$.items",
+      "$.validations",
+      "$.defaults",
+      "$.disabled",
+      "$.required",
+      "$.values"
+    ],
+    "schema:anon/92e1d3cbac346d246c9a3f0cf9dd38d17c8b9e03": [
+      "$.id",
+      "$.filename",
+      "$.url",
+      "$.preview_url"
+    ],
+    "schema:definitions/FormDefinitionContextForm": [
+      "$.id",
+      "$.label",
+      "$.description",
+      "$.conditions",
+      "$.fields"
+    ],
+    "schema:definitions/ProcessCustomFormsDetail": [
+      "$.id",
+      "$.title",
+      "$.created_at",
+      "$.last_updated_at",
+      "$.formidable"
+    ],
+    "schema:definitions/ProcessCustomFormsWrite": [
+      "$.title",
+      "$.formidable"
+    ],
+    "schema:definitions/DFBase": [
+      "$.id",
+      "$.label",
+      "$.description",
+      "$.conditions"
+    ],
+    "schema:definitions/DFCondition": [
+      "$.name",
+      "$.field_ids",
+      "$.action",
+      "$.tests"
+    ],
+    "schema:definitions/DFConditionTest": [
+      "$.field_id",
+      "$.operator",
+      "$.values"
+    ],
+    "schema:definitions/DFField": [
+      "$.id",
+      "$.slug",
+      "$.label",
+      "$.type_id",
+      "$.placeholder",
+      "$.description",
+      "$.multiple",
+      "$.items",
+      "$.accesses",
+      "$.validations",
+      "$.defaults"
+    ],
+    "schema:definitions/DFItem": [
+      "$.label",
+      "$.description",
+      "$.value"
+    ],
+    "schema:definitions/DFFieldAccess": [
+      "$.access_id",
+      "$.level"
+    ],
+    "schema:definitions/DFFieldValidation": [
+      "$.type",
+      "$.value",
+      "$.message"
+    ],
+    "schema:definitions/EmployeeSettingsProcessAutomation": [
+      "$.employee_id",
+      "$.onboarding"
+    ],
+    "schema:anon/d29703d577a7ab59f6c0f19f7a24de171bb75928": [
+      "$.welcome_message",
+      "$.welcome_file_filename",
+      "$.welcome_file_title"
+    ],
+    "schema:definitions/CategoryBase": [
+      "$.name",
+      "$.description",
+      "$.order",
+      "$.language_code",
+      "$.icon_class",
+      "$.default_request_form_id"
+    ],
+    "schema:definitions/CategoryComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/KbCategoryBase": [
+      "$.original_language_code",
+      "$.icon_class",
+      "$.disable_default_form",
+      "$.default_form_id",
+      "$.visible_to_employee",
+      "$.localized_name",
+      "$.localized_description"
+    ],
+    "schema:definitions/KbCategoryComputedFields": [
+      "$.id",
+      "$.slug",
+      "$.order"
+    ],
+    "schema:definitions/KbCategoryUpdatePayload": [
+      "$.order"
+    ],
+    "schema:definitions/KbCategoryPatchOrderPayload": [
+      "$.order"
+    ],
+    "schema:definitions/KbCategoryDeletionError": [
+      "$.errors"
+    ],
+    "schema:definitions/FormidableBase": [
+      "$.title",
+      "$.description",
+      "$.fields",
+      "$.conditions"
+    ],
+    "schema:definitions/FormidableField": [
+      "$.type_id",
+      "$.slug",
+      "$.name",
+      "$.required",
+      "$.items",
+      "$.description",
+      "$.content",
+      "$.validations",
+      "$.button_selection",
+      "$.multiple_selection",
+      "$.placeholder",
+      "$.defaults",
+      "$.dataset_id"
+    ],
+    "schema:definitions/FormidableFieldItems": [
+      "$.value",
+      "$.label"
+    ],
+    "schema:definitions/FormidableFieldValidation": [
+      "$.type",
+      "$.value",
+      "$.message"
+    ],
+    "schema:definitions/FormidableComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/FormidableValidationError": [
+      "$.code",
+      "$.message",
+      "$.errors"
+    ],
+    "schema:definitions/FormidableErrorItem": [
+      "$.field",
+      "$.code",
+      "$.message"
+    ],
+    "schema:definitions/FormidableTimestamps": [
+      "$.created_at",
+      "$.updated_at"
+    ],
+    "schema:definitions/FormidableFieldTypeDescription": [
+      "$.type_id",
+      "$.name"
+    ],
+    "schema:definitions/FormidableSubmitPayload": [
+      "$.fields_data"
+    ],
+    "schema:anon/a9b1e5fe7a86fee521f07a54a5ed35520933cb67": [
+      "$.slug",
+      "$.values"
+    ],
+    "schema:definitions/FormidableConditionalRule": [
+      "$.fields_ids",
+      "$.action",
+      "$.tests"
+    ],
+    "schema:definitions/FormidableConditionalRuleTest": [
+      "$.field_id",
+      "$.operator",
+      "$.values"
+    ],
+    "schema:definitions/ArticleBase": [
+      "$.title",
+      "$.body",
+      "$.categories_ids",
+      "$.featured",
+      "$.pinned",
+      "$.permanent",
+      "$.status",
+      "$.author",
+      "$.employee_perimeters"
+    ],
+    "schema:definitions/ArticleComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/ArticleDetail": [
+      "$.related_articles"
+    ],
+    "schema:definitions/ArticlePatchPayload": [
+      "$.dismissed"
+    ],
+    "schema:definitions/ArticlePostStatPayload": [
+      "$.from_category_id",
+      "$.from_related_article_id",
+      "$.from_search_terms",
+      "$.from_featured",
+      "$.from_popular",
+      "$.from_once_section"
+    ],
+    "schema:definitions/KbArticleBase": [
+      "$.featured_on_employee_homepage",
+      "$.once_on_employee_homepage",
+      "$.permanent_on_employee_homepage",
+      "$.versions",
+      "$.categories_ids",
+      "$.expiration_date",
+      "$.scheduled_publication_date",
+      "$.status",
+      "$.accessible_by_hr",
+      "$.accessible_by_employee",
+      "$.employees_perimeters",
+      "$.role_restrictions"
+    ],
+    "schema:anon/cbcd60e0defd1088b9363273e505c0249931d345": [
+      "$.role_id",
+      "$.role_name"
+    ],
+    "schema:definitions/KbArticleComputedFields": [
+      "$.id",
+      "$.slug",
+      "$.last_hits",
+      "$.total_hits",
+      "$.last_updated_at",
+      "$.last_updater_id"
+    ],
+    "schema:definitions/KbLocalizedTags": [
+      "$.localized_tags"
+    ],
+    "schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a": [
+      "$.language_code",
+      "$.values"
+    ],
+    "schema:definitions/KbTagsAndSearchKeywords": [
+      "$.localized_search_keywords"
+    ],
+    "schema:definitions/KbAccessibleBy": [
+      "$.accessible_by_hr",
+      "$.accessible_by_employee"
+    ],
+    "schema:definitions/KbRoleRestrictions": [
+      "$.role_restrictions"
+    ],
+    "schema:definitions/KbEmployeePerimeters": [
+      "$.employee_perimeters"
+    ],
+    "schema:definitions/KbArticleFull": [
+      "$.author_id"
+    ],
+    "schema:definitions/KbArticleVersion": [
+      "$.id",
+      "$.language_code",
+      "$.title",
+      "$.body",
+      "$.creator_id",
+      "$.updator_id"
+    ],
+    "schema:definitions/KbArticlePatchPayload": [
+      "$.status"
+    ],
+    "schema:definitions/KbArticleUpdatePayload": [
+      "$.slug"
+    ],
+    "schema:definitions/ArticleDocument": [
+      "$.id",
+      "$.language_code",
+      "$.title",
+      "$.description"
+    ],
+    "schema:definitions/KbArticleImage": [
+      "$.url"
+    ],
+    "schema:definitions/KbTag": [
+      "$.language_code",
+      "$.label"
+    ],
+    "schema:definitions/ArticleFeedbackPost": [
+      "$.article_id",
+      "$.version_id",
+      "$.version_language_code",
+      "$.useful",
+      "$.comment"
+    ],
+    "schema:definitions/ArticleFeedbackFull": [
+      "$.article_title",
+      "$.author_id",
+      "$.author_language_code",
+      "$.created_at"
+    ],
+    "schema:definitions/KbPermissions": [
+      "$.can_manage_faq",
+      "$.can_manage_categories",
+      "$.can_access_faq",
+      "$.can_access_article_feedbacks",
+      "$.can_manage_files",
+      "$.can_access_answer_templates"
+    ],
+    "schema:definitions/ArticleMediaFilePagesNumber": [
+      "$.pages"
+    ],
+    "schema:definitions/RequestTimestamps": [
+      "$.created_at",
+      "$.updated_at",
+      "$.closed_at",
+      "$.archived_at"
+    ],
+    "schema:definitions/CustomStatusField": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:definitions/RequestCategory": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:definitions/RequestFormDataFieldValue": [
+      "$.field_id",
+      "$.values"
+    ],
+    "schema:definitions/FormFile": [
+      "$.id",
+      "$.filename",
+      "$.field_id"
+    ],
+    "schema:definitions/RequestComputedFields": [
+      "$.id",
+      "$.request_number",
+      "$.status",
+      "$.read_by_employee",
+      "$.public_comment_count",
+      "$.internal_comment_count",
+      "$.total_comment_count",
+      "$.public_deleted_comment_count",
+      "$.internal_deleted_comment_count",
+      "$.total_deleted_comment_count",
+      "$.attachment_count",
+      "$.read_only",
+      "$.visible_by_employee",
+      "$.need_edit_by_employee"
+    ],
+    "schema:definitions/RequestBase": [
+      "$.name",
+      "$.priority",
+      "$.employee",
+      "$.employee_id",
+      "$.creator",
+      "$.creator_id",
+      "$.closed_by",
+      "$.closed_by_id",
+      "$.organization_ids",
+      "$.form_id",
+      "$.form_files",
+      "$.due_date",
+      "$.custom_status",
+      "$.category",
+      "$.form_data",
+      "$.feedback"
+    ],
+    "schema:definitions/RequestAttachmentList": [
+      "$.attachments"
+    ],
+    "schema:definitions/RequestUUIAndCategory": [
+      "$.category",
+      "$.status"
+    ],
+    "schema:definitions/RequestComment": [
+      "$.id",
+      "$.creator",
+      "$.creator_id",
+      "$.created_at",
+      "$.content",
+      "$.is_informative",
+      "$.is_internal",
+      "$.comment_source",
+      "$.is_deleted"
+    ],
+    "schema:definitions/RequestPatchPayload": [
+      "$.form_data"
+    ],
+    "schema:definitions/RequestPatchVisibleByPayload": [
+      "$.need_action"
+    ],
+    "schema:definitions/TriggerEmployeeCachePayload": [
+      "$.employee_id"
+    ],
+    "schema:definitions/ResponsePatchVisibleByPayload": [
+      "$.id",
+      "$.external_id",
+      "$.firstname",
+      "$.lastname",
+      "$.email"
+    ],
+    "schema:definitions/RequestAttachment": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:definitions/RequestPostComment": [
+      "$.content",
+      "$.attachment_upload_ids",
+      "$.is_internal",
+      "$.creator_id",
+      "$.creator_external_id"
+    ],
+    "schema:definitions/PostRequestFeedback": [
+      "$.rate",
+      "$.comment"
+    ],
+    "schema:definitions/RequestFeedback": [
+      "$.created_at"
+    ],
+    "schema:definitions/RequestPostCreatePayload": [
+      "$.form_data",
+      "$.form_id",
+      "$.origin",
+      "$.attachment_upload_ids",
+      "$.draft_id",
+      "$.employee_id",
+      "$.organization_id",
+      "$.employee_external_id",
+      "$.creator_id",
+      "$.visible_by_employee",
+      "$.creator_external_id"
+    ],
+    "schema:definitions/RequestForm": [
+      "$.id",
+      "$.name",
+      "$.is_default",
+      "$.category_id",
+      "$.language_code",
+      "$.featured",
+      "$.success_message",
+      "$.employee_restrictions",
+      "$.user_restrictions",
+      "$.keywords",
+      "$.created_at",
+      "$.updated_at",
+      "$.visible_by_employee",
+      "$.visible_by_user",
+      "$.request_editable_by_employee",
+      "$.request_editable_by_user",
+      "$.employee_organization_mandatory",
+      "$.linkeable_to_employee",
+      "$.linkeable_to_organization",
+      "$.due_date_visible_by_employee",
+      "$.custom_status_visible_by_employee",
+      "$.enable_employee_feedback"
+    ],
+    "schema:anon/8b3130f3abc6fe470d8dd41cf98228c8b1c1aafb": [
+      "$.roles"
+    ],
+    "schema:anon/ca9b04e67c07c6d65b035e4e2a94e4b4bff194fc": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:definitions/RequestFormFull": [
+      "$.form_definition"
+    ],
+    "schema:definitions/RequestFormPatch": [
+      "$.keywords",
+      "$.featured",
+      "$.success_message",
+      "$.visible_by_employee",
+      "$.visible_by_user",
+      "$.request_editable_by_employee",
+      "$.request_editable_by_user",
+      "$.employee_organization_mandatory",
+      "$.linkeable_to_employee",
+      "$.linkeable_to_organization",
+      "$.due_date_visible_by_employee",
+      "$.custom_status_visible_by_employee",
+      "$.enable_employee_feedback"
+    ],
+    "schema:definitions/RequestFormPatchUser": [
+      "$.category_id"
+    ],
+    "schema:definitions/RequestAssignOnlyTo": [
+      "$.manager_id"
+    ],
+    "schema:definitions/RequestFormPut": [
+      "$.keywords",
+      "$.featured",
+      "$.success_message",
+      "$.visible_by_employee",
+      "$.visible_by_user",
+      "$.name",
+      "$.request_editable_by_employee",
+      "$.request_editable_by_user",
+      "$.employee_organization_mandatory",
+      "$.linkeable_to_employee",
+      "$.linkeable_to_organization",
+      "$.due_date_visible_by_employee",
+      "$.custom_status_visible_by_employee",
+      "$.enable_employee_feedback",
+      "$.form_definition",
+      "$.formidable"
+    ],
+    "schema:definitions/AutomationTriggerPatchUserInternalPayload": [
+      "$.category_old_slug",
+      "$.category_new_slug"
+    ],
+    "schema:definitions/ExportRequestsPost": [
+      "$.encoding"
+    ],
+    "schema:definitions/RequestVisibleByUser": [
+      "$.id",
+      "$.firstname",
+      "$.lastname",
+      "$.external_id",
+      "$.profiles",
+      "$.permissions",
+      "$.need_action",
+      "$.is_employee"
+    ],
+    "schema:anon/58a24bfc1beb4daa51270ed16d5c0cf1ed84288c": [
+      "$.people.can_manage_synapps"
+    ],
+    "schema:definitions/RequestBulkActionBody": [
+      "$.manager_id"
+    ],
+    "schema:definitions/RequestBulkItem": [
+      "$.request_id",
+      "$.action",
+      "$.action_body"
+    ],
+    "schema:definitions/RequestEmbedResponse": [
+      "$.id",
+      "$.request_number",
+      "$.name"
+    ],
+    "schema:definitions/RequestBulkItemResponse": [
+      "$.request_id",
+      "$.request",
+      "$.action",
+      "$.action_body",
+      "$.errors"
+    ],
+    "schema:anon/06fc375d5c7b6265c1d52e798f83b692d5154b0f": [
+      "$.message",
+      "$.code"
+    ],
+    "schema:anon/636af47353fc3671281b3bf353595082e0c8859e": [
+      "$.action"
+    ],
+    "schema:definitions/RequestDraftBase": [
+      "$.id",
+      "$.name",
+      "$.employee",
+      "$.employee_id",
+      "$.creator",
+      "$.creator_id",
+      "$.category",
+      "$.form_id",
+      "$.created_at",
+      "$.updated_at",
+      "$.attachment_count",
+      "$.form_is_visible",
+      "$.form_has_changed"
+    ],
+    "schema:definitions/RequestDraftAttachment": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:definitions/RequestDraftDetail": [
+      "$.attachments"
+    ],
+    "schema:definitions/RequestDraftPost": [
+      "$.form_id",
+      "$.form_data",
+      "$.attachment_upload_ids"
+    ],
+    "schema:definitions/ClientBase": [
+      "$.name",
+      "$.title",
+      "$.available_languages",
+      "$.default_language"
+    ],
+    "schema:definitions/ClientEditableBase": [
+      "$.tenant_id"
+    ],
+    "schema:definitions/CoreClientBase": [
+      "$.employee_available_languages",
+      "$.timezone"
+    ],
+    "schema:definitions/ClientComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/CoreClientComputedFields": [
+      "$.installed_modules"
+    ],
+    "schema:definitions/ClientCreatePayloadParams": [
+      "$.subdomain"
+    ],
+    "schema:definitions/CoreClientBaseByEmail": [
+      "$.id",
+      "$.tenant_id",
+      "$.title",
+      "$.name",
+      "$.available_languages",
+      "$.default_language",
+      "$.timezone"
+    ],
+    "schema:definitions/DistributionProjectBase": [
+      "$.name",
+      "$.notifications_delivery",
+      "$.paper_configuration",
+      "$.group_paper_mailing",
+      "$.restrict_access_to_group",
+      "$.send_package_to_specific_organization",
+      "$.user_id",
+      "$.automatic_validation",
+      "$.package_first_name",
+      "$.package_last_name",
+      "$.package_address",
+      "$.package_address_2",
+      "$.package_address_3",
+      "$.package_postcode",
+      "$.package_city",
+      "$.package_country",
+      "$.package_contact",
+      "$.has_paper_configuration_recipient_contact_been_used"
+    ],
+    "schema:definitions/DistributionProjectComputedFields": [
+      "$.id",
+      "$.status"
+    ],
+    "schema:definitions/DistributionBase": [
+      "$.name",
+      "$.distribution_type_id",
+      "$.distribution_project_id",
+      "$.file_id",
+      "$.distribution_error"
+    ],
+    "schema:definitions/DistributionComputedFields": [
+      "$.id",
+      "$.status"
+    ],
+    "schema:definitions/DistributionMarkAsDonePayload": [
+      "$.success_count",
+      "$.flow_id"
+    ],
+    "schema:definitions/DistributionMarkAsErrorPayload": [
+      "$.code",
+      "$.message",
+      "$.context"
+    ],
+    "schema:definitions/DistributionErrorContext": [
+      "$.key"
+    ],
+    "schema:definitions/DistributionError": [
+      "$.id",
+      "$.message",
+      "$.error_type",
+      "$.code",
+      "$.created_at"
+    ],
+    "schema:definitions/DeliveryCampaignBase": [
+      "$.id",
+      "$.campaign_id",
+      "$.acked_date",
+      "$.processed_date",
+      "$.sent_date",
+      "$.delivered_date",
+      "$.failed_date",
+      "$.failed_message",
+      "$.theoretical_fee",
+      "$.parcels_tracking_links"
+    ],
+    "schema:definitions/DeliveryMailingBillings": [
+      "$.fees"
+    ],
+    "schema:definitions/TokenComputedFields": [
+      "$.access_token",
+      "$.token_type",
+      "$.expires_in"
+    ],
+    "schema:definitions/JwtTokenCreatePayload": [
+      "$.expiration_delay",
+      "$.scope"
+    ],
+    "schema:definitions/JwtTokenFull": [
+      "$.app",
+      "$.cid",
+      "$.exp",
+      "$.iat",
+      "$.iss",
+      "$.jti",
+      "$.scope",
+      "$.sub"
+    ],
+    "schema:definitions/PlatformCreationBase": [
+      "$.name",
+      "$.title",
+      "$.subdomain",
+      "$.company_registration_number",
+      "$.template_id",
+      "$.partner_tag",
+      "$.users"
+    ],
+    "schema:definitions/PlatformCreationUser": [
+      "$.firstname",
+      "$.lastname",
+      "$.id",
+      "$.email",
+      "$.mobile_phone_number"
+    ],
+    "schema:definitions/PlatformCreationComputedFields": [
+      "$.id",
+      "$.status",
+      "$.client_id",
+      "$.url"
+    ],
+    "schema:definitions/PlatformCreationOauthInfo": [
+      "$.application_name",
+      "$.application_id",
+      "$.scope"
+    ],
+    "schema:definitions/PlatformUpdatePayload": [
+      "$.config_update_id"
+    ],
+    "schema:definitions/Dataset": [
+      "$.fields"
+    ],
+    "schema:definitions/FieldSet": [
+      "$.fields"
+    ],
+    "schema:definitions/DatasetFieldSlug": [
+      "$.slug"
+    ],
+    "schema:definitions/DatasetFieldValue": [
+      "$.value"
+    ],
+    "schema:definitions/DatasetFieldType": [
+      "$.type"
+    ],
+    "schema:definitions/FragmentFieldsetField": [
+      "$.slug",
+      "$.fragment_id"
+    ],
+    "schema:definitions/GenerationInfo": [
+      "$.code",
+      "$.field",
+      "$.message",
+      "$.severity"
+    ],
+    "schema:definitions/DocGenTemplateBase": [
+      "$.title",
+      "$.description",
+      "$.locale",
+      "$.format",
+      "$.enabled",
+      "$.is_injectable",
+      "$.validity_start_date",
+      "$.validity_end_date",
+      "$.active_version"
+    ],
+    "schema:definitions/DocGenTemplateVersionBase": [
+      "$.format",
+      "$.syntax_version",
+      "$.template_information",
+      "$.fragment_mapping"
+    ],
+    "schema:definitions/EmailRecipient": [
+      "$.firstname",
+      "$.lastname",
+      "$.email",
+      "$.language"
+    ],
+    "schema:definitions/DocGenRequestStatusResponse": [
+      "$.status"
+    ],
+    "schema:definitions/RequestListingDto": [
+      "$.id",
+      "$.status",
+      "$.title",
+      "$.created_at",
+      "$.generated_document_id",
+      "$.employee_id",
+      "$.employee_document_type_id",
+      "$.upload_id"
+    ],
+    "schema:definitions/LatestVersionFields": [
+      "$.latest_version_syntax",
+      "$.latest_version_information"
+    ],
+    "schema:definitions/TemplateRestriction": [
+      "$.organization_id",
+      "$.include_children"
+    ],
+    "schema:definitions/DocGenTemplatePayload": [
+      "$.title",
+      "$.description",
+      "$.locale",
+      "$.validity_start_date",
+      "$.validity_end_date",
+      "$.enabled",
+      "$.is_injectable",
+      "$.restrictions"
+    ],
+    "schema:definitions/DocGenTemplatePatchPayload": [
+      "$.title",
+      "$.description",
+      "$.locale",
+      "$.format",
+      "$.enabled",
+      "$.validity_start_date",
+      "$.validity_end_date",
+      "$.active_version",
+      "$.restrictions"
+    ],
+    "schema:definitions/DocGenTemplateVersionUpdatePayload": [
+      "$.format",
+      "$.output_format",
+      "$.syntax_version",
+      "$.template_information",
+      "$.fragment_mapping"
+    ],
+    "schema:definitions/DocgenTemplateVersionPatchPayload": [
+      "$.output_format",
+      "$.fragment_mapping"
+    ],
+    "schema:definitions/OutputFormatResponse": [
+      "$.format"
+    ],
+    "schema:definitions/OutputFormatPatchRequest": [
+      "$.format"
+    ],
+    "schema:definitions/DocGenMigrationCampaign": [
+      "$.status",
+      "$.new_migration_available"
+    ],
+    "schema:definitions/DocGenCampaignBase": [
+      "$.title",
+      "$.creator_ref",
+      "$.document_generation_template_id",
+      "$.document_generation_template_version",
+      "$.document_type_id",
+      "$.output_action"
+    ],
+    "schema:definitions/CampaignData": [
+      "$.employee_id",
+      "$.ref",
+      "$.fields",
+      "$.fragment_fields"
+    ],
+    "schema:anon/350bec8262fdece6efca0518a57cc29460bbfd7e": [
+      "$.fragment_placeholder_1",
+      "$.fragment_placeholder_n"
+    ],
+    "schema:definitions/CsvCampaignData": [
+      "$.ref",
+      "$.fields"
+    ],
+    "schema:definitions/DocGenUpdateOrganization": [
+      "$.old_organization_id",
+      "$.new_organization_id"
+    ],
+    "schema:definitions/MarkRequestToPdfPayload": [
+      "$.dataset",
+      "$.language"
+    ],
+    "schema:anon/8facd83de9e88791f3ee31d4f7b63e37c18475ec": [
+      "$.employee",
+      "$.origin",
+      "$.priority"
+    ],
+    "schema:definitions/OrchestrationClientId": [
+      "$.client_id"
+    ],
+    "schema:definitions/OrchestrationMetasField": [
+      "$.key"
+    ],
+    "schema:definitions/OrchestrationTemplateSequences": [
+      "$.id",
+      "$.next_handler_seq_id",
+      "$.steps"
+    ],
+    "schema:definitions/OrchestrationTemplateSteps": [
+      "$.type",
+      "$.parameter_1",
+      "$.parameter_n"
+    ],
+    "schema:definitions/OrchestrationConfigurationsProperties": [
+      "$.sftp",
+      "$.peopledoc",
+      "$.peopleask",
+      "$.parameter_1",
+      "$.parameter_n"
+    ],
+    "schema:definitions/OrchestrationConfigurationsPropertiesSFTP": [
+      "$.directory"
+    ],
+    "schema:definitions/OrchestrationConfigurationsPropertiesPeopleDoc": [
+      "$.api_key",
+      "$.subdomain"
+    ],
+    "schema:definitions/OrchestrationConfigurationsPropertiesPeopleAsk": [
+      "$.api_key",
+      "$.subdomain"
+    ],
+    "schema:definitions/OrchestrationConfigurationBase": [
+      "$.properties"
+    ],
+    "schema:definitions/OrchestrationTemplateBase": [
+      "$.title",
+      "$.description",
+      "$.enabled",
+      "$.orchestration_error_count",
+      "$.sequences",
+      "$.orchestration_master_template_id",
+      "$.attributes",
+      "$.aggregation_mode"
+    ],
+    "schema:definitions/OrchestrationTemplateBaseSimplified": [
+      "$.title",
+      "$.description"
+    ],
+    "schema:definitions/OrchestrationTemplateErrors": [
+      "$.code",
+      "$.message",
+      "$.field"
+    ],
+    "schema:definitions/OrchestrationTemplateAttributes": [
+      "$.slug",
+      "$.value"
+    ],
+    "schema:definitions/OrchestrationTemplateRecipeSearchStepOccurrence": [
+      "$.step_id",
+      "$.step_type"
+    ],
+    "schema:definitions/OrchestrationTemplateRecipeSearchResult": [
+      "$.client_id",
+      "$.orchestration_template_id",
+      "$.orchestration_template_title",
+      "$.orchestration_template_created_at",
+      "$.steps"
+    ],
+    "schema:definitions/OrchestrationTemplateUserId": [
+      "$.user_id"
+    ],
+    "schema:definitions/OrchestrationTemplateCreatedByUpdatedBy": [
+      "$.created_by",
+      "$.updated_by"
+    ],
+    "schema:definitions/OrchestrationMasterTemplateBase": [
+      "$.title",
+      "$.description",
+      "$.model",
+      "$.attribute_blocks",
+      "$.aggregation_mode",
+      "$.status"
+    ],
+    "schema:definitions/OrchestrationMasterTemplateModel": [
+      "$.id",
+      "$.steps"
+    ],
+    "schema:definitions/OrchestrationMasterTemplateModelSteps": [
+      "$.type",
+      "$.expression",
+      "$.step",
+      "$.selection"
+    ],
+    "schema:definitions/OrchestrationMasterTemplateUnclassifiedAttributes": [
+      "$.slug",
+      "$.type"
+    ],
+    "schema:definitions/OrchestrationMasterTemplateModelStepsSelection": [
+      "$.expression",
+      "$.steps"
+    ],
+    "schema:definitions/OrchestrationMasterTemplateAttributeBlocks": [
+      "$.name",
+      "$.description",
+      "$.attributes"
+    ],
+    "schema:definitions/OrchestrationMasterTemplateAttributes": [
+      "$.slug",
+      "$.name",
+      "$.description",
+      "$.type",
+      "$.default",
+      "$.choices"
+    ],
+    "schema:definitions/OrchestrationBase": [
+      "$.orchestration_template_id",
+      "$.content"
+    ],
+    "schema:definitions/OrchestrationEmbed": [
+      "$.orchestration_template"
+    ],
+    "schema:definitions/OrchestrationStatuses": [
+      "$.status",
+      "$.date_time"
+    ],
+    "schema:definitions/OrchestrationErrors": [
+      "$.step_result_id",
+      "$.step_id",
+      "$.error"
+    ],
+    "schema:definitions/OrchestrationError": [
+      "$.code",
+      "$.message",
+      "$.field_errors"
+    ],
+    "schema:definitions/OrchestrationStoredAttachments": [
+      "$.stored_attachment_id",
+      "$.filename",
+      "$.error"
+    ],
+    "schema:definitions/OrchestrationReview": [
+      "$.action",
+      "$.step_result_ids"
+    ],
+    "schema:definitions/OrchestrationEvent": [
+      "$.exchange_id",
+      "$.orchestration_id",
+      "$.client_id",
+      "$.event_type",
+      "$.date_time",
+      "$.message_history",
+      "$.body",
+      "$.error",
+      "$.metas"
+    ],
+    "schema:definitions/OrchestrationReport": [
+      "$.report"
+    ],
+    "schema:definitions/OrchestrationStepResultBase": [
+      "$.id",
+      "$.orchestration_id",
+      "$.step_id",
+      "$.indexes",
+      "$.tags",
+      "$.history",
+      "$.error",
+      "$.data_in",
+      "$.data_out",
+      "$.delivery_count",
+      "$.review"
+    ],
+    "schema:definitions/OrchestrationStepResultIndex": [
+      "$.step_id",
+      "$.value"
+    ],
+    "schema:definitions/OrchestrationStepResultHistory": [
+      "$.step_id",
+      "$.step_result_id"
+    ],
+    "schema:definitions/OrchestrationStepResultTag": [
+      "$.code",
+      "$.value"
+    ],
+    "schema:definitions/OrchestrationStepResultReview": [
+      "$.user_id",
+      "$.updated_at"
+    ],
+    "schema:definitions/OrchestrationSftpTriggerBase": [
+      "$.directory",
+      "$.orchestration_template_id",
+      "$.activated"
+    ],
+    "schema:definitions/OrchestrationSftpTriggerComputed": [
+      "$.id",
+      "$.status"
+    ],
+    "schema:definitions/OrchestrationSftpTriggerStatus": [
+      "$.code",
+      "$.message"
+    ],
+    "schema:definitions/OrchestrationSftpTriggerDirectoryContent": [
+      "$.status",
+      "$.content"
+    ],
+    "schema:definitions/OrchestrationSftpTriggerDirectoryContentList": [
+      "$.filename",
+      "$.filesize",
+      "$.status",
+      "$.updated_at"
+    ],
+    "schema:definitions/OrchestrationScheduledTriggerBase": [
+      "$.cron",
+      "$.reference_datetime_at",
+      "$.timezone",
+      "$.orchestration_template_id",
+      "$.activated"
+    ],
+    "schema:definitions/OrchestrationScheduledTriggerComputed": [
+      "$.id",
+      "$.next_schedules"
+    ],
+    "schema:definitions/OrchestrationSageWebhookTriggerBase": [
+      "$.orchestration_template_id",
+      "$.activated"
+    ],
+    "schema:definitions/OrchestrationSageWebhookTriggerComputed": [
+      "$.id"
+    ],
+    "schema:definitions/OrchestrationStepType": [
+      "$.step_type_id",
+      "$.category",
+      "$.parameters"
+    ],
+    "schema:definitions/OrchestrationStepTypeParameter": [
+      "$.id",
+      "$.type",
+      "$.optional",
+      "$.items",
+      "$.properties"
+    ],
+    "schema:definitions/FeatureFlagBase": [
+      "$.id"
+    ],
+    "schema:definitions/ArchivePreparedPayload": [
+      "$.reference",
+      "$.from",
+      "$.error"
+    ],
+    "schema:definitions/AccountBase": [
+      "$.email",
+      "$.scope"
+    ],
+    "schema:definitions/AccountComputedFields": [
+      "$.id",
+      "$.has_saml_token"
+    ],
+    "schema:definitions/AccountUpdateFields": [
+      "$.password",
+      "$.password_policy",
+      "$.saml_token"
+    ],
+    "schema:definitions/SamlIdentityProviderBase": [
+      "$.activated",
+      "$.enable_sp_session",
+      "$.entity_id",
+      "$.name",
+      "$.next_logout_url",
+      "$.scope",
+      "$.sso_endpoint",
+      "$.workflow_type",
+      "$.x509_certificate"
+    ],
+    "schema:definitions/SamlIdentityProviderComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/SamlCertificate": [
+      "$.id",
+      "$.name"
+    ],
+    "schema:definitions/EventActor": [
+      "$.type",
+      "$.name",
+      "$.data"
+    ],
+    "schema:definitions/EventBase": [
+      "$.id",
+      "$.type",
+      "$.name",
+      "$.created_at",
+      "$.actor",
+      "$.data"
+    ],
+    "schema:definitions/EventActionFilterComputedFields": [
+      "$.application_name",
+      "$.resources"
+    ],
+    "schema:anon/6790023f2eeabfd26706286439c8b415fa6f8a7c": [
+      "$.resource_name",
+      "$.actions"
+    ],
+    "schema:definitions/EventExportFields": [
+      "$.Trigger Type",
+      "$.Trigger",
+      "$.Action",
+      "$.Item Type",
+      "$.Affected Item",
+      "$.Date"
+    ],
+    "schema:definitions/TemplatedEmailVariable": [
+      "$.code",
+      "$.value"
+    ],
+    "schema:definitions/TemplatedEmailAttachment": [
+      "$.sae_file_id",
+      "$.filename"
+    ],
+    "schema:definitions/TemplatedEmailBase": [
+      "$.email_template_id",
+      "$.language",
+      "$.timezone",
+      "$.recipients_emails",
+      "$.properties",
+      "$.campaign_id",
+      "$.attachments"
+    ],
+    "schema:definitions/EmailTemplateBase": [
+      "$.title",
+      "$.description",
+      "$.layout",
+      "$.priority",
+      "$.subject",
+      "$.body",
+      "$.properties",
+      "$.fragments"
+    ],
+    "schema:anon/6e67e0f71fbd5d6a640738cc5b4329eb6ec723b4": [
+      "$.code",
+      "$.type",
+      "$.example",
+      "$.description"
+    ],
+    "schema:anon/911ad1f90e97a62945b69d578032e322830599c3": [
+      "$.code",
+      "$.description",
+      "$.is_customizable",
+      "$.localized_default_content"
+    ],
+    "schema:definitions/EmailTemplateComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/CustomizedFragmentBase": [
+      "$.customized_content",
+      "$.fragment_code"
+    ],
+    "schema:definitions/CustomizedFragmentComputedFields": [
+      "$.default_content"
+    ],
+    "schema:definitions/LanguageCustomizedContentBase": [
+      "$.customized_fragments"
+    ],
+    "schema:definitions/LanguageCustomizedContentComputedFields": [
+      "$.language",
+      "$.email_template_id"
+    ],
+    "schema:definitions/TemplatedEmailPreviewBase": [
+      "$.email_template_id",
+      "$.email_template",
+      "$.language",
+      "$.timezone",
+      "$.properties",
+      "$.customized_fragments"
+    ],
+    "schema:definitions/WebhookBase": [
+      "$.name",
+      "$.callback_url",
+      "$.events",
+      "$.is_active"
+    ],
+    "schema:definitions/WebhookComputedFields": [
+      "$.id",
+      "$.signature_key"
+    ],
+    "schema:definitions/CompliancePersonBase": [
+      "$.lastName",
+      "$.firstName",
+      "$.middleInitial",
+      "$.middleName",
+      "$.aliasFirstName",
+      "$.aliasLastName",
+      "$.dateOfBirth",
+      "$.emailPrimary",
+      "$.emailSecondary"
+    ],
+    "schema:definitions/CompliancePersonSearch": [
+      "$.employeeNumber"
+    ],
+    "schema:definitions/CompliancePersonSearchPayload": [
+      "$.tenantId",
+      "$.personSearch"
+    ],
+    "schema:definitions/CompliancePersonSearchPdoc": [
+      "$.employeeId"
+    ],
+    "schema:definitions/CompliancePersonSearchCompanyInformation": [
+      "$.employeeNumber",
+      "$.isTerminated",
+      "$.terminationDate",
+      "$.hasPension",
+      "$.companyCode",
+      "$.companyName"
+    ],
+    "schema:definitions/CompliancePersonSearchResponse": [
+      "$.address",
+      "$.addressCity",
+      "$.addressState",
+      "$.addressZip",
+      "$.addressCountry",
+      "$.primaryPhone",
+      "$.pdoc",
+      "$.companyInformation"
+    ],
+    "schema:definitions/DeletionRequestResource": [
+      "$.resource_type",
+      "$.resource_id",
+      "$.resource_name",
+      "$.notification_recipient"
+    ],
+    "schema:definitions/DeletionRequest": [
+      "$.id",
+      "$.status",
+      "$.modules",
+      "$.created_at",
+      "$.updated_at"
+    ],
+    "schema:definitions/DeletionRequestModulePath": [
+      "$.id"
+    ],
+    "schema:definitions/DeletionRequestModuleBody": [
+      "$.status",
+      "$.resources"
+    ],
+    "schema:definitions/DeletionRequestModuleFull": [
+      "$.evaluated_resources",
+      "$.created_at",
+      "$.updated_at"
+    ],
+    "schema:definitions/DeletionRequestModuleResource": [
+      "$.type",
+      "$.count",
+      "$.status"
+    ],
+    "schema:definitions/RetentionPolicyResourceFilters": [
+      "$.field",
+      "$.values"
+    ],
+    "schema:definitions/RetentionPolicyResources": [
+      "$.resource_type",
+      "$.filters"
+    ],
+    "schema:definitions/RetentionPolicyTriggers": [
+      "$.event_type",
+      "$.delay"
+    ],
+    "schema:definitions/RetentionPolicyBase": [
+      "$.name",
+      "$.enabled",
+      "$.resource_filters",
+      "$.employee_filters",
+      "$.triggers"
+    ],
+    "schema:definitions/RetentionPolicyComputedFields": [
+      "$.id"
+    ],
+    "schema:definitions/PrivacyDeletionRequest": [
+      "$.id",
+      "$.event",
+      "$.topic",
+      "$.deletion_request",
+      "$.status",
+      "$.error",
+      "$.created_at",
+      "$.received_at",
+      "$.updated_at"
+    ],
+    "schema:definitions/PrivacyPortabilityRequest": [
+      "$.id",
+      "$.event",
+      "$.topic",
+      "$.client_id",
+      "$.employee_id",
+      "$.error",
+      "$.created_at",
+      "$.received_at"
+    ],
+    "schema:definitions/BlacklistedEmailAddressBase": [
+      "$.blacklisted"
+    ],
+    "schema:definitions/BlacklistedEmailAddressComputedFields": [
+      "$.email_address",
+      "$.last_sending_attempt_at",
+      "$.number_of_block_attempts",
+      "$.number_of_bounces",
+      "$.last_bounce_message",
+      "$.id",
+      "$.last_bounce_error_code",
+      "$.last_email_subject"
+    ],
+    "schema:definitions/FilePreviewBlocklistBase": [
+      "$.blocked"
+    ],
+    "schema:definitions/EmailMessageBase": [
+      "$.subject",
+      "$.sender",
+      "$.recipients"
+    ],
+    "schema:definitions/EmailMessageComputedFields": [
+      "$.id",
+      "$.status"
+    ],
+    "schema:definitions/SmsMessageBase": [
+      "$.recipient",
+      "$.content"
+    ],
+    "schema:definitions/SmsMessageComputedFields": [
+      "$.id",
+      "$.status"
+    ],
+    "schema:definitions/MailRecipient": [
+      "$.firstname",
+      "$.lastname",
+      "$.address1",
+      "$.address2",
+      "$.address3",
+      "$.city",
+      "$.zip_code",
+      "$.country",
+      "$.country_code"
+    ],
+    "schema:definitions/MailMessageBase": [
+      "$.recipient",
+      "$.document_url",
+      "$.campaign_id",
+      "$.spool_index"
+    ],
+    "schema:definitions/MailMessageComputedFields": [
+      "$.id",
+      "$.status"
+    ],
+    "schema:definitions/PackageMailRecipient": [
+      "$.firstname",
+      "$.lastname",
+      "$.address1",
+      "$.address2",
+      "$.address3",
+      "$.city",
+      "$.zip_code",
+      "$.country",
+      "$.country_code"
+    ],
+    "schema:definitions/CampaignBase": [
+      "$.name",
+      "$.external_id",
+      "$.callback_url",
+      "$.package_recipient",
+      "$.testing_print",
+      "$.properties"
+    ],
+    "schema:anon/94a995562aa93ea37df5ee198787e68bda747ba5": [
+      "$.edition.provider",
+      "$.edition.paper_type",
+      "$.edition.color",
+      "$.edition.both_side",
+      "$.envelope.type",
+      "$.envelope.stamped",
+      "$.envelope.sealed",
+      "$.envelope.return_on_pnd",
+      "$.envelope.pnd_cause",
+      "$.package_ref",
+      "$.report.recipient.email",
+      "$.carrier.name",
+      "$.carrier.priority",
+      "$.cover_address"
+    ],
+    "schema:definitions/CampaignComputedFields": [
+      "$.id",
+      "$.status"
+    ],
+    "schema:definitions/InboxIncomingEmail": [
+      "$.id",
+      "$.inbox_id",
+      "$.subject",
+      "$.sender_email_address",
+      "$.number_of_attachments",
+      "$.number_of_failures",
+      "$.last_failure_step",
+      "$.first_failure_at",
+      "$.last_failure_at",
+      "$.success_at",
+      "$.provider",
+      "$.last_failure_is_expected",
+      "$.created_at"
+    ],
+    "schema:definitions/GenericDeliveryMessage": [
+      "$.id",
+      "$.client_id",
+      "$.status",
+      "$.created_at",
+      "$.subject",
+      "$.content",
+      "$.sender",
+      "$.sender_name",
+      "$.recipients",
+      "$.recipient",
+      "$.recipient_email",
+      "$.recipient_hrsd_id"
+    ],
+    "schema:definitions/WorkerMessagingAdminInfos": [
+      "$.type",
+      "$.activated",
+      "$.current_consumers_count",
+      "$.requested_consumers_count",
+      "$.created_at",
+      "$.updated_at"
+    ],
+    "schema:definitions/WorkerMessagingConfigPayload": [
+      "$.activated",
+      "$.requested_consumers_count"
+    ],
+    "schema:definitions/SftpAccountInfos": [
+      "$.account_name",
+      "$.server_sftp_host",
+      "$.server_sftp_port",
+      "$.n_custom_folders",
+      "$.n_ip_addresses",
+      "$.n_custom_ssh_keys",
+      "$.n_internal_ssh_keys",
+      "$.account_type",
+      "$.user_id",
+      "$.group_id",
+      "$.account_path",
+      "$.enabled",
+      "$.folder_type",
+      "$.created_at",
+      "$.disabled_at",
+      "$.last_customer_connection_date",
+      "$.last_collaborator_connection_date"
+    ],
+    "schema:definitions/SftpFolder": [
+      "$.level",
+      "$.parent_id",
+      "$.path",
+      "$.id",
+      "$.name",
+      "$.is_custom",
+      "$.enabled"
+    ],
+    "schema:definitions/SSHKeyInfos": [
+      "$.email_collaborator",
+      "$.name_collaborator",
+      "$.ssh_key_id",
+      "$.ssh_key_type",
+      "$.ssh_key",
+      "$.ssh_key_comment",
+      "$.ssh_key_size",
+      "$.enabled",
+      "$.ssh_finger_print256",
+      "$.ssh_finger_print512",
+      "$.created_at",
+      "$.disabled_at",
+      "$.expiration_at",
+      "$.last_connection_date"
+    ],
+    "schema:definitions/IPInfos": [
+      "$.ip_address",
+      "$.enabled",
+      "$.created_at",
+      "$.disabled_at",
+      "$.last_connection_at"
+    ],
+    "schema:definitions/CreateSftpAccountPayload": [
+      "$.account_type",
+      "$.customer_id"
+    ],
+    "schema:definitions/UpdateSftpAccountPayload": [
+      "$.enabled"
+    ],
+    "schema:definitions/DeleteSftpAccountPayload": [
+      "$.customer_id"
+    ],
+    "schema:definitions/SSHPayload": [
+      "$.ssh_key_value",
+      "$.ssh_key_creator"
+    ],
+    "schema:definitions/SSHCollaboratorPayload": [
+      "$.ssh_key_value",
+      "$.ssh_key_creator"
+    ],
+    "schema:definitions/WorkerAdminConfigInfos": [
+      "$.type",
+      "$.currentCount"
+    ],
+    "schema:definitions/CopyErrorQueuePayload": [
+      "$.fromErrorQueue",
+      "$.toQueue"
+    ],
+    "schema:definitions/BackupIntegrityPayload": [
+      "$.nbReferencesToCheck",
+      "$.from",
+      "$.to"
+    ],
+    "schema:definitions/DistributionsPayload": [
+      "$.distribution_id",
+      "$.flow_id",
+      "$.spool_url",
+      "$.spool_sae_ref",
+      "$.spool_replication_mode",
+      "$.distribution_type",
+      "$.spool_format",
+      "$.config_id",
+      "$.customer_site_id",
+      "$.customer_uuid",
+      "$.spool_filename",
+      "$.metadata_scheme",
+      "$.external_ref"
+    ],
+    "schema:definitions/DistribStateResponse": [
+      "$.distrib",
+      "$.startTime",
+      "$.conclusionTime",
+      "$.chunksRemaining",
+      "$.totalChunks",
+      "$.archivesRemaining",
+      "$.totalArchived",
+      "$.totalUndistributed",
+      "$.running",
+      "$.fail",
+      "$.failMessage",
+      "$.internalError",
+      "$.documentErrors"
+    ],
+    "schema:definitions/MappingPayload": [
+      "$.config_id",
+      "$.sae_reference",
+      "$.flow_id",
+      "$.user"
+    ],
+    "schema:definitions/RH2Data": [
+      "$.first_name",
+      "$.last_name",
+      "$.organization_code",
+      "$.registration_reference",
+      "$.distribution_id",
+      "$.retention_period",
+      "$.storage_profile",
+      "$.sae_account_id",
+      "$.activation_code",
+      "$.identification_number",
+      "$.employee_id",
+      "$.technical_id",
+      "$.address_1",
+      "$.address_2",
+      "$.address_3",
+      "$.postcode",
+      "$.city",
+      "$.country",
+      "$.phone",
+      "$.mob",
+      "$.email",
+      "$.tech_id",
+      "$.nir",
+      "$.qualification",
+      "$.job_title",
+      "$.contact_first_name",
+      "$.contact_last_name",
+      "$.name",
+      "$.parent_code",
+      "$.message",
+      "$.code",
+      "$.enterprise_storage_profile",
+      "$.enterprise_retention_period",
+      "$.enterprise_storage_encrypt",
+      "$.send_elec",
+      "$.elec_storage_profile",
+      "$.elec_retention_period",
+      "$.elec_storage_encrypt",
+      "$.send_paper",
+      "$.paper_storage_profile",
+      "$.paper_retention_period",
+      "$.paper_storage_encrypt",
+      "$.id",
+      "$.is_elec_original",
+      "$.is_paper_original",
+      "$.expiration_date",
+      "$.activation_url"
+    ],
+    "schema:definitions/MessagePublisherJobRequest": [
+      "$.messageType"
+    ],
+    "schema:definitions/MessagePublisherJobResponse": [
+      "$.jobId"
+    ],
+    "schema:definitions/MessagePublisherJobStatusResponse": [
+      "$.jobId",
+      "$.status",
+      "$.rowsCount",
+      "$.processedRowsCount",
+      "$.errorCount"
+    ],
+    "schema:definitions/MessagePublisherListJobResponse": [
+      "$.id",
+      "$.status",
+      "$.threshold",
+      "$.errorThreshold",
+      "$.messageType",
+      "$.processedRowsCount",
+      "$.rowsCount",
+      "$.jobRunning"
+    ],
+    "schema:definitions/OAuthError": [
+      "$.error"
+    ],
+    "schema:definitions/BadRequest": [
+      "$.message",
+      "$.code"
+    ],
+    "schema:definitions/Forbidden": [
+      "$.message",
+      "$.code"
+    ],
+    "schema:definitions/InternalServerError": [
+      "$.message",
+      "$.code"
+    ],
+    "schema:definitions/NotFound": [
+      "$.message",
+      "$.code"
+    ],
+    "schema:definitions/BaseError": [
+      "$.code",
+      "$.message"
+    ],
+    "schema:definitions/FieldError": [
+      "$.field",
+      "$.code",
+      "$.message"
+    ],
+    "schema:definitions/ValidationErrors": [
+      "$.errors"
+    ],
+    "schema:definitions/RateLimitErrors": [
+      "$.error",
+      "$.error_description"
+    ],
+    "schema:definitions/UploadReference": [
+      "$.id"
+    ],
+    "schema:definitions/UploadDocument": [
+      "$.id",
+      "$.expires_at",
+      "$.creation_date",
+      "$.retention_period",
+      "$.filename",
+      "$.content_type",
+      "$.page_count"
+    ],
+    "schema:definitions/UploadDocumentFiles": [
+      "$.id",
+      "$.expires_at",
+      "$.creation_date",
+      "$.last_modified",
+      "$.retention_period",
+      "$.filename",
+      "$.content_type",
+      "$.page_count",
+      "$.upload_id",
+      "$.archiving_profile",
+      "$.metadata",
+      "$.status"
+    ],
+    "schema:definitions/PostDocumentFiles": [
+      "$.id",
+      "$.expires_at",
+      "$.creation_date",
+      "$.retention_period",
+      "$.filename",
+      "$.content_type",
+      "$.content_length",
+      "$.document_length",
+      "$.page_count",
+      "$.archiving_profile",
+      "$.metadata",
+      "$.status",
+      "$.encrypt",
+      "$.crc32",
+      "$.last_modified_at"
+    ],
+    "schema:definitions/FileInformationComplement": [
+      "$.content_length",
+      "$.document_length",
+      "$.last_modified_at",
+      "$.crc32",
+      "$.encrypt"
+    ],
+    "schema:definitions/UploadRequest": [
+      "$.retention_period",
+      "$.archiving_profile",
+      "$.metadata"
+    ],
+    "schema:definitions/FileUploadRequest": [
+      "$.retention_period",
+      "$.archiving_profile"
+    ],
+    "schema:definitions/UploadTextoccurrencesPayload": [
+      "$.keyword"
+    ],
+    "schema:definitions/UploadTextoccurrencesFull": [
+      "$.keyword",
+      "$.page_number",
+      "$.left",
+      "$.top",
+      "$.width",
+      "$.height"
+    ],
+    "schema:definitions/FileMergeDataItem": [
+      "$.id",
+      "$.filename",
+      "$.watermark",
+      "$.footnote"
+    ],
+    "schema:definitions/FileMergeData": [
+      "$.references",
+      "$.mode",
+      "$.blank_page",
+      "$.callback"
+    ],
+    "schema:definitions/AuthenticatedCallback": [
+      "$.url",
+      "$.auth"
+    ],
+    "schema:definitions/AuthenticationType": [
+      "$.type",
+      "$.provider",
+      "$.token"
+    ],
+    "schema:definitions/SAEFileInfo": [
+      "$.ref",
+      "$.contentType",
+      "$.contentLength",
+      "$.pageCount",
+      "$.crc32",
+      "$.creationDate",
+      "$.deletionDate",
+      "$.status",
+      "$.profile",
+      "$.uri",
+      "$.signatureUri",
+      "$.backupUri",
+      "$.cdcUri"
+    ],
+    "schema:definitions/CoreSettingsBase": [
+      "$.enable_us_formats",
+      "$.available_languages",
+      "$.default_language",
+      "$.allow_external_id_update",
+      "$.authorize_access_outside_sso",
+      "$.allow_password_reset",
+      "$.password_options",
+      "$.store_authn_id"
+    ],
+    "schema:anon/38b8ef38731671bffa43328b953e2d39b32a7838": [
+      "$.number_passwords_remembered",
+      "$.max_changes_per_day"
+    ],
+    "schema:definitions/EmployeeFileManagementSettingsBase": [
+      "$.enabled",
+      "$.employee_access"
+    ],
+    "schema:definitions/EmployeeFileManagementSettingsFull": [
+      "$.url"
+    ],
+    "schema:definitions/ProcessAutomationSettingsBase": [
+      "$.enabled",
+      "$.new_hire_experience"
+    ],
+    "schema:definitions/ProcessAutomationSettingsComputedFields": [
+      "$.url"
+    ],
+    "schema:definitions/KnowledgeBaseSettings": [
+      "$.enabled",
+      "$.url",
+      "$.display_popular_forms",
+      "$.display_popular_articles",
+      "$.display_featured_forms",
+      "$.display_featured_articles",
+      "$.display_employee_search_by_scope"
+    ],
+    "schema:definitions/CaseManagementSettings": [
+      "$.enabled",
+      "$.url",
+      "$.employee_can_reopen_request",
+      "$.language",
+      "$.calendar",
+      "$.display_default_forms",
+      "$.display_popular_forms",
+      "$.display_featured_forms",
+      "$.allow_search_by_scope",
+      "$.allow_archive_in_efm",
+      "$.allow_teams",
+      "$.allow_reassignation"
+    ],
+    "schema:definitions/ThemeSettingsBase": [
+      "$.primary_color",
+      "$.primary_is_dark",
+      "$.grey_palette",
+      "$.horizontal_menu_background",
+      "$.horizontal_menu_is_dark"
+    ],
+    "schema:definitions/AuditSettingsBase": [
+      "$.retention_period"
+    ],
+    "schema:definitions/NotificationSettingsBase": [
+      "$.email_sender_name",
+      "$.email_sender_address",
+      "$.email_subject_prefix",
+      "$.email_sending_mode"
+    ],
+    "schema:definitions/ClientAssets": [
+      "$.setting",
+      "$.logo",
+      "$.login_logo",
+      "$.hr_user_logo",
+      "$.banner",
+      "$.login_background",
+      "$.login_background_mfa"
+    ],
+    "schema:anon/b7e3ea14ab174f15d9efbef66fcf88a67eb0337a": [
+      "$.type",
+      "$.content"
+    ],
+    "schema:anon/696d53763f97a8eddb7a56205557c54654f15ca4": [
+      "$.name",
+      "$.primary_color",
+      "$.primary_is_dark",
+      "$.grey_palette",
+      "$.horizontal_menu_background",
+      "$.horizontal_menu_is_dark"
+    ],
+    "schema:anon/9072158ced0b414fcc23350996ffe4ab687a426b": [
+      "$.type",
+      "$.content"
+    ],
+    "schema:anon/827201273de0e168081bce074b17e32236a37ef4": [
+      "$.name",
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/0e349f1325cff0f33ab5dd7bc372b5bf0b8641fe": [
+      "$.type",
+      "$.content"
+    ],
+    "schema:anon/706ed5d6b3a210d87cc50d3f45e26fc82d3014a4": [
+      "$.name",
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/47a4bb8e7c84868829bc876224e2396ac8fb379a": [
+      "$.type",
+      "$.content"
+    ],
+    "schema:anon/dc3327e915e6a0aa613656f0d91b8f62e58d6d8c": [
+      "$.name",
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/9a062b260b36f0060bc8e404a7cfffa3cafc4339": [
+      "$.type",
+      "$.content"
+    ],
+    "schema:anon/e912933af7445bfb8b9c55bf41a6ef169514e94f": [
+      "$.name",
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/124238a8cabb29c57119eb42f7b2b60edf397c49": [
+      "$.type",
+      "$.content"
+    ],
+    "schema:anon/dee4ec6471323cc2aad54d86a39998022d468972": [
+      "$.name",
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/66b91a5a06a99cf8eac3cf681d5f672d66fa7d79": [
+      "$.type",
+      "$.content"
+    ],
+    "schema:anon/624706e4d117c3d9483c2ff369fe5d40505eafbd": [
+      "$.name",
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:definitions/AssetsPresets": [
+      "$.setting",
+      "$.logo",
+      "$.login_logo",
+      "$.hr_user_logo",
+      "$.banner",
+      "$.login_background",
+      "$.login_background_mfa"
+    ],
+    "schema:anon/412172b9e8fcb74681722d6179b0ece3e804592f": [
+      "$.default",
+      "$.options"
+    ],
+    "schema:anon/db413bd046d62c7f8e1d258ee7fec1cbd8d9aed2": [
+      "$.ligh_blue",
+      "$.ukg"
+    ],
+    "schema:anon/11f095e9c8c7b38597becc4f730225cde2986f2e": [
+      "$.primary_color",
+      "$.primary_is_dark",
+      "$.grey_palette",
+      "$.horizontal_menu_background",
+      "$.horizontal_menu_is_dark"
+    ],
+    "schema:anon/d80cfba5594adc8e14869afb99d6452747034914": [
+      "$.default",
+      "$.options"
+    ],
+    "schema:anon/4b2856dee167cf796e1bb981e54f7f592d734f72": [
+      "$.ukg"
+    ],
+    "schema:anon/c5b7484ca256223d618ca20a99980044c57ad171": [
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/4f37af769482c5fe1c4877d31a424a39c9cb7ce2": [
+      "$.default",
+      "$.options"
+    ],
+    "schema:anon/6693000c189e00198c7e607fc8efe66382cbf95f": [
+      "$.ukg"
+    ],
+    "schema:anon/bca0a2b7da7996a52ebf5f688d6a432b790831cf": [
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/88fcb7e4ef131c88b9067c1180c23919d9e127ae": [
+      "$.default",
+      "$.options"
+    ],
+    "schema:anon/b41f6781c4d31b2d91fb7ed05c0ef2a19895288a": [
+      "$.ukg"
+    ],
+    "schema:anon/e147bc978bb936cdd7e119056abd2efc0d6bee01": [
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/0d733d85f72f40212a9b0a48c59ef78167e820d7": [
+      "$.default",
+      "$.options"
+    ],
+    "schema:anon/beb32fc2d480b5ce2262a0e5d708dd2e2f7dd170": [
+      "$.ukg"
+    ],
+    "schema:anon/4bea88f0ee7e0282daabfc89f4ce468c2d630f84": [
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/7a8e727e88cc2c5dd81cc12e2397a4f9aeb99cfb": [
+      "$.default",
+      "$.options"
+    ],
+    "schema:anon/692e4ee796406a1b4b090d6864e794aff44fa97a": [
+      "$.ukg"
+    ],
+    "schema:anon/7ce3c0ecbf99bf6f5448b52e3f575191cdbfa754": [
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:anon/e85500fe5ddc4b03c8fac691b4dcff639e9bb3ce": [
+      "$.default",
+      "$.options"
+    ],
+    "schema:anon/af6e6d4b3a472582866eaeb4e47d781b709d6c4d": [
+      "$.ukg"
+    ],
+    "schema:anon/63e44226f0a5b6e099b625125e50d4479adf9e3d": [
+      "$.url",
+      "$.thumbnail"
+    ],
+    "schema:definitions/DatasetDimensionBase": [
+      "$.id",
+      "$.localized_names"
+    ],
+    "schema:definitions/DatasetDimensionComputedFields": [
+      "$.name"
+    ],
+    "schema:definitions/DatasetBase": [
+      "$.localized_names"
+    ],
+    "schema:definitions/DatasetComputedFields": [
+      "$.id",
+      "$.name",
+      "$.dimensions",
+      "$.values_count",
+      "$.last_import_status",
+      "$.last_import_result"
+    ],
+    "schema:definitions/DatasetCreatePayload": [
+      "$.dimensions"
+    ],
+    "schema:definitions/DatasetValueBase": [
+      "$.localized_names"
+    ],
+    "schema:definitions/DatasetValueComputedFields": [
+      "$.code",
+      "$.name",
+      "$.id",
+      "$.dataset_id",
+      "$.dimension_id"
+    ],
+    "schema:definitions/LookerURL": [
+      "$.url"
+    ],
+    "schema:definitions/DocumentTypePredictionClientPayload": [
+      "$.document_id"
+    ],
+    "schema:definitions/DocumentTypePredictionResult": [
+      "$.document_type_id",
+      "$.probability"
+    ],
+    "schema:definitions/_Run": [
+      "$.id",
+      "$.status",
+      "$.error_code",
+      "$.started_at",
+      "$.completed_at"
+    ],
+    "schema:definitions/_DocumentTypePredictionRun": [
+      "$.guessed_document_types"
+    ],
+    "schema:definitions/MenuEntry": [
+      "$.id",
+      "$.parent_id",
+      "$.label",
+      "$.portal_url",
+      "$.spa_url"
+    ],
+    "schema:definitions/RequestManagementUser": [
+      "$.email",
+      "$.language",
+      "$.timezone",
+      "$.id",
+      "$.external_id",
+      "$.firstname",
+      "$.lastname",
+      "$.profiles",
+      "$.permissions"
+    ],
+    "schema:anon/7864f9833f4e0221670b3396b72d3ba123b5159e": [
+      "$.people.can_manage_synapps"
+    ],
+    "schema:definitions/GenericRRSCreateObject": [
+      "$.template",
+      "$.data"
+    ],
+    "schema:definitions/_MacroBase": [
+      "$.name",
+      "$.label",
+      "$.description",
+      "$.active",
+      "$.forms",
+      "$.roles",
+      "$.custom_status"
+    ],
+    "schema:definitions/RequestMacroPayload": [
+      "$.macro_id"
+    ],
+    "schema:definitions/CustomStatusBase": [
+      "$.name",
+      "$.is_active"
+    ],
+    "schema:definitions/_RuleBase": [
+      "$.name",
+      "$.active",
+      "$.order"
+    ],
+    "schema:definitions/ExternalAppName": [
+      "$.key",
+      "$.name"
+    ],
+    "schema:definitions/ExternalAppCredentialsPayloadPartial": [
+      "$.username",
+      "$.password",
+      "$.vanity_url",
+      "$.client_id",
+      "$.client_secret",
+      "$.dimensions_app_key",
+      "$.grant_type",
+      "$.application_name"
+    ]
+  }
+}

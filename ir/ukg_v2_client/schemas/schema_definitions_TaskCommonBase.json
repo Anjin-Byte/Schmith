@@ -1,0 +1,428 @@
+{
+  "id": "schema:definitions/TaskCommonBase",
+  "name_hint": "TaskCommonBase",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "name",
+      "schema_id": "schema:anon/ffb068ff112430d94bf5571ad38ff8c6b6f145db",
+      "required": true,
+      "nullable": null,
+      "description": "Name of the task",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.name",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "description",
+      "schema_id": "schema:anon/7c162be883516d3ec48be6c5d02ed2f95ecbab34",
+      "required": true,
+      "nullable": null,
+      "description": "Description of the task. You can add some HTML to customize the description",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.description",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "type",
+      "schema_id": "schema:anon/efcd6edb8ca18dc3fde82ef48532ec5a48be7f86",
+      "required": true,
+      "nullable": null,
+      "description": "Type of the task. Valid values: `basic`, `fill_form`, `fill_pdf`, `signature`, `acknowledgment` or `validation`\nIt can be `basic` for a Basic task, `fill_form`, for a Fill out a form task, `fill_pdf` for a Fill out a PDF task, `signature` for a Signature task, `acknowledgment` for an Acknowledgment task or `validation` for a Validate a previous task.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "acknowledgment",
+          "basic",
+          "fill_form",
+          "fill_pdf",
+          "signature",
+          "validation"
+        ]
+      },
+      "enum_values": [
+        "acknowledgment",
+        "basic",
+        "fill_form",
+        "fill_pdf",
+        "signature",
+        "validation"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.type",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "process_id",
+      "schema_id": "schema:anon/69815398a8ad575aae82503ce09be16a852f7dae",
+      "required": true,
+      "nullable": null,
+      "description": "Unique ID of the process. For example, in the URL https://people-doc.com/manager/processes/222522/ the process id is 222522",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.process_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "depends_on_id",
+      "schema_id": "schema:anon/87aae05d688f026f5e3b2ad87b6fe9dc97207bec",
+      "required": true,
+      "nullable": null,
+      "description": "Unique ID of the dependent task if applicable",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.depends_on_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "assigned_to",
+      "schema_id": "schema:anon/569d1fca8d134c8838601695360589a9f1ab104c",
+      "required": true,
+      "nullable": null,
+      "description": "Type of the assignee. Valid values: `employee` or `users`.\nIt can be `employee` if the task is assigned to the employee assigned to the process or `users` if the task is assigned to one or several users",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "employee",
+          "users"
+        ]
+      },
+      "enum_values": [
+        "employee",
+        "users"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.assigned_to",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "due_date",
+      "schema_id": "schema:anon/94dc1e16416556ede0aa04b0992b9c94b181535c",
+      "required": true,
+      "nullable": null,
+      "description": "The day by which the task must be completed, can be `null` if not defined",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.due_date",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "scheduled_reminder_at",
+      "schema_id": "schema:anon/03ec4f164d4cff4568c46269df9db6e474eafdfc",
+      "required": false,
+      "nullable": null,
+      "description": "If the task has a due date and an reminder_offset, a scheduled reminder is calculated to send a reminder e-mail to the assignees. Its value will be:\n  - `null` if there is no scheduled reminder defined\n  - the datetime the reminder was sent if it already was\n  - the expected send date if it is not sent yet\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.scheduled_reminder_at",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "reminder_offset",
+      "schema_id": "schema:anon/fe79d082d14d1adaea6d8b31b069131e79fa0b4f",
+      "required": false,
+      "nullable": null,
+      "description": "Number of days which the scheduled reminder will be offset by",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.reminder_offset",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "validation_events_ids",
+      "schema_id": "schema:anon/ff74f0775f76a27b474bdc6c4446a1c0b5999caf",
+      "required": false,
+      "nullable": null,
+      "description": "Ids of the associated validation events, from the latest to the oldest",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.validation_events_ids",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/TaskCommonBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "name",
+    "description",
+    "type",
+    "process_id",
+    "depends_on_id",
+    "assigned_to",
+    "due_date"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:definitions/TaskComputedFields",
+      "schema:definitions/TaskTimestamps"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/TaskCommonBase",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

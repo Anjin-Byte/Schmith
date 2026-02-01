@@ -1,0 +1,42 @@
+{
+  "id": "schema:anon/775063622faa0c3238bbe8e30f977893a59e85f0",
+  "name_hint": null,
+  "kind": "array",
+  "title": "ArrayOfRequests",
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": "schema:definitions/RequestFull",
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//requests/get/responses/200",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "native",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "native",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:GET:/requests",
+    "op:GET:/requests/{id}/linked_requests"
+  ]
+}

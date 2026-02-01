@@ -1,0 +1,163 @@
+{
+  "id": "op:DELETE:/processes/{id}",
+  "method": "DELETE",
+  "path_template": "/processes/{id}",
+  "declared": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "The process `id`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//processes/{id}/delete/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "204",
+        "media_type": "application/json",
+        "schema_id": null,
+        "description": "No content",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//processes/{id}/delete/responses/204",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BaseError",
+        "description": "Not found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//processes/{id}/delete/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "The process `id`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//processes/{id}/delete/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "204",
+        "media_type": "application/json",
+        "schema_id": null,
+        "description": "No content",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//processes/{id}/delete/responses/204",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BaseError",
+        "description": "Not found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//processes/{id}/delete/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "People Assist: Processes"
+  ],
+  "summary": "Delete a process",
+  "description": "Delete a previously created Process and related resources (tasks and generated doc)\n\nWarning : It's an hard delete, no recovery possible.\nArchived documents are not deleted (but files are removed from sae)\n",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//processes/{id}/delete",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

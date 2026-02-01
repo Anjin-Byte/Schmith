@@ -1,0 +1,54 @@
+{
+  "id": "schema:definitions/DocGenFull",
+  "name_hint": "DocGenFull",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [
+    "id",
+    "format",
+    "document_generation_template_id",
+    "document_generation_template_version",
+    "created_at"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:definitions/CreationTimestamp",
+      "schema:definitions/UpdateTimestamp",
+      "schema:anon/93704628aa6c9a2b4a867ba9e699de68d32efa52"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/DocGenFull",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:GET:/document_generations/{id}"
+  ]
+}

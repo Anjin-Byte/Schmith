@@ -1,0 +1,41 @@
+{
+  "id": "schema:anon/49e966dbb2286958e7bd268f2b7f00e279570463",
+  "name_hint": null,
+  "kind": "array",
+  "title": "ArrayOfTaskTemplates",
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": "schema:definitions/TaskTemplates",
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//process_templates/{process_template_id}/task_templates/get/responses/200",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "native",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "native",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:GET:/process_templates/{process_template_id}/task_templates"
+  ]
+}

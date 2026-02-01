@@ -1,0 +1,329 @@
+{
+  "id": "op:PATCH:/custom_fields/{id}",
+  "method": "PATCH",
+  "path_template": "/custom_fields/{id}",
+  "declared": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "Custom Field `ID`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "body",
+        "location": "body",
+        "required": true,
+        "schema_id": "schema:definitions/CustomFieldCreatePayload",
+        "description": "Custom Field details",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/CustomFieldCreatePayload",
+        "required": true,
+        "description": "Custom Field details",
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "native",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/CustomFieldFull",
+        "description": "The updated `Custom Field`",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Not Found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/Error",
+        "description": "Unprocessable Entity",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/responses/422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "202",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/CustomFieldFull",
+        "description": "The `Custom Field` update is pending",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/responses/202",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": null,
+        "description": "Custom Field `ID`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "body",
+        "location": "body",
+        "required": true,
+        "schema_id": "schema:definitions/CustomFieldCreatePayload",
+        "description": "Custom Field details",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/CustomFieldCreatePayload",
+        "required": true,
+        "description": "Custom Field details",
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "native",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/CustomFieldFull",
+        "description": "The updated `Custom Field`",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Not Found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/Error",
+        "description": "Unprocessable Entity",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/responses/422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "202",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/CustomFieldFull",
+        "description": "The `Custom Field` update is pending",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//custom_fields/{id}/patch/responses/202",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Platform: Custom Fields"
+  ],
+  "summary": "Partial update of a Custom Field",
+  "description": "Update some of the information of a custom field\n\nOnce set `type` could not be changed. Update of `authorized_values` list is limited: only `label` could be changed for existing items.\n\n**Warning**:\nUpdating an existing Custom Field may break employee profiles as well as perimeter filter rules.\nThis could happen especially when updating the `hierarchical` attribute (for custom fields of type `int`).\n\nFor every field with a text content, if a break line is in the content sent, add a `\\` to the `\\n` character like this:  `\\\\n`.\n",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//custom_fields/{id}/patch",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "schema:definitions/EmployeeDocumentTypeFull",
+  "name_hint": "EmployeeDocumentTypeFull",
+  "kind": "unknown",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:definitions/EmployeeDocumentTypeBase",
+      "schema:definitions/EmployeeDocumentTypeComputedFields"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/EmployeeDocumentTypeFull",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "absent",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:PUT:/employee_document_types/{id}",
+    "op:PUT:/employee_document_types/{id}",
+    "op:PATCH:/employee_document_types/{id}",
+    "op:GET:/employee_document_types/{id}"
+  ]
+}

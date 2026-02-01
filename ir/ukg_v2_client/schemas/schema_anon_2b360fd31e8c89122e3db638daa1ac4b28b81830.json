@@ -1,0 +1,51 @@
+{
+  "id": "schema:anon/2b360fd31e8c89122e3db638daa1ac4b28b81830",
+  "name_hint": null,
+  "kind": "string",
+  "title": null,
+  "description": "Type of the signer\n- `organization`: this type represents the delegation seal. If the signature type has delegation activated, exactly one signer of this type must be defined on the signature process, otherwise this type is not allowed. This will materialize the position of the seal in the signed document\n- `user`: the signer is a user\n- `employee`: the signer is an employee already registered in the HRIS\n- `external`: the signer can be anyone with a valid e-mail address\n",
+  "enum_values": [
+    "organization",
+    "user",
+    "employee",
+    "external"
+  ],
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {
+    "enum": [
+      "organization",
+      "user",
+      "employee",
+      "external"
+    ]
+  },
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/SignerBase",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "native",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "native",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

@@ -1,0 +1,99 @@
+{
+  "id": "schema:definitions/SignatureProcessState",
+  "name_hint": "SignatureProcessState",
+  "kind": "unknown",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "state",
+      "schema_id": "schema:anon/2fcab3527a3bca80b6d200978e58b5e325e792e4",
+      "required": false,
+      "nullable": null,
+      "description": "Completion state of the signature process.\n\n- `draft`: signature process parameters not finalized and waiting for completion before being sent to the backend. In this state only, required fields will not be enforced. Signature processes will remain in this state until manually switched to `signing`\n- `signing`: waiting for all the signers to complete the signature process\n- `signed`: all signers have completed the signature process, waiting for user validation before starting to send and archive the document\n- `sending`: sending the document to all the signers and archiving it. Signature processes should not stay in this state for more than a few seconds\n- `sent`: The signed document has been sent to all the signers\n- `done`: the signature process has been completed. This state is final\n- `expired`: the signature process reached the expiration date before all signers completed it. This state is final\n- `rejected`: one of the signers rejected the signature process. This state is final\n- `error`: an error occurred during the signature process. This state is final\n- `canceled`: set the state to `canceled` on a signature process in `draft`, `signing` or `signed` to cancel it. This state is final\n- `id_check_failed`: one signer has failed the to verify its identity. This state is final\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "draft",
+          "signing",
+          "signed",
+          "sending",
+          "done",
+          "expired",
+          "rejected",
+          "error",
+          "canceled",
+          "id_check_failed"
+        ]
+      },
+      "enum_values": [
+        "draft",
+        "signing",
+        "signed",
+        "sending",
+        "done",
+        "expired",
+        "rejected",
+        "error",
+        "canceled",
+        "id_check_failed"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.state",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SignatureProcessState",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/SignatureProcessState",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "absent",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

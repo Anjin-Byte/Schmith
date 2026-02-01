@@ -1,0 +1,297 @@
+{
+  "id": "op:POST:/uploads",
+  "method": "POST",
+  "path_template": "/uploads",
+  "declared": {
+    "parameters": [
+      {
+        "name": "file",
+        "location": "formData",
+        "required": null,
+        "schema_id": null,
+        "description": "The file to upload if Content-Type is `multipart/form-data`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Content-Disposition",
+        "location": "header",
+        "required": null,
+        "schema_id": null,
+        "description": "To provide the file name if Content-Type is not `multipart/form-data`\nFormat : `attachment; filename=\"filename.ext\"`\n",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "multipart/form-data",
+        "schema_id": null,
+        "required": null,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "absent",
+          "required": "absent",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "media_type": "*/*",
+        "schema_id": null,
+        "required": null,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "absent",
+          "required": "absent",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "201",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/UploadDocument",
+        "description": "Information about the uploaded File",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/responses/201",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "file",
+        "location": "formData",
+        "required": null,
+        "schema_id": null,
+        "description": "The file to upload if Content-Type is `multipart/form-data`",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Content-Disposition",
+        "location": "header",
+        "required": null,
+        "schema_id": null,
+        "description": "To provide the file name if Content-Type is not `multipart/form-data`\nFormat : `attachment; filename=\"filename.ext\"`\n",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "absent",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "multipart/form-data",
+        "schema_id": null,
+        "required": null,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "absent",
+          "required": "absent",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "media_type": "*/*",
+        "schema_id": null,
+        "required": null,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "absent",
+          "required": "absent",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "201",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/UploadDocument",
+        "description": "Information about the uploaded File",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/responses/201",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:definitions/BadRequest",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+          "source_pointer": "#/paths//uploads/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Platform: Uploads"
+  ],
+  "summary": "Upload a file",
+  "description": "Upload a file on UKG HR Service Delivery. To be used in the other endpoints, a file should be uploaded first with this method.  \nFile could be provided as a form parameter (parameter name is `file`) or as the body request.\nHeader `Content-Type` MUST be provided. If unknown please set it to `application/octet-stream`.\n",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/paths//uploads/post",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

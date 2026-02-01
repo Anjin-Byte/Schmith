@@ -1,0 +1,359 @@
+{
+  "id": "op:GET:/job-categories/{job-category-id}",
+  "method": "GET",
+  "path_template": "/job-categories/{job-category-id}",
+  "declared": {
+    "parameters": [],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/c984336cd1a1953e0f051de0bb627243145439a4",
+        "description": "A job category's schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/099a37415162fd4c2f442fa39ce63ddb33997920",
+        "description": "Bad request client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/91d7fa18146ac716c68f2523652d7ebf20d80e1b",
+        "description": "Unauthorized client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/8bc76887d1e77bff7ea7d096d2290fe39e864e23",
+        "description": "Forbidden client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/98268aa12b8eb998e36fd5d7bc72dea8b5baea2c",
+        "description": "Not found client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "405",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/b16d21d747efafa3db8e38e911bfc69af5e904e3",
+        "description": "Method not allowed client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:405",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "415",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/2c5d19ad66a293950c52b756f96bd4cbe4d0a586",
+        "description": "Unsupported media type client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:415",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/505e5ffe659f1218ee8cf0d887a45d9f2bcaa163",
+        "description": "Too many requests client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/fc892967a07690c8cf1bebbc2cff1bcdf4312cde",
+        "description": "Internal server's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/c984336cd1a1953e0f051de0bb627243145439a4",
+        "description": "A job category's schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/099a37415162fd4c2f442fa39ce63ddb33997920",
+        "description": "Bad request client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/91d7fa18146ac716c68f2523652d7ebf20d80e1b",
+        "description": "Unauthorized client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/8bc76887d1e77bff7ea7d096d2290fe39e864e23",
+        "description": "Forbidden client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/98268aa12b8eb998e36fd5d7bc72dea8b5baea2c",
+        "description": "Not found client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "405",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/b16d21d747efafa3db8e38e911bfc69af5e904e3",
+        "description": "Method not allowed client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:405",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "415",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/2c5d19ad66a293950c52b756f96bd4cbe4d0a586",
+        "description": "Unsupported media type client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:415",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/505e5ffe659f1218ee8cf0d887a45d9f2bcaa163",
+        "description": "Too many requests client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/fc892967a07690c8cf1bebbc2cff1bcdf4312cde",
+        "description": "Internal server's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/job-categories/{job-category-id}:get:responses:500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [],
+  "summary": null,
+  "description": "Get a JobCategory by identifier.\n",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+    "source_pointer": "raml:/job-categories/{job-category-id}:get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "absent",
+    "summary": "absent",
+    "description": "native"
+  }
+}

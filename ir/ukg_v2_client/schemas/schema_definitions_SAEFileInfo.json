@@ -1,0 +1,579 @@
+{
+  "id": "schema:definitions/SAEFileInfo",
+  "name_hint": "SAEFileInfo",
+  "kind": "object",
+  "title": null,
+  "description": "SAE document summary",
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "ref",
+      "schema_id": "schema:anon/b0dbe189d3afef0714de248de9b2e7a3286f4caf",
+      "required": false,
+      "nullable": null,
+      "description": "Reference of the document",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.ref",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "contentType",
+      "schema_id": "schema:anon/f32620783e9f85729b1fe3b73249aa9dca0b9c98",
+      "required": false,
+      "nullable": null,
+      "description": "Mime type of the file",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.contentType",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "contentLength",
+      "schema_id": "schema:anon/f989078b070ef6f35c5b56917ecadfc375b232e8",
+      "required": false,
+      "nullable": null,
+      "description": "Size (in bytes) of the file before encryption",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.contentLength",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "pageCount",
+      "schema_id": "schema:anon/e909ebe24f7f71d3987501278a383cb4e38a76d1",
+      "required": false,
+      "nullable": null,
+      "description": "Number of pages of the document if set",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.pageCount",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "crc32",
+      "schema_id": "schema:anon/5a4d3ad8f934ce2927216c7b6a2fae2852e7421d",
+      "required": false,
+      "nullable": null,
+      "description": "crc32 of the file before encryption",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.crc32",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "creationDate",
+      "schema_id": "schema:anon/8fe895c80739ed1272c1b2572c407f5e9f73355f",
+      "required": false,
+      "nullable": null,
+      "description": "If apikey is set as type, token is mandatory",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.creationDate",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "deletionDate",
+      "schema_id": "schema:anon/b271bc4bdabb6c86c3b7832c979fb82ea04db1de",
+      "required": false,
+      "nullable": null,
+      "description": "Date of hard deletion of the file if document is deleted. Most of the time Document is hard deleted 90 days after the deletion request.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.deletionDate",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "status",
+      "schema_id": "schema:anon/879c26bfd9625b1cd9012545c22f1b42743723d3",
+      "required": false,
+      "nullable": null,
+      "description": "Status of the document",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "PENDING",
+          "ARCHIVED",
+          "SOFT_DELETED",
+          "DELETED"
+        ]
+      },
+      "enum_values": [
+        "PENDING",
+        "ARCHIVED",
+        "SOFT_DELETED",
+        "DELETED"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.status",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "profile",
+      "schema_id": "schema:anon/b09d55966641bdfa86a2bfb960d2d7ca541f7577",
+      "required": false,
+      "nullable": null,
+      "description": "Profile of the document. Can indicate if document is meant to be sent to CDC",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "LOCAL",
+          "CLOUD",
+          "S3",
+          "GCS",
+          "NOVAFR",
+          "NOVAFR_CDC"
+        ]
+      },
+      "enum_values": [
+        "LOCAL",
+        "CLOUD",
+        "S3",
+        "GCS",
+        "NOVAFR",
+        "NOVAFR_CDC"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.profile",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "uri",
+      "schema_id": "schema:anon/4116f2e8a4fc1f7e1e904c2de11d9d3b7f1c905f",
+      "required": false,
+      "nullable": null,
+      "description": "Set to the file backend if file exists. NONE otherwise",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "localhost",
+          "pwd.arkhineo.fr",
+          "google-cloud-storage",
+          "aws-s3",
+          "rackspace-cloudfiles-uk",
+          "NONE"
+        ]
+      },
+      "enum_values": [
+        "localhost",
+        "pwd.arkhineo.fr",
+        "google-cloud-storage",
+        "aws-s3",
+        "rackspace-cloudfiles-uk",
+        "NONE"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.uri",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "signatureUri",
+      "schema_id": "schema:anon/48eb848288b15b9dbca75d06c03087e50645635d",
+      "required": false,
+      "nullable": null,
+      "description": "Set to the signature backend host if signature exists. NONE otherwise",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "localhost",
+          "pwd.arkhineo.fr",
+          "google-cloud-storage",
+          "aws-s3",
+          "rackspace-cloudfiles-uk",
+          "NONE"
+        ]
+      },
+      "enum_values": [
+        "localhost",
+        "pwd.arkhineo.fr",
+        "google-cloud-storage",
+        "aws-s3",
+        "rackspace-cloudfiles-uk",
+        "NONE"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.signatureUri",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "backupUri",
+      "schema_id": "schema:anon/5d35a94ecd327d5aa8377be6a8ff6a1de68f91b9",
+      "required": false,
+      "nullable": null,
+      "description": "Set to the backup backend if backup exists. NONE otherwise",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "localhost",
+          "pwd.arkhineo.fr",
+          "google-cloud-storage",
+          "aws-s3",
+          "rackspace-cloudfiles-uk",
+          "NONE"
+        ]
+      },
+      "enum_values": [
+        "localhost",
+        "pwd.arkhineo.fr",
+        "google-cloud-storage",
+        "aws-s3",
+        "rackspace-cloudfiles-uk",
+        "NONE"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.backupUri",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "cdcUri",
+      "schema_id": "schema:anon/7197a0b10e62ae38d76e0f5c233cb1b7bf6bc37f",
+      "required": false,
+      "nullable": null,
+      "description": "Set to cdc if there is a cdc uri. NONE otherwise",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "NONE",
+          "cdc"
+        ]
+      },
+      "enum_values": [
+        "NONE",
+        "cdc"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.cdcUri",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/SAEFileInfo",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/SAEFileInfo",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

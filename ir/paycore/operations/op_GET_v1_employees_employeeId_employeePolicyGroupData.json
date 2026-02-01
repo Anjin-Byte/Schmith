@@ -1,0 +1,271 @@
+{
+  "id": "op:GET:/v1/employees/{employeeId}/employeePolicyGroupData",
+  "method": "GET",
+  "path_template": "/v1/employees/{employeeId}/employeePolicyGroupData",
+  "declared": {
+    "parameters": [
+      {
+        "name": "employeeId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/584459970c9b699c17ae5f48a00999f8cfdf75f3",
+        "description": "ID of the Employee for which you want to get the employee policy group data.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PolicyGroup",
+        "description": "Returns Employee Policy Group Data for specific employee based on employee Id.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "employeeId",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/584459970c9b699c17ae5f48a00999f8cfdf75f3",
+        "description": "ID of the Employee for which you want to get the employee policy group data.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PolicyGroup",
+        "description": "Returns Employee Policy Group Data for specific employee based on employee Id.",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorRateLimitError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PaycorError",
+        "description": "",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+          "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Legal Entity Time Data"
+  ],
+  "summary": "Get Employee Policy Group Data by Employee ID",
+  "description": "Tip:\n* It can take up to 5 minutes for a employee policy group data to return from the API.\nData Access: View Employee Policy Group Data by EmployeeId",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+    "source_pointer": "#/paths//v1/employees/{employeeId}/employeePolicyGroupData/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

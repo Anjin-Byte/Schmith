@@ -1,0 +1,168 @@
+{
+  "id": "schema:types/OAuthToken",
+  "name_hint": "OAuthToken",
+  "kind": "object",
+  "title": null,
+  "description": "An authentication schema.\n",
+  "properties": [
+    {
+      "json_name": "access_token",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The access token string as issued by the authorization server.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.access_token",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:OAuthToken",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "token_type",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The type of token this is.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.token_type",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:OAuthToken",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "expires_in",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The duration of time the access token is granted for.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.expires_in",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:OAuthToken",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "refresh_token",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "When an access token expires (exceeds the `expires_in` time), the `refresh_token` is used to obtain a new access token.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.refresh_token",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:OAuthToken",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+    "source_pointer": "raml:types:OAuthToken",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

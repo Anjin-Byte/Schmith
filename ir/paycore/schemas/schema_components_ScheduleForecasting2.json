@@ -1,0 +1,153 @@
+{
+  "id": "schema:components/ScheduleForecasting2",
+  "name_hint": "ScheduleForecasting2",
+  "kind": "object",
+  "title": null,
+  "description": "Schedule Forecasting Model to represent forecasting data based on the LegalEntityId.",
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "transactionDate",
+      "schema_id": "schema:anon/2858527e0b81dd47d1b7d4c846b42fa99c995cea",
+      "required": true,
+      "nullable": null,
+      "description": "Transaction Date when the specific metric used for forecasting occurred. It should be in local Time.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "minLength": 1
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.transactionDate",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+        "source_pointer": "#/components/schemas/ScheduleForecasting2",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "value",
+      "schema_id": "schema:anon/59c80036690f62d97a31ffc36baf57dbaccfb3cf",
+      "required": true,
+      "nullable": null,
+      "description": "Represents number of key metric used to forecast labor demand.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.value",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+        "source_pointer": "#/components/schemas/ScheduleForecasting2",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "scheduleGroupId",
+      "schema_id": "schema:anon/709c43ce28084eee5eacdcf49945f129e7c583d0",
+      "required": true,
+      "nullable": null,
+      "description": "ScheduleGroupId can be retrieved from calling Get Schedules Groups for Legal Entity.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "minLength": 1
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.scheduleGroupId",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+        "source_pointer": "#/components/schemas/ScheduleForecasting2",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "transactionDate",
+    "value",
+    "scheduleGroupId"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+    "source_pointer": "#/components/schemas/ScheduleForecasting2",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

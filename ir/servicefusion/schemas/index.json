@@ -1,0 +1,662 @@
+{
+  "schemas": [
+    {
+      "schema_id": "schema:types/object",
+      "name_hint": "object",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/array",
+      "name_hint": "array",
+      "kind": "array",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/OAuthToken",
+      "name_hint": "OAuthToken",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/OAuthTokenError",
+      "name_hint": "OAuthTokenError",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Error",
+      "name_hint": "typ.Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.400Error",
+      "name_hint": "typ.400Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.404Error",
+      "name_hint": "typ.404Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.405Error",
+      "name_hint": "typ.405Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.415Error",
+      "name_hint": "typ.415Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.422Error",
+      "name_hint": "typ.422Error",
+      "kind": "array",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.429Error",
+      "name_hint": "typ.429Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.500Error",
+      "name_hint": "typ.500Error",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Agent",
+      "name_hint": "typ.Agent",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.AgentBody",
+      "name_hint": "typ.AgentBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.AssignedTech",
+      "name_hint": "typ.AssignedTech",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.AssignedTechBody",
+      "name_hint": "typ.AssignedTechBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CalendarTask",
+      "name_hint": "typ.CalendarTask",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CalendarTaskView",
+      "name_hint": "typ.CalendarTaskView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CalendarTaskRepeat",
+      "name_hint": "typ.CalendarTaskRepeat",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomField",
+      "name_hint": "typ.CustomField",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomFieldBody",
+      "name_hint": "typ.CustomFieldBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Customer",
+      "name_hint": "typ.Customer",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerBody",
+      "name_hint": "typ.CustomerBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerView",
+      "name_hint": "typ.CustomerView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerContact",
+      "name_hint": "typ.CustomerContact",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerContactBody",
+      "name_hint": "typ.CustomerContactBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerEmail",
+      "name_hint": "typ.CustomerEmail",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerEmailBody",
+      "name_hint": "typ.CustomerEmailBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerLocation",
+      "name_hint": "typ.CustomerLocation",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerLocationBody",
+      "name_hint": "typ.CustomerLocationBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerPhone",
+      "name_hint": "typ.CustomerPhone",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.CustomerPhoneBody",
+      "name_hint": "typ.CustomerPhoneBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Equipment",
+      "name_hint": "typ.Equipment",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.EquipmentBody",
+      "name_hint": "typ.EquipmentBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.EquipmentView",
+      "name_hint": "typ.EquipmentView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Estimate",
+      "name_hint": "typ.Estimate",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.EstimateBody",
+      "name_hint": "typ.EstimateBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.EstimateView",
+      "name_hint": "typ.EstimateView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Invoice",
+      "name_hint": "typ.Invoice",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.InvoiceView",
+      "name_hint": "typ.InvoiceView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Job",
+      "name_hint": "typ.Job",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobBody",
+      "name_hint": "typ.JobBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobView",
+      "name_hint": "typ.JobView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobCategory",
+      "name_hint": "typ.JobCategory",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobCategoryView",
+      "name_hint": "typ.JobCategoryView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobStatus",
+      "name_hint": "typ.JobStatus",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobStatusView",
+      "name_hint": "typ.JobStatusView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobDocument",
+      "name_hint": "typ.JobDocument",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobExpense",
+      "name_hint": "typ.JobExpense",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobExpenseBody",
+      "name_hint": "typ.JobExpenseBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobLaborCharge",
+      "name_hint": "typ.JobLaborCharge",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobLaborChargeBody",
+      "name_hint": "typ.JobLaborChargeBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobNote",
+      "name_hint": "typ.JobNote",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobNoteBody",
+      "name_hint": "typ.JobNoteBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobOtherCharge",
+      "name_hint": "typ.JobOtherCharge",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobOtherChargeBody",
+      "name_hint": "typ.JobOtherChargeBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobProduct",
+      "name_hint": "typ.JobProduct",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobProductBody",
+      "name_hint": "typ.JobProductBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobService",
+      "name_hint": "typ.JobService",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobServiceBody",
+      "name_hint": "typ.JobServiceBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobSignature",
+      "name_hint": "typ.JobSignature",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobTag",
+      "name_hint": "typ.JobTag",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobTagBody",
+      "name_hint": "typ.JobTagBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobTask",
+      "name_hint": "typ.JobTask",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobTaskBody",
+      "name_hint": "typ.JobTaskBody",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.JobVisit",
+      "name_hint": "typ.JobVisit",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.MeView",
+      "name_hint": "typ.MeView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Payment",
+      "name_hint": "typ.Payment",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.PaymentType",
+      "name_hint": "typ.PaymentType",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.PaymentTypeView",
+      "name_hint": "typ.PaymentTypeView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.PrintableWorkOrder",
+      "name_hint": "typ.PrintableWorkOrder",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Source",
+      "name_hint": "typ.Source",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.SourceView",
+      "name_hint": "typ.SourceView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Tech",
+      "name_hint": "typ.Tech",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.TechView",
+      "name_hint": "typ.TechView",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Picture",
+      "name_hint": "typ.Picture",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:types/typ.Document",
+      "name_hint": "typ.Document",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": false
+    },
+    {
+      "schema_id": "schema:anon/c43bbb9a0c1d95e3fa51ca9c12c9b74d7d887542",
+      "name_hint": "items",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:types/integer",
+      "name_hint": "items",
+      "kind": "integer",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:types/string",
+      "name_hint": "items",
+      "kind": "string",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af",
+      "name_hint": "AssignedTech",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/4aef56ef1b5df2d8eedd0c54df071b3b2d3e9a0c",
+      "name_hint": "_meta",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/56cecfad266bf953db2b3c6fa598418203a6592a",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/1dfe40b15f8339052c1208956acd01e486182051",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/5ccd2dd5603bcd7e53d41c9bd5d4fcdc77c76118",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71",
+      "name_hint": "Job",
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/50fd9975c7782c0811c1aca63f2e95e42f362200",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/ee256c5fb2e71146c623815d25ec3bac3be32af3",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/8ed6ccde9e78b86a5e48f91db61009acd0f077bc",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/a9aa79b8a530ebccf52a3891930e373e790da323",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/0a001c6b5b204d66e1d536a7e82a8aac7e133b8d",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/124d7e495fe798ba9c648496f2b833e2ed2f1ea1",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/bd6f96bd182650c63771bc69acd0b3ba2262187a",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    },
+    {
+      "schema_id": "schema:anon/5099ea82d845cee3899e956816856e24d1424f3b",
+      "name_hint": null,
+      "kind": "object",
+      "where_used": [],
+      "is_inline": true
+    }
+  ]
+}

@@ -20,6 +20,10 @@ Adapters live in `builders/adapters/` and implement spec parsing for:
 
 Use `--adapter openapi` or `--adapter raml` when running builders.
 
+Adapter notes:
+- Field metadata (nullable, readOnly/writeOnly, deprecated) and constraints are captured into the IR.
+- OpenAPI adapter collapses pure single-ref `allOf` wrappers to preserve referenced schema names.
+
 ## Example
 
 ```bash

@@ -1,0 +1,543 @@
+{
+  "id": "schema:types/typ.EquipmentBody",
+  "name_hint": "typ.EquipmentBody",
+  "kind": "object",
+  "title": null,
+  "description": "An equipment's body schema.\n",
+  "properties": [
+    {
+      "json_name": "id",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's identifier that will be searched. You may pass this parameter if you do not want to create new entry but assign existing one. You may assign by `identifier` or `header` (Note: `identifier` - [integer] the equipment's identifier, `header` - [string] the equipment's fields concatenated by pattern `{type}:{make}:{model}:{serial_number}` with colon as separator).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.id",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "type",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's type that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.type",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "make",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's make that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.make",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "model",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's model that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 255
+      },
+      "json_pointer": "$.model",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "sku",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's sku that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 50
+      },
+      "json_pointer": "$.sku",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "serial_number",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's serial number that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 255
+      },
+      "json_pointer": "$.serial_number",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "location",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's location that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 255
+      },
+      "json_pointer": "$.location",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "notes",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's notes that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 250
+      },
+      "json_pointer": "$.notes",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "extended_warranty_provider",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's extended warranty provider that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 255
+      },
+      "json_pointer": "$.extended_warranty_provider",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "is_extended_warranty",
+      "schema_id": "schema:types/boolean",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's is extended warranty flag that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.is_extended_warranty",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "extended_warranty_date",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's extended warranty date that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.extended_warranty_date",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "warranty_date",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's warranty date that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.warranty_date",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "install_date",
+      "schema_id": "schema:types/datetime",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's install date that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.install_date",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "customer_location",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send a customer location's `id` or `header` that will be attached to the equipment (Note: `id` - [integer] the customer location's identifier, `header` - [string] the customer location's fields concatenated by pattern `{nickname} {street_1} {city}` with space as separator).\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.customer_location",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "custom_fields",
+      "schema_id": "schema:types/array",
+      "required": false,
+      "nullable": null,
+      "description": "Used to send the equipment's custom fields list that will be set.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "json_pointer": "$.custom_fields",
+      "items_schema_id": "schema:types/typ.CustomFieldBody",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:types:typ.EquipmentBody",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "native",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+    "source_pointer": "raml:types:typ.EquipmentBody",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

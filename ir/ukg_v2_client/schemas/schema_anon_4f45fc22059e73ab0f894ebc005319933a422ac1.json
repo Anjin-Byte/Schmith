@@ -1,0 +1,47 @@
+{
+  "id": "schema:anon/4f45fc22059e73ab0f894ebc005319933a422ac1",
+  "name_hint": null,
+  "kind": "string",
+  "title": null,
+  "description": "Modify the status of the article (can be `published` or `draft`).\nThe `scheduled` status can't be used with this PATCH.\nThis PATCH only enables to publish or unpublish an article.\nTo plan a publication with a publication date, please use the PUT api\nenabling creation and modification of a complete article.\n",
+  "enum_values": [
+    "draft",
+    "published"
+  ],
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {
+    "enum": [
+      "draft",
+      "published"
+    ]
+  },
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/KbArticlePatchPayload",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "native",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "native",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

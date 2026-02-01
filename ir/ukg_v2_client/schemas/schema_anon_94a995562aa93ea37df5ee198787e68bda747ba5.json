@@ -1,0 +1,626 @@
+{
+  "id": "schema:anon/94a995562aa93ea37df5ee198787e68bda747ba5",
+  "name_hint": null,
+  "kind": "object",
+  "title": null,
+  "description": "Options regarding paper mail sending and campaigns",
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "edition.provider",
+      "schema_id": "schema:anon/64330c4a3121cfcd3229ef61d433cda33cff3562",
+      "required": false,
+      "nullable": null,
+      "description": "Printing provider",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "cortex",
+          "onegate",
+          "indus",
+          "numen",
+          "docone",
+          "cofilmo",
+          "esker"
+        ]
+      },
+      "enum_values": [
+        "cortex",
+        "onegate",
+        "indus",
+        "numen",
+        "docone",
+        "cofilmo",
+        "esker"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.edition.provider",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "edition.paper_type",
+      "schema_id": "schema:anon/02c3073b5031000e8b7eee49ab3b1bb99f88160d",
+      "required": false,
+      "nullable": null,
+      "description": "Paper type",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "A4B80",
+          "A4Iceberg bleu / Antalis80",
+          "BlancStd"
+        ]
+      },
+      "enum_values": [
+        "A4B80",
+        "A4Iceberg bleu / Antalis80",
+        "BlancStd"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.edition.paper_type",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "edition.color",
+      "schema_id": "schema:anon/bb7ca3b33615e79ac797e595bc241bd73adfca64",
+      "required": false,
+      "nullable": null,
+      "description": "Printing color configuration. Use `C` for laser color printing, `M` for laser monchrome printing, `JC` for color ink jet printing",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "C",
+          "M",
+          "JC"
+        ]
+      },
+      "enum_values": [
+        "C",
+        "M",
+        "JC"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.edition.color",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "edition.both_side",
+      "schema_id": "schema:anon/f4cb32eca039dad3af50df28edc222c4643f5074",
+      "required": false,
+      "nullable": null,
+      "description": "Duplex printing",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.edition.both_side",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "envelope.type",
+      "schema_id": "schema:anon/86a9b7927a9f3f6a2558d145533df809eac4b5f3",
+      "required": false,
+      "nullable": null,
+      "description": "Envelope type",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "C6",
+          "C5",
+          "C4",
+          "C6_Sita",
+          "C6_Bouygues",
+          "AUCUNE",
+          "C6B",
+          "C5B",
+          "C6Std",
+          "PersoBouygues",
+          "C6DW"
+        ]
+      },
+      "enum_values": [
+        "C6",
+        "C5",
+        "C4",
+        "C6_Sita",
+        "C6_Bouygues",
+        "AUCUNE",
+        "C6B",
+        "C5B",
+        "C6Std",
+        "PersoBouygues",
+        "C6DW"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.envelope.type",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "envelope.stamped",
+      "schema_id": "schema:anon/6e610a05ec4d5d246efb0f60c46d76e65b2800b3",
+      "required": false,
+      "nullable": null,
+      "description": "Add a stamp on the envelope",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.envelope.stamped",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "envelope.sealed",
+      "schema_id": "schema:anon/f6eede9d7ee0bddc6b003b4d75c1edb78528e75d",
+      "required": false,
+      "nullable": null,
+      "description": "Seal the envelope or leave it open",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.envelope.sealed",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "envelope.return_on_pnd",
+      "schema_id": "schema:anon/1a734d01b89958570a31f7ebc171380898d910df",
+      "required": false,
+      "nullable": null,
+      "description": "Return non distributed mails",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.envelope.return_on_pnd",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "envelope.pnd_cause",
+      "schema_id": "schema:anon/3d8201fde119196b51183dcab927dacfe04da983",
+      "required": false,
+      "nullable": null,
+      "description": "Return the cause of non distributed mails",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.envelope.pnd_cause",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "package_ref",
+      "schema_id": "schema:anon/ac4dccd995bd977f09ac1d8079798432404444f5",
+      "required": false,
+      "nullable": null,
+      "description": "Send a parcel or individual letters",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "letter",
+          "parcel"
+        ]
+      },
+      "enum_values": [
+        "letter",
+        "parcel"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.package_ref",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "report.recipient.email",
+      "schema_id": "schema:anon/16a594d7b37eba1ee31ddb2cbb76f77753962cda",
+      "required": false,
+      "nullable": null,
+      "description": "Email address used for sending the report",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.report.recipient.email",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "carrier.name",
+      "schema_id": "schema:anon/c8f47f810750689f6e690f83fc2b85b0f790079a",
+      "required": false,
+      "nullable": null,
+      "description": "Name of the carrier",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "CHRONOPOST",
+          "POSTE",
+          "COURSIER"
+        ]
+      },
+      "enum_values": [
+        "CHRONOPOST",
+        "POSTE",
+        "COURSIER"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.carrier.name",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "carrier.priority",
+      "schema_id": "schema:anon/7d10beaf4faa1da9ee51b49d20a41c7178d9b20c",
+      "required": false,
+      "nullable": null,
+      "description": "Sending priority",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "ECOPLI",
+          "LETTRE",
+          "ECI",
+          "LG2",
+          "LVERTE"
+        ]
+      },
+      "enum_values": [
+        "ECOPLI",
+        "LETTRE",
+        "ECI",
+        "LG2",
+        "LVERTE"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.carrier.priority",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "cover_address",
+      "schema_id": "schema:anon/35c836e827d766489d9437a9a4413f7ab62694ba",
+      "required": false,
+      "nullable": null,
+      "description": "Add a cover address",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.cover_address",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/CampaignBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/CampaignBase",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

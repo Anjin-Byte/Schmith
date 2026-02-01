@@ -1,0 +1,237 @@
+{
+  "id": "schema:definitions/ElectronicVaultOptionsComputedFields",
+  "name_hint": "ElectronicVaultOptionsComputedFields",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "id",
+      "schema_id": "schema:anon/9bc2f0e8afe7d5176efa3bd557f60c3b24bdc3fc",
+      "required": false,
+      "nullable": null,
+      "description": "`ID` of the Employee to whom the options refer to",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/ElectronicVaultOptionsComputedFields",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "electronic_vault_id",
+      "schema_id": "schema:anon/c9a6cb258197003e6bc315e4e741b79dfb8972e5",
+      "required": false,
+      "nullable": null,
+      "description": "`ID` of the Electronic Vault",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.electronic_vault_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/ElectronicVaultOptionsComputedFields",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "electronic_vault_state",
+      "schema_id": "schema:anon/248fbeab8e9d9f6c8f5d218cec765ac4d5d495e5",
+      "required": false,
+      "nullable": null,
+      "description": "Every new employee has to activate their electronic vault. Therefore the state is first described as `not_activated`. Then, when an employee opens their electronic vault, it is reported as `activated`. However the owner of an electronic vault can request its deletion. When it is the case, the state of the Electronic Vault is updated to `pending_deletion`. When the deletion is effective, the state of the Electronic Vault is then `deleted`. At last, when `electronic_vault_subscription_enabled` is set to `false`, the employee can not open an electronic vault, its state is then `not_available`",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "activated",
+          "not_activated",
+          "not_available",
+          "pending_deletion",
+          "deleted"
+        ]
+      },
+      "enum_values": [
+        "activated",
+        "not_activated",
+        "not_available",
+        "pending_deletion",
+        "deleted"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.electronic_vault_state",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/ElectronicVaultOptionsComputedFields",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "electronic_payslips_choice_updated_at",
+      "schema_id": "schema:anon/05cbe821c6b8104ba1a60c920c884749ced8100e",
+      "required": false,
+      "nullable": null,
+      "description": "Date of the last update regarding the choice of the Employee to receive their payslips digitally or not",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.electronic_payslips_choice_updated_at",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/ElectronicVaultOptionsComputedFields",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "electronic_payslips_choice_origin",
+      "schema_id": "schema:anon/855aaad6f78bb50aea3213fc3b97f2db52cebbdc",
+      "required": false,
+      "nullable": null,
+      "description": "Origin of the Employee choice regarding the distribution of their payslips digitally. `mypeopledoc` if the Employee did their choice from their electronic vault. `peopledoc` if the choice has been executed on behalf of the Employee in UKG HR Service Delivery",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "mypeopledoc",
+          "peopledoc"
+        ]
+      },
+      "enum_values": [
+        "mypeopledoc",
+        "peopledoc"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.electronic_payslips_choice_origin",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/ElectronicVaultOptionsComputedFields",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/ElectronicVaultOptionsComputedFields",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

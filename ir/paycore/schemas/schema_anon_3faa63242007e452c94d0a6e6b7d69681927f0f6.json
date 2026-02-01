@@ -1,0 +1,43 @@
+{
+  "id": "schema:anon/3faa63242007e452c94d0a6e6b7d69681927f0f6",
+  "name_hint": null,
+  "kind": "array",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": "schema:components/EmployeeHour4",
+  "additional_properties_schema_id": null,
+  "constraints": {
+    "maxItems": 100
+  },
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/paycore/api.json",
+    "source_pointer": "#/paths//v1/employees/{employeeId}/DeleteHours/delete/requestBody/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "native",
+    "additional_properties_schema_id": "absent",
+    "constraints": "native",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:DELETE:/v1/employees/{employeeId}/DeleteHours"
+  ]
+}

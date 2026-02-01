@@ -1,0 +1,144 @@
+{
+  "id": "schema:anon/98268aa12b8eb998e36fd5d7bc72dea8b5baea2c",
+  "name_hint": null,
+  "kind": "object",
+  "title": null,
+  "description": "Not found client's error schema.\n",
+  "properties": [
+    {
+      "json_name": "code",
+      "schema_id": "schema:types/integer",
+      "required": false,
+      "nullable": null,
+      "description": "The error code associated with the error.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.code",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:/calendar-tasks/{calendar-task-id}:responses",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "name",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The error name associated with the error.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.name",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:/calendar-tasks/{calendar-task-id}:responses",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "message",
+      "schema_id": "schema:types/string",
+      "required": false,
+      "nullable": null,
+      "description": "The error message associated with the error.\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "json_pointer": "$.message",
+      "items_schema_id": null,
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+        "source_pointer": "raml:/calendar-tasks/{calendar-task-id}:responses",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "json_pointer": "adapter",
+        "items_schema_id": "absent",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+    "source_pointer": "raml:/calendar-tasks/{calendar-task-id}:responses",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:GET:/calendar-tasks/{calendar-task-id}",
+    "op:GET:/customers/{customer-id}",
+    "op:GET:/customers/{customer-id}/equipment/{equipment-id}",
+    "op:GET:/jobs/{job-id}",
+    "op:GET:/job-categories/{job-category-id}",
+    "op:GET:/job-statuses/{job-status-id}",
+    "op:GET:/estimates/{estimate-id}",
+    "op:GET:/invoices/{invoice-id}",
+    "op:GET:/payment-types/{payment-type-id}",
+    "op:GET:/sources/{source-id}",
+    "op:GET:/techs/{tech-id}"
+  ]
+}

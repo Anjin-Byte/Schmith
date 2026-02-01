@@ -47,7 +47,7 @@ Builds a normalized Intermediate Representation across four domains:
 | Domain | Builder | Output |
 |--------|---------|--------|
 | Operations | `build_operations.py` | Endpoints, parameters, request/response bodies |
-| Schemas | `build_schemas.py` | Type definitions, fields, constraints |
+| Schemas | `build_schemas.py` | Type definitions, fields, constraints + field metadata |
 | Serialization | `build_serialization.py` | Media types, JSON field names |
 | References | `build_refs.py` | Schema relationships and dependencies |
 
@@ -83,6 +83,10 @@ Generated output layout:
 - `generated/<api>/_schemas/` schema markdown (symlinked into object folders)
 - `generated/<api>/_reports/` coverage and other reports
 - `generated/<api>/manifest.json` manifest for traversal and lookup
+
+Notes:
+- Prompt packets use type-tree resolution to include all reachable types and track composition-only members.
+- Inline enums are given stable, field-based names to avoid anonymous enum types.
 
 ## Project Structure
 

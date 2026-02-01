@@ -1,0 +1,199 @@
+{
+  "id": "schema:definitions/NotificationSettingsBase",
+  "name_hint": "NotificationSettingsBase",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "email_sender_name",
+      "schema_id": "schema:anon/d9106427129d51b6485a05595a9c53b5a07eff90",
+      "required": true,
+      "nullable": null,
+      "description": "Displayed to recipients along with the email address, to identify the sender (e.g. From: Company Name <no-reply@people-doc.com>)\"\nIf null or empty, will default to \"PeopleDoc\"\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 30
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.email_sender_name",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/NotificationSettingsBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "email_sender_address",
+      "schema_id": "schema:anon/a792e136ad59320527d9e488518716f0e87338a3",
+      "required": true,
+      "nullable": null,
+      "description": "Email address used to send emails.\nIf null or empty, will default to \"no-reply@people-doc.com\"\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.email_sender_address",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/NotificationSettingsBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "email_subject_prefix",
+      "schema_id": "schema:anon/c5a002fd240c86e457fbb3ba603ad32d9fac3e99",
+      "required": true,
+      "nullable": null,
+      "description": "Subject prefix that can be displayed before all email subject line (e.g. [HR Helpdesk]).\nLeaving empty or null will use the plain subject as defined in the templates\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "maxLength": 30
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.email_subject_prefix",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/NotificationSettingsBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "email_sending_mode",
+      "schema_id": "schema:anon/567ddaed1e215c36731c50dfae344a94d513b181",
+      "required": true,
+      "nullable": null,
+      "description": "Allow to enable or disable email sending.\n\nIf null, will be considered `enabled`.\n\n* `disabled`: emails are not sent at all (can be used in customer implementation / test phase to avoid sending emails)\n* `test`: emails are send to our email testing software (can be used during implementation phase to check email content and design)\n* `enabled`: emails are sent (should be enabled when customer is in production phase)\n",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "enabled",
+          "disabled",
+          "test"
+        ]
+      },
+      "enum_values": [
+        "enabled",
+        "disabled",
+        "test"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.email_sending_mode",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+        "source_pointer": "#/definitions/NotificationSettingsBase",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "email_sender_name",
+    "email_sender_address",
+    "email_subject_prefix",
+    "email_sending_mode"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/NotificationSettingsBase",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

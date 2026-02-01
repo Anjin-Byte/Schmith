@@ -1,0 +1,405 @@
+{
+  "id": "op:POST:/customers",
+  "method": "POST",
+  "path_template": "/customers",
+  "declared": {
+    "parameters": [],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/dc79ab2fbad707b39f8569207f5237c40035eb7d",
+        "required": null,
+        "description": "A customer's body schema.\n",
+        "examples": [
+          "{\n  \"customer_name\": \"Bob Marley\",\n  \"parent_customer\": \"Jerry Wheeler\",\n  \"account_number\": \"30000\",\n  \"private_notes\": \"None\",\n  \"public_notes\": \"None\",\n  \"credit_rating\": \"A+\",\n  \"labor_charge_type\": \"flat\",\n  \"labor_charge_default_rate\": 50.45,\n  \"last_serviced_date\": \"2018-08-07\",\n  \"is_bill_for_drive_time\": true,\n  \"is_vip\": true,\n  \"referral_source\": \"Google AdWords\",\n  \"agent\": \"John Theowner\",\n  \"discount\": 10.23,\n  \"discount_type\": \"%\",\n  \"payment_type\": \"Check\",\n  \"payment_terms\": \"DUR\",\n  \"assigned_contract\": \"Retail Service Contract\",\n  \"industry\": \"Advertising Agencies\",\n  \"is_taxable\": false,\n  \"tax_item_name\": \"Sanity Tax\",\n  \"qbo_sync_token\": 385,\n  \"qbo_currency\": \"USD\",\n  \"contacts\": [\n    {\n      \"prefix\": \"Mr.\",\n      \"fname\": \"Jerry\",\n      \"lname\": \"Wheeler\",\n      \"suffix\": \"suf\",\n      \"contact_type\": \"Billing\",\n      \"dob\": \"April 19\",\n      \"anniversary\": \"October 4\",\n      \"job_title\": \"Manager\",\n      \"department\": \"executive\",\n      \"is_primary\": true,\n      \"phones\": [\n        {\n          \"phone\": \"066-361-8172\",\n          \"ext\": 38,\n          \"type\": \"Mobile\"\n        }\n      ],\n      \"emails\": [\n        {\n          \"email\": \"anton.lyubch1@gmail.com\",\n          \"class\": \"Personal\",\n          \"types_accepted\": \"CONF,PMT\"\n        }\n      ]\n    }\n  ],\n  \"locations\": [\n    {\n      \"street_1\": \"1904 Industrial Blvd\",\n      \"street_2\": \"103\",\n      \"city\": \"Colleyville\",\n      \"state_prov\": \"Texas\",\n      \"postal_code\": \"76034\",\n      \"country\": \"USA\",\n      \"nickname\": \"Office\",\n      \"gate_instructions\": \"Gate instructions\",\n      \"latitude\": \"123.45\",\n      \"longitude\": \"67.89\",\n      \"location_type\": \"home\",\n      \"is_primary\": false,\n      \"is_gated\": false,\n      \"is_bill_to\": false,\n      \"customer_contact\": \"Sam Smith\"\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"name\": \"Text\",\n      \"value\": \"Example text value\"\n    },\n    {\n      \"name\": \"Textarea\",\n      \"value\": \"Example text area value\"\n    },\n    {\n      \"name\": \"Date\",\n      \"value\": \"2018-10-05\"\n    },\n    {\n      \"name\": \"Numeric\",\n      \"value\": \"157.25\"\n    },\n    {\n      \"name\": \"Select\",\n      \"value\": \"1 one\"\n    },\n    {\n      \"name\": \"Checkbox\",\n      \"value\": true\n    }\n  ]\n}"
+        ],
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:body",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "absent",
+          "description": "native",
+          "examples": "native",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "201",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/71ac56426673c47ec84fc4bd3bbd64019266dcb2",
+        "description": "A customer's schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:201",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/099a37415162fd4c2f442fa39ce63ddb33997920",
+        "description": "Bad request client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/91d7fa18146ac716c68f2523652d7ebf20d80e1b",
+        "description": "Unauthorized client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/8bc76887d1e77bff7ea7d096d2290fe39e864e23",
+        "description": "Forbidden client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "405",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/b16d21d747efafa3db8e38e911bfc69af5e904e3",
+        "description": "Method not allowed client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:405",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "415",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/2c5d19ad66a293950c52b756f96bd4cbe4d0a586",
+        "description": "Unsupported media type client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:415",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/cff85b16f6562ba8f536cd7b41f710cfebc05219",
+        "description": "Unprocessable entity client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/505e5ffe659f1218ee8cf0d887a45d9f2bcaa163",
+        "description": "Too many requests client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/fc892967a07690c8cf1bebbc2cff1bcdf4312cde",
+        "description": "Internal server's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/dc79ab2fbad707b39f8569207f5237c40035eb7d",
+        "required": null,
+        "description": "A customer's body schema.\n",
+        "examples": [
+          "{\n  \"customer_name\": \"Bob Marley\",\n  \"parent_customer\": \"Jerry Wheeler\",\n  \"account_number\": \"30000\",\n  \"private_notes\": \"None\",\n  \"public_notes\": \"None\",\n  \"credit_rating\": \"A+\",\n  \"labor_charge_type\": \"flat\",\n  \"labor_charge_default_rate\": 50.45,\n  \"last_serviced_date\": \"2018-08-07\",\n  \"is_bill_for_drive_time\": true,\n  \"is_vip\": true,\n  \"referral_source\": \"Google AdWords\",\n  \"agent\": \"John Theowner\",\n  \"discount\": 10.23,\n  \"discount_type\": \"%\",\n  \"payment_type\": \"Check\",\n  \"payment_terms\": \"DUR\",\n  \"assigned_contract\": \"Retail Service Contract\",\n  \"industry\": \"Advertising Agencies\",\n  \"is_taxable\": false,\n  \"tax_item_name\": \"Sanity Tax\",\n  \"qbo_sync_token\": 385,\n  \"qbo_currency\": \"USD\",\n  \"contacts\": [\n    {\n      \"prefix\": \"Mr.\",\n      \"fname\": \"Jerry\",\n      \"lname\": \"Wheeler\",\n      \"suffix\": \"suf\",\n      \"contact_type\": \"Billing\",\n      \"dob\": \"April 19\",\n      \"anniversary\": \"October 4\",\n      \"job_title\": \"Manager\",\n      \"department\": \"executive\",\n      \"is_primary\": true,\n      \"phones\": [\n        {\n          \"phone\": \"066-361-8172\",\n          \"ext\": 38,\n          \"type\": \"Mobile\"\n        }\n      ],\n      \"emails\": [\n        {\n          \"email\": \"anton.lyubch1@gmail.com\",\n          \"class\": \"Personal\",\n          \"types_accepted\": \"CONF,PMT\"\n        }\n      ]\n    }\n  ],\n  \"locations\": [\n    {\n      \"street_1\": \"1904 Industrial Blvd\",\n      \"street_2\": \"103\",\n      \"city\": \"Colleyville\",\n      \"state_prov\": \"Texas\",\n      \"postal_code\": \"76034\",\n      \"country\": \"USA\",\n      \"nickname\": \"Office\",\n      \"gate_instructions\": \"Gate instructions\",\n      \"latitude\": \"123.45\",\n      \"longitude\": \"67.89\",\n      \"location_type\": \"home\",\n      \"is_primary\": false,\n      \"is_gated\": false,\n      \"is_bill_to\": false,\n      \"customer_contact\": \"Sam Smith\"\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"name\": \"Text\",\n      \"value\": \"Example text value\"\n    },\n    {\n      \"name\": \"Textarea\",\n      \"value\": \"Example text area value\"\n    },\n    {\n      \"name\": \"Date\",\n      \"value\": \"2018-10-05\"\n    },\n    {\n      \"name\": \"Numeric\",\n      \"value\": \"157.25\"\n    },\n    {\n      \"name\": \"Select\",\n      \"value\": \"1 one\"\n    },\n    {\n      \"name\": \"Checkbox\",\n      \"value\": true\n    }\n  ]\n}"
+        ],
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:body",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "absent",
+          "description": "native",
+          "examples": "native",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "201",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/71ac56426673c47ec84fc4bd3bbd64019266dcb2",
+        "description": "A customer's schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:201",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/099a37415162fd4c2f442fa39ce63ddb33997920",
+        "description": "Bad request client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/91d7fa18146ac716c68f2523652d7ebf20d80e1b",
+        "description": "Unauthorized client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/8bc76887d1e77bff7ea7d096d2290fe39e864e23",
+        "description": "Forbidden client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "405",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/b16d21d747efafa3db8e38e911bfc69af5e904e3",
+        "description": "Method not allowed client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:405",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "415",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/2c5d19ad66a293950c52b756f96bd4cbe4d0a586",
+        "description": "Unsupported media type client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:415",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/cff85b16f6562ba8f536cd7b41f710cfebc05219",
+        "description": "Unprocessable entity client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "429",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/505e5ffe659f1218ee8cf0d887a45d9f2bcaa163",
+        "description": "Too many requests client's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:429",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/fc892967a07690c8cf1bebbc2cff1bcdf4312cde",
+        "description": "Internal server's error schema.\n",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+          "source_pointer": "raml:/customers:post:responses:500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [],
+  "summary": null,
+  "description": "Create a new Customer.\n",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/servicefusion/api.json",
+    "source_pointer": "raml:/customers:post",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "absent",
+    "summary": "absent",
+    "description": "native"
+  }
+}

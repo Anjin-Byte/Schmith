@@ -1,0 +1,50 @@
+{
+  "id": "schema:definitions/ProcessCreatePayload",
+  "name_hint": "ProcessCreatePayload",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:definitions/ProcessBase",
+      "schema:anon/ffeea799f991f0f6b62f3e9457c6193b4a906ad7",
+      "schema:anon/8fad6fd8a966e48892be42e7728f141762d8d985",
+      "schema:anon/04aec87f4879e03968309a4b2016829b1d2fb6c3",
+      "schema:anon/c2e2038f98f8d36402d97250d1e799a24a08bd3b"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/ukg_v2_client/api.yml",
+    "source_pointer": "#/definitions/ProcessCreatePayload",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:POST:/processes"
+  ]
+}
