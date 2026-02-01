@@ -1,0 +1,221 @@
+{
+  "id": "schema:anon/3b453202976bfdbb375a51f9915a79c2c34b7bde",
+  "name_hint": null,
+  "kind": "object",
+  "title": "Change Event Production Quantity",
+  "description": "Change Event Production Quantity object",
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "cost_code_id",
+      "schema_id": "schema:anon/64ae47337509e97fcfdcf15e0f93431cb5d876a0",
+      "required": false,
+      "nullable": null,
+      "description": "ID of the associated Cost Code",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.cost_code_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/change_events/{change_event_id}/change_event_production_quantities/{id}/patch/requestBody/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "quantity",
+      "schema_id": "schema:anon/026c4da3473a1344c185849e8f136c3f388a9169",
+      "required": false,
+      "nullable": null,
+      "description": "Quantity",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.quantity",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/change_events/{change_event_id}/change_event_production_quantities/{id}/patch/requestBody/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "uom",
+      "schema_id": "schema:anon/ec8bf9d5e72bcc369f70e9cbcd1a31c5af7d66e1",
+      "required": false,
+      "nullable": null,
+      "description": "Unit of Measure",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "Any value present in the Company list of Units of Measure except those categorized as \"Time\""
+        ]
+      },
+      "enum_values": [
+        "Any value present in the Company list of Units of Measure except those categorized as \"Time\""
+      ],
+      "enum_names": null,
+      "json_pointer": "$.uom",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/change_events/{change_event_id}/change_event_production_quantities/{id}/patch/requestBody/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "description",
+      "schema_id": "schema:anon/9baa5d453bc7eee67c372060a324518faf4e50c7",
+      "required": false,
+      "nullable": null,
+      "description": "Description",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.description",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/change_events/{change_event_id}/change_event_production_quantities/{id}/patch/requestBody/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "wbs_code_id",
+      "schema_id": "schema:anon/2fab59c134584efc7d316d1b038bb27b009ae8ad",
+      "required": false,
+      "nullable": null,
+      "description": "ID of the associated WBS Code",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.wbs_code_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/change_events/{change_event_id}/change_event_production_quantities/{id}/patch/requestBody/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/change_events/{change_event_id}/change_event_production_quantities/{id}/patch/requestBody/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "native",
+    "description": "native",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

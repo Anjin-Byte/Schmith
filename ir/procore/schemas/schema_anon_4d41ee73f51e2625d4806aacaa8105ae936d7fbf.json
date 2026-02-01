@@ -1,0 +1,188 @@
+{
+  "id": "schema:anon/4d41ee73f51e2625d4806aacaa8105ae936d7fbf",
+  "name_hint": null,
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "name",
+      "schema_id": "schema:anon/b491380ead3a52ab59a6171d34670d7e5f3fffae",
+      "required": false,
+      "nullable": null,
+      "description": "Translated display name of the tool",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.name",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/workflows/tools/get/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "type",
+      "schema_id": "schema:anon/de14fa3f3e3e938b321373a7c593b4091edc5c6e",
+      "required": false,
+      "nullable": null,
+      "description": "Tool type",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.type",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/workflows/tools/get/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "provider",
+      "schema_id": "schema:anon/ecb7dfe14ac9810f270ab8b18b769b7566806ae7",
+      "required": false,
+      "nullable": null,
+      "description": "Specifies the provider of the tool, either \"Project\" or \"Company\"",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "Project",
+          "Company"
+        ]
+      },
+      "enum_values": [
+        "Project",
+        "Company"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.provider",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/workflows/tools/get/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "subtype",
+      "schema_id": "schema:anon/dd40301309dd03d388cd22f653b6cbc909d3af99",
+      "required": false,
+      "nullable": true,
+      "description": "Tool subtype, for 'correspondence' tool only",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.subtype",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/workflows/tools/get/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "native",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/workflows/tools/get/responses/200/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

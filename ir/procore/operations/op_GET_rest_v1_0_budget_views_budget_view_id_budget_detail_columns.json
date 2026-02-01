@@ -1,0 +1,375 @@
+{
+  "id": "op:GET:/rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns",
+  "method": "GET",
+  "path_template": "/rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns",
+  "declared": {
+    "parameters": [
+      {
+        "name": "budget_view_id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Budget View ID",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "project_id",
+        "location": "query",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique identifier for the project.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/03170e5e8b367de3fb640cd12d3c3a475d3ae570",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Forbidden",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "default",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unexpected error",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/default",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "budget_view_id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Budget View ID",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "project_id",
+        "location": "query",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique identifier for the project.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/03170e5e8b367de3fb640cd12d3c3a475d3ae570",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Forbidden",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "default",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unexpected error",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get/responses/default",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Construction Financials/Budget/budget-detail-columns"
+  ],
+  "summary": "List Budget Detail Columns",
+  "description": "Return a list of columns relevant to a Budget View for a Budget Detail Report.\n\nNote: The ID field of each Budget Column will appear as keys in rows returned by the List Budget Details API.",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/budget_views/{budget_view_id}/budget_detail_columns/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

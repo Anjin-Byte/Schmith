@@ -1,0 +1,443 @@
+{
+  "id": "op:GET:/rest/v1.0/offices",
+  "method": "GET",
+  "path_template": "/rest/v1.0/offices",
+  "declared": {
+    "parameters": [
+      {
+        "name": "company_id",
+        "location": "query",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique identifier for the company.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "page",
+        "location": "query",
+        "required": null,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Page",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": null,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Elements per page",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "view",
+        "location": "query",
+        "required": false,
+        "schema_id": "schema:anon/46e1fea96e0648ea701c58f8a82fd6c2b38cce8a",
+        "description": "The view determines which fields are returned. 'normal' returns id, address, city, country_code, division, fax, logo, name, phone, state_code, and zip.\n 'extended' additionally returns main_office.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/04ed2e97a4a3ae64ec301b159c5a0b92abd86fe8",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Forbidden",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "default",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unexpected error",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/responses/default",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "company_id",
+        "location": "query",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique identifier for the company.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "page",
+        "location": "query",
+        "required": null,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Page",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": null,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Elements per page",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "absent",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "view",
+        "location": "query",
+        "required": false,
+        "schema_id": "schema:anon/46e1fea96e0648ea701c58f8a82fd6c2b38cce8a",
+        "description": "The view determines which fields are returned. 'normal' returns id, address, city, country_code, division, fax, logo, name, phone, state_code, and zip.\n 'extended' additionally returns main_office.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/04ed2e97a4a3ae64ec301b159c5a0b92abd86fe8",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Forbidden",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "default",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unexpected error",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/offices/get/responses/default",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Company Admin/Company Settings/company-offices"
+  ],
+  "summary": "List company offices",
+  "description": "Returns a collection of Offices associated to a Company",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/offices/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

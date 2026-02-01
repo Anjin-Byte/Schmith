@@ -1,0 +1,273 @@
+{
+  "id": "schema:anon/d4879e2cfb374c4e19395a4b11f09eb253c689ef",
+  "name_hint": null,
+  "kind": "object",
+  "title": null,
+  "description": "Compliance Information",
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "updated_at",
+      "schema_id": "schema:anon/410f1ab58df76435da44ed7b5efe4a211bd813fa",
+      "required": false,
+      "nullable": true,
+      "description": "The last time the any of this compliance information was updated on this contract",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.updated_at",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance/patch/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "native",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "updated_by_id",
+      "schema_id": "schema:anon/ffc7d19ac9ec6068c49ffe1318a4b9a57cf79b48",
+      "required": false,
+      "nullable": true,
+      "description": "The last user who updated this compliance information",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.updated_by_id",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance/patch/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "native",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "compliance_status",
+      "schema_id": "schema:anon/57d6212c289a392d8831f73cccbe4d9ee69d5c81",
+      "required": false,
+      "nullable": true,
+      "description": "The compliance status of this contract",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "compliant",
+          "not_compliant",
+          "not_required"
+        ]
+      },
+      "enum_values": [
+        "compliant",
+        "not_compliant",
+        "not_required"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.compliance_status",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance/patch/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "native",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "compliance_notes",
+      "schema_id": "schema:anon/68cb3378498b50c589cef7fce20ed7dc46053bbe",
+      "required": false,
+      "nullable": true,
+      "description": "Any notes about the compliance status",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.compliance_notes",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance/patch/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "native",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "insurance_status",
+      "schema_id": "schema:anon/a70432e49e9c8652ca76e4c23a7b6c953d4c7248",
+      "required": false,
+      "nullable": true,
+      "description": "The insurance status of this contract",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "compliant",
+          "not_compliant",
+          "not_required"
+        ]
+      },
+      "enum_values": [
+        "compliant",
+        "not_compliant",
+        "not_required"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.insurance_status",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance/patch/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "native",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "insurance_notes",
+      "schema_id": "schema:anon/5c8da5bf67056e4c74c6eae51534f174d4563b2d",
+      "required": false,
+      "nullable": true,
+      "description": "Any notes about the insurance status",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.insurance_notes",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance/patch/responses/200/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "native",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance/patch/responses/200/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:PATCH:/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance",
+    "op:PATCH:/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance"
+  ]
+}

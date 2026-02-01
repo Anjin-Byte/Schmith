@@ -1,0 +1,453 @@
+{
+  "id": "op:PATCH:/rest/v1.0/projects/{project_id}/observation_templates/bulk_update",
+  "method": "PATCH",
+  "path_template": "/rest/v1.0/projects/{project_id}/observation_templates/bulk_update",
+  "declared": {
+    "parameters": [
+      {
+        "name": "observation_template_ids",
+        "location": "query",
+        "required": false,
+        "schema_id": "schema:anon/8ed60dff0403837c15f66fff3fe66217c5639bc1",
+        "description": "IDs of all Project Observation Templates specified for bulk update",
+        "deprecated": null,
+        "explode": false,
+        "style": "form",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "native",
+          "style": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "project_id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique identifier for the project.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/bf109aa9ab44a12f5d83df4f345dc2b35c85337b",
+        "required": true,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/23a7276a1ec8539d0da299d4321a994d1a132fb7",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Forbidden",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Not Found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unprocessable Entity",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "observation_template_ids",
+        "location": "query",
+        "required": false,
+        "schema_id": "schema:anon/8ed60dff0403837c15f66fff3fe66217c5639bc1",
+        "description": "IDs of all Project Observation Templates specified for bulk update",
+        "deprecated": null,
+        "explode": false,
+        "style": "form",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "native",
+          "style": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "project_id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique identifier for the project.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/bf109aa9ab44a12f5d83df4f345dc2b35c85337b",
+        "required": true,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/23a7276a1ec8539d0da299d4321a994d1a132fb7",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Forbidden",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Not Found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unprocessable Entity",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch/responses/422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Project Management/Observations/project-observation-templates"
+  ],
+  "summary": "Bulk Update Project Observation Templates",
+  "description": "Updates multiple Project Observation Templates",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/observation_templates/bulk_update/patch",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

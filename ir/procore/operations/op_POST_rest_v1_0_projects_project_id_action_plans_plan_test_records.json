@@ -1,0 +1,477 @@
+{
+  "id": "op:POST:/rest/v1.0/projects/{project_id}/action_plans/plan_test_records",
+  "method": "POST",
+  "path_template": "/rest/v1.0/projects/{project_id}/action_plans/plan_test_records",
+  "declared": {
+    "parameters": [
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "project_id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique identifier for the project.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/ef151cafb5ae84b84e7736e7bab439f287e37415",
+        "required": true,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "media_type": "multipart/form-data",
+        "schema_id": "schema:anon/954f6b7d778d3f0a2b24bb03d97016b8b99bb9a1",
+        "required": true,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "201",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/82c03c7e6253263563bf9f3cd09fdf63f8868325",
+        "description": "Created",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/201",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Forbidden",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Not Found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "409",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Conflict",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/409",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unprocessable Entity",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "project_id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique identifier for the project.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "application/json",
+        "schema_id": "schema:anon/ef151cafb5ae84b84e7736e7bab439f287e37415",
+        "required": true,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "media_type": "multipart/form-data",
+        "schema_id": "schema:anon/954f6b7d778d3f0a2b24bb03d97016b8b99bb9a1",
+        "required": true,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "native",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "201",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/82c03c7e6253263563bf9f3cd09fdf63f8868325",
+        "description": "Created",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/201",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "400",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Bad Request",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/400",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Forbidden",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Not Found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "409",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Conflict",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/409",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "422",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0",
+        "description": "Unprocessable Entity",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post/responses/422",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Project Management/Action Plans/action-plan-test-records"
+  ],
+  "summary": "Create Action Plan Test Record",
+  "description": "Create an Action Plan Test Record\n\nAction Plan Test Records can have one of the following payload formats (checklist_id, form_id, generic_tool_id, meeting_id, submittal_log_id, observation_item_id, attachment)\nAttachment payloads must be a binary file or contain an attachment_id, upload_id, drawing_revision_id, file_version_id, form_id, or image_id.\n\nA specific Action Plan Test Record Type can only leverage its corresponding format.\n\n*For instance, Checklist Test Records can only leverage checklist_id while Attachment/Photo Test Records can only leverage attachment.",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_test_records/post",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

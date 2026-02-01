@@ -1,0 +1,463 @@
+{
+  "id": "op:GET:/rest/v2.0/companies/{company_id}/custom_field/data_types",
+  "method": "GET",
+  "path_template": "/rest/v2.0/companies/{company_id}/custom_field/data_types",
+  "declared": {
+    "parameters": [
+      {
+        "name": "type",
+        "location": "query",
+        "required": false,
+        "schema_id": "schema:anon/0f064102b9535b99a4f8c0cb531f7ffc4f36dfe8",
+        "description": "Configurable field set type to filter data type variants.  If provided, only variants supported by this field set type will be returned. For GenericToolItem, append the generic_tool_id (e.g., 'ConfigurableFieldSet::GenericToolItem::123'). Supported types: 'ConfigurableFieldSet::Observations::Item', 'ConfigurableFieldSet::GenericToolItem'.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "field_set_id",
+        "location": "query",
+        "required": false,
+        "schema_id": "schema:anon/15a1597f92b672179f1fd8268b15b9bb215df73a",
+        "description": "ID of an existing configurable field set.  If provided, only variants supported by this specific field set will be returned. Takes priority over the 'type' parameter if both are provided.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "company_id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/5b1cd5713a375e18bb93e9635b8a2dc5fc2672cf",
+        "description": "Unique identifier for the company.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5ff57b47c5390ffd991f2284310b20516e5c0eca",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Forbidden - User lacks admin permissions",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Not Found - Company not found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Internal Server Error",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "default",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Unexpected error",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/default",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "type",
+        "location": "query",
+        "required": false,
+        "schema_id": "schema:anon/0f064102b9535b99a4f8c0cb531f7ffc4f36dfe8",
+        "description": "Configurable field set type to filter data type variants.  If provided, only variants supported by this field set type will be returned. For GenericToolItem, append the generic_tool_id (e.g., 'ConfigurableFieldSet::GenericToolItem::123'). Supported types: 'ConfigurableFieldSet::Observations::Item', 'ConfigurableFieldSet::GenericToolItem'.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "field_set_id",
+        "location": "query",
+        "required": false,
+        "schema_id": "schema:anon/15a1597f92b672179f1fd8268b15b9bb215df73a",
+        "description": "ID of an existing configurable field set.  If provided, only variants supported by this specific field set will be returned. Takes priority over the 'type' parameter if both are provided.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "Procore-Company-Id",
+        "location": "header",
+        "required": true,
+        "schema_id": "schema:anon/4df23f6fcb2f843ba1603f8fd67bfbb0659b678d",
+        "description": "Unique company identifier associated with the Procore User Account.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      },
+      {
+        "name": "company_id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/5b1cd5713a375e18bb93e9635b8a2dc5fc2672cf",
+        "description": "Unique identifier for the company.",
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [],
+    "responses": [
+      {
+        "status_code": "200",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/5ff57b47c5390ffd991f2284310b20516e5c0eca",
+        "description": "OK",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/200",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "401",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Unauthorized",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/401",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "403",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Forbidden - User lacks admin permissions",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/403",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "404",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Not Found - Company not found",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/404",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "500",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Internal Server Error",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/500",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      },
+      {
+        "status_code": "default",
+        "media_type": "application/json",
+        "schema_id": "schema:anon/3ff1c5fdb9b08c6e4d5f4bea9bae42c60eb39a1a",
+        "description": "Unexpected error",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get/responses/default",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Company Admin/Custom - Configurable Tools/custom-fields"
+  ],
+  "summary": "Get Custom Field Data Types",
+  "description": "Returns all available custom field data types for a company, including their variants. This endpoint provides information about which data types are enabled for the company based on feature flags, the list of values (LOV) data types, and the available variants for each data type.\n\nWhen `field_set_id` or `type` parameters are provided, the variants will be filtered to only include those supported by the specified field set.",
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/custom_field/data_types/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "native",
+    "summary": "native",
+    "description": "native"
+  }
+}

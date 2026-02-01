@@ -1,0 +1,50 @@
+{
+  "id": "schema:anon/bbfb1fed2c382c04abeb5f2f65982fd2fd7dfb0d",
+  "name_hint": null,
+  "kind": "unknown",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "oneOf",
+    "members": [
+      "schema:anon/e48a72a1a22b36e9ddf2d066164719862b92bf7a",
+      "schema:anon/3fe2dbfcd2b07d1d999261ebc9fbad4eaa3f4fd3"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/action_plans/plan_sections/post/responses/201/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "absent",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:POST:/rest/v1.0/projects/{project_id}/action_plans/plan_sections",
+    "op:GET:/rest/v1.0/projects/{project_id}/action_plans/plan_sections/{id}",
+    "op:PATCH:/rest/v1.0/projects/{project_id}/action_plans/plan_sections/{id}",
+    "op:POST:/rest/v1.0/projects/{project_id}/action_plans/plan_sections/create_from_section"
+  ]
+}

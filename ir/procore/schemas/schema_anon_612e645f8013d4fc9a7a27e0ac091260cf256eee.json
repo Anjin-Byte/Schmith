@@ -1,0 +1,39 @@
+{
+  "id": "schema:anon/612e645f8013d4fc9a7a27e0ac091260cf256eee",
+  "name_hint": null,
+  "kind": "array",
+  "title": "Company Users Bulk Add",
+  "description": "Array of existing company users with a permission template id and project id that they will be assinged to. The maximum amount per request is 50 user_id, project_id, permission_template_id triplets. If more than 50 objects are sent then a worker will be triggered to perform the action asynchronously.",
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": "schema:anon/3b5245e15847229af23584ab31ab35a7d0e855a9",
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/users/bulk_add/post/requestBody/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "native",
+    "description": "native",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "native",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

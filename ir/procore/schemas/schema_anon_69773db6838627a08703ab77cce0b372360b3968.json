@@ -1,0 +1,50 @@
+{
+  "id": "schema:anon/69773db6838627a08703ab77cce0b372360b3968",
+  "name_hint": null,
+  "kind": "object",
+  "title": null,
+  "description": "Vendor Extended View",
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:anon/e54a4878df1bcfbf03dd880061d65615c5338e6a",
+      "schema:anon/1fdd14a61ce67a5f0f6abe92abfb4e5ade20b2a8",
+      "schema:anon/c3c1645f2fba6de95ca93df9e700e99f4e2df759"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/vendors/get/responses/200/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:POST:/rest/v1.0/vendors",
+    "op:PATCH:/rest/v1.0/vendors/{id}",
+    "op:PATCH:/rest/v1.0/companies/{company_id}/vendors/inactive/{id}"
+  ]
+}

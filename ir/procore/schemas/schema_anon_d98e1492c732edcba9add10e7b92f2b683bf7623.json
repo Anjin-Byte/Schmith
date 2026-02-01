@@ -1,0 +1,50 @@
+{
+  "id": "schema:anon/d98e1492c732edcba9add10e7b92f2b683bf7623",
+  "name_hint": null,
+  "kind": "unknown",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:anon/5f1395bc17fa665bf8cfc2d44fba8fe9f6890225",
+      "schema:anon/3b100b860402400a80ccbc55f48ca5dfff54f8f9"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timecard_entries/get/responses/200/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "absent",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:POST:/rest/v1.0/companies/{company_id}/timecard_entries",
+    "op:DELETE:/rest/v1.0/companies/{company_id}/timecard_entries/{id}",
+    "op:GET:/rest/v1.0/companies/{company_id}/timecard_entries/{id}",
+    "op:PATCH:/rest/v1.0/companies/{company_id}/timecard_entries/{id}"
+  ]
+}

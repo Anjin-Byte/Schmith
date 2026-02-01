@@ -1,0 +1,51 @@
+{
+  "id": "schema:anon/9eaff15b24a0b5eff0ec76e77c91cb646ad8e4c3",
+  "name_hint": null,
+  "kind": "string",
+  "title": null,
+  "description": "Subcontractor SOV status. Admin users or users with granular permissions to update the contract can chan ge the status if the contract has no requisitions (sub invoices) or approved commitment change orders. Bill recipients can change the status to 'under_review' if the current status is 'draft' or 'revise_and_resubmit.'",
+  "enum_values": [
+    "draft",
+    "revise_and_resubmit",
+    "under_review",
+    "approved"
+  ],
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {
+    "enum": [
+      "draft",
+      "revise_and_resubmit",
+      "under_review",
+      "approved"
+    ]
+  },
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/work_order_contracts/{work_order_contract_id}/subcontractor_schedule_of_values_status/patch/requestBody/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "native",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "native",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

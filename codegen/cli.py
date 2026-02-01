@@ -5,6 +5,7 @@ This module provides a command-line interface with subcommands for:
 - list: List available IRs and potential DataObjects
 - groups: Show parent-child schema relationships
 - coverage: Show schema coverage report (what's generated vs filtered)
+- endpoints: Endpoint response coverage report (schemas ↔ DataObjects)
 - packets: Generate prompt packets from IR
 - generate: Generate C# code from prompt packets
 
@@ -17,6 +18,7 @@ Usage:
     python -m codegen list servicefusion      # List DataObjects for an IR
     python -m codegen groups servicefusion    # Show schema groups
     python -m codegen coverage servicefusion  # Show coverage report
+    python -m codegen endpoints servicefusion # Endpoint response coverage report
     python -m codegen packets servicefusion   # Generate prompt packets
     python -m codegen generate servicefusion  # Generate C# code
 """
@@ -39,6 +41,7 @@ from .schema.type_mapping import extract_clean_name, format_data_object_name  # 
 from .generation.prompt_packets import PromptPacketBuilder, write_packets
 from .providers.llm import get_provider
 from .generation.code_generator import generate_from_packets_dir
+from .generation.endpoints_report import write_endpoints_report
 
 
 def cmd_config(args: argparse.Namespace, config: CodegenConfig) -> int:
@@ -575,6 +578,17 @@ def cmd_coverage(args: argparse.Namespace, config: CodegenConfig) -> int:
     return 0
 
 
+def cmd_endpoints(args: argparse.Namespace, config: CodegenConfig) -> int:
+    """Generate endpoint response coverage report."""
+    paths = config.resolve_paths()
+    ir_dir = args.ir_dir or paths.ir_dir
+    generated_dir = args.generated_dir or paths.generated_dir
+
+    report_path = write_endpoints_report(args.ir_name, ir_dir, generated_dir)
+    print(f"\nEndpoints report written to: {report_path}")
+    return 0
+
+
 def cmd_pages(args: argparse.Namespace, config: CodegenConfig) -> int:
     """Show pagination view for schemas as submitted to the LLM."""
     paths = config.resolve_paths()
@@ -748,6 +762,28 @@ Examples:
         help="Show what would be written without creating files",
     )
     coverage_parser.set_defaults(func=cmd_coverage)
+
+    # Endpoints command
+    endpoints_parser = subparsers.add_parser(
+        "endpoints",
+        help="Generate endpoint response coverage report",
+        description="Map response schemas to generated DataObjects.",
+    )
+    endpoints_parser.add_argument(
+        "ir_name",
+        help="IR name to analyze",
+    )
+    endpoints_parser.add_argument(
+        "--ir-dir",
+        type=Path,
+        help="Base directory containing IR folders",
+    )
+    endpoints_parser.add_argument(
+        "--generated-dir",
+        type=Path,
+        help="Base directory containing generated output",
+    )
+    endpoints_parser.set_defaults(func=cmd_endpoints)
 
     # Packets command
     packets_parser = subparsers.add_parser(

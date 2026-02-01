@@ -1,0 +1,48 @@
+{
+  "id": "schema:anon/14b0f6dcd7d20af5bfb43774a12274f29ff628b7",
+  "name_hint": null,
+  "kind": "unknown",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "oneOf",
+    "members": [
+      "schema:anon/8da4164073dda16b9d5d88beb2bda72b4cee5064",
+      "schema:anon/402d964d8b51bb9170e44ee343749d1acd9a94bd"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/bim_model_revision_plans/get/responses/200/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "absent",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:POST:/rest/v1.0/bim_model_revision_plans",
+    "op:GET:/rest/v1.0/bim_model_revision_plans/{id}"
+  ]
+}

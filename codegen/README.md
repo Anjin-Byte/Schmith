@@ -33,6 +33,9 @@ uv run python -m codegen generate paycore --no-clean
 
 # Coverage report (writes generated/<ir>/_reports/coverage.md)
 uv run python -m codegen coverage paycore
+
+# Endpoint response coverage report (writes generated/<ir>/_reports/endpoints.md)
+uv run python -m codegen endpoints paycore
 ```
 
 ## Configuration Notes

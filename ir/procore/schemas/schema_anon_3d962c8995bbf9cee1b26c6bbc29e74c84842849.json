@@ -1,0 +1,51 @@
+{
+  "id": "schema:anon/3d962c8995bbf9cee1b26c6bbc29e74c84842849",
+  "name_hint": null,
+  "kind": "string",
+  "title": null,
+  "description": "Set of the markup.\n- **Horizontal markup:** Calculates the markup amount on an individual line item.\n- **Vertical markup:** Calculates the markup amount as a subtotal on all line items on a change order. \n\nContracts use 'change_orders_horizontal' and 'change_orders_vertical'.  \nPotential Change Orders use 'vertical' and 'horizontal'.",
+  "enum_values": [
+    "change_orders_horizontal",
+    "change_orders_vertical",
+    "horizontal",
+    "vertical"
+  ],
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {
+    "enum": [
+      "change_orders_horizontal",
+      "change_orders_vertical",
+      "horizontal",
+      "vertical"
+    ]
+  },
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/financials/markups/get/responses/200/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "absent",
+    "description": "native",
+    "enum_values": "native",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "native",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "absent"
+  },
+  "where_used": []
+}

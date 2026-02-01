@@ -204,6 +204,9 @@ uv run python -m codegen groups servicefusion
 # Show schema coverage report (roots vs nested, writes generated/<ir>/_reports/coverage.md)
 uv run python -m codegen coverage servicefusion
 
+# Endpoint response coverage report (writes generated/<ir>/_reports/endpoints.md)
+uv run python -m codegen endpoints servicefusion
+
 # Show prompt pagination view
 uv run python -m codegen pages servicefusion --show-fields
 

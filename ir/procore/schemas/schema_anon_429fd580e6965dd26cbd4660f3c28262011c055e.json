@@ -1,0 +1,80 @@
+{
+  "id": "schema:anon/429fd580e6965dd26cbd4660f3c28262011c055e",
+  "name_hint": null,
+  "kind": "object",
+  "title": "Company User Body Bulk Update Project Details",
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "users",
+      "schema_id": "schema:anon/715b8e100e76e09bdd4f915ef209d76786e863a0",
+      "required": true,
+      "nullable": null,
+      "description": "Array of existing company users with a permission template id, project_role_ids, and project id that they want updated. The maximum amount per request is 1000 user_id, project_id, project_role_ids, permission_template_id objects. If more than 1000 objects are sent then a worker will be triggered to perform the action asynchronously.",
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.users",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/users/bulk_update_project_details/patch/requestBody/content/application/json",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "native",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "users"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/users/bulk_update_project_details/patch/requestBody/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "native",
+    "title": "native",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:PATCH:/rest/v2.0/companies/{company_id}/users/bulk_update_project_details",
+    "op:PATCH:/rest/v2.0/companies/{company_id}/users/bulk_remove_project_details"
+  ]
+}

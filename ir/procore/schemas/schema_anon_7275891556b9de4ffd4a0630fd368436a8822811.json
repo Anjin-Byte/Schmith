@@ -1,0 +1,49 @@
+{
+  "id": "schema:anon/7275891556b9de4ffd4a0630fd368436a8822811",
+  "name_hint": null,
+  "kind": "unknown",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [],
+  "required": [],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": {
+    "kind": "allOf",
+    "members": [
+      "schema:anon/452b284e5b568716db1b533e40cdfa2cbd618edb",
+      "schema:anon/dc33e35eacf6991e6ce3d2d6753ac66db97e7488"
+    ]
+  },
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/checklist/list_templates/post/responses/201/content/application/json",
+    "via": []
+  },
+  "is_inline": true,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "absent",
+    "kind": "absent",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "absent",
+    "required": "absent",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "native",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:POST:/rest/v1.0/companies/{company_id}/checklist/list_templates",
+    "op:PATCH:/rest/v1.0/companies/{company_id}/checklist/list_templates/{id}",
+    "op:PATCH:/rest/v1.0/companies/{company_id}/checklist/list_templates/{id}/use_alternative_response_set"
+  ]
+}
