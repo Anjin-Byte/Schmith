@@ -1,0 +1,564 @@
+{
+  "operations": {
+    "op:GET:/pub/v1/accounting-codes": {
+      "request": [
+        "*/*"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/accounting-codes": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/accounting-codes/{id}": {
+      "request": [
+        "*/*"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:PUT:/pub/v1/accounting-codes/{id}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/accounting-invoices": {
+      "request": [
+        "*/*"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/accounting-invoices/{id}": {
+      "request": [
+        "*/*"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/bidrooms": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/bidrooms/{bidroomId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/change-orders/{changeOrderAncestorId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:PUT:/pub/v1/change-orders/{changeOrderAncestorId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/change-orders": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/buildings/{companyBuildingId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:PUT:/pub/v1/buildings/{companyBuildingId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/buildings/{companyBuildingId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/buildings": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/buildings": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/buildings/building-code/{companyBuildingCode}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/buildings/building-code/{companyBuildingCode}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/vendors/{companyVendorId}/contacts": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/vendors/{companyVendorId}/contacts": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:PUT:/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/vendors/{companyVendorId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:PUT:/pub/v1/vendors/{companyVendorId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/vendors/{companyVendorId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/vendors": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/vendors": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/vendors/code/{companyVendorCode}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/contracts/{contractId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:PUT:/pub/v1/contracts/{contractId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/contracts": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/accounting-invoices-raw/{id}": {
+      "request": [
+        "*/*"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:PUT:/pub/v1/accounting-invoices-raw/{id}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/accounting-invoices-raw": {
+      "request": [
+        "*/*"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/accounting-invoices-raw": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/invoices": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/invoices/{invoiceAncestorId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:PUT:/pub/v1/invoices/{invoiceAncestorId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/jobs/job-code/{jobCode}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/jobs": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/jobs": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/jobs/{jobId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:PUT:/pub/v1/jobs/{jobId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/jobs/{jobId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/jobs/code/{jobCode}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/jobs/{jobId}/users": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/jobs/{jobId}/users": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/jobs/{jobId}/users": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/jobs/{jobId}/users/email/{userEmail}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/jobs/{jobId}/users/{userId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:DELETE:/pub/v1/jobs/{jobId}/users/{userId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/oauth2/token": {
+      "request": [
+        "application/x-www-form-urlencoded"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/users/{userId}": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:GET:/pub/v1/users": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "default": [
+          "application/json"
+        ]
+      }
+    },
+    "op:POST:/pub/v1/users": {
+      "request": [
+        "application/json"
+      ],
+      "responses": {
+        "200": [
+          "application/json"
+        ]
+      }
+    }
+  }
+}

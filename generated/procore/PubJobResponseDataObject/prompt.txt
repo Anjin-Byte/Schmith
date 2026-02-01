@@ -1,0 +1,915 @@
+================================================================================
+PubJobResponseDataObject (parent) page 1/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: PubJobResponseDataObject (PubJobResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: parent
+
+PAGING:
+  Page: 1 of 6
+  Fields in this page: 6
+  Total fields: 36
+  All field names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+
+NESTED TYPES: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  currencyCode: PubJobResponseCurrencycode? [nullable]
+    Enum: AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHF, CLP, CNY, COP, CRC, CUC, CUP, CVE, CZK, DJF, DKK, DOP, DZD, EGP, ERN, ETB, EUR, FJD, FKP, GBP, GEL, GGP, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HRK, HTG, HUF, IDR, ILS, IMP, INR, IQD, IRR, ISK, JEP, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MYR, MZN, NAD, NGN, NIO, NOK, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PLN, PYG, QAR, RON, RSD, RUB, RWF, SAR, SBD, SCR, SDG, SEK, SGD, SHP, SLL, SOS, SPL, SRD, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TVD, TWD, TZS, UAH, UGX, USD, UYU, UZS, VEF, VND, VUV, WST, XAF, XCD, XDR, XOF, XPF, YER, ZAR, ZMW, ZWD
+    Constraints: enum=['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BRL', 'BSD', 'BTN', 'BWP', 'BYN', 'BZD', 'CAD', 'CDF', 'CHF', 'CLP', 'CNY', 'COP', 'CRC', 'CUC', 'CUP', 'CVE', 'CZK', 'DJF', 'DKK', 'DOP', 'DZD', 'EGP', 'ERN', 'ETB', 'EUR', 'FJD', 'FKP', 'GBP', 'GEL', 'GGP', 'GHS', 'GIP', 'GMD', 'GNF', 'GTQ', 'GYD', 'HKD', 'HNL', 'HRK', 'HTG', 'HUF', 'IDR', 'ILS', 'IMP', 'INR', 'IQD', 'IRR', 'ISK', 'JEP', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRU', 'MUR', 'MVR', 'MWK', 'MXN', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NOK', 'NPR', 'NZD', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SLL', 'SOS', 'SPL', 'SRD', 'STN', 'SVC', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TRY', 'TTD', 'TVD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'UYU', 'UZS', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XDR', 'XOF', 'XPF', 'YER', 'ZAR', 'ZMW', 'ZWD']
+
+  baseCurrencyCode: PubJobResponseCurrencycode? [nullable]
+    Enum: AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHF, CLP, CNY, COP, CRC, CUC, CUP, CVE, CZK, DJF, DKK, DOP, DZD, EGP, ERN, ETB, EUR, FJD, FKP, GBP, GEL, GGP, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HRK, HTG, HUF, IDR, ILS, IMP, INR, IQD, IRR, ISK, JEP, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MYR, MZN, NAD, NGN, NIO, NOK, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PLN, PYG, QAR, RON, RSD, RUB, RWF, SAR, SBD, SCR, SDG, SEK, SGD, SHP, SLL, SOS, SPL, SRD, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TVD, TWD, TZS, UAH, UGX, USD, UYU, UZS, VEF, VND, VUV, WST, XAF, XCD, XDR, XOF, XPF, YER, ZAR, ZMW, ZWD
+    Constraints: enum=['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BRL', 'BSD', 'BTN', 'BWP', 'BYN', 'BZD', 'CAD', 'CDF', 'CHF', 'CLP', 'CNY', 'COP', 'CRC', 'CUC', 'CUP', 'CVE', 'CZK', 'DJF', 'DKK', 'DOP', 'DZD', 'EGP', 'ERN', 'ETB', 'EUR', 'FJD', 'FKP', 'GBP', 'GEL', 'GGP', 'GHS', 'GIP', 'GMD', 'GNF', 'GTQ', 'GYD', 'HKD', 'HNL', 'HRK', 'HTG', 'HUF', 'IDR', 'ILS', 'IMP', 'INR', 'IQD', 'IRR', 'ISK', 'JEP', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRU', 'MUR', 'MVR', 'MWK', 'MXN', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NOK', 'NPR', 'NZD', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SLL', 'SOS', 'SPL', 'SRD', 'STN', 'SVC', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TRY', 'TTD', 'TVD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'UYU', 'UZS', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XDR', 'XOF', 'XPF', 'YER', 'ZAR', 'ZMW', 'ZWD']
+
+  fxRate: double? [nullable]
+
+  isFxConverted: bool? [nullable]
+
+  id: int? [nullable]
+
+  userIds: int[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+PubJobResponseDataObject (parent) page 2/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: PubJobResponseDataObject (PubJobResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: parent
+
+PAGING:
+  Page: 2 of 6
+  Fields in this page: 6
+  Total fields: 36
+  All field names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+
+NESTED TYPES: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  buildingName: string? [nullable]
+
+  title: string? [nullable]
+
+  jobType: string? [nullable]
+
+  description: string? [nullable]
+
+  sqFt: double? [nullable]
+
+  companyBuildingId: int? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+PubJobResponseDataObject (parent) page 3/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: PubJobResponseDataObject (PubJobResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: parent
+
+PAGING:
+  Page: 3 of 6
+  Fields in this page: 6
+  Total fields: 36
+  All field names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+
+NESTED TYPES: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  dateCreated: string? [nullable]
+
+  dateUpdated: string? [nullable]
+
+  stage: string? [nullable]
+
+  startDate: string? [nullable]
+
+  endDate: string? [nullable]
+
+  numUnits: int? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+PubJobResponseDataObject (parent) page 4/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: PubJobResponseDataObject (PubJobResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: parent
+
+PAGING:
+  Page: 4 of 6
+  Fields in this page: 6
+  Total fields: 36
+  All field names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+
+NESTED TYPES: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  budget: double? [nullable]
+
+  jobCode: string? [nullable]
+
+  pmUserId: int? [nullable]
+
+  pmUserEmailAddress: string? [nullable]
+
+  archivedFlag: bool? [nullable]
+
+  forecast: double? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+PubJobResponseDataObject (parent) page 5/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: PubJobResponseDataObject (PubJobResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: parent
+
+PAGING:
+  Page: 5 of 6
+  Fields in this page: 6
+  Total fields: 36
+  All field names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+
+NESTED TYPES: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  remaining: double? [nullable]
+
+  variance: double? [nullable]
+
+  committed: double? [nullable]
+
+  approvedInvoices: double? [nullable]
+
+  pendingInvoices: double? [nullable]
+
+  awardedValue: double? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+PubJobResponseDataObject (parent) page 6/6
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: PubJobResponseDataObject (PubJobResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: parent
+
+PAGING:
+  Page: 6 of 6
+  Fields in this page: 6
+  Total fields: 36
+  All field names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+
+NESTED TYPES: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  holds: double? [nullable]
+
+  paidToDate: double? [nullable]
+
+  pendingChangeOrders: double? [nullable]
+
+  approvedChangeOrders: double? [nullable]
+
+  jobItems: PubJobItemResponse[]? [nullable]
+
+  jobItemSections: PubJobItemSectionResponse[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+PubJobItemResponse (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `PubJobItemResponse`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: PubJobItemResponse (PubJobItemResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobItemResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 5
+  Total fields: 15
+  All field names: id, costItem, forecast, remaining, invoiced, committed, holds, pendingChangeOrders, pendingInvoices, ordinal, bidroomId, contractId, sectionId, budget, paidToDate
+
+PARENT CONTEXT:
+  Parent Class: PubJobResponseDataObject
+  Parent Description: No description
+  Parent Field Count: 36
+  Parent Field Names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+  Parent Nested Types: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  costItem: string? [nullable]
+
+  forecast: double? [nullable]
+
+  remaining: double? [nullable]
+
+  invoiced: double? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class PubJobItemResponse
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+PubJobItemResponse (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: PubJobItemResponse (PubJobItemResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobItemResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 5
+  Total fields: 15
+  All field names: id, costItem, forecast, remaining, invoiced, committed, holds, pendingChangeOrders, pendingInvoices, ordinal, bidroomId, contractId, sectionId, budget, paidToDate
+
+PARENT CONTEXT:
+  Parent Class: PubJobResponseDataObject
+  Parent Description: No description
+  Parent Field Count: 36
+  Parent Field Names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+  Parent Nested Types: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+
+FIELDS (this page):
+----------------------------------------
+  committed: double? [nullable]
+
+  holds: double? [nullable]
+
+  pendingChangeOrders: double? [nullable]
+
+  pendingInvoices: double? [nullable]
+
+  ordinal: int? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+PubJobItemResponse (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: PubJobItemResponse (PubJobItemResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobItemResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 5
+  Total fields: 15
+  All field names: id, costItem, forecast, remaining, invoiced, committed, holds, pendingChangeOrders, pendingInvoices, ordinal, bidroomId, contractId, sectionId, budget, paidToDate
+
+PARENT CONTEXT:
+  Parent Class: PubJobResponseDataObject
+  Parent Description: No description
+  Parent Field Count: 36
+  Parent Field Names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+  Parent Nested Types: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+
+FIELDS (this page):
+----------------------------------------
+  bidroomId: int? [nullable]
+
+  contractId: int? [nullable]
+
+  sectionId: int? [nullable]
+
+  budget: double? [nullable]
+
+  paidToDate: double? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+PubJobItemSectionResponse (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `PubJobItemSectionResponse`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: PubJobItemSectionResponse (PubJobItemSectionResponse)
+============================================================
+API Name: procore
+Schema ID: schema:components/PubJobItemSectionResponse
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.PubJobResponse
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, ordinal, section
+
+PARENT CONTEXT:
+  Parent Class: PubJobResponseDataObject
+  Parent Description: No description
+  Parent Field Count: 36
+  Parent Field Names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+  Parent Nested Types: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  ordinal: int? [nullable]
+
+  section: string? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class PubJobItemSectionResponse
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+PubJobResponseCurrencycode (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `PubJobResponseCurrencycode`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: PubJobResponseCurrencycode (PubJobResponseCurrencycode)
+============================================================
+API Name: procore
+Schema ID: schema:anon/1d75d23dce4cf517a0e64ef4822b59408a327762
+Description: No description
+Namespace: Connector.procore.v1.PubJobResponse
+Role: nested
+
+ENUM:
+  Values: AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHF, CLP, CNY, COP, CRC, CUC, CUP, CVE, CZK, DJF, DKK, DOP, DZD, EGP, ERN, ETB, EUR, FJD, FKP, GBP, GEL, GGP, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HRK, HTG, HUF, IDR, ILS, IMP, INR, IQD, IRR, ISK, JEP, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MYR, MZN, NAD, NGN, NIO, NOK, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PLN, PYG, QAR, RON, RSD, RUB, RWF, SAR, SBD, SCR, SDG, SEK, SGD, SHP, SLL, SOS, SPL, SRD, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TVD, TWD, TZS, UAH, UGX, USD, UYU, UZS, VEF, VND, VUV, WST, XAF, XCD, XDR, XOF, XPF, YER, ZAR, ZMW, ZWD
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: PubJobResponseDataObject
+  Parent Description: No description
+  Parent Field Count: 36
+  Parent Field Names: currencyCode, baseCurrencyCode, fxRate, isFxConverted, id, userIds, buildingName, title, jobType, description, sqFt, companyBuildingId, dateCreated, dateUpdated, stage, startDate, endDate, numUnits, budget, jobCode, pmUserId, pmUserEmailAddress, archivedFlag, forecast, remaining, variance, committed, approvedInvoices, pendingInvoices, awardedValue, holds, paidToDate, pendingChangeOrders, approvedChangeOrders, jobItems, jobItemSections
+  Parent Nested Types: PubJobItemResponse, PubJobItemSectionResponse, PubJobResponseCurrencycode
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class PubJobResponseCurrencycode
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

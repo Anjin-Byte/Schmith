@@ -1,0 +1,674 @@
+{
+  "operations": [
+    {
+      "operation_id": "op:GET:/pub/v1/accounting-codes",
+      "method": "GET",
+      "path": "/pub/v1/accounting-codes",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubAccountingCode"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/accounting-codes",
+      "method": "POST",
+      "path": "/pub/v1/accounting-codes",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubAccountingCode"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/accounting-codes/{id}",
+      "method": "GET",
+      "path": "/pub/v1/accounting-codes/{id}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubAccountingCode"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:PUT:/pub/v1/accounting-codes/{id}",
+      "method": "PUT",
+      "path": "/pub/v1/accounting-codes/{id}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubAccountingCode"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/accounting-invoices",
+      "method": "GET",
+      "path": "/pub/v1/accounting-invoices",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubAccountingInvoice"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/accounting-invoices/{id}",
+      "method": "GET",
+      "path": "/pub/v1/accounting-invoices/{id}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubAccountingInvoice"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/bidrooms",
+      "method": "POST",
+      "path": "/pub/v1/bidrooms",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubBidroomResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/bidrooms/{bidroomId}",
+      "method": "GET",
+      "path": "/pub/v1/bidrooms/{bidroomId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubBidroomResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/change-orders/{changeOrderAncestorId}",
+      "method": "GET",
+      "path": "/pub/v1/change-orders/{changeOrderAncestorId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubChangeOrderResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:PUT:/pub/v1/change-orders/{changeOrderAncestorId}",
+      "method": "PUT",
+      "path": "/pub/v1/change-orders/{changeOrderAncestorId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubChangeOrderResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/change-orders",
+      "method": "GET",
+      "path": "/pub/v1/change-orders",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubChangeOrderBaseResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/buildings/{companyBuildingId}",
+      "method": "GET",
+      "path": "/pub/v1/buildings/{companyBuildingId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyBuildingResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:PUT:/pub/v1/buildings/{companyBuildingId}",
+      "method": "PUT",
+      "path": "/pub/v1/buildings/{companyBuildingId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyBuildingResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/buildings/{companyBuildingId}",
+      "method": "DELETE",
+      "path": "/pub/v1/buildings/{companyBuildingId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/buildings",
+      "method": "GET",
+      "path": "/pub/v1/buildings",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubCompanyBuildingResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/buildings",
+      "method": "POST",
+      "path": "/pub/v1/buildings",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyBuildingResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/buildings/building-code/{companyBuildingCode}",
+      "method": "GET",
+      "path": "/pub/v1/buildings/building-code/{companyBuildingCode}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyBuildingResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/buildings/building-code/{companyBuildingCode}",
+      "method": "DELETE",
+      "path": "/pub/v1/buildings/building-code/{companyBuildingCode}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/vendors/{companyVendorId}/contacts",
+      "method": "GET",
+      "path": "/pub/v1/vendors/{companyVendorId}/contacts",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubCompanyVendorContactResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/vendors/{companyVendorId}/contacts",
+      "method": "POST",
+      "path": "/pub/v1/vendors/{companyVendorId}/contacts",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyVendorContactResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}",
+      "method": "GET",
+      "path": "/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyVendorContactResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:PUT:/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}",
+      "method": "PUT",
+      "path": "/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyVendorContactResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}",
+      "method": "DELETE",
+      "path": "/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/vendors/{companyVendorId}",
+      "method": "GET",
+      "path": "/pub/v1/vendors/{companyVendorId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyVendorResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:PUT:/pub/v1/vendors/{companyVendorId}",
+      "method": "PUT",
+      "path": "/pub/v1/vendors/{companyVendorId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyVendorResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/vendors/{companyVendorId}",
+      "method": "DELETE",
+      "path": "/pub/v1/vendors/{companyVendorId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/vendors",
+      "method": "GET",
+      "path": "/pub/v1/vendors",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubCompanyVendorResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/vendors",
+      "method": "POST",
+      "path": "/pub/v1/vendors",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubCompanyVendorResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/vendors/code/{companyVendorCode}",
+      "method": "DELETE",
+      "path": "/pub/v1/vendors/code/{companyVendorCode}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/contracts/{contractId}",
+      "method": "GET",
+      "path": "/pub/v1/contracts/{contractId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubContractResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:PUT:/pub/v1/contracts/{contractId}",
+      "method": "PUT",
+      "path": "/pub/v1/contracts/{contractId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubContractResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/contracts",
+      "method": "GET",
+      "path": "/pub/v1/contracts",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubContractBaseResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/accounting-invoices-raw/{id}",
+      "method": "GET",
+      "path": "/pub/v1/accounting-invoices-raw/{id}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubInvoiceAccountingRawResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:PUT:/pub/v1/accounting-invoices-raw/{id}",
+      "method": "PUT",
+      "path": "/pub/v1/accounting-invoices-raw/{id}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubInvoiceAccountingRawResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/accounting-invoices-raw",
+      "method": "GET",
+      "path": "/pub/v1/accounting-invoices-raw",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubInvoiceAccountingRawBaseResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/accounting-invoices-raw",
+      "method": "POST",
+      "path": "/pub/v1/accounting-invoices-raw",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubInvoiceAccountingRawResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/invoices",
+      "method": "GET",
+      "path": "/pub/v1/invoices",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubInvoiceBaseResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/invoices/{invoiceAncestorId}",
+      "method": "GET",
+      "path": "/pub/v1/invoices/{invoiceAncestorId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubInvoiceResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:PUT:/pub/v1/invoices/{invoiceAncestorId}",
+      "method": "PUT",
+      "path": "/pub/v1/invoices/{invoiceAncestorId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubInvoiceResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/jobs/job-code/{jobCode}",
+      "method": "GET",
+      "path": "/pub/v1/jobs/job-code/{jobCode}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubJobResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/jobs",
+      "method": "GET",
+      "path": "/pub/v1/jobs",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubJobBaseResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/jobs",
+      "method": "POST",
+      "path": "/pub/v1/jobs",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubJobResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/jobs/{jobId}",
+      "method": "GET",
+      "path": "/pub/v1/jobs/{jobId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubJobResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:PUT:/pub/v1/jobs/{jobId}",
+      "method": "PUT",
+      "path": "/pub/v1/jobs/{jobId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubJobResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/jobs/{jobId}",
+      "method": "DELETE",
+      "path": "/pub/v1/jobs/{jobId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/jobs/code/{jobCode}",
+      "method": "DELETE",
+      "path": "/pub/v1/jobs/code/{jobCode}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/jobs/{jobId}/users",
+      "method": "GET",
+      "path": "/pub/v1/jobs/{jobId}/users",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubUserJobGetResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/jobs/{jobId}/users",
+      "method": "POST",
+      "path": "/pub/v1/jobs/{jobId}/users",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/jobs/{jobId}/users",
+      "method": "DELETE",
+      "path": "/pub/v1/jobs/{jobId}/users",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/jobs/{jobId}/users/email/{userEmail}",
+      "method": "DELETE",
+      "path": "/pub/v1/jobs/{jobId}/users/email/{userEmail}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/jobs/{jobId}/users/{userId}",
+      "method": "GET",
+      "path": "/pub/v1/jobs/{jobId}/users/{userId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubUserJobGetResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:DELETE:/pub/v1/jobs/{jobId}/users/{userId}",
+      "method": "DELETE",
+      "path": "/pub/v1/jobs/{jobId}/users/{userId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubMessageResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/oauth2/token",
+      "method": "POST",
+      "path": "/pub/v1/oauth2/token",
+      "requests": [
+        "schema:anon/4219ce0bc3728ec62275b0bd2a8ee31f53d14a77"
+      ],
+      "responses": [
+        "schema:components/OauthClientCredentialsResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/users/{userId}",
+      "method": "GET",
+      "path": "/pub/v1/users/{userId}",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PubUserGetResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:GET:/pub/v1/users",
+      "method": "GET",
+      "path": "/pub/v1/users",
+      "requests": [
+        "schema:components/OauthUser"
+      ],
+      "responses": [
+        "schema:components/PagingResponsePubUserGetResponse"
+      ],
+      "tags": []
+    },
+    {
+      "operation_id": "op:POST:/pub/v1/users",
+      "method": "POST",
+      "path": "/pub/v1/users",
+      "requests": [
+        "schema:components/PubUserPostRequest"
+      ],
+      "responses": [
+        "schema:components/PubUserGetResponse"
+      ],
+      "tags": []
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "id": "schema:components/PubUserPostRequest",
+  "name_hint": "PubUserPostRequest",
+  "kind": "object",
+  "title": null,
+  "description": null,
+  "enum_values": null,
+  "enum_names": null,
+  "properties": [
+    {
+      "json_name": "userEmail",
+      "schema_id": "schema:anon/cd1b64103e65237e09146325d215aea5a0540e4e",
+      "required": false,
+      "nullable": null,
+      "description": null,
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "minLength": 0,
+        "maxLength": 255
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.userEmail",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/components/schemas/PubUserPostRequest",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "absent",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "firstName",
+      "schema_id": "schema:anon/4101dc02ed66cfa13b09ad8bc47d01636d5f658f",
+      "required": false,
+      "nullable": null,
+      "description": null,
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "minLength": 0,
+        "maxLength": 100
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.firstName",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/components/schemas/PubUserPostRequest",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "absent",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "lastName",
+      "schema_id": "schema:anon/4101dc02ed66cfa13b09ad8bc47d01636d5f658f",
+      "required": false,
+      "nullable": null,
+      "description": null,
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "minLength": 0,
+        "maxLength": 100
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.lastName",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/components/schemas/PubUserPostRequest",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "absent",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "title",
+      "schema_id": "schema:anon/cd1b64103e65237e09146325d215aea5a0540e4e",
+      "required": false,
+      "nullable": null,
+      "description": null,
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "minLength": 0,
+        "maxLength": 255
+      },
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.title",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/components/schemas/PubUserPostRequest",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "absent",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "userCompanyRole",
+      "schema_id": "schema:anon/13c38b99624adde11456c3cc928d62a2c62e9967",
+      "required": true,
+      "nullable": null,
+      "description": null,
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {
+        "enum": [
+          "admin",
+          "team",
+          "collaborator"
+        ]
+      },
+      "enum_values": [
+        "admin",
+        "team",
+        "collaborator"
+      ],
+      "enum_names": null,
+      "json_pointer": "$.userCompanyRole",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/components/schemas/PubUserPostRequest",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "absent",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "native",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    },
+    {
+      "json_name": "sendNotification",
+      "schema_id": "schema:anon/420dffc45c5ae6ec50224fd5f1a65ce78209dc23",
+      "required": false,
+      "nullable": null,
+      "description": null,
+      "deprecated": null,
+      "read_only": null,
+      "write_only": null,
+      "examples": null,
+      "constraints": {},
+      "enum_values": null,
+      "enum_names": null,
+      "json_pointer": "$.sendNotification",
+      "provenance": {
+        "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+        "source_pointer": "#/components/schemas/PubUserPostRequest",
+        "via": []
+      },
+      "availability": {
+        "json_name": "native",
+        "schema_id": "adapter",
+        "required": "native",
+        "nullable": "absent",
+        "description": "absent",
+        "deprecated": "absent",
+        "read_only": "absent",
+        "write_only": "absent",
+        "examples": "absent",
+        "enum_values": "absent",
+        "enum_names": "absent",
+        "json_pointer": "adapter",
+        "provenance": "native"
+      }
+    }
+  ],
+  "required": [
+    "userCompanyRole"
+  ],
+  "items_schema_id": null,
+  "additional_properties_schema_id": null,
+  "constraints": {},
+  "composition": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/components/schemas/PubUserPostRequest",
+    "via": []
+  },
+  "is_inline": false,
+  "availability": {
+    "id": "adapter",
+    "name_hint": "native",
+    "kind": "native",
+    "title": "absent",
+    "description": "absent",
+    "enum_values": "absent",
+    "enum_names": "absent",
+    "properties": "native",
+    "required": "native",
+    "items_schema_id": "absent",
+    "additional_properties_schema_id": "absent",
+    "constraints": "absent",
+    "composition": "absent",
+    "provenance": "native",
+    "where_used": "adapter"
+  },
+  "where_used": [
+    "op:POST:/pub/v1/users"
+  ]
+}

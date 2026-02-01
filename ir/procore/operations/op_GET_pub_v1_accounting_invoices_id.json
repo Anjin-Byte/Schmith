@@ -1,0 +1,167 @@
+{
+  "id": "op:GET:/pub/v1/accounting-invoices/{id}",
+  "method": "GET",
+  "path_template": "/pub/v1/accounting-invoices/{id}",
+  "declared": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4f7acea0a43a99f3bc82c544663899166a72a92c",
+        "description": null,
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//pub/v1/accounting-invoices/{id}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "*/*",
+        "schema_id": "schema:components/OauthUser",
+        "required": null,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//pub/v1/accounting-invoices/{id}/get/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "absent",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "default",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PubAccountingInvoice",
+        "description": "default response",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//pub/v1/accounting-invoices/{id}/get/responses/default",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "effective": {
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "schema_id": "schema:anon/4f7acea0a43a99f3bc82c544663899166a72a92c",
+        "description": null,
+        "deprecated": null,
+        "explode": null,
+        "style": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//pub/v1/accounting-invoices/{id}/get/parameters",
+          "via": []
+        },
+        "availability": {
+          "name": "native",
+          "location": "native",
+          "required": "native",
+          "schema_id": "adapter",
+          "description": "absent",
+          "deprecated": "absent",
+          "explode": "absent",
+          "style": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "request_bodies": [
+      {
+        "media_type": "*/*",
+        "schema_id": "schema:components/OauthUser",
+        "required": null,
+        "description": null,
+        "examples": null,
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//pub/v1/accounting-invoices/{id}/get/requestBody",
+          "via": []
+        },
+        "availability": {
+          "media_type": "native",
+          "schema_id": "adapter",
+          "required": "absent",
+          "description": "absent",
+          "examples": "absent",
+          "provenance": "native"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "status_code": "default",
+        "media_type": "application/json",
+        "schema_id": "schema:components/PubAccountingInvoice",
+        "description": "default response",
+        "provenance": {
+          "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+          "source_pointer": "#/paths//pub/v1/accounting-invoices/{id}/get/responses/default",
+          "via": []
+        },
+        "availability": {
+          "status_code": "native",
+          "media_type": "native",
+          "schema_id": "adapter",
+          "description": "native",
+          "provenance": "native"
+        }
+      }
+    ]
+  },
+  "tags": [],
+  "summary": null,
+  "description": null,
+  "provenance": {
+    "source_file": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/spec/procore/api.json",
+    "source_pointer": "#/paths//pub/v1/accounting-invoices/{id}/get",
+    "via": []
+  },
+  "availability": {
+    "id": "adapter",
+    "method": "native",
+    "path_template": "native",
+    "declared": "adapter",
+    "effective": "adapter",
+    "tags": "absent",
+    "summary": "absent",
+    "description": "absent"
+  }
+}
