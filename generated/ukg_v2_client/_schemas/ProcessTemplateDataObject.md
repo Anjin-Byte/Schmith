@@ -15,68 +15,20 @@
 | `public_title` | `string` |
 | `description` | `string` |
 | `created_at` | `string` |
-| `created_by` | `Anonymous_0d7385a1` |
+| `created_by` | `ProcessTemplateCreatedBy` |
 | `updated_at` | `string` |
-| `updated_by` | `Anonymous_ab9b1eb9` |
+| `updated_by` | `ProcessTemplateUpdatedBy` |
 | `automatic_archiving` | `bool` |
 | `restrictions` | `ProcessTemplateRestriction[]` |
 
 ### Nested Types
-- `Anonymous_0d7385a1`
-- `Anonymous_0d7385a1Origin`
-- `Anonymous_ab9b1eb9`
-- `Anonymous_ab9b1eb9Origin`
 - `Organization`
 - `OrganizationOperator`
+- `ProcessTemplateCreatedBy`
+- `ProcessTemplateCreatedByOrigin`
 - `ProcessTemplateRestriction`
-
-## Anonymous_0d7385a1
-- Role: nested
-- Parent: ProcessTemplateDataObject
-- Schema Name: Anonymous_0d7385a1
-- Schema ID: schema:anon/0d7385a1fd0dee8a6a8af687eef3daccb05b6bdf
-- Primary Key: Id
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `origin` | `Anonymous_0d7385a1Origin` |
-| `id` | `string` |
-
-## Anonymous_0d7385a1Origin
-- Role: nested
-- Parent: ProcessTemplateDataObject
-- Schema Name: Anonymous_0d7385a1Origin
-- Schema ID: schema:anon/0aaefd2bf3798a1d9f1532a5c42d9b2c45bad2ad
-
-### Enum
-
-Values: application, user
-
-## Anonymous_ab9b1eb9
-- Role: nested
-- Parent: ProcessTemplateDataObject
-- Schema Name: Anonymous_ab9b1eb9
-- Schema ID: schema:anon/ab9b1eb99565d72ba3964883bdfd91eb98d86676
-- Primary Key: Id
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `origin` | `Anonymous_ab9b1eb9Origin` |
-| `id` | `string` |
-
-## Anonymous_ab9b1eb9Origin
-- Role: nested
-- Parent: ProcessTemplateDataObject
-- Schema Name: Anonymous_ab9b1eb9Origin
-- Schema ID: schema:anon/9b842f7b316392d1701e64835e16e2d91781271c
-
-### Enum
-
-Values: application, user
+- `ProcessTemplateUpdatedBy`
+- `ProcessTemplateUpdatedByOrigin`
 
 ## Organization
 - Role: nested
@@ -102,6 +54,30 @@ Values: application, user
 
 Values: =, <=
 
+## ProcessTemplateCreatedBy
+- Role: nested
+- Parent: ProcessTemplateDataObject
+- Schema Name: ProcessTemplateCreatedBy
+- Schema ID: schema:anon/0d7385a1fd0dee8a6a8af687eef3daccb05b6bdf
+- Primary Key: Id
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `origin` | `ProcessTemplateCreatedByOrigin` |
+| `id` | `string` |
+
+## ProcessTemplateCreatedByOrigin
+- Role: nested
+- Parent: ProcessTemplateDataObject
+- Schema Name: ProcessTemplateCreatedByOrigin
+- Schema ID: schema:anon/0aaefd2bf3798a1d9f1532a5c42d9b2c45bad2ad
+
+### Enum
+
+Values: application, user
+
 ## ProcessTemplateRestriction
 - Role: nested
 - Parent: ProcessTemplateDataObject
@@ -113,3 +89,27 @@ Values: =, <=
 | Field | Type |
 |------|------|
 | `organizations` | `Organization[]` |
+
+## ProcessTemplateUpdatedBy
+- Role: nested
+- Parent: ProcessTemplateDataObject
+- Schema Name: ProcessTemplateUpdatedBy
+- Schema ID: schema:anon/ab9b1eb99565d72ba3964883bdfd91eb98d86676
+- Primary Key: Id
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `origin` | `ProcessTemplateUpdatedByOrigin` |
+| `id` | `string` |
+
+## ProcessTemplateUpdatedByOrigin
+- Role: nested
+- Parent: ProcessTemplateDataObject
+- Schema Name: ProcessTemplateUpdatedByOrigin
+- Schema ID: schema:anon/9b842f7b316392d1701e64835e16e2d91781271c
+
+### Enum
+
+Values: application, user

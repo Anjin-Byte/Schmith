@@ -51,7 +51,7 @@ PAGING:
   Total fields: 2
   All field names: employee_id, onboarding
 
-NESTED TYPES: Anonymous_d29703d5
+NESTED TYPES: EmployeeSettingsProcessAutomationOnboarding
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -59,7 +59,7 @@ FIELDS (this page):
   employee_id: string? [nullable]
     Description: `ID` of the related employee
 
-  onboarding: Anonymous_d29703d5? [nullable]
+  onboarding: EmployeeSettingsProcessAutomationOnboarding? [nullable]
     Description: New hire onboarding related information
 
 
@@ -84,7 +84,7 @@ public class {ClassName}
 }
 
 ================================================================================
-Anonymous_d29703d5 (nested) page 1/1
+EmployeeSettingsProcessAutomationOnboarding (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -118,12 +118,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `Anonymous_d29703d5`.
+- Return ONLY the class declaration for `EmployeeSettingsProcessAutomationOnboarding`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: Anonymous_d29703d5 (Anonymous_d29703d5)
+SCHEMA: EmployeeSettingsProcessAutomationOnboarding (EmployeeSettingsProcessAutomationOnboarding)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/d29703d577a7ab59f6c0f19f7a24de171bb75928
@@ -142,7 +142,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: employee_id, onboarding
-  Parent Nested Types: Anonymous_d29703d5
+  Parent Nested Types: EmployeeSettingsProcessAutomationOnboarding
 
 FIELDS (this page):
 ----------------------------------------
@@ -158,7 +158,7 @@ FIELDS (this page):
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class Anonymous_d29703d5
+public class EmployeeSettingsProcessAutomationOnboarding
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]

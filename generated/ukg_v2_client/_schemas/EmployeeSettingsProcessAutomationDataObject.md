@@ -11,15 +11,15 @@
 | Field | Type |
 |------|------|
 | `employee_id` | `string` |
-| `onboarding` | `Anonymous_d29703d5` |
+| `onboarding` | `EmployeeSettingsProcessAutomationOnboarding` |
 
 ### Nested Types
-- `Anonymous_d29703d5`
+- `EmployeeSettingsProcessAutomationOnboarding`
 
-## Anonymous_d29703d5
+## EmployeeSettingsProcessAutomationOnboarding
 - Role: nested
 - Parent: EmployeeSettingsProcessAutomationDataObject
-- Schema Name: Anonymous_d29703d5
+- Schema Name: EmployeeSettingsProcessAutomationOnboarding
 - Schema ID: schema:anon/d29703d577a7ab59f6c0f19f7a24de171bb75928
 
 ### Fields

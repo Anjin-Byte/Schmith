@@ -1,0 +1,882 @@
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject (parent) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b83c994e575f78e157d395fdd85f23cc0e17f5a5
+Description: Accepted weather conditions
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 5
+  Total fields: 5
+  All field names: sky, ground, calamity, wind, temperature
+
+NESTED TYPES: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  sky: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem[]? [nullable]
+
+  ground: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem[]? [nullable]
+
+  calamity: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem[]? [nullable]
+
+  wind: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem[]? [nullable]
+
+  temperature: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/59502421160376f5680b4351bcc9ed1b31b0e7cf
+Description: No description
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: key, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+  key: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey? [nullable]
+    Description: Value used as weather state ID and stored on server
+    Enum: Earthquake, Fire, Flash Flood, Landslide, Tornado, Hurricane, Snow, Other
+    Constraints: enum=['Earthquake', 'Fire', 'Flash Flood', 'Landslide', 'Tornado', 'Hurricane', 'Snow', 'Other']
+
+  value: string? [nullable]
+    Description: Weather state value localized in user's locale. Intended to be shown for user in UI.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6a7f0a4e7c4f785f8bff0e3ad237db6e6106d7e3
+Description: Value used as weather state ID and stored on server
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+ENUM:
+  Values: Earthquake, Fire, Flash Flood, Landslide, Tornado, Hurricane, Snow, Other
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a13545280ed16bf687d06dc2e28f8fa295eba9f4
+Description: No description
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: key, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+  key: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey? [nullable]
+    Description: Value used as weather state ID and stored on server
+    Enum: Dry, Wet/Muddy, Flooded, Snow, Frozen, -----, High Tide, Low Tide, Heavy Surf/Swell
+    Constraints: enum=['Dry', 'Wet/Muddy', 'Flooded', 'Snow', 'Frozen', '-----', 'High Tide', 'Low Tide', 'Heavy Surf/Swell']
+
+  value: string? [nullable]
+    Description: Weather state value localized in user's locale. Intended to be shown for user in UI.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b0b21fdcca8777675fb27f8fce68fdc16f589cbc
+Description: Value used as weather state ID and stored on server
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+ENUM:
+  Values: Dry, Wet/Muddy, Flooded, Snow, Frozen, -----, High Tide, Low Tide, Heavy Surf/Swell
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/e64182b5eef39d07d4743334ba0a6103b5b64e2d
+Description: No description
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: key, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+  key: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey? [nullable]
+    Description: Value used as weather state ID and stored on server
+    Enum: Clear, Cloudy, Overcast, Fog, Mist, Rain, Snow, Ice/Sleet/Hail, Smoke
+    Constraints: enum=['Clear', 'Cloudy', 'Overcast', 'Fog', 'Mist', 'Rain', 'Snow', 'Ice/Sleet/Hail', 'Smoke']
+
+  value: string? [nullable]
+    Description: Weather state value localized in user's locale. Intended to be shown for user in UI.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey)
+============================================================
+API Name: procore
+Schema ID: schema:anon/acf1ccb1070a6640444d8ffca4cf52336b91dcef
+Description: Value used as weather state ID and stored on server
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+ENUM:
+  Values: Clear, Cloudy, Overcast, Fog, Mist, Rain, Snow, Ice/Sleet/Hail, Smoke
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/44c3114d8f76e5b254f96a1bc390631a5021d396
+Description: No description
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: key, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+  key: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey? [nullable]
+    Description: Value used as weather state ID and stored on server
+    Enum: Very Hot, Hot, Mild, Cold, Very Cold
+    Constraints: enum=['Very Hot', 'Hot', 'Mild', 'Cold', 'Very Cold']
+
+  value: string? [nullable]
+    Description: Weather state value localized in user's locale. Intended to be shown for user in UI.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey)
+============================================================
+API Name: procore
+Schema ID: schema:anon/01648afd2a92c97936c1632b5ca79e66605b763b
+Description: Value used as weather state ID and stored on server
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+ENUM:
+  Values: Very Hot, Hot, Mild, Cold, Very Cold
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/68fa1d6cc614b1f9104c960c138fa585e78b6eba
+Description: No description
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: key, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+  key: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey? [nullable]
+    Description: Value used as weather state ID and stored on server
+    Enum: Calm, Light Wind, High Wind
+    Constraints: enum=['Calm', 'Light Wind', 'High Wind']
+
+  value: string? [nullable]
+    Description: Weather state value localized in user's locale. Intended to be shown for user in UI.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey (RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey)
+============================================================
+API Name: procore
+Schema ID: schema:anon/5335a929a33b006aa07105a45da0278326d5be94
+Description: Value used as weather state ID and stored on server
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200
+Role: nested
+
+ENUM:
+  Values: Calm, Light Wind, High Wind
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200DataObject
+  Parent Description: Accepted weather conditions
+  Parent Field Count: 5
+  Parent Field Names: sky, ground, calamity, wind, temperature
+  Parent Nested Types: RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200CalamityItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200GroundItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200SkyItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200TemperatureItemKey, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItem, RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdDailyLogsWeatherConditionsGetResponse200WindItemKey
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

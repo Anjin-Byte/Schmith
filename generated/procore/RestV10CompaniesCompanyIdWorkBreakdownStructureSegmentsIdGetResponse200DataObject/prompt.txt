@@ -1,0 +1,345 @@
+================================================================================
+RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200DataObject (parent) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200DataObject (RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/9b78705d787b56ca22da2a265b3821e9e74816ae
+Description: A work breakdown structure project segment
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 6
+  Total fields: 16
+  All field names: id, type, name, position, segment_items_count, required, delimiter, project_can_modify_origin_project, project_can_delete_origin_company, structure, selectable_tiers, is_included_in_project_pattern, tiered, created_at, updated_at, wbs_pattern_id
+
+NESTED TYPES: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  type: string? [nullable]
+    Description: The type of Wbs Segment.
+
+  name: string? [nullable]
+    Description: The i18n display name of the Wbs Segment.
+
+  position: int? [nullable]
+    Description: Position of the Wbs Segment according to the Project Wbs Pattern.
+
+  segment_items_count: int? [nullable]
+    Description: Number of items that belong to this segment
+
+  required: bool? [nullable]
+    Description: Whether this Wbs Segment is required.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200DataObject (parent) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200DataObject (RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/9b78705d787b56ca22da2a265b3821e9e74816ae
+Description: A work breakdown structure project segment
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 5
+  Total fields: 16
+  All field names: id, type, name, position, segment_items_count, required, delimiter, project_can_modify_origin_project, project_can_delete_origin_company, structure, selectable_tiers, is_included_in_project_pattern, tiered, created_at, updated_at, wbs_pattern_id
+
+NESTED TYPES: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  delimiter: string? [nullable]
+    Description: The delimiter between this Wbs Segment and the subsequent Wbs Segment.
+
+  project_can_modify_origin_project: bool? [nullable]
+    Description: Whether project-specific Segment Items are able to be added to a Project.
+
+  project_can_delete_origin_company: bool? [nullable]
+    Description: Whether Segment Items inherited from the company-level are able to be deleted from a Project.
+
+  structure: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure? [nullable]
+    Description: The Structure for this Wbs Segment.
+    Enum: tiered, flat
+    Constraints: enum=['tiered', 'flat']
+
+  selectable_tiers: bool? [nullable]
+    Description: Whether non-leaf Segment Items can be selected in the Budget Code picker.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200DataObject (parent) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200DataObject (RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/9b78705d787b56ca22da2a265b3821e9e74816ae
+Description: A work breakdown structure project segment
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 5
+  Total fields: 16
+  All field names: id, type, name, position, segment_items_count, required, delimiter, project_can_modify_origin_project, project_can_delete_origin_company, structure, selectable_tiers, is_included_in_project_pattern, tiered, created_at, updated_at, wbs_pattern_id
+
+NESTED TYPES: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  is_included_in_project_pattern: bool? [nullable]
+    Description: Whether this Wbs Segment is included in the Project Wbs Pattern.
+
+  tiered: bool? [nullable]
+    Description: Structure is tiered for Wbs Segment
+
+  created_at: string? [nullable]
+    Description: Created at
+
+  updated_at: string? [nullable]
+    Description: Updated at
+
+  wbs_pattern_id: int? [nullable]
+    Description: ID of the associated WBS Pattern
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure (RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure)
+============================================================
+API Name: procore
+Schema ID: schema:anon/81738cd7ab4ac1046c3763c45b0cfaec62c47d57
+Description: The Structure for this Wbs Segment.
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200
+Role: nested
+
+ENUM:
+  Values: tiered, flat
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200DataObject
+  Parent Description: A work breakdown structure project segment
+  Parent Field Count: 16
+  Parent Field Names: id, type, name, position, segment_items_count, required, delimiter, project_can_modify_origin_project, project_can_delete_origin_company, structure, selectable_tiers, is_included_in_project_pattern, tiered, created_at, updated_at, wbs_pattern_id
+  Parent Nested Types: RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdWorkBreakdownStructureSegmentsIdGetResponse200Structure
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

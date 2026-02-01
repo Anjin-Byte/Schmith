@@ -9,19 +9,34 @@
 
 | Field | Type |
 |------|------|
-| `summary` | `Anonymous_39fe8827` |
-| `results` | `Anonymous_b1e7cfcd[]` |
+| `summary` | `EmployeeBulkOperationStatusSummary` |
+| `results` | `EmployeeBulkOperationStatusResultsItem[]` |
 
 ### Nested Types
-- `Anonymous_39fe8827`
-- `Anonymous_b1e7cfcd`
+- `EmployeeBulkOperationStatusResultsItem`
+- `EmployeeBulkOperationStatusSummary`
 - `EmployeeComputedFieldsProfileStatus`
 - `EmployeeFull`
 
-## Anonymous_39fe8827
+## EmployeeBulkOperationStatusResultsItem
 - Role: nested
 - Parent: EmployeeBulkOperationStatusDataObject
-- Schema Name: Anonymous_39fe8827
+- Schema Name: EmployeeBulkOperationStatusResultsItem
+- Schema ID: schema:anon/b1e7cfcd7f50fa70605feb2b00b7756d178cec94
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `index` | `int` |
+| `status` | `string` |
+| `message` | `string` |
+| `Result` | `EmployeeFull` |
+
+## EmployeeBulkOperationStatusSummary
+- Role: nested
+- Parent: EmployeeBulkOperationStatusDataObject
+- Schema Name: EmployeeBulkOperationStatusSummary
 - Schema ID: schema:anon/39fe882738081e4d32998aa911bf3bb8a42da006
 
 ### Fields
@@ -33,21 +48,6 @@
 | `success` | `int` |
 | `failed` | `int` |
 | `status` | `string` |
-
-## Anonymous_b1e7cfcd
-- Role: nested
-- Parent: EmployeeBulkOperationStatusDataObject
-- Schema Name: Anonymous_b1e7cfcd
-- Schema ID: schema:anon/b1e7cfcd7f50fa70605feb2b00b7756d178cec94
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `index` | `int` |
-| `status` | `string` |
-| `message` | `string` |
-| `Result` | `EmployeeFull` |
 
 ## EmployeeComputedFieldsProfileStatus
 - Role: nested

@@ -87,6 +87,7 @@ Generated output layout:
 Notes:
 - Prompt packets use type-tree resolution to include all reachable types and track composition-only members.
 - Inline enums are given stable, field-based names to avoid anonymous enum types.
+- Composition handling: `allOf` is flattened; `oneOf`/`anyOf` are treated as unions and are **not** flattened unless explicitly configured. If you choose to coerce `oneOf`/`anyOf` into `allOf`-style merging, document that this widens the schema beyond the spec’s constraints.
 
 ## Project Structure
 

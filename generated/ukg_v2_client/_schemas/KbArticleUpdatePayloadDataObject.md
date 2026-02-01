@@ -10,7 +10,7 @@
 | Field | Type |
 |------|------|
 | `slug` | `string` |
-| `localized_tags` | `Anonymous_8ad3c996[]` |
+| `localized_tags` | `KbLocalizedTagsLocalizedTagsItem[]` |
 | `localized_search_keywords` | `LocalizedString[]` |
 | `featured_on_employee_homepage` | `bool` |
 | `once_on_employee_homepage` | `bool` |
@@ -23,45 +23,18 @@
 | `accessible_by_hr` | `bool` |
 | `accessible_by_employee` | `bool` |
 | `employees_perimeters` | `EmployeesPerimeterBase[]` |
-| `role_restrictions` | `Anonymous_cbcd60e0[]` |
+| `role_restrictions` | `KbArticleBaseRoleRestrictionsItem[]` |
 
 ### Nested Types
-- `Anonymous_8ad3c996`
-- `Anonymous_cbcd60e0`
 - `CustomFieldFilterRule`
 - `CustomFieldFilterRuleOperator`
 - `EmployeesPerimeterBase`
 - `EmployeesPerimeterBaseOperator`
+- `KbArticleBaseRoleRestrictionsItem`
 - `KbArticleBaseStatus`
 - `KbArticleVersion`
+- `KbLocalizedTagsLocalizedTagsItem`
 - `LocalizedString`
-
-## Anonymous_8ad3c996
-- Role: nested
-- Parent: KbArticleUpdatePayloadDataObject
-- Schema Name: Anonymous_8ad3c996
-- Schema ID: schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `language_code` | `string` |
-| `values` | `string[]` |
-
-## Anonymous_cbcd60e0
-- Role: nested
-- Parent: KbArticleUpdatePayloadDataObject
-- Schema Name: Anonymous_cbcd60e0
-- Schema ID: schema:anon/cbcd60e0defd1088b9363273e505c0249931d345
-- Primary Key: RoleId
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `role_id` | `string` |
-| `role_name` | `string` |
 
 ## CustomFieldFilterRule
 - Role: nested
@@ -114,6 +87,20 @@ Values: =, !=, <=, <, >=, >
 
 Values: =, <=
 
+## KbArticleBaseRoleRestrictionsItem
+- Role: nested
+- Parent: KbArticleUpdatePayloadDataObject
+- Schema Name: KbArticleBaseRoleRestrictionsItem
+- Schema ID: schema:anon/cbcd60e0defd1088b9363273e505c0249931d345
+- Primary Key: RoleId
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `role_id` | `string` |
+| `role_name` | `string` |
+
 ## KbArticleBaseStatus
 - Role: nested
 - Parent: KbArticleUpdatePayloadDataObject
@@ -143,6 +130,19 @@ Values: published, draft, scheduled
 | `updator_id` | `string` |
 | `created_at` | `string` |
 | `updated_at` | `string` |
+
+## KbLocalizedTagsLocalizedTagsItem
+- Role: nested
+- Parent: KbArticleUpdatePayloadDataObject
+- Schema Name: KbLocalizedTagsLocalizedTagsItem
+- Schema ID: schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `language_code` | `string` |
+| `values` | `string[]` |
 
 ## LocalizedString
 - Role: nested

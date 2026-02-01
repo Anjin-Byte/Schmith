@@ -1,0 +1,264 @@
+================================================================================
+RestV10CustomFieldDefinitionsIdGetResponse200DataObject (parent) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CustomFieldDefinitionsIdGetResponse200DataObject (RestV10CustomFieldDefinitionsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/63c723fb83bb8674379dd40a0a581eb13e992a37
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CustomFieldDefinitionsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 5
+  Total fields: 10
+  All field names: id, label, active, company_id, data_type, variant, description, default_value, configurable_field_sets_count, custom_field_lov_entries
+
+NESTED TYPES: RestV10CustomFieldDefinitionsIdGetResponse200CustomFieldLovEntriesItem
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Custom Field Definition ID
+
+  label: string? [nullable]
+    Description: Custom Field Definition Label
+
+  active: bool? [nullable]
+    Description: Whether or not the Custom Field Definition is active
+
+  company_id: int? [nullable]
+    Description: Company ID
+
+  data_type: string? [nullable]
+    Description: Type of Custom field
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10CustomFieldDefinitionsIdGetResponse200DataObject (parent) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CustomFieldDefinitionsIdGetResponse200DataObject (RestV10CustomFieldDefinitionsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/63c723fb83bb8674379dd40a0a581eb13e992a37
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CustomFieldDefinitionsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 5
+  Total fields: 10
+  All field names: id, label, active, company_id, data_type, variant, description, default_value, configurable_field_sets_count, custom_field_lov_entries
+
+NESTED TYPES: RestV10CustomFieldDefinitionsIdGetResponse200CustomFieldLovEntriesItem
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  variant: string? [nullable]
+    Description: The variant type of the Custom Field
+
+  description: string? [nullable]
+    Description: Description
+
+  default_value: string? [nullable]
+    Description: Text displayed on Read Only variant
+
+  configurable_field_sets_count: int? [nullable]
+    Description: Number of Configurable Field Sets associated with the Custom Field
+
+  custom_field_lov_entries: RestV10CustomFieldDefinitionsIdGetResponse200CustomFieldLovEntriesItem[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CustomFieldDefinitionsIdGetResponse200CustomFieldLovEntriesItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CustomFieldDefinitionsIdGetResponse200CustomFieldLovEntriesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CustomFieldDefinitionsIdGetResponse200CustomFieldLovEntriesItem (RestV10CustomFieldDefinitionsIdGetResponse200CustomFieldLovEntriesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ab04e1649bdcb9e6b1cc62d262a97afff0db80f8
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CustomFieldDefinitionsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, label, position, active
+
+PARENT CONTEXT:
+  Parent Class: RestV10CustomFieldDefinitionsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 10
+  Parent Field Names: id, label, active, company_id, data_type, variant, description, default_value, configurable_field_sets_count, custom_field_lov_entries
+  Parent Nested Types: RestV10CustomFieldDefinitionsIdGetResponse200CustomFieldLovEntriesItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Custom Field Lov Entry ID
+
+  label: string? [nullable]
+    Description: Label
+
+  position: double? [nullable]
+    Description: Position is sorted descending, highest position is visually the top of the list.
+
+  active: bool? [nullable]
+    Description: Whether or not the Custom Field Lov Entry is active
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CustomFieldDefinitionsIdGetResponse200CustomFieldLovEntriesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

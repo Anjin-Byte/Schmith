@@ -24,7 +24,7 @@ class SchemaResolver(Protocol):
 
 
 class CompositionResolver:
-    """Resolve allOf composition to get merged properties.
+    """Resolve composition to get merged properties.
 
     Example:
         resolver = CompositionResolver(loader.load_schema_detail, loader.schemas_by_id())
@@ -82,9 +82,9 @@ class CompositionResolver:
         merged_props: dict[str, dict] = {}  # json_name -> property dict
         merged_required: set[str] = set()
 
-        # Process composition first (base classes)
+        # Process composition first (base classes / unions treated as merge)
         composition = schema.get("composition")
-        if composition and composition.get("kind") == "allOf":
+        if composition and composition.get("kind") in {"allOf", "oneOf", "anyOf"}:
             members = composition.get("members", [])
             for member_id in members:
                 member_props, member_required = self._resolve_member(

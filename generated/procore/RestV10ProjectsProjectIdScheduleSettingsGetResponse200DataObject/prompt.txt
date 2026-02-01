@@ -1,0 +1,1169 @@
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject (parent) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject (RestV10ProjectsProjectIdScheduleSettingsGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/8afb703b221d0c1048344bd9f28c5b024fbbdee7
+Description: Schedule Project Settings
+Primary Key: ProjectId
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 5
+  Total fields: 14
+  All field names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+
+NESTED TYPES: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  project_id: int? [nullable]
+    Description: Project
+
+  company_id: int? [nullable]
+    Description: Company
+
+  primavera_schedule_id: string? [nullable]
+    Description: Primavera schedule
+
+  schedule_type: string? [nullable]
+    Description: Schedule type
+
+  schedule_file_pattern: string? [nullable]
+    Description: Schedule file pattern
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject (parent) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject (RestV10ProjectsProjectIdScheduleSettingsGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/8afb703b221d0c1048344bd9f28c5b024fbbdee7
+Description: Schedule Project Settings
+Primary Key: ProjectId
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: parent
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 5
+  Total fields: 14
+  All field names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+
+NESTED TYPES: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  project_integration: bool? [nullable]
+    Description: Project integration
+
+  display_task_names_with_full_outline_path: bool? [nullable]
+    Description: Display task names with full outline path
+
+  schedule_show_resources_on_calendar: bool? [nullable]
+    Description: Schedule show resources on calendar
+
+  schedule_allow_task_updates: bool? [nullable]
+    Description: Schedule allow task updates
+
+  schedule_task_auto_formatting: bool? [nullable]
+    Description: Schedule task auto formatting
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject (parent) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject (RestV10ProjectsProjectIdScheduleSettingsGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/8afb703b221d0c1048344bd9f28c5b024fbbdee7
+Description: Schedule Project Settings
+Primary Key: ProjectId
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: parent
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 4
+  Total fields: 14
+  All field names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+
+NESTED TYPES: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  create_calendar_item_enabled: bool? [nullable]
+    Description: Create calendar item enabled
+
+  calendar_people_filters_enabled: bool? [nullable]
+    Description: Calendar people filters enabled
+
+  schedule_use_project_admin_working_days: bool? [nullable]
+    Description: Schedule use project admin working days
+
+  email_settings: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings? [nullable]
+    Description: Email settings
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings)
+============================================================
+API Name: procore
+Schema ID: schema:anon/1fa0c9113211d150d9007913ce369b4e8cb01b3d
+Description: Email settings
+Primary Key: ProjectScheduleEmailSettingId
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 6
+  Total fields: 18
+  All field names: project_schedule_email_setting_id, send_weekly, day_of_week, hour_to_send, weeks_to_show, last_sent_at, next_scheduled_at, lookahead_send_weekly, lookahead_day_of_week, lookahead_hour_to_send, lookahead_last_sent_at, lookahead_next_scheduled_at, resource_send_weekly, resource_day_of_week, resource_hour_to_send, resource_weeks_to_show, resource_last_sent_at, resource_next_scheduled_at
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+  project_schedule_email_setting_id: int? [nullable]
+    Description: Project schedule email setting
+
+  send_weekly: bool? [nullable]
+    Description: Send weekly
+
+  day_of_week: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek? [nullable]
+    Description: Day of week
+    Enum: 0, 1, 2, 3, 4, 5, 6
+    Constraints: enum=[0, 1, 2, 3, 4, 5, 6]
+
+  hour_to_send: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend? [nullable]
+    Description: Hour to send
+    Enum: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
+    Constraints: enum=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+  weeks_to_show: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow? [nullable]
+    Description: Weeks to show
+    Enum: 1, 2, 3, 4, 5, 6, 7, 8
+    Constraints: enum=[1, 2, 3, 4, 5, 6, 7, 8]
+
+  last_sent_at: string? [nullable]
+    Description: Last sent at
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings)
+============================================================
+API Name: procore
+Schema ID: schema:anon/1fa0c9113211d150d9007913ce369b4e8cb01b3d
+Description: Email settings
+Primary Key: ProjectScheduleEmailSettingId
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 6
+  Total fields: 18
+  All field names: project_schedule_email_setting_id, send_weekly, day_of_week, hour_to_send, weeks_to_show, last_sent_at, next_scheduled_at, lookahead_send_weekly, lookahead_day_of_week, lookahead_hour_to_send, lookahead_last_sent_at, lookahead_next_scheduled_at, resource_send_weekly, resource_day_of_week, resource_hour_to_send, resource_weeks_to_show, resource_last_sent_at, resource_next_scheduled_at
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+  next_scheduled_at: string? [nullable]
+    Description: Next scheduled at
+
+  lookahead_send_weekly: bool? [nullable]
+    Description: Lookahead send weekly
+
+  lookahead_day_of_week: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek? [nullable]
+    Description: Lookahead day of week
+    Enum: 0, 1, 2, 3, 4, 5, 6
+    Constraints: enum=[0, 1, 2, 3, 4, 5, 6]
+
+  lookahead_hour_to_send: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend? [nullable]
+    Description: Lookahead hour to send
+    Enum: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
+    Constraints: enum=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+  lookahead_last_sent_at: string? [nullable]
+    Description: Lookahead last sent at
+
+  lookahead_next_scheduled_at: string? [nullable]
+    Description: Lookahead next scheduled at
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings)
+============================================================
+API Name: procore
+Schema ID: schema:anon/1fa0c9113211d150d9007913ce369b4e8cb01b3d
+Description: Email settings
+Primary Key: ProjectScheduleEmailSettingId
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 6
+  Total fields: 18
+  All field names: project_schedule_email_setting_id, send_weekly, day_of_week, hour_to_send, weeks_to_show, last_sent_at, next_scheduled_at, lookahead_send_weekly, lookahead_day_of_week, lookahead_hour_to_send, lookahead_last_sent_at, lookahead_next_scheduled_at, resource_send_weekly, resource_day_of_week, resource_hour_to_send, resource_weeks_to_show, resource_last_sent_at, resource_next_scheduled_at
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+  resource_send_weekly: bool? [nullable]
+    Description: Resource send weekly
+
+  resource_day_of_week: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek? [nullable]
+    Description: Resource day of week
+    Enum: 0, 1, 2, 3, 4, 5, 6
+    Constraints: enum=[0, 1, 2, 3, 4, 5, 6]
+
+  resource_hour_to_send: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend? [nullable]
+    Description: Resource hour to send
+    Enum: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
+    Constraints: enum=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+  resource_weeks_to_show: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow? [nullable]
+    Description: Resource weeks to show
+    Enum: 1, 2, 3, 4, 5, 6, 7, 8
+    Constraints: enum=[1, 2, 3, 4, 5, 6, 7, 8]
+
+  resource_last_sent_at: string? [nullable]
+    Description: Resource last sent at
+
+  resource_next_scheduled_at: string? [nullable]
+    Description: Resource next scheduled at
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek)
+============================================================
+API Name: procore
+Schema ID: schema:anon/37c82922bc3c0630c5eb0b29abbe0307e2f6ca5a
+Description: Day of week
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+ENUM:
+  Values: 0, 1, 2, 3, 4, 5, 6
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend)
+============================================================
+API Name: procore
+Schema ID: schema:anon/e19234bf90acd3c16d5af8a1cce70e3d68af1646
+Description: Hour to send
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+ENUM:
+  Values: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek)
+============================================================
+API Name: procore
+Schema ID: schema:anon/8e98c32a83af97b69c1f4a65b658a88db04f25b0
+Description: Lookahead day of week
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+ENUM:
+  Values: 0, 1, 2, 3, 4, 5, 6
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend)
+============================================================
+API Name: procore
+Schema ID: schema:anon/e20314b30f6bcf8054b861c30473fd7ba561b588
+Description: Lookahead hour to send
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+ENUM:
+  Values: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek)
+============================================================
+API Name: procore
+Schema ID: schema:anon/eee28e601dca696387a6d88ece29daa43a454cde
+Description: Resource day of week
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+ENUM:
+  Values: 0, 1, 2, 3, 4, 5, 6
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend)
+============================================================
+API Name: procore
+Schema ID: schema:anon/020408e172bb7ca85edee07fbd7647df16b9f602
+Description: Resource hour to send
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+ENUM:
+  Values: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow)
+============================================================
+API Name: procore
+Schema ID: schema:anon/fbfd8db8d49e9a92130cd1f4880c7ee1967a542a
+Description: Resource weeks to show
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+ENUM:
+  Values: 1, 2, 3, 4, 5, 6, 7, 8
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow (RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow)
+============================================================
+API Name: procore
+Schema ID: schema:anon/0962fb90d7d70cdea9893be78b470ade5ca226e4
+Description: Weeks to show
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdScheduleSettingsGetResponse200
+Role: nested
+
+ENUM:
+  Values: 1, 2, 3, 4, 5, 6, 7, 8
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdScheduleSettingsGetResponse200DataObject
+  Parent Description: Schedule Project Settings
+  Parent Field Count: 14
+  Parent Field Names: project_id, company_id, primavera_schedule_id, schedule_type, schedule_file_pattern, project_integration, display_task_names_with_full_outline_path, schedule_show_resources_on_calendar, schedule_allow_task_updates, schedule_task_auto_formatting, create_calendar_item_enabled, calendar_people_filters_enabled, schedule_use_project_admin_working_days, email_settings
+  Parent Nested Types: RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettings, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsLookaheadHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceDayOfWeek, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceHourToSend, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsResourceWeeksToShow, RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdScheduleSettingsGetResponse200EmailSettingsWeeksToShow
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

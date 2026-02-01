@@ -31,7 +31,11 @@ def is_error_schema(schema: dict) -> bool:
         True if schema appears to be an error type
     """
     name_hint = schema.get("name_hint", "")
-    schema_id = schema.get("schema_id", "")
+    if not isinstance(name_hint, str):
+        name_hint = ""
+    schema_id = schema.get("schema_id", "") or schema.get("id", "")
+    if not isinstance(schema_id, str):
+        schema_id = ""
     error_indicators = ["Error", "error", "Exception", "exception", "Problem", "problem"]
     return any(ind in name_hint or ind in schema_id for ind in error_indicators)
 

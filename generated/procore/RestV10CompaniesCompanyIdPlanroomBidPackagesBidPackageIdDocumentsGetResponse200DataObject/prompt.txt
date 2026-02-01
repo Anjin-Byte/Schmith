@@ -1,0 +1,975 @@
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject (parent) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/77a1354ebba5833d84da709e17602e910bbaccab
+Description: Bid Package Documents
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, title, files, pdm_pagination
+
+NESTED TYPES: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  title: string? [nullable]
+    Description: Bid package title
+
+  files: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem[]? [nullable]
+    Description: List of files, attached to the bid package
+
+  pdm_pagination: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination? [nullable]
+    Description: Pagination metadata for PDM attachments (only included when pagination parameters are provided)
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ef27dc4748a842a0eac36415ac80fd3b3f62ea00
+Description: No description
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: size, file_path, s3_source, type, drawing, pdm
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  size: int? [nullable]
+    Description: Size of the file in bytes
+
+  file_path: string? [nullable]
+    Description: Name of the file (as would be presented in bid package zip)
+
+  s3_source: string? [nullable]
+    Description: URI, where the file is accessible at. Could have limited lifetime
+
+  type: string? [nullable]
+    Description: type of the file
+
+  drawing: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing? [nullable]
+    Description: Metadata about drawing (if file is drawing)
+
+  pdm: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm? [nullable]
+    Description: Metadata about PDM (Project Document Management) attachment (if file is a PDM document)
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6285670d1d5ffe4cdd686e932cd2dd4b0f761067
+Description: Metadata about drawing (if file is drawing)
+Primary Key: DrawingSetId
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: dpi, revision, drawing_set_id, drawing_id, width, height, png_s3_source, thumbnail_url
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  dpi: double? [nullable]
+    Description: DPI of the drawing
+
+  revision: string? [nullable]
+    Description: Revision property of the drawing
+
+  drawing_set_id: double? [nullable]
+    Description: ID of the drawing set
+
+  drawing_id: double? [nullable]
+    Description: ID of the drawing
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6285670d1d5ffe4cdd686e932cd2dd4b0f761067
+Description: Metadata about drawing (if file is drawing)
+Primary Key: DrawingSetId
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: dpi, revision, drawing_set_id, drawing_id, width, height, png_s3_source, thumbnail_url
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  width: double? [nullable]
+    Description: Width of the drawing, in pixels
+
+  height: double? [nullable]
+    Description: Height of the drawing, in pixels
+
+  png_s3_source: string? [nullable]
+    Description: URI, where the drawing, converted to PNG, is accessible at. Could have limited lifetime
+
+  thumbnail_url: string? [nullable]
+    Description: URI, where the drawing's thumbnail is accessible at. Could have limited lifetime
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm)
+============================================================
+API Name: procore
+Schema ID: schema:anon/f0cb2bf47b519e8fabd59ddf9499a29b1c9fb0dc
+Description: Metadata about PDM (Project Document Management) attachment (if file is a PDM document)
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: id, document_revision_id, document_container_id, document_collection_id, document_revision, attachment
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID of the PDM reference
+
+  document_revision_id: string? [nullable]
+    Description: Document revision ID (ULID)
+
+  document_container_id: string? [nullable]
+    Description: Document container ID (ULID)
+
+  document_collection_id: string? [nullable]
+    Description: Document collection ID (ULID)
+
+  document_revision: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision? [nullable]
+    Description: Document revision data returned from Documents service
+
+  attachment: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment? [nullable]
+    Description: Attachment information for viewing the document
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment)
+============================================================
+API Name: procore
+Schema ID: schema:anon/74373ab705818d85f8b5f1d6fc5255cdd7d79c95
+Description: Attachment information for viewing the document
+Primary Key: AttachedToItemId
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: attached_to_item_id, attached_to_item_type, viewer_url
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  attached_to_item_id: string? [nullable]
+    Description: Document revision ID (ULID) - the document this attachment references
+
+  attached_to_item_type: string? [nullable]
+    Description: Type of the item - always "document_management_document_revision" for PDM attachments
+
+  viewer_url: string? [nullable]
+    Description: URL to view the document in the document viewer
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b0df03fc1bea873ea1b6ab1d467389a19dd16e5f
+Description: Document revision data returned from Documents service
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 6
+  Total fields: 18
+  All field names: name, download_url, file_locked, status, description, type, revision, format, original_filename, file_size, originator, number, location, discipline, date_authored, version, uploaded_at, permissions
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  name: string? [nullable]
+    Description: Name of the document revision
+
+  download_url: string? [nullable]
+    Description: URL to download the document revision
+
+  file_locked: bool? [nullable]
+    Description: Whether the document revision file is locked
+
+  status: string? [nullable]
+    Description: Status of the document
+
+  description: string? [nullable]
+    Description: Description of the document
+
+  type: string? [nullable]
+    Description: Type of the document
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b0df03fc1bea873ea1b6ab1d467389a19dd16e5f
+Description: Document revision data returned from Documents service
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 6
+  Total fields: 18
+  All field names: name, download_url, file_locked, status, description, type, revision, format, original_filename, file_size, originator, number, location, discipline, date_authored, version, uploaded_at, permissions
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  revision: string? [nullable]
+    Description: Revision number
+
+  format: string? [nullable]
+    Description: File format
+
+  original_filename: string? [nullable]
+    Description: Original filename
+
+  file_size: string? [nullable]
+    Description: File size in bytes
+
+  originator: string? [nullable]
+    Description: Originator of the document
+
+  number: string? [nullable]
+    Description: Document number
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b0df03fc1bea873ea1b6ab1d467389a19dd16e5f
+Description: Document revision data returned from Documents service
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 6
+  Total fields: 18
+  All field names: name, download_url, file_locked, status, description, type, revision, format, original_filename, file_size, originator, number, location, discipline, date_authored, version, uploaded_at, permissions
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  location: string? [nullable]
+    Description: Location of the document
+
+  discipline: string? [nullable]
+    Description: Discipline of the document
+
+  date_authored: string? [nullable]
+    Description: Date the document was authored
+
+  version: string? [nullable]
+    Description: Version of the document revision
+
+  uploaded_at: string? [nullable]
+    Description: Date the document was uploaded
+
+  permissions: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions? [nullable]
+    Description: Permissions for the document revision
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions)
+============================================================
+API Name: procore
+Schema ID: schema:anon/21d2cd9b6a34bfd1590a35821947e159f8314dbf
+Description: Permissions for the document revision
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 1
+  Total fields: 1
+  All field names: allowed_actions
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  allowed_actions: string[]? [nullable]
+    Description: Allowed actions for the document revision
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination (RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b1c7bf4b3deaf5bbc6ea21cd5ecf70d7aaaa4a06
+Description: Pagination metadata for PDM attachments (only included when pagination parameters are provided)
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: current_page, per_page, total_count, total_pages, has_next_page, has_previous_page
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200DataObject
+  Parent Description: Bid Package Documents
+  Parent Field Count: 4
+  Parent Field Names: id, title, files, pdm_pagination
+  Parent Nested Types: RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItem, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemDrawing, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdm, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmAttachment, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevision, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200FilesItemPdmDocumentRevisionPermissions, RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+
+FIELDS (this page):
+----------------------------------------
+  current_page: int? [nullable]
+    Description: Current page number
+
+  per_page: int? [nullable]
+    Description: Number of items per page
+
+  total_count: int? [nullable]
+    Description: Total number of PDM attachments
+
+  total_pages: int? [nullable]
+    Description: Total number of pages
+
+  has_next_page: bool? [nullable]
+    Description: Whether there is a next page
+
+  has_previous_page: bool? [nullable]
+    Description: Whether there is a previous page
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdPlanroomBidPackagesBidPackageIdDocumentsGetResponse200PdmPagination
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

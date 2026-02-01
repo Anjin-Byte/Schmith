@@ -23,6 +23,7 @@ Use `--adapter openapi` or `--adapter raml` when running builders.
 Adapter notes:
 - Field metadata (nullable, readOnly/writeOnly, deprecated) and constraints are captured into the IR.
 - OpenAPI adapter collapses pure single-ref `allOf` wrappers to preserve referenced schema names.
+- Composition in IR records `allOf`/`oneOf`/`anyOf`. Only `allOf` is flattened by default; `oneOf`/`anyOf` are preserved as unions unless a downstream merge policy is enabled.
 
 ## Example
 

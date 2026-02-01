@@ -1,0 +1,650 @@
+================================================================================
+RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject (parent) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject (RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ed398de4fee67cd580d161c37475cab8f4b0545c
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 5
+  Total fields: 13
+  All field names: id, message, submittal_description, sent_at, distributed_by, distributed_to, distributed_attachments, download_all_attachments_url, submittal_distributed_attachments, download_all_submittal_distributed_attachments_url, message_distributed_attachments, download_all_message_distributed_attachments_url, distributed_responses
+
+NESTED TYPES: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  message: string? [nullable]
+
+  submittal_description: string? [nullable]
+
+  sent_at: string? [nullable]
+
+  distributed_by: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject (parent) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject (RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ed398de4fee67cd580d161c37475cab8f4b0545c
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200
+Role: parent
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 4
+  Total fields: 13
+  All field names: id, message, submittal_description, sent_at, distributed_by, distributed_to, distributed_attachments, download_all_attachments_url, submittal_distributed_attachments, download_all_submittal_distributed_attachments_url, message_distributed_attachments, download_all_message_distributed_attachments_url, distributed_responses
+
+NESTED TYPES: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  distributed_to: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy[]? [nullable]
+
+  distributed_attachments: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem[]? [nullable]
+
+  download_all_attachments_url: string? [nullable]
+
+  submittal_distributed_attachments: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject (parent) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject (RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ed398de4fee67cd580d161c37475cab8f4b0545c
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200
+Role: parent
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 4
+  Total fields: 13
+  All field names: id, message, submittal_description, sent_at, distributed_by, distributed_to, distributed_attachments, download_all_attachments_url, submittal_distributed_attachments, download_all_submittal_distributed_attachments_url, message_distributed_attachments, download_all_message_distributed_attachments_url, distributed_responses
+
+NESTED TYPES: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  download_all_submittal_distributed_attachments_url: string? [nullable]
+
+  message_distributed_attachments: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem[]? [nullable]
+
+  download_all_message_distributed_attachments_url: string? [nullable]
+
+  distributed_responses: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem[]? [nullable]
+    Description: List of submittal responses selected to be distributed
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem (RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/c337dee3df228286468f0ff6d8c4852152f75cf4
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, url, filename
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 13
+  Parent Field Names: id, message, submittal_description, sent_at, distributed_by, distributed_to, distributed_attachments, download_all_attachments_url, submittal_distributed_attachments, download_all_submittal_distributed_attachments_url, message_distributed_attachments, download_all_message_distributed_attachments_url, distributed_responses
+  Parent Nested Types: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  url: string? [nullable]
+    Description: URL
+
+  filename: string? [nullable]
+    Description: Filename
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy (RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy)
+============================================================
+API Name: procore
+Schema ID: schema:anon/4a9f30724ebffd25faed9570540aab0aa83263f0
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, name
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 13
+  Parent Field Names: id, message, submittal_description, sent_at, distributed_by, distributed_to, distributed_attachments, download_all_attachments_url, submittal_distributed_attachments, download_all_submittal_distributed_attachments_url, message_distributed_attachments, download_all_message_distributed_attachments_url, distributed_responses
+  Parent Nested Types: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Login Information ID of the User
+
+  name: string? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem (RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b6f3de2538719fbf4076e82fe3319c037ee3c828
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 5
+  Total fields: 9
+  All field names: id, comment, distributed_attachments, response_name, submittal_response, submittal_response_id, submittal_approver_id, user_id, user
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 13
+  Parent Field Names: id, message, submittal_description, sent_at, distributed_by, distributed_to, distributed_attachments, download_all_attachments_url, submittal_distributed_attachments, download_all_submittal_distributed_attachments_url, message_distributed_attachments, download_all_message_distributed_attachments_url, distributed_responses
+  Parent Nested Types: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  comment: string? [nullable]
+
+  distributed_attachments: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem[]? [nullable]
+
+  response_name: string? [nullable]
+
+  submittal_response: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem (RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b6f3de2538719fbf4076e82fe3319c037ee3c828
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 4
+  Total fields: 9
+  All field names: id, comment, distributed_attachments, response_name, submittal_response, submittal_response_id, submittal_approver_id, user_id, user
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 13
+  Parent Field Names: id, message, submittal_description, sent_at, distributed_by, distributed_to, distributed_attachments, download_all_attachments_url, submittal_distributed_attachments, download_all_submittal_distributed_attachments_url, message_distributed_attachments, download_all_message_distributed_attachments_url, distributed_responses
+  Parent Nested Types: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse
+
+FIELDS (this page):
+----------------------------------------
+  submittal_response_id: int? [nullable]
+
+  submittal_approver_id: int? [nullable]
+
+  user_id: int? [nullable]
+
+  user: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse (RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse)
+============================================================
+API Name: procore
+Schema ID: schema:anon/94ca6e850de21e5519119cd5d423d9300a396f12
+Description: No description
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 13
+  Parent Field Names: id, message, submittal_description, sent_at, distributed_by, distributed_to, distributed_attachments, download_all_attachments_url, submittal_distributed_attachments, download_all_submittal_distributed_attachments_url, message_distributed_attachments, download_all_message_distributed_attachments_url, distributed_responses
+  Parent Nested Types: RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedAttachmentsItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedBy, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItem, RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdSubmittalLogsIdCloseAndDistributePatchResponse200DistributedResponsesItemSubmittalResponse
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

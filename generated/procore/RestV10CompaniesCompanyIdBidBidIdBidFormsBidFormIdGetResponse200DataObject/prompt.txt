@@ -1,0 +1,855 @@
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject (parent) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ad201b7ce1b06488ec077cabb54547ad1475d865
+Description: Bid Form
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 5
+  Total fields: 9
+  All field names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+
+NESTED TYPES: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  title: string? [nullable]
+    Description: Bid Form Title
+
+  proposal_id: int? [nullable]
+    Description: Proposal ID
+
+  lock_unit_fields_base_bid: bool? [nullable]
+    Description: Lock unit fields for all base bid items in this form
+
+  lock_quantity_fields_base_bid: bool? [nullable]
+    Description: Lock quantity fields for all base bid items in this form
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject (parent) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ad201b7ce1b06488ec077cabb54547ad1475d865
+Description: Bid Form
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 4
+  Total fields: 9
+  All field names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+
+NESTED TYPES: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  lock_unit_fields_alternates: bool? [nullable]
+    Description: Lock unit fields for all alternate items in this form
+
+  lock_quantity_fields_alternates: bool? [nullable]
+    Description: Lock quantity fields for all alternate items in this form
+
+  base_bid: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem[]? [nullable]
+
+  alternates: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/5aff659eaf2b63da421b37d689ba4ca6a15a52de
+Description: Alternate Bid
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: id, title, position, header, bid_form_items, sub_sections
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject
+  Parent Description: Bid Form
+  Parent Field Count: 9
+  Parent Field Names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+  Parent Nested Types: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  title: string? [nullable]
+    Description: Bid Form Title
+
+  position: int? [nullable]
+    Description: Position
+
+  header: bool? [nullable]
+    Description: Whether the item is a header or not
+
+  bid_form_items: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem[]? [nullable]
+
+  sub_sections: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/9e269e7fccd9b80a74db234fd86366f1bb492f51
+Description: Base Bid
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: id, title, position, header, bid_form_items, sub_sections
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject
+  Parent Description: Bid Form
+  Parent Field Count: 9
+  Parent Field Names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+  Parent Nested Types: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  title: string? [nullable]
+    Description: Bid Form Title
+
+  position: int? [nullable]
+    Description: Position
+
+  header: bool? [nullable]
+    Description: Whether the item is a header or not
+
+  bid_form_items: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem[]? [nullable]
+
+  sub_sections: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/420bb6540b6a017f8861968db1ff68fdb0eee44c
+Description: Bid Form Item
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: id, cost_code, description, position, subject, item_type, response_type, layer_id
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject
+  Parent Description: Bid Form
+  Parent Field Count: 9
+  Parent Field Names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+  Parent Nested Types: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  cost_code: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode? [nullable]
+
+  description: string? [nullable]
+    Description: Bid Form Item Description
+
+  position: int? [nullable]
+    Description: Position
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/420bb6540b6a017f8861968db1ff68fdb0eee44c
+Description: Bid Form Item
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: id, cost_code, description, position, subject, item_type, response_type, layer_id
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject
+  Parent Description: Bid Form
+  Parent Field Count: 9
+  Parent Field Names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+  Parent Nested Types: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+
+FIELDS (this page):
+----------------------------------------
+  subject: string? [nullable]
+    Description: Subject for Plain Text Items
+
+  item_type: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType? [nullable]
+    Description: Bid Form Items can be of various types. This property does determine which one is used.
+    Enum: cost_code, plain_text
+    Constraints: enum=['cost_code', 'plain_text']
+
+  response_type: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType? [nullable]
+    Description: Bid Form Items can have various response types. This property determines which one is used.
+    Enum: amount, unit, include_exclude
+    Constraints: enum=['amount', 'unit', 'include_exclude']
+
+  layer_id: int? [nullable]
+    Description: ID of the Layer in the Estimate
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode)
+============================================================
+API Name: procore
+Schema ID: schema:anon/0b92a413c077bef2316d42527f6a798fb31f7087
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, name, full_code
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject
+  Parent Description: Bid Form
+  Parent Field Count: 9
+  Parent Field Names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+  Parent Nested Types: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  name: string? [nullable]
+    Description: The cost code name
+
+  full_code: string? [nullable]
+    Description: The cost code long name
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType)
+============================================================
+API Name: procore
+Schema ID: schema:anon/4d4ec510b91624c1f939b7c653a27bb7a3216dec
+Description: Bid Form Items can be of various types. This property does determine which one is used.
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: nested
+
+ENUM:
+  Values: cost_code, plain_text
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject
+  Parent Description: Bid Form
+  Parent Field Count: 9
+  Parent Field Names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+  Parent Nested Types: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType)
+============================================================
+API Name: procore
+Schema ID: schema:anon/3af8b9d9652553c0bd769a8a3d2629d70b889dbd
+Description: Bid Form Items can have various response types. This property determines which one is used.
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: nested
+
+ENUM:
+  Values: amount, unit, include_exclude
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject
+  Parent Description: Bid Form
+  Parent Field Count: 9
+  Parent Field Names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+  Parent Nested Types: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem (RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/8c01e887aed467b9fc7dc08e8de8d4bd5955e280
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, title, position, bid_form_items
+
+PARENT CONTEXT:
+  Parent Class: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200DataObject
+  Parent Description: Bid Form
+  Parent Field Count: 9
+  Parent Field Names: id, title, proposal_id, lock_unit_fields_base_bid, lock_quantity_fields_base_bid, lock_unit_fields_alternates, lock_quantity_fields_alternates, base_bid, alternates
+  Parent Nested Types: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200AlternatesItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemCostCode, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemItemType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItemResponseType, RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  title: string? [nullable]
+    Description: Sub Section Title
+
+  position: int? [nullable]
+    Description: Position
+
+  bid_form_items: RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemBidFormItemsItem[]? [nullable]
+    Description: Bid Form Items
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CompaniesCompanyIdBidBidIdBidFormsBidFormIdGetResponse200BaseBidItemSubSectionsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

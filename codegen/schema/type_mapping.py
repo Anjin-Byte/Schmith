@@ -134,6 +134,54 @@ def schema_id_to_csharp_type(
     return ("object", False)
 
 
+def is_shapeless_schema(
+    schema: dict | None,
+    schemas_by_id: dict[str, dict],
+    depth: int = 0,
+) -> bool:
+    """Return True if a schema has no defined shape (free-form)."""
+    if schema is None:
+        return True
+    if depth > 5:
+        return False
+
+    if schema.get("enum_values") or (schema.get("constraints") or {}).get("enum"):
+        return False
+    if schema.get("composition"):
+        return False
+    if schema.get("properties"):
+        return False
+
+    kind = schema.get("kind", "")
+    if kind in ("any", "unknown"):
+        return True
+
+    if kind == "object":
+        addl_id = schema.get("additional_properties_schema_id")
+        if not addl_id:
+            return True
+        addl_schema = schemas_by_id.get(addl_id)
+        # If additionalProperties is also shapeless/any, treat as shapeless
+        return is_shapeless_schema(addl_schema, schemas_by_id, depth + 1)
+
+    if kind == "array":
+        items_id = schema.get("items_schema_id")
+        if not items_id:
+            return True
+        items_schema = schemas_by_id.get(items_id)
+        return is_shapeless_schema(items_schema, schemas_by_id, depth + 1)
+
+    return False
+
+
+def is_shapeless_schema_id(
+    schema_id: str,
+    schemas_by_id: dict[str, dict],
+) -> bool:
+    """Return True if a schema_id resolves to a shapeless schema."""
+    return is_shapeless_schema(schemas_by_id.get(schema_id), schemas_by_id)
+
+
 def build_field_info(
     prop: dict,
     schemas_by_id: dict[str, dict],
@@ -186,6 +234,7 @@ def build_field_info(
     # matched field names to nested type names. This was removed because
     # the IR provides schema_id references that should be used directly.
     type_unresolved = csharp_type in ("object", "object[]")
+    is_shapeless = is_shapeless_schema_id(schema_id, schemas_by_id) if schema_id else False
 
     # Determine nullability
     nullable = prop.get("nullable")
@@ -216,6 +265,7 @@ def build_field_info(
         "enum_values": enum_values,
         "enum_names": enum_names,
         "constraints": constraints,
+        "is_shapeless": is_shapeless,
     }
 
 

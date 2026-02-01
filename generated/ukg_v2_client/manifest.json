@@ -4,7 +4,7 @@
     "name": "ukg_v2_client"
   },
   "generation": {
-    "timestamp": "2026-02-01T21:21:13.195161+00:00",
+    "timestamp": "2026-02-01T23:17:11.068248+00:00",
     "grouped": true,
     "packets_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/prompt_packets/grouped/ukg_v2_client"
   },
@@ -16,8 +16,8 @@
   },
   "counts": {
     "roots": 116,
-    "nested_only": 106,
-    "eligible": 222
+    "nested_only": 107,
+    "eligible": 223
   },
   "roots": [
     {
@@ -490,8 +490,8 @@
       "schema_name": "EmployeeBulkOperationStatus",
       "schema_id": "schema:definitions/EmployeeBulkOperationStatus",
       "nested_types": [
-        "Anonymous_39fe8827",
-        "Anonymous_b1e7cfcd",
+        "EmployeeBulkOperationStatusResultsItem",
+        "EmployeeBulkOperationStatusSummary",
         "EmployeeComputedFieldsProfileStatus",
         "EmployeeFull"
       ],
@@ -575,7 +575,7 @@
       "schema_name": "EmployeeSettingsProcessAutomation",
       "schema_id": "schema:definitions/EmployeeSettingsProcessAutomation",
       "nested_types": [
-        "Anonymous_d29703d5"
+        "EmployeeSettingsProcessAutomationOnboarding"
       ],
       "source_file": "_source/EmployeeSettingsProcessAutomationDataObject.cs",
       "schema_file": "_schemas/EmployeeSettingsProcessAutomationDataObject.md",
@@ -608,7 +608,7 @@
       "schema_name": "EventActionFilterComputedFields",
       "schema_id": "schema:definitions/EventActionFilterComputedFields",
       "nested_types": [
-        "Anonymous_6790023f"
+        "EventActionFilterComputedFieldsResourcesItem"
       ],
       "source_file": "_source/EventActionFilterComputedFieldsDataObject.cs",
       "schema_file": "_schemas/EventActionFilterComputedFieldsDataObject.md",
@@ -748,14 +748,14 @@
       "schema_name": "KbArticleUpdatePayload",
       "schema_id": "schema:definitions/KbArticleUpdatePayload",
       "nested_types": [
-        "Anonymous_8ad3c996",
-        "Anonymous_cbcd60e0",
         "CustomFieldFilterRule",
         "CustomFieldFilterRuleOperator",
         "EmployeesPerimeterBase",
         "EmployeesPerimeterBaseOperator",
+        "KbArticleBaseRoleRestrictionsItem",
         "KbArticleBaseStatus",
         "KbArticleVersion",
+        "KbLocalizedTagsLocalizedTagsItem",
         "LocalizedString"
       ],
       "source_file": "_source/KbArticleUpdatePayloadDataObject.cs",
@@ -881,13 +881,13 @@
       "schema_name": "ProcessTemplate",
       "schema_id": "schema:definitions/ProcessTemplate",
       "nested_types": [
-        "Anonymous_0d7385a1",
-        "Anonymous_0d7385a1Origin",
-        "Anonymous_ab9b1eb9",
-        "Anonymous_ab9b1eb9Origin",
         "Organization",
         "OrganizationOperator",
-        "ProcessTemplateRestriction"
+        "ProcessTemplateCreatedBy",
+        "ProcessTemplateCreatedByOrigin",
+        "ProcessTemplateRestriction",
+        "ProcessTemplateUpdatedBy",
+        "ProcessTemplateUpdatedByOrigin"
       ],
       "source_file": "_source/ProcessTemplateDataObject.cs",
       "schema_file": "_schemas/ProcessTemplateDataObject.md",
@@ -1044,10 +1044,10 @@
       "schema_name": "SignatureProcessFull",
       "schema_id": "schema:definitions/SignatureProcessFull",
       "nested_types": [
-        "Anonymous_2eda0077",
-        "Anonymous_4424aa26",
-        "Anonymous_ffa30592",
         "MetaDataBase",
+        "SignatureProcessNestedSenderSender",
+        "SignatureProcessOrganizationsDocumentOrganizationsItem",
+        "SignatureProcessSignersSignersItem",
         "SignatureProcessStateState",
         "SignerState"
       ],
@@ -1207,13 +1207,13 @@
       "schema_name": "UserBulkOperationStatus",
       "schema_id": "schema:definitions/UserBulkOperationStatus",
       "nested_types": [
-        "Anonymous_0c52d65c",
-        "Anonymous_39fe8827",
         "CustomFieldFilterRule",
         "CustomFieldFilterRuleOperator",
         "EmployeesPerimeterBase",
         "EmployeesPerimeterBaseOperator",
         "ProfileBase",
+        "UserBulkOperationStatusResultsItem",
+        "UserBulkOperationStatusSummary",
         "UserFull"
       ],
       "source_file": "_source/UserBulkOperationStatusDataObject.cs",
@@ -1312,105 +1312,6 @@
       "schema_id": "schema:anon/9970d86896c3c76fd11109bdecf721d29e51eb6d",
       "parent_roots": [
         "SignatureTypeFullDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_0c52d65c",
-      "schema_id": "schema:anon/0c52d65c16a36ed6c66a62de28d422b8df2e4d4e",
-      "parent_roots": [
-        "UserBulkOperationStatusDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_0d7385a1",
-      "schema_id": "schema:anon/0d7385a1fd0dee8a6a8af687eef3daccb05b6bdf",
-      "parent_roots": [
-        "ProcessTemplateDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_0d7385a1Origin",
-      "schema_id": "schema:anon/0aaefd2bf3798a1d9f1532a5c42d9b2c45bad2ad",
-      "parent_roots": [
-        "ProcessTemplateDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_2eda0077",
-      "schema_id": "schema:anon/2eda0077944596f5a8508bfdd7980efbb51b5678",
-      "parent_roots": [
-        "SignatureProcessFullDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_39fe8827",
-      "schema_id": "schema:anon/39fe882738081e4d32998aa911bf3bb8a42da006",
-      "parent_roots": [
-        "EmployeeBulkOperationStatusDataObject",
-        "UserBulkOperationStatusDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_4424aa26",
-      "schema_id": "schema:anon/4424aa26b85dd20ae1ca81506c7322cef8e82281",
-      "parent_roots": [
-        "SignatureProcessFullDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_6790023f",
-      "schema_id": "schema:anon/6790023f2eeabfd26706286439c8b415fa6f8a7c",
-      "parent_roots": [
-        "EventActionFilterComputedFieldsDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_8ad3c996",
-      "schema_id": "schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a",
-      "parent_roots": [
-        "KbArticleUpdatePayloadDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_ab9b1eb9",
-      "schema_id": "schema:anon/ab9b1eb99565d72ba3964883bdfd91eb98d86676",
-      "parent_roots": [
-        "ProcessTemplateDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_ab9b1eb9Origin",
-      "schema_id": "schema:anon/9b842f7b316392d1701e64835e16e2d91781271c",
-      "parent_roots": [
-        "ProcessTemplateDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_b1e7cfcd",
-      "schema_id": "schema:anon/b1e7cfcd7f50fa70605feb2b00b7756d178cec94",
-      "parent_roots": [
-        "EmployeeBulkOperationStatusDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_cbcd60e0",
-      "schema_id": "schema:anon/cbcd60e0defd1088b9363273e505c0249931d345",
-      "parent_roots": [
-        "KbArticleUpdatePayloadDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_d29703d5",
-      "schema_id": "schema:anon/d29703d577a7ab59f6c0f19f7a24de171bb75928",
-      "parent_roots": [
-        "EmployeeSettingsProcessAutomationDataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_ffa30592",
-      "schema_id": "schema:anon/ffa305924e481b1c8132496caf32364f1bddbc9f",
-      "parent_roots": [
-        "SignatureProcessFullDataObject"
       ]
     },
     {
@@ -1648,6 +1549,20 @@
       ]
     },
     {
+      "name": "EmployeeBulkOperationStatusResultsItem",
+      "schema_id": "schema:anon/b1e7cfcd7f50fa70605feb2b00b7756d178cec94",
+      "parent_roots": [
+        "EmployeeBulkOperationStatusDataObject"
+      ]
+    },
+    {
+      "name": "EmployeeBulkOperationStatusSummary",
+      "schema_id": "schema:anon/39fe882738081e4d32998aa911bf3bb8a42da006",
+      "parent_roots": [
+        "EmployeeBulkOperationStatusDataObject"
+      ]
+    },
+    {
       "name": "EmployeeComputedFieldsProfileStatus",
       "schema_id": "schema:anon/95b3056d977de9e6d053e7dbc04860fae8aa59ac",
       "parent_roots": [
@@ -1676,6 +1591,13 @@
       ]
     },
     {
+      "name": "EmployeeSettingsProcessAutomationOnboarding",
+      "schema_id": "schema:anon/d29703d577a7ab59f6c0f19f7a24de171bb75928",
+      "parent_roots": [
+        "EmployeeSettingsProcessAutomationDataObject"
+      ]
+    },
+    {
       "name": "EmployeeSimplified",
       "schema_id": "schema:definitions/EmployeeSimplified",
       "parent_roots": [
@@ -1693,6 +1615,13 @@
         "UserFullDataObject",
         "UserPatchPayloadDataObject",
         "UserPutPayloadDataObject"
+      ]
+    },
+    {
+      "name": "EventActionFilterComputedFieldsResourcesItem",
+      "schema_id": "schema:anon/6790023f2eeabfd26706286439c8b415fa6f8a7c",
+      "parent_roots": [
+        "EventActionFilterComputedFieldsDataObject"
       ]
     },
     {
@@ -1834,6 +1763,13 @@
       ]
     },
     {
+      "name": "KbArticleBaseRoleRestrictionsItem",
+      "schema_id": "schema:anon/cbcd60e0defd1088b9363273e505c0249931d345",
+      "parent_roots": [
+        "KbArticleUpdatePayloadDataObject"
+      ]
+    },
+    {
       "name": "KbArticleBaseStatus",
       "schema_id": "schema:anon/e37f3bbd184e14499f9222bf4665a4a6812c017b",
       "parent_roots": [
@@ -1843,6 +1779,13 @@
     {
       "name": "KbArticleVersion",
       "schema_id": "schema:definitions/KbArticleVersion",
+      "parent_roots": [
+        "KbArticleUpdatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "KbLocalizedTagsLocalizedTagsItem",
+      "schema_id": "schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a",
       "parent_roots": [
         "KbArticleUpdatePayloadDataObject"
       ]
@@ -1922,8 +1865,36 @@
       ]
     },
     {
+      "name": "ProcessTemplateCreatedBy",
+      "schema_id": "schema:anon/0d7385a1fd0dee8a6a8af687eef3daccb05b6bdf",
+      "parent_roots": [
+        "ProcessTemplateDataObject"
+      ]
+    },
+    {
+      "name": "ProcessTemplateCreatedByOrigin",
+      "schema_id": "schema:anon/0aaefd2bf3798a1d9f1532a5c42d9b2c45bad2ad",
+      "parent_roots": [
+        "ProcessTemplateDataObject"
+      ]
+    },
+    {
       "name": "ProcessTemplateRestriction",
       "schema_id": "schema:definitions/ProcessTemplateRestriction",
+      "parent_roots": [
+        "ProcessTemplateDataObject"
+      ]
+    },
+    {
+      "name": "ProcessTemplateUpdatedBy",
+      "schema_id": "schema:anon/ab9b1eb99565d72ba3964883bdfd91eb98d86676",
+      "parent_roots": [
+        "ProcessTemplateDataObject"
+      ]
+    },
+    {
+      "name": "ProcessTemplateUpdatedByOrigin",
+      "schema_id": "schema:anon/9b842f7b316392d1701e64835e16e2d91781271c",
       "parent_roots": [
         "ProcessTemplateDataObject"
       ]
@@ -2023,6 +1994,27 @@
       ]
     },
     {
+      "name": "SignatureProcessNestedSenderSender",
+      "schema_id": "schema:anon/2eda0077944596f5a8508bfdd7980efbb51b5678",
+      "parent_roots": [
+        "SignatureProcessFullDataObject"
+      ]
+    },
+    {
+      "name": "SignatureProcessOrganizationsDocumentOrganizationsItem",
+      "schema_id": "schema:anon/4424aa26b85dd20ae1ca81506c7322cef8e82281",
+      "parent_roots": [
+        "SignatureProcessFullDataObject"
+      ]
+    },
+    {
+      "name": "SignatureProcessSignersSignersItem",
+      "schema_id": "schema:anon/ffa305924e481b1c8132496caf32364f1bddbc9f",
+      "parent_roots": [
+        "SignatureProcessFullDataObject"
+      ]
+    },
+    {
       "name": "SignatureProcessStateState",
       "schema_id": "schema:anon/2fcab3527a3bca80b6d200978e58b5e325e792e4",
       "parent_roots": [
@@ -2086,6 +2078,20 @@
       "parent_roots": [
         "DocGenTemplatePatchPayloadDataObject",
         "DocGenTemplatePayloadDataObject"
+      ]
+    },
+    {
+      "name": "UserBulkOperationStatusResultsItem",
+      "schema_id": "schema:anon/0c52d65c16a36ed6c66a62de28d422b8df2e4d4e",
+      "parent_roots": [
+        "UserBulkOperationStatusDataObject"
+      ]
+    },
+    {
+      "name": "UserBulkOperationStatusSummary",
+      "schema_id": "schema:anon/39fe882738081e4d32998aa911bf3bb8a42da006",
+      "parent_roots": [
+        "UserBulkOperationStatusDataObject"
       ]
     },
     {
@@ -2576,8 +2582,8 @@
         "schema_name": "EmployeeBulkOperationStatus",
         "schema_id": "schema:definitions/EmployeeBulkOperationStatus",
         "nested_types": [
-          "Anonymous_39fe8827",
-          "Anonymous_b1e7cfcd",
+          "EmployeeBulkOperationStatusResultsItem",
+          "EmployeeBulkOperationStatusSummary",
           "EmployeeComputedFieldsProfileStatus",
           "EmployeeFull"
         ],
@@ -2661,7 +2667,7 @@
         "schema_name": "EmployeeSettingsProcessAutomation",
         "schema_id": "schema:definitions/EmployeeSettingsProcessAutomation",
         "nested_types": [
-          "Anonymous_d29703d5"
+          "EmployeeSettingsProcessAutomationOnboarding"
         ],
         "source_file": "_source/EmployeeSettingsProcessAutomationDataObject.cs",
         "schema_file": "_schemas/EmployeeSettingsProcessAutomationDataObject.md",
@@ -2694,7 +2700,7 @@
         "schema_name": "EventActionFilterComputedFields",
         "schema_id": "schema:definitions/EventActionFilterComputedFields",
         "nested_types": [
-          "Anonymous_6790023f"
+          "EventActionFilterComputedFieldsResourcesItem"
         ],
         "source_file": "_source/EventActionFilterComputedFieldsDataObject.cs",
         "schema_file": "_schemas/EventActionFilterComputedFieldsDataObject.md",
@@ -2834,14 +2840,14 @@
         "schema_name": "KbArticleUpdatePayload",
         "schema_id": "schema:definitions/KbArticleUpdatePayload",
         "nested_types": [
-          "Anonymous_8ad3c996",
-          "Anonymous_cbcd60e0",
           "CustomFieldFilterRule",
           "CustomFieldFilterRuleOperator",
           "EmployeesPerimeterBase",
           "EmployeesPerimeterBaseOperator",
+          "KbArticleBaseRoleRestrictionsItem",
           "KbArticleBaseStatus",
           "KbArticleVersion",
+          "KbLocalizedTagsLocalizedTagsItem",
           "LocalizedString"
         ],
         "source_file": "_source/KbArticleUpdatePayloadDataObject.cs",
@@ -2967,13 +2973,13 @@
         "schema_name": "ProcessTemplate",
         "schema_id": "schema:definitions/ProcessTemplate",
         "nested_types": [
-          "Anonymous_0d7385a1",
-          "Anonymous_0d7385a1Origin",
-          "Anonymous_ab9b1eb9",
-          "Anonymous_ab9b1eb9Origin",
           "Organization",
           "OrganizationOperator",
-          "ProcessTemplateRestriction"
+          "ProcessTemplateCreatedBy",
+          "ProcessTemplateCreatedByOrigin",
+          "ProcessTemplateRestriction",
+          "ProcessTemplateUpdatedBy",
+          "ProcessTemplateUpdatedByOrigin"
         ],
         "source_file": "_source/ProcessTemplateDataObject.cs",
         "schema_file": "_schemas/ProcessTemplateDataObject.md",
@@ -3130,10 +3136,10 @@
         "schema_name": "SignatureProcessFull",
         "schema_id": "schema:definitions/SignatureProcessFull",
         "nested_types": [
-          "Anonymous_2eda0077",
-          "Anonymous_4424aa26",
-          "Anonymous_ffa30592",
           "MetaDataBase",
+          "SignatureProcessNestedSenderSender",
+          "SignatureProcessOrganizationsDocumentOrganizationsItem",
+          "SignatureProcessSignersSignersItem",
           "SignatureProcessStateState",
           "SignerState"
         ],
@@ -3293,13 +3299,13 @@
         "schema_name": "UserBulkOperationStatus",
         "schema_id": "schema:definitions/UserBulkOperationStatus",
         "nested_types": [
-          "Anonymous_0c52d65c",
-          "Anonymous_39fe8827",
           "CustomFieldFilterRule",
           "CustomFieldFilterRuleOperator",
           "EmployeesPerimeterBase",
           "EmployeesPerimeterBaseOperator",
           "ProfileBase",
+          "UserBulkOperationStatusResultsItem",
+          "UserBulkOperationStatusSummary",
           "UserFull"
         ],
         "source_file": "_source/UserBulkOperationStatusDataObject.cs",
@@ -3626,8 +3632,8 @@
       "EmailRecipientDataObject": [],
       "EmployeeBulkOperationResultDataObject": [],
       "EmployeeBulkOperationStatusDataObject": [
-        "Anonymous_39fe8827",
-        "Anonymous_b1e7cfcd",
+        "EmployeeBulkOperationStatusResultsItem",
+        "EmployeeBulkOperationStatusSummary",
         "EmployeeComputedFieldsProfileStatus",
         "EmployeeFull"
       ],
@@ -3647,7 +3653,7 @@
       "EmployeeElectronicVaultDocumentsDataObject": [],
       "EmployeePartialUpdatePayloadDataObject": [],
       "EmployeeSettingsProcessAutomationDataObject": [
-        "Anonymous_d29703d5"
+        "EmployeeSettingsProcessAutomationOnboarding"
       ],
       "EmployeeUpdatePayloadDataObject": [],
       "EmployeesPerimeterBaseDataObject": [
@@ -3656,7 +3662,7 @@
         "EmployeesPerimeterBaseOperator"
       ],
       "EventActionFilterComputedFieldsDataObject": [
-        "Anonymous_6790023f"
+        "EventActionFilterComputedFieldsResourcesItem"
       ],
       "EventBaseDataObject": [
         "EventActor",
@@ -3692,14 +3698,14 @@
       "InboxItemCreatePayloadDataObject": [],
       "InboxItemFullDataObject": [],
       "KbArticleUpdatePayloadDataObject": [
-        "Anonymous_8ad3c996",
-        "Anonymous_cbcd60e0",
         "CustomFieldFilterRule",
         "CustomFieldFilterRuleOperator",
         "EmployeesPerimeterBase",
         "EmployeesPerimeterBaseOperator",
+        "KbArticleBaseRoleRestrictionsItem",
         "KbArticleBaseStatus",
         "KbArticleVersion",
+        "KbLocalizedTagsLocalizedTagsItem",
         "LocalizedString"
       ],
       "KbCategoryFullDataObject": [
@@ -3721,13 +3727,13 @@
         "ProcessPostActionUserBaseType"
       ],
       "ProcessTemplateDataObject": [
-        "Anonymous_0d7385a1",
-        "Anonymous_0d7385a1Origin",
-        "Anonymous_ab9b1eb9",
-        "Anonymous_ab9b1eb9Origin",
         "Organization",
         "OrganizationOperator",
-        "ProcessTemplateRestriction"
+        "ProcessTemplateCreatedBy",
+        "ProcessTemplateCreatedByOrigin",
+        "ProcessTemplateRestriction",
+        "ProcessTemplateUpdatedBy",
+        "ProcessTemplateUpdatedByOrigin"
       ],
       "RedirectionUrlsDataObject": [],
       "RequestCommentDataObject": [
@@ -3772,10 +3778,10 @@
         "MetaDataBase"
       ],
       "SignatureProcessFullDataObject": [
-        "Anonymous_2eda0077",
-        "Anonymous_4424aa26",
-        "Anonymous_ffa30592",
         "MetaDataBase",
+        "SignatureProcessNestedSenderSender",
+        "SignatureProcessOrganizationsDocumentOrganizationsItem",
+        "SignatureProcessSignersSignersItem",
         "SignatureProcessStateState",
         "SignerState"
       ],
@@ -3815,13 +3821,13 @@
       "UploadTextoccurrencesPayloadDataObject": [],
       "UserBulkOperationResultDataObject": [],
       "UserBulkOperationStatusDataObject": [
-        "Anonymous_0c52d65c",
-        "Anonymous_39fe8827",
         "CustomFieldFilterRule",
         "CustomFieldFilterRuleOperator",
         "EmployeesPerimeterBase",
         "EmployeesPerimeterBaseOperator",
         "ProfileBase",
+        "UserBulkOperationStatusResultsItem",
+        "UserBulkOperationStatusSummary",
         "UserFull"
       ],
       "UserCreatePayloadDataObject": [

@@ -1,0 +1,1232 @@
+================================================================================
+RestV10FilesIdPatchResponse409DataObject (parent) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409DataObject (RestV10FilesIdPatchResponse409)
+============================================================
+API Name: procore
+Schema ID: schema:anon/93668c30e3c34f33df50dfc2ebb1701b21692ac4
+Description: File Conflict Error
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: parent
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: errors, error_type, file
+
+NESTED TYPES: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  errors: RestV10FilesIdPatchResponse409Errors? [nullable]
+
+  error_type: string? [nullable]
+
+  file: RestV10FilesIdPatchResponse409File? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409Errors (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409Errors`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409Errors (RestV10FilesIdPatchResponse409Errors)
+============================================================
+API Name: procore
+Schema ID: schema:anon/72fbc9380819109e9457a2fcfe92d44171baad9a
+Description: No description
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 1
+  Total fields: 1
+  All field names: base
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  base: string[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409Errors
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409File (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409File`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409File (RestV10FilesIdPatchResponse409File)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a9134e72b337b019175e4d723356282ce9576094
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 6
+  Total fields: 17
+  All field names: id, name, parent_id, size, description, updated_at, created_at, checked_out_until, name_with_path, private, is_tracked, checked_out_by, file_type, file_versions, legacy_id, is_deleted, custom_fields
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: File id
+
+  name: string? [nullable]
+    Description: File name
+
+  parent_id: int? [nullable]
+    Description: File parent id
+
+  size: int? [nullable]
+    Description: File size
+
+  description: string? [nullable]
+    Description: File description
+
+  updated_at: string? [nullable]
+    Description: File updated at
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409File
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409File (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409File (RestV10FilesIdPatchResponse409File)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a9134e72b337b019175e4d723356282ce9576094
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 6
+  Total fields: 17
+  All field names: id, name, parent_id, size, description, updated_at, created_at, checked_out_until, name_with_path, private, is_tracked, checked_out_by, file_type, file_versions, legacy_id, is_deleted, custom_fields
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  created_at: string? [nullable]
+    Description: File created at
+
+  checked_out_until: string? [nullable]
+    Description: File checked out until
+
+  name_with_path: string? [nullable]
+    Description: Full file path with filename
+
+  private: bool? [nullable]
+    Description: File private status
+
+  is_tracked: bool? [nullable]
+    Description: File is tracked status
+
+  checked_out_by: RestV10FilesIdPatchResponse409FileCheckedOutBy? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10FilesIdPatchResponse409File (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409File (RestV10FilesIdPatchResponse409File)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a9134e72b337b019175e4d723356282ce9576094
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 5
+  Total fields: 17
+  All field names: id, name, parent_id, size, description, updated_at, created_at, checked_out_until, name_with_path, private, is_tracked, checked_out_by, file_type, file_versions, legacy_id, is_deleted, custom_fields
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  file_type: string? [nullable]
+    Description: File type
+
+  file_versions: RestV10FilesIdPatchResponse409FileFileVersionsItem[]? [nullable]
+
+  legacy_id: int? [nullable]
+    Description: Legacy File id
+
+  is_deleted: bool? [nullable]
+    Description: File is in the recycle bin status
+
+  custom_fields: RestV10FilesIdPatchResponse409FileCustomFields? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10FilesIdPatchResponse409FileCheckedOutBy (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileCheckedOutBy`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileCheckedOutBy (RestV10FilesIdPatchResponse409FileCheckedOutBy)
+============================================================
+API Name: procore
+Schema ID: schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, login, name
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  login: string? [nullable]
+    Description: Email
+
+  name: string? [nullable]
+    Description: Name
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileCheckedOutBy
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409FileCustomFields (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileCustomFields`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileCustomFields (RestV10FilesIdPatchResponse409FileCustomFields)
+============================================================
+API Name: procore
+Schema ID: schema:anon/18c858aabec7b2c6828e2c316ea32d80e8f6c1be
+Description: No description
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 5
+  Total fields: 5
+  All field names: custom_field_%{custom_field_string_definition_id}, custom_field_%{custom_field_decimal_definition_id}, custom_field_%{custom_field_boolean_definition_id}, custom_field_%{custom_field_lov_entry_definition_id}, custom_field_%{custom_field_lov_entries_definition_id}
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  custom_field_%{custom_field_string_definition_id}: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}? [nullable]
+
+  custom_field_%{custom_field_decimal_definition_id}: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}? [nullable]
+
+  custom_field_%{custom_field_boolean_definition_id}: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}? [nullable]
+
+  custom_field_%{custom_field_lov_entry_definition_id}: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}? [nullable]
+
+  custom_field_%{custom_field_lov_entries_definition_id}: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileCustomFields
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId} (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId} (RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId})
+============================================================
+API Name: procore
+Schema ID: schema:anon/d7aaf7e4245f8b5e58720e73973a9fdbdbc7839e
+Description: No description
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: data_type, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  data_type: string? [nullable]
+    Description: The data type of the Custom Field Definition.
+
+  value: bool? [nullable]
+    Description: The value of the custom field.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId} (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId} (RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId})
+============================================================
+API Name: procore
+Schema ID: schema:anon/8178757753fe7302f7d5443936cb13b481bd73ff
+Description: No description
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: data_type, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  data_type: string? [nullable]
+    Description: The data type of the Custom Field Definition.
+
+  value: double? [nullable]
+    Description: The value of the custom field.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId} (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId} (RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId})
+============================================================
+API Name: procore
+Schema ID: schema:anon/d50bbe7063fb38ebfcc50625f772776d0020e2f7
+Description: No description
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: data_type, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  data_type: string? [nullable]
+    Description: The data type of the Custom Field Definition.
+
+  value: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem (RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/98dfbe72f61b8f25de0fb5b18d6fa8d9a4ec580a
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, label
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: The unique identifier of the list of values (LOV) entry.
+
+  label: string? [nullable]
+    Description: The label of the list of values (LOV) entry.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId} (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId} (RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId})
+============================================================
+API Name: procore
+Schema ID: schema:anon/33d4a72922e5630c3242f8b04f6ee313e990b793
+Description: No description
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: data_type, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  data_type: string? [nullable]
+    Description: The data type of the Custom Field Definition.
+
+  value: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value (RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value)
+============================================================
+API Name: procore
+Schema ID: schema:anon/87cff48788164388a7c8910cf94ab26c21bee6e1
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, label
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: The unique identifier of the list of values (LOV) entry.
+
+  label: string? [nullable]
+    Description: Label of the list of values (LOV) entry.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId} (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId} (RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId})
+============================================================
+API Name: procore
+Schema ID: schema:anon/8c3d88cb61be32fb0e8459abd64e13d194ffdb10
+Description: No description
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: data_type, value
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+  data_type: string? [nullable]
+    Description: The data type of the Custom Field Definition.
+
+  value: string? [nullable]
+    Description: The value of the custom field.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10FilesIdPatchResponse409FileFileVersionsItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10FilesIdPatchResponse409FileFileVersionsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10FilesIdPatchResponse409FileFileVersionsItem (RestV10FilesIdPatchResponse409FileFileVersionsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/71e8c663025fe3602d1203c533197f4144a33ea5
+Description: No description
+Namespace: Connector.procore.v1.RestV10FilesIdPatchResponse409
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10FilesIdPatchResponse409DataObject
+  Parent Description: File Conflict Error
+  Parent Field Count: 3
+  Parent Field Names: errors, error_type, file
+  Parent Nested Types: RestV10FilesIdPatchResponse409Errors, RestV10FilesIdPatchResponse409File, RestV10FilesIdPatchResponse409FileCheckedOutBy, RestV10FilesIdPatchResponse409FileCustomFields, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldBooleanDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldDecimalDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntriesDefinitionId}ValueItem, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldLovEntryDefinitionId}Value, RestV10FilesIdPatchResponse409FileCustomFieldsCustomField%{customFieldStringDefinitionId}, RestV10FilesIdPatchResponse409FileFileVersionsItem
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10FilesIdPatchResponse409FileFileVersionsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

@@ -477,7 +477,9 @@ def cmd_coverage(args: argparse.Namespace, config: CodegenConfig) -> int:
         "|---|-----------------|-----------|",
     ])
 
-    for i, schema in enumerate(sorted(categories["generated"], key=lambda s: s.get("name_hint", "").lower()), 1):
+    for i, schema in enumerate(
+        sorted(categories["generated"], key=lambda s: (s.get("name_hint") or "").lower()), 1
+    ):
         name = extract_clean_name(schema.get("schema_id", ""), schema.get("name_hint"))  # normalized name for consistency
         schema_id = schema.get("schema_id", "")
         md_lines.append(f"| {i} | `{format_data_object_name(name)}` | `{schema_id}` |")

@@ -55,6 +55,7 @@ uv run python -m codegen endpoints paycore
 Notes:
 - `codegen generate --dry-run` still writes scaffolding and manifest, but skips LLM calls and `.cs` output.
 - Output directories are cleaned by default; use `--no-clean` to keep existing files.
+- Composition handling: `allOf` is flattened; `oneOf`/`anyOf` remain unions (no merging). If you opt to coerce `oneOf`/`anyOf` into an `allOf`-style merge, that intentionally widens the shape and should be documented for downstream consumers.
 
 ## Prompt Packet Details
 

@@ -1,0 +1,1024 @@
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject (parent) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/80e3e87862895999a63841fba8fc8bb22bd744c1
+Description: Compliance Information
+Primary Key: UpdatedById
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 6
+  Total fields: 12
+  All field names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+
+NESTED TYPES: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  updated_at: string? [nullable]
+    Description: The last time the any of this compliance information was updated on this contract
+
+  updated_by_id: int? [nullable]
+    Description: The last user who updated this compliance information
+
+  compliance_status: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus? [nullable]
+    Description: The compliance status of this contract
+    Enum: compliant, not_compliant, not_required
+    Constraints: enum=['compliant', 'not_compliant', 'not_required']
+
+  compliance_notes: string? [nullable]
+    Description: Any notes about the compliance status
+
+  insurance_status: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus? [nullable]
+    Description: The insurance status of this contract
+    Enum: compliant, not_compliant, not_required
+    Constraints: enum=['compliant', 'not_compliant', 'not_required']
+
+  insurance_notes: string? [nullable]
+    Description: Any notes about the insurance status
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject (parent) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/80e3e87862895999a63841fba8fc8bb22bd744c1
+Description: Compliance Information
+Primary Key: UpdatedById
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: parent
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 6
+  Total fields: 12
+  All field names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+
+NESTED TYPES: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  derived_insurance_status: string? [nullable]
+    Description: A computed status based on the insurance documents for this contract's vendor. If all documents are compliant, this will be compliant. If any documents are not compliant, this will be not_compliant. If there are no documents, this will be the insurance status field on the contract.
+
+  insurance_documents: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem[]? [nullable]
+
+  derived_compliance_status: string? [nullable]
+    Description: A computed status based on the compliance documents for this contract. If all documents are compliant, this will be compliant. If any documents are not compliant, this will be not_compliant. If there are no documents, this will be the compliance status field on the contract.
+
+  compliance_documents: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem[]? [nullable]
+    Description: Compliance Documents
+
+  insurance_requirements_not_created: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem[]? [nullable]
+    Description: Insurance requirements that have conditions but are not yet created
+
+  compliance_requirements_not_created: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem[]? [nullable]
+    Description: Compliance requirements that have conditions but are not yet created
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483
+Description: Compliance Document
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 5
+  Total fields: 10
+  All field names: id, name, notes, type, status, effective_at, expires_at, created_at, updated_at, attachments
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  name: string? [nullable]
+
+  notes: string? [nullable]
+
+  type: string? [nullable]
+
+  status: string? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483
+Description: Compliance Document
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 5
+  Total fields: 10
+  All field names: id, name, notes, type, status, effective_at, expires_at, created_at, updated_at, attachments
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+  effective_at: string? [nullable]
+
+  expires_at: string? [nullable]
+
+  created_at: string? [nullable]
+
+  updated_at: string? [nullable]
+
+  attachments: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem[]? [nullable]
+    Description: the files attached to this document
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/e144a26a18a75c140ca5d4ef1716f02577f7623b
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, name, type, status
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: The identifier of the compliance requirement
+
+  name: string? [nullable]
+    Description: The name of the compliance requirement
+
+  type: string? [nullable]
+    Description: The type of the compliance requirement
+
+  status: string? [nullable]
+    Description: The status of the compliance requirement
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus)
+============================================================
+API Name: procore
+Schema ID: schema:anon/57d6212c289a392d8831f73cccbe4d9ee69d5c81
+Description: The compliance status of this contract
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+ENUM:
+  Values: compliant, not_compliant, not_required
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/d2c95af45acb9ea67c9495c5349302d53db00333
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: id, name, insurance_type, level, status, effective_at, expires_at, attachments
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: The identifier of the insurance record
+
+  name: string? [nullable]
+    Description: The name of the insurance record
+
+  insurance_type: string? [nullable]
+    Description: The type of the insurance record
+
+  level: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel? [nullable]
+    Description: Whether this insurance record is attached in the company or project directory
+    Enum: company, project
+    Constraints: enum=['company', 'project']
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/d2c95af45acb9ea67c9495c5349302d53db00333
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: id, name, insurance_type, level, status, effective_at, expires_at, attachments
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+  status: string? [nullable]
+    Description: The compliance status of this insurance document
+
+  effective_at: string? [nullable]
+    Description: The time which this insurance becomes effective. This time is the effective_date in the project or companies timezone converted to UTC.
+
+  expires_at: string? [nullable]
+    Description: The time which this insurance expires. This time is the expiration_date in the project or companies timezone converted to UTC.
+
+  attachments: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem[]? [nullable]
+    Description: the files attached to this insurance record
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/d0283012a3527ac89601c80ffff08c6ec497babc
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, filename, content_type, url
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: a file identifier
+
+  filename: string? [nullable]
+    Description: the name of the file
+
+  content_type: string? [nullable]
+    Description: the content type of the file
+
+  url: string? [nullable]
+    Description: a signed URL to load the file
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel)
+============================================================
+API Name: procore
+Schema ID: schema:anon/266596e015ea2001e847cce15f6a45faf51188a7
+Description: Whether this insurance record is attached in the company or project directory
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+ENUM:
+  Values: company, project
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/94e64c2f119d665d7220965aea9f5e66420e011d
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, name, level, status
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: The identifier of the insurance requirement
+
+  name: string? [nullable]
+    Description: The name of the insurance requirement
+
+  level: string? [nullable]
+    Description: The level of the insurance requirement
+
+  status: string? [nullable]
+    Description: The status of the insurance requirement
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus (RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a70432e49e9c8652ca76e4c23a7b6c953d4c7248
+Description: The insurance status of this contract
+Namespace: Connector.procore.v1.RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200
+Role: nested
+
+ENUM:
+  Values: compliant, not_compliant, not_required
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200DataObject
+  Parent Description: Compliance Information
+  Parent Field Count: 12
+  Parent Field Names: updated_at, updated_by_id, compliance_status, compliance_notes, insurance_status, insurance_notes, derived_insurance_status, insurance_documents, derived_compliance_status, compliance_documents, insurance_requirements_not_created, compliance_requirements_not_created
+  Parent Nested Types: RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200ComplianceStatus, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemAttachmentsItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceDocumentsItemLevel, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceRequirementsNotCreatedItem, RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ProjectsProjectIdWorkOrderContractsContractIdComplianceGetResponse200InsuranceStatus
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

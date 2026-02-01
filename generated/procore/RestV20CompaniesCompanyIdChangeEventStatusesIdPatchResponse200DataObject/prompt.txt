@@ -1,0 +1,172 @@
+================================================================================
+RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200DataObject (parent) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200DataObject (RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/28b6c426441452c9b46a33fae7328fbe998ef10e
+Description: No description
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 1
+  Total fields: 1
+  All field names: data
+
+NESTED TYPES: RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200Data
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  data: RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200Data? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200Data (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200Data`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200Data (RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200Data)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ebe0f6e219500d59525e8adce1063733bc7d1381
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: id, name, show_in_select, default_status, default, deletable
+
+PARENT CONTEXT:
+  Parent Class: RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 1
+  Parent Field Names: data
+  Parent Nested Types: RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200Data
+
+FIELDS (this page):
+----------------------------------------
+  id: string? [nullable]
+    Description: ID
+
+  name: string? [nullable]
+    Description: Name of the Change Event status
+
+  show_in_select: bool? [nullable]
+    Description: Indicates whether the Change Event status will be shown in the status select dropdown
+
+  default_status: bool? [nullable]
+    Description: Indicates whether the Change Event status is the default status
+
+  default: bool? [nullable]
+    Description: Change Event status default identifier
+
+  deletable: bool? [nullable]
+    Description: Indicates whether the change status can be deleted
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV20CompaniesCompanyIdChangeEventStatusesIdPatchResponse200Data
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

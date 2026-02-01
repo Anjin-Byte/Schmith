@@ -1,0 +1,767 @@
+================================================================================
+RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject (parent) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject (RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/8997f7b468d57ba64b9a108904b6a7444d5158be
+Description: No description
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 1
+  Total fields: 1
+  All field names: data
+
+NESTED TYPES: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  data: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem[]? [nullable]
+    Description: Array of Webhooks Deliveries
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem (RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/916bfb1523e59dee35b44c24b23ac638b2f6a143
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, status, payload, delivery_attempts
+
+PARENT CONTEXT:
+  Parent Class: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 1
+  Parent Field Names: data
+  Parent Nested Types: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+
+FIELDS (this page):
+----------------------------------------
+  id: string? [nullable]
+    Description: Event Id of the delivery
+
+  status: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus? [nullable]
+    Description: Status of the delivery
+    Enum: delivered, failed, discarded, enqueued, retrying
+    Constraints: enum=['delivered', 'failed', 'discarded', 'enqueued', 'retrying']
+
+  payload: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload? [nullable]
+    Description: The event payload that was delivered
+
+  delivery_attempts: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem[]? [nullable]
+    Description: Array of delivery attempts for this webhook
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem (RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/e9a7c0fea2589b8231d13d56450e71c3a1fad8c8
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 4
+  Total fields: 7
+  All field names: id, success, response_status, response_body, response_headers, started_at, completed_at
+
+PARENT CONTEXT:
+  Parent Class: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 1
+  Parent Field Names: data
+  Parent Nested Types: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+
+FIELDS (this page):
+----------------------------------------
+  id: string? [nullable]
+    Description: Unique identifier for the delivery attempt
+
+  success: bool? [nullable]
+    Description: Whether the delivery attempt was successful
+
+  response_status: int? [nullable]
+    Description: HTTP status code returned from the webhook endpoint
+
+  response_body: string? [nullable]
+    Description: Response body returned from the webhook endpoint
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem (RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/e9a7c0fea2589b8231d13d56450e71c3a1fad8c8
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 3
+  Total fields: 7
+  All field names: id, success, response_status, response_body, response_headers, started_at, completed_at
+
+PARENT CONTEXT:
+  Parent Class: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 1
+  Parent Field Names: data
+  Parent Nested Types: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+
+FIELDS (this page):
+----------------------------------------
+  response_headers: object? [nullable]
+    Description: Response headers returned from the webhook endpoint
+
+  started_at: string? [nullable]
+    Description: Start time of the delivery attempt
+
+  completed_at: string? [nullable]
+    Description: Completion time of the delivery attempt
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload (RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload)
+============================================================
+API Name: procore
+Schema ID: schema:anon/7280ad1050778023d0dc4c4092f335ace34fd787
+Description: The event payload that was delivered
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 6
+  Total fields: 11
+  All field names: id, ulid, timestamp, metadata, user_id, company_id, project_id, api_version, event_type, resource_name, resource_id
+
+PARENT CONTEXT:
+  Parent Class: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 1
+  Parent Field Names: data
+  Parent Nested Types: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID of the event
+
+  ulid: string? [nullable]
+    Description: Unique identifier encoded as a 26 character string
+
+  timestamp: string? [nullable]
+    Description: Time the event occurred
+
+  metadata: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata? [nullable]
+    Description: Additional information about the event
+
+  user_id: int? [nullable]
+    Description: ID of the user who made the change
+
+  company_id: int? [nullable]
+    Description: ID of the company the resource belongs to
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload (RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload)
+============================================================
+API Name: procore
+Schema ID: schema:anon/7280ad1050778023d0dc4c4092f335ace34fd787
+Description: The event payload that was delivered
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 5
+  Total fields: 11
+  All field names: id, ulid, timestamp, metadata, user_id, company_id, project_id, api_version, event_type, resource_name, resource_id
+
+PARENT CONTEXT:
+  Parent Class: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 1
+  Parent Field Names: data
+  Parent Nested Types: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+
+FIELDS (this page):
+----------------------------------------
+  project_id: int? [nullable]
+    Description: ID of the project the resource belongs to
+
+  api_version: string? [nullable]
+    Description: Version of the originating api resource
+
+  event_type: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType? [nullable]
+    Description: Type of event that occurred
+    Enum: create, update, delete
+    Constraints: enum=['create', 'update', 'delete']
+
+  resource_name: string? [nullable]
+    Description: Name of the changed resource
+
+  resource_id: int? [nullable]
+    Description: ID of the changed resource
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType (RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType)
+============================================================
+API Name: procore
+Schema ID: schema:anon/82c585975a4c85204eed3cc489eff22c21a55bcd
+Description: Type of event that occurred
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200
+Role: nested
+
+ENUM:
+  Values: create, update, delete
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 1
+  Parent Field Names: data
+  Parent Nested Types: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata (RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6fab9bd338076fd6e11fe3b7400920f019a474d5
+Description: Additional information about the event
+Primary Key: SourceUserId
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 5
+  Total fields: 5
+  All field names: source_user_id, source_company_id, source_project_id, source_application_id, source_operation_id
+
+PARENT CONTEXT:
+  Parent Class: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 1
+  Parent Field Names: data
+  Parent Nested Types: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+
+FIELDS (this page):
+----------------------------------------
+  source_user_id: int? [nullable]
+    Description: ID of the user who made the change
+
+  source_company_id: int? [nullable]
+    Description: ID of the company that the changing user was in when the change was made
+
+  source_project_id: int? [nullable]
+    Description: ID of the project that the changing user was in when the change was made
+
+  source_application_id: string? [nullable]
+    Description: ID of the application used to make the change
+
+  source_operation_id: string? [nullable]
+    Description: Identifying token provided by the client on the api request that was responsible for the change
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus (RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus)
+============================================================
+API Name: procore
+Schema ID: schema:anon/f951dea8b3e124df12ae30369379a75a044b13d0
+Description: Status of the delivery
+Namespace: Connector.procore.v1.RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200
+Role: nested
+
+ENUM:
+  Values: delivered, failed, discarded, enqueued, retrying
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 1
+  Parent Field Names: data
+  Parent Nested Types: RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemDeliveryAttemptsItem, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayload, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadEventType, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemPayloadMetadata, RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV20CompaniesCompanyIdWebhooksHooksHookIdDeliveriesGetResponse200DataItemStatus
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

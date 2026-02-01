@@ -62,7 +62,7 @@ Values: display_iff
 |------|------|
 | `field_id` | `string` |
 | `operator` | `FormidableConditionalRuleTestOperator` |
-| `values` | `Anonymous_bf21a9e8[]` |
+| `values` | `FormidableFieldDefaultsItem[]` |
 
 ## FormidableConditionalRuleTestOperator
 - Role: nested

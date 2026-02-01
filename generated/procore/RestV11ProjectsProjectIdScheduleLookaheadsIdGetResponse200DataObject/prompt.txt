@@ -1,0 +1,1522 @@
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject (parent) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/54711a015c2b3017f7c6df2d02144ec3598d6ac6
+Description: Schedule Lookahead
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 6
+  Total fields: 11
+  All field names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+
+NESTED TYPES: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Lookahead ID
+
+  start_date: string? [nullable]
+    Description: Lookahead start date, in project time zone
+
+  end_date: string? [nullable]
+    Description: Lookahead end date, in project time zone
+
+  created_at: string? [nullable]
+    Description: Lookahead creation time
+
+  data_date: string? [nullable]
+    Description: Lookahead last update time
+
+  created_by: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject (parent) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/54711a015c2b3017f7c6df2d02144ec3598d6ac6
+Description: Schedule Lookahead
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 5
+  Total fields: 11
+  All field names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+
+NESTED TYPES: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  label: string? [nullable]
+    Description: Lookahead label
+
+  lookahead_tasks: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem[]? [nullable]
+    Description: List of tasks in the Lookahead, given in a nested tree structure
+according to parent-child relationships
+
+  generation_errors: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem[]? [nullable]
+    Description: List of errors that appeared during Lookahead generation.
+
+  status: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status? [nullable]
+    Description: Lookahead processing status.
+    Enum: queued, processing_previous_lookahead, processing_master_schedule, ready
+    Constraints: enum=['queued', 'processing_previous_lookahead', 'processing_master_schedule', 'ready']
+
+  weeks: int? [nullable]
+    Description: Number of weeks the Lookahead spans in duration
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy)
+============================================================
+API Name: procore
+Schema ID: schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, login, name
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  login: string? [nullable]
+    Description: Email
+
+  name: string? [nullable]
+    Description: Name
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/584b624289d96de46fb39cf11900ae8980cd1e99
+Description: Errors and their corresponding Scheduled Tasks.
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: task, errors
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  task: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask? [nullable]
+    Description: Schedule Task
+
+  errors: string[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask)
+============================================================
+API Name: procore
+Schema ID: schema:anon/5b4d5d33ae8fb352a756ba414c9b6fe25e07cb35
+Description: Schedule Task
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, row_number, name
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  row_number: int? [nullable]
+
+  name: string? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/f54890c2c5a96081e0bdba2ca8ffd17e0a5340e7
+Description: Schedule Lookahead Task, with subtasks
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 5
+  Total fields: 14
+  All field names: id, parent_id, name, row_number, critical_path, comment, activity_id, wbs, segments, resources, assignees, vendors, task, subtasks
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Lookahead Task ID
+
+  parent_id: int? [nullable]
+
+  name: string? [nullable]
+    Description: Task name
+
+  row_number: int? [nullable]
+    Description: Number of the task row within the project schedule
+
+  critical_path: bool? [nullable]
+    Description: Whether or not the task is included in critical path
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/f54890c2c5a96081e0bdba2ca8ffd17e0a5340e7
+Description: Schedule Lookahead Task, with subtasks
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 5
+  Total fields: 14
+  All field names: id, parent_id, name, row_number, critical_path, comment, activity_id, wbs, segments, resources, assignees, vendors, task, subtasks
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  comment: string? [nullable]
+    Description: Additional comments
+
+  activity_id: string? [nullable]
+    Description: Activity ID
+
+  wbs: string? [nullable]
+    Description: WBS
+
+  segments: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem[]? [nullable]
+    Description: Segments define the set of days for the entire date range of the task,
+and the completion status of each day in the task
+
+  resources: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem[]? [nullable]
+    Description: Resource(s) assigned to this Lookahead Task
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/f54890c2c5a96081e0bdba2ca8ffd17e0a5340e7
+Description: Schedule Lookahead Task, with subtasks
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 4
+  Total fields: 14
+  All field names: id, parent_id, name, row_number, critical_path, comment, activity_id, wbs, segments, resources, assignees, vendors, task, subtasks
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  assignees: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem[]? [nullable]
+    Description: Contact(s) assigned to this Lookahead Task
+
+  vendors: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem[]? [nullable]
+    Description: Company(s) assigned to this Lookahead Task
+
+  task: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask? [nullable]
+    Description: The Master Scheduled Task this Lookahead Task corresponds with, if one exists
+
+  subtasks: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b1355c88aaf4427a87a24cf1a36027307bb7133f
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, email, login_information_id, name
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  email: string? [nullable]
+
+  login_information_id: int? [nullable]
+
+  name: string? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/03e9b805924d6c3ba795e1519da15da7320925a2
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 5
+  Total fields: 5
+  All field names: id, company_id, deleted_at, project_id, source_uid
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  company_id: int? [nullable]
+
+  deleted_at: string? [nullable]
+
+  project_id: int? [nullable]
+
+  source_uid: string? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6cbe154d3e84b1c159495cd674874f7d8c7100ea
+Description: No description
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: date, status
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  date: string [required]
+    Description: Date represented by the task segment
+
+  status: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus [required]
+    Description: Completion status of the task segment
+    Enum: blank, complete, incomplete
+    Constraints: enum=['blank', 'complete', 'incomplete']
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b50244db7bf93cc4be52dc6f00011c9dc3613cf5
+Description: Completion status of the task segment
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+ENUM:
+  Values: blank, complete, incomplete
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6740cb7dc43cdc896afb38e27b3bf758930fb37c
+Description: Schedule Lookahead Task
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 5
+  Total fields: 14
+  All field names: id, parent_id, name, row_number, critical_path, comment, activity_id, wbs, segments, resources, assignees, vendors, task, subtasks
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  parent_id: int? [nullable]
+    Description: ID reference to the parent task
+
+  name: string? [nullable]
+    Description: Task name
+
+  row_number: int? [nullable]
+
+  critical_path: bool? [nullable]
+    Description: Whether or not the task is included in critical path
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6740cb7dc43cdc896afb38e27b3bf758930fb37c
+Description: Schedule Lookahead Task
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 5
+  Total fields: 14
+  All field names: id, parent_id, name, row_number, critical_path, comment, activity_id, wbs, segments, resources, assignees, vendors, task, subtasks
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  comment: string? [nullable]
+    Description: Additional comments
+
+  activity_id: string? [nullable]
+    Description: Activity ID
+
+  wbs: string? [nullable]
+    Description: WBS
+
+  segments: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem[]? [nullable]
+    Description: Segments define the set of days for the entire date range of the task,
+and the completion status of each day in the task
+
+  resources: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem[]? [nullable]
+    Description: Resource(s) assigned to this Lookahead Task
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6740cb7dc43cdc896afb38e27b3bf758930fb37c
+Description: Schedule Lookahead Task
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 4
+  Total fields: 14
+  All field names: id, parent_id, name, row_number, critical_path, comment, activity_id, wbs, segments, resources, assignees, vendors, task, subtasks
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  assignees: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem[]? [nullable]
+    Description: Contact(s) assigned to this Lookahead Task
+
+  vendors: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem[]? [nullable]
+    Description: Company(s) assigned to this Lookahead Task
+
+  task: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask? [nullable]
+    Description: The Master Scheduled Task this Lookahead Task corresponds with, if one exists
+
+  subtasks: object[]? [nullable]
+    Description: Subtask(s) assigned to this Lookahead Task
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask)
+============================================================
+API Name: procore
+Schema ID: schema:anon/02592b544f98c50c6f7aefaaad0cefbc4118e166
+Description: The Master Scheduled Task this Lookahead Task corresponds with, if one exists
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, finish, start
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Lookahead ID
+
+  finish: string? [nullable]
+    Description: Task finish time
+
+  start: string? [nullable]
+    Description: Task start time
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/e21f8241163879c3073268051eae91fec2da42ce
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, name
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+
+  name: string? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status (RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status)
+============================================================
+API Name: procore
+Schema ID: schema:anon/842b315bc861a866e35f5ade07997b125559eb40
+Description: Lookahead processing status.
+Namespace: Connector.procore.v1.RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200
+Role: nested
+
+ENUM:
+  Values: queued, processing_previous_lookahead, processing_master_schedule, ready
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200DataObject
+  Parent Description: Schedule Lookahead
+  Parent Field Count: 11
+  Parent Field Names: id, start_date, end_date, created_at, data_date, created_by, label, lookahead_tasks, generation_errors, status, weeks
+  Parent Nested Types: RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200CreatedBy, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200GenerationErrorsItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemAssigneesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemResourcesItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSegmentsItemStatus, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemSubtasksItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemTask, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200LookaheadTasksItemVendorsItem, RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV11ProjectsProjectIdScheduleLookaheadsIdGetResponse200Status
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

@@ -1,0 +1,1785 @@
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200DataObject (parent) page 1/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject (RestV10ChecklistListsListIdItemsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/0429c1862fc12f16e7682245db9ff13c29d711ae
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 4
+  Fields in this page: 6
+  Total fields: 21
+  All field names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+
+NESTED TYPES: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  name: string? [nullable]
+    Description: Name
+
+  details: string? [nullable]
+    Description: Details
+
+  status: RestV10ChecklistListsListIdItemsIdGetResponse200Status? [nullable]
+    Description: Status
+    Enum: yes, no, n/a, none
+    Constraints: enum=['yes', 'no', 'n/a', 'none']
+
+  responded_with: string? [nullable]
+    Description: Representation of an Item's Response
+
+  origin_id: int? [nullable]
+    Description: ID of Corresponding Checklist Template Item
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200DataObject (parent) page 2/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject (RestV10ChecklistListsListIdItemsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/0429c1862fc12f16e7682245db9ff13c29d711ae
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 2 of 4
+  Fields in this page: 5
+  Total fields: 21
+  All field names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+
+NESTED TYPES: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  section_id: int? [nullable]
+    Description: Checklist Section ID
+
+  position: int? [nullable]
+    Description: Position
+
+  observations: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem[]? [nullable]
+    Description: Observations created from the Checklist Item
+
+  attachment_histories: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem[]? [nullable]
+    Description: Item attachment histories
+
+  attachments: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem[]? [nullable]
+    Description: Item attachments
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200DataObject (parent) page 3/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject (RestV10ChecklistListsListIdItemsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/0429c1862fc12f16e7682245db9ff13c29d711ae
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 3 of 4
+  Fields in this page: 5
+  Total fields: 21
+  All field names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+
+NESTED TYPES: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  histories: RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem[]? [nullable]
+    Description: Item histories
+
+  item_response: RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse? [nullable]
+    Description: Item Response
+
+  comments: RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem[]? [nullable]
+    Description: Item comments
+
+  response: RestV10ChecklistListsListIdItemsIdGetResponse200Response? [nullable]
+
+  response_set: RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200DataObject (parent) page 4/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject (RestV10ChecklistListsListIdItemsIdGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/0429c1862fc12f16e7682245db9ff13c29d711ae
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: parent
+
+PAGING:
+  Page: 4 of 4
+  Fields in this page: 5
+  Total fields: 21
+  All field names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+
+NESTED TYPES: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  response_set_id: int? [nullable]
+    Description: Response Set ID
+
+  type: RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType? [nullable]
+
+  template_item_id: int? [nullable]
+    Description: Template Item ID
+
+  response_type_id: int? [nullable]
+    Description: Response Type ID
+
+  updated_at: string? [nullable]
+    Description: Timestamp of last update
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem (RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/e98703a1eda855fa74dc251f40597620a2506677
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, created_at, created_by, attachment
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Attachment ID
+
+  created_at: string? [nullable]
+    Description: Timestamp of creation
+
+  created_by: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee? [nullable]
+
+  attachment: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment (RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment)
+============================================================
+API Name: procore
+Schema ID: schema:anon/c337dee3df228286468f0ff6d8c4852152f75cf4
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, url, filename
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  url: string? [nullable]
+    Description: URL
+
+  filename: string? [nullable]
+    Description: Filename
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem (RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/dec4aab8e4d246a8ddc05b8de35713d3449e7fd9
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, url, filename
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Attachment ID
+
+  url: string? [nullable]
+    Description: Attachment URL
+
+  filename: string? [nullable]
+    Description: Attachment filename
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem (RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/90db79dc84965c9df1481e435f1e4765d3f384d4
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: id, body, created_at, created_by
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  body: string? [nullable]
+    Description: Comment body
+
+  created_at: string? [nullable]
+    Description: Timestamp of creation
+
+  created_by: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem (RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/bed87d2feb6262ad145f78c79d6b07bb87d7b01e
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: id, body, status, responded_with, created_at, created_by
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  body: string? [nullable]
+    Description: Text describing the status change
+
+  status: string? [nullable]
+
+  responded_with: string? [nullable]
+    Description: Name of Response at time of inspection
+
+  created_at: string? [nullable]
+    Description: Timestamp of creation
+
+  created_by: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse (RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ee720497fbc78b356404975115a525f903196083
+Description: Item Response
+Primary Key: ItemId
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: item_id, status, responded_at, responder, item_type, payload
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  item_id: int? [nullable]
+    Description: Item ID
+
+  status: string? [nullable]
+    Description: Item Status
+
+  responded_at: string? [nullable]
+    Description: Timestamp indicating when Response was added
+
+  responder: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee? [nullable]
+
+  item_type: RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType? [nullable]
+
+  payload: RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType (RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType)
+============================================================
+API Name: procore
+Schema ID: schema:anon/ade7f59a3b8c98efa8f1ffcf727c1e8b3a77a788
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, category, name
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  category: string? [nullable]
+    Description: The category of the Item Type
+
+  name: string? [nullable]
+    Description: The name of the Item Type
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload (RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload)
+============================================================
+API Name: procore
+Schema ID: schema:anon/58c1ef85f13ee25d4b220b66cacbff49e80c17fd
+Description: No description
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: text_value, number_value, date_value, response_option
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  text_value: string? [nullable]
+    Description: Response for an Open Ended Text Item
+
+  number_value: int? [nullable]
+    Description: Response for an Open Ended Number Item
+
+  date_value: string? [nullable]
+    Description: Response for an Open Ended Date Item
+
+  response_option: RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption (RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption)
+============================================================
+API Name: procore
+Schema ID: schema:anon/0f14354d50a2f1736cccf75fcc494df1550cefd3
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, name
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Response Option ID
+
+  name: string? [nullable]
+    Description: Response Option Name
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem (RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/5a20d751deca22f6b52b85c5d0d67e9871c2a13b
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: id, created_at, number, status, title, type, assignee, created_by
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  created_at: string? [nullable]
+    Description: Timestamp of creation
+
+  number: string? [nullable]
+    Description: Number
+
+  status: string? [nullable]
+    Description: Status
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem (RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/5a20d751deca22f6b52b85c5d0d67e9871c2a13b
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 4
+  Total fields: 8
+  All field names: id, created_at, number, status, title, type, assignee, created_by
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  title: string? [nullable]
+    Description: Title
+
+  type: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType? [nullable]
+    Description: Observation Type
+
+  assignee: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee? [nullable]
+
+  created_by: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee (RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee)
+============================================================
+API Name: procore
+Schema ID: schema:anon/121288c30b14d925f7a9c37e3dca7d3325344ec8
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, login, name
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  login: string? [nullable]
+    Description: Email
+
+  name: string? [nullable]
+    Description: Name
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType (RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType)
+============================================================
+API Name: procore
+Schema ID: schema:anon/752878c535509baef7317390e5fdf94e9c16eb44
+Description: Observation Type
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: id, name
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  name: string? [nullable]
+    Description: Name
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200Response (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200Response`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200Response (RestV10ChecklistListsListIdItemsIdGetResponse200Response)
+============================================================
+API Name: procore
+Schema ID: schema:anon/731cf14ed573edfdf6d581338f98b8462504ca3c
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: id, name, corresponding_status
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  name: string? [nullable]
+    Description: The name of the Response
+
+  corresponding_status: RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus? [nullable]
+    Description: Corresponding Checklist Item status
+    Enum: yes, no, n/a, none
+    Constraints: enum=['yes', 'no', 'n/a', 'none']
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200Response
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus (RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus)
+============================================================
+API Name: procore
+Schema ID: schema:anon/4935f1f79cd9068abcb0cf5483f118fedaf5a1eb
+Description: Corresponding Checklist Item status
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+ENUM:
+  Values: yes, no, n/a, none
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet (RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet)
+============================================================
+API Name: procore
+Schema ID: schema:anon/10bc57f06a82c1772a743c0eaf4428173a16b898
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 5
+  Total fields: 5
+  All field names: id, name, responses, created_at, updated_at
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID of the response set
+
+  name: string? [nullable]
+    Description: Name of the response set
+
+  responses: RestV10ChecklistListsListIdItemsIdGetResponse200Response[]? [nullable]
+
+  created_at: string? [nullable]
+    Description: Timestamp of creation
+
+  updated_at: string? [nullable]
+    Description: Timestamp of last update
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10ChecklistListsListIdItemsIdGetResponse200Status (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10ChecklistListsListIdItemsIdGetResponse200Status`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10ChecklistListsListIdItemsIdGetResponse200Status (RestV10ChecklistListsListIdItemsIdGetResponse200Status)
+============================================================
+API Name: procore
+Schema ID: schema:anon/eed02ed74cc85dbd625fb759b2f1452ace08377a
+Description: Status
+Namespace: Connector.procore.v1.RestV10ChecklistListsListIdItemsIdGetResponse200
+Role: nested
+
+ENUM:
+  Values: yes, no, n/a, none
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10ChecklistListsListIdItemsIdGetResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 21
+  Parent Field Names: id, name, details, status, responded_with, origin_id, section_id, position, observations, attachment_histories, attachments, histories, item_response, comments, response, response_set, response_set_id, type, template_item_id, response_type_id, updated_at
+  Parent Nested Types: RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentHistoriesItemAttachment, RestV10ChecklistListsListIdItemsIdGetResponse200AttachmentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200CommentsItem, RestV10ChecklistListsListIdItemsIdGetResponse200HistoriesItem, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponse, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponseItemType, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayload, RestV10ChecklistListsListIdItemsIdGetResponse200ItemResponsePayloadResponseOption, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItem, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemAssignee, RestV10ChecklistListsListIdItemsIdGetResponse200ObservationsItemType, RestV10ChecklistListsListIdItemsIdGetResponse200Response, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseCorrespondingStatus, RestV10ChecklistListsListIdItemsIdGetResponse200ResponseSet, RestV10ChecklistListsListIdItemsIdGetResponse200Status
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10ChecklistListsListIdItemsIdGetResponse200Status
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

@@ -1,5 +1,6 @@
 """OpenAPI adapter for schemas extraction."""
 
+import re
 from typing import Any, Dict, List, Optional
 
 from builders.shared.hashing import canonical_json_hash
@@ -258,6 +259,63 @@ def register_schema(
         schema_hashes[content_hash] = schema_id
 
 
+def _pascal_case(value: str) -> str:
+    parts = re.split(r"[^A-Za-z0-9]+", value)
+    return "".join(p[:1].upper() + p[1:] for p in parts if p)
+
+
+def _operation_name(
+    operation: Dict[str, Any],
+    method: str,
+    path_template: str,
+    common_prefix: list[str] | None = None,
+) -> str:
+    op_id = operation.get("operationId")
+    if isinstance(op_id, str) and op_id.strip():
+        return _pascal_case(op_id)
+    # Fallback: Method + Path segments, keeping path params (without braces)
+    segments = [seg.strip("{}") for seg in path_template.split("/") if seg]
+    if common_prefix:
+        while segments[: len(common_prefix)] == common_prefix:
+            segments = segments[len(common_prefix) :]
+    segments = [method.upper()] + segments
+    return _pascal_case(" ".join(segments))
+
+
+def _response_name_hint(
+    operation: Dict[str, Any],
+    method: str,
+    path_template: str,
+    status: str,
+    common_prefix: list[str] | None = None,
+) -> str:
+    op_name = _operation_name(operation, method, path_template, common_prefix=common_prefix)
+    return f"{op_name}Response{status}"
+
+
+def _common_path_prefix(paths: Dict[str, Any]) -> list[str]:
+    """Find longest common path prefix segments across all paths."""
+    segments_list: list[list[str]] = []
+    for p in paths.keys():
+        if not isinstance(p, str):
+            continue
+        segs = [seg for seg in p.split("/") if seg]
+        if segs:
+            segments_list.append(segs)
+    if not segments_list:
+        return []
+    prefix = segments_list[0]
+    for segs in segments_list[1:]:
+        max_len = min(len(prefix), len(segs))
+        i = 0
+        while i < max_len and prefix[i] == segs[i]:
+            i += 1
+        prefix = prefix[:i]
+        if not prefix:
+            break
+    return prefix
+
+
 def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str, Any]]:
     """
     Extract schemas from an OpenAPI/Swagger specification.
@@ -298,6 +356,7 @@ def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str,
 
     # Extract inline schemas from operations
     paths = spec.get("paths")
+    common_prefix = _common_path_prefix(paths) if isinstance(paths, dict) else []
     if isinstance(paths, dict):
         for path_template, path_item in paths.items():
             if not isinstance(path_item, dict):
@@ -342,13 +401,34 @@ def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str,
                     for status, response in responses.items():
                         if not isinstance(response, dict):
                             continue
+                        status_str = str(status)
                         if spec.get("swagger") == "2.0":
                             schema = response.get("schema")
                             if isinstance(schema, dict):
                                 schema_id = schema_id_for_schema(schema)
                                 if schema_id:
-                                    provenance = Provenance(spec_path, f"#/paths/{path_template}/{method}/responses/{status}")
-                                    register_schema(schema_id, None, schema, True, provenance, spec, schemas, schema_hashes)
+                                    provenance = Provenance(
+                                        spec_path, f"#/paths/{path_template}/{method}/responses/{status}"
+                                    )
+                                    name_hint = None
+                                    if schema_id.startswith("schema:anon/"):
+                                        name_hint = _response_name_hint(
+                                            operation,
+                                            method,
+                                            path_template,
+                                            status_str,
+                                            common_prefix=common_prefix,
+                                        )
+                                    register_schema(
+                                        schema_id,
+                                        name_hint,
+                                        schema,
+                                        True,
+                                        provenance,
+                                        spec,
+                                        schemas,
+                                        schema_hashes,
+                                    )
                         else:
                             content = response.get("content")
                             if isinstance(content, dict):
@@ -360,6 +440,24 @@ def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str,
                                         schema_id = schema_id_for_schema(schema)
                                         if schema_id:
                                             provenance = Provenance(spec_path, f"#/paths/{path_template}/{method}/responses/{status}/content/{media_type}")
-                                            register_schema(schema_id, None, schema, True, provenance, spec, schemas, schema_hashes)
+                                            name_hint = None
+                                            if schema_id.startswith("schema:anon/"):
+                                                name_hint = _response_name_hint(
+                                                    operation,
+                                                    method,
+                                                    path_template,
+                                                    status_str,
+                                                    common_prefix=common_prefix,
+                                                )
+                                            register_schema(
+                                                schema_id,
+                                                name_hint,
+                                                schema,
+                                                True,
+                                                provenance,
+                                                spec,
+                                                schemas,
+                                                schema_hashes,
+                                            )
 
     return schemas

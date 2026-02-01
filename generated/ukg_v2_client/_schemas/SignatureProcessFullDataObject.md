@@ -34,62 +34,17 @@
 | `state` | `SignatureProcessStateState` |
 | `created_at` | `string` |
 | `updated_at` | `string` |
-| `sender` | `Anonymous_2eda0077` |
-| `signers` | `Anonymous_ffa30592[]` |
-| `document_organizations` | `Anonymous_4424aa26[]` |
+| `sender` | `SignatureProcessNestedSenderSender` |
+| `signers` | `SignatureProcessSignersSignersItem[]` |
+| `document_organizations` | `SignatureProcessOrganizationsDocumentOrganizationsItem[]` |
 
 ### Nested Types
-- `Anonymous_2eda0077`
-- `Anonymous_4424aa26`
-- `Anonymous_ffa30592`
 - `MetaDataBase`
+- `SignatureProcessNestedSenderSender`
+- `SignatureProcessOrganizationsDocumentOrganizationsItem`
+- `SignatureProcessSignersSignersItem`
 - `SignatureProcessStateState`
 - `SignerState`
-
-## Anonymous_2eda0077
-- Role: nested
-- Parent: SignatureProcessFullDataObject
-- Schema Name: Anonymous_2eda0077
-- Schema ID: schema:anon/2eda0077944596f5a8508bfdd7980efbb51b5678
-- Primary Key: Id
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `id` | `string` |
-| `first_name` | `string` |
-| `last_name` | `string` |
-
-## Anonymous_4424aa26
-- Role: nested
-- Parent: SignatureProcessFullDataObject
-- Schema Name: Anonymous_4424aa26
-- Schema ID: schema:anon/4424aa26b85dd20ae1ca81506c7322cef8e82281
-- Primary Key: Id
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `id` | `string` |
-| `name` | `string` |
-
-## Anonymous_ffa30592
-- Role: nested
-- Parent: SignatureProcessFullDataObject
-- Schema Name: Anonymous_ffa30592
-- Schema ID: schema:anon/ffa305924e481b1c8132496caf32364f1bddbc9f
-- Primary Key: Id
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `id` | `string` |
-| `first_name` | `string` |
-| `last_name` | `string` |
-| `state` | `SignerState` |
 
 ## MetaDataBase
 - Role: nested
@@ -103,6 +58,51 @@
 |------|------|
 | `code` | `string` |
 | `value` | `string` |
+
+## SignatureProcessNestedSenderSender
+- Role: nested
+- Parent: SignatureProcessFullDataObject
+- Schema Name: SignatureProcessNestedSenderSender
+- Schema ID: schema:anon/2eda0077944596f5a8508bfdd7980efbb51b5678
+- Primary Key: Id
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `first_name` | `string` |
+| `last_name` | `string` |
+
+## SignatureProcessOrganizationsDocumentOrganizationsItem
+- Role: nested
+- Parent: SignatureProcessFullDataObject
+- Schema Name: SignatureProcessOrganizationsDocumentOrganizationsItem
+- Schema ID: schema:anon/4424aa26b85dd20ae1ca81506c7322cef8e82281
+- Primary Key: Id
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `name` | `string` |
+
+## SignatureProcessSignersSignersItem
+- Role: nested
+- Parent: SignatureProcessFullDataObject
+- Schema Name: SignatureProcessSignersSignersItem
+- Schema ID: schema:anon/ffa305924e481b1c8132496caf32364f1bddbc9f
+- Primary Key: Id
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `first_name` | `string` |
+| `last_name` | `string` |
+| `state` | `SignerState` |
 
 ## SignatureProcessStateState
 - Role: nested

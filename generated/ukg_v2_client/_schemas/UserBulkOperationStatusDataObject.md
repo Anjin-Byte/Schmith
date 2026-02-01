@@ -9,49 +9,18 @@
 
 | Field | Type |
 |------|------|
-| `summary` | `Anonymous_39fe8827` |
-| `results` | `Anonymous_0c52d65c[]` |
+| `summary` | `UserBulkOperationStatusSummary` |
+| `results` | `UserBulkOperationStatusResultsItem[]` |
 
 ### Nested Types
-- `Anonymous_0c52d65c`
-- `Anonymous_39fe8827`
 - `CustomFieldFilterRule`
 - `CustomFieldFilterRuleOperator`
 - `EmployeesPerimeterBase`
 - `EmployeesPerimeterBaseOperator`
 - `ProfileBase`
+- `UserBulkOperationStatusResultsItem`
+- `UserBulkOperationStatusSummary`
 - `UserFull`
-
-## Anonymous_0c52d65c
-- Role: nested
-- Parent: UserBulkOperationStatusDataObject
-- Schema Name: Anonymous_0c52d65c
-- Schema ID: schema:anon/0c52d65c16a36ed6c66a62de28d422b8df2e4d4e
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `index` | `int` |
-| `status` | `string` |
-| `message` | `string` |
-| `Result` | `UserFull` |
-
-## Anonymous_39fe8827
-- Role: nested
-- Parent: UserBulkOperationStatusDataObject
-- Schema Name: Anonymous_39fe8827
-- Schema ID: schema:anon/39fe882738081e4d32998aa911bf3bb8a42da006
-
-### Fields
-
-| Field | Type |
-|------|------|
-| `total` | `int` |
-| `processed` | `int` |
-| `success` | `int` |
-| `failed` | `int` |
-| `status` | `string` |
 
 ## CustomFieldFilterRule
 - Role: nested
@@ -117,6 +86,37 @@ Values: =, <=
 |------|------|
 | `role_id` | `string` |
 | `employees_perimeter` | `EmployeesPerimeterBase` |
+
+## UserBulkOperationStatusResultsItem
+- Role: nested
+- Parent: UserBulkOperationStatusDataObject
+- Schema Name: UserBulkOperationStatusResultsItem
+- Schema ID: schema:anon/0c52d65c16a36ed6c66a62de28d422b8df2e4d4e
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `index` | `int` |
+| `status` | `string` |
+| `message` | `string` |
+| `Result` | `UserFull` |
+
+## UserBulkOperationStatusSummary
+- Role: nested
+- Parent: UserBulkOperationStatusDataObject
+- Schema Name: UserBulkOperationStatusSummary
+- Schema ID: schema:anon/39fe882738081e4d32998aa911bf3bb8a42da006
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `total` | `int` |
+| `processed` | `int` |
+| `success` | `int` |
+| `failed` | `int` |
+| `status` | `string` |
 
 ## UserFull
 - Role: nested

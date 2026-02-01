@@ -1,0 +1,354 @@
+================================================================================
+RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataObject (parent) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataObject (RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a02ec8a0c167165176e683c4f733086f43d5f8f3
+Description: A paginated collection of Resource Requests.
+Namespace: Connector.procore.v1.RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: possible_pages, current_page, data
+
+NESTED TYPES: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  possible_pages: int? [nullable]
+    Description: The total number of pages available for pagination.
+
+  current_page: int? [nullable]
+    Description: The current page index (0-based).
+
+  data: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem[]? [nullable]
+    Description: The list of Resource Requests on the current page.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem (nested) page 1/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem (RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/689b06776c2d21db718d2238d530c5bffbb437c2
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 3
+  Fields in this page: 5
+  Total fields: 15
+  All field names: id, creator_id, project_id, start_day, end_day, start_time, end_time, percent_allocated, job_title_id, category_id, subcategory_id, state_id, work_scope_text, instruction_text, work_days
+
+PARENT CONTEXT:
+  Parent Class: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataObject
+  Parent Description: A paginated collection of Resource Requests.
+  Parent Field Count: 3
+  Parent Field Names: possible_pages, current_page, data
+  Parent Nested Types: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem
+
+FIELDS (this page):
+----------------------------------------
+  id: string? [nullable]
+    Description: Unique identifier for the Resource Request.
+
+  creator_id: string? [nullable]
+    Description: ID of the user who created the Resource Request, if applicable.
+
+  project_id: string? [nullable]
+    Description: ID of the project associated with this Resource Request.
+
+  start_day: string? [nullable]
+    Description: The start date for the requested resource (MM/DD/YY).
+
+  end_day: string? [nullable]
+    Description: The end date for the requested resource (MM/DD/YY).
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem (nested) page 2/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem (RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/689b06776c2d21db718d2238d530c5bffbb437c2
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 3
+  Fields in this page: 5
+  Total fields: 15
+  All field names: id, creator_id, project_id, start_day, end_day, start_time, end_time, percent_allocated, job_title_id, category_id, subcategory_id, state_id, work_scope_text, instruction_text, work_days
+
+PARENT CONTEXT:
+  Parent Class: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataObject
+  Parent Description: A paginated collection of Resource Requests.
+  Parent Field Count: 3
+  Parent Field Names: possible_pages, current_page, data
+  Parent Nested Types: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem
+
+FIELDS (this page):
+----------------------------------------
+  start_time: string? [nullable]
+    Description: The start time of the requested resource.
+
+  end_time: string? [nullable]
+    Description: The end time of the requested resource.
+
+  percent_allocated: int? [nullable]
+    Description: The percentage allocation of the requested resource if applicable.
+
+  job_title_id: string? [nullable]
+    Description: ID of the Job Title associated with the Resource Request.
+
+  category_id: string? [nullable]
+    Description: ID of the Project Category associated with the Resource Request.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem (nested) page 3/3
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem (RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/689b06776c2d21db718d2238d530c5bffbb437c2
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200
+Role: nested
+
+PAGING:
+  Page: 3 of 3
+  Fields in this page: 5
+  Total fields: 15
+  All field names: id, creator_id, project_id, start_day, end_day, start_time, end_time, percent_allocated, job_title_id, category_id, subcategory_id, state_id, work_scope_text, instruction_text, work_days
+
+PARENT CONTEXT:
+  Parent Class: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataObject
+  Parent Description: A paginated collection of Resource Requests.
+  Parent Field Count: 3
+  Parent Field Names: possible_pages, current_page, data
+  Parent Nested Types: RestV10WorkforcePlanningV2CompaniesCompanyIdProjectsProjectIdResourceRequestsGetResponse200DataItem
+
+FIELDS (this page):
+----------------------------------------
+  subcategory_id: string? [nullable]
+    Description: ID of the Project Subcategory associated with the Resource Request.
+
+  state_id: string? [nullable]
+    Description: ID of the Assignment State associated with the Resource Request.
+
+  work_scope_text: string? [nullable]
+    Description: Description of the work scope for the requested resource.
+
+  instruction_text: string? [nullable]
+    Description: Instructions related to the requested resource.
+
+  work_days: object? [nullable]
+    Description: Object representing workdays for the requested resource, using a 0-based index (Sunday-Saturday).
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS

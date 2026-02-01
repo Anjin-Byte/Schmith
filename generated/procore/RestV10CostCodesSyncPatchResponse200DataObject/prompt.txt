@@ -1,0 +1,916 @@
+================================================================================
+RestV10CostCodesSyncPatchResponse200DataObject (parent) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+PAGING NOTE:
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CostCodesSyncPatchResponse200DataObject (RestV10CostCodesSyncPatchResponse200)
+============================================================
+API Name: procore
+Schema ID: schema:anon/f00c5bb8e7cf334214a01468391b3b6d4b01aabb
+Description: No description
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: parent
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: entities, errors
+
+NESTED TYPES: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  entities: RestV10CostCodesSyncPatchResponse200EntitiesItem[]? [nullable]
+
+  errors: RestV10CostCodesSyncPatchResponse200ErrorsItem[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+/// <summary>
+/// {Description}
+/// </summary>
+[PrimaryKey("id", nameof({PrimaryKeyProperty}))]
+[Description("{Description}")]
+public class {ClassName}
+{
+    [JsonPropertyName("id")]
+    [Description("Unique identifier")]
+    [Required]
+    public required string Id { get; init; }
+
+    [JsonPropertyName("name")]
+    [Description("Display name")]
+    [Nullable(true)]
+    public string? Name { get; init; }
+}
+
+================================================================================
+Anonymous_88ecc10dBillerType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `Anonymous_88ecc10dBillerType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: Anonymous_88ecc10dBillerType (Anonymous_88ecc10dBillerType)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6ce4c07d2fb83b79d4fcb225c5c9c05691bcdc4d
+Description: Biller type
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+ENUM:
+  Values: Project, SubJob
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class Anonymous_88ecc10dBillerType
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+Anonymous_88ecc10dLineItemTypesItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `Anonymous_88ecc10dLineItemTypesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: Anonymous_88ecc10dLineItemTypesItem (Anonymous_88ecc10dLineItemTypesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/b78a87f17b509f5904f1a9e8b840af217e95b3fc
+Description: Line Item Type
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: id, name, code, base_type, origin_data, origin_id
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Unique identifier for the Line Item Type
+
+  name: string? [nullable]
+    Description: Name for the Line Item Type
+
+  code: string? [nullable]
+    Description: Code for the Line Item Type
+
+  base_type: Anonymous_88ecc10dLineItemTypesItemBaseType? [nullable]
+    Description: Base type
+    Enum: equipment, materials, commitment, owner_cost, professional_services, other
+    Constraints: enum=['equipment', 'materials', 'commitment', 'owner_cost', 'professional_services', 'other']
+
+  origin_data: string? [nullable]
+    Description: Origin data
+
+  origin_id: string? [nullable]
+    Description: Origin ID
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class Anonymous_88ecc10dLineItemTypesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+Anonymous_88ecc10dLineItemTypesItemBaseType (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `Anonymous_88ecc10dLineItemTypesItemBaseType`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: Anonymous_88ecc10dLineItemTypesItemBaseType (Anonymous_88ecc10dLineItemTypesItemBaseType)
+============================================================
+API Name: procore
+Schema ID: schema:anon/c1a066154239ac3e29e59285e26bd77f996807bf
+Description: Base type
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+ENUM:
+  Values: equipment, materials, commitment, owner_cost, professional_services, other
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class Anonymous_88ecc10dLineItemTypesItemBaseType
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+Anonymous_88ecc10dParent (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `Anonymous_88ecc10dParent`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: Anonymous_88ecc10dParent (Anonymous_88ecc10dParent)
+============================================================
+API Name: procore
+Schema ID: schema:anon/44768f5b771296b189deec792bd565b414bae19b
+Description: Parent
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 1
+  Total fields: 1
+  All field names: id
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: Parent ID
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class Anonymous_88ecc10dParent
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CostCodesSyncPatchResponse200EntitiesItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CostCodesSyncPatchResponse200EntitiesItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CostCodesSyncPatchResponse200EntitiesItem (RestV10CostCodesSyncPatchResponse200EntitiesItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/0206b2ed9969f712f046725bad7cccce1c5e6790
+Description: No description
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CostCodesSyncPatchResponse200EntitiesItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CostCodesSyncPatchResponse200ErrorsItem (nested) page 1/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CostCodesSyncPatchResponse200ErrorsItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CostCodesSyncPatchResponse200ErrorsItem (RestV10CostCodesSyncPatchResponse200ErrorsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a13ef1dca014a8482ab03d0601c4a2f1e17bcca4
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 4
+  Fields in this page: 5
+  Total fields: 20
+  All field names: id, full_code, name, biller, biller_id, biller_type, budgeted, code, created_at, deleted_at, origin_data, origin_id, parent, position, sortable_code, standard_cost_code_id, standard_cost_code_list_id, updated_at, line_item_types, errors
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+  id: int? [nullable]
+    Description: ID
+
+  full_code: string? [nullable]
+    Description: Full Cost code, including parent prefixes
+
+  name: string? [nullable]
+    Description: Name
+
+  biller: string? [nullable]
+    Description: Biller
+
+  biller_id: int? [nullable]
+    Description: Biller ID
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CostCodesSyncPatchResponse200ErrorsItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RestV10CostCodesSyncPatchResponse200ErrorsItem (nested) page 2/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CostCodesSyncPatchResponse200ErrorsItem (RestV10CostCodesSyncPatchResponse200ErrorsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a13ef1dca014a8482ab03d0601c4a2f1e17bcca4
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+PAGING:
+  Page: 2 of 4
+  Fields in this page: 5
+  Total fields: 20
+  All field names: id, full_code, name, biller, biller_id, biller_type, budgeted, code, created_at, deleted_at, origin_data, origin_id, parent, position, sortable_code, standard_cost_code_id, standard_cost_code_list_id, updated_at, line_item_types, errors
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+  biller_type: Anonymous_88ecc10dBillerType? [nullable]
+    Description: Biller type
+    Enum: Project, SubJob
+    Constraints: enum=['Project', 'SubJob']
+
+  budgeted: bool? [nullable]
+    Description: Budgeted
+
+  code: string? [nullable]
+    Description: Cost code, not including parent prefix
+
+  created_at: string? [nullable]
+    Description: Created at
+
+  deleted_at: string? [nullable]
+    Description: Deleted at
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CostCodesSyncPatchResponse200ErrorsItem (nested) page 3/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CostCodesSyncPatchResponse200ErrorsItem (RestV10CostCodesSyncPatchResponse200ErrorsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a13ef1dca014a8482ab03d0601c4a2f1e17bcca4
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+PAGING:
+  Page: 3 of 4
+  Fields in this page: 5
+  Total fields: 20
+  All field names: id, full_code, name, biller, biller_id, biller_type, budgeted, code, created_at, deleted_at, origin_data, origin_id, parent, position, sortable_code, standard_cost_code_id, standard_cost_code_list_id, updated_at, line_item_types, errors
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+  origin_data: string? [nullable]
+    Description: Cost Code third party data
+
+  origin_id: string? [nullable]
+    Description: Cost Code third party id
+
+  parent: Anonymous_88ecc10dParent? [nullable]
+    Description: Parent
+
+  position: int? [nullable]
+    Description: Position
+
+  sortable_code: string? [nullable]
+    Description: Sortable code (this property is deprecated - see full_code)
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CostCodesSyncPatchResponse200ErrorsItem (nested) page 4/4
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: RestV10CostCodesSyncPatchResponse200ErrorsItem (RestV10CostCodesSyncPatchResponse200ErrorsItem)
+============================================================
+API Name: procore
+Schema ID: schema:anon/a13ef1dca014a8482ab03d0601c4a2f1e17bcca4
+Description: No description
+Primary Key: Id
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+PAGING:
+  Page: 4 of 4
+  Fields in this page: 5
+  Total fields: 20
+  All field names: id, full_code, name, biller, biller_id, biller_type, budgeted, code, created_at, deleted_at, origin_data, origin_id, parent, position, sortable_code, standard_cost_code_id, standard_cost_code_list_id, updated_at, line_item_types, errors
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+  standard_cost_code_id: int? [nullable]
+    Description: Standard Cost Code ID
+
+  standard_cost_code_list_id: int? [nullable]
+    Description: Standard Cost Code List ID
+
+  updated_at: string? [nullable]
+    Description: Updated at
+
+  line_item_types: Anonymous_88ecc10dLineItemTypesItem[]? [nullable]
+    Description: Line Item Types
+
+  errors: RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors (RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors)
+============================================================
+API Name: procore
+Schema ID: schema:anon/6e80d68169409a1f3f35565d9efca5f938183297
+Description: No description
+Namespace: Connector.procore.v1.RestV10CostCodesSyncPatchResponse200
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 1
+  Total fields: 1
+  All field names: field_name
+
+PARENT CONTEXT:
+  Parent Class: RestV10CostCodesSyncPatchResponse200DataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: entities, errors
+  Parent Nested Types: Anonymous_88ecc10dBillerType, Anonymous_88ecc10dLineItemTypesItem, Anonymous_88ecc10dLineItemTypesItemBaseType, Anonymous_88ecc10dParent, RestV10CostCodesSyncPatchResponse200EntitiesItem, RestV10CostCodesSyncPatchResponse200ErrorsItem, RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+
+FIELDS (this page):
+----------------------------------------
+  field_name: string[]? [nullable]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RestV10CostCodesSyncPatchResponse200ErrorsItem_7abdf4Errors
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
