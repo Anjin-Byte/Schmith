@@ -1,6 +1,6 @@
 # Schema Coverage Report: ukg_v2_client
 
-**Generated:** 2026-02-01 17:17:12
+**Generated:** 2026-02-01 17:51:06
 **IR Source:** `/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/ir/ukg_v2_client`
 
 ## Summary
@@ -955,7 +955,7 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/24fe4428c1408217004cd067143427a25b51cb7f` |
 | `None` | `schema:anon/254d5b933af1b714afb0c8ac96e3645c31901af2` |
 | `None` | `schema:anon/25bcffce0ca7d1973350da5a97102100165ed159` |
-| `GETEmployeeDocumentsIdReceiptResponse200` | `schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf` |
+| `GETEmployeeDocumentsReceiptResponse200` | `schema:anon/25ce8149912273a869f2c4e931666e01bdb86bbf` |
 | `None` | `schema:anon/25d90c2f1fe51930fc891fcab0400555ec122369` |
 | `None` | `schema:anon/25ff616b5c72735b8a3ffcd9ed1123a393aa5d35` |
 | `None` | `schema:anon/26040e043166d8ba749139e5b9a4fcf85b889197` |
@@ -1186,7 +1186,7 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/4e8b36c2398f9220564af634d0f558c8d65463c3` |
 | `None` | `schema:anon/4e8f259fceb175f59434991bb6709bef62d2ce82` |
 | `None` | `schema:anon/4eeef263145478505646282a6f73536b5f978e25` |
-| `GETEmployeeDocumentsIdFileResponse200` | `schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120` |
+| `GETEmployeeDocumentsFileResponse200` | `schema:anon/4ef0966440754d94ecce66468691d81fe9b2a120` |
 | `None` | `schema:anon/4f235d8333aae69d7da0d3d1b162758c1d902b61` |
 | `None` | `schema:anon/4f45fc22059e73ab0f894ebc005319933a422ac1` |
 | `None` | `schema:anon/4f54727428a09190f46b73a2a479b288379150c9` |
@@ -1198,7 +1198,7 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/5047fb97994ce2027e4cf4dcb550c2dcefe3473d` |
 | `None` | `schema:anon/504e6587a1f32b54f5a34001c3164cad2fa4a9c9` |
 | `None` | `schema:anon/506aaacf7b21dff7dd5add863eab0c516caf3a7b` |
-| `GETEmployeeDocumentsIdDuplicateResponse200` | `schema:anon/510932133ea32afb1165548fc5d46b15720f18ef` |
+| `GETEmployeeDocumentsDuplicateResponse200` | `schema:anon/510932133ea32afb1165548fc5d46b15720f18ef` |
 | `None` | `schema:anon/51100c1e1ec91d2393a924919e06a6c4e649d0dd` |
 | `None` | `schema:anon/51444dcdb0ebd6b07772aae1c4dbd14bdc6faccb` |
 | `None` | `schema:anon/51641eab9e43e18a7c5ee2150dc6c2656a931694` |
@@ -2153,7 +2153,7 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/f41baf1a4b74720c0cabc44b63ae27dbece4af54` |
 | `None` | `schema:anon/f449cb7c7fea31ed95307b45100d494d64913ee7` |
 | `None` | `schema:anon/f451121e3ae21c7ffaff5b2dfc19776ec55f4a86` |
-| `GETEmployeeDocumentsIdPreviewResponse200` | `schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9` |
+| `GETEmployeeDocumentsPreviewResponse200` | `schema:anon/f467c82983edfab75b39cfdd081102de6b3498b9` |
 | `None` | `schema:anon/f46d9d7eb4a9cdac8514afe9fa514b50a58f580b` |
 | `None` | `schema:anon/f47f4d46001a160a65566c6f52631cbf3abe6911` |
 | `None` | `schema:anon/f4a6f86686dab718d35abaf07a92603d55591d8e` |
@@ -2239,13 +2239,13 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/007eb42e00c41e02693919275345b6759cb92c4e` |
 | `None` | `schema:anon/0323a16c1a7a0bbcac122f2638ab15fe590e885e` |
 | `None` | `schema:anon/04cfa4bc857340db3a691d53c68484395a35c9ba` |
-| `GETDocumentGenerationTemplatesIdFragmentUsagesResponse200` | `schema:anon/04f3aee7230e3fba1c509255862123dfc9f22cd2` |
+| `GETDocumentGenerationTemplatesFragmentUsagesResponse200` | `schema:anon/04f3aee7230e3fba1c509255862123dfc9f22cd2` |
 | `None` | `schema:anon/05a88706040fa98f1411c3e7e3b0167ba1a9aa09` |
 | `None` | `schema:anon/05eadfe228dd9b7a764abfbab2c9f74701cd52ca` |
 | `GETEventsResponse200` | `schema:anon/05f5b629ed8097ca7cddfd668e515f1e85181448` |
 | `None` | `schema:anon/0857f967b9914350174ca18aed4ed57436b843b6` |
 | `GETRequestFormsResponse200` | `schema:anon/089ee1bd66e109c974975933f2010b60b1ccab71` |
-| `GETEventsFiltersActionsResponse200` | `schema:anon/08ade60f52657cdad656585770b0ed0603dfa5a4` |
+| `GETFiltersActionsResponse200` | `schema:anon/08ade60f52657cdad656585770b0ed0603dfa5a4` |
 | `None` | `schema:anon/093d72b8f978f9f53a3df7705d734a5fcbf42bee` |
 | `GETProcessPdfTemplatesResponse200` | `schema:anon/0943141efa0200182a6c0bb0d6b9444b716abe26` |
 | `GETDocumentGenerationRequestsResponse200` | `schema:anon/0b6db8ffe97262bfb8d32aa75ed908d16f3913e6` |
@@ -2267,7 +2267,7 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/1da0ec841a6e9b38ca39ab19677767bd2598d5a6` |
 | `None` | `schema:anon/1dffd528f92878b410e51b1021324d9758590196` |
 | `None` | `schema:anon/1e597aca270857d81b90843f1e8aacbf62f90b3c` |
-| `GETRequestsIdMacrosResponse200` | `schema:anon/1f57037e5c42b4db439332c55f0a1c6802ae7a84` |
+| `GETRequestsMacrosResponse200` | `schema:anon/1f57037e5c42b4db439332c55f0a1c6802ae7a84` |
 | `None` | `schema:anon/1f73ad518092281232a149dcdffa6c0da14a87ff` |
 | `None` | `schema:anon/2632bddc9fd61fc8e4c6017d3646e0d4a23665fb` |
 | `None` | `schema:anon/26cfdf9af10954e1517c6bf029926d168b8f91ad` |
@@ -2288,7 +2288,7 @@ The following 17 schemas are included as nested types under roots:
 | `GETMacrosResponse200` | `schema:anon/38b2796c882026cacb10dc2047ba6da0283fcb15` |
 | `None` | `schema:anon/39dfa45acfbd273ce88a3ac35958c5d66439bf39` |
 | `None` | `schema:anon/3b378f570ff04ec7c03e33a27f173ddb9d4524c3` |
-| `GETRequestsIdAssigneesResponse200` | `schema:anon/3bfb95c39dd9c9740e366c2a0f63f7597632a6cc` |
+| `GETRequestsAssigneesResponse200` | `schema:anon/3bfb95c39dd9c9740e366c2a0f63f7597632a6cc` |
 | `None` | `schema:anon/3c56e3185f477b8dd23d2002601efa9eddcc462c` |
 | `None` | `schema:anon/3d9fd97ae7e0153164dd558245e3ddd1fd45aac5` |
 | `None` | `schema:anon/3db1d1f08eea39761276fe0d8f950eae06fd1df4` |
@@ -2304,7 +2304,7 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/45a2380829cb9e8903a529a9f7f1038bf1344bac` |
 | `None` | `schema:anon/473ec62167d8f1558b179970b25aba42407aa9d2` |
 | `None` | `schema:anon/47781ac7ffef1d1d6eb6f6d98a8cea57fe143f35` |
-| `GETProcessTemplatesProcessTemplateIdTaskTemplatesResponse200` | `schema:anon/49e966dbb2286958e7bd268f2b7f00e279570463` |
+| `GETProcessTemplatesTaskTemplatesResponse200` | `schema:anon/49e966dbb2286958e7bd268f2b7f00e279570463` |
 | `None` | `schema:anon/4a9526cbe5b947a98384ede0106c76168ef71006` |
 | `None` | `schema:anon/4ae9e5bbbc7bb6ab3c5f6c87f85a4374ae95d160` |
 | `None` | `schema:anon/4d59a415bd69f2f1b465d3241a28e3d5966abf65` |
@@ -2330,7 +2330,7 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/6b8fc7f0787f9cda4e0618f2cff10ff21e9dbd98` |
 | `None` | `schema:anon/6c394c91d421ba3fb37fbd50c4ba08051adb081e` |
 | `None` | `schema:anon/6dd29a1bf4362cb0d8e991b97816a65197ff31a8` |
-| `GETDocumentGenerationTemplatesIdVersionsResponse200` | `schema:anon/6e85c5ca7ec2767e831b3fa8eaec108d8fee8a8c` |
+| `GETDocumentGenerationTemplatesVersionsResponse200` | `schema:anon/6e85c5ca7ec2767e831b3fa8eaec108d8fee8a8c` |
 | `None` | `schema:anon/7000ebeea2bca2a6b383cd8294e1483c913852f8` |
 | `None` | `schema:anon/70f74860082524841e4560cbf7f797268382cbd9` |
 | `GETRolesResponse200` | `schema:anon/713127302efd3e065589fb6ffc2c924ea6dfa3d8` |
@@ -2340,9 +2340,9 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/72e98e4c867c0d133b0b2991f704edeba845b9d0` |
 | `None` | `schema:anon/73848876c7ea20c3eec6b8da322617b4225692e8` |
 | `None` | `schema:anon/75171bfd6bc6a9059076d1b0797368d2f1b95848` |
-| `GETDatasetsIdValuesResponse200` | `schema:anon/766eaf4007e238e701301c1cc85e64116d4b270e` |
+| `GETDatasetsValuesResponse200` | `schema:anon/766eaf4007e238e701301c1cc85e64116d4b270e` |
 | `GETRequestsResponse200` | `schema:anon/775063622faa0c3238bbe8e30f977893a59e85f0` |
-| `GETDocumentGenerationsSyntaxMigrationListResponse200` | `schema:anon/775ab4200a85248650330620627c3191895b6b8f` |
+| `GETSyntaxMigrationListResponse200` | `schema:anon/775ab4200a85248650330620627c3191895b6b8f` |
 | `None` | `schema:anon/77dc593f86d80c5aa00e06562fa70caeb1ff9490` |
 | `GETSamlIdentityProvidersResponse200` | `schema:anon/7848fbf9d588bc0223492736dd5178fcfacc18aa` |
 | `GETCompanyDocumentTypesResponse200` | `schema:anon/784c9c2066d6295cc3b049eacb69d4815eea3400` |
@@ -2381,7 +2381,7 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/a277f52d78f1a2f9c35db2da3e94bfe0bb6093f9` |
 | `None` | `schema:anon/a49be0e411256b0b9df33353d7f10996a9850e72` |
 | `GETEmployeeFoldersResponse200` | `schema:anon/a6dc079ddf9eff65144267392e407e1f5ead40cc` |
-| `POSTUploadsIdTextOccurrencesResponse200` | `schema:anon/a7d973accdf4c2c2660945da290d177c9b727cd0` |
+| `POSTUploadsTextOccurrencesResponse200` | `schema:anon/a7d973accdf4c2c2660945da290d177c9b727cd0` |
 | `None` | `schema:anon/a9b1e5fe7a86fee521f07a54a5ed35520933cb67` |
 | `GETEmployeeSubscriptionsResponse200` | `schema:anon/aa0cfc068e025c28d6d580b4397375e997e965bd` |
 | `None` | `schema:anon/aa165b9ae0e56660ad314a78c1c86e29c9ad44a0` |
@@ -2416,7 +2416,7 @@ The following 17 schemas are included as nested types under roots:
 | `None` | `schema:anon/c34be77154db43abd2091f8d336efde6b3db802d` |
 | `None` | `schema:anon/c3ec19b3ea8ae068801de57bf2241bd09a23c310` |
 | `None` | `schema:anon/c4672e0468dd11ca14f39a4e18c2d21f327db320` |
-| `GETRequestsIdCommentsResponse200` | `schema:anon/c4ab9b52f95636e64eb20c166044935588f1c435` |
+| `GETRequestsCommentsResponse200` | `schema:anon/c4ab9b52f95636e64eb20c166044935588f1c435` |
 | `None` | `schema:anon/c4b058a197fa055f1fad9e216eecdaa29ab2cdf9` |
 | `None` | `schema:anon/c4c7c3abf3db6a356c18678366ae7e81f15eefe0` |
 | `None` | `schema:anon/c60572dc0ebd4e06d8021f344eed4f626a92881c` |
@@ -2459,7 +2459,7 @@ The following 17 schemas are included as nested types under roots:
 | `GETDatasetsResponse200` | `schema:anon/ecc811652a928c2fe8ecf0bfeab4342ce84786be` |
 | `GETCustomFieldsResponse200` | `schema:anon/ef8a93997d834fc0787d5023a82362d99e83839f` |
 | `None` | `schema:anon/efba356f53f49e0c194265f86d0f49c5ea36a746` |
-| `GETImportsIdSourceResponse200` | `schema:anon/f19a35a40a7859425a63281011673eb6c82b360f` |
+| `GETImportsSourceResponse200` | `schema:anon/f19a35a40a7859425a63281011673eb6c82b360f` |
 | `None` | `schema:anon/f19f02d0904c59d7d587ba4a6c5c23ebe8151f2d` |
 | `None` | `schema:anon/f1c39e748b6e8ad2e61c1efdeb798289a2c39478` |
 | `None` | `schema:anon/f2e7cdc9c0dbc5c9b3bb95cea1be2d8db4313969` |

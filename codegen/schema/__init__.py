@@ -1,8 +1,9 @@
 """Schema processing module.
 
-This module contains schema filtering and type mapping:
+This module contains schema filtering, type mapping, and naming:
 - filter: Schema filtering and relationship detection
 - type_mapping: Type conversion utilities
+- naming: Semantic naming strategies for DataObject generation
 """
 
 from .filter import (
@@ -24,6 +25,18 @@ from .type_mapping import (
     json_name_to_csharp_property,
     schema_id_to_csharp_type,
 )
+from .naming import (
+    NamingConfig,
+    NamingStrategy,
+    VerboseNamingStrategy,
+    SemanticNamingStrategy,
+    ResourceNamingStrategy,
+    STRATEGIES,
+    get_naming_strategy,
+    create_config_from_dict,
+    generate_operation_name,
+    generate_response_name,
+)
 
 __all__ = [
     # filter
@@ -43,4 +56,15 @@ __all__ = [
     "format_data_object_name",
     "json_name_to_csharp_property",
     "schema_id_to_csharp_type",
+    # naming
+    "NamingConfig",
+    "NamingStrategy",
+    "VerboseNamingStrategy",
+    "SemanticNamingStrategy",
+    "ResourceNamingStrategy",
+    "STRATEGIES",
+    "get_naming_strategy",
+    "create_config_from_dict",
+    "generate_operation_name",
+    "generate_response_name",
 ]

@@ -7,6 +7,14 @@ from builders.shared.hashing import canonical_json_hash
 from builders.shared.provenance import Provenance
 from builders.shared.schema_ids import schema_id_for_schema, schema_id_from_ref
 
+# Import naming module for configurable naming strategies
+from codegen.schema.naming import (
+    NamingConfig,
+    NamingStrategy,
+    get_naming_strategy,
+    create_config_from_dict,
+)
+
 
 def _collapse_single_ref_schema(schema: dict) -> str | None:
     """Return $ref if schema is a pure single-ref allOf wrapper."""
@@ -260,6 +268,7 @@ def register_schema(
 
 
 def _pascal_case(value: str) -> str:
+    """Convert a string to PascalCase (kept for backward compatibility)."""
     parts = re.split(r"[^A-Za-z0-9]+", value)
     return "".join(p[:1].upper() + p[1:] for p in parts if p)
 
@@ -270,6 +279,10 @@ def _operation_name(
     path_template: str,
     common_prefix: list[str] | None = None,
 ) -> str:
+    """Generate operation name using legacy verbose strategy.
+
+    Kept for backward compatibility. New code should use NamingStrategy.
+    """
     op_id = operation.get("operationId")
     if isinstance(op_id, str) and op_id.strip():
         return _pascal_case(op_id)
@@ -288,7 +301,26 @@ def _response_name_hint(
     path_template: str,
     status: str,
     common_prefix: list[str] | None = None,
+    naming_strategy: NamingStrategy | None = None,
 ) -> str:
+    """Generate response name hint.
+
+    Args:
+        operation: OpenAPI operation object
+        method: HTTP method
+        path_template: URL path template
+        status: HTTP status code
+        common_prefix: Common prefix segments to remove
+        naming_strategy: Optional naming strategy (uses legacy if None)
+
+    Returns:
+        Response name hint (e.g., "GetUsersResponse200")
+    """
+    if naming_strategy is not None:
+        return naming_strategy.generate_response_name(
+            operation, method, path_template, status, common_prefix
+        )
+    # Legacy behavior
     op_name = _operation_name(operation, method, path_template, common_prefix=common_prefix)
     return f"{op_name}Response{status}"
 
@@ -316,7 +348,11 @@ def _common_path_prefix(paths: Dict[str, Any]) -> list[str]:
     return prefix
 
 
-def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str, Any]]:
+def extract_schemas(
+    spec: Dict[str, Any],
+    spec_path: str,
+    naming_config: Dict[str, Any] | NamingConfig | None = None,
+) -> Dict[str, Dict[str, Any]]:
     """
     Extract schemas from an OpenAPI/Swagger specification.
 
@@ -325,12 +361,23 @@ def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str,
     Args:
         spec: Parsed OpenAPI specification.
         spec_path: Path to the source spec file.
+        naming_config: Optional naming configuration. Can be:
+            - None: Use legacy verbose naming (backward compatible)
+            - Dict: Will be converted to NamingConfig via create_config_from_dict()
+            - NamingConfig: Use directly
 
     Returns:
         Dictionary mapping schema IDs to schema records.
     """
     schemas: Dict[str, Dict[str, Any]] = {}
     schema_hashes: Dict[str, str] = {}
+
+    # Create naming strategy if config provided
+    naming_strategy: NamingStrategy | None = None
+    if naming_config is not None:
+        if isinstance(naming_config, dict):
+            naming_config = create_config_from_dict(naming_config)
+        naming_strategy = get_naming_strategy(naming_config)
 
     # Extract named schemas
     if spec.get("swagger") == "2.0":
@@ -418,6 +465,7 @@ def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str,
                                             path_template,
                                             status_str,
                                             common_prefix=common_prefix,
+                                            naming_strategy=naming_strategy,
                                         )
                                     register_schema(
                                         schema_id,
@@ -448,6 +496,7 @@ def extract_schemas(spec: Dict[str, Any], spec_path: str) -> Dict[str, Dict[str,
                                                     path_template,
                                                     status_str,
                                                     common_prefix=common_prefix,
+                                                    naming_strategy=naming_strategy,
                                                 )
                                             register_schema(
                                                 schema_id,

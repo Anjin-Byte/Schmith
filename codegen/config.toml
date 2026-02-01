@@ -33,3 +33,43 @@ max_tokens = 4096
 max_fields_per_page = 6
 
 # Schema filtering is configured in filters.toml
+
+[naming]
+# Naming strategy for DataObject class names
+# Options: "verbose" (original behavior), "semantic", "resource"
+#
+# - verbose:  Concatenates all path segments (backward compatible)
+#             Example: DeleteRestV10BimModelViewpointsBulkDelete
+#
+# - semantic: Strips version prefixes, keeps meaningful segments
+#             Example: DeleteBimModelViewpointsBulkDelete
+#
+# - resource: Focuses on last N resource segments only
+#             Example: DeleteViewpointsBulkDelete
+strategy = "resource"
+
+# Strip version-like prefixes from paths (rest, api, v1.0, v2.0, etc.)
+# Only applies to 'semantic' and 'resource' strategies
+strip_version_prefixes = true
+
+# Maximum path segments to include (0 = unlimited)
+# Useful for limiting name length in deeply nested APIs
+max_segments = 0
+
+# Include HTTP method in the operation name
+preserve_method = true
+
+# How many trailing resource segments to keep (for 'resource' strategy)
+resource_depth = 2
+
+# Ignore operationId from the spec and always derive names from paths
+# Set to true when the spec has verbose operationIds that you want to override
+ignore_operation_id = true
+
+# Abbreviations to apply to generated names
+# Example: { "Response" = "Resp", "Request" = "Req" }
+[naming.abbreviations]
+# Uncomment to enable abbreviations:
+# Response = "Resp"
+# Request = "Req"
+# DataObject = "DO"

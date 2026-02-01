@@ -24,6 +24,39 @@ from builders.shared.io import escape_id, load_spec
 from pipeline.config import api_name, load_config, resolve_spec_path
 
 CONFIG_DEFAULT = os.path.join(ROOT, "config.toml")
+CODEGEN_CONFIG = os.path.join(ROOT, "codegen", "config.toml")
+
+
+def load_naming_config() -> Dict[str, Any] | None:
+    """Load naming configuration from codegen/config.toml if available.
+
+    Returns:
+        Dictionary with naming config, or None to use default verbose naming.
+    """
+    if not os.path.exists(CODEGEN_CONFIG):
+        return None
+
+    try:
+        import tomllib
+    except ImportError:
+        try:
+            import tomli as tomllib  # type: ignore
+        except ImportError:
+            # No TOML parser available, use defaults
+            return None
+
+    try:
+        with open(CODEGEN_CONFIG, "rb") as f:
+            config = tomllib.load(f)
+        naming = config.get("naming")
+        if naming is None:
+            return None
+        # Handle nested abbreviations table
+        if "abbreviations" in naming and isinstance(naming["abbreviations"], dict):
+            naming["abbreviations"] = dict(naming["abbreviations"])
+        return naming
+    except Exception:
+        return None
 
 
 def load_operations_index(spec_name: str) -> Dict[str, List[str]]:
@@ -106,19 +139,38 @@ def main() -> int:
     parser.add_argument("--config", default=CONFIG_DEFAULT, help="Path to config.toml.")
     parser.add_argument("--spec", default="", help="Path to spec file.")
     parser.add_argument("--adapter", default="openapi", help="Spec adapter: openapi or raml.")
+    parser.add_argument(
+        "--naming",
+        default=None,
+        choices=["verbose", "semantic", "resource"],
+        help="Naming strategy override. Default: use codegen/config.toml setting.",
+    )
     args = parser.parse_args()
 
     config = load_config(args.config)
     spec_path = resolve_spec_path(config, args.spec)
     spec_name = api_name(config)
 
+    # Load naming config (can be overridden by --naming flag)
+    naming_config = load_naming_config()
+    if args.naming:
+        # Override strategy from command line
+        if naming_config is None:
+            naming_config = {}
+        naming_config["strategy"] = args.naming
+
     spec = load_spec(spec_path)
     if args.adapter == "openapi":
-        schemas = extract_openapi_schemas(spec, spec_path)
+        schemas = extract_openapi_schemas(spec, spec_path, naming_config=naming_config)
     elif args.adapter == "raml":
+        # RAML adapter doesn't support naming config yet
         schemas = extract_raml_schemas(spec, spec_path)
     else:
         raise ValueError(f"Unknown adapter: {args.adapter}")
+
+    # Log naming strategy used
+    strategy = (naming_config or {}).get("strategy", "verbose")
+    print(f"Using naming strategy: {strategy}")
 
     write_schemas(spec_name, schemas)
     update_manifest(spec_name, len(schemas))

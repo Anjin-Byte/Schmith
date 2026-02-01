@@ -1,1 +1,0 @@
-/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/generated/procore/_schemas/RestV10ProjectsProjectIdWorkBreakdownStructureWbsCodesBulkCreatePatchResponse201DataObject.md

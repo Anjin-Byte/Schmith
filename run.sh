@@ -1,5 +1,5 @@
-uv run python builders/build_operations.py --config configs/servicefusion.toml --adapter raml
-#uv run python builders/build_operations.py --config configs/ukg_v2_client.toml --adapter openapi
+#uv run python builders/build_operations.py --config configs/servicefusion.toml --adapter raml
+uv run python builders/build_operations.py --config configs/ukg_v2_client.toml --adapter openapi
 #uv run python builders/build_operations.py --config configs/paycore.toml --adapter openapi
 uv run python builders/build_operations.py --config configs/procore.toml --adapter openapi
 
