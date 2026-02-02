@@ -15,7 +15,7 @@
 | `name` | `string` |
 | `created_at` | `string` |
 | `actor` | `EventActor` |
-| `data` | `object` |
+| `data` | `JsonElement` |
 
 ### Nested Types
 - `EventActor`
@@ -33,7 +33,7 @@
 |------|------|
 | `type` | `EventActorType` |
 | `name` | `string` |
-| `data` | `object` |
+| `data` | `JsonElement` |
 
 ## EventActorType
 - Role: nested

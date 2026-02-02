@@ -19,3 +19,6 @@
 | `description` | `string` |
 | `publication_date` | `string` |
 | `due_date` | `string` |
+| `employee_external_id` | `string` |
+| `creator_external_id` | `string` |
+| `publish` | `bool` |

@@ -47,9 +47,9 @@ Role: parent
 
 PAGING:
   Page: 1 of 2
-  Fields in this page: 5
-  Total fields: 9
-  All field names: title, public_title, reference, employee_id, creator_id, process_template_id, description, publication_date, due_date
+  Fields in this page: 6
+  Total fields: 12
+  All field names: title, public_title, reference, employee_id, creator_id, process_template_id, description, publication_date, due_date, employee_external_id, creator_external_id, publish
 
 FIELDS (this page):
 ----------------------------------------
@@ -68,6 +68,9 @@ FIELDS (this page):
 
   creator_id: string [required]
     Description: Unique ID of the process creator
+
+  process_template_id: string? [nullable]
+    Description: Unique ID of the template used to create this process (if applicable)
 
 
 EXAMPLE CODE PATTERN:
@@ -141,15 +144,12 @@ Role: parent
 
 PAGING:
   Page: 2 of 2
-  Fields in this page: 4
-  Total fields: 9
-  All field names: title, public_title, reference, employee_id, creator_id, process_template_id, description, publication_date, due_date
+  Fields in this page: 6
+  Total fields: 12
+  All field names: title, public_title, reference, employee_id, creator_id, process_template_id, description, publication_date, due_date, employee_external_id, creator_external_id, publish
 
 FIELDS (this page):
 ----------------------------------------
-  process_template_id: string? [nullable]
-    Description: Unique ID of the template used to create this process (if applicable)
-
   description: string? [nullable]
     Description: Optional text to describe the process
 
@@ -158,6 +158,15 @@ FIELDS (this page):
 
   due_date: string? [nullable]
     Description: Additional information to indicate that the process has to be completed before the specified date
+
+  employee_external_id: string? [nullable]
+    Description: External ID of the employee assigned to the process
+
+  creator_external_id: string? [nullable]
+    Description: External ID of the creator assigned to the process
+
+  publish: bool [required]
+    Description: You have to provide it during the creation process, if set to true the process will be published as soon as it's created
 
 
 EXAMPLE CODE PATTERN:

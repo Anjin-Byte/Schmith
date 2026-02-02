@@ -29,6 +29,7 @@
 | `docusign_provider` | `string` |
 | `docusign_protect_and_sign_settings` | `DocusignProtectAndSignSettings` |
 | `display_terms_on_signature_portal` | `bool` |
+| `created_at` | `string` |
 | `updated_at` | `string` |
 
 ### Nested Types

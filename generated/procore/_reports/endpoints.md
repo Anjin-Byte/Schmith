@@ -6,8 +6,8 @@
 |--------|-------|
 | Total endpoints | 2318 |
 | Total response schemas | 1183 |
-| Mapped response schemas | 363 |
-| Unmapped response schemas | 820 |
+| Mapped response schemas | 355 |
+| Unmapped response schemas | 828 |
 
 ## Endpoint Responses
 
@@ -1010,7 +1010,7 @@
 | `GET` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `POST` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `POST` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -1023,7 +1023,7 @@
 | `GET` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `PATCH` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/work_order_contracts/{work_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -1273,18 +1273,18 @@
 | `GET` | `/rest/v1.0/companies/{company_id}/uoms` | `schema:anon/fe492d6ecf0a4723efbfd8a8b00f79a424c1d13f` | `` | `missing` |
 | `GET` | `/rest/v1.0/companies/{company_id}/uoms` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/uoms` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/companies/{company_id}/uoms` | `schema:anon/24a5b0134c59b3f7bfe25f14126442fcf3bc58ec` | `PATCHUomsSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/companies/{company_id}/uoms` | `schema:anon/24a5b0134c59b3f7bfe25f14126442fcf3bc58ec` | `GETCompaniesUomsResponse200NestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/companies/{company_id}/uoms` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/companies/{company_id}/uoms` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/companies/{company_id}/uoms` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/24a5b0134c59b3f7bfe25f14126442fcf3bc58ec` | `PATCHUomsSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/24a5b0134c59b3f7bfe25f14126442fcf3bc58ec` | `GETCompaniesUomsResponse200NestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/24a5b0134c59b3f7bfe25f14126442fcf3bc58ec` | `PATCHUomsSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/24a5b0134c59b3f7bfe25f14126442fcf3bc58ec` | `GETCompaniesUomsResponse200NestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/uoms/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -1303,7 +1303,7 @@
 | `GET` | `/rest/v1.0/companies/{company_id}/uom_categories` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/webhooks/hooks/{hook_id}/triggers` | `schema:anon/8dc3f1cebd0bee96a6cfeb7f7a0a268677d7be5b` | `` | `missing` |
 | `GET` | `/rest/v1.0/webhooks/hooks/{hook_id}/triggers` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/webhooks/hooks/{hook_id}/triggers` | `schema:anon/11d930403eb31364a3a7136cc1fada85ba65f072` | `POSTTriggersBulkResponse200SuccessItem` | `nested_only` |
+| `POST` | `/rest/v1.0/webhooks/hooks/{hook_id}/triggers` | `schema:anon/11d930403eb31364a3a7136cc1fada85ba65f072` | `POSTTriggersBulkResponse200SuccessNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/webhooks/hooks/{hook_id}/triggers` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/webhooks/hooks/{hook_id}/triggers/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/webhooks/hooks/{hook_id}/triggers/bulk` | `schema:anon/c783ad4e8e305fce451b5f52af89154407ab5552` | `DELETETriggersBulkResponse200DataObject` | `root` |
@@ -1625,13 +1625,13 @@
 | `GET` | `/rest/v1.0/timecard_time_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off` | `schema:anon/76b62fe918c1185fd1517f12faf4dddcc4432e6b` | `GETPeopleTimeOffResponse200DataObject` | `root` |
 | `GET` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off` | `schema:anon/2c6affc08dbbbc9fbffc07a25df739698667b82a` | `GETPeopleTimeOffResponse400DataObject` | `root` |
-| `POST` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off` | `schema:anon/86b024495387b83bca8220b8ebe7ec2a433dd50c` | `GETPeopleTimeOffResponse200DataItem` | `nested_only` |
+| `POST` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off` | `schema:anon/86b024495387b83bca8220b8ebe7ec2a433dd50c` | `GETPeopleTimeOffResponse200DataNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off` | `schema:anon/2c6affc08dbbbc9fbffc07a25df739698667b82a` | `GETPeopleTimeOffResponse400DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off/{time_off_id}` | `schema:anon/eb7382ec2648fb9971ab31ac90e324fd3a36a692` | `DELETEPeopleTimeOffResponse200DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off/{time_off_id}` | `schema:anon/2c6affc08dbbbc9fbffc07a25df739698667b82a` | `GETPeopleTimeOffResponse400DataObject` | `root` |
-| `GET` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off/{time_off_id}` | `schema:anon/86b024495387b83bca8220b8ebe7ec2a433dd50c` | `GETPeopleTimeOffResponse200DataItem` | `nested_only` |
+| `GET` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off/{time_off_id}` | `schema:anon/86b024495387b83bca8220b8ebe7ec2a433dd50c` | `GETPeopleTimeOffResponse200DataNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off/{time_off_id}` | `schema:anon/2c6affc08dbbbc9fbffc07a25df739698667b82a` | `GETPeopleTimeOffResponse400DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off/{time_off_id}` | `schema:anon/86b024495387b83bca8220b8ebe7ec2a433dd50c` | `GETPeopleTimeOffResponse200DataItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off/{time_off_id}` | `schema:anon/86b024495387b83bca8220b8ebe7ec2a433dd50c` | `GETPeopleTimeOffResponse200DataNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/workforce-planning/v2/companies/{company_id}/people/{person_id}/time-off/{time_off_id}` | `schema:anon/2c6affc08dbbbc9fbffc07a25df739698667b82a` | `GETPeopleTimeOffResponse400DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/time_and_material_timecards` | `schema:anon/5dcdfe9b5145f03cfd0d2ced97924c4a0c125f23` | `` | `missing` |
 | `GET` | `/rest/v1.0/projects/{project_id}/time_and_material_timecards` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -1795,19 +1795,19 @@
 | `GET` | `/rest/v1.0/tax_types` | `schema:anon/33b07d9dbd203ed4dc2c615181b8d3e011604f1d` | `` | `missing` |
 | `GET` | `/rest/v1.0/tax_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/tax_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/tax_types` | `schema:anon/5ecc691a2178101cc0a1a894ff98bcb29880441d` | `PATCHTaxTypesSyncResponse200EntitiesItem` | `nested_only` |
-| `POST` | `/rest/v1.0/tax_types` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `POSTTaxTypesResponse400DataObject` | `root` |
+| `POST` | `/rest/v1.0/tax_types` | `schema:anon/5ecc691a2178101cc0a1a894ff98bcb29880441d` | `GETTaxTypesResponse200NestedItem` | `nested_only` |
+| `POST` | `/rest/v1.0/tax_types` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `PATCHCalendarItemsSyncResponse200ErrorsNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/tax_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/tax_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5ecc691a2178101cc0a1a894ff98bcb29880441d` | `PATCHTaxTypesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5ecc691a2178101cc0a1a894ff98bcb29880441d` | `GETTaxTypesResponse200NestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5ecc691a2178101cc0a1a894ff98bcb29880441d` | `PATCHTaxTypesSyncResponse200EntitiesItem` | `nested_only` |
-| `PATCH` | `/rest/v1.0/tax_types/{id}` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `POSTTaxTypesResponse400DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5ecc691a2178101cc0a1a894ff98bcb29880441d` | `GETTaxTypesResponse200NestedItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/tax_types/{id}` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `PATCHCalendarItemsSyncResponse200ErrorsNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/tax_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/tax_types/sync` | `schema:anon/56d6287937ad0ac46bc1fdfca135da22041b3eea` | `PATCHTaxTypesSyncResponse200DataObject` | `root` |
@@ -1816,15 +1816,15 @@
 | `GET` | `/rest/v1.0/tax_codes` | `schema:anon/5ab413d1b975a60c9aa62905aac8ee33d6b27fbb` | `` | `missing` |
 | `GET` | `/rest/v1.0/tax_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/tax_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/tax_codes` | `schema:anon/52df9a976fb4b1864577c79124e0283f79ba8c49` | `PATCHTaxCodesSyncResponse200EntitiesItem` | `nested_only` |
-| `POST` | `/rest/v1.0/tax_codes` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `POSTTaxTypesResponse400DataObject` | `root` |
+| `POST` | `/rest/v1.0/tax_codes` | `schema:anon/52df9a976fb4b1864577c79124e0283f79ba8c49` | `GETTaxCodesResponse200NestedItem` | `nested_only` |
+| `POST` | `/rest/v1.0/tax_codes` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `PATCHCalendarItemsSyncResponse200ErrorsNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/tax_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/tax_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/52df9a976fb4b1864577c79124e0283f79ba8c49` | `PATCHTaxCodesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/52df9a976fb4b1864577c79124e0283f79ba8c49` | `GETTaxCodesResponse200NestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/52df9a976fb4b1864577c79124e0283f79ba8c49` | `PATCHTaxCodesSyncResponse200EntitiesItem` | `nested_only` |
-| `PATCH` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `POSTTaxTypesResponse400DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/52df9a976fb4b1864577c79124e0283f79ba8c49` | `GETTaxCodesResponse200NestedItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `PATCHCalendarItemsSyncResponse200ErrorsNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/tax_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/tax_codes/sync` | `schema:anon/633f4ff2dbc11d3541d2e5b8f21c7d0c32261cbf` | `PATCHTaxCodesSyncResponse200DataObject` | `root` |
@@ -1834,7 +1834,7 @@
 | `GET` | `/rest/v1.0/tasks` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/tasks` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/tasks` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/tasks` | `schema:anon/a4fa7777c9d50b8e09e9c82dda9059719efaa618` | `GETCalendarEventsResponse200TasksItem` | `nested_only` |
+| `POST` | `/rest/v1.0/tasks` | `schema:anon/a4fa7777c9d50b8e09e9c82dda9059719efaa618` | `GETCalendarEventsResponse200TasksNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/tasks` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/tasks` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/tasks` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -1848,11 +1848,11 @@
 | `DELETE` | `/rest/v1.0/tasks/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/tasks/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/tasks/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/tasks/{id}` | `schema:anon/a4fa7777c9d50b8e09e9c82dda9059719efaa618` | `GETCalendarEventsResponse200TasksItem` | `nested_only` |
+| `GET` | `/rest/v1.0/tasks/{id}` | `schema:anon/a4fa7777c9d50b8e09e9c82dda9059719efaa618` | `GETCalendarEventsResponse200TasksNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/tasks/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/tasks/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/tasks/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/tasks/{id}` | `schema:anon/a4fa7777c9d50b8e09e9c82dda9059719efaa618` | `GETCalendarEventsResponse200TasksItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/tasks/{id}` | `schema:anon/a4fa7777c9d50b8e09e9c82dda9059719efaa618` | `GETCalendarEventsResponse200TasksNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/tasks/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/tasks/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/tasks/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -2145,7 +2145,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/submittal_responses` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/submittal_responses` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/submittal_responses` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/submittal_responses` | `schema:anon/94ca6e850de21e5519119cd5d423d9300a396f12` | `PATCHSubmittalLogsCloseAndDistributeResponse200DistributedResponsesItemSubmittalResponse` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/submittal_responses` | `schema:anon/94ca6e850de21e5519119cd5d423d9300a396f12` | `PATCHSubmittalLogsCloseAndDistributeResponse200DistributedResponsesNestedItemSubmittalResponseItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/submittal_responses` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/submittal_responses` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/submittal_responses` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -2169,11 +2169,11 @@
 | `PATCH` | `/rest/v1.0/submittal_approvers/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/sub_jobs` | `schema:anon/f2ba908b580bd512d7b4f70d3c8fdaeb299a510c` | `` | `missing` |
 | `GET` | `/rest/v1.0/sub_jobs` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/sub_jobs` | `schema:anon/229af8c0e497a1de396824ecd8e0e29f8b4d8e5b` | `GETChangeOrderPackagesResponse200LineItemsItemMarkupLineItemsItemMarkupDestinationSubJob` | `nested_only` |
+| `POST` | `/rest/v1.0/sub_jobs` | `schema:anon/229af8c0e497a1de396824ecd8e0e29f8b4d8e5b` | `GETChangeOrderPackagesResponse200LineItemsNestedItemMarkupLineItemsItemNestedItemItemMarkupItemItemDestinationSubJobItemItem` | `nested_only` |
 | `POST` | `/rest/v1.0/sub_jobs` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/sub_jobs` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/sub_jobs/{id}` | `schema:anon/229af8c0e497a1de396824ecd8e0e29f8b4d8e5b` | `GETChangeOrderPackagesResponse200LineItemsItemMarkupLineItemsItemMarkupDestinationSubJob` | `nested_only` |
-| `PATCH` | `/rest/v1.0/sub_jobs/{id}` | `schema:anon/229af8c0e497a1de396824ecd8e0e29f8b4d8e5b` | `GETChangeOrderPackagesResponse200LineItemsItemMarkupLineItemsItemMarkupDestinationSubJob` | `nested_only` |
+| `GET` | `/rest/v1.0/sub_jobs/{id}` | `schema:anon/229af8c0e497a1de396824ecd8e0e29f8b4d8e5b` | `GETChangeOrderPackagesResponse200LineItemsNestedItemMarkupLineItemsItemNestedItemItemMarkupItemItemDestinationSubJobItemItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/sub_jobs/{id}` | `schema:anon/229af8c0e497a1de396824ecd8e0e29f8b4d8e5b` | `GETChangeOrderPackagesResponse200LineItemsNestedItemMarkupLineItemsItemNestedItemItemMarkupItemItemDestinationSubJobItemItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/sub_jobs/sync` | `schema:anon/3a0f7b2a1ea408eb0c3caf57a1702fc14a22bc1b` | `PATCHSubJobsSyncResponse200DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/sub_jobs/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/sub_jobs/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -2182,7 +2182,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/specification_uploads` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/specification_uploads` | `schema:anon/27030f6d5d4ce2fd88292b37dc814003e126ffab` | `POSTProjectsTaskItemCommentsResponse403DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/specification_uploads` | `schema:anon/7165e346a50b45c33c897ad1f5d8ab2baa128119` | `` | `missing` |
-| `POST` | `/rest/v1.0/projects/{project_id}/specification_uploads` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `POSTTaxTypesResponse400DataObject` | `root` |
+| `POST` | `/rest/v1.0/projects/{project_id}/specification_uploads` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `PATCHCalendarItemsSyncResponse200ErrorsNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/specification_uploads` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/specification_uploads` | `schema:anon/27030f6d5d4ce2fd88292b37dc814003e126ffab` | `POSTProjectsTaskItemCommentsResponse403DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/specification_uploads` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
@@ -2190,7 +2190,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/specification_sets` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/specification_sets` | `schema:anon/27030f6d5d4ce2fd88292b37dc814003e126ffab` | `POSTProjectsTaskItemCommentsResponse403DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/specification_sets` | `schema:anon/6284d7fddde31a8082272a47539d370e09e3ba34` | `` | `missing` |
-| `POST` | `/rest/v1.0/projects/{project_id}/specification_sets` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `POSTTaxTypesResponse400DataObject` | `root` |
+| `POST` | `/rest/v1.0/projects/{project_id}/specification_sets` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `PATCHCalendarItemsSyncResponse200ErrorsNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/specification_sets` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/specification_sets` | `schema:anon/27030f6d5d4ce2fd88292b37dc814003e126ffab` | `POSTProjectsTaskItemCommentsResponse403DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/specification_sets/{id}` | `schema:anon/6284d7fddde31a8082272a47539d370e09e3ba34` | `` | `missing` |
@@ -2277,7 +2277,7 @@
 | `GET` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
-| `POST` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `PATCHWbsCodesBulkCreateResponse201EntitiesItemSegmentItemsItem` | `nested_only` |
+| `POST` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `GETWorkBreakdownStructureWbsCodesResponse200NestedItemSegmentItemsItemNestedItemItem` | `nested_only` |
 | `POST` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -2296,11 +2296,11 @@
 | `DELETE` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `PATCHWbsCodesBulkCreateResponse201EntitiesItemSegmentItemsItem` | `nested_only` |
+| `GET` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `GETWorkBreakdownStructureWbsCodesResponse200NestedItemSegmentItemsItemNestedItemItem` | `nested_only` |
 | `GET` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `PATCHWbsCodesBulkCreateResponse201EntitiesItemSegmentItemsItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `GETWorkBreakdownStructureWbsCodesResponse200NestedItemSegmentItemsItemNestedItemItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
@@ -2309,7 +2309,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `PATCHWbsCodesBulkCreateResponse201EntitiesItemSegmentItemsItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `GETWorkBreakdownStructureWbsCodesResponse200NestedItemSegmentItemsItemNestedItemItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -2318,7 +2318,7 @@
 | `DELETE` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `PATCHWbsCodesBulkCreateResponse201EntitiesItemSegmentItemsItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/89d016886228f63fa0772725792f97691ac29a03` | `GETWorkBreakdownStructureWbsCodesResponse200NestedItemSegmentItemsItemNestedItemItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/segments/{segment_id}/segment_items/{id}` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
@@ -2958,7 +2958,7 @@
 | `GET` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `POST` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `POST` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -2971,7 +2971,7 @@
 | `GET` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `PATCH` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/purchase_order_contracts/{purchase_order_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -3033,7 +3033,7 @@
 | `POST` | `/rest/v1.1/punch_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.1/punch_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.1/punch_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.1/punch_items/add_punch_item_attachments` | `schema:anon/0fed82b2ab013163afe0e50420982438fd21bbb8` | `GETChangeOrderPackagesResponse200AttachmentsItem` | `nested_only` |
+| `POST` | `/rest/v1.1/punch_items/add_punch_item_attachments` | `schema:anon/0fed82b2ab013163afe0e50420982438fd21bbb8` | `GETChangeOrderPackagesResponse200AttachmentsNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.1/punch_items/add_punch_item_attachments` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.1/punch_items/add_punch_item_attachments` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.1/punch_items/send_all_unsent` | `schema:anon/bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f` | `` | `missing` |
@@ -3068,7 +3068,7 @@
 | `POST` | `/rest/v1.0/punch_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/punch_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/punch_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/punch_items/add_punch_item_attachments` | `schema:anon/0fed82b2ab013163afe0e50420982438fd21bbb8` | `GETChangeOrderPackagesResponse200AttachmentsItem` | `nested_only` |
+| `POST` | `/rest/v1.0/punch_items/add_punch_item_attachments` | `schema:anon/0fed82b2ab013163afe0e50420982438fd21bbb8` | `GETChangeOrderPackagesResponse200AttachmentsNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/punch_items/add_punch_item_attachments` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/punch_items/add_punch_item_attachments` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/punch_items/send_all_unsent` | `schema:anon/bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f` | `` | `missing` |
@@ -3274,7 +3274,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -3283,11 +3283,11 @@
 | `DELETE` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -3543,7 +3543,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/insurances` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/insurances` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -3552,11 +3552,11 @@
 | `DELETE` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -3592,7 +3592,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/vendors/inactive` | `schema:anon/43a6768c9ad5da03e2855c922f89401c16eae731` | `` | `missing` |
 | `GET` | `/rest/v1.0/projects/{project_id}/vendors/inactive` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/vendors/inactive` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/inactive/{id}` | `schema:anon/0f057c1000651e3f521b4e7c0b82db9c5751e02c` | `PATCHVendorsInactiveResponse200DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/inactive/{id}` | `schema:anon/0f057c1000651e3f521b4e7c0b82db9c5751e02c` | `` | `missing` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/inactive/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/inactive/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/vendors/inactive/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -3703,8 +3703,8 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/1f18a917e051819424e9587649612daa28282849` | `` | `missing` |
 | `GET` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/f9c772f6b568e8c36a5c3d3424193d7b97f2b6df` | `POSTProjectsDistributionGroupsResponse200DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/f9c772f6b568e8c36a5c3d3424193d7b97f2b6df` | `POSTProjectsDistributionGroupsResponse200DataObject` | `root` |
+| `POST` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/f9c772f6b568e8c36a5c3d3424193d7b97f2b6df` | `` | `missing` |
+| `POST` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/f9c772f6b568e8c36a5c3d3424193d7b97f2b6df` | `` | `missing` |
 | `POST` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/distribution_groups` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -3719,7 +3719,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/distribution_groups/{distribution_group_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/distribution_groups/{distribution_group_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/distribution_groups/{distribution_group_id}` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/distribution_groups/{distribution_group_id}` | `schema:anon/f9c772f6b568e8c36a5c3d3424193d7b97f2b6df` | `POSTProjectsDistributionGroupsResponse200DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/distribution_groups/{distribution_group_id}` | `schema:anon/f9c772f6b568e8c36a5c3d3424193d7b97f2b6df` | `` | `missing` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/distribution_groups/{distribution_group_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/distribution_groups/{distribution_group_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/distribution_groups/{distribution_group_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -4177,7 +4177,7 @@
 | `GET` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `POST` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `POST` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -4186,12 +4186,12 @@
 | `DELETE` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `GET` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `GET` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `PATCH` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/prime_contracts/{prime_contract_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -4230,7 +4230,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches` | `schema:anon/c5877dfe7bcefe7c31311e76ed67505bd94372ec` | `POSTProjectsPrimeChangeOrderBatchesResponse201DataObject` | `root` |
+| `POST` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches` | `schema:anon/c5877dfe7bcefe7c31311e76ed67505bd94372ec` | `` | `missing` |
 | `POST` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
@@ -4243,7 +4243,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches/{id}` | `schema:anon/c5877dfe7bcefe7c31311e76ed67505bd94372ec` | `POSTProjectsPrimeChangeOrderBatchesResponse201DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches/{id}` | `schema:anon/c5877dfe7bcefe7c31311e76ed67505bd94372ec` | `` | `missing` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/prime_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
@@ -4259,7 +4259,7 @@
 | `GET` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `POST` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `POST` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -4269,11 +4269,11 @@
 | `DELETE` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `GET` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `GET` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `POSTWorkOrderContractsLineItemsResponse201DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996` | `` | `missing` |
 | `PATCH` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/potential_change_orders/{potential_change_order_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -4291,9 +4291,9 @@
 | `POST` | `/rest/v1.0/potential_change_orders` | `schema:anon/a8058ff821356878dcd5ff5957a540b07b10965b` | `POSTPotentialChangeOrdersResponse201DataObject` | `root` |
 | `POST` | `/rest/v1.0/potential_change_orders` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/potential_change_orders` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/potential_change_orders/{id}` | `schema:anon/19d889477964ebcb768179e9f626d64c0a472fd6` | `PATCHPotentialChangeOrdersSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/potential_change_orders/{id}` | `schema:anon/19d889477964ebcb768179e9f626d64c0a472fd6` | `PATCHPotentialChangeOrdersSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/potential_change_orders/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/potential_change_orders/{id}` | `schema:anon/19d889477964ebcb768179e9f626d64c0a472fd6` | `PATCHPotentialChangeOrdersSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/potential_change_orders/{id}` | `schema:anon/19d889477964ebcb768179e9f626d64c0a472fd6` | `PATCHPotentialChangeOrdersSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/potential_change_orders/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/potential_change_orders/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/rfis/potential_assignees` | `schema:anon/cb8d438a766e4e987d5fdc7f89d89329cf1dada1` | `` | `missing` |
@@ -4752,12 +4752,12 @@
 | `PATCH` | `/rest/v1.1/projects/{project_id}/meeting_topics/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/meeting_topics/parent_minutes` | `schema:anon/f09c5569f1fc08935531d5d9d08b759d5c18d86b` | `` | `missing` |
 | `GET` | `/rest/v1.0/meeting_topics/parent_minutes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/meeting_topics` | `schema:anon/33c3025607f9cc4bbe90203cc14262281e57665d` | `POSTMeetingsResponse201MeetingCategoriesItemMeetingTopicItem` | `nested_only` |
+| `POST` | `/rest/v1.0/meeting_topics` | `schema:anon/33c3025607f9cc4bbe90203cc14262281e57665d` | `POSTMeetingsResponse201MeetingCategoriesNestedItemMeetingTopicItemNestedItemItem` | `nested_only` |
 | `POST` | `/rest/v1.0/meeting_topics` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/meeting_topics` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/meeting_topics` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/meeting_topics` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/meeting_topics/{id}` | `schema:anon/33c3025607f9cc4bbe90203cc14262281e57665d` | `POSTMeetingsResponse201MeetingCategoriesItemMeetingTopicItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/meeting_topics/{id}` | `schema:anon/33c3025607f9cc4bbe90203cc14262281e57665d` | `POSTMeetingsResponse201MeetingCategoriesNestedItemMeetingTopicItemNestedItemItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/meeting_topics/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/meeting_topics/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/meeting_topics/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -4989,7 +4989,7 @@
 | `GET` | `/rest/v1.0/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/locations` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `` | `missing` |
+| `POST` | `/rest/v1.0/locations` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `GETBimLevelsResponse200NestedItemNestedItem_3eeab2NestedItemLocationItem` | `nested_only` |
 | `POST` | `/rest/v1.0/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -4998,11 +4998,11 @@
 | `DELETE` | `/rest/v1.0/locations/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/locations/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/locations/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/locations/{id}` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `` | `missing` |
+| `GET` | `/rest/v1.0/locations/{id}` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `GETBimLevelsResponse200NestedItemNestedItem_3eeab2NestedItemLocationItem` | `nested_only` |
 | `GET` | `/rest/v1.0/locations/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/locations/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/locations/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/locations/{id}` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `` | `missing` |
+| `PATCH` | `/rest/v1.0/locations/{id}` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `GETBimLevelsResponse200NestedItemNestedItem_3eeab2NestedItemLocationItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/locations/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/locations/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/locations/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -5011,7 +5011,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/locations` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `` | `missing` |
+| `POST` | `/rest/v1.0/projects/{project_id}/locations` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `GETBimLevelsResponse200NestedItemNestedItem_3eeab2NestedItemLocationItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/locations` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -5020,17 +5020,17 @@
 | `DELETE` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `` | `missing` |
+| `GET` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `GETBimLevelsResponse200NestedItemNestedItem_3eeab2NestedItemLocationItem` | `nested_only` |
 | `GET` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `` | `missing` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `GETBimLevelsResponse200NestedItemNestedItem_3eeab2NestedItemLocationItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/locations/{location_id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/locations/find_or_create_by_path` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `` | `missing` |
-| `POST` | `/rest/v1.0/projects/{project_id}/locations/find_or_create_by_path` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `` | `missing` |
+| `POST` | `/rest/v1.0/projects/{project_id}/locations/find_or_create_by_path` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `GETBimLevelsResponse200NestedItemNestedItem_3eeab2NestedItemLocationItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/locations/find_or_create_by_path` | `schema:anon/385903840778eeb3059766f7cc52a14f019c665d` | `GETBimLevelsResponse200NestedItemNestedItem_3eeab2NestedItemLocationItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/locations/find_or_create_by_path` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/locations/find_or_create_by_path` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/locations/find_or_create_by_path` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -5066,16 +5066,16 @@
 | `GET` | `/rest/v1.0/line_item_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/line_item_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/line_item_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/line_item_types` | `schema:anon/2b16f1d37a6e318fa008e57062a3b593fa0a7f51` | `PATCHLineItemTypesSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/line_item_types` | `schema:anon/2b16f1d37a6e318fa008e57062a3b593fa0a7f51` | `PATCHLineItemTypesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/line_item_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/line_item_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/line_item_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/line_item_types` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/2b16f1d37a6e318fa008e57062a3b593fa0a7f51` | `PATCHLineItemTypesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/2b16f1d37a6e318fa008e57062a3b593fa0a7f51` | `PATCHLineItemTypesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/2b16f1d37a6e318fa008e57062a3b593fa0a7f51` | `PATCHLineItemTypesSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/2b16f1d37a6e318fa008e57062a3b593fa0a7f51` | `PATCHLineItemTypesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/line_item_types/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6247,7 +6247,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items` | `schema:anon/0b8eefe24f7bde2e62f03ac9e942084c12e592cf` | `PATCHLineItemsSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items` | `schema:anon/0b8eefe24f7bde2e62f03ac9e942084c12e592cf` | `PATCHLineItemsSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6265,11 +6265,11 @@
 | `DELETE` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/0b8eefe24f7bde2e62f03ac9e942084c12e592cf` | `PATCHLineItemsSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/0b8eefe24f7bde2e62f03ac9e942084c12e592cf` | `PATCHLineItemsSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/0b8eefe24f7bde2e62f03ac9e942084c12e592cf` | `PATCHLineItemsSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/0b8eefe24f7bde2e62f03ac9e942084c12e592cf` | `PATCHLineItemsSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/direct_costs/{direct_cost_id}/line_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6414,7 +6414,7 @@
 | `GET` | `/rest/v1.0/custom_field_definitions` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/custom_field_definitions` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/custom_field_definitions` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/custom_field_definitions/{id}` | `schema:anon/63c723fb83bb8674379dd40a0a581eb13e992a37` | `GETCustomFieldDefinitionsResponse200DataObject` | `root` |
+| `GET` | `/rest/v1.0/custom_field_definitions/{id}` | `schema:anon/63c723fb83bb8674379dd40a0a581eb13e992a37` | `` | `missing` |
 | `GET` | `/rest/v1.0/custom_field_definitions/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/custom_field_definitions/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/custom_field_definitions/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6426,7 +6426,7 @@
 | `GET` | `/rest/v1.0/custom_field_definitions/{custom_field_definition_id}/custom_field_lov_entries` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/custom_field_definitions/{custom_field_definition_id}/custom_field_lov_entries` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/custom_field_definitions/{custom_field_definition_id}/custom_field_lov_entries` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/custom_field_definitions/{custom_field_definition_id}/custom_field_lov_entries/{id}` | `schema:anon/ab04e1649bdcb9e6b1cc62d262a97afff0db80f8` | `GETCustomFieldDefinitionsResponse200CustomFieldLovEntriesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/custom_field_definitions/{custom_field_definition_id}/custom_field_lov_entries/{id}` | `schema:anon/ab04e1649bdcb9e6b1cc62d262a97afff0db80f8` | `` | `missing` |
 | `GET` | `/rest/v1.0/custom_field_definitions/{custom_field_definition_id}/custom_field_lov_entries/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/custom_field_definitions/{custom_field_definition_id}/custom_field_lov_entries/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/custom_field_definitions/{custom_field_definition_id}/custom_field_lov_entries/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6467,7 +6467,7 @@
 | `GET` | `/rest/v1.0/cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/cost_codes` | `schema:anon/88ecc10dd2b540f87216e2652b4007e369dbcea6` | `POSTWorkOrderContractsLineItemsResponse201CostCode` | `nested_only` |
+| `POST` | `/rest/v1.0/cost_codes` | `schema:anon/88ecc10dd2b540f87216e2652b4007e369dbcea6` | `` | `missing` |
 | `POST` | `/rest/v1.0/cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6477,11 +6477,11 @@
 | `POST` | `/rest/v1.0/cost_codes/copy_from_standard_list` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/cost_codes/copy_from_standard_list` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/cost_codes/copy_from_standard_list` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/88ecc10dd2b540f87216e2652b4007e369dbcea6` | `POSTWorkOrderContractsLineItemsResponse201CostCode` | `nested_only` |
+| `GET` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/88ecc10dd2b540f87216e2652b4007e369dbcea6` | `` | `missing` |
 | `GET` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/88ecc10dd2b540f87216e2652b4007e369dbcea6` | `POSTWorkOrderContractsLineItemsResponse201CostCode` | `nested_only` |
+| `PATCH` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/88ecc10dd2b540f87216e2652b4007e369dbcea6` | `` | `missing` |
 | `PATCH` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6518,21 +6518,21 @@
 | `GET` | `/rest/v1.0/standard_cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/standard_cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/standard_cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/standard_cost_codes` | `schema:anon/1d39282a2b8a822bd909ebb6340949391efab3be` | `PATCHStandardCostCodesSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/standard_cost_codes` | `schema:anon/1d39282a2b8a822bd909ebb6340949391efab3be` | `GETCommitmentsResponse200VendorVendor_93338eStandardCostCodesNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/standard_cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/standard_cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/standard_cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/standard_cost_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `DELETE` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/1d39282a2b8a822bd909ebb6340949391efab3be` | `PATCHStandardCostCodesSyncResponse200EntitiesItem` | `nested_only` |
+| `DELETE` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/1d39282a2b8a822bd909ebb6340949391efab3be` | `GETCommitmentsResponse200VendorVendor_93338eStandardCostCodesNestedItem` | `nested_only` |
 | `DELETE` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/1d39282a2b8a822bd909ebb6340949391efab3be` | `PATCHStandardCostCodesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/1d39282a2b8a822bd909ebb6340949391efab3be` | `GETCommitmentsResponse200VendorVendor_93338eStandardCostCodesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/1d39282a2b8a822bd909ebb6340949391efab3be` | `PATCHStandardCostCodesSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/1d39282a2b8a822bd909ebb6340949391efab3be` | `GETCommitmentsResponse200VendorVendor_93338eStandardCostCodesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/standard_cost_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6660,7 +6660,7 @@
 | `GET` | `/rest/v1.0/coordination_issues` | `schema:anon/a00de8e79ef827636265d81bb95afd662c9e1ae3` | `` | `missing` |
 | `GET` | `/rest/v1.0/coordination_issues` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/coordination_issues` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/coordination_issues` | `schema:anon/d58e023695cb091b4fe6b1e0461c70d37e70d2ed` | `PATCHCoordinationIssuesSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/coordination_issues` | `schema:anon/d58e023695cb091b4fe6b1e0461c70d37e70d2ed` | `GETCoordinationIssuesResponse200NestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/coordination_issues` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/coordination_issues` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/coordination_issues` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6669,11 +6669,11 @@
 | `DELETE` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/d58e023695cb091b4fe6b1e0461c70d37e70d2ed` | `PATCHCoordinationIssuesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/d58e023695cb091b4fe6b1e0461c70d37e70d2ed` | `GETCoordinationIssuesResponse200NestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/d58e023695cb091b4fe6b1e0461c70d37e70d2ed` | `PATCHCoordinationIssuesSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/d58e023695cb091b4fe6b1e0461c70d37e70d2ed` | `GETCoordinationIssuesResponse200NestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/coordination_issues/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6698,7 +6698,7 @@
 | `GET` | `/rest/v1.0/coordination_issues/recycle_bin` | `schema:anon/a00de8e79ef827636265d81bb95afd662c9e1ae3` | `` | `missing` |
 | `GET` | `/rest/v1.0/coordination_issues/recycle_bin` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/coordination_issues/recycle_bin` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/coordination_issues/recycle_bin/{id}` | `schema:anon/d58e023695cb091b4fe6b1e0461c70d37e70d2ed` | `PATCHCoordinationIssuesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/coordination_issues/recycle_bin/{id}` | `schema:anon/d58e023695cb091b4fe6b1e0461c70d37e70d2ed` | `GETCoordinationIssuesResponse200NestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/coordination_issues/recycle_bin/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/coordination_issues/recycle_bin/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/coordination_issues/recycle_bin/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6916,21 +6916,21 @@
 | `PATCH` | `/rest/v1.0/companies/{company_id}/concierge` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/concierge` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/concierge` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/0aba60ae7a6125cc82d556760b8f56e14b14b6a1` | `PATCHVendorsInactiveResponse200BusinessRegister` | `nested_only` |
+| `PATCH` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/0aba60ae7a6125cc82d556760b8f56e14b14b6a1` | `GETCommitmentsResponse200VendorVendor_93aa50BusinessRegister` | `nested_only` |
 | `PATCH` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `POSTTaxTypesResponse400DataObject` | `root` |
-| `POST` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/0aba60ae7a6125cc82d556760b8f56e14b14b6a1` | `PATCHVendorsInactiveResponse200BusinessRegister` | `nested_only` |
+| `PATCH` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `PATCHCalendarItemsSyncResponse200ErrorsNestedItem` | `nested_only` |
+| `POST` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/0aba60ae7a6125cc82d556760b8f56e14b14b6a1` | `GETCommitmentsResponse200VendorVendor_93aa50BusinessRegister` | `nested_only` |
 | `POST` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/9c3d43ab79291e4076906635a5e1fab673b7eba6` | `POSTVendorsBusinessRegisterResponse409DataObject` | `root` |
-| `POST` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `POSTTaxTypesResponse400DataObject` | `root` |
+| `POST` | `/rest/v1.0/vendors/{id}/business_register` | `schema:anon/7abdf4f55a4d2c36a8a9be6450ac089d3cedf818` | `PATCHCalendarItemsSyncResponse200ErrorsNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/vendors` | `schema:anon/750e5a4fe2a5441f8ad5dac10bce01ca3d5bee48` | `` | `missing` |
 | `GET` | `/rest/v1.0/vendors` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/vendors` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/vendors` | `schema:anon/69773db6838627a08703ab77cce0b372360b3968` | `PATCHVendorsSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/vendors` | `schema:anon/69773db6838627a08703ab77cce0b372360b3968` | `PATCHVendorsSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/vendors` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/vendors` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/vendors` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6942,7 +6942,7 @@
 | `GET` | `/rest/v1.0/vendors/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/vendors/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/vendors/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/vendors/{id}` | `schema:anon/69773db6838627a08703ab77cce0b372360b3968` | `PATCHVendorsSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/vendors/{id}` | `schema:anon/69773db6838627a08703ab77cce0b372360b3968` | `PATCHVendorsSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/vendors/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/vendors/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/vendors/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6951,7 +6951,7 @@
 | `GET` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -6960,11 +6960,11 @@
 | `DELETE` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/{vendor_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -7011,7 +7011,7 @@
 | `POST` | `/rest/v1.3/companies/{company_id}/users/bulk_remove` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.3/companies/{company_id}/users/bulk_remove` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.3/companies/{company_id}/users/bulk_remove` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.3/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.3/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.3/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.3/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.3/companies/{company_id}/users/{id}/invite` | `schema:anon/fe90370d99c36e53dbfa68b1b0c05276f22e4800` | `` | `missing` |
@@ -7033,7 +7033,7 @@
 | `PATCH` | `/rest/v1.2/companies/{company_id}/users/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.2/companies/{company_id}/users/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.2/companies/{company_id}/users/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.2/companies/{company_id}/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.2/companies/{company_id}/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.2/companies/{company_id}/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.2/companies/{company_id}/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.2/companies/{company_id}/users/{id}` | `schema:anon/42cf3e394ff6614a95c3364217b5b50f81abde7e` | `POSTCompaniesUsersResponse201DataObject` | `root` |
@@ -7071,7 +7071,7 @@
 | `PATCH` | `/rest/v1.1/companies/{company_id}/users/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.1/companies/{company_id}/users/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.1/companies/{company_id}/users/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.1/companies/{company_id}/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.1/companies/{company_id}/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.1/companies/{company_id}/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.1/companies/{company_id}/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.1/companies/{company_id}/users/{id}` | `schema:anon/42cf3e394ff6614a95c3364217b5b50f81abde7e` | `POSTCompaniesUsersResponse201DataObject` | `root` |
@@ -7090,7 +7090,7 @@
 | `POST` | `/rest/v1.1/companies/{company_id}/users/bulk_remove` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.1/companies/{company_id}/users/bulk_remove` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.1/companies/{company_id}/users/bulk_remove` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.1/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.1/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.1/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.1/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.1/companies/{company_id}/users/{id}/invite` | `schema:anon/fe90370d99c36e53dbfa68b1b0c05276f22e4800` | `` | `missing` |
@@ -7112,7 +7112,7 @@
 | `PATCH` | `/rest/v1.0/companies/{company_id}/users/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/users/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/users/sync` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/companies/{company_id}/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/companies/{company_id}/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/companies/{company_id}/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/users/{id}` | `schema:anon/42cf3e394ff6614a95c3364217b5b50f81abde7e` | `POSTCompaniesUsersResponse201DataObject` | `root` |
@@ -7128,7 +7128,7 @@
 | `POST` | `/rest/v1.0/users` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/users` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/users` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/users/{id}` | `schema:anon/a1e6901250192dbd1d71b8f55ca9c402eae85676` | `PATCHUsersSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/users/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/users/{id}/invite` | `schema:anon/fe90370d99c36e53dbfa68b1b0c05276f22e4800` | `` | `missing` |
@@ -7271,7 +7271,7 @@
 | `GET` | `/rest/v1.0/companies/{company_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/companies/{company_id}/insurances` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/companies/{company_id}/insurances` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/companies/{company_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/companies/{company_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/companies/{company_id}/insurances` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -7280,11 +7280,11 @@
 | `DELETE` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/ad4559875436b8dce5a25bfcdd0e6ce3b4bf4f3e` | `PATCHInsurancesSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/insurances/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -7341,7 +7341,7 @@
 | `GET` | `/rest/v1.0/companies/{company_id}/vendors/inactive` | `schema:anon/69762f9a4c9c43680e62647a5da514eda2a0cb33` | `` | `missing` |
 | `GET` | `/rest/v1.0/companies/{company_id}/vendors/inactive` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/vendors/inactive` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/inactive/{id}` | `schema:anon/69773db6838627a08703ab77cce0b372360b3968` | `PATCHVendorsSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/inactive/{id}` | `schema:anon/69773db6838627a08703ab77cce0b372360b3968` | `PATCHVendorsSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/inactive/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/inactive/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/vendors/inactive/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -7795,8 +7795,8 @@
 | `GET` | `/rest/v1.0/communication_tags` | `schema:anon/21879e47db4eb6fd06fb02ee799c4d93a9d74e24` | `` | `missing` |
 | `GET` | `/rest/v1.0/communication_tags` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/communication_tags` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/communication_tags` | `schema:anon/f8b9486a53e32c39830b29c25a26eee8720d0a1d` | `POSTCommunicationTagsResponse200DataObject` | `root` |
-| `POST` | `/rest/v1.0/communication_tags` | `schema:anon/f8b9486a53e32c39830b29c25a26eee8720d0a1d` | `POSTCommunicationTagsResponse200DataObject` | `root` |
+| `POST` | `/rest/v1.0/communication_tags` | `schema:anon/f8b9486a53e32c39830b29c25a26eee8720d0a1d` | `` | `missing` |
+| `POST` | `/rest/v1.0/communication_tags` | `schema:anon/f8b9486a53e32c39830b29c25a26eee8720d0a1d` | `` | `missing` |
 | `POST` | `/rest/v1.0/communication_tags` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/communication_tags` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/commitments` | `schema:anon/fb374d7275cc440d4ed0d05316ddab8702c533e6` | `` | `missing` |
@@ -7832,7 +7832,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -7843,11 +7843,11 @@
 | `DELETE` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsItem` | `nested_only` |
+| `GET` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -7857,7 +7857,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -7868,11 +7868,11 @@
 | `DELETE` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsItem` | `nested_only` |
+| `GET` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/bb67f90ba16f9980ee41dd627b46de3dd5d98483` | `GETWorkOrderContractsComplianceResponse200ComplianceDocumentsNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/purchase_order_contracts/{contract_id}/compliance_documents/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -7906,7 +7906,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches` | `schema:anon/aa78325d28d5c28b8492f3bee61d62db2e9abccd` | `POSTProjectsCommitmentChangeOrderBatchesResponse201DataObject` | `root` |
+| `POST` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches` | `schema:anon/aa78325d28d5c28b8492f3bee61d62db2e9abccd` | `` | `missing` |
 | `POST` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
@@ -7919,7 +7919,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches/{id}` | `schema:anon/aa78325d28d5c28b8492f3bee61d62db2e9abccd` | `POSTProjectsCommitmentChangeOrderBatchesResponse201DataObject` | `root` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches/{id}` | `schema:anon/aa78325d28d5c28b8492f3bee61d62db2e9abccd` | `` | `missing` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/commitment_change_order_batches/{id}` | `schema:anon/6ac5b0992860452da4dae2cd26ae5e254d3ad712` | `GETProjectsResponsedefaultDataObject` | `root` |
@@ -7929,7 +7929,7 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes` | `schema:anon/236e884b00ef1902e4c9ff53f80270a4e7ab0395` | `PATCHWbsCodesBulkCreateResponse201EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes` | `schema:anon/236e884b00ef1902e4c9ff53f80270a4e7ab0395` | `GETWorkBreakdownStructureWbsCodesResponse200NestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -7943,7 +7943,7 @@
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes/update_all` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes/update_all` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes/update_all` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes/{id}` | `schema:anon/236e884b00ef1902e4c9ff53f80270a4e7ab0395` | `PATCHWbsCodesBulkCreateResponse201EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes/{id}` | `schema:anon/236e884b00ef1902e4c9ff53f80270a4e7ab0395` | `GETWorkBreakdownStructureWbsCodesResponse200NestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/work_breakdown_structure/wbs_codes/{id}` | `schema:anon/1fafd09ee49cbff8f293d8979d99fe5df626373d` | `PATCHWorkOrderContractsSubcontractorScheduleOfValuesStatusResponse404DataObject` | `root` |
@@ -8331,9 +8331,9 @@
 | `POST` | `/rest/v1.0/change_order_requests` | `schema:anon/4700d348d3a7729d2d7aa89cd1db6c13da7305d4` | `POSTChangeOrderRequestsResponse201DataObject` | `root` |
 | `POST` | `/rest/v1.0/change_order_requests` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/change_order_requests` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/change_order_requests/{id}` | `schema:anon/c18c14b0d267c5ececc3b5794d19058f58a107a7` | `PATCHChangeOrderRequestsSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/change_order_requests/{id}` | `schema:anon/c18c14b0d267c5ececc3b5794d19058f58a107a7` | `PATCHChangeOrderRequestsSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/change_order_requests/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/change_order_requests/{id}` | `schema:anon/c18c14b0d267c5ececc3b5794d19058f58a107a7` | `PATCHChangeOrderRequestsSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/change_order_requests/{id}` | `schema:anon/c18c14b0d267c5ececc3b5794d19058f58a107a7` | `PATCHChangeOrderRequestsSyncResponse200EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/change_order_requests/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/change_order_requests/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/change_order_packages` | `schema:anon/4ece5f89a3152c789a1211c071a11c3598a52b62` | `` | `missing` |
@@ -8440,19 +8440,19 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/e5e7439c46fced1b1ef1693e7c7e7934b7fb8a8a` | `` | `missing` |
 | `GET` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/0bcc55bf3544766c66788d49c7331f543978dffb` | `PATCHCalendarItemsSyncResponse200EntitiesItem` | `nested_only` |
-| `POST` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/0bcc55bf3544766c66788d49c7331f543978dffb` | `PATCHCalendarItemsSyncResponse200EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/0bcc55bf3544766c66788d49c7331f543978dffb` | `GETScheduleCalendarItemsResponse200NestedItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/0bcc55bf3544766c66788d49c7331f543978dffb` | `GETScheduleCalendarItemsResponse200NestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/0bcc55bf3544766c66788d49c7331f543978dffb` | `PATCHCalendarItemsSyncResponse200EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/0bcc55bf3544766c66788d49c7331f543978dffb` | `GETScheduleCalendarItemsResponse200NestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/0bcc55bf3544766c66788d49c7331f543978dffb` | `PATCHCalendarItemsSyncResponse200EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/0bcc55bf3544766c66788d49c7331f543978dffb` | `GETScheduleCalendarItemsResponse200NestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/schedule/calendar_items/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -8686,7 +8686,7 @@
 | `GET` | `/rest/v1.0/bim_plans` | `schema:anon/eba2dbb6633f881da2f193ca6c3f614341529e96` | `` | `missing` |
 | `GET` | `/rest/v1.0/bim_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/bim_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/bim_plans` | `schema:anon/b1657c075aa4e7bb5f4e82d4633261c0cf192654` | `POSTBimPlansBatchResponse200BimPlansItem` | `nested_only` |
+| `POST` | `/rest/v1.0/bim_plans` | `schema:anon/b1657c075aa4e7bb5f4e82d4633261c0cf192654` | `GETBimModelRevisionPlansResponse200NestedItemNestedItem_402d96BimPlanItem` | `nested_only` |
 | `POST` | `/rest/v1.0/bim_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/bim_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/bim_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -8695,11 +8695,11 @@
 | `DELETE` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/b1657c075aa4e7bb5f4e82d4633261c0cf192654` | `POSTBimPlansBatchResponse200BimPlansItem` | `nested_only` |
+| `GET` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/b1657c075aa4e7bb5f4e82d4633261c0cf192654` | `GETBimModelRevisionPlansResponse200NestedItemNestedItem_402d96BimPlanItem` | `nested_only` |
 | `GET` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/b1657c075aa4e7bb5f4e82d4633261c0cf192654` | `POSTBimPlansBatchResponse200BimPlansItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/b1657c075aa4e7bb5f4e82d4633261c0cf192654` | `GETBimModelRevisionPlansResponse200NestedItemNestedItem_402d96BimPlanItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/bim_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -8780,7 +8780,7 @@
 | `GET` | `/rest/v1.0/bim_model_revision_plans` | `schema:anon/1aaad1aab1e755ef60824acdf7b2b64d9f19d4bd` | `` | `missing` |
 | `GET` | `/rest/v1.0/bim_model_revision_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/bim_model_revision_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/bim_model_revision_plans` | `schema:anon/14b0f6dcd7d20af5bfb43774a12274f29ff628b7` | `POSTBimModelRevisionPlansBatchResponse200BimModelRevisionPlansItem` | `nested_only` |
+| `POST` | `/rest/v1.0/bim_model_revision_plans` | `schema:anon/14b0f6dcd7d20af5bfb43774a12274f29ff628b7` | `GETBimModelRevisionPlansResponse200NestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/bim_model_revision_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/bim_model_revision_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/bim_model_revision_plans` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -8789,7 +8789,7 @@
 | `DELETE` | `/rest/v1.0/bim_model_revision_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/bim_model_revision_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/bim_model_revision_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/bim_model_revision_plans/{id}` | `schema:anon/14b0f6dcd7d20af5bfb43774a12274f29ff628b7` | `POSTBimModelRevisionPlansBatchResponse200BimModelRevisionPlansItem` | `nested_only` |
+| `GET` | `/rest/v1.0/bim_model_revision_plans/{id}` | `schema:anon/14b0f6dcd7d20af5bfb43774a12274f29ff628b7` | `GETBimModelRevisionPlansResponse200NestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/bim_model_revision_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/bim_model_revision_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/bim_model_revision_plans/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -8815,7 +8815,7 @@
 | `GET` | `/rest/v1.0/bim_levels` | `schema:anon/4817a27db19881ce96c13dee3c049f021dd2899a` | `` | `missing` |
 | `GET` | `/rest/v1.0/bim_levels` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/bim_levels` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/bim_levels` | `schema:anon/33d2f313b33eeb6d4a8c82e44d6e5237277c322f` | `POSTBimLevelsBatchResponse200BimLevelsItem` | `nested_only` |
+| `POST` | `/rest/v1.0/bim_levels` | `schema:anon/33d2f313b33eeb6d4a8c82e44d6e5237277c322f` | `GETBimLevelsResponse200NestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/bim_levels` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/bim_levels` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/bim_levels` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -8824,11 +8824,11 @@
 | `DELETE` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/33d2f313b33eeb6d4a8c82e44d6e5237277c322f` | `POSTBimLevelsBatchResponse200BimLevelsItem` | `nested_only` |
+| `GET` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/33d2f313b33eeb6d4a8c82e44d6e5237277c322f` | `GETBimLevelsResponse200NestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/33d2f313b33eeb6d4a8c82e44d6e5237277c322f` | `POSTBimLevelsBatchResponse200BimLevelsItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/33d2f313b33eeb6d4a8c82e44d6e5237277c322f` | `GETBimLevelsResponse200NestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/bim_levels/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -9100,10 +9100,10 @@
 | `DELETE` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d` | `GETCalendarEventsResponse200TasksItemCreatedBy` | `nested_only` |
+| `GET` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d` | `GETCalendarEventsResponse200TasksNestedItemCreatedByItem` | `nested_only` |
 | `GET` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d` | `GETCalendarEventsResponse200TasksItemCreatedBy` | `nested_only` |
+| `PATCH` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d` | `GETCalendarEventsResponse200TasksNestedItemCreatedByItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/companies/{company_id}/incidents/severity_levels/{severity_level_id}/alert_recipients/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -9164,19 +9164,19 @@
 | `GET` | `/rest/v1.0/projects/{project_id}/actual_production_quantities` | `schema:anon/6f59021dd50044e9e95cfd980bd2224601fef4b4` | `` | `missing` |
 | `GET` | `/rest/v1.0/projects/{project_id}/actual_production_quantities` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/actual_production_quantities` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `POST` | `/rest/v1.0/projects/{project_id}/actual_production_quantities` | `schema:anon/1f279f4568d75463ab688146afdeeb6d2b8caa12` | `POSTActualProductionQuantitiesBulkCreateResponse201EntitiesItem` | `nested_only` |
+| `POST` | `/rest/v1.0/projects/{project_id}/actual_production_quantities` | `schema:anon/1f279f4568d75463ab688146afdeeb6d2b8caa12` | `POSTActualProductionQuantitiesBulkCreateResponse201EntitiesNestedItem` | `nested_only` |
 | `POST` | `/rest/v1.0/projects/{project_id}/actual_production_quantities` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/actual_production_quantities` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `POST` | `/rest/v1.0/projects/{project_id}/actual_production_quantities` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `DELETE` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/1f279f4568d75463ab688146afdeeb6d2b8caa12` | `POSTActualProductionQuantitiesBulkCreateResponse201EntitiesItem` | `nested_only` |
+| `DELETE` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/1f279f4568d75463ab688146afdeeb6d2b8caa12` | `POSTActualProductionQuantitiesBulkCreateResponse201EntitiesNestedItem` | `nested_only` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `DELETE` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `GET` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/1f279f4568d75463ab688146afdeeb6d2b8caa12` | `POSTActualProductionQuantitiesBulkCreateResponse201EntitiesItem` | `nested_only` |
+| `GET` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/1f279f4568d75463ab688146afdeeb6d2b8caa12` | `POSTActualProductionQuantitiesBulkCreateResponse201EntitiesNestedItem` | `nested_only` |
 | `GET` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `GET` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
-| `PATCH` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/1f279f4568d75463ab688146afdeeb6d2b8caa12` | `POSTActualProductionQuantitiesBulkCreateResponse201EntitiesItem` | `nested_only` |
+| `PATCH` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/1f279f4568d75463ab688146afdeeb6d2b8caa12` | `POSTActualProductionQuantitiesBulkCreateResponse201EntitiesNestedItem` | `nested_only` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
 | `PATCH` | `/rest/v1.0/projects/{project_id}/actual_production_quantities/{id}` | `schema:anon/5c7031bd9524eec7b2d7c632c27c7b84d2fc11c0` | `GETWorkOrderContractsResponse401DataObject` | `root` |
@@ -9686,6 +9686,7 @@
 - `schema:anon/0c9271d0788535bef9cb87ff09b8564b5b45f7e3`
 - `schema:anon/0cd5041d9173d92f6c782281a7403b9e6d681dc1`
 - `schema:anon/0e620c9e9f0fde9c200045e654e3ffe421c5d5f5`
+- `schema:anon/0f057c1000651e3f521b4e7c0b82db9c5751e02c`
 - `schema:anon/0f5edfefe35773589e38fca24238d6cb72090c65`
 - `schema:anon/0f6aee8df66b2482410daae9a16686107aa3b9ec`
 - `schema:anon/0fcdbd2d18ef2cfcf5947d3675e152bd80ffafc5`
@@ -9810,7 +9811,6 @@
 - `schema:anon/37f3bcc44316555e0d4d22daa12b5f16e6c65ab1`
 - `schema:anon/385566fb545c5b3775d2d727ad92d33479a5c06e`
 - `schema:anon/3858a153124a3f165154a1cb94136a68a9728222`
-- `schema:anon/385903840778eeb3059766f7cc52a14f019c665d`
 - `schema:anon/386a8a3219e4af2592f1d6dd86d4cf6de6d1ea50`
 - `schema:anon/38e7204e018a01bcd6ada8f9dcf86ff7d99f462d`
 - `schema:anon/39101246f8f088bc7794113169690ad2dbc7e81c`
@@ -9960,6 +9960,7 @@
 - `schema:anon/6284d7fddde31a8082272a47539d370e09e3ba34`
 - `schema:anon/63804703c684798c57d5d76e51a97e866089f745`
 - `schema:anon/63833a8069844e5c42bc5ccf1b3b829db0bbed35`
+- `schema:anon/63c723fb83bb8674379dd40a0a581eb13e992a37`
 - `schema:anon/640e22de09f8ca721fff142d4c9d8187d8126f91`
 - `schema:anon/642ea45d87a42b1e990b95c4ea0635cc56cf8328`
 - `schema:anon/64e62ea87fe959a426baa72ad3cee1820d32aa8e`
@@ -10094,6 +10095,7 @@
 - `schema:anon/88bbc041c22eede318b4982f5efda7275a2897dc`
 - `schema:anon/88c549e9ec5cc76d82dafc7a2a1c0e750f0af786`
 - `schema:anon/88ca243ca71be7a38a4f4fb813b52fc55970cec2`
+- `schema:anon/88ecc10dd2b540f87216e2652b4007e369dbcea6`
 - `schema:anon/8997f7b468d57ba64b9a108904b6a7444d5158be`
 - `schema:anon/8999ae8b2693eb66dcd93b7cd58ecdc1a9bba876`
 - `schema:anon/8a064dbbce397365bc9befc415a173cf59416ac5`
@@ -10197,7 +10199,9 @@
 - `schema:anon/a82e34a4df009e5330018c7d55dc7c6621306b1b`
 - `schema:anon/a8793a3e5361689d40efe219aad46a52637e8244`
 - `schema:anon/aa3b1091ffb6cda2403aeb046ec7cce860f76895`
+- `schema:anon/aa78325d28d5c28b8492f3bee61d62db2e9abccd`
 - `schema:anon/aaa9a12a9386e8c4c3040aa38cb71c9abcda81a5`
+- `schema:anon/ab04e1649bdcb9e6b1cc62d262a97afff0db80f8`
 - `schema:anon/ab32e28bda60fb0c6f0ae937efe42f043672f796`
 - `schema:anon/ab6458a0a354fa3cf95096ce854555ffc0ee9833`
 - `schema:anon/abce539582223e661a4bab053aeb1d4f81de6613`
@@ -10240,6 +10244,7 @@
 - `schema:anon/b69b6f3809561472048960e2d34df3da4296500d`
 - `schema:anon/b6cfb38f039d7d31449f627cbddb4c2e81e6ce7d`
 - `schema:anon/b72fb19b9f3335c99450d26b7108cbd0f3028195`
+- `schema:anon/b81b1760f91d4e0c5c27b203e99cf6f7a447b996`
 - `schema:anon/b8916486b44274ae723451898434ddd9d09e5753`
 - `schema:anon/b9059c28fc6246a6529cd6b9e60aab925320c84e`
 - `schema:anon/b95b41e6c3edd72d9588679e2325593fc2013c58`
@@ -10286,6 +10291,7 @@
 - `schema:anon/c4290e7af11c957ec551117d7840ce9abc41d607`
 - `schema:anon/c5427f80243ab90492b9571b6d093e09f5c4a230`
 - `schema:anon/c56ae44fbd300caa9f150427e4621521846cb910`
+- `schema:anon/c5877dfe7bcefe7c31311e76ed67505bd94372ec`
 - `schema:anon/c5e73e026367ab6549962fdff4dd0abe5cc46849`
 - `schema:anon/c61f7badf44de268917a3bd88423d5ab69c4e6e0`
 - `schema:anon/c6248fb270267454d2cc8ccee511e7ce587b44d2`
@@ -10436,9 +10442,11 @@
 - `schema:anon/f70a2b9fee334c9d7d49fddc42f8ea6eb4a3ec8e`
 - `schema:anon/f74707632ca0a07b4bca202b320049a54034011a`
 - `schema:anon/f81c9fc3300b31547504464516607d040739af8a`
+- `schema:anon/f8b9486a53e32c39830b29c25a26eee8720d0a1d`
 - `schema:anon/f9117458b12fdb99fa0b3eb66a32830a1a06e34b`
 - `schema:anon/f93e7f83edc0cf7b60ace050c1c0f6bc81f35959`
 - `schema:anon/f95ced381ee3b8e66bf0fc8426184ad81eb8805d`
+- `schema:anon/f9c772f6b568e8c36a5c3d3424193d7b97f2b6df`
 - `schema:anon/fa8d5b9bfd1261da0d888d344ad007912f25e486`
 - `schema:anon/fab41a64ef981d3ecc854fd29978c0d3fea0bd12`
 - `schema:anon/fb1df47aea1fc9d807da0ba303d3fa208a6e3b5f`

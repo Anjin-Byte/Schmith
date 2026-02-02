@@ -10,7 +10,7 @@
 | Field | Type |
 |------|------|
 | `slug` | `string` |
-| `localized_tags` | `KbLocalizedTagsLocalizedTagsItem[]` |
+| `localized_tags` | `KbLocalizedTagsLocalizedTagsNestedItem[]` |
 | `localized_search_keywords` | `LocalizedString[]` |
 | `featured_on_employee_homepage` | `bool` |
 | `once_on_employee_homepage` | `bool` |
@@ -23,17 +23,17 @@
 | `accessible_by_hr` | `bool` |
 | `accessible_by_employee` | `bool` |
 | `employees_perimeters` | `EmployeesPerimeterBase[]` |
-| `role_restrictions` | `KbArticleBaseRoleRestrictionsItem[]` |
+| `role_restrictions` | `KbArticleBaseRoleRestrictionsNestedItem[]` |
 
 ### Nested Types
 - `CustomFieldFilterRule`
-- `CustomFieldFilterRuleOperator`
+- `CustomFieldFilterRuleOperatorItemItem`
 - `EmployeesPerimeterBase`
-- `EmployeesPerimeterBaseOperator`
-- `KbArticleBaseRoleRestrictionsItem`
+- `EmployeesPerimeterBaseOperatorItem`
+- `KbArticleBaseRoleRestrictionsNestedItem`
 - `KbArticleBaseStatus`
 - `KbArticleVersion`
-- `KbLocalizedTagsLocalizedTagsItem`
+- `KbLocalizedTagsLocalizedTagsNestedItem`
 - `LocalizedString`
 
 ## CustomFieldFilterRule
@@ -48,13 +48,13 @@
 | Field | Type |
 |------|------|
 | `custom_field_id` | `string` |
-| `operator` | `CustomFieldFilterRuleOperator` |
+| `operator` | `CustomFieldFilterRuleOperatorItemItem` |
 | `value` | `string` |
 
-## CustomFieldFilterRuleOperator
+## CustomFieldFilterRuleOperatorItemItem
 - Role: nested
 - Parent: KbArticleUpdatePayloadDataObject
-- Schema Name: CustomFieldFilterRuleOperator
+- Schema Name: CustomFieldFilterRuleOperatorItemItem
 - Schema ID: schema:anon/b89353968483881566a17091aa85441d29825efb
 
 ### Enum
@@ -72,25 +72,25 @@ Values: =, !=, <=, <, >=, >
 
 | Field | Type |
 |------|------|
-| `operator` | `EmployeesPerimeterBaseOperator` |
+| `operator` | `EmployeesPerimeterBaseOperatorItem` |
 | `organization_id` | `string` |
 | `organization_group_id` | `string` |
 | `custom_field_filters` | `CustomFieldFilterRule[]` |
 
-## EmployeesPerimeterBaseOperator
+## EmployeesPerimeterBaseOperatorItem
 - Role: nested
 - Parent: KbArticleUpdatePayloadDataObject
-- Schema Name: EmployeesPerimeterBaseOperator
+- Schema Name: EmployeesPerimeterBaseOperatorItem
 - Schema ID: schema:anon/62bc992a0d5496dc75fdaeee1de43be7a94f91c1
 
 ### Enum
 
 Values: =, <=
 
-## KbArticleBaseRoleRestrictionsItem
+## KbArticleBaseRoleRestrictionsNestedItem
 - Role: nested
 - Parent: KbArticleUpdatePayloadDataObject
-- Schema Name: KbArticleBaseRoleRestrictionsItem
+- Schema Name: KbArticleBaseRoleRestrictionsNestedItem
 - Schema ID: schema:anon/cbcd60e0defd1088b9363273e505c0249931d345
 - Primary Key: RoleId
 
@@ -131,10 +131,10 @@ Values: published, draft, scheduled
 | `created_at` | `string` |
 | `updated_at` | `string` |
 
-## KbLocalizedTagsLocalizedTagsItem
+## KbLocalizedTagsLocalizedTagsNestedItem
 - Role: nested
 - Parent: KbArticleUpdatePayloadDataObject
-- Schema Name: KbLocalizedTagsLocalizedTagsItem
+- Schema Name: KbLocalizedTagsLocalizedTagsNestedItem
 - Schema ID: schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a
 
 ### Fields

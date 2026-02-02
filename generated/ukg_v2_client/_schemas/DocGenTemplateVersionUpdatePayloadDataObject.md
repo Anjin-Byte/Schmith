@@ -20,7 +20,7 @@
 - `DocGenTemplateVersionUpdatePayloadSyntaxVersion`
 - `FragmentFieldsetField`
 - `GenerationInfo`
-- `GenerationInfoSeverity`
+- `GenerationInfoSeverityItem`
 - `OutputFormatPatchRequest`
 - `OutputFormatPatchRequestFormat`
 
@@ -71,12 +71,12 @@ Values: V1, V2
 | `code` | `string` |
 | `field` | `string` |
 | `message` | `string` |
-| `severity` | `GenerationInfoSeverity` |
+| `severity` | `GenerationInfoSeverityItem` |
 
-## GenerationInfoSeverity
+## GenerationInfoSeverityItem
 - Role: nested
 - Parent: DocGenTemplateVersionUpdatePayloadDataObject
-- Schema Name: GenerationInfoSeverity
+- Schema Name: GenerationInfoSeverityItem
 - Schema ID: schema:anon/4bc512f0c93de388afdbd8a134f1b285fb86a137
 
 ### Enum

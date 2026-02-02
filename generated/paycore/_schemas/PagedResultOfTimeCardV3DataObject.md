@@ -53,3 +53,4 @@
 | `earningCode` | `string` |
 | `estimatedGrossPay` | `double` |
 | `laborCodes` | `LaborCodeV2[]` |
+| `employeeNumber` | `int` |

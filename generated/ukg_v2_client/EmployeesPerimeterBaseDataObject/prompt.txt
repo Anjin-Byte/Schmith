@@ -51,7 +51,7 @@ PAGING:
   Total fields: 4
   All field names: operator, organization_id, organization_group_id, custom_field_filters
 
-NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBaseOperator
+NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItem, EmployeesPerimeterBaseOperator
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -157,14 +157,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 4
   Parent Field Names: operator, organization_id, organization_group_id, custom_field_filters
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBaseOperator
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItem, EmployeesPerimeterBaseOperator
 
 FIELDS (this page):
 ----------------------------------------
   custom_field_id: string [required]
     Description: `ID` of the Custom Field used in the Filter
 
-  operator: CustomFieldFilterRuleOperator [required]
+  operator: CustomFieldFilterRuleOperatorItem [required]
     Description: Operator used to filter the values of the Custom Field:
 "=" and "!=" can be used for any type of custom fields;
 "<=", "<", ">" and ">=" are only allowed for custom fields of type `integer`
@@ -187,7 +187,7 @@ public class CustomFieldFilterRule
 }
 
 ================================================================================
-CustomFieldFilterRuleOperator (nested) page 1/1
+CustomFieldFilterRuleOperatorItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -221,12 +221,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `CustomFieldFilterRuleOperator`.
+- Return ONLY the class declaration for `CustomFieldFilterRuleOperatorItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: CustomFieldFilterRuleOperator (CustomFieldFilterRuleOperator)
+SCHEMA: CustomFieldFilterRuleOperatorItem (CustomFieldFilterRuleOperatorItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/b89353968483881566a17091aa85441d29825efb
@@ -252,14 +252,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 4
   Parent Field Names: operator, organization_id, organization_group_id, custom_field_filters
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBaseOperator
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItem, EmployeesPerimeterBaseOperator
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class CustomFieldFilterRuleOperator
+public class CustomFieldFilterRuleOperatorItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -332,7 +332,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 4
   Parent Field Names: operator, organization_id, organization_group_id, custom_field_filters
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBaseOperator
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItem, EmployeesPerimeterBaseOperator
 
 FIELDS (this page):
 ----------------------------------------

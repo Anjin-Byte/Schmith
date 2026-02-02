@@ -50,7 +50,7 @@ PAGING:
   Total fields: 2
   All field names: application_name, resources
 
-NESTED TYPES: EventActionFilterComputedFieldsResourcesItem
+NESTED TYPES: EventActionFilterComputedFieldsResourcesNestedItem
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -58,7 +58,7 @@ FIELDS (this page):
   application_name: string? [nullable]
     Description: code name of an application
 
-  resources: EventActionFilterComputedFieldsResourcesItem[]? [nullable]
+  resources: EventActionFilterComputedFieldsResourcesNestedItem[]? [nullable]
     Description: list of resource types for an application
 
 
@@ -83,7 +83,7 @@ public class {ClassName}
 }
 
 ================================================================================
-EventActionFilterComputedFieldsResourcesItem (nested) page 1/1
+EventActionFilterComputedFieldsResourcesNestedItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -117,12 +117,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `EventActionFilterComputedFieldsResourcesItem`.
+- Return ONLY the class declaration for `EventActionFilterComputedFieldsResourcesNestedItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: EventActionFilterComputedFieldsResourcesItem (EventActionFilterComputedFieldsResourcesItem)
+SCHEMA: EventActionFilterComputedFieldsResourcesNestedItem (EventActionFilterComputedFieldsResourcesNestedItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/6790023f2eeabfd26706286439c8b415fa6f8a7c
@@ -141,7 +141,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: application_name, resources
-  Parent Nested Types: EventActionFilterComputedFieldsResourcesItem
+  Parent Nested Types: EventActionFilterComputedFieldsResourcesNestedItem
 
 FIELDS (this page):
 ----------------------------------------
@@ -154,7 +154,7 @@ FIELDS (this page):
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class EventActionFilterComputedFieldsResourcesItem
+public class EventActionFilterComputedFieldsResourcesNestedItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]

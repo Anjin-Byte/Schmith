@@ -23,7 +23,7 @@
 
 ### Nested Types
 - `Organization`
-- `OrganizationOperator`
+- `OrganizationOperatorItemItem`
 - `ProcessTemplateCreatedBy`
 - `ProcessTemplateCreatedByOrigin`
 - `ProcessTemplateRestriction`
@@ -42,12 +42,12 @@
 | Field | Type |
 |------|------|
 | `id` | `string` |
-| `operator` | `OrganizationOperator` |
+| `operator` | `OrganizationOperatorItemItem` |
 
-## OrganizationOperator
+## OrganizationOperatorItemItem
 - Role: nested
 - Parent: ProcessTemplateDataObject
-- Schema Name: OrganizationOperator
+- Schema Name: OrganizationOperatorItemItem
 - Schema ID: schema:anon/194956ec5ec1aa6b913c3da0fea7e3642f6f7534
 
 ### Enum

@@ -19,9 +19,25 @@
 | `metadata` | `MetaDataBase[]` |
 | `external_reference` | `string` |
 | `external_reference_is_unique` | `bool` |
+| `uploaded_file` | `DocumentFileId` |
 
 ### Nested Types
+- `DocumentFileId`
 - `MetaDataBase`
+
+## DocumentFileId
+- Role: nested
+- Parent: EmployeeDocumentCreatePayloadDataObject
+- Schema Name: DocumentFileId
+- Schema ID: schema:definitions/DocumentFileId
+- Primary Key: FileId
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `filename` | `string` |
+| `file_id` | `string` |
 
 ## MetaDataBase
 - Role: nested

@@ -16,14 +16,14 @@
 
 ### Nested Types
 - `FormidableConditionalRule`
-- `FormidableConditionalRuleAction`
+- `FormidableConditionalRuleActionItem`
 - `FormidableConditionalRuleTest`
-- `FormidableConditionalRuleTestOperator`
+- `FormidableConditionalRuleTestOperatorItemItem`
 - `FormidableField`
 - `FormidableFieldItems`
-- `FormidableFieldTypeId`
+- `FormidableFieldTypeIdItem`
 - `FormidableFieldValidation`
-- `FormidableFieldValidationType`
+- `FormidableFieldValidationTypeItemItem`
 
 ## FormidableConditionalRule
 - Role: nested
@@ -36,13 +36,13 @@
 | Field | Type |
 |------|------|
 | `fields_ids` | `string[]` |
-| `action` | `FormidableConditionalRuleAction` |
+| `action` | `FormidableConditionalRuleActionItem` |
 | `tests` | `FormidableConditionalRuleTest[]` |
 
-## FormidableConditionalRuleAction
+## FormidableConditionalRuleActionItem
 - Role: nested
 - Parent: FormidableCreatePayloadDataObject
-- Schema Name: FormidableConditionalRuleAction
+- Schema Name: FormidableConditionalRuleActionItem
 - Schema ID: schema:anon/d5f114e0b3fa376dd19b5f7ffa612552f55c2dc5
 
 ### Enum
@@ -61,13 +61,13 @@ Values: display_iff
 | Field | Type |
 |------|------|
 | `field_id` | `string` |
-| `operator` | `FormidableConditionalRuleTestOperator` |
-| `values` | `FormidableFieldDefaultsItem[]` |
+| `operator` | `FormidableConditionalRuleTestOperatorItemItem` |
+| `values` | `FormidableFieldDefaultsItemNestedItemItem[]` |
 
-## FormidableConditionalRuleTestOperator
+## FormidableConditionalRuleTestOperatorItemItem
 - Role: nested
 - Parent: FormidableCreatePayloadDataObject
-- Schema Name: FormidableConditionalRuleTestOperator
+- Schema Name: FormidableConditionalRuleTestOperatorItemItem
 - Schema ID: schema:anon/b40f96ef930b4fc9ef8697311f51c1d6fd3aa307
 
 ### Enum
@@ -85,7 +85,7 @@ Values: eq
 
 | Field | Type |
 |------|------|
-| `type_id` | `FormidableFieldTypeId` |
+| `type_id` | `FormidableFieldTypeIdItem` |
 | `slug` | `string` |
 | `name` | `string` |
 | `required` | `bool` |
@@ -96,7 +96,7 @@ Values: eq
 | `button_selection` | `bool` |
 | `multiple_selection` | `bool` |
 | `placeholder` | `string` |
-| `defaults` | `object[]` |
+| `defaults` | `JsonElement[]` |
 | `dataset_id` | `string` |
 
 ## FormidableFieldItems
@@ -112,10 +112,10 @@ Values: eq
 | `value` | `string` |
 | `label` | `string` |
 
-## FormidableFieldTypeId
+## FormidableFieldTypeIdItem
 - Role: nested
 - Parent: FormidableCreatePayloadDataObject
-- Schema Name: FormidableFieldTypeId
+- Schema Name: FormidableFieldTypeIdItem
 - Schema ID: schema:anon/057fa3bc81021a3b35bd8a0331e97db7749eef73
 
 ### Enum
@@ -133,14 +133,14 @@ Values: short_text, number, date, dropdown, multiple_answer, single_answer, long
 
 | Field | Type |
 |------|------|
-| `type` | `FormidableFieldValidationType` |
+| `type` | `FormidableFieldValidationTypeItemItem` |
 | `value` | `string` |
 | `message` | `string` |
 
-## FormidableFieldValidationType
+## FormidableFieldValidationTypeItemItem
 - Role: nested
 - Parent: FormidableCreatePayloadDataObject
-- Schema Name: FormidableFieldValidationType
+- Schema Name: FormidableFieldValidationTypeItemItem
 - Schema ID: schema:anon/94bbaf27be1d81f66a680870754e99c30d4923c8
 
 ### Enum

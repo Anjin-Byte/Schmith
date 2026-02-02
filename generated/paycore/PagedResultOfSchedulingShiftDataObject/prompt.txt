@@ -773,9 +773,9 @@ Role: nested
 
 PAGING:
   Page: 1 of 1
-  Fields in this page: 2
-  Total fields: 2
-  All field names: laborCategoryId, laborCodeId
+  Fields in this page: 4
+  Total fields: 4
+  All field names: laborCategoryId, laborCodeId, code, laborCodeName
 
 PARENT CONTEXT:
   Parent Class: PagedResultOfSchedulingShiftDataObject
@@ -793,6 +793,12 @@ FIELDS (this page):
 
   laborCodeId: string? [nullable]
     Description: Unique identifier for the Labor Code under the Labor Category.
+
+  code: string? [nullable]
+    Description: Code of the labor code associated with the labor category within the shift.
+
+  laborCodeName: string? [nullable]
+    Description: Name of the labor code associated with the labor category within the shift.
 
 
 EXAMPLE CODE PATTERN:

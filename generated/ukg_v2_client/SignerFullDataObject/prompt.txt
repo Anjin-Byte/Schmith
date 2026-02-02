@@ -51,7 +51,7 @@ PAGING:
   Total fields: 20
   All field names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
 
-NESTED TYPES: SignaturePosition, SignaturePositionUnit, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
+NESTED TYPES: SignaturePosition, SignaturePositionUnitItem, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -154,7 +154,7 @@ PAGING:
   Total fields: 20
   All field names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
 
-NESTED TYPES: SignaturePosition, SignaturePositionUnit, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
+NESTED TYPES: SignaturePosition, SignaturePositionUnitItem, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -242,7 +242,7 @@ PAGING:
   Total fields: 20
   All field names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
 
-NESTED TYPES: SignaturePosition, SignaturePositionUnit, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
+NESTED TYPES: SignaturePosition, SignaturePositionUnitItem, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -328,7 +328,7 @@ PAGING:
   Total fields: 20
   All field names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
 
-NESTED TYPES: SignaturePosition, SignaturePositionUnit, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
+NESTED TYPES: SignaturePosition, SignaturePositionUnitItem, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -417,14 +417,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 20
   Parent Field Names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
-  Parent Nested Types: SignaturePosition, SignaturePositionUnit, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
+  Parent Nested Types: SignaturePosition, SignaturePositionUnitItem, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
 
 FIELDS (this page):
 ----------------------------------------
   page: int? [nullable]
     Description: Page of the document where the signature field will be displayed
 
-  unit: SignaturePositionUnit? [nullable]
+  unit: SignaturePositionUnitItem? [nullable]
     Description: Specifies the unit used for the `x`, `y`, `width` and `height` attributes
 When the server sends the resource, the unit is always `pt`
     Enum: cm, inch, pt
@@ -454,7 +454,7 @@ public class SignaturePosition
 }
 
 ================================================================================
-SignaturePositionUnit (nested) page 1/1
+SignaturePositionUnitItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -488,12 +488,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `SignaturePositionUnit`.
+- Return ONLY the class declaration for `SignaturePositionUnitItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: SignaturePositionUnit (SignaturePositionUnit)
+SCHEMA: SignaturePositionUnitItem (SignaturePositionUnitItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/27002a2e7ea816d4d0cae24173ff27461c6937e0
@@ -517,14 +517,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 20
   Parent Field Names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
-  Parent Nested Types: SignaturePosition, SignaturePositionUnit, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
+  Parent Nested Types: SignaturePosition, SignaturePositionUnitItem, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class SignaturePositionUnit
+public class SignaturePositionUnitItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -599,7 +599,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 20
   Parent Field Names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
-  Parent Nested Types: SignaturePosition, SignaturePositionUnit, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
+  Parent Nested Types: SignaturePosition, SignaturePositionUnitItem, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
 
 FIELDS (this page):
 ----------------------------------------
@@ -687,7 +687,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 20
   Parent Field Names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
-  Parent Nested Types: SignaturePosition, SignaturePositionUnit, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
+  Parent Nested Types: SignaturePosition, SignaturePositionUnitItem, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
 
 FIELDS (this page):
 ----------------------------------------
@@ -761,7 +761,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 20
   Parent Field Names: type, signature_positions, user_id, employee_id, first_name, last_name, language, email_address, mobile_phone_number, signature_process_id, signing_order, access_code, sms_notification, two_factor_auth, message, send_signed_document, signing_url, id, signed_at, state
-  Parent Nested Types: SignaturePosition, SignaturePositionUnit, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
+  Parent Nested Types: SignaturePosition, SignaturePositionUnitItem, SignerBaseType, SignerState, TwoFactorAuthenticationMethod
 
 FIELDS (this page):
 ----------------------------------------

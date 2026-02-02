@@ -10,15 +10,15 @@
 | Field | Type |
 |------|------|
 | `application_name` | `string` |
-| `resources` | `EventActionFilterComputedFieldsResourcesItem[]` |
+| `resources` | `EventActionFilterComputedFieldsResourcesNestedItem[]` |
 
 ### Nested Types
-- `EventActionFilterComputedFieldsResourcesItem`
+- `EventActionFilterComputedFieldsResourcesNestedItem`
 
-## EventActionFilterComputedFieldsResourcesItem
+## EventActionFilterComputedFieldsResourcesNestedItem
 - Role: nested
 - Parent: EventActionFilterComputedFieldsDataObject
-- Schema Name: EventActionFilterComputedFieldsResourcesItem
+- Schema Name: EventActionFilterComputedFieldsResourcesNestedItem
 - Schema ID: schema:anon/6790023f2eeabfd26706286439c8b415fa6f8a7c
 
 ### Fields

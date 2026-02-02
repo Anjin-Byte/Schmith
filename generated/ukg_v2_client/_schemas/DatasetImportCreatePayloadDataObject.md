@@ -11,3 +11,4 @@
 | Field | Type |
 |------|------|
 | `dataset_id` | `string` |
+| `upload_id` | `string` |

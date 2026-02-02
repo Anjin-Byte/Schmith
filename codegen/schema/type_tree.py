@@ -6,11 +6,18 @@ of all types reachable from a root schema, stopping only at primitives.
 The goal is to ensure code generation has full definitions for every
 complex type referenced anywhere in the schema tree, regardless of whether
 types are "owned" (inline) or defined elsewhere (named schemas).
+
+Architecture:
+- SchemaEdge: Uniform representation of any reference between schemas
+- NamingContext: Propagated context for generating names during traversal
+- extract_all_edges: Single function that extracts all edges from any schema
+- traverse_and_name: Single recursive function that handles all nesting patterns
 """
 
-from typing import Any
+from dataclasses import dataclass, field
+from typing import Any, Callable, Literal
 
-from .type_mapping import IR_TO_CSHARP_TYPE, extract_clean_name, json_name_to_csharp_property
+from .type_mapping import IR_TO_CSHARP_TYPE, extract_clean_name, is_shapeless_schema, json_name_to_csharp_property
 
 
 # Primitive schema IDs that don't need expansion
@@ -18,6 +25,61 @@ PRIMITIVE_SCHEMA_IDS = set(IR_TO_CSHARP_TYPE.keys())
 
 # Primitive kinds that don't need type definitions
 PRIMITIVE_KINDS = {"string", "integer", "number", "boolean", "null"}
+
+
+# -----------------------------------------------------------------------------
+# Data Structures for Generalized Traversal
+# -----------------------------------------------------------------------------
+
+
+@dataclass
+class SchemaEdge:
+    """A reference from one schema to another.
+
+    This provides a uniform representation for all types of schema references:
+    properties, array items, composition members, and additionalProperties.
+    """
+
+    target_id: str
+    edge_kind: Literal["property", "array_items", "composition_member", "additional_properties"]
+    property_name: str | None = None  # For naming context (e.g., "items", "data")
+    has_enum: bool = False  # Whether the target is an enum
+
+
+@dataclass
+class NamingContext:
+    """Propagated context during traversal for generating names.
+
+    This context flows through the schema graph, accumulating information
+    needed to generate meaningful names for anonymous schemas.
+    """
+
+    parent_name: str | None  # Name of the containing type
+    property_name: str | None  # Name of the property/field that led here
+    suffix_stack: list[str] = field(default_factory=list)  # ["Item"] for arrays
+    visited: set[str] = field(default_factory=set)  # Cycle detection (shared)
+
+    def child_context(
+        self,
+        new_parent: str | None = None,
+        new_property: str | None = None,
+        add_suffix: str | None = None,
+    ) -> "NamingContext":
+        """Create a child context for recursion."""
+        new_suffix_stack = self.suffix_stack.copy()
+        if add_suffix:
+            new_suffix_stack.append(add_suffix)
+        return NamingContext(
+            parent_name=new_parent if new_parent is not None else self.parent_name,
+            property_name=new_property,
+            suffix_stack=new_suffix_stack,
+            visited=self.visited,  # Shared reference for cycle detection
+        )
+
+
+# -----------------------------------------------------------------------------
+# Primitive Detection
+# -----------------------------------------------------------------------------
 
 
 def is_primitive_schema_id(schema_id: str) -> bool:
@@ -60,6 +122,120 @@ def get_primitive_type_name(schema: dict | None) -> str | None:
     return kind_to_csharp.get(kind, "object")
 
 
+# -----------------------------------------------------------------------------
+# Edge Extraction (The ONLY place with schema-kind-specific logic)
+# -----------------------------------------------------------------------------
+
+
+def extract_all_edges(schema: dict, get_schema_fn: Callable[[str], dict | None]) -> list[SchemaEdge]:
+    """Extract all outgoing edges from a schema.
+
+    This is the single point of schema-kind-specific logic. All types of
+    references (properties, arrays, compositions, additionalProperties) are
+    normalized into a uniform edge representation.
+
+    Args:
+        schema: The schema to extract edges from
+        get_schema_fn: Function to look up schema by ID
+
+    Returns:
+        List of SchemaEdge representing all outgoing references
+    """
+    edges: list[SchemaEdge] = []
+    kind = schema.get("kind", "object")
+
+    # 1. Properties (objects have these directly, compositions inherit them)
+    for prop in schema.get("properties", []):
+        prop_schema_id = prop.get("schema_id")
+        prop_items_id = prop.get("items_schema_id")
+        prop_name = prop.get("json_name")
+        has_enum = bool(prop.get("enum_values"))
+
+        if prop_schema_id:
+            # Check if this property points to an array
+            prop_schema = get_schema_fn(prop_schema_id)
+            if prop_schema and prop_schema.get("kind") == "array":
+                # Add edge to the array schema itself (for processing)
+                edges.append(SchemaEdge(
+                    target_id=prop_schema_id,
+                    edge_kind="property",
+                    property_name=prop_name,
+                    has_enum=has_enum,
+                ))
+                # Also add edge to array items
+                items_id = prop_schema.get("items_schema_id")
+                if items_id:
+                    items_schema = get_schema_fn(items_id)
+                    items_has_enum = bool(items_schema.get("enum_values")) if items_schema else False
+                    edges.append(SchemaEdge(
+                        target_id=items_id,
+                        edge_kind="array_items",
+                        property_name=prop_name,
+                        has_enum=items_has_enum,
+                    ))
+            else:
+                edges.append(SchemaEdge(
+                    target_id=prop_schema_id,
+                    edge_kind="property",
+                    property_name=prop_name,
+                    has_enum=has_enum,
+                ))
+
+        # Handle properties with direct items_schema_id (legacy format)
+        if prop_items_id:
+            items_schema = get_schema_fn(prop_items_id)
+            items_has_enum = bool(items_schema.get("enum_values")) if items_schema else False
+            edges.append(SchemaEdge(
+                target_id=prop_items_id,
+                edge_kind="array_items",
+                property_name=prop_name,
+                has_enum=items_has_enum,
+            ))
+
+    # 2. Array items (for array schemas)
+    if kind == "array":
+        items_id = schema.get("items_schema_id")
+        if items_id:
+            items_schema = get_schema_fn(items_id)
+            items_has_enum = bool(items_schema.get("enum_values")) if items_schema else False
+            edges.append(SchemaEdge(
+                target_id=items_id,
+                edge_kind="array_items",
+                property_name=None,
+                has_enum=items_has_enum,
+            ))
+
+    # 3. Composition members (allOf/oneOf/anyOf)
+    composition = schema.get("composition")
+    if composition:
+        for member_id in composition.get("members", []):
+            edges.append(SchemaEdge(
+                target_id=member_id,
+                edge_kind="composition_member",
+                property_name=None,
+                has_enum=False,
+            ))
+
+    # 4. Additional properties
+    addl_props_id = schema.get("additional_properties_schema_id")
+    if addl_props_id:
+        addl_schema = get_schema_fn(addl_props_id)
+        addl_has_enum = bool(addl_schema.get("enum_values")) if addl_schema else False
+        edges.append(SchemaEdge(
+            target_id=addl_props_id,
+            edge_kind="additional_properties",
+            property_name="AdditionalProperties",
+            has_enum=addl_has_enum,
+        ))
+
+    return edges
+
+
+# -----------------------------------------------------------------------------
+# Type Name Resolution
+# -----------------------------------------------------------------------------
+
+
 def resolve_type_name(
     schema_id: str,
     schema: dict | None,
@@ -70,6 +246,7 @@ def resolve_type_name(
     Args:
         schema_id: The schema ID
         schema: The schema data (may be None if not found)
+        name_overrides: Optional dict of schema_id -> name overrides
 
     Returns:
         Type name suitable for code generation, or None if unresolvable
@@ -107,16 +284,21 @@ def resolve_type_name(
     return None
 
 
+# -----------------------------------------------------------------------------
+# Main Collection Function
+# -----------------------------------------------------------------------------
+
+
 def collect_type_closure(
     root_schema: dict,
     schemas_by_id: dict[str, dict],
-    load_schema_detail: callable = None,
+    load_schema_detail: Callable[[str], dict | None] | None = None,
 ) -> dict[str, dict]:
     """Collect the transitive closure of all types reachable from a root schema.
 
-    Recursively follows all type references (properties, array items,
-    additionalProperties) until only primitives remain. This ensures
-    code generation has complete definitions for all nested types.
+    This uses a two-phase approach:
+    1. Naming phase: Traverse to assign names to all anonymous schemas
+    2. Collection phase: Traverse to collect type definitions
 
     Args:
         root_schema: The root schema to start from
@@ -126,18 +308,16 @@ def collect_type_closure(
 
     Returns:
         Dict mapping type names to their full schema definitions.
-        Each entry contains:
-        - schema_id: The original schema ID
-        - name: The resolved type name
-        - kind: Schema kind (object, array, etc.)
-        - properties: List of property definitions with resolved types
-        - All other schema fields
     """
     collected: dict[str, dict] = {}
     visited: set[str] = set()
     sources_by_id: dict[str, set[str]] = {}
     anon_name_overrides: dict[str, str] = {}
     used_type_names: set[str] = set()
+
+    # -------------------------------------------------------------------------
+    # Helper Functions
+    # -------------------------------------------------------------------------
 
     def mark_source(schema_id: str, source: str | None) -> None:
         if not schema_id or not source:
@@ -158,20 +338,157 @@ def collect_type_closure(
             return load_schema_detail(schema_id)
         return None
 
+    def reserve_type_name(schema_id: str, base_name: str) -> str:
+        """Reserve a type name for a schema ID, ensuring uniqueness."""
+        if not schema_id or not base_name:
+            return base_name
+        name = base_name
+        if name in used_type_names and anon_name_overrides.get(schema_id) != name:
+            hash_part = schema_id.split("anon/")[-1][:6] if "anon/" in schema_id else "dedupe"
+            name = f"{name}_{hash_part}"
+        anon_name_overrides[schema_id] = name
+        used_type_names.add(name)
+        return name
+
+    def build_name_from_context(ctx: NamingContext, is_enum: bool = False) -> str:
+        """Build a type name from naming context."""
+        field_part = json_name_to_csharp_property(ctx.property_name or "")
+        suffix = "".join(ctx.suffix_stack)
+
+        if ctx.parent_name and field_part:
+            base = f"{ctx.parent_name}{field_part}"
+        elif field_part:
+            base = field_part
+        elif ctx.parent_name:
+            base = f"{ctx.parent_name}{'Enum' if is_enum else 'Nested'}"
+        else:
+            base = "AnonymousEnum" if is_enum else "Anonymous"
+
+        if suffix:
+            base = f"{base}{suffix}"
+        return base
+
+    def should_name_schema(schema_id: str, schema: dict | None, ctx: NamingContext) -> bool:
+        """Determine if a schema needs a name assigned."""
+        if not schema_id or "anon/" not in schema_id:
+            return False  # Not anonymous
+
+        existing_name = anon_name_overrides.get(schema_id)
+        if existing_name:
+            # Already has a proper name
+            if not existing_name.startswith("Anonymous"):
+                return False
+            # Has Anonymous name - can upgrade if we have better context
+            if not ctx.parent_name or ctx.parent_name.startswith("Anonymous"):
+                return False
+            # Remove old name to allow upgrade
+            used_type_names.discard(existing_name)
+
+        if not schema:
+            return False
+
+        # If schema has a name_hint, use that name regardless of is_inline.
+        # The name_hint represents the intended name from the spec; is_inline
+        # just indicates where the schema was defined, not how it should be named.
+        if schema.get("name_hint"):
+            return False
+
+        return True
+
+    # -------------------------------------------------------------------------
+    # Phase 1: Unified Naming Traversal
+    # -------------------------------------------------------------------------
+
+    def traverse_and_name(schema_id: str, ctx: NamingContext) -> str | None:
+        """Traverse the schema graph and assign names to anonymous schemas.
+
+        This is the unified traversal function that handles all nesting patterns
+        through a single recursive path.
+
+        Returns the assigned/resolved name for this schema.
+        """
+        if not schema_id or is_primitive_schema_id(schema_id):
+            return None
+
+        # Cycle detection
+        if schema_id in ctx.visited:
+            return anon_name_overrides.get(schema_id) or resolve_type_name(schema_id, get_schema(schema_id))
+        ctx.visited.add(schema_id)
+
+        schema = get_schema(schema_id)
+        if not schema or is_primitive_schema(schema):
+            return None
+
+        # Name this schema if anonymous
+        is_enum = bool(schema.get("enum_values"))
+        if should_name_schema(schema_id, schema, ctx):
+            name = build_name_from_context(ctx, is_enum)
+            reserve_type_name(schema_id, name)
+
+        # Get the name we have for this schema (for propagating as parent context)
+        my_name = anon_name_overrides.get(schema_id) or resolve_type_name(schema_id, schema)
+        if my_name:
+            used_type_names.add(my_name)
+
+        # Extract all edges uniformly
+        edges = extract_all_edges(schema, get_schema)
+
+        # Recurse into all edges
+        for edge in edges:
+            if edge.edge_kind == "array_items":
+                # Array items get "Item" suffix
+                child_ctx = ctx.child_context(
+                    new_parent=my_name,
+                    new_property=edge.property_name,
+                    add_suffix="Item",
+                )
+            elif edge.edge_kind == "composition_member":
+                # Composition members inherit parent context
+                child_ctx = ctx.child_context(
+                    new_parent=my_name,
+                    new_property=ctx.property_name,  # Keep current property context
+                )
+            else:
+                # Properties and additionalProperties
+                child_ctx = ctx.child_context(
+                    new_parent=my_name,
+                    new_property=edge.property_name,
+                )
+
+            traverse_and_name(edge.target_id, child_ctx)
+
+        return my_name
+
+    # -------------------------------------------------------------------------
+    # Phase 2: Type Collection
+    # -------------------------------------------------------------------------
+
     def collect_composition_properties(schema: dict) -> list[dict]:
-        """Collect properties from allOf/oneOf/anyOf composition members."""
+        """Collect properties from allOf/oneOf/anyOf composition members.
+
+        For oneOf/anyOf variants that are arrays, this descends into the
+        items schema to collect properties from the item type.
+        """
         composition = schema.get("composition")
         if not composition:
             return []
 
         members = composition.get("members", [])
-        all_props = []
-        seen_names = set()
+        all_props: list[dict] = []
+        seen_names: set[str] = set()
 
-        for member_id in members:
-            member = get_schema(member_id)
-            if not member:
-                continue
+        def collect_from_member(member: dict) -> None:
+            """Collect properties from a member, descending into arrays."""
+            nonlocal all_props, seen_names
+
+            # If member is an array, descend into items schema
+            if member.get("kind") == "array":
+                items_id = member.get("items_schema_id")
+                if items_id:
+                    items_schema = get_schema(items_id)
+                    if items_schema:
+                        collect_from_member(items_schema)
+                return
 
             # Recursively collect from member's composition
             member_props = collect_composition_properties(member)
@@ -188,214 +505,19 @@ def collect_type_closure(
                     all_props.append(prop)
                     seen_names.add(name)
 
-        return all_props
-
-    def reserve_type_name(schema_id: str, base_name: str) -> None:
-        """Reserve a type name for a schema ID, ensuring uniqueness."""
-        if not schema_id or not base_name:
-            return
-        name = base_name
-        if name in used_type_names and anon_name_overrides.get(schema_id) != name:
-            hash_part = schema_id.split("anon/")[-1][:6] if "anon/" in schema_id else "dedupe"
-            name = f"{name}_{hash_part}"
-        anon_name_overrides[schema_id] = name
-        used_type_names.add(name)
-
-    def maybe_name_inline_enum(
-        parent_name: str | None,
-        prop_name: str | None,
-        enum_schema_id: str | None,
-        suffix: str | None = None,
-    ) -> None:
-        """Assign a stable name to an inline enum schema based on parent + field."""
-        if not enum_schema_id or "anon/" not in enum_schema_id:
-            return
-        # Allow overriding Anonymous names with proper names
-        existing_name = anon_name_overrides.get(enum_schema_id)
-        if existing_name:
-            if not existing_name.startswith("Anonymous"):
-                return
-            if not parent_name or parent_name.startswith("Anonymous"):
-                return
-            used_type_names.discard(existing_name)
-        field_part = json_name_to_csharp_property(prop_name or "")
-        if parent_name and field_part:
-            base = f"{parent_name}{field_part}"
-        elif field_part:
-            base = field_part
-        elif parent_name:
-            base = f"{parent_name}Enum"
-        else:
-            base = "AnonymousEnum"
-        if suffix:
-            base = f"{base}{suffix}"
-        reserve_type_name(enum_schema_id, base)
-
-    def maybe_name_inline_schema(
-        parent_name: str | None,
-        prop_name: str | None,
-        schema_id: str | None,
-        suffix: str | None = None,
-        prefer_parent: bool = False,
-    ) -> None:
-        """Assign a stable name to an inline anonymous schema based on parent + field."""
-        if not schema_id or "anon/" not in schema_id:
-            return
-        # Allow overriding Anonymous names with proper names
-        existing_name = anon_name_overrides.get(schema_id)
-        if existing_name:
-            # If it already has a proper name (not Anonymous), keep it
-            if not existing_name.startswith("Anonymous_"):
-                return
-            # It has an Anonymous name - we can try to give it a better one
-            # Only proceed if we have a non-Anonymous parent
-            if not parent_name or parent_name.startswith("Anonymous_"):
-                return
-            # Remove the old Anonymous name from used_type_names
-            used_type_names.discard(existing_name)
-        schema = get_schema(schema_id)
-        if not schema:
-            return
-        # If schema has a name_hint, respect it based on prefer_parent and is_inline
-        if schema.get("name_hint"):
-            if not prefer_parent:
-                return  # Use the existing name_hint
-            if not schema.get("is_inline", False):
-                return  # Schema is shared/referenced, keep its name_hint
-        # Schema has no name - assign one based on parent context
-        field_part = json_name_to_csharp_property(prop_name or "")
-        if parent_name and field_part:
-            base = f"{parent_name}{field_part}"
-        elif field_part:
-            base = field_part
-        elif parent_name:
-            base = f"{parent_name}Nested"
-        else:
-            base = "Anonymous"
-        if suffix:
-            base = f"{base}{suffix}"
-        reserve_type_name(schema_id, base)
-
-    def name_composition_members_recursive(
-        parent_name: str | None,
-        prop_name: str | None,
-        schema_id: str,
-        suffix: str | None = None,
-        visited_compositions: set[str] | None = None,
-    ) -> None:
-        """Recursively name composition members and their nested structures.
-
-        Handles arbitrary nesting: composition -> object -> composition -> array -> etc.
-        """
-        if visited_compositions is None:
-            visited_compositions = set()
-
-        if schema_id in visited_compositions:
-            return
-        visited_compositions.add(schema_id)
-
-        schema = get_schema(schema_id)
-        if not schema:
-            return
-
-        composition = schema.get("composition")
-        if not composition:
-            return
-
-        members = composition.get("members", [])
         for member_id in members:
-            # Name the member itself
-            maybe_name_inline_schema(parent_name, prop_name, member_id, suffix=suffix, prefer_parent=True)
-
-            member_schema = get_schema(member_id)
-            if not member_schema:
+            member = get_schema(member_id)
+            if not member:
                 continue
+            collect_from_member(member)
 
-            # Recurse into member's composition (composition within composition)
-            if member_schema.get("composition"):
-                name_composition_members_recursive(
-                    parent_name, prop_name, member_id, suffix=suffix,
-                    visited_compositions=visited_compositions
-                )
-
-            # Handle member's properties that may contain arrays or nested compositions
-            for prop in member_schema.get("properties", []):
-                prop_schema_id = prop.get("schema_id")
-                prop_items_id = prop.get("items_schema_id")
-                member_prop_name = prop.get("json_name")
-
-                # Get the resolved member name for context
-                member_name = anon_name_overrides.get(member_id)
-                if not member_name:
-                    member_name = parent_name
-
-                if prop_schema_id:
-                    prop_schema = get_schema(prop_schema_id)
-                    if prop_schema:
-                        # Handle array properties within composition members
-                        if prop_schema.get("kind") == "array":
-                            items_id = prop_schema.get("items_schema_id")
-                            if items_id:
-                                name_array_items_recursive(member_name, member_prop_name, items_id)
-                        # Handle nested compositions within composition members
-                        elif prop_schema.get("composition"):
-                            maybe_name_inline_schema(member_name, member_prop_name, prop_schema_id, prefer_parent=True)
-                            name_composition_members_recursive(
-                                member_name, member_prop_name, prop_schema_id,
-                                visited_compositions=visited_compositions
-                            )
-
-                # Handle direct array items on property
-                if prop_items_id:
-                    name_array_items_recursive(member_name, member_prop_name, prop_items_id)
-
-    def name_array_items_recursive(
-        parent_name: str | None,
-        prop_name: str | None,
-        items_id: str,
-        suffix: str = "Item",
-    ) -> None:
-        """Recursively name array items at any nesting depth.
-
-        For nested arrays (array of arrays), each level gets an additional 'Item' suffix:
-        - First level: ParentFieldItem
-        - Second level: ParentFieldItemItem
-        - Third level: ParentFieldItemItemItem
-        - etc.
-
-        Also handles composition within arrays, and arrays within compositions.
-        """
-        maybe_name_inline_schema(parent_name, prop_name, items_id, suffix=suffix, prefer_parent=True)
-        items_schema = get_schema(items_id)
-        if not items_schema:
-            return
-
-        # Get the name we just assigned for use as parent context
-        item_name = anon_name_overrides.get(items_id)
-        if not item_name:
-            # Build what the name would be for context
-            field_part = json_name_to_csharp_property(prop_name or "")
-            if parent_name and field_part:
-                item_name = f"{parent_name}{field_part}{suffix}"
-            elif parent_name:
-                item_name = f"{parent_name}{suffix}"
-
-        # Handle composition members at this level
-        if items_schema.get("composition"):
-            name_composition_members_recursive(parent_name, prop_name, items_id, suffix=suffix)
-
-        # Recurse into nested arrays
-        if items_schema.get("kind") == "array":
-            inner_items_id = items_schema.get("items_schema_id")
-            if inner_items_id:
-                name_array_items_recursive(parent_name, prop_name, inner_items_id, suffix=suffix + "Item")
+        return all_props
 
     def process_schema(schema_id: str, source: str | None = None) -> str | None:
         """Process a schema, collecting it and its dependencies.
 
         Returns the resolved type name, or None for primitives.
         """
-        # Skip primitives by schema ID
         if is_primitive_schema_id(schema_id):
             return None
 
@@ -406,30 +528,28 @@ def collect_type_closure(
         if not schema:
             return None
 
-        # Skip primitives by kind (must check before cycle detection)
         if is_primitive_schema(schema):
             return None
 
         kind = schema.get("kind", "object")
 
-        # Handle arrays BEFORE cycle detection - arrays don't produce named types,
-        # they just return the item type with []. We need to handle them every time
-        # they're referenced, not just the first time.
+        # Handle arrays - they return item type with []
         if kind == "array":
             items_id = schema.get("items_schema_id")
             if items_id:
-                # First try to process as complex type
                 item_type = process_schema(items_id, source=source)
                 if item_type:
                     return f"{item_type}[]"
 
-                # If None, check if items are primitive
                 items_schema = get_schema(items_id)
                 primitive_type = get_primitive_type_name(items_schema)
                 if primitive_type:
                     return f"{primitive_type}[]"
 
-                # Unknown item type
+                # For shapeless items (no properties, no schema), use JsonElement
+                if is_shapeless_schema(items_schema, schemas_by_id):
+                    return "JsonElement[]"
+
                 return "object[]"
             return "object[]"
 
@@ -455,7 +575,7 @@ def collect_type_closure(
         if kind not in ("object", "unknown"):
             return None
 
-        # Collect properties: direct + from composition (allOf/oneOf/anyOf)
+        # Collect properties: direct + from composition
         properties = list(schema.get("properties", []))
         composition_props = collect_composition_properties(schema)
 
@@ -466,55 +586,30 @@ def collect_type_closure(
                 properties.append(prop)
                 seen_names.add(prop.get("json_name"))
 
-        # Also process composition members to collect their types
+        # Process composition members
         composition = schema.get("composition")
         if composition:
             for member_id in composition.get("members", []):
                 process_schema(member_id, source="composition")
 
-        # Skip if no properties and no composition
         if not properties and not composition:
             return None
 
         if not type_name:
             return None
 
-        # Collect this type if not already collected
+        # Collect this type
         if type_name not in collected:
-            # Process all properties to collect their types
             processed_props = []
             for prop in properties:
                 prop_schema_id = prop.get("schema_id", "")
                 items_schema_id = prop.get("items_schema_id")
-                prop_name = prop.get("json_name")
 
-                # Resolve the property's type
                 prop_type_name = None
                 if prop_schema_id:
-                    enum_values = prop.get("enum_values")
-                    if enum_values:
-                        maybe_name_inline_enum(type_name, prop_name, prop_schema_id)
-                    else:
-                        maybe_name_inline_schema(type_name, prop_name, prop_schema_id, prefer_parent=True)
-                    prop_schema = get_schema(prop_schema_id)
-                    if prop_schema:
-                        # Handle array properties
-                        if prop_schema.get("kind") == "array":
-                            items_id = prop_schema.get("items_schema_id")
-                            if items_id:
-                                name_array_items_recursive(type_name, prop_name, items_id)
-                        # Handle direct composition properties (not in arrays)
-                        elif prop_schema.get("composition"):
-                            name_composition_members_recursive(type_name, prop_name, prop_schema_id)
                     prop_type_name = process_schema(prop_schema_id, source="property")
 
-                # Handle array properties with items_schema_id on the property
                 if items_schema_id and not prop_type_name:
-                    items_schema = get_schema(items_schema_id)
-                    if items_schema and items_schema.get("enum_values"):
-                        maybe_name_inline_enum(type_name, prop_name, items_schema_id, suffix="Item")
-                    else:
-                        name_array_items_recursive(type_name, prop_name, items_schema_id)
                     item_type = process_schema(items_schema_id, source="property")
                     if item_type:
                         prop_type_name = f"{item_type}[]"
@@ -524,9 +619,7 @@ def collect_type_closure(
                     "resolved_type": prop_type_name,
                 })
 
-            entry = _build_type_entry(
-                schema_id, type_name, schema, processed_props
-            )
+            entry = _build_type_entry(schema_id, type_name, schema, processed_props)
             sources = sources_by_id.get(schema_id)
             if sources:
                 entry["sources"] = sorted(sources)
@@ -535,24 +628,27 @@ def collect_type_closure(
         # Handle additionalProperties
         addl_props_id = schema.get("additional_properties_schema_id")
         if addl_props_id:
-            # Name the additionalProperties schema before processing
-            maybe_name_inline_schema(type_name, "AdditionalProperties", addl_props_id, prefer_parent=True)
-            addl_schema = get_schema(addl_props_id)
-            if addl_schema:
-                # Handle array additionalProperties
-                if addl_schema.get("kind") == "array":
-                    items_id = addl_schema.get("items_schema_id")
-                    if items_id:
-                        name_array_items_recursive(type_name, "AdditionalProperties", items_id)
-                # Handle composition additionalProperties
-                elif addl_schema.get("composition"):
-                    name_composition_members_recursive(type_name, "AdditionalProperties", addl_props_id)
             process_schema(addl_props_id, source="additionalProperties")
 
         return type_name
 
-    # Start from root schema
+    # -------------------------------------------------------------------------
+    # Execute Both Phases
+    # -------------------------------------------------------------------------
+
     root_id = root_schema.get("id", "")
+
+    # Phase 1: Assign names to all anonymous schemas
+    root_name = resolve_type_name(root_id, root_schema)
+    initial_ctx = NamingContext(
+        parent_name=root_name,
+        property_name=None,
+        suffix_stack=[],
+        visited=set(),
+    )
+    traverse_and_name(root_id, initial_ctx)
+
+    # Phase 2: Collect type definitions
     process_schema(root_id)
 
     return collected
@@ -583,7 +679,7 @@ def _build_type_entry(
 def build_type_hierarchy(
     root_schema: dict,
     schemas_by_id: dict[str, dict],
-    load_schema_detail: callable = None,
+    load_schema_detail: Callable[[str], dict | None] | None = None,
 ) -> tuple[dict, list[dict]]:
     """Build root type info and list of all nested types.
 

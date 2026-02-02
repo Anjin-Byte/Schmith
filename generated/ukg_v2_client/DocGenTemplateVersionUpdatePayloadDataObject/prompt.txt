@@ -50,7 +50,7 @@ PAGING:
   Total fields: 5
   All field names: format, output_format, syntax_version, template_information, fragment_mapping
 
-NESTED TYPES: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
+NESTED TYPES: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -157,7 +157,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 5
   Parent Field Names: format, output_format, syntax_version, template_information, fragment_mapping
-  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
+  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
 
 FIELDS (this page):
 ----------------------------------------
@@ -234,7 +234,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 5
   Parent Field Names: format, output_format, syntax_version, template_information, fragment_mapping
-  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
+  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
 
 FIELDS (this page):
 ----------------------------------------
@@ -309,7 +309,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 5
   Parent Field Names: format, output_format, syntax_version, template_information, fragment_mapping
-  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
+  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
 
 FIELDS (this page):
 ----------------------------------------
@@ -389,7 +389,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 5
   Parent Field Names: format, output_format, syntax_version, template_information, fragment_mapping
-  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
+  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
 
 FIELDS (this page):
 ----------------------------------------
@@ -402,7 +402,7 @@ FIELDS (this page):
   message: string? [nullable]
     Description: Description of the error.
 
-  severity: GenerationInfoSeverity? [nullable]
+  severity: GenerationInfoSeverityItem? [nullable]
     Description: Criticity of the error. When strict is true, the field must be an exact match with the template. Otherwise the severity will be ERROR.
     Enum: ERROR, WARNING
     Constraints: enum=['ERROR', 'WARNING']
@@ -419,7 +419,7 @@ public class GenerationInfo
 }
 
 ================================================================================
-GenerationInfoSeverity (nested) page 1/1
+GenerationInfoSeverityItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -453,12 +453,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `GenerationInfoSeverity`.
+- Return ONLY the class declaration for `GenerationInfoSeverityItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: GenerationInfoSeverity (GenerationInfoSeverity)
+SCHEMA: GenerationInfoSeverityItem (GenerationInfoSeverityItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/4bc512f0c93de388afdbd8a134f1b285fb86a137
@@ -480,14 +480,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 5
   Parent Field Names: format, output_format, syntax_version, template_information, fragment_mapping
-  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
+  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class GenerationInfoSeverity
+public class GenerationInfoSeverityItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -554,7 +554,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 5
   Parent Field Names: format, output_format, syntax_version, template_information, fragment_mapping
-  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
+  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
 
 FIELDS (this page):
 ----------------------------------------
@@ -636,7 +636,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 5
   Parent Field Names: format, output_format, syntax_version, template_information, fragment_mapping
-  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
+  Parent Nested Types: DocGenTemplateVersionUpdatePayloadFormat, DocGenTemplateVersionUpdatePayloadSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatPatchRequest, OutputFormatPatchRequestFormat
 
 FIELDS (this page):
 ----------------------------------------

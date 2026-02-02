@@ -23,9 +23,9 @@
 
 ### Nested Types
 - `CustomFieldFilterRule`
-- `CustomFieldFilterRuleOperator`
+- `CustomFieldFilterRuleOperatorItemItem`
 - `EmployeesPerimeterBase`
-- `EmployeesPerimeterBaseOperator`
+- `EmployeesPerimeterBaseOperatorItem`
 - `ProfileBase`
 
 ## CustomFieldFilterRule
@@ -40,13 +40,13 @@
 | Field | Type |
 |------|------|
 | `custom_field_id` | `string` |
-| `operator` | `CustomFieldFilterRuleOperator` |
+| `operator` | `CustomFieldFilterRuleOperatorItemItem` |
 | `value` | `string` |
 
-## CustomFieldFilterRuleOperator
+## CustomFieldFilterRuleOperatorItemItem
 - Role: nested
 - Parent: UserCreatePayloadDataObject
-- Schema Name: CustomFieldFilterRuleOperator
+- Schema Name: CustomFieldFilterRuleOperatorItemItem
 - Schema ID: schema:anon/b89353968483881566a17091aa85441d29825efb
 
 ### Enum
@@ -64,15 +64,15 @@ Values: =, !=, <=, <, >=, >
 
 | Field | Type |
 |------|------|
-| `operator` | `EmployeesPerimeterBaseOperator` |
+| `operator` | `EmployeesPerimeterBaseOperatorItem` |
 | `organization_id` | `string` |
 | `organization_group_id` | `string` |
 | `custom_field_filters` | `CustomFieldFilterRule[]` |
 
-## EmployeesPerimeterBaseOperator
+## EmployeesPerimeterBaseOperatorItem
 - Role: nested
 - Parent: UserCreatePayloadDataObject
-- Schema Name: EmployeesPerimeterBaseOperator
+- Schema Name: EmployeesPerimeterBaseOperatorItem
 - Schema ID: schema:anon/62bc992a0d5496dc75fdaeee1de43be7a94f91c1
 
 ### Enum

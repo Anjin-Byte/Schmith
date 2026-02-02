@@ -1,5 +1,5 @@
 ================================================================================
-DocGenTemplateVersionFullDataObject (parent) page 1/1
+DocGenTemplateVersionFullDataObject (parent) page 1/2
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -41,16 +41,17 @@ SCHEMA: DocGenTemplateVersionFullDataObject (DocGenTemplateVersionFull)
 API Name: ukg_v2_client
 Schema ID: schema:definitions/DocGenTemplateVersionFull
 Description: No description
+Primary Key: DocumentGenerationTemplateId
 Namespace: Connector.ukg_v2_client.v1.DocGenTemplateVersionFull
 Role: parent
 
 PAGING:
-  Page: 1 of 1
-  Fields in this page: 6
-  Total fields: 6
-  All field names: format, syntax_version, template_information, fragment_mapping, created_at, updated_at
+  Page: 1 of 2
+  Fields in this page: 5
+  Total fields: 9
+  All field names: format, syntax_version, template_information, fragment_mapping, output_format, created_at, updated_at, version, document_generation_template_id
 
-NESTED TYPES: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity
+NESTED TYPES: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatResponse, OutputFormatResponseFormat
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -71,9 +72,8 @@ FIELDS (this page):
   fragment_mapping: FragmentFieldsetField[]? [nullable]
     Description: Mapping between fragments used in the template version and its id
 
-  created_at: string [required]
-
-  updated_at: string [required]
+  output_format: OutputFormatResponse? [nullable]
+    Description: The available and activated output formats for generation
 
 
 EXAMPLE CODE PATTERN:
@@ -95,6 +95,86 @@ public class {ClassName}
     [Nullable(true)]
     public string? Name { get; init; }
 }
+
+================================================================================
+DocGenTemplateVersionFullDataObject (parent) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: DocGenTemplateVersionFullDataObject (DocGenTemplateVersionFull)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/DocGenTemplateVersionFull
+Description: No description
+Primary Key: DocumentGenerationTemplateId
+Namespace: Connector.ukg_v2_client.v1.DocGenTemplateVersionFull
+Role: parent
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 4
+  Total fields: 9
+  All field names: format, syntax_version, template_information, fragment_mapping, output_format, created_at, updated_at, version, document_generation_template_id
+
+NESTED TYPES: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatResponse, OutputFormatResponseFormat
+Use these class names for matching nested object fields in this schema.
+
+FIELDS (this page):
+----------------------------------------
+  created_at: string [required]
+
+  updated_at: string [required]
+
+  version: int? [nullable]
+    Description: The template version.
+
+  document_generation_template_id: string? [nullable]
+    Description: ID of the Template
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
 
 ================================================================================
 DocGenTemplateVersionBaseFormat (nested) page 1/1
@@ -156,9 +236,9 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: DocGenTemplateVersionFullDataObject
   Parent Description: No description
-  Parent Field Count: 6
-  Parent Field Names: format, syntax_version, template_information, fragment_mapping, created_at, updated_at
-  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity
+  Parent Field Count: 9
+  Parent Field Names: format, syntax_version, template_information, fragment_mapping, output_format, created_at, updated_at, version, document_generation_template_id
+  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatResponse, OutputFormatResponseFormat
 
 FIELDS (this page):
 ----------------------------------------
@@ -233,9 +313,9 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: DocGenTemplateVersionFullDataObject
   Parent Description: No description
-  Parent Field Count: 6
-  Parent Field Names: format, syntax_version, template_information, fragment_mapping, created_at, updated_at
-  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity
+  Parent Field Count: 9
+  Parent Field Names: format, syntax_version, template_information, fragment_mapping, output_format, created_at, updated_at, version, document_generation_template_id
+  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatResponse, OutputFormatResponseFormat
 
 FIELDS (this page):
 ----------------------------------------
@@ -308,9 +388,9 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: DocGenTemplateVersionFullDataObject
   Parent Description: No description
-  Parent Field Count: 6
-  Parent Field Names: format, syntax_version, template_information, fragment_mapping, created_at, updated_at
-  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity
+  Parent Field Count: 9
+  Parent Field Names: format, syntax_version, template_information, fragment_mapping, output_format, created_at, updated_at, version, document_generation_template_id
+  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatResponse, OutputFormatResponseFormat
 
 FIELDS (this page):
 ----------------------------------------
@@ -388,9 +468,9 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: DocGenTemplateVersionFullDataObject
   Parent Description: No description
-  Parent Field Count: 6
-  Parent Field Names: format, syntax_version, template_information, fragment_mapping, created_at, updated_at
-  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity
+  Parent Field Count: 9
+  Parent Field Names: format, syntax_version, template_information, fragment_mapping, output_format, created_at, updated_at, version, document_generation_template_id
+  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatResponse, OutputFormatResponseFormat
 
 FIELDS (this page):
 ----------------------------------------
@@ -403,7 +483,7 @@ FIELDS (this page):
   message: string? [nullable]
     Description: Description of the error.
 
-  severity: GenerationInfoSeverity? [nullable]
+  severity: GenerationInfoSeverityItem? [nullable]
     Description: Criticity of the error. When strict is true, the field must be an exact match with the template. Otherwise the severity will be ERROR.
     Enum: ERROR, WARNING
     Constraints: enum=['ERROR', 'WARNING']
@@ -420,7 +500,7 @@ public class GenerationInfo
 }
 
 ================================================================================
-GenerationInfoSeverity (nested) page 1/1
+GenerationInfoSeverityItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -454,12 +534,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `GenerationInfoSeverity`.
+- Return ONLY the class declaration for `GenerationInfoSeverityItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: GenerationInfoSeverity (GenerationInfoSeverity)
+SCHEMA: GenerationInfoSeverityItem (GenerationInfoSeverityItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/4bc512f0c93de388afdbd8a134f1b285fb86a137
@@ -479,16 +559,172 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: DocGenTemplateVersionFullDataObject
   Parent Description: No description
-  Parent Field Count: 6
-  Parent Field Names: format, syntax_version, template_information, fragment_mapping, created_at, updated_at
-  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverity
+  Parent Field Count: 9
+  Parent Field Names: format, syntax_version, template_information, fragment_mapping, output_format, created_at, updated_at, version, document_generation_template_id
+  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatResponse, OutputFormatResponseFormat
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class GenerationInfoSeverity
+public class GenerationInfoSeverityItem
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+OutputFormatResponse (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `OutputFormatResponse`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: OutputFormatResponse (OutputFormatResponse)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/OutputFormatResponse
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.DocGenTemplateVersionFull
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 1
+  Total fields: 1
+  All field names: format
+
+PARENT CONTEXT:
+  Parent Class: DocGenTemplateVersionFullDataObject
+  Parent Description: No description
+  Parent Field Count: 9
+  Parent Field Names: format, syntax_version, template_information, fragment_mapping, output_format, created_at, updated_at, version, document_generation_template_id
+  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatResponse, OutputFormatResponseFormat
+
+FIELDS (this page):
+----------------------------------------
+  format: OutputFormatResponseFormat? [nullable]
+    Description: Each key of this object is a format from the enum below. If the key is present then the format is available as an output. The value of the pair is a boolean that specifies if the format is activated or not. (true = activated).
+    Enum: DOC, DOCX, ODT, PDF
+    Constraints: enum=['DOC', 'DOCX', 'ODT', 'PDF']
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class OutputFormatResponse
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+OutputFormatResponseFormat (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `OutputFormatResponseFormat`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: OutputFormatResponseFormat (OutputFormatResponseFormat)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:anon/93d66a5bdaa8c1afcaa76ed31fae31467a605c6e
+Description: Each key of this object is a format from the enum below. If the key is present then the format is available as an output. The value of the pair is a boolean that specifies if the format is activated or not. (true = activated).
+Namespace: Connector.ukg_v2_client.v1.DocGenTemplateVersionFull
+Role: nested
+
+ENUM:
+  Values: DOC, DOCX, ODT, PDF
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 0
+  Total fields: 0
+  All field names: 
+
+PARENT CONTEXT:
+  Parent Class: DocGenTemplateVersionFullDataObject
+  Parent Description: No description
+  Parent Field Count: 9
+  Parent Field Names: format, syntax_version, template_information, fragment_mapping, output_format, created_at, updated_at, version, document_generation_template_id
+  Parent Nested Types: DocGenTemplateVersionBaseFormat, DocGenTemplateVersionBaseSyntaxVersion, FragmentFieldsetField, GenerationInfo, GenerationInfoSeverityItem, OutputFormatResponse, OutputFormatResponseFormat
+
+FIELDS (this page):
+----------------------------------------
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class OutputFormatResponseFormat
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]

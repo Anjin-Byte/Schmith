@@ -6,8 +6,8 @@
 |--------|-------|
 | Total endpoints | 333 |
 | Total response schemas | 147 |
-| Mapped response schemas | 47 |
-| Unmapped response schemas | 100 |
+| Mapped response schemas | 48 |
+| Unmapped response schemas | 99 |
 
 ## Endpoint Responses
 
@@ -153,7 +153,7 @@
 | `PATCH` | `/organization_groups/{id}` | `schema:definitions/BadRequest` | `BadRequestDataObject` | `root` |
 | `PATCH` | `/organization_groups/{id}` | `schema:definitions/BadRequest` | `BadRequestDataObject` | `root` |
 | `PATCH` | `/organization_groups/{id}` | `schema:definitions/Error` | `` | `missing` |
-| `POST` | `/document` | `schema:definitions/DocumentFileId` | `` | `missing` |
+| `POST` | `/document` | `schema:definitions/DocumentFileId` | `DocumentFileId` | `nested_only` |
 | `POST` | `/document` | `schema:definitions/BadRequest` | `BadRequestDataObject` | `root` |
 | `GET` | `/redirection_urls` | `schema:definitions/RedirectionUrls` | `RedirectionUrlsDataObject` | `root` |
 | `GET` | `/employee_documents` | `schema:anon/b0c37f04150f97e8cac6df1a54929b8a5cfb8bd0` | `` | `missing` |
@@ -758,7 +758,6 @@
 - `schema:definitions/DistributionFull`
 - `schema:definitions/DistributionProjectFull`
 - `schema:definitions/DocGenFullWithErrors`
-- `schema:definitions/DocumentFileId`
 - `schema:definitions/EmployeeDocumentTypeFull`
 - `schema:definitions/EmployeeSubscriptionFull`
 - `schema:definitions/Error`

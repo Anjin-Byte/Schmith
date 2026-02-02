@@ -33,7 +33,7 @@
 
 ### Nested Types
 - `SignaturePosition`
-- `SignaturePositionUnit`
+- `SignaturePositionUnitItem`
 - `SignerBaseType`
 - `SignerState`
 - `TwoFactorAuthenticationMethod`
@@ -49,16 +49,16 @@
 | Field | Type |
 |------|------|
 | `page` | `int` |
-| `unit` | `SignaturePositionUnit` |
+| `unit` | `SignaturePositionUnitItem` |
 | `x` | `double` |
 | `y` | `double` |
 | `width` | `double` |
 | `height` | `double` |
 
-## SignaturePositionUnit
+## SignaturePositionUnitItem
 - Role: nested
 - Parent: SignerFullDataObject
-- Schema Name: SignaturePositionUnit
+- Schema Name: SignaturePositionUnitItem
 - Schema ID: schema:anon/27002a2e7ea816d4d0cae24173ff27461c6937e0
 
 ### Enum

@@ -21,6 +21,7 @@
 | `total_values_count` | `int` |
 | `started_at` | `string` |
 | `finished_at` | `string` |
+| `stats` | `DatasetImportStats` |
 | `created_at` | `string` |
 | `updated_at` | `string` |
 
@@ -28,6 +29,7 @@
 - `DatasetImportComputedFieldsOrigin`
 - `DatasetImportComputedFieldsResult`
 - `DatasetImportComputedFieldsStatus`
+- `DatasetImportStats`
 
 ## DatasetImportComputedFieldsOrigin
 - Role: nested
@@ -58,3 +60,23 @@ Values: success, partial_success, error
 ### Enum
 
 Values: queued, in_progress, finished
+
+## DatasetImportStats
+- Role: nested
+- Parent: DatasetImportFullDataObject
+- Schema Name: DatasetImportStats
+- Schema ID: schema:definitions/DatasetImportStats
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `rows` | `int` |
+| `global_errors` | `int` |
+| `row_errors` | `int` |
+| `warnings` | `int` |
+| `internal_errors` | `int` |
+| `dimensions_created` | `int` |
+| `values_created` | `int` |
+| `values_updated` | `int` |
+| `values_deleted` | `int` |

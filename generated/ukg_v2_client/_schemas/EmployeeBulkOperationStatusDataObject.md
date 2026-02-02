@@ -10,18 +10,47 @@
 | Field | Type |
 |------|------|
 | `summary` | `EmployeeBulkOperationStatusSummary` |
-| `results` | `EmployeeBulkOperationStatusResultsItem[]` |
+| `results` | `EmployeeBulkOperationStatusResultsNestedItem[]` |
 
 ### Nested Types
-- `EmployeeBulkOperationStatusResultsItem`
+- `CustomField`
+- `CustomFieldComputedFieldsForEmployee`
+- `EmployeeBulkOperationStatusResultsNestedItem`
 - `EmployeeBulkOperationStatusSummary`
-- `EmployeeComputedFieldsProfileStatus`
+- `EmployeeComputedFieldsProfileStatusItem`
 - `EmployeeFull`
+- `RegistrationReferenceBase`
+- `RegistrationReferenceFull`
 
-## EmployeeBulkOperationStatusResultsItem
+## CustomField
 - Role: nested
 - Parent: EmployeeBulkOperationStatusDataObject
-- Schema Name: EmployeeBulkOperationStatusResultsItem
+- Schema Name: CustomField
+- Schema ID: schema:definitions/CustomField
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `code` | `string` |
+| `value` | `string` |
+
+## CustomFieldComputedFieldsForEmployee
+- Role: nested
+- Parent: EmployeeBulkOperationStatusDataObject
+- Schema Name: CustomFieldComputedFieldsForEmployee
+- Schema ID: schema:definitions/CustomFieldComputedFieldsForEmployee
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `label` | `string` |
+
+## EmployeeBulkOperationStatusResultsNestedItem
+- Role: nested
+- Parent: EmployeeBulkOperationStatusDataObject
+- Schema Name: EmployeeBulkOperationStatusResultsNestedItem
 - Schema ID: schema:anon/b1e7cfcd7f50fa70605feb2b00b7756d178cec94
 
 ### Fields
@@ -49,10 +78,10 @@
 | `failed` | `int` |
 | `status` | `string` |
 
-## EmployeeComputedFieldsProfileStatus
+## EmployeeComputedFieldsProfileStatusItem
 - Role: nested
 - Parent: EmployeeBulkOperationStatusDataObject
-- Schema Name: EmployeeComputedFieldsProfileStatus
+- Schema Name: EmployeeComputedFieldsProfileStatusItem
 - Schema ID: schema:anon/95b3056d977de9e6d053e7dbc04860fae8aa59ac
 
 ### Enum
@@ -75,7 +104,57 @@ Values: pre_hired, active, terminated
 | `lastname` | `string` |
 | `email` | `string` |
 | `language` | `string` |
-| `status` | `EmployeeComputedFieldsProfileStatus` |
+| `maidenname` | `string` |
+| `middlename` | `string` |
+| `country` | `string` |
+| `starting_date` | `string` |
+| `mobile_phone_number` | `string` |
+| `birth_date` | `string` |
+| `address1` | `string` |
+| `address2` | `string` |
+| `address3` | `string` |
+| `zip_code` | `string` |
+| `city` | `string` |
+| `state` | `string` |
+| `registration_references` | `RegistrationReferenceBase[]` |
+| `custom_fields` | `CustomField[]` |
+| `status` | `EmployeeComputedFieldsProfileStatusItem` |
 | `id` | `string` |
+| `terminated` | `bool` |
+| `departure_date` | `string` |
+| `created_at` | `string` |
+| `updated_at` | `string` |
+
+## RegistrationReferenceBase
+- Role: nested
+- Parent: EmployeeBulkOperationStatusDataObject
+- Schema Name: RegistrationReferenceBase
+- Schema ID: schema:definitions/RegistrationReferenceBase
+- Primary Key: OrganizationId
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `organization_id` | `string` |
+| `employee_number` | `string` |
+| `active` | `bool` |
+| `departure_date` | `string` |
+
+## RegistrationReferenceFull
+- Role: nested
+- Parent: EmployeeBulkOperationStatusDataObject
+- Schema Name: RegistrationReferenceFull
+- Schema ID: schema:definitions/RegistrationReferenceFull
+- Primary Key: OrganizationId
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `organization_id` | `string` |
+| `employee_number` | `string` |
+| `active` | `bool` |
+| `departure_date` | `string` |
 | `created_at` | `string` |
 | `updated_at` | `string` |

@@ -14,7 +14,7 @@
 
 ### Nested Types
 - `DatasetField`
-- `DatasetFieldTypeType`
+- `DatasetFieldTypeTypeItem`
 
 ## DatasetField
 - Role: nested
@@ -28,12 +28,12 @@
 |------|------|
 | `slug` | `string` |
 | `value` | `string` |
-| `type` | `DatasetFieldTypeType` |
+| `type` | `DatasetFieldTypeTypeItem` |
 
-## DatasetFieldTypeType
+## DatasetFieldTypeTypeItem
 - Role: nested
 - Parent: CsvCampaignDataDataObject
-- Schema Name: DatasetFieldTypeType
+- Schema Name: DatasetFieldTypeTypeItem
 - Schema ID: schema:anon/07b949304bddf335c6eb4571c1c40044809b0b32
 
 ### Enum

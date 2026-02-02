@@ -35,14 +35,14 @@
 | `created_at` | `string` |
 | `updated_at` | `string` |
 | `sender` | `SignatureProcessNestedSenderSender` |
-| `signers` | `SignatureProcessSignersSignersItem[]` |
-| `document_organizations` | `SignatureProcessOrganizationsDocumentOrganizationsItem[]` |
+| `signers` | `SignatureProcessSignersSignersNestedItem[]` |
+| `document_organizations` | `SignatureProcessOrganizationsDocumentOrganizationsNestedItem[]` |
 
 ### Nested Types
 - `MetaDataBase`
 - `SignatureProcessNestedSenderSender`
-- `SignatureProcessOrganizationsDocumentOrganizationsItem`
-- `SignatureProcessSignersSignersItem`
+- `SignatureProcessOrganizationsDocumentOrganizationsNestedItem`
+- `SignatureProcessSignersSignersNestedItem`
 - `SignatureProcessStateState`
 - `SignerState`
 
@@ -74,10 +74,10 @@
 | `first_name` | `string` |
 | `last_name` | `string` |
 
-## SignatureProcessOrganizationsDocumentOrganizationsItem
+## SignatureProcessOrganizationsDocumentOrganizationsNestedItem
 - Role: nested
 - Parent: SignatureProcessFullDataObject
-- Schema Name: SignatureProcessOrganizationsDocumentOrganizationsItem
+- Schema Name: SignatureProcessOrganizationsDocumentOrganizationsNestedItem
 - Schema ID: schema:anon/4424aa26b85dd20ae1ca81506c7322cef8e82281
 - Primary Key: Id
 
@@ -88,10 +88,10 @@
 | `id` | `string` |
 | `name` | `string` |
 
-## SignatureProcessSignersSignersItem
+## SignatureProcessSignersSignersNestedItem
 - Role: nested
 - Parent: SignatureProcessFullDataObject
-- Schema Name: SignatureProcessSignersSignersItem
+- Schema Name: SignatureProcessSignersSignersNestedItem
 - Schema ID: schema:anon/ffa305924e481b1c8132496caf32364f1bddbc9f
 - Primary Key: Id
 

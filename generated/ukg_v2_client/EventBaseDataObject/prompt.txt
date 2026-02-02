@@ -71,7 +71,7 @@ FIELDS (this page):
   actor: EventActor [required]
     Description: The actor who triggered the event
 
-  data: object [required]
+  data: JsonElement [required]
     Description: Properties of the resource resulting form the event
 
 
@@ -166,7 +166,7 @@ FIELDS (this page):
   name: string? [nullable]
     Description: The name of the actor, computed by the application, depending on actor type and actor data.
 
-  data: object [required]
+  data: JsonElement [required]
     Description: Properties of the actor
 
 

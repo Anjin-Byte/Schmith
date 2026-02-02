@@ -16,9 +16,25 @@
 | `organization_ids` | `string[]` |
 | `metadata` | `MetaDataBase[]` |
 | `external_reference` | `string` |
+| `uploaded_file` | `DocumentFileId` |
 
 ### Nested Types
+- `DocumentFileId`
 - `MetaDataBase`
+
+## DocumentFileId
+- Role: nested
+- Parent: CompanyDocumentCreatePayloadDataObject
+- Schema Name: DocumentFileId
+- Schema ID: schema:definitions/DocumentFileId
+- Primary Key: FileId
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `filename` | `string` |
+| `file_id` | `string` |
 
 ## MetaDataBase
 - Role: nested

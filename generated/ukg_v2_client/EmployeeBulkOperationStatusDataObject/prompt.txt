@@ -50,14 +50,14 @@ PAGING:
   Total fields: 2
   All field names: summary, results
 
-NESTED TYPES: EmployeeBulkOperationStatusResultsItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatus, EmployeeFull
+NESTED TYPES: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
   summary: EmployeeBulkOperationStatusSummary? [nullable]
 
-  results: EmployeeBulkOperationStatusResultsItem[]? [nullable]
+  results: EmployeeBulkOperationStatusResultsNestedItem[]? [nullable]
 
 
 EXAMPLE CODE PATTERN:
@@ -81,7 +81,7 @@ public class {ClassName}
 }
 
 ================================================================================
-EmployeeBulkOperationStatusResultsItem (nested) page 1/1
+CustomField (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -115,12 +115,169 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `EmployeeBulkOperationStatusResultsItem`.
+- Return ONLY the class declaration for `CustomField`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: EmployeeBulkOperationStatusResultsItem (EmployeeBulkOperationStatusResultsItem)
+SCHEMA: CustomField (CustomField)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/CustomField
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.EmployeeBulkOperationStatus
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 2
+  Total fields: 2
+  All field names: code, value
+
+PARENT CONTEXT:
+  Parent Class: EmployeeBulkOperationStatusDataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: summary, results
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
+
+FIELDS (this page):
+----------------------------------------
+  code: string [required]
+    Description: Custom Field `ID`
+
+  value: string [required]
+    Description: Custom Field value
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomField
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+CustomFieldComputedFieldsForEmployee (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `CustomFieldComputedFieldsForEmployee`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: CustomFieldComputedFieldsForEmployee (CustomFieldComputedFieldsForEmployee)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/CustomFieldComputedFieldsForEmployee
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.EmployeeBulkOperationStatus
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 1
+  Total fields: 1
+  All field names: label
+
+PARENT CONTEXT:
+  Parent Class: EmployeeBulkOperationStatusDataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: summary, results
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
+
+FIELDS (this page):
+----------------------------------------
+  label: string? [nullable]
+    Description: Label of the custom field value
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class CustomFieldComputedFieldsForEmployee
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+EmployeeBulkOperationStatusResultsNestedItem (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `EmployeeBulkOperationStatusResultsNestedItem`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: EmployeeBulkOperationStatusResultsNestedItem (EmployeeBulkOperationStatusResultsNestedItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/b1e7cfcd7f50fa70605feb2b00b7756d178cec94
@@ -139,7 +296,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: summary, results
-  Parent Nested Types: EmployeeBulkOperationStatusResultsItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatus, EmployeeFull
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
 
 FIELDS (this page):
 ----------------------------------------
@@ -154,7 +311,7 @@ FIELDS (this page):
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class EmployeeBulkOperationStatusResultsItem
+public class EmployeeBulkOperationStatusResultsNestedItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -221,7 +378,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: summary, results
-  Parent Nested Types: EmployeeBulkOperationStatusResultsItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatus, EmployeeFull
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
 
 FIELDS (this page):
 ----------------------------------------
@@ -247,7 +404,7 @@ public class EmployeeBulkOperationStatusSummary
 }
 
 ================================================================================
-EmployeeComputedFieldsProfileStatus (nested) page 1/1
+EmployeeComputedFieldsProfileStatusItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -281,12 +438,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `EmployeeComputedFieldsProfileStatus`.
+- Return ONLY the class declaration for `EmployeeComputedFieldsProfileStatusItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: EmployeeComputedFieldsProfileStatus (EmployeeComputedFieldsProfileStatus)
+SCHEMA: EmployeeComputedFieldsProfileStatusItem (EmployeeComputedFieldsProfileStatusItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/95b3056d977de9e6d053e7dbc04860fae8aa59ac
@@ -317,14 +474,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: summary, results
-  Parent Nested Types: EmployeeBulkOperationStatusResultsItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatus, EmployeeFull
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class EmployeeComputedFieldsProfileStatus
+public class EmployeeComputedFieldsProfileStatusItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -333,7 +490,7 @@ public class EmployeeComputedFieldsProfileStatus
 }
 
 ================================================================================
-EmployeeFull (nested) page 1/2
+EmployeeFull (nested) page 1/5
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -382,17 +539,17 @@ Namespace: Connector.ukg_v2_client.v1.EmployeeBulkOperationStatus
 Role: nested
 
 PAGING:
-  Page: 1 of 2
+  Page: 1 of 5
   Fields in this page: 5
-  Total fields: 9
-  All field names: external_id, firstname, lastname, email, language, status, id, created_at, updated_at
+  Total fields: 25
+  All field names: external_id, firstname, lastname, email, language, maidenname, middlename, country, starting_date, mobile_phone_number, birth_date, address1, address2, address3, zip_code, city, state, registration_references, custom_fields, status, id, terminated, departure_date, created_at, updated_at
 
 PARENT CONTEXT:
   Parent Class: EmployeeBulkOperationStatusDataObject
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: summary, results
-  Parent Nested Types: EmployeeBulkOperationStatusResultsItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatus, EmployeeFull
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
 
 FIELDS (this page):
 ----------------------------------------
@@ -426,7 +583,7 @@ public class EmployeeFull
 }
 
 ================================================================================
-EmployeeFull (nested) page 2/2
+EmployeeFull (nested) page 2/5
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -475,21 +632,205 @@ Namespace: Connector.ukg_v2_client.v1.EmployeeBulkOperationStatus
 Role: nested
 
 PAGING:
-  Page: 2 of 2
-  Fields in this page: 4
-  Total fields: 9
-  All field names: external_id, firstname, lastname, email, language, status, id, created_at, updated_at
+  Page: 2 of 5
+  Fields in this page: 5
+  Total fields: 25
+  All field names: external_id, firstname, lastname, email, language, maidenname, middlename, country, starting_date, mobile_phone_number, birth_date, address1, address2, address3, zip_code, city, state, registration_references, custom_fields, status, id, terminated, departure_date, created_at, updated_at
 
 PARENT CONTEXT:
   Parent Class: EmployeeBulkOperationStatusDataObject
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: summary, results
-  Parent Nested Types: EmployeeBulkOperationStatusResultsItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatus, EmployeeFull
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
 
 FIELDS (this page):
 ----------------------------------------
-  status: EmployeeComputedFieldsProfileStatus? [nullable]
+  maidenname: string? [nullable]
+
+  middlename: string? [nullable]
+
+  country: string [required]
+    Description: ISO 3166-1 alpha-2 (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code. Mandatory if the email is not provided
+
+  starting_date: string? [nullable]
+    Description: Starting date of the Employee in the company
+
+  mobile_phone_number: string? [nullable]
+    Description: Mobile phone number in the international format with the full country code (e.g.: 0033)
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+EmployeeFull (nested) page 3/5
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: EmployeeFull (EmployeeFull)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/EmployeeFull
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.EmployeeBulkOperationStatus
+Role: nested
+
+PAGING:
+  Page: 3 of 5
+  Fields in this page: 5
+  Total fields: 25
+  All field names: external_id, firstname, lastname, email, language, maidenname, middlename, country, starting_date, mobile_phone_number, birth_date, address1, address2, address3, zip_code, city, state, registration_references, custom_fields, status, id, terminated, departure_date, created_at, updated_at
+
+PARENT CONTEXT:
+  Parent Class: EmployeeBulkOperationStatusDataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: summary, results
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
+
+FIELDS (this page):
+----------------------------------------
+  birth_date: string? [nullable]
+
+  address1: string [required]
+    Description: Home address of the Employee. Mandatory if the email is not provided
+
+  address2: string? [nullable]
+
+  address3: string? [nullable]
+
+  zip_code: string [required]
+    Description: Home address of the Employee. Mandatory if the email is not provided
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+EmployeeFull (nested) page 4/5
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: EmployeeFull (EmployeeFull)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/EmployeeFull
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.EmployeeBulkOperationStatus
+Role: nested
+
+PAGING:
+  Page: 4 of 5
+  Fields in this page: 5
+  Total fields: 25
+  All field names: external_id, firstname, lastname, email, language, maidenname, middlename, country, starting_date, mobile_phone_number, birth_date, address1, address2, address3, zip_code, city, state, registration_references, custom_fields, status, id, terminated, departure_date, created_at, updated_at
+
+PARENT CONTEXT:
+  Parent Class: EmployeeBulkOperationStatusDataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: summary, results
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
+
+FIELDS (this page):
+----------------------------------------
+  city: string [required]
+    Description: Home address of the Employee. Mandatory if the email is not provided
+
+  state: string? [nullable]
+    Description: State or province
+
+  registration_references: RegistrationReferenceBase[] [required]
+
+  custom_fields: CustomField[]? [nullable]
+    Description: List of custom fields.
+
+  status: EmployeeComputedFieldsProfileStatusItem? [nullable]
     Description: Status of the Employee:
 - `pre_hired` if the actual person hasn't joined the company yet.
 - `active` if he or she is.
@@ -502,8 +843,91 @@ The field is computed from `terminated` and `starting_date` fields:
     Enum: pre_hired, active, terminated
     Constraints: enum=['pre_hired', 'active', 'terminated']
 
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS
+
+================================================================================
+EmployeeFull (nested) page 5/5
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: EmployeeFull (EmployeeFull)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/EmployeeFull
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.EmployeeBulkOperationStatus
+Role: nested
+
+PAGING:
+  Page: 5 of 5
+  Fields in this page: 5
+  Total fields: 25
+  All field names: external_id, firstname, lastname, email, language, maidenname, middlename, country, starting_date, mobile_phone_number, birth_date, address1, address2, address3, zip_code, city, state, registration_references, custom_fields, status, id, terminated, departure_date, created_at, updated_at
+
+PARENT CONTEXT:
+  Parent Class: EmployeeBulkOperationStatusDataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: summary, results
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
+
+FIELDS (this page):
+----------------------------------------
   id: string [required]
     Description: ID of the Employee
+
+  terminated: bool [required]
+    Description: Are all the registration references not active (`true`)? or is there at least one registration reference active (`false`)?
+
+  departure_date: string? [nullable]
+    Description: Departure date of the employee.
+
+The field is computed from the most recent departure date of the employee's registration references.
+This field is null when the employee is not terminated.
 
   created_at: string [required]
 
@@ -518,3 +942,181 @@ EXAMPLE CODE PATTERN:
     [Nullable(true)]
     public string? ExampleField { get; init; }
 // END_FIELDS
+
+================================================================================
+RegistrationReferenceBase (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RegistrationReferenceBase`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RegistrationReferenceBase (RegistrationReferenceBase)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/RegistrationReferenceBase
+Description: No description
+Primary Key: OrganizationId
+Namespace: Connector.ukg_v2_client.v1.EmployeeBulkOperationStatus
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 4
+  Total fields: 4
+  All field names: organization_id, employee_number, active, departure_date
+
+PARENT CONTEXT:
+  Parent Class: EmployeeBulkOperationStatusDataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: summary, results
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
+
+FIELDS (this page):
+----------------------------------------
+  organization_id: string [required]
+    Description: ID of the organization the Employee belongs to
+
+  employee_number: string [required]
+    Description: Employee number in the organization
+
+  active: bool? [nullable]
+    Description: `true` if the Employee is currently in the organization. `false` else. Default: `true`
+
+  departure_date: string? [nullable]
+    Description: Departure date of the employee from the organization. If set to `null` and if `active` is set to `false`, `departure_date` is set to the current date.
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RegistrationReferenceBase
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+RegistrationReferenceFull (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `RegistrationReferenceFull`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: RegistrationReferenceFull (RegistrationReferenceFull)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/RegistrationReferenceFull
+Description: No description
+Primary Key: OrganizationId
+Namespace: Connector.ukg_v2_client.v1.EmployeeBulkOperationStatus
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 6
+  Total fields: 6
+  All field names: organization_id, employee_number, active, departure_date, created_at, updated_at
+
+PARENT CONTEXT:
+  Parent Class: EmployeeBulkOperationStatusDataObject
+  Parent Description: No description
+  Parent Field Count: 2
+  Parent Field Names: summary, results
+  Parent Nested Types: CustomField, CustomFieldComputedFieldsForEmployee, EmployeeBulkOperationStatusResultsNestedItem, EmployeeBulkOperationStatusSummary, EmployeeComputedFieldsProfileStatusItem, EmployeeFull, RegistrationReferenceBase, RegistrationReferenceFull
+
+FIELDS (this page):
+----------------------------------------
+  organization_id: string [required]
+    Description: ID of the organization the Employee belongs to
+
+  employee_number: string [required]
+    Description: Employee number in the organization
+
+  active: bool? [nullable]
+    Description: `true` if the Employee is currently in the organization. `false` else. Default: `true`
+
+  departure_date: string? [nullable]
+    Description: Departure date of the employee from the organization. If set to `null` and if `active` is set to `false`, `departure_date` is set to the current date.
+
+  created_at: string [required]
+
+  updated_at: string [required]
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class RegistrationReferenceFull
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}

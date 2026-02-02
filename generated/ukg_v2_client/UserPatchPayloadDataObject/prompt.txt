@@ -51,7 +51,7 @@ PAGING:
   Total fields: 10
   All field names: external_id, firstname, lastname, middlename, email, language, timezone, mobile_phone_number, profiles, saml_token
 
-NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, ProfileBase
+NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, ProfileBase, ProfileUpdateParams
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -148,7 +148,7 @@ PAGING:
   Total fields: 10
   All field names: external_id, firstname, lastname, middlename, email, language, timezone, mobile_phone_number, profiles, saml_token
 
-NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, ProfileBase
+NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, ProfileBase, ProfileUpdateParams
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -238,14 +238,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: external_id, firstname, lastname, middlename, email, language, timezone, mobile_phone_number, profiles, saml_token
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, ProfileBase
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, ProfileBase, ProfileUpdateParams
 
 FIELDS (this page):
 ----------------------------------------
   custom_field_id: string [required]
     Description: `ID` of the Custom Field used in the Filter
 
-  operator: CustomFieldFilterRuleOperator [required]
+  operator: CustomFieldFilterRuleOperatorItemItem [required]
     Description: Operator used to filter the values of the Custom Field:
 "=" and "!=" can be used for any type of custom fields;
 "<=", "<", ">" and ">=" are only allowed for custom fields of type `integer`
@@ -268,7 +268,7 @@ public class CustomFieldFilterRule
 }
 
 ================================================================================
-CustomFieldFilterRuleOperator (nested) page 1/1
+CustomFieldFilterRuleOperatorItemItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -302,12 +302,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `CustomFieldFilterRuleOperator`.
+- Return ONLY the class declaration for `CustomFieldFilterRuleOperatorItemItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: CustomFieldFilterRuleOperator (CustomFieldFilterRuleOperator)
+SCHEMA: CustomFieldFilterRuleOperatorItemItem (CustomFieldFilterRuleOperatorItemItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/b89353968483881566a17091aa85441d29825efb
@@ -333,14 +333,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: external_id, firstname, lastname, middlename, email, language, timezone, mobile_phone_number, profiles, saml_token
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, ProfileBase
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, ProfileBase, ProfileUpdateParams
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class CustomFieldFilterRuleOperator
+public class CustomFieldFilterRuleOperatorItemItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -408,11 +408,11 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: external_id, firstname, lastname, middlename, email, language, timezone, mobile_phone_number, profiles, saml_token
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, ProfileBase
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, ProfileBase, ProfileUpdateParams
 
 FIELDS (this page):
 ----------------------------------------
-  operator: EmployeesPerimeterBaseOperator [required]
+  operator: EmployeesPerimeterBaseOperatorItem [required]
     Description: Defines the organizations to include in the perimeter.
 If an `organization_id` is specified, can be one of "=" or "<=".
 Otherwise if an `organization_group_id` is specified, it must be set to "="
@@ -444,7 +444,7 @@ public class EmployeesPerimeterBase
 }
 
 ================================================================================
-EmployeesPerimeterBaseOperator (nested) page 1/1
+EmployeesPerimeterBaseOperatorItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -478,12 +478,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `EmployeesPerimeterBaseOperator`.
+- Return ONLY the class declaration for `EmployeesPerimeterBaseOperatorItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: EmployeesPerimeterBaseOperator (EmployeesPerimeterBaseOperator)
+SCHEMA: EmployeesPerimeterBaseOperatorItem (EmployeesPerimeterBaseOperatorItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/62bc992a0d5496dc75fdaeee1de43be7a94f91c1
@@ -508,14 +508,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: external_id, firstname, lastname, middlename, email, language, timezone, mobile_phone_number, profiles, saml_token
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, ProfileBase
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, ProfileBase, ProfileUpdateParams
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class EmployeesPerimeterBaseOperator
+public class EmployeesPerimeterBaseOperatorItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -583,7 +583,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: external_id, firstname, lastname, middlename, email, language, timezone, mobile_phone_number, profiles, saml_token
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, ProfileBase
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, ProfileBase, ProfileUpdateParams
 
 FIELDS (this page):
 ----------------------------------------
@@ -596,6 +596,89 @@ FIELDS (this page):
 EXAMPLE CODE PATTERN:
 ----------------------------------------
 public class ProfileBase
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+ProfileUpdateParams (nested) page 1/1
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `ProfileUpdateParams`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: ProfileUpdateParams (ProfileUpdateParams)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/ProfileUpdateParams
+Description: No description
+Primary Key: Id
+Namespace: Connector.ukg_v2_client.v1.UserPatchPayload
+Role: nested
+
+PAGING:
+  Page: 1 of 1
+  Fields in this page: 3
+  Total fields: 3
+  All field names: role_id, employees_perimeter, id
+
+PARENT CONTEXT:
+  Parent Class: UserPatchPayloadDataObject
+  Parent Description: No description
+  Parent Field Count: 10
+  Parent Field Names: external_id, firstname, lastname, middlename, email, language, timezone, mobile_phone_number, profiles, saml_token
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, ProfileBase, ProfileUpdateParams
+
+FIELDS (this page):
+----------------------------------------
+  role_id: string [required]
+    Description: `ID` of the role
+
+  employees_perimeter: EmployeesPerimeterBase [required]
+
+  id: string? [nullable]
+    Description: `ID` of the Profile. `required` to keep and/or update an existing profile. `optional` to create a new profile
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class ProfileUpdateParams
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]

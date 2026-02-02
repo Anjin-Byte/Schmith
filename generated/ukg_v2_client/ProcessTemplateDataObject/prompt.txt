@@ -51,7 +51,7 @@ PAGING:
   Total fields: 10
   All field names: id, title, public_title, description, created_at, created_by, updated_at, updated_by, automatic_archiving, restrictions
 
-NESTED TYPES: Organization, OrganizationOperator, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
+NESTED TYPES: Organization, OrganizationOperatorItemItem, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -148,7 +148,7 @@ PAGING:
   Total fields: 10
   All field names: id, title, public_title, description, created_at, created_by, updated_at, updated_by, automatic_archiving, restrictions
 
-NESTED TYPES: Organization, OrganizationOperator, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
+NESTED TYPES: Organization, OrganizationOperatorItemItem, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -236,7 +236,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: id, title, public_title, description, created_at, created_by, updated_at, updated_by, automatic_archiving, restrictions
-  Parent Nested Types: Organization, OrganizationOperator, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
+  Parent Nested Types: Organization, OrganizationOperatorItemItem, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
 
 FIELDS (this page):
 ----------------------------------------
@@ -244,7 +244,7 @@ FIELDS (this page):
     Description: Unique ID of the organization
     Constraints: pattern=^[a-z0-9\-\_]+$
 
-  operator: OrganizationOperator? [nullable, read-only]
+  operator: OrganizationOperatorItemItem? [nullable, read-only]
     Description: Describe hierarchy of organization
     Enum: =, <=
     Constraints: enum=['=', '<=']
@@ -261,7 +261,7 @@ public class Organization
 }
 
 ================================================================================
-OrganizationOperator (nested) page 1/1
+OrganizationOperatorItemItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -295,12 +295,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `OrganizationOperator`.
+- Return ONLY the class declaration for `OrganizationOperatorItemItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: OrganizationOperator (OrganizationOperator)
+SCHEMA: OrganizationOperatorItemItem (OrganizationOperatorItemItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/194956ec5ec1aa6b913c3da0fea7e3642f6f7534
@@ -322,14 +322,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: id, title, public_title, description, created_at, created_by, updated_at, updated_by, automatic_archiving, restrictions
-  Parent Nested Types: Organization, OrganizationOperator, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
+  Parent Nested Types: Organization, OrganizationOperatorItemItem, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class OrganizationOperator
+public class OrganizationOperatorItemItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -397,7 +397,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: id, title, public_title, description, created_at, created_by, updated_at, updated_by, automatic_archiving, restrictions
-  Parent Nested Types: Organization, OrganizationOperator, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
+  Parent Nested Types: Organization, OrganizationOperatorItemItem, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
 
 FIELDS (this page):
 ----------------------------------------
@@ -482,7 +482,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: id, title, public_title, description, created_at, created_by, updated_at, updated_by, automatic_archiving, restrictions
-  Parent Nested Types: Organization, OrganizationOperator, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
+  Parent Nested Types: Organization, OrganizationOperatorItemItem, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
 
 FIELDS (this page):
 ----------------------------------------
@@ -556,7 +556,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: id, title, public_title, description, created_at, created_by, updated_at, updated_by, automatic_archiving, restrictions
-  Parent Nested Types: Organization, OrganizationOperator, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
+  Parent Nested Types: Organization, OrganizationOperatorItemItem, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
 
 FIELDS (this page):
 ----------------------------------------
@@ -634,7 +634,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: id, title, public_title, description, created_at, created_by, updated_at, updated_by, automatic_archiving, restrictions
-  Parent Nested Types: Organization, OrganizationOperator, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
+  Parent Nested Types: Organization, OrganizationOperatorItemItem, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
 
 FIELDS (this page):
 ----------------------------------------
@@ -719,7 +719,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 10
   Parent Field Names: id, title, public_title, description, created_at, created_by, updated_at, updated_by, automatic_archiving, restrictions
-  Parent Nested Types: Organization, OrganizationOperator, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
+  Parent Nested Types: Organization, OrganizationOperatorItemItem, ProcessTemplateCreatedBy, ProcessTemplateCreatedByOrigin, ProcessTemplateRestriction, ProcessTemplateUpdatedBy, ProcessTemplateUpdatedByOrigin
 
 FIELDS (this page):
 ----------------------------------------

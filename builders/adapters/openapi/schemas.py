@@ -227,6 +227,18 @@ def register_schema(
         if register_nested and additional_properties_schema_id and "$ref" not in additional_props and not _collapse_single_ref_schema(additional_props):
             register_schema(additional_properties_schema_id, None, additional_props, True, provenance, spec, schemas, schema_hashes)
 
+    # Extract composition and register inline composition member schemas
+    composition = extract_composition(schema, spec)
+    if register_nested and composition:
+        for key in ("oneOf", "anyOf", "allOf"):
+            if key in schema and isinstance(schema.get(key), list):
+                for entry in schema.get(key) or []:
+                    if isinstance(entry, dict) and "$ref" not in entry:
+                        # Inline composition member - register it
+                        member_id = schema_id_for_schema(entry)
+                        if member_id:
+                            register_schema(member_id, None, entry, True, provenance, spec, schemas, schema_hashes)
+
     schema_record = {
         "id": schema_id,
         "name_hint": name_hint,
@@ -240,7 +252,7 @@ def register_schema(
         "items_schema_id": items_schema_id,
         "additional_properties_schema_id": additional_properties_schema_id,
         "constraints": extract_constraints(schema),
-        "composition": extract_composition(schema, spec),
+        "composition": composition,
         "provenance": provenance.__dict__,
         "is_inline": is_inline,
     }

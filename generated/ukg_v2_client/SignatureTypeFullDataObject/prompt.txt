@@ -47,9 +47,9 @@ Role: parent
 
 PAGING:
   Page: 1 of 4
-  Fields in this page: 5
-  Total fields: 20
-  All field names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Fields in this page: 6
+  Total fields: 21
+  All field names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
 
 NESTED TYPES: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 Use these class names for matching nested object fields in this schema.
@@ -73,6 +73,9 @@ FIELDS (this page):
 
   localized_title: LocalizedString[] [required]
     Description: Localized title of the signature type in all the languages used by the client. The localized title for the site's default language is mandatory
+
+  description: string? [nullable, read-only]
+    Description: Description of the signature type in the client default language
 
 
 EXAMPLE CODE PATTERN:
@@ -147,17 +150,14 @@ Role: parent
 PAGING:
   Page: 2 of 4
   Fields in this page: 5
-  Total fields: 20
-  All field names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Total fields: 21
+  All field names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
 
 NESTED TYPES: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  description: string? [nullable, read-only]
-    Description: Description of the signature type in the client default language
-
   localized_description: LocalizedString[] [required]
     Description: Localized description of the signature type in all the languages used by the client. The localized description for the site's default language is mandatory
 
@@ -169,6 +169,11 @@ FIELDS (this page):
 
   include_signer_link: bool? [nullable]
     Description: Only available if `display_in_ui` is set to `false`. Should the link for the next signer to sign the document be returned in the details of a signature (`true`) or not (`false`). The link is inserted in the signer details under the `signer_link` key (on the APIv1). For security reasons, this must only be activated when agreed upon between the client and UKG
+
+  storage_profile: SignatureTypePayloadStorageProfile? [nullable]
+    Description: Only available if `backend_code` is set to `docusign_protect_and_sign`. Should signed document (employee copy only) and the proof audit trail be archived in Document Manager internal archiving system only (``peopledoc_sae``) or also separately archived in other systems. Other system include CDC Arkhinéo (France): ``fr_cdc``. External storage can only be activated according to specific contract terms
+    Enum: peopledoc-sae, fr-cdc
+    Constraints: enum=['peopledoc-sae', 'fr-cdc']
 
 
 EXAMPLE CODE PATTERN:
@@ -232,19 +237,14 @@ Role: parent
 PAGING:
   Page: 3 of 4
   Fields in this page: 5
-  Total fields: 20
-  All field names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Total fields: 21
+  All field names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
 
 NESTED TYPES: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  storage_profile: SignatureTypePayloadStorageProfile? [nullable]
-    Description: Only available if `backend_code` is set to `docusign_protect_and_sign`. Should signed document (employee copy only) and the proof audit trail be archived in Document Manager internal archiving system only (``peopledoc_sae``) or also separately archived in other systems. Other system include CDC Arkhinéo (France): ``fr_cdc``. External storage can only be activated according to specific contract terms
-    Enum: peopledoc-sae, fr-cdc
-    Constraints: enum=['peopledoc-sae', 'fr-cdc']
-
   signer_can_reject: bool? [nullable]
     Description: Only available if `backend_code` is set to `docusign_protect_and_sign`. Should the signer be able to reject a document
 
@@ -257,6 +257,9 @@ FIELDS (this page):
 
   external_authentication: bool? [nullable]
     Description: Only available if `backend_code` is set to `docusign` and `display_in_ui` is set to `false`. Should the DocuSign authentication feature be enabled. An access code will be passed via API for each signer. DocuSign will then handle the double authentication with the passed code. UKG HR Service Delivery is not responsible to provide the code to the employee. Only use when made mandatory by the client
+
+  docusign_settings: DocusignSettings? [nullable]
+    Description: "Only available (and required) if `backend_code` is set to `docusign`. Only used if Docusign is not activated as third party"
 
 
 EXAMPLE CODE PATTERN:
@@ -320,17 +323,14 @@ Role: parent
 PAGING:
   Page: 4 of 4
   Fields in this page: 5
-  Total fields: 20
-  All field names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Total fields: 21
+  All field names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
 
 NESTED TYPES: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  docusign_settings: DocusignSettings? [nullable]
-    Description: "Only available (and required) if `backend_code` is set to `docusign`. Only used if Docusign is not activated as third party"
-
   docusign_provider: string? [nullable]
     Description: DocuSign signature provider code to use for Advanced Electronic Signature and/or Qualified Electronic Signature
     Constraints: maxLength=100
@@ -340,6 +340,9 @@ FIELDS (this page):
 
   display_terms_on_signature_portal: bool? [nullable]
     Description: Should the terms & conditions be displayed on the signature portal
+
+  created_at: string? [nullable]
+    Description: This value can be null if the signature type was created before this attribute existed
 
   updated_at: string [required]
 
@@ -410,8 +413,8 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: SignatureTypeFullDataObject
   Parent Description: No description
-  Parent Field Count: 20
-  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Parent Field Count: 21
+  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
   Parent Nested Types: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 
 FIELDS (this page):
@@ -501,8 +504,8 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: SignatureTypeFullDataObject
   Parent Description: No description
-  Parent Field Count: 20
-  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Parent Field Count: 21
+  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
   Parent Nested Types: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 
 FIELDS (this page):
@@ -576,8 +579,8 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: SignatureTypeFullDataObject
   Parent Description: No description
-  Parent Field Count: 20
-  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Parent Field Count: 21
+  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
   Parent Nested Types: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 
 FIELDS (this page):
@@ -663,8 +666,8 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: SignatureTypeFullDataObject
   Parent Description: No description
-  Parent Field Count: 20
-  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Parent Field Count: 21
+  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
   Parent Nested Types: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 
 FIELDS (this page):
@@ -757,8 +760,8 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: SignatureTypeFullDataObject
   Parent Description: No description
-  Parent Field Count: 20
-  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Parent Field Count: 21
+  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
   Parent Nested Types: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 
 FIELDS (this page):
@@ -838,8 +841,8 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: SignatureTypeFullDataObject
   Parent Description: No description
-  Parent Field Count: 20
-  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Parent Field Count: 21
+  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
   Parent Nested Types: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 
 FIELDS (this page):
@@ -915,8 +918,8 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: SignatureTypeFullDataObject
   Parent Description: No description
-  Parent Field Count: 20
-  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Parent Field Count: 21
+  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
   Parent Nested Types: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 
 FIELDS (this page):
@@ -989,8 +992,8 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: SignatureTypeFullDataObject
   Parent Description: No description
-  Parent Field Count: 20
-  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, updated_at
+  Parent Field Count: 21
+  Parent Field Names: id, backend_code, display_in_ui, title, localized_title, description, localized_description, default_sms_notification, two_factor_auth_settings, include_signer_link, storage_profile, signer_can_reject, delegation, template_id, external_authentication, docusign_settings, docusign_provider, docusign_protect_and_sign_settings, display_terms_on_signature_portal, created_at, updated_at
   Parent Nested Types: 2FASettings, 2FASettingsMode, DocusignProtectAndSignSettings, DocusignSettings, LocalizedString, SignatureTypePayloadBackendCode, SignatureTypePayloadStorageProfile, SmsNotificationSettings
 
 FIELDS (this page):

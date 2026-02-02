@@ -229,8 +229,8 @@ Role: nested
 PAGING:
   Page: 1 of 2
   Fields in this page: 6
-  Total fields: 11
-  All field names: employeeId, badgeNumber, displayDate, punchIn, punchOut, hourAmount, departmentCode, departmentName, earningCode, estimatedGrossPay, laborCodes
+  Total fields: 12
+  All field names: employeeId, badgeNumber, displayDate, punchIn, punchOut, hourAmount, departmentCode, departmentName, earningCode, estimatedGrossPay, laborCodes, employeeNumber
 
 PARENT CONTEXT:
   Parent Class: PagedResultOfTimeCardV3DataObject
@@ -325,9 +325,9 @@ Role: nested
 
 PAGING:
   Page: 2 of 2
-  Fields in this page: 5
-  Total fields: 11
-  All field names: employeeId, badgeNumber, displayDate, punchIn, punchOut, hourAmount, departmentCode, departmentName, earningCode, estimatedGrossPay, laborCodes
+  Fields in this page: 6
+  Total fields: 12
+  All field names: employeeId, badgeNumber, displayDate, punchIn, punchOut, hourAmount, departmentCode, departmentName, earningCode, estimatedGrossPay, laborCodes, employeeNumber
 
 PARENT CONTEXT:
   Parent Class: PagedResultOfTimeCardV3DataObject
@@ -354,6 +354,9 @@ FIELDS (this page):
 
   laborCodes: LaborCodeV2[]? [nullable]
     Description: List of type LaborCode containing the employee's labor code information.
+
+  employeeNumber: int? [nullable]
+    Description: Unique number of the Employee in the Legal Entity.
 
 
 EXAMPLE CODE PATTERN:

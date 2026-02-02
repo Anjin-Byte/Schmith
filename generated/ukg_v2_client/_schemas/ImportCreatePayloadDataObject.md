@@ -11,9 +11,25 @@
 |------|------|
 | `type` | `ImportBaseType` |
 | `creator` | `string` |
+| `uploaded_file` | `DocumentFileId` |
 
 ### Nested Types
+- `DocumentFileId`
 - `ImportBaseType`
+
+## DocumentFileId
+- Role: nested
+- Parent: ImportCreatePayloadDataObject
+- Schema Name: DocumentFileId
+- Schema ID: schema:definitions/DocumentFileId
+- Primary Key: FileId
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `filename` | `string` |
+| `file_id` | `string` |
 
 ## ImportBaseType
 - Role: nested

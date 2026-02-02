@@ -10,15 +10,16 @@
 | Field | Type |
 |------|------|
 | `summary` | `UserBulkOperationStatusSummary` |
-| `results` | `UserBulkOperationStatusResultsItem[]` |
+| `results` | `UserBulkOperationStatusResultsNestedItem[]` |
 
 ### Nested Types
 - `CustomFieldFilterRule`
-- `CustomFieldFilterRuleOperator`
+- `CustomFieldFilterRuleOperatorItemItemItem`
 - `EmployeesPerimeterBase`
-- `EmployeesPerimeterBaseOperator`
+- `EmployeesPerimeterBaseOperatorItemItem`
 - `ProfileBase`
-- `UserBulkOperationStatusResultsItem`
+- `ProfileFull`
+- `UserBulkOperationStatusResultsNestedItem`
 - `UserBulkOperationStatusSummary`
 - `UserFull`
 
@@ -34,13 +35,13 @@
 | Field | Type |
 |------|------|
 | `custom_field_id` | `string` |
-| `operator` | `CustomFieldFilterRuleOperator` |
+| `operator` | `CustomFieldFilterRuleOperatorItemItemItem` |
 | `value` | `string` |
 
-## CustomFieldFilterRuleOperator
+## CustomFieldFilterRuleOperatorItemItemItem
 - Role: nested
 - Parent: UserBulkOperationStatusDataObject
-- Schema Name: CustomFieldFilterRuleOperator
+- Schema Name: CustomFieldFilterRuleOperatorItemItemItem
 - Schema ID: schema:anon/b89353968483881566a17091aa85441d29825efb
 
 ### Enum
@@ -58,15 +59,15 @@ Values: =, !=, <=, <, >=, >
 
 | Field | Type |
 |------|------|
-| `operator` | `EmployeesPerimeterBaseOperator` |
+| `operator` | `EmployeesPerimeterBaseOperatorItemItem` |
 | `organization_id` | `string` |
 | `organization_group_id` | `string` |
 | `custom_field_filters` | `CustomFieldFilterRule[]` |
 
-## EmployeesPerimeterBaseOperator
+## EmployeesPerimeterBaseOperatorItemItem
 - Role: nested
 - Parent: UserBulkOperationStatusDataObject
-- Schema Name: EmployeesPerimeterBaseOperator
+- Schema Name: EmployeesPerimeterBaseOperatorItemItem
 - Schema ID: schema:anon/62bc992a0d5496dc75fdaeee1de43be7a94f91c1
 
 ### Enum
@@ -87,10 +88,25 @@ Values: =, <=
 | `role_id` | `string` |
 | `employees_perimeter` | `EmployeesPerimeterBase` |
 
-## UserBulkOperationStatusResultsItem
+## ProfileFull
 - Role: nested
 - Parent: UserBulkOperationStatusDataObject
-- Schema Name: UserBulkOperationStatusResultsItem
+- Schema Name: ProfileFull
+- Schema ID: schema:definitions/ProfileFull
+- Primary Key: Id
+
+### Fields
+
+| Field | Type |
+|------|------|
+| `id` | `string` |
+| `role_id` | `string` |
+| `employees_perimeter` | `EmployeesPerimeterBase` |
+
+## UserBulkOperationStatusResultsNestedItem
+- Role: nested
+- Parent: UserBulkOperationStatusDataObject
+- Schema Name: UserBulkOperationStatusResultsNestedItem
 - Schema ID: schema:anon/0c52d65c16a36ed6c66a62de28d422b8df2e4d4e
 
 ### Fields

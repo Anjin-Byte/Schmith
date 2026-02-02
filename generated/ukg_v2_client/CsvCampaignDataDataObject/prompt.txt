@@ -50,7 +50,7 @@ PAGING:
   Total fields: 2
   All field names: ref, fields
 
-NESTED TYPES: DatasetField, DatasetFieldTypeType
+NESTED TYPES: DatasetField, DatasetFieldTypeTypeItem
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -141,7 +141,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: ref, fields
-  Parent Nested Types: DatasetField, DatasetFieldTypeType
+  Parent Nested Types: DatasetField, DatasetFieldTypeTypeItem
 
 FIELDS (this page):
 ----------------------------------------
@@ -151,7 +151,7 @@ FIELDS (this page):
   value: string? [nullable]
     Description: The value that will replace the placeholder. It could be any primitive type (string, number, boolean, array) or an object containing a value and a label (which can be used to represent a custom field of type list for instance).
 
-  type: DatasetFieldTypeType? [nullable]
+  type: DatasetFieldTypeTypeItem? [nullable]
     Description: This field is only meant to be present in case of the placeholder field is a date, therefore its value should be date.
     Enum: date
     Constraints: enum=['date']
@@ -168,7 +168,7 @@ public class DatasetField
 }
 
 ================================================================================
-DatasetFieldTypeType (nested) page 1/1
+DatasetFieldTypeTypeItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -202,12 +202,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `DatasetFieldTypeType`.
+- Return ONLY the class declaration for `DatasetFieldTypeTypeItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: DatasetFieldTypeType (DatasetFieldTypeType)
+SCHEMA: DatasetFieldTypeTypeItem (DatasetFieldTypeTypeItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/07b949304bddf335c6eb4571c1c40044809b0b32
@@ -229,14 +229,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 2
   Parent Field Names: ref, fields
-  Parent Nested Types: DatasetField, DatasetFieldTypeType
+  Parent Nested Types: DatasetField, DatasetFieldTypeTypeItem
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class DatasetFieldTypeType
+public class DatasetFieldTypeTypeItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]

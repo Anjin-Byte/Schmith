@@ -50,7 +50,7 @@ PAGING:
   Total fields: 15
   All field names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
 
-NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -58,7 +58,7 @@ FIELDS (this page):
   slug: string? [nullable]
     Description: slug of the Article. Warning, one day, this field will be deprecated.
 
-  localized_tags: KbLocalizedTagsLocalizedTagsItem[]? [nullable]
+  localized_tags: KbLocalizedTagsLocalizedTagsNestedItem[]? [nullable]
     Description: Tag list in all available languages
 
   localized_search_keywords: LocalizedString[]? [nullable]
@@ -145,7 +145,7 @@ PAGING:
   Total fields: 15
   All field names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
 
-NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -229,7 +229,7 @@ PAGING:
   Total fields: 15
   All field names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
 
-NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+NESTED TYPES: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -247,7 +247,7 @@ FIELDS (this page):
 
   employees_perimeters: EmployeesPerimeterBase[]? [nullable]
 
-  role_restrictions: KbArticleBaseRoleRestrictionsItem[]? [nullable]
+  role_restrictions: KbArticleBaseRoleRestrictionsNestedItem[]? [nullable]
 
 
 EXAMPLE CODE PATTERN:
@@ -319,14 +319,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------
   custom_field_id: string [required]
     Description: `ID` of the Custom Field used in the Filter
 
-  operator: CustomFieldFilterRuleOperator [required]
+  operator: CustomFieldFilterRuleOperatorItemItem [required]
     Description: Operator used to filter the values of the Custom Field:
 "=" and "!=" can be used for any type of custom fields;
 "<=", "<", ">" and ">=" are only allowed for custom fields of type `integer`
@@ -349,7 +349,7 @@ public class CustomFieldFilterRule
 }
 
 ================================================================================
-CustomFieldFilterRuleOperator (nested) page 1/1
+CustomFieldFilterRuleOperatorItemItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -383,12 +383,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `CustomFieldFilterRuleOperator`.
+- Return ONLY the class declaration for `CustomFieldFilterRuleOperatorItemItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: CustomFieldFilterRuleOperator (CustomFieldFilterRuleOperator)
+SCHEMA: CustomFieldFilterRuleOperatorItemItem (CustomFieldFilterRuleOperatorItemItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/b89353968483881566a17091aa85441d29825efb
@@ -414,14 +414,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class CustomFieldFilterRuleOperator
+public class CustomFieldFilterRuleOperatorItemItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -489,11 +489,11 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------
-  operator: EmployeesPerimeterBaseOperator [required]
+  operator: EmployeesPerimeterBaseOperatorItem [required]
     Description: Defines the organizations to include in the perimeter.
 If an `organization_id` is specified, can be one of "=" or "<=".
 Otherwise if an `organization_group_id` is specified, it must be set to "="
@@ -525,7 +525,7 @@ public class EmployeesPerimeterBase
 }
 
 ================================================================================
-EmployeesPerimeterBaseOperator (nested) page 1/1
+EmployeesPerimeterBaseOperatorItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -559,12 +559,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `EmployeesPerimeterBaseOperator`.
+- Return ONLY the class declaration for `EmployeesPerimeterBaseOperatorItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: EmployeesPerimeterBaseOperator (EmployeesPerimeterBaseOperator)
+SCHEMA: EmployeesPerimeterBaseOperatorItem (EmployeesPerimeterBaseOperatorItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/62bc992a0d5496dc75fdaeee1de43be7a94f91c1
@@ -589,14 +589,14 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class EmployeesPerimeterBaseOperator
+public class EmployeesPerimeterBaseOperatorItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -605,7 +605,7 @@ public class EmployeesPerimeterBaseOperator
 }
 
 ================================================================================
-KbArticleBaseRoleRestrictionsItem (nested) page 1/1
+KbArticleBaseRoleRestrictionsNestedItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -639,12 +639,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `KbArticleBaseRoleRestrictionsItem`.
+- Return ONLY the class declaration for `KbArticleBaseRoleRestrictionsNestedItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: KbArticleBaseRoleRestrictionsItem (KbArticleBaseRoleRestrictionsItem)
+SCHEMA: KbArticleBaseRoleRestrictionsNestedItem (KbArticleBaseRoleRestrictionsNestedItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/cbcd60e0defd1088b9363273e505c0249931d345
@@ -664,7 +664,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------
@@ -677,7 +677,7 @@ FIELDS (this page):
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class KbArticleBaseRoleRestrictionsItem
+public class KbArticleBaseRoleRestrictionsNestedItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -747,7 +747,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------
@@ -822,7 +822,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------
@@ -909,7 +909,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------
@@ -934,7 +934,7 @@ EXAMPLE CODE PATTERN:
 // END_FIELDS
 
 ================================================================================
-KbLocalizedTagsLocalizedTagsItem (nested) page 1/1
+KbLocalizedTagsLocalizedTagsNestedItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -968,12 +968,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `KbLocalizedTagsLocalizedTagsItem`.
+- Return ONLY the class declaration for `KbLocalizedTagsLocalizedTagsNestedItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: KbLocalizedTagsLocalizedTagsItem (KbLocalizedTagsLocalizedTagsItem)
+SCHEMA: KbLocalizedTagsLocalizedTagsNestedItem (KbLocalizedTagsLocalizedTagsNestedItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/8ad3c99675a69b3c6f879dd3269c96aef54fb16a
@@ -992,7 +992,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------
@@ -1003,7 +1003,7 @@ FIELDS (this page):
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class KbLocalizedTagsLocalizedTagsItem
+public class KbLocalizedTagsLocalizedTagsNestedItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -1070,7 +1070,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 15
   Parent Field Names: slug, localized_tags, localized_search_keywords, featured_on_employee_homepage, once_on_employee_homepage, permanent_on_employee_homepage, versions, categories_ids, expiration_date, scheduled_publication_date, status, accessible_by_hr, accessible_by_employee, employees_perimeters, role_restrictions
-  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperator, EmployeesPerimeterBase, EmployeesPerimeterBaseOperator, KbArticleBaseRoleRestrictionsItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsItem, LocalizedString
+  Parent Nested Types: CustomFieldFilterRule, CustomFieldFilterRuleOperatorItemItem, EmployeesPerimeterBase, EmployeesPerimeterBaseOperatorItem, KbArticleBaseRoleRestrictionsNestedItem, KbArticleBaseStatus, KbArticleVersion, KbLocalizedTagsLocalizedTagsNestedItem, LocalizedString
 
 FIELDS (this page):
 ----------------------------------------

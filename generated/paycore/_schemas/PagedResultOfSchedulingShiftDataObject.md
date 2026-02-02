@@ -97,3 +97,5 @@ Names: Pending, Confirmed, Rejected
 |------|------|
 | `laborCategoryId` | `string` |
 | `laborCodeId` | `string` |
+| `code` | `string` |
+| `laborCodeName` | `string` |

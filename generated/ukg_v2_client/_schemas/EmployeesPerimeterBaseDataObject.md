@@ -17,7 +17,7 @@
 
 ### Nested Types
 - `CustomFieldFilterRule`
-- `CustomFieldFilterRuleOperator`
+- `CustomFieldFilterRuleOperatorItem`
 - `EmployeesPerimeterBaseOperator`
 
 ## CustomFieldFilterRule
@@ -32,13 +32,13 @@
 | Field | Type |
 |------|------|
 | `custom_field_id` | `string` |
-| `operator` | `CustomFieldFilterRuleOperator` |
+| `operator` | `CustomFieldFilterRuleOperatorItem` |
 | `value` | `string` |
 
-## CustomFieldFilterRuleOperator
+## CustomFieldFilterRuleOperatorItem
 - Role: nested
 - Parent: EmployeesPerimeterBaseDataObject
-- Schema Name: CustomFieldFilterRuleOperator
+- Schema Name: CustomFieldFilterRuleOperatorItem
 - Schema ID: schema:anon/b89353968483881566a17091aa85441d29825efb
 
 ### Enum

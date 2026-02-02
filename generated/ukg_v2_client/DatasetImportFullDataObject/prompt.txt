@@ -48,10 +48,10 @@ Role: parent
 PAGING:
   Page: 1 of 3
   Fields in this page: 5
-  Total fields: 13
-  All field names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, created_at, updated_at
+  Total fields: 14
+  All field names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, stats, created_at, updated_at
 
-NESTED TYPES: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus
+NESTED TYPES: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus, DatasetImportStats
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -146,11 +146,11 @@ Role: parent
 
 PAGING:
   Page: 2 of 3
-  Fields in this page: 4
-  Total fields: 13
-  All field names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, created_at, updated_at
+  Fields in this page: 5
+  Total fields: 14
+  All field names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, stats, created_at, updated_at
 
-NESTED TYPES: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus
+NESTED TYPES: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus, DatasetImportStats
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -168,6 +168,9 @@ FIELDS (this page):
 
   total_values_count: int [required]
     Description: Total number of values in the data set after the import
+
+  started_at: string [required]
+    Description: Starting date of the Import
 
 
 EXAMPLE CODE PATTERN:
@@ -231,19 +234,18 @@ Role: parent
 PAGING:
   Page: 3 of 3
   Fields in this page: 4
-  Total fields: 13
-  All field names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, created_at, updated_at
+  Total fields: 14
+  All field names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, stats, created_at, updated_at
 
-NESTED TYPES: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus
+NESTED TYPES: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus, DatasetImportStats
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
 ----------------------------------------
-  started_at: string [required]
-    Description: Starting date of the Import
-
   finished_at: string [required]
     Description: End date of the Import
+
+  stats: DatasetImportStats [required]
 
   created_at: string [required]
 
@@ -319,9 +321,9 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: DatasetImportFullDataObject
   Parent Description: No description
-  Parent Field Count: 13
-  Parent Field Names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, created_at, updated_at
-  Parent Nested Types: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus
+  Parent Field Count: 14
+  Parent Field Names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, stats, created_at, updated_at
+  Parent Nested Types: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus, DatasetImportStats
 
 FIELDS (this page):
 ----------------------------------------
@@ -396,9 +398,9 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: DatasetImportFullDataObject
   Parent Description: No description
-  Parent Field Count: 13
-  Parent Field Names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, created_at, updated_at
-  Parent Nested Types: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus
+  Parent Field Count: 14
+  Parent Field Names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, stats, created_at, updated_at
+  Parent Nested Types: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus, DatasetImportStats
 
 FIELDS (this page):
 ----------------------------------------
@@ -473,9 +475,9 @@ PAGING:
 PARENT CONTEXT:
   Parent Class: DatasetImportFullDataObject
   Parent Description: No description
-  Parent Field Count: 13
-  Parent Field Names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, created_at, updated_at
-  Parent Nested Types: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus
+  Parent Field Count: 14
+  Parent Field Names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, stats, created_at, updated_at
+  Parent Nested Types: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus, DatasetImportStats
 
 FIELDS (this page):
 ----------------------------------------
@@ -489,3 +491,177 @@ public class DatasetImportComputedFieldsStatus
     [Nullable(true)]
     public string? ExampleField { get; init; }
 }
+
+================================================================================
+DatasetImportStats (nested) page 1/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: class_only
+- Return ONLY the class declaration for `DatasetImportStats`.
+- Do NOT include namespace or using statements.
+- Include only the fields listed for this page.
+
+============================================================
+SCHEMA: DatasetImportStats (DatasetImportStats)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/DatasetImportStats
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.DatasetImportFull
+Role: nested
+
+PAGING:
+  Page: 1 of 2
+  Fields in this page: 5
+  Total fields: 9
+  All field names: rows, global_errors, row_errors, warnings, internal_errors, dimensions_created, values_created, values_updated, values_deleted
+
+PARENT CONTEXT:
+  Parent Class: DatasetImportFullDataObject
+  Parent Description: No description
+  Parent Field Count: 14
+  Parent Field Names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, stats, created_at, updated_at
+  Parent Nested Types: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus, DatasetImportStats
+
+FIELDS (this page):
+----------------------------------------
+  rows: int [required]
+    Description: Number of rows processed during the Import (the first row with the header is counted as 0)
+
+  global_errors: int [required]
+    Description: Number of global errors. A global error is an error impacting all the rows, most of the time because of the file format (e.g.: wrong encoding)
+
+  row_errors: int [required]
+    Description: Number of rows reported in error during the Import
+
+  warnings: int [required]
+    Description: Number of warnings raised during the Import
+
+  internal_errors: int [required]
+    Description: Number of internal errors encountered during the Import
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+public class DatasetImportStats
+{
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+}
+
+================================================================================
+DatasetImportStats (nested) page 2/2
+================================================================================
+Generate a C# Trimble XChange DataObject class based on the provided schema information.
+
+REQUIREMENTS:
+1. Use the exact JSON property names from the schema with [JsonPropertyName] attributes
+2. Convert JSON field names to PascalCase for C# property names
+3. Add [Description] attributes using the field descriptions from the schema
+4. Mark required fields with [Required] attribute and use 'required' keyword
+5. Mark nullable fields with [Nullable(true)] attribute and use nullable type (e.g., string?)
+6. Use 'init' accessors for immutable data objects: { get; init; }
+7. Include a [PrimaryKey] attribute ONLY on the main DataObject class (the one ending in 'DataObject'). Do NOT add [PrimaryKey] to nested/helper types. Use the primary_key_field from the schema if provided.
+8. If primary_key_needs_selection is true, YOU must select an appropriate primary key field using these criteria in order: (a) prefer fields with 'id' or 'key' in the name, (b) prefer required/non-nullable fields, (c) prefer string or integer types. Add a comment after the PrimaryKey attribute: // [REVIEW: PrimaryKey auto-selected]
+9. Primary key fields must be required and non-nullable. Do NOT mark primary key fields with [Nullable(true)] or nullable types.
+10. If a field provides Enum values, use a C# enum type for that field and define the enum in the same file. Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum and apply [JsonStringEnumMemberName("<value>")] to each enum member so serialized values match the schema.
+11. If a field has type_unresolved=true, the type could not be resolved from the IR. Use 'object' or 'object?' as the type and add a comment: // [REVIEW: Type unresolved from IR]
+12. Add XML summary comments for the class
+13. Use appropriate C# types:
+    - string for text
+    - int/long for integers
+    - double/decimal for numbers
+    - bool for booleans
+    - DateTime for datetime fields
+    - DateOnly for date-only fields
+
+DO NOT INCLUDE:
+- namespace declarations
+- using directives
+Start directly with the XML summary comment for the class.
+
+OUTPUT:
+Return ONLY the C# class definition, no explanations or markdown.
+
+OUTPUT MODE: fields_only
+- Return ONLY the property blocks for this page.
+- Do NOT include namespace, using statements, class declaration, or closing braces.
+- Wrap properties with `// BEGIN_FIELDS` and `// END_FIELDS` markers.
+
+============================================================
+SCHEMA: DatasetImportStats (DatasetImportStats)
+============================================================
+API Name: ukg_v2_client
+Schema ID: schema:definitions/DatasetImportStats
+Description: No description
+Namespace: Connector.ukg_v2_client.v1.DatasetImportFull
+Role: nested
+
+PAGING:
+  Page: 2 of 2
+  Fields in this page: 4
+  Total fields: 9
+  All field names: rows, global_errors, row_errors, warnings, internal_errors, dimensions_created, values_created, values_updated, values_deleted
+
+PARENT CONTEXT:
+  Parent Class: DatasetImportFullDataObject
+  Parent Description: No description
+  Parent Field Count: 14
+  Parent Field Names: dataset_id, id, filename, status, result, origin, creator_id, total_dimensions_count, total_values_count, started_at, finished_at, stats, created_at, updated_at
+  Parent Nested Types: DatasetImportComputedFieldsOrigin, DatasetImportComputedFieldsResult, DatasetImportComputedFieldsStatus, DatasetImportStats
+
+FIELDS (this page):
+----------------------------------------
+  dimensions_created: int [required]
+    Description: Number of dimensions created by the Import
+
+  values_created: int [required]
+    Description: Number of values added by the Import
+
+  values_updated: int [required]
+    Description: Number of values updated by the Import
+
+  values_deleted: int [required]
+    Description: Number of values deleted by the Import
+
+
+EXAMPLE CODE PATTERN:
+----------------------------------------
+// BEGIN_FIELDS
+    [JsonPropertyName("example_field")]
+    [Description("Example field")]
+    [Nullable(true)]
+    public string? ExampleField { get; init; }
+// END_FIELDS

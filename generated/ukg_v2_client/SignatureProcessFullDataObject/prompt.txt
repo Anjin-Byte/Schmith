@@ -51,7 +51,7 @@ PAGING:
   Total fields: 27
   All field names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
 
-NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -153,7 +153,7 @@ PAGING:
   Total fields: 27
   All field names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
 
-NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -242,7 +242,7 @@ PAGING:
   Total fields: 27
   All field names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
 
-NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -327,7 +327,7 @@ PAGING:
   Total fields: 27
   All field names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
 
-NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -425,7 +425,7 @@ PAGING:
   Total fields: 27
   All field names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
 
-NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+NESTED TYPES: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 Use these class names for matching nested object fields in this schema.
 
 FIELDS (this page):
@@ -436,10 +436,10 @@ FIELDS (this page):
 
   sender: SignatureProcessNestedSenderSender? [nullable]
 
-  signers: SignatureProcessSignersSignersItem[]? [nullable, read-only]
+  signers: SignatureProcessSignersSignersNestedItem[]? [nullable, read-only]
     Description: List of signers
 
-  document_organizations: SignatureProcessOrganizationsDocumentOrganizationsItem[]? [nullable, read-only]
+  document_organizations: SignatureProcessOrganizationsDocumentOrganizationsNestedItem[]? [nullable, read-only]
     Description: Organizations used to restrict access to the document
 
 
@@ -511,7 +511,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 27
   Parent Field Names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
-  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 
 FIELDS (this page):
 ----------------------------------------
@@ -591,7 +591,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 27
   Parent Field Names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
-  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 
 FIELDS (this page):
 ----------------------------------------
@@ -616,7 +616,7 @@ public class SignatureProcessNestedSenderSender
 }
 
 ================================================================================
-SignatureProcessOrganizationsDocumentOrganizationsItem (nested) page 1/1
+SignatureProcessOrganizationsDocumentOrganizationsNestedItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -650,12 +650,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `SignatureProcessOrganizationsDocumentOrganizationsItem`.
+- Return ONLY the class declaration for `SignatureProcessOrganizationsDocumentOrganizationsNestedItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: SignatureProcessOrganizationsDocumentOrganizationsItem (SignatureProcessOrganizationsDocumentOrganizationsItem)
+SCHEMA: SignatureProcessOrganizationsDocumentOrganizationsNestedItem (SignatureProcessOrganizationsDocumentOrganizationsNestedItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/4424aa26b85dd20ae1ca81506c7322cef8e82281
@@ -675,7 +675,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 27
   Parent Field Names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
-  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 
 FIELDS (this page):
 ----------------------------------------
@@ -688,7 +688,7 @@ FIELDS (this page):
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class SignatureProcessOrganizationsDocumentOrganizationsItem
+public class SignatureProcessOrganizationsDocumentOrganizationsNestedItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -697,7 +697,7 @@ public class SignatureProcessOrganizationsDocumentOrganizationsItem
 }
 
 ================================================================================
-SignatureProcessSignersSignersItem (nested) page 1/1
+SignatureProcessSignersSignersNestedItem (nested) page 1/1
 ================================================================================
 Generate a C# Trimble XChange DataObject class based on the provided schema information.
 
@@ -731,12 +731,12 @@ OUTPUT:
 Return ONLY the C# class definition, no explanations or markdown.
 
 OUTPUT MODE: class_only
-- Return ONLY the class declaration for `SignatureProcessSignersSignersItem`.
+- Return ONLY the class declaration for `SignatureProcessSignersSignersNestedItem`.
 - Do NOT include namespace or using statements.
 - Include only the fields listed for this page.
 
 ============================================================
-SCHEMA: SignatureProcessSignersSignersItem (SignatureProcessSignersSignersItem)
+SCHEMA: SignatureProcessSignersSignersNestedItem (SignatureProcessSignersSignersNestedItem)
 ============================================================
 API Name: ukg_v2_client
 Schema ID: schema:anon/ffa305924e481b1c8132496caf32364f1bddbc9f
@@ -756,7 +756,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 27
   Parent Field Names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
-  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 
 FIELDS (this page):
 ----------------------------------------
@@ -775,7 +775,7 @@ FIELDS (this page):
 
 EXAMPLE CODE PATTERN:
 ----------------------------------------
-public class SignatureProcessSignersSignersItem
+public class SignatureProcessSignersSignersNestedItem
 {
     [JsonPropertyName("example_field")]
     [Description("Example field")]
@@ -858,7 +858,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 27
   Parent Field Names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
-  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 
 FIELDS (this page):
 ----------------------------------------
@@ -946,7 +946,7 @@ PARENT CONTEXT:
   Parent Description: No description
   Parent Field Count: 27
   Parent Field Names: signature_type_id, title, name, location, expiry_date, notify_on_signature, notify_on_refusal, document_type_id, document_metadata, document_date, cancellation_comment, file_number, is_cancelable, is_deletable, message, notify_employee_ids, external_id, auto_send, callback_url, reason, id, state, created_at, updated_at, sender, signers, document_organizations
-  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsItem, SignatureProcessSignersSignersItem, SignatureProcessStateState, SignerState
+  Parent Nested Types: MetaDataBase, SignatureProcessNestedSenderSender, SignatureProcessOrganizationsDocumentOrganizationsNestedItem, SignatureProcessSignersSignersNestedItem, SignatureProcessStateState, SignerState
 
 FIELDS (this page):
 ----------------------------------------
