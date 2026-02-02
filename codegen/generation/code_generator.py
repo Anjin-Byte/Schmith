@@ -294,6 +294,8 @@ def _build_paged_prompt(
     lines.append(f"Description: {schema.get('description') or 'No description'}")
     if schema.get("primary_key_field"):
         lines.append(f"Primary Key: {schema['primary_key_field']}")
+    elif schema.get("primary_key_needs_selection"):
+        lines.append("Primary Key: [NEEDS_SELECTION] - You must select an appropriate primary key field")
     lines.append(f"Namespace: {namespace}")
     lines.append(f"Role: {schema.get('role')}")
     enum_values = schema.get("enum_values")
@@ -409,6 +411,8 @@ def _format_schema_markdown(packet: dict) -> str:
         lines.append(f"- Schema ID: {schema.get('schema_id', '')}")
         if schema.get("primary_key_field"):
             lines.append(f"- Primary Key: {schema['primary_key_field']}")
+        elif schema.get("primary_key_needs_selection"):
+            lines.append("- Primary Key: [NEEDS_SELECTION]")
         lines.append("")
         enum_values = schema.get("enum_values")
         has_enum = isinstance(enum_values, list) and enum_values
@@ -499,6 +503,8 @@ def _build_grouped_prompt(packet: dict) -> str:
     lines.append(f"Description: {parent['description'] or 'No description'}")
     if parent.get("primary_key_field"):
         lines.append(f"Primary Key: {parent['primary_key_field']}")
+    elif parent.get("primary_key_needs_selection"):
+        lines.append("Primary Key: [NEEDS_SELECTION] - You must select an appropriate primary key field")
     resource_name = metadata["data_object_name"].removesuffix("DataObject")
     lines.append(f"Namespace: Connector.{metadata['ir_name']}.v1.{resource_name}")
     lines.append("")
