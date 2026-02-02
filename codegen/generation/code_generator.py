@@ -121,8 +121,19 @@ def _normalize_class_indentation(code: str, indent: str = "    ") -> str:
     return "\n".join(out)
 
 
+def _is_enum_only_schema(schema: dict) -> bool:
+    """Check if schema is an enum-only type (no properties, just enum values)."""
+    enum_values = schema.get("enum_values")
+    has_enum = isinstance(enum_values, list) and len(enum_values) > 0
+    has_properties = bool(schema.get("properties") or schema.get("fields"))
+    return has_enum and not has_properties
+
+
 def _schema_output_mode(schema: dict, page_index: int) -> str:
     """Determine output mode for a schema/page."""
+    # Enum-only schemas always use enum_only mode
+    if _is_enum_only_schema(schema):
+        return "enum_only"
     if page_index == 1:
         return "class_only" if schema.get("role") == "nested" else "full_class"
     return "fields_only"
@@ -147,7 +158,15 @@ def _resolve_namespace(packet_meta: dict, schema: dict) -> str:
 def _paging_instructions(output_mode: str, class_name: str) -> list[str]:
     """Build paging-specific instructions (supplements base instructions from prompts.json)."""
     lines = []
-    if output_mode == "full_class":
+    if output_mode == "enum_only":
+        lines.append("OUTPUT MODE: enum_only")
+        lines.append(f"- This schema defines a standalone enum, NOT a class.")
+        lines.append(f"- Return ONLY a standalone enum definition named `{class_name}`.")
+        lines.append("- Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum.")
+        lines.append("- Add [JsonStringEnumMemberName(\"value\")] to each enum member.")
+        lines.append("- Do NOT wrap the enum in a class.")
+        lines.append("- Do NOT include namespace or using statements.")
+    elif output_mode == "full_class":
         # Base instructions come from prompts.json, just add paging note
         lines.append("PAGING NOTE:")
         lines.append("- Include only the fields listed for this page.")
@@ -168,10 +187,24 @@ def _paging_example_code(output_mode: str, class_name: str, base_example: str | 
     """Generate example code for paging modes, using base example for full_class.
 
     Args:
-        output_mode: The output mode (full_class, class_only, fields_only)
+        output_mode: The output mode (full_class, class_only, fields_only, enum_only)
         class_name: The class name for substitution
         base_example: The example_code from prompts.json (used for full_class)
     """
+    if output_mode == "enum_only":
+        return f"""/// <summary>
+/// Description of the enum.
+/// </summary>
+[JsonConverter(typeof(JsonStringEnumConverter))]
+public enum {class_name}
+{{
+    [JsonStringEnumMemberName("value_one")]
+    ValueOne,
+
+    [JsonStringEnumMemberName("value_two")]
+    ValueTwo
+}}"""
+
     if output_mode == "fields_only":
         return f"""{FIELDS_START_MARKER}
     [JsonPropertyName("example_field")]
@@ -299,7 +332,9 @@ def _build_paged_prompt(
         nested_type_names = [name for name in nested_type_names if name not in composition_only]
     if nested_type_names:
         lines.append(f"NESTED TYPES: {', '.join(nested_type_names)}")
-        lines.append("Use these class names for matching nested object fields in this schema.")
+        lines.append("Use these class names for complex field types in this schema.")
+        lines.append("IMPORTANT: Do NOT generate these nested types - they are generated separately.")
+        lines.append("Only generate the single class specified in SCHEMA above.")
         lines.append("")
 
     lines.append("FIELDS (this page):")

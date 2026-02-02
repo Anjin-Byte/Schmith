@@ -1,6 +1,6 @@
 # Schema Coverage Report: ukg_v2_client
 
-**Generated:** 2026-02-01 21:00:50
+**Generated:** 2026-02-01 21:10:31
 **IR Source:** `/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/ir/ukg_v2_client`
 
 ## Summary

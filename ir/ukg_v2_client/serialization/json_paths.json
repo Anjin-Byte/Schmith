@@ -126,14 +126,50 @@
       "$.lastname",
       "$.email"
     ],
+    "schema:anon/39a21c029caf0994f4af2461d41ee43bafd35705": [
+      "$.maidenname",
+      "$.middlename",
+      "$.country",
+      "$.starting_date"
+    ],
+    "schema:anon/3c8d3a9a6e594e82732e672c2ca03118fc913a01": [
+      "$.mobile_phone_number",
+      "$.birth_date",
+      "$.address1",
+      "$.address2",
+      "$.address3",
+      "$.zip_code",
+      "$.city",
+      "$.state",
+      "$.registration_references",
+      "$.custom_fields"
+    ],
     "schema:definitions/EmployeeComputedFieldsSimplified": [
       "$.id"
     ],
     "schema:definitions/EmployeeComputedFieldsProfile": [
       "$.status"
     ],
+    "schema:anon/55a9a5c81518263d2a4487aadd809eea6b207736": [
+      "$.terminated",
+      "$.registration_references",
+      "$.custom_fields",
+      "$.departure_date"
+    ],
     "schema:definitions/EmployeeCreateOptions": [
       "$.saml_token"
+    ],
+    "schema:anon/faf8b7e09ffd97d3c58dcd05dba47f40944ee351": [
+      "$.custom_fields"
+    ],
+    "schema:anon/ca26f0d1e2c0189049014003b323a5f537dbe195": [
+      "$.custom_fields"
+    ],
+    "schema:anon/65c3a2bbd2beda6c90222605ebc9bc4af24371b9": [
+      "$.custom_fields"
+    ],
+    "schema:anon/e3bef39a37661a646ae65b56cd58a8ff3a73b2b1": [
+      "$.custom_fields"
     ],
     "schema:definitions/EmployeeVaultAccountStatus": [
       "$.vault_account_status"
@@ -229,12 +265,21 @@
     "schema:definitions/EmployeesPerimeterComputedFields": [
       "$.id"
     ],
+    "schema:anon/97272a90d770e961655553e89c9a3a9ff768d571": [
+      "$.options"
+    ],
     "schema:definitions/SubscriptionBase": [
       "$.employee_document_type_id",
       "$.employee_choice"
     ],
     "schema:definitions/SubscriptionComputedFields": [
       "$.calculated_employee_choice"
+    ],
+    "schema:anon/11588c759e44f04e73581e285a221e5219f9ad44": [
+      "$.electronic_vault_activated"
+    ],
+    "schema:anon/1ff4a2fdf6bd3b041c1344428a31e2b3169e4b99": [
+      "$.subscriptions"
     ],
     "schema:definitions/RoleBase": [
       "$.id",
@@ -344,8 +389,17 @@
     "schema:definitions/UserComputedFields": [
       "$.id"
     ],
+    "schema:anon/8d87dc94823f5f86cef497f2d79b5300e8204e33": [
+      "$.profiles"
+    ],
     "schema:definitions/UserCreateParams": [
       "$.saml_token"
+    ],
+    "schema:anon/037198a5716ff8bab46b48a14418839e62f645c8": [
+      "$.profiles"
+    ],
+    "schema:anon/ea063c7230088ca0ed8c0d03dc96d1f3e9209b89": [
+      "$.profiles"
     ],
     "schema:definitions/ProfileBase": [
       "$.role_id",
@@ -355,6 +409,9 @@
       "$.role_id",
       "$.role_code",
       "$.employees_perimeter"
+    ],
+    "schema:anon/6b2c3662d1fe06bf493431587dcec19f47176c73": [
+      "$.id"
     ],
     "schema:definitions/ProfileComputedFields": [
       "$.id"
@@ -501,6 +558,9 @@
     "schema:definitions/EmployeeDocumentExternalRefUnique": [
       "$.external_reference_is_unique"
     ],
+    "schema:anon/6b543979c75f326983006503216c85d2e1c2f745": [
+      "$.uploaded_file"
+    ],
     "schema:definitions/CompanyDocumentBase": [
       "$.document_type_id",
       "$.title",
@@ -546,6 +606,15 @@
       "$.to_users_ids",
       "$.to_inbox_id"
     ],
+    "schema:anon/6ed3e3fae42989ea91313b02f38e2fd674b6c8eb": [
+      "$.options"
+    ],
+    "schema:anon/8e1baff229e157c5821a557c2623b7613f6d833a": [
+      "$.send_confirmation_email_to_creator"
+    ],
+    "schema:anon/352e7e390e9f1ae0ab710139452088dbc11ba9b0": [
+      "$.uploaded_files"
+    ],
     "schema:definitions/InboxItemComputedFields": [
       "$.id",
       "$.state",
@@ -583,6 +652,9 @@
       "$.docusign_provider",
       "$.docusign_protect_and_sign_settings",
       "$.display_terms_on_signature_portal"
+    ],
+    "schema:anon/15a6265e82dbb270b53531e12283f96c1ab10130": [
+      "$.created_at"
     ],
     "schema:definitions/2FASettings": [
       "$.mode",
@@ -769,6 +841,12 @@
       "$.started_at",
       "$.finished_at"
     ],
+    "schema:anon/64f6e8deb6efc8aac437c20ba6d513711facfec8": [
+      "$.upload_id"
+    ],
+    "schema:anon/03f806a8b4733514f1d95abdc8f0c9d07e372ec2": [
+      "$.stats"
+    ],
     "schema:definitions/DatasetImportStats": [
       "$.rows",
       "$.global_errors",
@@ -779,6 +857,10 @@
       "$.values_created",
       "$.values_updated",
       "$.values_deleted"
+    ],
+    "schema:anon/dd920e391e868d78d9c8213833eead90dc2229a0": [
+      "$.type",
+      "$.line"
     ],
     "schema:definitions/ProcessBase": [
       "$.title",
@@ -805,6 +887,27 @@
       "$.done_employee_tasks_count",
       "$.done_company_tasks_count",
       "$.published"
+    ],
+    "schema:anon/334573a27160acf9cdbbdacf4248944259698271": [
+      "$.created_at"
+    ],
+    "schema:anon/03f8bbe56dedcab409f121e9f78a3b2b9114833b": [
+      "$.updated_at"
+    ],
+    "schema:anon/e8c9644d3c744365d8b95b44ffda7bb814dbe7bb": [
+      "$.completed_at"
+    ],
+    "schema:anon/ffeea799f991f0f6b62f3e9457c6193b4a906ad7": [
+      "$.process_template_id"
+    ],
+    "schema:anon/8fad6fd8a966e48892be42e7728f141762d8d985": [
+      "$.employee_external_id"
+    ],
+    "schema:anon/04aec87f4879e03968309a4b2016829b1d2fb6c3": [
+      "$.creator_external_id"
+    ],
+    "schema:anon/c2e2038f98f8d36402d97250d1e799a24a08bd3b": [
+      "$.publish"
     ],
     "schema:definitions/ProcessPostActionCommonPayload": [
       "$.id",
@@ -1131,6 +1234,9 @@
     "schema:definitions/ProcessCustomFormsWrite": [
       "$.title",
       "$.formidable"
+    ],
+    "schema:anon/3d1a071cb02767aa63ed06c74c8814108f5979fb": [
+      "$.fields"
     ],
     "schema:definitions/DFBase": [
       "$.id",
@@ -1858,6 +1964,32 @@
       "$.message",
       "$.severity"
     ],
+    "schema:anon/060f4630148012f9a31970f495adc05f9d3bb5f5": [
+      "$.document_generation_template_id",
+      "$.document_generation_template_version",
+      "$.output_format",
+      "$.context",
+      "$.signature_field_generation",
+      "$.fragment_fields",
+      "$.email_recipients",
+      "$.employee_id",
+      "$.document_type_id"
+    ],
+    "schema:anon/c24fa5366979853fcc8ab7c4162223ac879e70fa": [
+      "$.fragment_placeholder_1",
+      "$.fragment_placeholder_n"
+    ],
+    "schema:anon/93704628aa6c9a2b4a867ba9e699de68d32efa52": [
+      "$.id",
+      "$.format",
+      "$.document_generation_template_id",
+      "$.document_generation_template_version",
+      "$.context",
+      "$.upload_id",
+      "$.status",
+      "$.generation_started_at",
+      "$.generation_finished_at"
+    ],
     "schema:definitions/DocGenTemplateBase": [
       "$.title",
       "$.description",
@@ -1869,11 +2001,22 @@
       "$.validity_end_date",
       "$.active_version"
     ],
+    "schema:anon/f679f9b0ddb6284bd80989eba37b9d334bb938b8": [
+      "$.id",
+      "$.latest_version"
+    ],
     "schema:definitions/DocGenTemplateVersionBase": [
       "$.format",
       "$.syntax_version",
       "$.template_information",
       "$.fragment_mapping"
+    ],
+    "schema:anon/f3f999ee40ffb7117ae8f2ed1b498f30983aefc1": [
+      "$.version",
+      "$.document_generation_template_id"
+    ],
+    "schema:anon/0f089560af2747345d683c009028e8c93d348f53": [
+      "$.output_format"
     ],
     "schema:definitions/EmailRecipient": [
       "$.firstname",
@@ -1893,6 +2036,21 @@
       "$.employee_id",
       "$.employee_document_type_id",
       "$.upload_id"
+    ],
+    "schema:anon/b2da65955a02625012cdafba8384339a805e0108": [
+      "$.id",
+      "$.title",
+      "$.description",
+      "$.locale",
+      "$.format",
+      "$.latest_version",
+      "$.active_version",
+      "$.validity_start_date",
+      "$.validity_end_date",
+      "$.enabled",
+      "$.is_injectable",
+      "$.active_version_syntax",
+      "$.restrictions"
     ],
     "schema:definitions/LatestVersionFields": [
       "$.latest_version_syntax",
@@ -1923,6 +2081,15 @@
       "$.active_version",
       "$.restrictions"
     ],
+    "schema:anon/72518a32f91ff825d29839248204adab826e690a": [
+      "$.version",
+      "$.document_generation_template_id",
+      "$.syntax_version",
+      "$.format",
+      "$.output_format",
+      "$.template_information",
+      "$.fragment_mapping"
+    ],
     "schema:definitions/DocGenTemplateVersionUpdatePayload": [
       "$.format",
       "$.output_format",
@@ -1952,6 +2119,9 @@
       "$.document_type_id",
       "$.output_action"
     ],
+    "schema:anon/24ff120e54b3f0e3660833197908a8d22b9cfd70": [
+      "$.data"
+    ],
     "schema:definitions/CampaignData": [
       "$.employee_id",
       "$.ref",
@@ -1962,6 +2132,14 @@
       "$.fragment_placeholder_1",
       "$.fragment_placeholder_n"
     ],
+    "schema:anon/33fd6643ddfd77bb5ad2db45a63a4fead7641380": [
+      "$.id"
+    ],
+    "schema:anon/b9192ea65df1ed7e892aaea4effc25840babbae1": [
+      "$.status",
+      "$.started_at",
+      "$.ended_at"
+    ],
     "schema:definitions/CsvCampaignData": [
       "$.ref",
       "$.fields"
@@ -1969,6 +2147,9 @@
     "schema:definitions/DocGenUpdateOrganization": [
       "$.old_organization_id",
       "$.new_organization_id"
+    ],
+    "schema:anon/cf73e39b8a25027f7f9146c2d8802d7542998712": [
+      "$.updated_records"
     ],
     "schema:definitions/MarkRequestToPdfPayload": [
       "$.dataset",
@@ -2016,6 +2197,9 @@
     "schema:definitions/OrchestrationConfigurationBase": [
       "$.properties"
     ],
+    "schema:anon/bb8f7bf15e16df22c7eb638a232a9a08e15ad95c": [
+      "$.id"
+    ],
     "schema:definitions/OrchestrationTemplateBase": [
       "$.title",
       "$.description",
@@ -2029,6 +2213,12 @@
     "schema:definitions/OrchestrationTemplateBaseSimplified": [
       "$.title",
       "$.description"
+    ],
+    "schema:anon/87b957f2f91706b0db9a935e2f016bc92e1e04cf": [
+      "$.id",
+      "$.status",
+      "$.template_type",
+      "$.errors"
     ],
     "schema:definitions/OrchestrationTemplateErrors": [
       "$.code",
@@ -2065,6 +2255,10 @@
       "$.aggregation_mode",
       "$.status"
     ],
+    "schema:anon/6f34ec33962ddb945ac9d142a3751cdb7d317383": [
+      "$.id",
+      "$.unclassified_attributes"
+    ],
     "schema:definitions/OrchestrationMasterTemplateModel": [
       "$.id",
       "$.steps"
@@ -2099,6 +2293,15 @@
     "schema:definitions/OrchestrationBase": [
       "$.orchestration_template_id",
       "$.content"
+    ],
+    "schema:anon/650cf0c45c902cb44e00410ffe3e20e5df979e0e": [
+      "$.id",
+      "$.status",
+      "$.stored_attachments",
+      "$.errors",
+      "$.template_snapshot",
+      "$.statuses_history",
+      "$.tag_codes"
     ],
     "schema:definitions/OrchestrationEmbed": [
       "$.orchestration_template"
@@ -2225,6 +2428,17 @@
     "schema:definitions/FeatureFlagBase": [
       "$.id"
     ],
+    "schema:anon/526931040d0fc01e0fee31c325da6e2c5d990f75": [
+      "$.description",
+      "$.scopes",
+      "$.default",
+      "$.global_flag",
+      "$.client_flags",
+      "$.user_flags"
+    ],
+    "schema:anon/dbc73f2e0787150903582f544cd80e13ec99ebc0": [
+      "$.value"
+    ],
     "schema:definitions/ArchivePreparedPayload": [
       "$.reference",
       "$.from",
@@ -2345,6 +2559,9 @@
     "schema:definitions/LanguageCustomizedContentComputedFields": [
       "$.language",
       "$.email_template_id"
+    ],
+    "schema:anon/ec0cc5c8ee855a6c524a0eb9826cdd2043ae468d": [
+      "$.customized_fragments"
     ],
     "schema:definitions/TemplatedEmailPreviewBase": [
       "$.email_template_id",
@@ -2501,6 +2718,17 @@
       "$.id",
       "$.status"
     ],
+    "schema:anon/b3be3c8d049d70df25c880a04a0299e1d007d5ae": [
+      "$.sender_name",
+      "$.reply_to",
+      "$.content",
+      "$.text_content",
+      "$.html_content",
+      "$.priority",
+      "$.callback_url",
+      "$.campaign_id",
+      "$.provider"
+    ],
     "schema:definitions/SmsMessageBase": [
       "$.recipient",
       "$.content"
@@ -2508,6 +2736,12 @@
     "schema:definitions/SmsMessageComputedFields": [
       "$.id",
       "$.status"
+    ],
+    "schema:anon/a705972dbb82d79444f1f152daf1273fce4372e6": [
+      "$.provider",
+      "$.callback_url",
+      "$.voice_lang",
+      "$.sms_type"
     ],
     "schema:definitions/MailRecipient": [
       "$.firstname",
@@ -2529,6 +2763,9 @@
     "schema:definitions/MailMessageComputedFields": [
       "$.id",
       "$.status"
+    ],
+    "schema:anon/b4cee8e46ab81a74fd5a51faf53377235f915b75": [
+      "$.callback_url"
     ],
     "schema:definitions/PackageMailRecipient": [
       "$.firstname",
@@ -3249,6 +3486,9 @@
       "$.template",
       "$.data"
     ],
+    "schema:anon/03b5a50501665b61acb3e2c6c7b053087ef99fc4": [
+      "$.label"
+    ],
     "schema:definitions/_MacroBase": [
       "$.name",
       "$.label",
@@ -3258,6 +3498,15 @@
       "$.roles",
       "$.custom_status"
     ],
+    "schema:anon/3651620a0d4025ee8a9d40ce9559830c7594f496": [
+      "$.id"
+    ],
+    "schema:anon/e0d4ff2ea78d755a558dd412e388af7e25034c8c": [
+      "$.actions"
+    ],
+    "schema:anon/0b990728457f4f50e040a16b7a48b9c4d4841c17": [
+      "$.actions"
+    ],
     "schema:definitions/RequestMacroPayload": [
       "$.macro_id"
     ],
@@ -3265,10 +3514,26 @@
       "$.name",
       "$.is_active"
     ],
+    "schema:anon/69d5eee61b5c43ec75021a557329301dda737117": [
+      "$.id"
+    ],
     "schema:definitions/_RuleBase": [
       "$.name",
       "$.active",
       "$.order"
+    ],
+    "schema:anon/abfbd88ea7647141857075ccfc3ad5386647bbb7": [
+      "$.id"
+    ],
+    "schema:anon/2d10d71d8f8f9b7ab8d5a7b572a833bddc931ccf": [
+      "$.actions",
+      "$.all_conditions",
+      "$.any_conditions"
+    ],
+    "schema:anon/9c22f8171ce2caa16276c0686b0bcdd272f296ad": [
+      "$.actions",
+      "$.all_conditions",
+      "$.any_conditions"
     ],
     "schema:definitions/ExternalAppName": [
       "$.key",
@@ -3283,6 +3548,9 @@
       "$.dimensions_app_key",
       "$.grant_type",
       "$.application_name"
+    ],
+    "schema:anon/2254ea5682c10576e339f144afdedfd713b0a6eb": [
+      "$.id"
     ]
   }
 }

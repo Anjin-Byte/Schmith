@@ -28,7 +28,7 @@ def add_json_paths(schemas_map: Dict[str, List[str]], schema_id: str, pointer: s
 
 
 def collect_inline_json_paths(schema: Any, schema_id: str, json_paths: Dict[str, List[str]]) -> None:
-    """Collect JSON paths from inline schema properties."""
+    """Collect JSON paths from inline schema properties, including composition members."""
     if not isinstance(schema, dict):
         return
 
@@ -41,11 +41,29 @@ def collect_inline_json_paths(schema: Any, schema_id: str, json_paths: Dict[str,
                 if child_id:
                     collect_inline_json_paths(prop_schema, child_id, json_paths)
 
+    # Handle composition members (allOf/oneOf/anyOf) - register each member's paths
+    # under its own schema_id, not the parent
+    for comp_key in ("allOf", "oneOf", "anyOf"):
+        comp_list = schema.get(comp_key)
+        if isinstance(comp_list, list):
+            for member in comp_list:
+                if isinstance(member, dict):
+                    member_id = schema_id_for_schema(member)
+                    if member_id:
+                        collect_inline_json_paths(member, member_id, json_paths)
+
     if schema.get("type") == "array" and isinstance(schema.get("items"), dict):
         items = schema.get("items")
         child_id = schema_id_for_schema(items)
         if child_id:
             collect_inline_json_paths(items, child_id, json_paths)
+
+    # Handle additionalProperties (for map/dictionary types)
+    addl_props = schema.get("additionalProperties")
+    if isinstance(addl_props, dict):
+        child_id = schema_id_for_schema(addl_props)
+        if child_id:
+            collect_inline_json_paths(addl_props, child_id, json_paths)
 
 
 def extract_serialization(spec: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str, Any]]:

@@ -28,31 +28,31 @@ uv run python tests/invariants/run_all.py --config configs/procore.toml -v
 # Codegen (Grouped Packets + Scaffolding + C# Generation)
 # ---------------------------------------------------------------------------
 # Generate grouped prompt packets
-uv run python -m codegen packets servicefusion 
-uv run python -m codegen packets ukg_v2_client 
-uv run python -m codegen packets paycore 
+#uv run python -m codegen packets servicefusion 
+#uv run python -m codegen packets ukg_v2_client 
+#uv run python -m codegen packets paycore 
 uv run python -m codegen packets procore 
 
 # Generate scaffolding (directories + prompt.txt + schema.md)
-uv run python -m codegen generate servicefusion --dry-run
-uv run python -m codegen generate ukg_v2_client --dry-run
-uv run python -m codegen generate paycore --dry-run
+#uv run python -m codegen generate servicefusion --dry-run
+#uv run python -m codegen generate ukg_v2_client --dry-run
+#uv run python -m codegen generate paycore --dry-run
 uv run python -m codegen generate procore --dry-run
 
-uv run python -m codegen groups servicefusion 
-uv run python -m codegen groups ukg_v2_client 
-uv run python -m codegen groups paycore
-uv run python -m codegen groups procore
+#uv run python -m codegen groups servicefusion 
+#uv run python -m codegen groups ukg_v2_client 
+#uv run python -m codegen groups paycore
+#uv run python -m codegen groups procore # BROKEN 
 
-uv run python -m codegen coverage servicefusion    
-uv run python -m codegen coverage ukg_v2_client       
-uv run python -m codegen coverage paycore                      
+#uv run python -m codegen coverage servicefusion    
+#uv run python -m codegen coverage ukg_v2_client       
+#uv run python -m codegen coverage paycore                      
 uv run python -m codegen coverage procore
 
-uv run python -m codegen endpoints servicefusion 
-uv run python -m codegen endpoints ukg_v2_client   
-uv run python -m codegen endpoints paycore
-uv run python -m codegen endpoints procore
+#uv run python -m codegen endpoints servicefusion 
+#uv run python -m codegen endpoints ukg_v2_client   
+#uv run python -m codegen endpoints paycore
+uv run python -m codegen endpoints procore --no-clean
 
 #uv run python -m codegen list paycore -v
 #uv run python -m codegen pages paycore --grouped
@@ -61,4 +61,4 @@ uv run python -m codegen endpoints procore
 #uv run python -m codegen generate servicefusion
 #uv run python -m codegen generate ukg_v2_client
 #uv run python -m codegen generate paycore 
-#uv run python -m codegen generate procore
+uv run python -m codegen generate procore --no-clean

@@ -1,6 +1,6 @@
 # Schema Coverage Report: procore
 
-**Generated:** 2026-02-01 21:02:12
+**Generated:** 2026-02-01 22:15:25
 **IR Source:** `/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/ir/procore`
 
 ## Summary
