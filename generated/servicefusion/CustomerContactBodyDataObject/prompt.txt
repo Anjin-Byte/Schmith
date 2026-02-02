@@ -58,21 +58,27 @@ FIELDS (this page):
 ----------------------------------------
   prefix: string? [nullable]
     Description: Used to send the contact's prefix that will be set.
+    Constraints: enum=['Mr.', 'Mrs.', 'Ms.', 'Dr.', 'Atty.', 'Prof.', 'Hon.', 'Gov.', 'Ofc.', 'Rep.', 'Sen.', 'Amb.', 'Sec.', 'Pvt.', 'Cpl.', 'Sgt.', 'Adm.', 'Gen.', 'Maj.', 'Capt.', 'Cmdr.', 'Lt.', 'Lt Col.', 'Col.']
 
   fname: string [required]
     Description: Used to send the contact's first name that will be set.
+    Constraints: maxLength=255
 
   lname: string [required]
     Description: Used to send the contact's last name that will be set.
+    Constraints: maxLength=255
 
   suffix: string? [nullable]
     Description: Used to send the contact's suffix that will be set.
+    Constraints: maxLength=255
 
   contact_type: string? [nullable]
     Description: Used to send the contact's type that will be set.
+    Constraints: maxLength=255
 
   dob: string? [nullable]
     Description: Used to send the contact's dob that will be set.
+    Constraints: maxLength=250
 
 
 EXAMPLE CODE PATTERN:
@@ -157,12 +163,15 @@ FIELDS (this page):
 ----------------------------------------
   anniversary: string? [nullable]
     Description: Used to send the contact's anniversary that will be set.
+    Constraints: maxLength=250
 
   job_title: string? [nullable]
     Description: Used to send the contact's job title that will be set.
+    Constraints: maxLength=200
 
   department: string? [nullable]
     Description: Used to send the contact's department that will be set.
+    Constraints: maxLength=200
 
   is_primary: bool? [nullable]
     Description: Used to send the contact's is primary flag that will be set. When it is passed as `true`, then the customer's existing primary contact (if any) will become secondary, and this one will become the primary one.
@@ -250,13 +259,16 @@ FIELDS (this page):
 ----------------------------------------
   email: string [required]
     Description: Used to send the email's address that will be set.
+    Constraints: maxLength=255, pattern=^[^@]*<[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$
 
   class: string? [nullable]
     Description: Used to send the email's class that will be set.
+    Constraints: enum=['Personal', 'Business', 'Other']
 
   types_accepted: string? [nullable]
     Description: Used to send the email's types accepted that will be set.
 Accepted value is comma-separated string.
+    Constraints: enum=['CONF', 'STATUS', 'PMT', 'INV']
 
 
 EXAMPLE CODE PATTERN:
@@ -336,12 +348,14 @@ FIELDS (this page):
 ----------------------------------------
   phone: string [required]
     Description: Used to send the phone's number that will be set.
+    Constraints: pattern=^[0-9]{3}\-[0-9]{3}\-[0-9]{4}$
 
   ext: int? [nullable]
     Description: Used to send the phone's extension that will be set.
 
   type: string? [nullable]
     Description: Used to send the phone's type that will be set.
+    Constraints: enum=['Mobile', 'Home', 'Work', 'Other']
 
 
 EXAMPLE CODE PATTERN:

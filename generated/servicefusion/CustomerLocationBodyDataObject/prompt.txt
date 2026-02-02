@@ -55,18 +55,23 @@ FIELDS (this page):
 ----------------------------------------
   street_1: string [required]
     Description: Used to send the location's street 1 that will be set.
+    Constraints: maxLength=255
 
   street_2: string? [nullable]
     Description: Used to send the location's street 2 that will be set.
+    Constraints: maxLength=255
 
   city: string? [nullable]
     Description: Used to send the location's city that will be set.
+    Constraints: maxLength=255
 
   state_prov: string? [nullable]
     Description: Used to send the location's state that will be set.
+    Constraints: maxLength=255
 
   postal_code: string? [nullable]
     Description: Used to send the location's postal code that will be set.
+    Constraints: maxLength=255
 
 
 EXAMPLE CODE PATTERN:
@@ -148,9 +153,11 @@ FIELDS (this page):
 ----------------------------------------
   country: string? [nullable]
     Description: Used to send the location's country that will be set.
+    Constraints: maxLength=255
 
   nickname: string? [nullable]
     Description: Used to send the location's nickname that will be set.
+    Constraints: maxLength=255
 
   gate_instructions: string? [nullable]
     Description: Used to send the location's gate instructions that will be set.
@@ -230,6 +237,7 @@ FIELDS (this page):
 ----------------------------------------
   location_type: string? [nullable]
     Description: Used to send the location's type that will be set.
+    Constraints: maxLength=200
 
   is_primary: bool? [nullable]
     Description: Used to send the location's is primary flag that will be set. When it is passed as `true`, then the customer's existing primary location (if any) will become secondary, and this one will become the primary one.

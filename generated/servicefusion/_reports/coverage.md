@@ -1,6 +1,6 @@
 # Schema Coverage Report: servicefusion
 
-**Generated:** 2026-02-01 15:21:14
+**Generated:** 2026-02-01 18:33:40
 **IR Source:** `/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/ir/servicefusion`
 
 ## Summary
@@ -8,93 +8,114 @@
 | Metric | Count |
 |--------|-------|
 | Total schemas in spec | 94 |
-| Generated DataObjects | 66 |
+| Generated DataObjects | 89 |
 | Generated Roots | 23 |
 | Nested-only Schemas | 26 |
-| Filtered out | 28 |
-| **Coverage** | **70.2%** |
+| Filtered out | 5 |
+| **Coverage** | **94.7%** |
 
 ## Filtered Schemas by Category
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| Anonymous/inline schemas | 17 | Intentionally excluded |
-| Primitive types | 2 | Intentionally excluded |
+| Primitive types | 4 | Intentionally excluded |
 | Non-object kinds | 1 | Intentionally excluded |
-| Error schemas | 8 | Intentionally excluded |
 
 ## Generated DataObjects (Eligible Schemas)
 
-The following 66 schemas are eligible for generation (before root/nested split):
+The following 89 schemas are eligible for generation (before root/nested split):
 
 | # | DataObject Name | Schema ID |
 |---|-----------------|-----------|
-| 1 | `OAuthTokenDataObject` | `schema:types/OAuthToken` |
-| 2 | `AgentDataObject` | `schema:types/typ.Agent` |
-| 3 | `AgentBodyDataObject` | `schema:types/typ.AgentBody` |
-| 4 | `AssignedTechDataObject` | `schema:types/typ.AssignedTech` |
-| 5 | `AssignedTechBodyDataObject` | `schema:types/typ.AssignedTechBody` |
-| 6 | `CalendarTaskDataObject` | `schema:types/typ.CalendarTask` |
-| 7 | `CalendarTaskRepeatDataObject` | `schema:types/typ.CalendarTaskRepeat` |
-| 8 | `CalendarTaskViewDataObject` | `schema:types/typ.CalendarTaskView` |
-| 9 | `CustomerDataObject` | `schema:types/typ.Customer` |
-| 10 | `CustomerBodyDataObject` | `schema:types/typ.CustomerBody` |
-| 11 | `CustomerContactDataObject` | `schema:types/typ.CustomerContact` |
-| 12 | `CustomerContactBodyDataObject` | `schema:types/typ.CustomerContactBody` |
-| 13 | `CustomerEmailDataObject` | `schema:types/typ.CustomerEmail` |
-| 14 | `CustomerEmailBodyDataObject` | `schema:types/typ.CustomerEmailBody` |
-| 15 | `CustomerLocationDataObject` | `schema:types/typ.CustomerLocation` |
-| 16 | `CustomerLocationBodyDataObject` | `schema:types/typ.CustomerLocationBody` |
-| 17 | `CustomerPhoneDataObject` | `schema:types/typ.CustomerPhone` |
-| 18 | `CustomerPhoneBodyDataObject` | `schema:types/typ.CustomerPhoneBody` |
-| 19 | `CustomerViewDataObject` | `schema:types/typ.CustomerView` |
-| 20 | `CustomFieldDataObject` | `schema:types/typ.CustomField` |
-| 21 | `CustomFieldBodyDataObject` | `schema:types/typ.CustomFieldBody` |
-| 22 | `DocumentDataObject` | `schema:types/typ.Document` |
-| 23 | `EquipmentDataObject` | `schema:types/typ.Equipment` |
-| 24 | `EquipmentBodyDataObject` | `schema:types/typ.EquipmentBody` |
-| 25 | `EquipmentViewDataObject` | `schema:types/typ.EquipmentView` |
-| 26 | `EstimateDataObject` | `schema:types/typ.Estimate` |
-| 27 | `EstimateBodyDataObject` | `schema:types/typ.EstimateBody` |
-| 28 | `EstimateViewDataObject` | `schema:types/typ.EstimateView` |
-| 29 | `InvoiceDataObject` | `schema:types/typ.Invoice` |
-| 30 | `InvoiceViewDataObject` | `schema:types/typ.InvoiceView` |
-| 31 | `JobDataObject` | `schema:types/typ.Job` |
-| 32 | `JobBodyDataObject` | `schema:types/typ.JobBody` |
-| 33 | `JobCategoryDataObject` | `schema:types/typ.JobCategory` |
-| 34 | `JobCategoryViewDataObject` | `schema:types/typ.JobCategoryView` |
-| 35 | `JobDocumentDataObject` | `schema:types/typ.JobDocument` |
-| 36 | `JobExpenseDataObject` | `schema:types/typ.JobExpense` |
-| 37 | `JobExpenseBodyDataObject` | `schema:types/typ.JobExpenseBody` |
-| 38 | `JobLaborChargeDataObject` | `schema:types/typ.JobLaborCharge` |
-| 39 | `JobLaborChargeBodyDataObject` | `schema:types/typ.JobLaborChargeBody` |
-| 40 | `JobNoteDataObject` | `schema:types/typ.JobNote` |
-| 41 | `JobNoteBodyDataObject` | `schema:types/typ.JobNoteBody` |
-| 42 | `JobOtherChargeDataObject` | `schema:types/typ.JobOtherCharge` |
-| 43 | `JobOtherChargeBodyDataObject` | `schema:types/typ.JobOtherChargeBody` |
-| 44 | `JobProductDataObject` | `schema:types/typ.JobProduct` |
-| 45 | `JobProductBodyDataObject` | `schema:types/typ.JobProductBody` |
-| 46 | `JobServiceDataObject` | `schema:types/typ.JobService` |
-| 47 | `JobServiceBodyDataObject` | `schema:types/typ.JobServiceBody` |
-| 48 | `JobSignatureDataObject` | `schema:types/typ.JobSignature` |
-| 49 | `JobStatusDataObject` | `schema:types/typ.JobStatus` |
-| 50 | `JobStatusViewDataObject` | `schema:types/typ.JobStatusView` |
-| 51 | `JobTagDataObject` | `schema:types/typ.JobTag` |
-| 52 | `JobTagBodyDataObject` | `schema:types/typ.JobTagBody` |
-| 53 | `JobTaskDataObject` | `schema:types/typ.JobTask` |
-| 54 | `JobTaskBodyDataObject` | `schema:types/typ.JobTaskBody` |
-| 55 | `JobViewDataObject` | `schema:types/typ.JobView` |
-| 56 | `JobVisitDataObject` | `schema:types/typ.JobVisit` |
-| 57 | `MeViewDataObject` | `schema:types/typ.MeView` |
-| 58 | `PaymentDataObject` | `schema:types/typ.Payment` |
-| 59 | `PaymentTypeDataObject` | `schema:types/typ.PaymentType` |
-| 60 | `PaymentTypeViewDataObject` | `schema:types/typ.PaymentTypeView` |
-| 61 | `PictureDataObject` | `schema:types/typ.Picture` |
-| 62 | `PrintableWorkOrderDataObject` | `schema:types/typ.PrintableWorkOrder` |
-| 63 | `SourceDataObject` | `schema:types/typ.Source` |
-| 64 | `SourceViewDataObject` | `schema:types/typ.SourceView` |
-| 65 | `TechDataObject` | `schema:types/typ.Tech` |
-| 66 | `TechViewDataObject` | `schema:types/typ.TechView` |
+| 1 | `Anonymous_56cecfadDataObject` | `schema:anon/56cecfad266bf953db2b3c6fa598418203a6592a` |
+| 2 | `Anonymous_1dfe40b1DataObject` | `schema:anon/1dfe40b15f8339052c1208956acd01e486182051` |
+| 3 | `Anonymous_5ccd2dd5DataObject` | `schema:anon/5ccd2dd5603bcd7e53d41c9bd5d4fcdc77c76118` |
+| 4 | `Anonymous_50fd9975DataObject` | `schema:anon/50fd9975c7782c0811c1aca63f2e95e42f362200` |
+| 5 | `Anonymous_ee256c5fDataObject` | `schema:anon/ee256c5fb2e71146c623815d25ec3bac3be32af3` |
+| 6 | `Anonymous_8ed6ccdeDataObject` | `schema:anon/8ed6ccde9e78b86a5e48f91db61009acd0f077bc` |
+| 7 | `Anonymous_a9aa79b8DataObject` | `schema:anon/a9aa79b8a530ebccf52a3891930e373e790da323` |
+| 8 | `Anonymous_0a001c6bDataObject` | `schema:anon/0a001c6b5b204d66e1d536a7e82a8aac7e133b8d` |
+| 9 | `Anonymous_124d7e49DataObject` | `schema:anon/124d7e495fe798ba9c648496f2b833e2ed2f1ea1` |
+| 10 | `Anonymous_bd6f96bdDataObject` | `schema:anon/bd6f96bd182650c63771bc69acd0b3ba2262187a` |
+| 11 | `Anonymous_5099ea82DataObject` | `schema:anon/5099ea82d845cee3899e956816856e24d1424f3b` |
+| 12 | `_metaDataObject` | `schema:anon/4aef56ef1b5df2d8eedd0c54df071b3b2d3e9a0c` |
+| 13 | `AssignedTechDataObject` | `schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af` |
+| 14 | `itemsDataObject` | `schema:anon/c43bbb9a0c1d95e3fa51ca9c12c9b74d7d887542` |
+| 15 | `JobDataObject` | `schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71` |
+| 16 | `OAuthTokenDataObject` | `schema:types/OAuthToken` |
+| 17 | `OAuthTokenErrorDataObject` | `schema:types/OAuthTokenError` |
+| 18 | `400ErrorDataObject` | `schema:types/typ.400Error` |
+| 19 | `404ErrorDataObject` | `schema:types/typ.404Error` |
+| 20 | `405ErrorDataObject` | `schema:types/typ.405Error` |
+| 21 | `415ErrorDataObject` | `schema:types/typ.415Error` |
+| 22 | `429ErrorDataObject` | `schema:types/typ.429Error` |
+| 23 | `500ErrorDataObject` | `schema:types/typ.500Error` |
+| 24 | `AgentDataObject` | `schema:types/typ.Agent` |
+| 25 | `AgentBodyDataObject` | `schema:types/typ.AgentBody` |
+| 26 | `AssignedTechDataObject` | `schema:types/typ.AssignedTech` |
+| 27 | `AssignedTechBodyDataObject` | `schema:types/typ.AssignedTechBody` |
+| 28 | `CalendarTaskDataObject` | `schema:types/typ.CalendarTask` |
+| 29 | `CalendarTaskRepeatDataObject` | `schema:types/typ.CalendarTaskRepeat` |
+| 30 | `CalendarTaskViewDataObject` | `schema:types/typ.CalendarTaskView` |
+| 31 | `CustomerDataObject` | `schema:types/typ.Customer` |
+| 32 | `CustomerBodyDataObject` | `schema:types/typ.CustomerBody` |
+| 33 | `CustomerContactDataObject` | `schema:types/typ.CustomerContact` |
+| 34 | `CustomerContactBodyDataObject` | `schema:types/typ.CustomerContactBody` |
+| 35 | `CustomerEmailDataObject` | `schema:types/typ.CustomerEmail` |
+| 36 | `CustomerEmailBodyDataObject` | `schema:types/typ.CustomerEmailBody` |
+| 37 | `CustomerLocationDataObject` | `schema:types/typ.CustomerLocation` |
+| 38 | `CustomerLocationBodyDataObject` | `schema:types/typ.CustomerLocationBody` |
+| 39 | `CustomerPhoneDataObject` | `schema:types/typ.CustomerPhone` |
+| 40 | `CustomerPhoneBodyDataObject` | `schema:types/typ.CustomerPhoneBody` |
+| 41 | `CustomerViewDataObject` | `schema:types/typ.CustomerView` |
+| 42 | `CustomFieldDataObject` | `schema:types/typ.CustomField` |
+| 43 | `CustomFieldBodyDataObject` | `schema:types/typ.CustomFieldBody` |
+| 44 | `DocumentDataObject` | `schema:types/typ.Document` |
+| 45 | `EquipmentDataObject` | `schema:types/typ.Equipment` |
+| 46 | `EquipmentBodyDataObject` | `schema:types/typ.EquipmentBody` |
+| 47 | `EquipmentViewDataObject` | `schema:types/typ.EquipmentView` |
+| 48 | `ErrorDataObject` | `schema:types/typ.Error` |
+| 49 | `EstimateDataObject` | `schema:types/typ.Estimate` |
+| 50 | `EstimateBodyDataObject` | `schema:types/typ.EstimateBody` |
+| 51 | `EstimateViewDataObject` | `schema:types/typ.EstimateView` |
+| 52 | `InvoiceDataObject` | `schema:types/typ.Invoice` |
+| 53 | `InvoiceViewDataObject` | `schema:types/typ.InvoiceView` |
+| 54 | `JobDataObject` | `schema:types/typ.Job` |
+| 55 | `JobBodyDataObject` | `schema:types/typ.JobBody` |
+| 56 | `JobCategoryDataObject` | `schema:types/typ.JobCategory` |
+| 57 | `JobCategoryViewDataObject` | `schema:types/typ.JobCategoryView` |
+| 58 | `JobDocumentDataObject` | `schema:types/typ.JobDocument` |
+| 59 | `JobExpenseDataObject` | `schema:types/typ.JobExpense` |
+| 60 | `JobExpenseBodyDataObject` | `schema:types/typ.JobExpenseBody` |
+| 61 | `JobLaborChargeDataObject` | `schema:types/typ.JobLaborCharge` |
+| 62 | `JobLaborChargeBodyDataObject` | `schema:types/typ.JobLaborChargeBody` |
+| 63 | `JobNoteDataObject` | `schema:types/typ.JobNote` |
+| 64 | `JobNoteBodyDataObject` | `schema:types/typ.JobNoteBody` |
+| 65 | `JobOtherChargeDataObject` | `schema:types/typ.JobOtherCharge` |
+| 66 | `JobOtherChargeBodyDataObject` | `schema:types/typ.JobOtherChargeBody` |
+| 67 | `JobProductDataObject` | `schema:types/typ.JobProduct` |
+| 68 | `JobProductBodyDataObject` | `schema:types/typ.JobProductBody` |
+| 69 | `JobServiceDataObject` | `schema:types/typ.JobService` |
+| 70 | `JobServiceBodyDataObject` | `schema:types/typ.JobServiceBody` |
+| 71 | `JobSignatureDataObject` | `schema:types/typ.JobSignature` |
+| 72 | `JobStatusDataObject` | `schema:types/typ.JobStatus` |
+| 73 | `JobStatusViewDataObject` | `schema:types/typ.JobStatusView` |
+| 74 | `JobTagDataObject` | `schema:types/typ.JobTag` |
+| 75 | `JobTagBodyDataObject` | `schema:types/typ.JobTagBody` |
+| 76 | `JobTaskDataObject` | `schema:types/typ.JobTask` |
+| 77 | `JobTaskBodyDataObject` | `schema:types/typ.JobTaskBody` |
+| 78 | `JobViewDataObject` | `schema:types/typ.JobView` |
+| 79 | `JobVisitDataObject` | `schema:types/typ.JobVisit` |
+| 80 | `MeViewDataObject` | `schema:types/typ.MeView` |
+| 81 | `PaymentDataObject` | `schema:types/typ.Payment` |
+| 82 | `PaymentTypeDataObject` | `schema:types/typ.PaymentType` |
+| 83 | `PaymentTypeViewDataObject` | `schema:types/typ.PaymentTypeView` |
+| 84 | `PictureDataObject` | `schema:types/typ.Picture` |
+| 85 | `PrintableWorkOrderDataObject` | `schema:types/typ.PrintableWorkOrder` |
+| 86 | `SourceDataObject` | `schema:types/typ.Source` |
+| 87 | `SourceViewDataObject` | `schema:types/typ.SourceView` |
+| 88 | `TechDataObject` | `schema:types/typ.Tech` |
+| 89 | `TechViewDataObject` | `schema:types/typ.TechView` |
 
 ## Generated Roots (Standalone DataObjects)
 
@@ -161,53 +182,20 @@ The following 26 schemas are included as nested types under roots:
 
 ## Filtered Schema Details
 
-### Anonymous/inline schemas (17)
-
-| Name | Schema ID |
-|------|-----------|
-| `None` | `schema:anon/0a001c6b5b204d66e1d536a7e82a8aac7e133b8d` |
-| `None` | `schema:anon/124d7e495fe798ba9c648496f2b833e2ed2f1ea1` |
-| `None` | `schema:anon/1dfe40b15f8339052c1208956acd01e486182051` |
-| `_meta` | `schema:anon/4aef56ef1b5df2d8eedd0c54df071b3b2d3e9a0c` |
-| `None` | `schema:anon/5099ea82d845cee3899e956816856e24d1424f3b` |
-| `None` | `schema:anon/50fd9975c7782c0811c1aca63f2e95e42f362200` |
-| `None` | `schema:anon/56cecfad266bf953db2b3c6fa598418203a6592a` |
-| `None` | `schema:anon/5ccd2dd5603bcd7e53d41c9bd5d4fcdc77c76118` |
-| `AssignedTech` | `schema:anon/8bb81687b6fec9f1342c2bba21e484956904c2af` |
-| `None` | `schema:anon/8ed6ccde9e78b86a5e48f91db61009acd0f077bc` |
-| `None` | `schema:anon/a9aa79b8a530ebccf52a3891930e373e790da323` |
-| `Job` | `schema:anon/b2441a9ee496ebd118af85da9e0caf01df0f4e71` |
-| `None` | `schema:anon/bd6f96bd182650c63771bc69acd0b3ba2262187a` |
-| `items` | `schema:anon/c43bbb9a0c1d95e3fa51ca9c12c9b74d7d887542` |
-| `None` | `schema:anon/ee256c5fb2e71146c623815d25ec3bac3be32af3` |
-| `items` | `schema:types/integer` |
-| `items` | `schema:types/string` |
-
-### Primitive types (2)
+### Primitive types (4)
 
 | Name | Schema ID |
 |------|-----------|
 | `array` | `schema:types/array` |
+| `items` | `schema:types/integer` |
 | `object` | `schema:types/object` |
+| `items` | `schema:types/string` |
 
 ### Non-object kinds (1)
 
 | Name | Schema ID |
 |------|-----------|
 | `typ.422Error` | `schema:types/typ.422Error` |
-
-### Error schemas (8)
-
-| Name | Schema ID |
-|------|-----------|
-| `OAuthTokenError` | `schema:types/OAuthTokenError` |
-| `typ.400Error` | `schema:types/typ.400Error` |
-| `typ.404Error` | `schema:types/typ.404Error` |
-| `typ.405Error` | `schema:types/typ.405Error` |
-| `typ.415Error` | `schema:types/typ.415Error` |
-| `typ.429Error` | `schema:types/typ.429Error` |
-| `typ.500Error` | `schema:types/typ.500Error` |
-| `typ.Error` | `schema:types/typ.Error` |
 
 ## Status
 

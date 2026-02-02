@@ -62,7 +62,7 @@
 | Field | Type |
 |------|------|
 | `name` | `string` |
-| `value` | `object` |
+| `value` | `JsonElement` |
 | `type` | `string` |
 | `group` | `string` |
 | `created_at` | `DateTime` |

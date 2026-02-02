@@ -4,7 +4,7 @@
     "name": "procore"
   },
   "generation": {
-    "timestamp": "2026-02-01T23:51:05.483661+00:00",
+    "timestamp": "2026-02-02T00:33:39.604815+00:00",
     "grouped": true,
     "packets_dir": "/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/prompt_packets/grouped/procore"
   },
@@ -16,8 +16,8 @@
   },
   "counts": {
     "roots": 331,
-    "nested_only": 1089,
-    "eligible": 1420
+    "nested_only": 1091,
+    "eligible": 1422
   },
   "roots": [
     {
@@ -416,8 +416,6 @@
       "schema_name": "GETCommitmentsResponse200",
       "schema_id": "schema:anon/f3071c9ceec0c0d00c0f8d503cc03d60a13db1db",
       "nested_types": [
-        "Anonymous_61b18072",
-        "Anonymous_61b18072Status",
         "Anonymous_88ecc10dBillerType",
         "Anonymous_88ecc10dLineItemTypesItem",
         "Anonymous_88ecc10dLineItemTypesItemBaseType",
@@ -427,6 +425,8 @@
         "GETCommitmentsResponse200AttachmentsItem",
         "GETCommitmentsResponse200ChangeOrderPackagesItem",
         "GETCommitmentsResponse200ChangeOrderPackagesItemStatus",
+        "GETCommitmentsResponse200ChangeOrderRequestsItemItem",
+        "GETCommitmentsResponse200ChangeOrderRequestsItemItemStatus",
         "GETCommitmentsResponse200CostCode",
         "GETCommitmentsResponse200LineItemsItem",
         "GETCommitmentsResponse200LineItemsItemChangeEventLineItem",
@@ -1079,8 +1079,6 @@
       "schema_name": "GETPrimeContractResponse200",
       "schema_id": "schema:anon/dcc107d69ad60083aa896cc42726b824a0c0ce12",
       "nested_types": [
-        "Anonymous_6b35da09",
-        "Anonymous_6b35da09Status",
         "Anonymous_88ecc10dBillerType",
         "Anonymous_88ecc10dLineItemTypesItem",
         "Anonymous_88ecc10dLineItemTypesItemBaseType",
@@ -1091,6 +1089,8 @@
         "GETPrimeContractResponse200ChangeOrderPackagesItem",
         "GETPrimeContractResponse200ChangeOrderPackagesItemCurrencyConfiguration",
         "GETPrimeContractResponse200ChangeOrderPackagesItemStatus",
+        "GETPrimeContractResponse200ChangeOrderRequestsItemItem",
+        "GETPrimeContractResponse200ChangeOrderRequestsItemItemStatus",
         "GETPrimeContractResponse200Contractor",
         "GETPrimeContractResponse200CostCode",
         "GETPrimeContractResponse200LineItemsItem",
@@ -3958,7 +3958,6 @@
         "Anonymous_88ecc10dLineItemTypesItem",
         "Anonymous_88ecc10dLineItemTypesItemBaseType",
         "Anonymous_88ecc10dParent",
-        "Anonymous_a465348f",
         "POSTPurchaseOrderContractsResponse201AccountingMethod",
         "POSTPurchaseOrderContractsResponse201Assignee",
         "POSTPurchaseOrderContractsResponse201Attachments",
@@ -3976,6 +3975,7 @@
         "POSTPurchaseOrderContractsResponse201LineItemsItemProject",
         "POSTPurchaseOrderContractsResponse201LineItemsItemWbsCode",
         "POSTPurchaseOrderContractsResponse201PaymentsIssuedItem",
+        "POSTPurchaseOrderContractsResponse201PotentialChangeOrdersItemItem",
         "POSTPurchaseOrderContractsResponse201Status",
         "POSTPurchaseOrderContractsResponse201Vendor"
       ],
@@ -4275,8 +4275,6 @@
       "schema_name": "POSTWorkOrderContractsResponse201",
       "schema_id": "schema:anon/90548db77b32a30de2dc2b8500e94612673bec29",
       "nested_types": [
-        "Anonymous_6b35da09",
-        "Anonymous_6b35da09Status",
         "Anonymous_88ecc10dBillerType",
         "Anonymous_88ecc10dLineItemTypesItem",
         "Anonymous_88ecc10dLineItemTypesItemBaseType",
@@ -4286,6 +4284,8 @@
         "POSTWorkOrderContractsResponse201ChangeOrderPackagesItem",
         "POSTWorkOrderContractsResponse201ChangeOrderPackagesItemCurrencyConfiguration",
         "POSTWorkOrderContractsResponse201ChangeOrderPackagesItemStatus",
+        "POSTWorkOrderContractsResponse201ChangeOrderRequestsItemItem",
+        "POSTWorkOrderContractsResponse201ChangeOrderRequestsItemItemStatus",
         "POSTWorkOrderContractsResponse201InvoiceContactsItem",
         "POSTWorkOrderContractsResponse201LineItemsItem",
         "POSTWorkOrderContractsResponse201LineItemsItemChangeEventLineItem",
@@ -4364,36 +4364,6 @@
   ],
   "nested_only": [
     {
-      "name": "Anonymous_61b18072",
-      "schema_id": "schema:anon/61b180729e9da2a7ef3b6293c35f734d27233f34",
-      "parent_roots": [
-        "GETCommitmentsResponse200DataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_61b18072Status",
-      "schema_id": "schema:anon/5b89f75b59f65acdfdc32f08e622b0fbb79dc552",
-      "parent_roots": [
-        "GETCommitmentsResponse200DataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_6b35da09",
-      "schema_id": "schema:anon/6b35da097abd92a68ff334352e695ceba1e262f6",
-      "parent_roots": [
-        "GETPrimeContractResponse200DataObject",
-        "POSTWorkOrderContractsResponse201DataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_6b35da09Status",
-      "schema_id": "schema:anon/5b89f75b59f65acdfdc32f08e622b0fbb79dc552",
-      "parent_roots": [
-        "GETPrimeContractResponse200DataObject",
-        "POSTWorkOrderContractsResponse201DataObject"
-      ]
-    },
-    {
       "name": "Anonymous_88ecc10dBillerType",
       "schema_id": "schema:anon/6ce4c07d2fb83b79d4fcb225c5c9c05691bcdc4d",
       "parent_roots": [
@@ -4455,13 +4425,6 @@
         "POSTPurchaseOrderContractsResponse201DataObject",
         "POSTRfqsResponse201DataObject",
         "POSTWorkOrderContractsResponse201DataObject"
-      ]
-    },
-    {
-      "name": "Anonymous_a465348f",
-      "schema_id": "schema:anon/a465348fb070acff2e83c0a6085fce5eb7fcca16",
-      "parent_roots": [
-        "POSTPurchaseOrderContractsResponse201DataObject"
       ]
     },
     {
@@ -5048,6 +5011,20 @@
     {
       "name": "GETCommitmentsResponse200ChangeOrderPackagesItemStatus",
       "schema_id": "schema:anon/7647971bd104dc6a401bbd43cf5295134c065be9",
+      "parent_roots": [
+        "GETCommitmentsResponse200DataObject"
+      ]
+    },
+    {
+      "name": "GETCommitmentsResponse200ChangeOrderRequestsItemItem",
+      "schema_id": "schema:anon/61b180729e9da2a7ef3b6293c35f734d27233f34",
+      "parent_roots": [
+        "GETCommitmentsResponse200DataObject"
+      ]
+    },
+    {
+      "name": "GETCommitmentsResponse200ChangeOrderRequestsItemItemStatus",
+      "schema_id": "schema:anon/5b89f75b59f65acdfdc32f08e622b0fbb79dc552",
       "parent_roots": [
         "GETCommitmentsResponse200DataObject"
       ]
@@ -6063,6 +6040,20 @@
     {
       "name": "GETPrimeContractResponse200ChangeOrderPackagesItemStatus",
       "schema_id": "schema:anon/7647971bd104dc6a401bbd43cf5295134c065be9",
+      "parent_roots": [
+        "GETPrimeContractResponse200DataObject"
+      ]
+    },
+    {
+      "name": "GETPrimeContractResponse200ChangeOrderRequestsItemItem",
+      "schema_id": "schema:anon/6b35da097abd92a68ff334352e695ceba1e262f6",
+      "parent_roots": [
+        "GETPrimeContractResponse200DataObject"
+      ]
+    },
+    {
+      "name": "GETPrimeContractResponse200ChangeOrderRequestsItemItemStatus",
+      "schema_id": "schema:anon/5b89f75b59f65acdfdc32f08e622b0fbb79dc552",
       "parent_roots": [
         "GETPrimeContractResponse200DataObject"
       ]
@@ -11402,6 +11393,13 @@
       ]
     },
     {
+      "name": "POSTPurchaseOrderContractsResponse201PotentialChangeOrdersItemItem",
+      "schema_id": "schema:anon/a465348fb070acff2e83c0a6085fce5eb7fcca16",
+      "parent_roots": [
+        "POSTPurchaseOrderContractsResponse201DataObject"
+      ]
+    },
+    {
       "name": "POSTPurchaseOrderContractsResponse201Status",
       "schema_id": "schema:anon/7bc47b8fc64636104cb4714bc5d9c3f2a3dd9258",
       "parent_roots": [
@@ -11796,6 +11794,20 @@
     {
       "name": "POSTWorkOrderContractsResponse201ChangeOrderPackagesItemStatus",
       "schema_id": "schema:anon/7647971bd104dc6a401bbd43cf5295134c065be9",
+      "parent_roots": [
+        "POSTWorkOrderContractsResponse201DataObject"
+      ]
+    },
+    {
+      "name": "POSTWorkOrderContractsResponse201ChangeOrderRequestsItemItem",
+      "schema_id": "schema:anon/6b35da097abd92a68ff334352e695ceba1e262f6",
+      "parent_roots": [
+        "POSTWorkOrderContractsResponse201DataObject"
+      ]
+    },
+    {
+      "name": "POSTWorkOrderContractsResponse201ChangeOrderRequestsItemItemStatus",
+      "schema_id": "schema:anon/5b89f75b59f65acdfdc32f08e622b0fbb79dc552",
       "parent_roots": [
         "POSTWorkOrderContractsResponse201DataObject"
       ]
@@ -12423,8 +12435,6 @@
         "schema_name": "GETCommitmentsResponse200",
         "schema_id": "schema:anon/f3071c9ceec0c0d00c0f8d503cc03d60a13db1db",
         "nested_types": [
-          "Anonymous_61b18072",
-          "Anonymous_61b18072Status",
           "Anonymous_88ecc10dBillerType",
           "Anonymous_88ecc10dLineItemTypesItem",
           "Anonymous_88ecc10dLineItemTypesItemBaseType",
@@ -12434,6 +12444,8 @@
           "GETCommitmentsResponse200AttachmentsItem",
           "GETCommitmentsResponse200ChangeOrderPackagesItem",
           "GETCommitmentsResponse200ChangeOrderPackagesItemStatus",
+          "GETCommitmentsResponse200ChangeOrderRequestsItemItem",
+          "GETCommitmentsResponse200ChangeOrderRequestsItemItemStatus",
           "GETCommitmentsResponse200CostCode",
           "GETCommitmentsResponse200LineItemsItem",
           "GETCommitmentsResponse200LineItemsItemChangeEventLineItem",
@@ -13086,8 +13098,6 @@
         "schema_name": "GETPrimeContractResponse200",
         "schema_id": "schema:anon/dcc107d69ad60083aa896cc42726b824a0c0ce12",
         "nested_types": [
-          "Anonymous_6b35da09",
-          "Anonymous_6b35da09Status",
           "Anonymous_88ecc10dBillerType",
           "Anonymous_88ecc10dLineItemTypesItem",
           "Anonymous_88ecc10dLineItemTypesItemBaseType",
@@ -13098,6 +13108,8 @@
           "GETPrimeContractResponse200ChangeOrderPackagesItem",
           "GETPrimeContractResponse200ChangeOrderPackagesItemCurrencyConfiguration",
           "GETPrimeContractResponse200ChangeOrderPackagesItemStatus",
+          "GETPrimeContractResponse200ChangeOrderRequestsItemItem",
+          "GETPrimeContractResponse200ChangeOrderRequestsItemItemStatus",
           "GETPrimeContractResponse200Contractor",
           "GETPrimeContractResponse200CostCode",
           "GETPrimeContractResponse200LineItemsItem",
@@ -15965,7 +15977,6 @@
           "Anonymous_88ecc10dLineItemTypesItem",
           "Anonymous_88ecc10dLineItemTypesItemBaseType",
           "Anonymous_88ecc10dParent",
-          "Anonymous_a465348f",
           "POSTPurchaseOrderContractsResponse201AccountingMethod",
           "POSTPurchaseOrderContractsResponse201Assignee",
           "POSTPurchaseOrderContractsResponse201Attachments",
@@ -15983,6 +15994,7 @@
           "POSTPurchaseOrderContractsResponse201LineItemsItemProject",
           "POSTPurchaseOrderContractsResponse201LineItemsItemWbsCode",
           "POSTPurchaseOrderContractsResponse201PaymentsIssuedItem",
+          "POSTPurchaseOrderContractsResponse201PotentialChangeOrdersItemItem",
           "POSTPurchaseOrderContractsResponse201Status",
           "POSTPurchaseOrderContractsResponse201Vendor"
         ],
@@ -16282,8 +16294,6 @@
         "schema_name": "POSTWorkOrderContractsResponse201",
         "schema_id": "schema:anon/90548db77b32a30de2dc2b8500e94612673bec29",
         "nested_types": [
-          "Anonymous_6b35da09",
-          "Anonymous_6b35da09Status",
           "Anonymous_88ecc10dBillerType",
           "Anonymous_88ecc10dLineItemTypesItem",
           "Anonymous_88ecc10dLineItemTypesItemBaseType",
@@ -16293,6 +16303,8 @@
           "POSTWorkOrderContractsResponse201ChangeOrderPackagesItem",
           "POSTWorkOrderContractsResponse201ChangeOrderPackagesItemCurrencyConfiguration",
           "POSTWorkOrderContractsResponse201ChangeOrderPackagesItemStatus",
+          "POSTWorkOrderContractsResponse201ChangeOrderRequestsItemItem",
+          "POSTWorkOrderContractsResponse201ChangeOrderRequestsItemItemStatus",
           "POSTWorkOrderContractsResponse201InvoiceContactsItem",
           "POSTWorkOrderContractsResponse201LineItemsItem",
           "POSTWorkOrderContractsResponse201LineItemsItemChangeEventLineItem",
@@ -16839,8 +16851,6 @@
         "GETCommitmentContractsLineItemsResponse200DataItemWbsCode"
       ],
       "GETCommitmentsResponse200DataObject": [
-        "Anonymous_61b18072",
-        "Anonymous_61b18072Status",
         "Anonymous_88ecc10dBillerType",
         "Anonymous_88ecc10dLineItemTypesItem",
         "Anonymous_88ecc10dLineItemTypesItemBaseType",
@@ -16850,6 +16860,8 @@
         "GETCommitmentsResponse200AttachmentsItem",
         "GETCommitmentsResponse200ChangeOrderPackagesItem",
         "GETCommitmentsResponse200ChangeOrderPackagesItemStatus",
+        "GETCommitmentsResponse200ChangeOrderRequestsItemItem",
+        "GETCommitmentsResponse200ChangeOrderRequestsItemItemStatus",
         "GETCommitmentsResponse200CostCode",
         "GETCommitmentsResponse200LineItemsItem",
         "GETCommitmentsResponse200LineItemsItemChangeEventLineItem",
@@ -17078,8 +17090,6 @@
         "GETPrimeChangeOrdersLineItemsResponse200DataItemWbsCode"
       ],
       "GETPrimeContractResponse200DataObject": [
-        "Anonymous_6b35da09",
-        "Anonymous_6b35da09Status",
         "Anonymous_88ecc10dBillerType",
         "Anonymous_88ecc10dLineItemTypesItem",
         "Anonymous_88ecc10dLineItemTypesItemBaseType",
@@ -17090,6 +17100,8 @@
         "GETPrimeContractResponse200ChangeOrderPackagesItem",
         "GETPrimeContractResponse200ChangeOrderPackagesItemCurrencyConfiguration",
         "GETPrimeContractResponse200ChangeOrderPackagesItemStatus",
+        "GETPrimeContractResponse200ChangeOrderRequestsItemItem",
+        "GETPrimeContractResponse200ChangeOrderRequestsItemItemStatus",
         "GETPrimeContractResponse200Contractor",
         "GETPrimeContractResponse200CostCode",
         "GETPrimeContractResponse200LineItemsItem",
@@ -18229,7 +18241,6 @@
         "Anonymous_88ecc10dLineItemTypesItem",
         "Anonymous_88ecc10dLineItemTypesItemBaseType",
         "Anonymous_88ecc10dParent",
-        "Anonymous_a465348f",
         "POSTPurchaseOrderContractsResponse201AccountingMethod",
         "POSTPurchaseOrderContractsResponse201Assignee",
         "POSTPurchaseOrderContractsResponse201Attachments",
@@ -18247,6 +18258,7 @@
         "POSTPurchaseOrderContractsResponse201LineItemsItemProject",
         "POSTPurchaseOrderContractsResponse201LineItemsItemWbsCode",
         "POSTPurchaseOrderContractsResponse201PaymentsIssuedItem",
+        "POSTPurchaseOrderContractsResponse201PotentialChangeOrdersItemItem",
         "POSTPurchaseOrderContractsResponse201Status",
         "POSTPurchaseOrderContractsResponse201Vendor"
       ],
@@ -18346,8 +18358,6 @@
         "POSTWorkOrderContractsLineItemsResponse201WbsCode"
       ],
       "POSTWorkOrderContractsResponse201DataObject": [
-        "Anonymous_6b35da09",
-        "Anonymous_6b35da09Status",
         "Anonymous_88ecc10dBillerType",
         "Anonymous_88ecc10dLineItemTypesItem",
         "Anonymous_88ecc10dLineItemTypesItemBaseType",
@@ -18357,6 +18367,8 @@
         "POSTWorkOrderContractsResponse201ChangeOrderPackagesItem",
         "POSTWorkOrderContractsResponse201ChangeOrderPackagesItemCurrencyConfiguration",
         "POSTWorkOrderContractsResponse201ChangeOrderPackagesItemStatus",
+        "POSTWorkOrderContractsResponse201ChangeOrderRequestsItemItem",
+        "POSTWorkOrderContractsResponse201ChangeOrderRequestsItemItemStatus",
         "POSTWorkOrderContractsResponse201InvoiceContactsItem",
         "POSTWorkOrderContractsResponse201LineItemsItem",
         "POSTWorkOrderContractsResponse201LineItemsItemChangeEventLineItem",

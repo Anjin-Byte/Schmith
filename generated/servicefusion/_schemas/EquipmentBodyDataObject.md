@@ -40,4 +40,4 @@
 | Field | Type |
 |------|------|
 | `name` | `string` |
-| `value` | `object` |
+| `value` | `JsonElement` |

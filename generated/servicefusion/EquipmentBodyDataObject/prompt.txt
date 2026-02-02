@@ -68,9 +68,11 @@ FIELDS (this page):
 
   model: string? [nullable]
     Description: Used to send the equipment's model that will be set.
+    Constraints: maxLength=255
 
   sku: string? [nullable]
     Description: Used to send the equipment's sku that will be set.
+    Constraints: maxLength=50
 
 
 EXAMPLE CODE PATTERN:
@@ -156,15 +158,19 @@ FIELDS (this page):
 ----------------------------------------
   serial_number: string? [nullable]
     Description: Used to send the equipment's serial number that will be set.
+    Constraints: maxLength=255
 
   location: string? [nullable]
     Description: Used to send the equipment's location that will be set.
+    Constraints: maxLength=255
 
   notes: string? [nullable]
     Description: Used to send the equipment's notes that will be set.
+    Constraints: maxLength=250
 
   extended_warranty_provider: string? [nullable]
     Description: Used to send the equipment's extended warranty provider that will be set.
+    Constraints: maxLength=255
 
   is_extended_warranty: bool? [nullable]
     Description: Used to send the equipment's is extended warranty flag that will be set.
@@ -333,7 +339,7 @@ FIELDS (this page):
   name: string [required]
     Description: Used to send the custom field's name that will be set.
 
-  value: object [required]
+  value: JsonElement [required]
     Description: Used to send the custom field's value that will be set.
 
 

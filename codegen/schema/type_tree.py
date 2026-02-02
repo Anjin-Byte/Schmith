@@ -210,8 +210,14 @@ def collect_type_closure(
         """Assign a stable name to an inline enum schema based on parent + field."""
         if not enum_schema_id or "anon/" not in enum_schema_id:
             return
-        if enum_schema_id in anon_name_overrides:
-            return
+        # Allow overriding Anonymous names with proper names
+        existing_name = anon_name_overrides.get(enum_schema_id)
+        if existing_name:
+            if not existing_name.startswith("Anonymous"):
+                return
+            if not parent_name or parent_name.startswith("Anonymous"):
+                return
+            used_type_names.discard(existing_name)
         field_part = json_name_to_csharp_property(prop_name or "")
         if parent_name and field_part:
             base = f"{parent_name}{field_part}"
@@ -235,15 +241,28 @@ def collect_type_closure(
         """Assign a stable name to an inline anonymous schema based on parent + field."""
         if not schema_id or "anon/" not in schema_id:
             return
-        if schema_id in anon_name_overrides:
-            return
+        # Allow overriding Anonymous names with proper names
+        existing_name = anon_name_overrides.get(schema_id)
+        if existing_name:
+            # If it already has a proper name (not Anonymous), keep it
+            if not existing_name.startswith("Anonymous_"):
+                return
+            # It has an Anonymous name - we can try to give it a better one
+            # Only proceed if we have a non-Anonymous parent
+            if not parent_name or parent_name.startswith("Anonymous_"):
+                return
+            # Remove the old Anonymous name from used_type_names
+            used_type_names.discard(existing_name)
         schema = get_schema(schema_id)
         if not schema:
             return
-        if schema.get("name_hint") and not prefer_parent:
-            return
-        if prefer_parent and not schema.get("is_inline", False):
-            return
+        # If schema has a name_hint, respect it based on prefer_parent and is_inline
+        if schema.get("name_hint"):
+            if not prefer_parent:
+                return  # Use the existing name_hint
+            if not schema.get("is_inline", False):
+                return  # Schema is shared/referenced, keep its name_hint
+        # Schema has no name - assign one based on parent context
         field_part = json_name_to_csharp_property(prop_name or "")
         if parent_name and field_part:
             base = f"{parent_name}{field_part}"
@@ -256,6 +275,37 @@ def collect_type_closure(
         if suffix:
             base = f"{base}{suffix}"
         reserve_type_name(schema_id, base)
+
+    def name_array_items_recursive(
+        parent_name: str | None,
+        prop_name: str | None,
+        items_id: str,
+        suffix: str = "Item",
+    ) -> None:
+        """Recursively name array items at any nesting depth.
+
+        For nested arrays (array of arrays), each level gets an additional 'Item' suffix:
+        - First level: ParentFieldItem
+        - Second level: ParentFieldItemItem
+        - Third level: ParentFieldItemItemItem
+        - etc.
+        """
+        maybe_name_inline_schema(parent_name, prop_name, items_id, suffix=suffix, prefer_parent=True)
+        items_schema = get_schema(items_id)
+        if not items_schema:
+            return
+
+        # Handle composition members at this level
+        if items_schema.get("composition"):
+            members = items_schema["composition"].get("members", [])
+            for member_id in members:
+                maybe_name_inline_schema(parent_name, prop_name, member_id, suffix=suffix, prefer_parent=True)
+
+        # Recurse into nested arrays
+        if items_schema.get("kind") == "array":
+            inner_items_id = items_schema.get("items_schema_id")
+            if inner_items_id:
+                name_array_items_recursive(parent_name, prop_name, inner_items_id, suffix=suffix + "Item")
 
     def process_schema(schema_id: str, source: str | None = None) -> str | None:
         """Process a schema, collecting it and its dependencies.
@@ -367,14 +417,7 @@ def collect_type_closure(
                     if prop_schema and prop_schema.get("kind") == "array":
                         items_id = prop_schema.get("items_schema_id")
                         if items_id:
-                            maybe_name_inline_schema(type_name, prop_name, items_id, suffix="Item", prefer_parent=True)
-                            items_schema = get_schema(items_id)
-                            if items_schema and items_schema.get("composition"):
-                                members = items_schema["composition"].get("members", [])
-                                for member_id in members:
-                                    maybe_name_inline_schema(
-                                        type_name, prop_name, member_id, suffix="Item", prefer_parent=True
-                                    )
+                            name_array_items_recursive(type_name, prop_name, items_id)
                     prop_type_name = process_schema(prop_schema_id, source="property")
 
                 # Handle array properties with items_schema_id on the property
@@ -383,15 +426,10 @@ def collect_type_closure(
                     if items_schema and items_schema.get("enum_values"):
                         maybe_name_inline_enum(type_name, prop_name, items_schema_id, suffix="Item")
                     else:
-                        maybe_name_inline_schema(type_name, prop_name, items_schema_id, suffix="Item", prefer_parent=True)
+                        name_array_items_recursive(type_name, prop_name, items_schema_id)
                     item_type = process_schema(items_schema_id, source="property")
                     if item_type:
                         prop_type_name = f"{item_type}[]"
-                    # If items schema is composed, name its members from the array field
-                    if items_schema and items_schema.get("composition"):
-                        members = items_schema["composition"].get("members", [])
-                        for member_id in members:
-                            maybe_name_inline_schema(type_name, prop_name, member_id, suffix="Item", prefer_parent=True)
 
                 processed_props.append({
                     **prop,
