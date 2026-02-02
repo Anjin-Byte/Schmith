@@ -276,6 +276,79 @@ def collect_type_closure(
             base = f"{base}{suffix}"
         reserve_type_name(schema_id, base)
 
+    def name_composition_members_recursive(
+        parent_name: str | None,
+        prop_name: str | None,
+        schema_id: str,
+        suffix: str | None = None,
+        visited_compositions: set[str] | None = None,
+    ) -> None:
+        """Recursively name composition members and their nested structures.
+
+        Handles arbitrary nesting: composition -> object -> composition -> array -> etc.
+        """
+        if visited_compositions is None:
+            visited_compositions = set()
+
+        if schema_id in visited_compositions:
+            return
+        visited_compositions.add(schema_id)
+
+        schema = get_schema(schema_id)
+        if not schema:
+            return
+
+        composition = schema.get("composition")
+        if not composition:
+            return
+
+        members = composition.get("members", [])
+        for member_id in members:
+            # Name the member itself
+            maybe_name_inline_schema(parent_name, prop_name, member_id, suffix=suffix, prefer_parent=True)
+
+            member_schema = get_schema(member_id)
+            if not member_schema:
+                continue
+
+            # Recurse into member's composition (composition within composition)
+            if member_schema.get("composition"):
+                name_composition_members_recursive(
+                    parent_name, prop_name, member_id, suffix=suffix,
+                    visited_compositions=visited_compositions
+                )
+
+            # Handle member's properties that may contain arrays or nested compositions
+            for prop in member_schema.get("properties", []):
+                prop_schema_id = prop.get("schema_id")
+                prop_items_id = prop.get("items_schema_id")
+                member_prop_name = prop.get("json_name")
+
+                # Get the resolved member name for context
+                member_name = anon_name_overrides.get(member_id)
+                if not member_name:
+                    member_name = parent_name
+
+                if prop_schema_id:
+                    prop_schema = get_schema(prop_schema_id)
+                    if prop_schema:
+                        # Handle array properties within composition members
+                        if prop_schema.get("kind") == "array":
+                            items_id = prop_schema.get("items_schema_id")
+                            if items_id:
+                                name_array_items_recursive(member_name, member_prop_name, items_id)
+                        # Handle nested compositions within composition members
+                        elif prop_schema.get("composition"):
+                            maybe_name_inline_schema(member_name, member_prop_name, prop_schema_id, prefer_parent=True)
+                            name_composition_members_recursive(
+                                member_name, member_prop_name, prop_schema_id,
+                                visited_compositions=visited_compositions
+                            )
+
+                # Handle direct array items on property
+                if prop_items_id:
+                    name_array_items_recursive(member_name, member_prop_name, prop_items_id)
+
     def name_array_items_recursive(
         parent_name: str | None,
         prop_name: str | None,
@@ -289,17 +362,27 @@ def collect_type_closure(
         - Second level: ParentFieldItemItem
         - Third level: ParentFieldItemItemItem
         - etc.
+
+        Also handles composition within arrays, and arrays within compositions.
         """
         maybe_name_inline_schema(parent_name, prop_name, items_id, suffix=suffix, prefer_parent=True)
         items_schema = get_schema(items_id)
         if not items_schema:
             return
 
+        # Get the name we just assigned for use as parent context
+        item_name = anon_name_overrides.get(items_id)
+        if not item_name:
+            # Build what the name would be for context
+            field_part = json_name_to_csharp_property(prop_name or "")
+            if parent_name and field_part:
+                item_name = f"{parent_name}{field_part}{suffix}"
+            elif parent_name:
+                item_name = f"{parent_name}{suffix}"
+
         # Handle composition members at this level
         if items_schema.get("composition"):
-            members = items_schema["composition"].get("members", [])
-            for member_id in members:
-                maybe_name_inline_schema(parent_name, prop_name, member_id, suffix=suffix, prefer_parent=True)
+            name_composition_members_recursive(parent_name, prop_name, items_id, suffix=suffix)
 
         # Recurse into nested arrays
         if items_schema.get("kind") == "array":
@@ -414,10 +497,15 @@ def collect_type_closure(
                     else:
                         maybe_name_inline_schema(type_name, prop_name, prop_schema_id, prefer_parent=True)
                     prop_schema = get_schema(prop_schema_id)
-                    if prop_schema and prop_schema.get("kind") == "array":
-                        items_id = prop_schema.get("items_schema_id")
-                        if items_id:
-                            name_array_items_recursive(type_name, prop_name, items_id)
+                    if prop_schema:
+                        # Handle array properties
+                        if prop_schema.get("kind") == "array":
+                            items_id = prop_schema.get("items_schema_id")
+                            if items_id:
+                                name_array_items_recursive(type_name, prop_name, items_id)
+                        # Handle direct composition properties (not in arrays)
+                        elif prop_schema.get("composition"):
+                            name_composition_members_recursive(type_name, prop_name, prop_schema_id)
                     prop_type_name = process_schema(prop_schema_id, source="property")
 
                 # Handle array properties with items_schema_id on the property
@@ -447,7 +535,19 @@ def collect_type_closure(
         # Handle additionalProperties
         addl_props_id = schema.get("additional_properties_schema_id")
         if addl_props_id:
-            process_schema(addl_props_id, source="property")
+            # Name the additionalProperties schema before processing
+            maybe_name_inline_schema(type_name, "AdditionalProperties", addl_props_id, prefer_parent=True)
+            addl_schema = get_schema(addl_props_id)
+            if addl_schema:
+                # Handle array additionalProperties
+                if addl_schema.get("kind") == "array":
+                    items_id = addl_schema.get("items_schema_id")
+                    if items_id:
+                        name_array_items_recursive(type_name, "AdditionalProperties", items_id)
+                # Handle composition additionalProperties
+                elif addl_schema.get("composition"):
+                    name_composition_members_recursive(type_name, "AdditionalProperties", addl_props_id)
+            process_schema(addl_props_id, source="additionalProperties")
 
         return type_name
 
