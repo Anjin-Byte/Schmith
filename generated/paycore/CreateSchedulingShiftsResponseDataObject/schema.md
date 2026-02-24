@@ -1,1 +1,0 @@
-/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/generated/paycore/_schemas/CreateSchedulingShiftsResponseDataObject.md

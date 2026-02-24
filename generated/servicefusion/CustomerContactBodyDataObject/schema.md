@@ -1,1 +1,0 @@
-/Users/taylorhale/Documents/dev_hub/Brynhild/repos/Schmith/generated/servicefusion/_schemas/CustomerContactBodyDataObject.md
