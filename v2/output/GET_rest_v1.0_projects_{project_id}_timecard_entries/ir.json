@@ -1,0 +1,2995 @@
+{
+  "endpoint": {
+    "method": "GET",
+    "path": "/rest/v1.0/projects/{project_id}/timecard_entries",
+    "status_code": "200",
+    "schema_id": "schema:anon/d3f5017066a79f2d53acd7feb62b4c3f7c36174c"
+  },
+  "root_type": {
+    "schema_id": "schema:anon/21bb94936089b44e94b80a3c9c051ab5bcc3a439",
+    "name": "TimecardEntry",
+    "kind": "unknown",
+    "description": null,
+    "properties": [
+      {
+        "json_name": "id",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": null,
+        "description": "ID",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "billable",
+        "schema_id": "schema:types/boolean",
+        "required": false,
+        "nullable": null,
+        "description": "The billable status of the timecard entry. Must be either true or false.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.billable",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "created_at",
+        "schema_id": "schema:types/datetime",
+        "required": false,
+        "nullable": null,
+        "description": "The date and time when the timecard entry was created.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.created_at",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "date",
+        "schema_id": "schema:types/date",
+        "required": false,
+        "nullable": null,
+        "description": "The date when the timecard was created.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.date",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "datetime",
+        "schema_id": "schema:types/datetime",
+        "required": false,
+        "nullable": null,
+        "description": "The estimated UTC date time of record.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.datetime",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "deleted_at",
+        "schema_id": "schema:types/datetime",
+        "required": false,
+        "nullable": null,
+        "description": "The date and time when the timecard entry was deleted.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.deleted_at",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "description",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "The description for the timecard entry.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.description",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "hours",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "Total number of hours the resource was on sight.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.hours",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "timesheet_status",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "Deprecated. Reference status property.",
+        "deprecated": true,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.timesheet_status",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "approval_status",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "Supervisor approval status",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.approval_status",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "lunch_time",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": null,
+        "description": "Number of hours taken for lunch",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.lunch_time",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "time_in",
+        "schema_id": "schema:types/date",
+        "required": false,
+        "nullable": null,
+        "description": "The date and time the timecard was last updated",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.time_in",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "time_out",
+        "schema_id": "schema:types/date",
+        "required": false,
+        "nullable": null,
+        "description": "The date and time the timecard was last updated",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.time_out",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "injured",
+        "schema_id": "schema:types/boolean",
+        "required": false,
+        "nullable": null,
+        "description": "Whether or not an injury occured during work hours. Must be either true or false.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.injured",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "signed",
+        "schema_id": "schema:types/boolean",
+        "required": false,
+        "nullable": null,
+        "description": "Whether or not the timecard has been signed. Must be either true or false.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.signed",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "origin_id",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": null,
+        "description": "The ID of related external data",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.origin_id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "origin_data",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "The value of related external data",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.origin_data",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "timesheet",
+        "schema_id": "schema:anon/f40043c0c093953dfe6202058c748868281658d4",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.timesheet",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "Timesheet"
+      },
+      {
+        "json_name": "updated_at",
+        "schema_id": "schema:types/datetime",
+        "required": false,
+        "nullable": null,
+        "description": "The date and time when the timesheet was updated.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.updated_at",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "cost_code",
+        "schema_id": "schema:anon/7a7d890c7fa0b0fc15a34087ae7717936b876e3d",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.cost_code",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "TimecardEntryCostCode"
+      },
+      {
+        "json_name": "crew",
+        "schema_id": "schema:anon/0d3bbebb4e82dca70ea54506bfba795c4b1563af",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.crew",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "TimecardEntryCrew"
+      },
+      {
+        "json_name": "location",
+        "schema_id": "schema:anon/7d4098f2df6d84102332d015429ec5ed48bef6c6",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.location",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "Location"
+      },
+      {
+        "json_name": "party",
+        "schema_id": "schema:anon/c2b1d340229e56b6ddbcd4f0909fcc8ef8e85a38",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.party",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "Party"
+      },
+      {
+        "json_name": "procore_signature",
+        "schema_id": "schema:anon/b47158c114ea748df4b65ed45d1666176d65265d",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.procore_signature",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "TimesheetsSignature"
+      },
+      {
+        "json_name": "sub_job",
+        "schema_id": "schema:anon/da0bb5f02a915c724ba132fd733aecd61215bb07",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.sub_job",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "TimecardEntrySubJob"
+      },
+      {
+        "json_name": "created_by",
+        "schema_id": "schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.created_by",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "TimesheetCreatedBy"
+      },
+      {
+        "json_name": "login_information",
+        "schema_id": "schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.login_information",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "TimesheetCreatedBy"
+      },
+      {
+        "json_name": "timecard_time_type",
+        "schema_id": "schema:anon/5ff150fcfcc34bfb25ca814f2bab9dd2ad48f058",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.timecard_time_type",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "TimecardTimeType"
+      },
+      {
+        "json_name": "line_item_type_id",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": null,
+        "description": "The ID of the line item type of the timecard entry",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.line_item_type_id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "daily_log_segment_id",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": true,
+        "description": "Daily Log Segment ID",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.daily_log_segment_id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "custom_fields",
+        "schema_id": "schema:anon/18c858aabec7b2c6828e2c316ea32d80e8f6c1be",
+        "required": false,
+        "nullable": null,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.custom_fields",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "TimecardEntryCustomFields"
+      },
+      {
+        "json_name": "automatically_split_timecard_entries",
+        "schema_id": "schema:anon/367ef5354a59aff7c59259f4198cb85990621594",
+        "required": false,
+        "nullable": null,
+        "description": "Timecard entries returned with associated object as part of overtime_management",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.automatically_split_timecard_entries",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "TimecardEntry[]"
+      }
+    ],
+    "required": [],
+    "enum_values": null,
+    "enum_names": null,
+    "is_inline": true
+  },
+  "nested_types": [
+    {
+      "schema_id": "schema:anon/fb7b44b095bd003aaca97261ac199ca9f9b633eb",
+      "name": "Anonymous_21bb9493Nested",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "automatically_split_timecard_entries",
+          "schema_id": "schema:anon/367ef5354a59aff7c59259f4198cb85990621594",
+          "required": false,
+          "nullable": null,
+          "description": "Timecard entries returned with associated object as part of overtime_management",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.automatically_split_timecard_entries",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimecardEntry[]"
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "composition"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/d7aaf7e4245f8b5e58720e73973a9fdbdbc7839e",
+      "name": "EntryCustomFieldsCustomFieldBoolean",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "data_type",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The data type of the Custom Field Definition.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.data_type",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/projects/{project_id}/submittals/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "value",
+          "schema_id": "schema:types/boolean",
+          "required": false,
+          "nullable": null,
+          "description": "The value of the custom field.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.value",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/projects/{project_id}/submittals/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/8178757753fe7302f7d5443936cb13b481bd73ff",
+      "name": "EntryCustomFieldsCustomFieldDecimal",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "data_type",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The data type of the Custom Field Definition.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.data_type",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/projects/{project_id}/submittals/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "value",
+          "schema_id": "schema:types/number",
+          "required": false,
+          "nullable": null,
+          "description": "The value of the custom field.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.value",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/projects/{project_id}/submittals/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/d50bbe7063fb38ebfcc50625f772776d0020e2f7",
+      "name": "EntryCustomFieldsCustomFieldLovEntries",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "data_type",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The data type of the Custom Field Definition.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.data_type",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "value",
+          "schema_id": "schema:anon/14e619b08603c8d76dd531b1c2d8af62a985dd9d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.value",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "LovEntriesValueNestedItem[]"
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/33d4a72922e5630c3242f8b04f6ee313e990b793",
+      "name": "EntryCustomFieldsCustomFieldLovEntry",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "data_type",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The data type of the Custom Field Definition.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.data_type",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "value",
+          "schema_id": "schema:anon/87cff48788164388a7c8910cf94ab26c21bee6e1",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.value",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "FieldLovEntryValue"
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/8c3d88cb61be32fb0e8459abd64e13d194ffdb10",
+      "name": "EntryCustomFieldsCustomFieldString",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "data_type",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The data type of the Custom Field Definition.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.data_type",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/projects/{project_id}/submittals/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "value",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The value of the custom field.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.value",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v2.0/companies/{company_id}/projects/{project_id}/submittals/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/87cff48788164388a7c8910cf94ab26c21bee6e1",
+      "name": "FieldLovEntryValue",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "The unique identifier of the list of values (LOV) entry.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "label",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Label of the list of values (LOV) entry.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.label",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/7d4098f2df6d84102332d015429ec5ed48bef6c6",
+      "name": "Location",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "Location ID",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timesheet_timecard_entries/{id}/patch/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Location name",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timesheet_timecard_entries/{id}/patch/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "node_name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Location node name",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.node_name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timesheet_timecard_entries/{id}/patch/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "parent_id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "Location parent id",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.parent_id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timesheet_timecard_entries/{id}/patch/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "created_at",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "Timestamp of Location creation",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.created_at",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timesheet_timecard_entries/{id}/patch/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "updated_at",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "Timestamp of last update to Location",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.updated_at",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timesheet_timecard_entries/{id}/patch/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/98dfbe72f61b8f25de0fb5b18d6fa8d9a4ec580a",
+      "name": "LovEntriesValueNestedItem",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "The unique identifier of the list of values (LOV) entry.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "label",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The label of the list of values (LOV) entry.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.label",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/c2b1d340229e56b6ddbcd4f0909fcc8ef8e85a38",
+      "name": "Party",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "Timecard entry id",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timesheets/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Party Name",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timesheets/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/9dde5ef01ab66ff6a520ecea98059ef04ddef0f5",
+      "name": "TimecardEntry",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "ID",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "billable",
+          "schema_id": "schema:types/boolean",
+          "required": false,
+          "nullable": null,
+          "description": "The billable status of the timecard entry. Must be either true or false.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.billable",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "created_at",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "The date and time when the timecard entry was created.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.created_at",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "date",
+          "schema_id": "schema:types/date",
+          "required": false,
+          "nullable": null,
+          "description": "The date when the timecard was created.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.date",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "datetime",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "The estimated UTC date time of record.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.datetime",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "deleted_at",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "The date and time when the timecard entry was deleted.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.deleted_at",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "description",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The description for the timecard entry.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.description",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "hours",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Total number of hours the resource was on sight.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.hours",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "timesheet_status",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Deprecated. Reference status property.",
+          "deprecated": true,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.timesheet_status",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "approval_status",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Supervisor approval status",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.approval_status",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "lunch_time",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "Number of hours taken for lunch",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.lunch_time",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "time_in",
+          "schema_id": "schema:types/date",
+          "required": false,
+          "nullable": null,
+          "description": "The date and time the timecard was last updated",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.time_in",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "time_out",
+          "schema_id": "schema:types/date",
+          "required": false,
+          "nullable": null,
+          "description": "The date and time the timecard was last updated",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.time_out",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "injured",
+          "schema_id": "schema:types/boolean",
+          "required": false,
+          "nullable": null,
+          "description": "Whether or not an injury occured during work hours. Must be either true or false.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.injured",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "signed",
+          "schema_id": "schema:types/boolean",
+          "required": false,
+          "nullable": null,
+          "description": "Whether or not the timecard has been signed. Must be either true or false.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.signed",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "origin_id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "The ID of related external data",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.origin_id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "origin_data",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The value of related external data",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.origin_data",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "timesheet",
+          "schema_id": "schema:anon/f40043c0c093953dfe6202058c748868281658d4",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.timesheet",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "Timesheet"
+        },
+        {
+          "json_name": "updated_at",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "The date and time when the timesheet was updated.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.updated_at",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "cost_code",
+          "schema_id": "schema:anon/7a7d890c7fa0b0fc15a34087ae7717936b876e3d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.cost_code",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimecardEntryCostCode"
+        },
+        {
+          "json_name": "crew",
+          "schema_id": "schema:anon/0d3bbebb4e82dca70ea54506bfba795c4b1563af",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.crew",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimecardEntryCrew"
+        },
+        {
+          "json_name": "location",
+          "schema_id": "schema:anon/7d4098f2df6d84102332d015429ec5ed48bef6c6",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.location",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "Location"
+        },
+        {
+          "json_name": "party",
+          "schema_id": "schema:anon/c2b1d340229e56b6ddbcd4f0909fcc8ef8e85a38",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.party",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "Party"
+        },
+        {
+          "json_name": "procore_signature",
+          "schema_id": "schema:anon/b47158c114ea748df4b65ed45d1666176d65265d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.procore_signature",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimesheetsSignature"
+        },
+        {
+          "json_name": "sub_job",
+          "schema_id": "schema:anon/da0bb5f02a915c724ba132fd733aecd61215bb07",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.sub_job",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimecardEntrySubJob"
+        },
+        {
+          "json_name": "created_by",
+          "schema_id": "schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.created_by",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimesheetCreatedBy"
+        },
+        {
+          "json_name": "login_information",
+          "schema_id": "schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.login_information",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimesheetCreatedBy"
+        },
+        {
+          "json_name": "timecard_time_type",
+          "schema_id": "schema:anon/5ff150fcfcc34bfb25ca814f2bab9dd2ad48f058",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.timecard_time_type",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimecardTimeType"
+        },
+        {
+          "json_name": "line_item_type_id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "The ID of the line item type of the timecard entry",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.line_item_type_id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "daily_log_segment_id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": true,
+          "description": "Daily Log Segment ID",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.daily_log_segment_id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "custom_fields",
+          "schema_id": "schema:anon/18c858aabec7b2c6828e2c316ea32d80e8f6c1be",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.custom_fields",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimecardEntryCustomFields"
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "composition"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/7a7d890c7fa0b0fc15a34087ae7717936b876e3d",
+      "name": "TimecardEntryCostCode",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "ID",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timecard_entries/post/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Name",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timecard_entries/post/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/0d3bbebb4e82dca70ea54506bfba795c4b1563af",
+      "name": "TimecardEntryCrew",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "project_id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.project_id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "company_id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.company_id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "employees",
+          "schema_id": "schema:anon/9d80ca8911886ce5bc75d2927d3c3050f9047e7d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.employees",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimesheetCreatedBy[]"
+        },
+        {
+          "json_name": "created_by",
+          "schema_id": "schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.created_by",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimesheetCreatedBy"
+        },
+        {
+          "json_name": "lead",
+          "schema_id": "schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.lead",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimesheetCreatedBy"
+        },
+        {
+          "json_name": "created_at",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "Created at",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.created_at",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "updated_at",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "Created at",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.updated_at",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/18c858aabec7b2c6828e2c316ea32d80e8f6c1be",
+      "name": "TimecardEntryCustomFields",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "custom_field_%{custom_field_string_definition_id}",
+          "schema_id": "schema:anon/8c3d88cb61be32fb0e8459abd64e13d194ffdb10",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.custom_field_%{custom_field_string_definition_id}",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "EntryCustomFieldsCustomFieldString"
+        },
+        {
+          "json_name": "custom_field_%{custom_field_decimal_definition_id}",
+          "schema_id": "schema:anon/8178757753fe7302f7d5443936cb13b481bd73ff",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.custom_field_%{custom_field_decimal_definition_id}",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "EntryCustomFieldsCustomFieldDecimal"
+        },
+        {
+          "json_name": "custom_field_%{custom_field_boolean_definition_id}",
+          "schema_id": "schema:anon/d7aaf7e4245f8b5e58720e73973a9fdbdbc7839e",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.custom_field_%{custom_field_boolean_definition_id}",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "EntryCustomFieldsCustomFieldBoolean"
+        },
+        {
+          "json_name": "custom_field_%{custom_field_lov_entry_definition_id}",
+          "schema_id": "schema:anon/33d4a72922e5630c3242f8b04f6ee313e990b793",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.custom_field_%{custom_field_lov_entry_definition_id}",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "EntryCustomFieldsCustomFieldLovEntry"
+        },
+        {
+          "json_name": "custom_field_%{custom_field_lov_entries_definition_id}",
+          "schema_id": "schema:anon/d50bbe7063fb38ebfcc50625f772776d0020e2f7",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.custom_field_%{custom_field_lov_entries_definition_id}",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/recycle_bin/incidents/witness_statements/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "EntryCustomFieldsCustomFieldLovEntries"
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/da0bb5f02a915c724ba132fd733aecd61215bb07",
+      "name": "TimecardEntrySubJob",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "ID",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Name",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "code",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Unique code in the scope of a Project",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.code",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timecard_entries/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/5ff150fcfcc34bfb25ca814f2bab9dd2ad48f058",
+      "name": "TimecardTimeType",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "Time type id",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timecard_entries/post/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "abbreviated_time_type",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Time type abbreviated",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.abbreviated_time_type",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timecard_entries/post/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "company_id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "Time type company id",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.company_id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timecard_entries/post/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "global",
+          "schema_id": "schema:types/boolean",
+          "required": false,
+          "nullable": null,
+          "description": "Time type global status",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.global",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timecard_entries/post/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "time_type",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Time type",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.time_type",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/project_timecard_entries/post/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/f40043c0c093953dfe6202058c748868281658d4",
+      "name": "Timesheet",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "ID",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timesheets/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "created_at",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "Created at",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.created_at",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timesheets/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "updated_at",
+          "schema_id": "schema:types/datetime",
+          "required": false,
+          "nullable": null,
+          "description": "Updated at",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.updated_at",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timesheets/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "date",
+          "schema_id": "schema:types/date",
+          "required": false,
+          "nullable": null,
+          "description": "Timesheet date",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.date",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timesheets/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "number",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "Timesheet number",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.number",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timesheets/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "created_by",
+          "schema_id": "schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.created_by",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timesheets/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimesheetCreatedBy"
+        },
+        {
+          "json_name": "name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Timesheet name",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timesheets/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "status",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The approval status of the Timesheet",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.status",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/timesheets/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d",
+      "name": "TimesheetCreatedBy",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "ID",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_logs/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "login",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Email",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.login",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_logs/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Name",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/projects/{project_id}/work_logs/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/b47158c114ea748df4b65ed45d1666176d65265d",
+      "name": "TimesheetsSignature",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "ID",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timesheets/signatures/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "signature_text",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "Acknowedgement text the signature was signed against.",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.signature_text",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timesheets/signatures/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "file_name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "File Name",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.file_name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timesheets/signatures/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "url",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "URL",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.url",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timesheets/signatures/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "medium_thumbnail_url",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "URL",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.medium_thumbnail_url",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timesheets/signatures/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "large_thumbnail_url",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "URL",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.large_thumbnail_url",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timesheets/signatures/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "created_by",
+          "schema_id": "schema:anon/c01b825dffaac16200107c1b2b5fc05002120b9d",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.created_by",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.0/companies/{company_id}/timesheets/signatures/post/responses/201/content/application/json",
+            "via": []
+          },
+          "resolved_type": "TimesheetCreatedBy"
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    }
+  ]
+}

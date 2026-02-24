@@ -1,0 +1,962 @@
+{
+  "endpoint": {
+    "method": "GET",
+    "path": "/rest/v1.1/companies/{company_id}/users",
+    "status_code": "200",
+    "schema_id": "schema:anon/03d5b54dde4438f8539eb4e589ddad2484c66ad4"
+  },
+  "root_type": {
+    "schema_id": "schema:anon/2bea3e351c3415087b489a156353354ea381eeb9",
+    "name": "CompanyUser",
+    "kind": "object",
+    "description": "Company User",
+    "properties": [
+      {
+        "json_name": "address",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User address",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.address",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "avatar",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User avatar url",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.avatar",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "business_id",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "Business id",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.business_id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "business_phone",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User business phone",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.business_phone",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "business_phone_extension",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": true,
+        "description": "User business phone extension",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.business_phone_extension",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "city",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User city",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.city",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "contact_id",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": null,
+        "description": "User Contact ID",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.contact_id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "country_code",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User country code (ISO-3166 Alpha-2 format)",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.country_code",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "created_at",
+        "schema_id": "schema:types/datetime",
+        "required": false,
+        "nullable": null,
+        "description": "User created at",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.created_at",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "email_address",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User email",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.email_address",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "email_signature",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User email signature",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.email_signature",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "employee_id",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User employee id",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.employee_id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "erp_integrated_accountant",
+        "schema_id": "schema:types/boolean",
+        "required": false,
+        "nullable": null,
+        "description": "User ERP integrated accountant status",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.erp_integrated_accountant",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "fax_number",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User fax number",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.fax_number",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "first_name",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User first name",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.first_name",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "id",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": null,
+        "description": "User id",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "initials",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User initials",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.initials",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "is_active",
+        "schema_id": "schema:types/boolean",
+        "required": false,
+        "nullable": true,
+        "description": "User active status",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.is_active",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "is_employee",
+        "schema_id": "schema:types/boolean",
+        "required": false,
+        "nullable": true,
+        "description": "User employee status",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.is_employee",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "job_title",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User job title",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.job_title",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "last_activated_at",
+        "schema_id": "schema:types/datetime",
+        "required": false,
+        "nullable": true,
+        "description": "User last activated at",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.last_activated_at",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "last_login_at",
+        "schema_id": "schema:types/datetime",
+        "required": false,
+        "nullable": true,
+        "description": "User last login at",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.last_login_at",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "last_name",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "User last name",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.last_name",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "mobile_phone",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User mobile phone",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.mobile_phone",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "name",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "User full name",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.name",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "notes",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User notes",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.notes",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "origin_id",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User origin id",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.origin_id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "origin_data",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User origin data",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.origin_data",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "state_code",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User state code (ISO-3166 Alpha-2 format)",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.state_code",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "updated_at",
+        "schema_id": "schema:types/datetime",
+        "required": false,
+        "nullable": null,
+        "description": "User updated at",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.updated_at",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "welcome_email_sent_at",
+        "schema_id": "schema:types/datetime",
+        "required": false,
+        "nullable": true,
+        "description": "User welcome email sent at",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.welcome_email_sent_at",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "zip",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": true,
+        "description": "User zip code",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.zip",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "work_classification_id",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": true,
+        "description": "Work classification id",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.work_classification_id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "permission_template",
+        "schema_id": "schema:anon/cb2b399883077d55c5ecd2277c77fe2a599c10e8",
+        "required": false,
+        "nullable": true,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.permission_template",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "CompanyUserPermissionTemplate"
+      },
+      {
+        "json_name": "company_permission_template",
+        "schema_id": "schema:anon/cb2b399883077d55c5ecd2277c77fe2a599c10e8",
+        "required": false,
+        "nullable": true,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.company_permission_template",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "CompanyUserPermissionTemplate"
+      },
+      {
+        "json_name": "vendor",
+        "schema_id": "schema:anon/bdbc967ef89c11cac60241a5dcf6df780325d1d8",
+        "required": false,
+        "nullable": true,
+        "description": null,
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.vendor",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": "CompanyUserVendor"
+      }
+    ],
+    "required": [],
+    "enum_values": null,
+    "enum_names": null,
+    "is_inline": true
+  },
+  "nested_types": [
+    {
+      "schema_id": "schema:anon/cb2b399883077d55c5ecd2277c77fe2a599c10e8",
+      "name": "CompanyUserPermissionTemplate",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": "Unique identifier for the Permission Template",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": "The name of the Permission Template",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "project_specific",
+          "schema_id": "schema:types/boolean",
+          "required": false,
+          "nullable": null,
+          "description": "If the Permission Template is project specific",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.project_specific",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "type",
+          "schema_id": "schema:anon/601a069b104f181a867c3475152231333b188f20",
+          "required": false,
+          "nullable": null,
+          "description": "The type of the Permission Template",
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {
+            "enum": [
+              "company_tools",
+              "global",
+              "project_specific"
+            ]
+          },
+          "enum_values": [
+            "company_tools",
+            "global",
+            "project_specific"
+          ],
+          "enum_names": null,
+          "json_pointer": "$.type",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.3/companies/{company_id}/users/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": "UserPermissionTemplateType"
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/bdbc967ef89c11cac60241a5dcf6df780325d1d8",
+      "name": "CompanyUserVendor",
+      "kind": "object",
+      "description": null,
+      "properties": [
+        {
+          "json_name": "id",
+          "schema_id": "schema:types/integer",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.id",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/submittals/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        },
+        {
+          "json_name": "name",
+          "schema_id": "schema:types/string",
+          "required": false,
+          "nullable": null,
+          "description": null,
+          "deprecated": null,
+          "read_only": null,
+          "write_only": null,
+          "examples": null,
+          "constraints": {},
+          "enum_values": null,
+          "enum_names": null,
+          "json_pointer": "$.name",
+          "provenance": {
+            "source_file": "../procore_api_info/procore_API_spec.json",
+            "source_pointer": "#/paths//rest/v1.1/projects/{project_id}/submittals/get/responses/200/content/application/json",
+            "via": []
+          },
+          "resolved_type": null
+        }
+      ],
+      "required": [],
+      "enum_values": null,
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    },
+    {
+      "schema_id": "schema:anon/601a069b104f181a867c3475152231333b188f20",
+      "name": "UserPermissionTemplateType",
+      "kind": "string",
+      "description": "The type of the Permission Template",
+      "properties": [],
+      "required": [],
+      "enum_values": [
+        "company_tools",
+        "global",
+        "project_specific"
+      ],
+      "enum_names": null,
+      "is_inline": true,
+      "sources": [
+        "property"
+      ]
+    }
+  ]
+}

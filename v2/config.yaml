@@ -1,0 +1,40 @@
+# Schmith v2 — example configuration
+#
+# Run:
+#   schmith GET /customers
+#   schmith GET /customers --dry-run
+#   schmith GET /customers --debug
+#
+# All fields under `api` are required.
+# All fields under `llm` and `output` are optional (shown with defaults).
+
+api:
+  # Path to the API spec file (OpenAPI YAML/JSON or RAML)
+  spec: ../procore_api_info/procore_API_spec.json
+
+  # Spec format: openapi | openapi3 | swagger | oas | raml
+  format: openapi
+
+  # Optional: dotted Python path to an ApiAdapter subclass.
+  # If absent or null, the base adapter (all pass-throughs) is used.
+  # Example: mypackage.adapters.MyApiAdapter
+  adapter: null
+
+llm:
+  # LLM provider: anthropic | openai
+  #provider: anthropic
+  provider: openai
+
+  # Model override. If absent, the provider's default model is used.
+  # Anthropic default: claude-3-5-haiku-20241022
+  # model: claude-opus-4-6
+
+  # API key. If absent, falls back to the provider's environment variable:
+  #   Anthropic → ANTHROPIC_API_KEY
+  #   OpenAI    → OPENAI_API_KEY
+  # api_key: sk-ant-...
+
+output:
+  # Directory where output folders are written.
+  # Each run creates: output/<METHOD>_<path-slug>/ir.json, schema.md, *.cs
+  dir: output

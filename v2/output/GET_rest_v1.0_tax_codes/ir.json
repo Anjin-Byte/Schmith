@@ -1,0 +1,189 @@
+{
+  "endpoint": {
+    "method": "GET",
+    "path": "/rest/v1.0/tax_codes",
+    "status_code": "200",
+    "schema_id": "schema:anon/5ab413d1b975a60c9aa62905aac8ee33d6b27fbb"
+  },
+  "root_type": {
+    "schema_id": "schema:anon/52df9a976fb4b1864577c79124e0283f79ba8c49",
+    "name": "TaxCode",
+    "kind": "object",
+    "description": null,
+    "properties": [
+      {
+        "json_name": "id",
+        "schema_id": "schema:types/integer",
+        "required": false,
+        "nullable": null,
+        "description": "The ID of the Tax Code",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/tax_codes/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "code",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "The Tax Code",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.code",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/tax_codes/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "description",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "Description of the Tax Code",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.description",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/tax_codes/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "origin_data",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "Additional Third-party Metadata for the Tax Code. Note: This is a free-form text field.",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.origin_data",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/tax_codes/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "origin_id",
+        "schema_id": "schema:types/string",
+        "required": false,
+        "nullable": null,
+        "description": "The Third-party ID of the Tax Code",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.origin_id",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/tax_codes/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "rate1",
+        "schema_id": "schema:types/number",
+        "required": false,
+        "nullable": null,
+        "description": "Rate to apply for first Tax Type",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.rate1",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/tax_codes/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "archived",
+        "schema_id": "schema:types/boolean",
+        "required": false,
+        "nullable": null,
+        "description": "Set to true if this tax code has been archived",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.archived",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/tax_codes/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      },
+      {
+        "json_name": "default_tax_code",
+        "schema_id": "schema:types/boolean",
+        "required": false,
+        "nullable": null,
+        "description": "Set to true if this tax code is default tax code",
+        "deprecated": null,
+        "read_only": null,
+        "write_only": null,
+        "examples": null,
+        "constraints": {},
+        "enum_values": null,
+        "enum_names": null,
+        "json_pointer": "$.default_tax_code",
+        "provenance": {
+          "source_file": "../procore_api_info/procore_API_spec.json",
+          "source_pointer": "#/paths//rest/v1.0/tax_codes/get/responses/200/content/application/json",
+          "via": []
+        },
+        "resolved_type": null
+      }
+    ],
+    "required": [],
+    "enum_values": null,
+    "enum_names": null,
+    "is_inline": true
+  },
+  "nested_types": []
+}
