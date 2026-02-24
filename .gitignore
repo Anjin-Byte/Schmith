@@ -30,6 +30,7 @@ ENV/
 *.swp
 *.swo
 .DS_Store
+.claude/
 
 # Environment/Secrets
 .env
@@ -43,18 +44,20 @@ htmlcov/
 .tox/
 .nox/
 
-# Generated content (regenerate with codegen CLI)
-prompt_packets/
+# Generated output (schmith)
+# These are runtime artifacts — regenerated on demand, never committed.
+output/
+v2/output/
 generated/
+ir/
+reports/
+prompt_packets/
 
-# Analysis output (regenerate with invariant tests)
-analysis/
-
-# Downloaded specs (re-fetch with pipeline)
-spec/
+# API specs (potentially large binary/json files)
 procore_api_info/procore_API_spec.json
 
-
-ir/
-
-reports/
+# Lock files
+# uv.lock / poetry.lock pin exact versions but are noisy in diffs.
+# Remove these lines if you want reproducible installs tracked in git.
+uv.lock
+*.lock

@@ -26,7 +26,8 @@ _PROMPTS_PATH = Path(__file__).parent / "prompts.json"
 # Maximum number of fields to include per page when a type is large.
 # If a type exceeds this, its fields are chunked so each LLM call stays
 # manageable.  The results are stitched back together by the caller.
-_MAX_FIELDS_PER_PAGE = 30
+_MAX_FIELDS_PER_PAGE = 6
+_MAX_ENUM_VALUES_PER_PAGE = 30
 
 
 # ---------------------------------------------------------------------------
@@ -50,6 +51,22 @@ def _process_type(type_entry: dict, schemas_by_id: dict[str, dict]) -> dict:
     """Convert a raw type_tree entry into a prompt-ready dict with field infos."""
     raw_props: list[dict] = type_entry.get("properties") or []
     fields: list[dict] = [build_field_info(prop, schemas_by_id) for prop in raw_props]
+
+    # The type tree assigns names to anonymous schemas during traversal and
+    # stores them as `resolved_type` on each property.  build_field_info works
+    # from schemas_by_id, which only has name_hint values from the original spec
+    # — it cannot see names the type tree created.  Override csharp_type with
+    # the type-tree name whenever build_field_info left the type unresolved.
+    for field, prop in zip(fields, raw_props):
+        resolved_type = prop.get("resolved_type")
+        if (
+            resolved_type
+            and not resolved_type.startswith("schema:")
+            and field.get("type_unresolved")
+        ):
+            field["csharp_type"] = resolved_type
+            field["is_complex_type"] = True
+            field["type_unresolved"] = False
 
     return {
         "name": type_entry.get("name", "UnknownType"),
@@ -86,7 +103,13 @@ def _format_fields_section(fields: list[dict], indent: str = "  ") -> list[str]:
         if field.get("nullable") and not type_str.endswith("?"):
             type_str += "?"
 
-        lines.append(f"{indent}{field['json_name']}: {type_str}{attr_str}")
+        json_name = field["json_name"]
+        csharp_name = field.get("csharp_name", "")
+        # Always include the computed C# property name so the LLM doesn't have
+        # to derive it — especially important for %{...} template keys which
+        # require our custom sanitisation logic.
+        name_str = f"{json_name} [→ {csharp_name}]" if csharp_name else json_name
+        lines.append(f"{indent}{name_str}: {type_str}{attr_str}")
         if field.get("description"):
             lines.append(f"{indent}  Description: {field['description']}")
         enum_values = field.get("enum_values")
@@ -104,6 +127,243 @@ def _format_fields_section(fields: list[dict], indent: str = "  ") -> list[str]:
 
 
 # ---------------------------------------------------------------------------
+# Pagination helpers
+# ---------------------------------------------------------------------------
+
+# Marker strings used to delimit extra field blocks in paged LLM responses.
+# The LLM is instructed to wrap fields_only pages with these markers so they
+# can be extracted and stitched into the base class output.
+FIELDS_START_MARKER = "// BEGIN_FIELDS"
+FIELDS_END_MARKER = "// END_FIELDS"
+
+
+def _output_mode(is_root: bool, page_index: int, is_enum: bool) -> str:
+    if is_enum:
+        return "enum_only" if page_index == 1 else "enum_values_only"
+    if page_index == 1:
+        return "full_class" if is_root else "class_only"
+    return "fields_only"
+
+
+def _paging_instructions(output_mode: str, class_name: str) -> list[str]:
+    """Build mode-specific instructions that supplement the base system prompt."""
+    lines: list[str] = []
+    if output_mode == "enum_only":
+        lines.append("OUTPUT MODE: enum_only")
+        lines.append("- This schema defines a standalone enum, NOT a class.")
+        lines.append(f"- Return ONLY a standalone enum definition named `{class_name}`.")
+        lines.append("- Add [JsonConverter(typeof(JsonStringEnumConverter))] to the enum.")
+        lines.append('- Add [JsonStringEnumMemberName("value")] to each enum member.')
+        lines.append("- Do NOT wrap the enum in a class.")
+        lines.append("- Do NOT include namespace or using statements.")
+    elif output_mode == "full_class":
+        lines.append("PAGING NOTE:")
+        lines.append("- Include only the fields listed for this page.")
+    elif output_mode == "class_only":
+        lines.append("OUTPUT MODE: class_only")
+        lines.append(f"- Return ONLY the class declaration for `{class_name}`.")
+        lines.append("- Do NOT include namespace or using statements.")
+        lines.append("- Include only the fields listed for this page.")
+    elif output_mode == "enum_values_only":
+        lines.append("OUTPUT MODE: enum_values_only")
+        lines.append("- Return ONLY the enum members for this page.")
+        lines.append(
+            "- Do NOT include the enum declaration, namespace, or using statements."
+        )
+        lines.append(
+            f"- Wrap members with `{FIELDS_START_MARKER}` and `{FIELDS_END_MARKER}` markers."
+        )
+        lines.append('- Add [JsonStringEnumMemberName("value")] to each member.')
+        lines.append("- Include a trailing comma after every member.")
+    else:  # fields_only
+        lines.append("OUTPUT MODE: fields_only")
+        lines.append("- Return ONLY the property blocks for this page.")
+        lines.append(
+            "- Do NOT include namespace, using statements, class declaration, or closing braces."
+        )
+        lines.append(
+            f"- Wrap properties with `{FIELDS_START_MARKER}` and `{FIELDS_END_MARKER}` markers."
+        )
+    return lines
+
+
+def _paging_example_code(output_mode: str, class_name: str, base_example: str | None) -> str:
+    """Return a mode-appropriate example code snippet for the prompt."""
+    if output_mode == "enum_only":
+        return (
+            "/// <summary>\n"
+            "/// Description of the enum.\n"
+            "/// </summary>\n"
+            "[JsonConverter(typeof(JsonStringEnumConverter))]\n"
+            f"public enum {class_name}\n"
+            "{\n"
+            '    [JsonStringEnumMemberName("value_one")]\n'
+            "    ValueOne,\n\n"
+            '    [JsonStringEnumMemberName("value_two")]\n'
+            "    ValueTwo\n"
+            "}"
+        )
+    if output_mode == "enum_values_only":
+        return (
+            f"{FIELDS_START_MARKER}\n"
+            '    [JsonStringEnumMemberName("value_three")]\n'
+            "    ValueThree,\n\n"
+            '    [JsonStringEnumMemberName("value_four")]\n'
+            "    ValueFour,\n"
+            f"{FIELDS_END_MARKER}"
+        )
+    if output_mode == "fields_only":
+        return (
+            f"{FIELDS_START_MARKER}\n"
+            '    [JsonPropertyName("example_field")]\n'
+            '    [Description("Example field")]\n'
+            "    [Nullable(true)]\n"
+            "    public string? ExampleField { get; init; }\n"
+            f"{FIELDS_END_MARKER}"
+        )
+    if output_mode == "class_only":
+        return (
+            f"public class {class_name}\n"
+            "{\n"
+            '    [JsonPropertyName("example_field")]\n'
+            '    [Description("Example field")]\n'
+            "    [Nullable(true)]\n"
+            "    public string? ExampleField { get; init; }\n"
+            "}"
+        )
+    # full_class: use the base example from prompts.json
+    if base_example:
+        return base_example
+    return (
+        f"public class {class_name}\n"
+        "{\n"
+        '    [JsonPropertyName("id")]\n'
+        '    [Description("Unique identifier")]\n'
+        "    [Required]\n"
+        "    public required string Id { get; init; }\n"
+        "}"
+    )
+
+
+def build_type_page_prompt(
+    packet: dict,
+    type_entry: dict,
+    fields_page: list[dict],
+    page_index: int,
+    page_count: int,
+    is_root: bool,
+    values_page: list | None = None,
+    names_page: list | None = None,
+) -> str:
+    """Build an LLM prompt for a single page of a single type.
+
+    Args:
+        packet: Full prompt packet (for metadata and generation instructions).
+        type_entry: Processed type dict (from _process_type / build_prompt_packet).
+        fields_page: The subset of fields for this page.
+        page_index: 1-based page index.
+        page_count: Total number of pages for this type.
+        is_root: True if this is the root DataObject class (not a nested type).
+
+    Returns:
+        Formatted prompt string for one LLM call.
+    """
+    metadata = packet["metadata"]
+    generation = packet["generation"]
+    nested_types = packet.get("nested_types", [])
+
+    class_name = type_entry["name"]
+    is_enum = bool(type_entry.get("enum_values") and not type_entry.get("fields"))
+    output_mode = _output_mode(is_root, page_index, is_enum)
+
+    all_fields: list[dict] = type_entry.get("fields") or []
+    all_field_names = [f["json_name"] for f in all_fields]
+    all_enum_values: list = type_entry.get("enum_values") or []
+
+    lines: list[str] = []
+
+    # Base instructions from prompts.json
+    instructions = generation.get("instructions")
+    if instructions:
+        lines.append(instructions)
+        lines.append("")
+
+    # Mode-specific paging instructions
+    paging_instr = _paging_instructions(output_mode, class_name)
+    if paging_instr:
+        lines.extend(paging_instr)
+        lines.append("")
+
+    # For multi-page enums, page 1 must include a trailing comma on its last member
+    # so the stitched members from subsequent pages are valid C#.
+    if is_enum and output_mode == "enum_only" and page_count > 1:
+        lines.append(
+            "- Include a trailing comma after the last enum member on this page;"
+            " additional members will follow from subsequent pages."
+        )
+        lines.append("")
+
+    lines.append("=" * 60)
+    lines.append(f"ENDPOINT: {metadata['method']} {metadata['path']}")
+    if metadata.get("response_description"):
+        lines.append(f"Response: {metadata['response_description']}")
+    lines.append(f"CLASS: {class_name}")
+    lines.append("=" * 60)
+    lines.append(f"Schema ID: {type_entry.get('schema_id', '')}")
+    lines.append(f"Description: {type_entry.get('description') or 'No description'}")
+    lines.append("")
+
+    if page_count > 1:
+        lines.append("PAGING:")
+        lines.append(f"  Page: {page_index} of {page_count}")
+        if is_enum:
+            page_values = values_page if values_page is not None else all_enum_values
+            lines.append(f"  Values in this page: {len(page_values)}")
+            lines.append(f"  Total values: {len(all_enum_values)}")
+        else:
+            lines.append(f"  Fields in this page: {len(fields_page)}")
+            lines.append(f"  Total fields: {len(all_fields)}")
+            if all_field_names:
+                lines.append(f"  All field names: {', '.join(all_field_names)}")
+        lines.append("")
+
+    # Nested type names hint — root page 1 only
+    if is_root and page_index == 1 and nested_types:
+        nested_names = [nt["name"] for nt in nested_types]
+        lines.append(f"NESTED TYPES: {', '.join(nested_names)}")
+        lines.append("Use these class names for complex field types. Do NOT generate them here.")
+        lines.append("")
+
+    if is_enum:
+        display_values = values_page if values_page is not None else all_enum_values
+        display_names = names_page if names_page is not None else type_entry.get("enum_names")
+        if display_values:
+            header = (
+                f"ENUM (values {(page_index - 1) * len(display_values) + 1}–"
+                f"{(page_index - 1) * len(display_values) + len(display_values)}"
+                f" of {len(all_enum_values)}):"
+                if page_count > 1
+                else "ENUM:"
+            )
+            lines.append(header)
+            lines.append(f"  Values: {', '.join(str(v) for v in display_values)}")
+            if isinstance(display_names, list) and display_names:
+                lines.append(f"  Names: {', '.join(str(v) for v in display_names)}")
+            lines.append("")
+    else:
+        lines.append("FIELDS (this page):" if page_count > 1 else "FIELDS:")
+        lines.append("-" * 40)
+        lines.extend(_format_fields_section(fields_page))
+
+    lines.append("EXAMPLE CODE PATTERN:")
+    lines.append("-" * 40)
+    base_example = generation.get("example_code")
+    lines.append(_paging_example_code(output_mode, class_name, base_example))
+
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
 
@@ -114,6 +374,7 @@ def build_prompt_packet(
     endpoint: Endpoint,
     schemas_by_id: dict[str, dict],
     max_fields_per_page: int = _MAX_FIELDS_PER_PAGE,
+    response_description: str | None = None,
 ) -> dict:
     """Assemble a prompt packet from a collected type closure.
 
@@ -140,6 +401,7 @@ def build_prompt_packet(
             "method": endpoint.method,
             "path": endpoint.path,
             "data_object_name": data_object_name,
+            "response_description": response_description or "",
         },
         "root": root,
         "nested_types": nested,

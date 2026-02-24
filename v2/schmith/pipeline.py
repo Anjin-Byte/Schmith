@@ -23,17 +23,26 @@ import re
 
 from schmith.adapters.base import ApiAdapter
 from schmith.adapters.spec import openapi, raml
-from schmith.generation.llm import LLMProvider, generate_code, get_provider
+from schmith.generation.llm import (
+    DryRunProvider,
+    LLMProvider,
+    generate_code,
+    get_provider,
+    stitch_type_pages,
+)
 from schmith.generation.prompt import (
+    _MAX_ENUM_VALUES_PER_PAGE,
+    _MAX_FIELDS_PER_PAGE,
     build_prompt_packet,
     build_system_prompt,
-    build_user_prompt,
+    build_type_page_prompt,
     format_schema_markdown,
 )
 from schmith.generation.type_tree import build_type_hierarchy
 from schmith.ir.models import Endpoint, OperationResponse, SchemaNode
 from schmith.ir.store import SchemaStore
 from schmith import pipeline_invariants as iv
+from schmith.validation import ValidationResult, print_validation_report, validate_generated_code
 
 
 # ---------------------------------------------------------------------------
@@ -205,6 +214,195 @@ def _match_endpoint(
 
 
 # ---------------------------------------------------------------------------
+# Paginated generation helpers
+# ---------------------------------------------------------------------------
+
+
+def _chunk_fields(fields: list, page_size: int) -> list[list]:
+    """Split a field list into pages of at most page_size items."""
+    if not fields or len(fields) <= page_size:
+        return [fields]
+    return [fields[i: i + page_size] for i in range(0, len(fields), page_size)]
+
+
+def _chunk_enum_values(
+    values: list, names: list | None, page_size: int
+) -> list[tuple[list, list | None]]:
+    """Split enum values (and parallel names) into pages of at most page_size items."""
+    if not values or len(values) <= page_size:
+        return [(values, names)]
+    pages = []
+    for i in range(0, len(values), page_size):
+        v_slice = values[i: i + page_size]
+        n_slice = names[i: i + page_size] if isinstance(names, list) else None
+        pages.append((v_slice, n_slice))
+    return pages
+
+
+def _generate_paginated(
+    packet: dict,
+    provider: LLMProvider,
+    system_prompt: str,
+    page_size: int = _MAX_FIELDS_PER_PAGE,
+    enum_page_size: int = _MAX_ENUM_VALUES_PER_PAGE,
+) -> str:
+    """Generate C# code for all types in a packet using per-type, per-page calls.
+
+    Each type (root + nested) gets its own series of LLM calls. If a type has
+    more than page_size fields it is split across multiple calls; the results
+    are stitched back together by stitch_type_pages.
+
+    Emits a rich progress bar to stderr during actual LLM generation. Skipped
+    for DryRunProvider (calls are instantaneous, no useful signal).
+
+    Returns:
+        Single C# source string with all classes concatenated.
+    """
+    from rich.console import Console
+    from rich.progress import (
+        BarColumn,
+        MofNCompleteColumn,
+        Progress,
+        SpinnerColumn,
+        TextColumn,
+        TimeElapsedColumn,
+    )
+
+    all_types: list[tuple[dict, bool]] = [(packet["root"], True)] + [
+        (nt, False) for nt in packet.get("nested_types", [])
+    ]
+
+    # Pre-compute page lists so we know the total call count before we start.
+    # Each entry: (type_entry, is_root, is_enum, pages)
+    # - For object types: pages is list[list[dict]]  (each page = slice of fields)
+    # - For enum types:   pages is list[tuple[list, list|None]]  (values, names per page)
+    type_pages: list[tuple[dict, bool, bool, list]] = []
+    for te, is_root in all_types:
+        is_enum_type = bool(te.get("enum_values") and not te.get("fields"))
+        if is_enum_type:
+            pages: list = _chunk_enum_values(
+                te.get("enum_values") or [],
+                te.get("enum_names"),
+                enum_page_size,
+            )
+        else:
+            pages = _chunk_fields(te.get("fields") or [], page_size)
+        type_pages.append((te, is_root, is_enum_type, pages))
+
+    total_calls = sum(len(pages) for _, _, _, pages in type_pages)
+
+    metadata = packet["metadata"]
+    data_object_name = metadata["data_object_name"]
+    endpoint_label = f"{metadata['method']} {metadata['path']}"
+
+    console = Console(stderr=True)
+    is_dry_run = isinstance(provider, DryRunProvider)
+
+    # Header printed before the bar starts.
+    action = "Dry-run plan" if is_dry_run else "Generating"
+    console.print(
+        f"\n[bold]{action}[/bold] [cyan]{data_object_name}[/cyan]"
+        f"  [dim]{endpoint_label}[/dim]"
+    )
+    type_count = len(all_types)
+    call_word = "call" if total_calls == 1 else "calls"
+    console.print(
+        f"  [dim]{type_count} type{'s' if type_count != 1 else ''}  ·"
+        f"  {total_calls} LLM {call_word}[/dim]\n"
+    )
+
+    all_outputs: list[str] = []
+
+    if is_dry_run:
+        # For dry-run, just show a plan table without a live bar.
+        for type_entry, is_root, is_enum_type, pages in type_pages:
+            role = "root" if is_root else "nested"
+            page_count = len(pages)
+            if is_enum_type:
+                item_count = len(type_entry.get("enum_values") or [])
+                item_label = "values"
+            else:
+                item_count = len(type_entry.get("fields") or [])
+                item_label = "fields"
+            console.print(
+                f"  [cyan]{type_entry['name']}[/cyan]"
+                f"  [dim]({role})[/dim]"
+                f"  [dim]·  {item_count} {item_label}  ·  {page_count} page{'s' if page_count != 1 else ''}[/dim]"
+            )
+            page_outputs: list[str] = []
+            for page_index, page_data in enumerate(pages, start=1):
+                if is_enum_type:
+                    values_page, names_page = page_data
+                    fields_page: list = []
+                else:
+                    fields_page = page_data
+                    values_page, names_page = None, None
+                prompt = build_type_page_prompt(
+                    packet, type_entry, fields_page, page_index, page_count, is_root,
+                    values_page=values_page, names_page=names_page,
+                )
+                code = generate_code(prompt, system_prompt, provider)
+                page_outputs.append(code)
+            all_outputs.append(stitch_type_pages(page_outputs))
+        console.print()
+    else:
+        # Live progress bar for actual LLM calls.
+        desc_col = TextColumn("[progress.description]{task.description}")
+        with Progress(
+            SpinnerColumn(),
+            desc_col,
+            BarColumn(),
+            MofNCompleteColumn(),
+            TimeElapsedColumn(),
+            console=console,
+            transient=False,
+        ) as progress:
+            task = progress.add_task(f"[cyan]{data_object_name}[/cyan]", total=total_calls)
+
+            for type_entry, is_root, is_enum_type, pages in type_pages:
+                class_name = type_entry["name"]
+                role = "root" if is_root else "nested"
+                page_count = len(pages)
+
+                page_outputs_live: list[str] = []
+                for page_index, page_data in enumerate(pages, start=1):
+                    if is_enum_type:
+                        values_page, names_page = page_data
+                        fields_page = []
+                        item_count = len(values_page)
+                        item_label = "values"
+                    else:
+                        fields_page = page_data
+                        values_page, names_page = None, None
+                        item_count = len(fields_page)
+                        item_label = "fields"
+                    page_info = (
+                        f"  page {page_index}/{page_count}  ·  {item_count} {item_label}"
+                        if page_count > 1
+                        else f"  ·  {item_count} {item_label}"
+                    )
+                    progress.update(
+                        task,
+                        description=(
+                            f"[cyan]{class_name}[/cyan]  [dim]({role}){page_info}[/dim]"
+                        ),
+                    )
+                    prompt = build_type_page_prompt(
+                        packet, type_entry, fields_page, page_index, page_count, is_root,
+                        values_page=values_page, names_page=names_page,
+                    )
+                    code = generate_code(prompt, system_prompt, provider)
+                    page_outputs_live.append(code)
+                    progress.advance(task)
+
+                all_outputs.append(stitch_type_pages(page_outputs_live))
+
+        console.print(f"  [green]✓[/green] Done — {total_calls} LLM {call_word} completed\n")
+
+    return "\n\n".join(all_outputs).rstrip() + "\n"
+
+
+# ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
 
@@ -218,6 +416,8 @@ def run(
     llm_config: dict[str, Any] | None = None,
     target_status: str = "200",
     debug: bool = False,
+    fields_per_page: int | None = None,
+    enum_values_per_page: int | None = None,
 ) -> tuple[dict[str, Any], str, str]:
     """Run the full six-stage pipeline for a single endpoint.
 
@@ -341,16 +541,34 @@ def run(
     # ------------------------------------------------------------------
     # Stage 6 — Generate code
     # ------------------------------------------------------------------
-    packet = build_prompt_packet(root_type, nested_types, endpoint, store.all())
+    packet = build_prompt_packet(
+        root_type, nested_types, endpoint, store.all(),
+        response_description=op_response.description,
+    )
     system_prompt = build_system_prompt()
-    user_prompt = build_user_prompt(packet)
     schema_md = format_schema_markdown(root_type, nested_types)
 
     provider: LLMProvider = get_provider(_llm_config)
-    csharp_code = generate_code(user_prompt, system_prompt, provider)
+    gen_kwargs: dict[str, Any] = {}
+    if fields_per_page is not None:
+        gen_kwargs["page_size"] = fields_per_page
+    if enum_values_per_page is not None:
+        gen_kwargs["enum_page_size"] = enum_values_per_page
+    csharp_code = _generate_paginated(packet, provider, system_prompt, **gen_kwargs)
 
     if debug:
         iv.check_all(6, csharp_code, store)
+
+    # ------------------------------------------------------------------
+    # Post-generation validation (skipped for dry runs)
+    # ------------------------------------------------------------------
+    if not isinstance(provider, DryRunProvider):
+        from rich.console import Console as _Console
+        validation_result = validate_generated_code(csharp_code, packet)
+        _val_console = _Console(stderr=True)
+        print_validation_report(validation_result, _val_console)
+    else:
+        validation_result = ValidationResult()
 
     ir_data: dict[str, Any] = {
         "endpoint": {
@@ -361,6 +579,17 @@ def run(
         },
         "root_type": root_type,
         "nested_types": nested_types,
+        "validation": {
+            "is_clean": validation_result.is_clean,
+            "errors": [
+                {"code": i.code, "message": i.message, "detail": i.detail}
+                for i in validation_result.errors
+            ],
+            "warnings": [
+                {"code": i.code, "message": i.message, "detail": i.detail}
+                for i in validation_result.warnings
+            ],
+        },
     }
 
     return ir_data, schema_md, csharp_code

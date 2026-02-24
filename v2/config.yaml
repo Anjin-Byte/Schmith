@@ -22,7 +22,6 @@ api:
 
 llm:
   # LLM provider: anthropic | openai
-  #provider: anthropic
   provider: openai
 
   # Model override. If absent, the provider's default model is used.
@@ -38,3 +37,20 @@ output:
   # Directory where output folders are written.
   # Each run creates: output/<METHOD>_<path-slug>/ir.json, schema.md, *.cs
   dir: output
+
+codegen:
+  # Maximum number of object fields sent to the LLM per call.
+  # Types with more fields are split across multiple calls and stitched together.
+  # Lower values produce smaller prompts; higher values reduce total LLM calls.
+  fields_per_page: 8
+
+  # Maximum number of enum values sent to the LLM per call.
+  # Large enums (100+ values) are split and stitched the same way.
+  enum_values_per_page: 30
+
+validation:
+  # Run deterministic checks on generated code after each LLM generation.
+  # Results are printed to stderr and recorded in ir.json under "validation".
+  # Checks: brace balance, stitch artifacts, missing/phantom/duplicate fields.
+  # Skipped automatically during --dry-run.
+  enabled: true
