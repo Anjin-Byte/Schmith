@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, Protocol, cast
 
 import re
 
@@ -31,8 +31,8 @@ from schmith.generation.llm import (
     stitch_type_pages,
 )
 from schmith.generation.prompt import (
-    _MAX_ENUM_VALUES_PER_PAGE,
-    _MAX_FIELDS_PER_PAGE,
+    MAX_ENUM_VALUES_PER_PAGE,
+    MAX_FIELDS_PER_PAGE,
     build_prompt_packet,
     build_system_prompt,
     build_type_page_prompt,
@@ -43,6 +43,12 @@ from schmith.ir.models import Endpoint, OperationResponse, SchemaNode
 from schmith.ir.store import SchemaStore
 from schmith import pipeline_invariants as iv
 from schmith.validation import ValidationResult, print_validation_report, validate_generated_code
+
+
+class _ConsolePrinter(Protocol):
+    """Minimal structural interface for the rich Console we use."""
+
+    def print(self, *args: Any, **kwargs: Any) -> None: ...
 
 
 # ---------------------------------------------------------------------------
@@ -119,12 +125,14 @@ def _load_spec(spec_path: str, spec_format: str) -> dict[str, Any]:
             _yaml.preserve_quotes = True
             with open(path, encoding="utf-8") as f:
                 result = _yaml.load(f)
-            return result if isinstance(result, dict) else {}
+            # Safe: ruamel.yaml is untyped; a well-formed RAML file loads as a dict.
+            return cast(dict[str, Any], result) if isinstance(result, dict) else {}
 
         import yaml  # type: ignore[import-untyped]
         with open(path, encoding="utf-8") as f:
             result = yaml.safe_load(f)
-        return result if isinstance(result, dict) else {}
+        # Safe: yaml.safe_load on a well-formed spec file produces str-keyed mappings.
+        return cast(dict[str, Any], result) if isinstance(result, dict) else {}
 
     except Exception as exc:
         raise SpecLoadError(f"Failed to load spec '{spec_path}': {exc}") from exc
@@ -218,7 +226,7 @@ def _match_endpoint(
 # ---------------------------------------------------------------------------
 
 
-def _chunk_fields(fields: list, page_size: int) -> list[list]:
+def _chunk_fields(fields: list[dict[str, Any]], page_size: int) -> list[list[dict[str, Any]]]:
     """Split a field list into pages of at most page_size items."""
     if not fields or len(fields) <= page_size:
         return [fields]
@@ -226,8 +234,8 @@ def _chunk_fields(fields: list, page_size: int) -> list[list]:
 
 
 def _chunk_enum_values(
-    values: list, names: list | None, page_size: int
-) -> list[tuple[list, list | None]]:
+    values: list[Any], names: list[Any] | None, page_size: int
+) -> list[tuple[list[Any], list[Any] | None]]:
     """Split enum values (and parallel names) into pages of at most page_size items."""
     if not values or len(values) <= page_size:
         return [(values, names)]
@@ -240,11 +248,11 @@ def _chunk_enum_values(
 
 
 def _generate_paginated(
-    packet: dict,
+    packet: dict[str, Any],
     provider: LLMProvider,
     system_prompt: str,
-    page_size: int = _MAX_FIELDS_PER_PAGE,
-    enum_page_size: int = _MAX_ENUM_VALUES_PER_PAGE,
+    page_size: int = MAX_FIELDS_PER_PAGE,
+    enum_page_size: int = MAX_ENUM_VALUES_PER_PAGE,
 ) -> str:
     """Generate C# code for all types in a packet using per-type, per-page calls.
 
@@ -258,8 +266,8 @@ def _generate_paginated(
     Returns:
         Single C# source string with all classes concatenated.
     """
-    from rich.console import Console
-    from rich.progress import (
+    from rich.console import Console  # type: ignore[import-not-found]
+    from rich.progress import (  # type: ignore[import-not-found]
         BarColumn,
         MofNCompleteColumn,
         Progress,
@@ -268,7 +276,7 @@ def _generate_paginated(
         TimeElapsedColumn,
     )
 
-    all_types: list[tuple[dict, bool]] = [(packet["root"], True)] + [
+    all_types: list[tuple[dict[str, Any], bool]] = [(packet["root"], True)] + [
         (nt, False) for nt in packet.get("nested_types", [])
     ]
 
@@ -276,11 +284,11 @@ def _generate_paginated(
     # Each entry: (type_entry, is_root, is_enum, pages)
     # - For object types: pages is list[list[dict]]  (each page = slice of fields)
     # - For enum types:   pages is list[tuple[list, list|None]]  (values, names per page)
-    type_pages: list[tuple[dict, bool, bool, list]] = []
+    type_pages: list[tuple[dict[str, Any], bool, bool, list[Any]]] = []
     for te, is_root in all_types:
         is_enum_type = bool(te.get("enum_values") and not te.get("fields"))
         if is_enum_type:
-            pages: list = _chunk_enum_values(
+            pages: list[Any] = _chunk_enum_values(
                 te.get("enum_values") or [],
                 te.get("enum_names"),
                 enum_page_size,
@@ -295,7 +303,9 @@ def _generate_paginated(
     data_object_name = metadata["data_object_name"]
     endpoint_label = f"{metadata['method']} {metadata['path']}"
 
-    console = Console(stderr=True)
+    # cast: Console satisfies _ConsolePrinter; needed because rich is not
+    # resolvable by the IDE's interpreter (uv venv path mismatch).
+    console: _ConsolePrinter = cast(_ConsolePrinter, Console(stderr=True))
     is_dry_run = isinstance(provider, DryRunProvider)
 
     # Header printed before the bar starts.
@@ -333,7 +343,7 @@ def _generate_paginated(
             for page_index, page_data in enumerate(pages, start=1):
                 if is_enum_type:
                     values_page, names_page = page_data
-                    fields_page: list = []
+                    fields_page: list[dict[str, Any]] = []
                 else:
                     fields_page = page_data
                     values_page, names_page = None, None
@@ -348,7 +358,7 @@ def _generate_paginated(
     else:
         # Live progress bar for actual LLM calls.
         desc_col = TextColumn("[progress.description]{task.description}")
-        with Progress(
+        with cast(Any, Progress(
             SpinnerColumn(),
             desc_col,
             BarColumn(),
@@ -356,7 +366,7 @@ def _generate_paginated(
             TimeElapsedColumn(),
             console=console,
             transient=False,
-        ) as progress:
+        )) as progress:
             task = progress.add_task(f"[cyan]{data_object_name}[/cyan]", total=total_calls)
 
             for type_entry, is_root, is_enum_type, pages in type_pages:
@@ -563,9 +573,11 @@ def run(
     # Post-generation validation (skipped for dry runs)
     # ------------------------------------------------------------------
     if not isinstance(provider, DryRunProvider):
-        from rich.console import Console as _Console
+        from rich.console import Console as _Console  # type: ignore[import-not-found]
         validation_result = validate_generated_code(csharp_code, packet)
-        _val_console = _Console(stderr=True)
+        # cast: Console satisfies _ConsolePrinter; needed because rich is not
+        # resolvable by the IDE's interpreter (uv venv path mismatch).
+        _val_console: _ConsolePrinter = cast(_ConsolePrinter, _Console(stderr=True))
         print_validation_report(validation_result, _val_console)
     else:
         validation_result = ValidationResult()

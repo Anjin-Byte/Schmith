@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
     from schmith.ir.models import Endpoint, SchemaNode
@@ -68,9 +68,9 @@ class ApiAdapter:
 
     def transform_tree(
         self,
-        root_type: dict,
-        nested_types: list[dict],
-    ) -> tuple[dict, list[dict]]:
+        root_type: dict[str, Any],
+        nested_types: list[dict[str, Any]],
+    ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
         """Transform the collected type closure before code generation.
 
         Called after the type tree has been fully collected. The adapter

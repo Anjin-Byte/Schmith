@@ -1,8 +1,10 @@
 """Schema ID generation utilities."""
 
-from typing import Any, Optional
+from typing import Any, cast
 
 from schmith.shared.hashing import canonical_json_hash
+
+Schema = dict[str, Any]
 
 # OpenAPI primitive types that map to canonical schema:types/... IDs.
 # Schemas that are ONLY primitive types (no enum, properties, or composition)
@@ -36,7 +38,7 @@ def schema_id_from_ref(ref: str) -> str:
     return f"schema:ref/{ref.lstrip('#/')}".replace("/", "_")
 
 
-def schema_id_for_schema(schema: Any) -> Optional[str]:
+def schema_id_for_schema(schema: object) -> str | None:
     """Generate a schema ID for an OpenAPI schema object.
 
     For schemas with $ref, returns the referenced schema ID.
@@ -50,7 +52,11 @@ def schema_id_for_schema(schema: Any) -> Optional[str]:
     """
     if not isinstance(schema, dict):
         return None
-    ref = schema.get("$ref")
+    # Safe: we just confirmed schema is a dict; the spec adapter always produces
+    # string keys, so casting to Schema (dict[str, Any]) is correct here.
+    s: Schema = cast(Schema, schema)
+
+    ref = s.get("$ref")
     if isinstance(ref, str):
         return schema_id_from_ref(ref)
 
@@ -59,18 +65,18 @@ def schema_id_for_schema(schema: Any) -> Optional[str]:
     # the same base type share one ID rather than each getting a unique hash.
     # This means {"type":"string","description":"ID","example":"abc"} resolves
     # to schema:types/string rather than schema:anon/<hash>.
-    schema_type = schema.get("type")
+    schema_type = s.get("type")
     if (
         isinstance(schema_type, str)
         and schema_type in _PRIMITIVE_TYPES
-        and not schema.get("enum")
-        and not schema.get("properties")
-        and not schema.get("allOf")
-        and not schema.get("oneOf")
-        and not schema.get("anyOf")
-        and not schema.get("items")
+        and not s.get("enum")
+        and not s.get("properties")
+        and not s.get("allOf")
+        and not s.get("oneOf")
+        and not s.get("anyOf")
+        and not s.get("items")
     ):
-        fmt = schema.get("format", "")
+        fmt: str = s.get("format", "")
         if schema_type == "string" and fmt in _FORMAT_TYPE_MAP:
             return f"schema:types/{_FORMAT_TYPE_MAP[fmt]}"
         return f"schema:types/{schema_type}"

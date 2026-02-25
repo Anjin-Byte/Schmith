@@ -320,11 +320,11 @@ def _trim_parent_name(name: str | None, max_words: int = 3) -> str | None:
 
 
 def collect_type_closure(
-    root_schema: dict,
-    schemas_by_id: dict[str, dict],
-    load_schema_detail: Callable[[str], dict | None] | None = None,
+    root_schema: dict[str, Any],
+    schemas_by_id: dict[str, dict[str, Any]],
+    load_schema_detail: Callable[[str], dict[str, Any] | None] | None = None,
     adapter: ApiAdapter | None = None,
-) -> dict[str, dict]:
+) -> dict[str, dict[str, Any]]:
     """Collect the transitive closure of all types reachable from a root schema.
 
     Uses a two-phase approach:
@@ -338,7 +338,7 @@ def collect_type_closure(
       type to the collected set. INLINE skips the type entirely; COLLAPSE
       processes children but omits the type entry; None/NAMED_CLASS is normal.
     """
-    collected: dict[str, dict] = {}
+    collected: dict[str, dict[str, Any]] = {}
     visited: set[str] = set()
     sources_by_id: dict[str, set[str]] = {}
     anon_name_overrides: dict[str, str] = {}
@@ -760,11 +760,11 @@ def _build_type_entry(
 
 
 def build_type_hierarchy(
-    root_schema: dict,
-    schemas_by_id: dict[str, dict],
-    load_schema_detail: Callable[[str], dict | None] | None = None,
+    root_schema: dict[str, Any],
+    schemas_by_id: dict[str, dict[str, Any]],
+    load_schema_detail: Callable[[str], dict[str, Any] | None] | None = None,
     adapter: ApiAdapter | None = None,
-) -> tuple[dict, list[dict]]:
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Build root type info and list of all nested types.
 
     This is a convenience function that separates the root type from

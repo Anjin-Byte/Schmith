@@ -23,7 +23,7 @@ Usage (debug mode):
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Callable, cast
 
 from schmith.ir.models import OperationResponse, SchemaNode
 from schmith.ir.store import SchemaStore
@@ -32,9 +32,9 @@ from schmith.ir.store import SchemaStore
 class InvariantViolation(Exception):
     """Raised when a pipeline stage output fails a structural check."""
 
-    def __init__(self, message: str, details: dict | None = None):
+    def __init__(self, message: str, details: dict[str, Any] | None = None):
         super().__init__(message)
-        self.details: dict = details or {}
+        self.details: dict[str, Any] = details or {}
 
     def __str__(self) -> str:
         base = super().__str__()
@@ -49,7 +49,7 @@ class InvariantViolation(Exception):
 # ---------------------------------------------------------------------------
 
 
-def check_stage_1(data: tuple[SchemaStore, list[dict]], store: SchemaStore) -> None:
+def check_stage_1(data: Any, store: SchemaStore) -> None:
     """Stage 1 invariant: spec loaded → SchemaStore + operations list.
 
     Asserts:
@@ -63,17 +63,18 @@ def check_stage_1(data: tuple[SchemaStore, list[dict]], store: SchemaStore) -> N
             {"got": type(data).__name__},
         )
 
-    out_store, operations = data
+    # Safe: verified to be a 2-tuple above.
+    out_store, operations = cast(tuple[SchemaStore, list[dict[str, Any]]], data)
 
     if len(out_store) == 0:
         raise InvariantViolation(
             "Stage 1: SchemaStore is empty — no schemas were extracted from the spec"
         )
 
-    if not isinstance(operations, list) or len(operations) == 0:
+    if len(operations) == 0:
         raise InvariantViolation(
             "Stage 1: operations list is empty — no operations were extracted from the spec",
-            {"type": type(operations).__name__},
+            {"type": type(data[1]).__name__},
         )
 
     for i, op in enumerate(operations):
@@ -85,7 +86,7 @@ def check_stage_1(data: tuple[SchemaStore, list[dict]], store: SchemaStore) -> N
                 )
 
 
-def check_stage_2(data: OperationResponse, store: SchemaStore) -> None:
+def check_stage_2(data: Any, store: SchemaStore) -> None:
     """Stage 2 invariant: endpoint matched → OperationResponse.
 
     Asserts:
@@ -118,7 +119,7 @@ def check_stage_2(data: OperationResponse, store: SchemaStore) -> None:
         )
 
 
-def check_stage_3(data: SchemaNode, store: SchemaStore) -> None:
+def check_stage_3(data: Any, store: SchemaStore) -> None:
     """Stage 3 invariant: root resolved → SchemaNode.
 
     Asserts:
@@ -137,7 +138,7 @@ def check_stage_3(data: SchemaNode, store: SchemaStore) -> None:
             "Stage 3: SchemaNode.schema_id is empty"
         )
 
-    if not isinstance(data.schema, dict) or not data.schema:
+    if not data.schema:
         raise InvariantViolation(
             f"Stage 3: SchemaNode.schema is empty or not a dict for schema_id '{data.schema_id}'",
             {"schema_id": data.schema_id, "schema_type": type(data.schema).__name__},
@@ -145,7 +146,7 @@ def check_stage_3(data: SchemaNode, store: SchemaStore) -> None:
 
 
 def _check_type_closure(
-    data: tuple[dict, list[dict]],
+    data: Any,
     stage_label: str,
 ) -> None:
     """Shared validation for stage 4 and 5 (type closure tuple)."""
@@ -155,12 +156,14 @@ def _check_type_closure(
             {"got": type(data).__name__},
         )
 
-    root_type, nested_types = data
+    # Safe: verified to be a 2-tuple above. nested_types uses list[Any] so
+    # individual element isinstance checks remain meaningful at runtime.
+    root_type, nested_types_raw = cast(tuple[dict[str, Any], list[Any]], data)
 
-    if not isinstance(root_type, dict) or not root_type:
+    if not root_type:
         raise InvariantViolation(
             f"{stage_label}: root_type must be a non-empty dict",
-            {"got": type(root_type).__name__},
+            {"got": type(data[0]).__name__},
         )
 
     required_root_keys = ("name", "schema_id", "kind")
@@ -177,36 +180,38 @@ def _check_type_closure(
             {"schema_id": root_type.get("schema_id")},
         )
 
-    if not isinstance(nested_types, list):
+    if not isinstance(nested_types_raw, list):
         raise InvariantViolation(
             f"{stage_label}: nested_types must be a list",
-            {"got": type(nested_types).__name__},
+            {"got": type(data[1]).__name__},
         )
 
-    for i, nt in enumerate(nested_types):
+    for i, nt in enumerate(nested_types_raw):
         if not isinstance(nt, dict):
             raise InvariantViolation(
                 f"{stage_label}: nested_types[{i}] is not a dict",
                 {"got": type(nt).__name__},
             )
-        if "name" not in nt:
+        # Safe: verified nt is a dict above.
+        nt_typed: dict[str, Any] = cast(dict[str, Any], nt)
+        if "name" not in nt_typed:
             raise InvariantViolation(
                 f"{stage_label}: nested_types[{i}] is missing 'name'",
-                {"keys": list(nt.keys())},
+                {"keys": list(nt_typed.keys())},
             )
 
 
-def check_stage_4(data: tuple[dict, list[dict]], store: SchemaStore) -> None:
+def check_stage_4(data: Any, store: SchemaStore) -> None:
     """Stage 4 invariant: type tree built → (root_type, nested_types)."""
     _check_type_closure(data, "Stage 4")
 
 
-def check_stage_5(data: tuple[dict, list[dict]], store: SchemaStore) -> None:
+def check_stage_5(data: Any, store: SchemaStore) -> None:
     """Stage 5 invariant: tree transformed → (root_type, nested_types)."""
     _check_type_closure(data, "Stage 5")
 
 
-def check_stage_6(data: str, store: SchemaStore) -> None:
+def check_stage_6(data: Any, store: SchemaStore) -> None:
     """Stage 6 invariant: code generated → str.
 
     Asserts:
@@ -229,7 +234,7 @@ def check_stage_6(data: str, store: SchemaStore) -> None:
 # Dispatcher
 # ---------------------------------------------------------------------------
 
-_CHECKERS = {
+_CHECKERS: dict[int, Callable[[Any, SchemaStore], None]] = {
     1: check_stage_1,
     2: check_stage_2,
     3: check_stage_3,

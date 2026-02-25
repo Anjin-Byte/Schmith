@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import os
 import sys
-from typing import Protocol
+from typing import Any, Protocol
 
 
 class LLMProvider(Protocol):
@@ -110,7 +110,7 @@ class DryRunProvider:
         return "// Dry run - no code generated"
 
 
-def get_provider(config: dict) -> LLMProvider:
+def get_provider(config: dict[str, Any]) -> LLMProvider:
     """Get an LLM provider from a config dict.
 
     Accepts either a top-level config dict (with an "llm" block) or
@@ -131,7 +131,7 @@ def get_provider(config: dict) -> LLMProvider:
     Raises:
         ValueError: If the provider name is unknown or a required key is missing.
     """
-    llm_cfg: dict
+    llm_cfg: dict[str, Any]
     if isinstance(config.get("llm"), dict):
         llm_cfg = config.get("llm") or {}
         # Preserve legacy behavior where dry_run may be provided at top-level.

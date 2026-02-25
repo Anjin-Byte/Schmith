@@ -26,8 +26,8 @@ _PROMPTS_PATH = Path(__file__).parent / "prompts.json"
 # Maximum number of fields to include per page when a type is large.
 # If a type exceeds this, its fields are chunked so each LLM call stays
 # manageable.  The results are stitched back together by the caller.
-_MAX_FIELDS_PER_PAGE = 6
-_MAX_ENUM_VALUES_PER_PAGE = 30
+MAX_FIELDS_PER_PAGE = 6
+MAX_ENUM_VALUES_PER_PAGE = 30
 
 
 # ---------------------------------------------------------------------------
@@ -35,7 +35,7 @@ _MAX_ENUM_VALUES_PER_PAGE = 30
 # ---------------------------------------------------------------------------
 
 
-def _load_prompts() -> dict:
+def _load_prompts() -> dict[str, Any]:
     with open(_PROMPTS_PATH, encoding="utf-8") as f:
         return json.load(f)
 
@@ -47,10 +47,10 @@ def _join_lines(value: str | list[str]) -> str:
     return value
 
 
-def _process_type(type_entry: dict, schemas_by_id: dict[str, dict]) -> dict:
+def _process_type(type_entry: dict[str, Any], schemas_by_id: dict[str, dict[str, Any]]) -> dict[str, Any]:
     """Convert a raw type_tree entry into a prompt-ready dict with field infos."""
-    raw_props: list[dict] = type_entry.get("properties") or []
-    fields: list[dict] = [build_field_info(prop, schemas_by_id) for prop in raw_props]
+    raw_props: list[dict[str, Any]] = type_entry.get("properties") or []
+    fields: list[dict[str, Any]] = [build_field_info(prop, schemas_by_id) for prop in raw_props]
 
     # The type tree assigns names to anonymous schemas during traversal and
     # stores them as `resolved_type` on each property.  build_field_info works
@@ -80,7 +80,7 @@ def _process_type(type_entry: dict, schemas_by_id: dict[str, dict]) -> dict:
     }
 
 
-def _format_fields_section(fields: list[dict], indent: str = "  ") -> list[str]:
+def _format_fields_section(fields: list[dict[str, Any]], indent: str = "  ") -> list[str]:
     """Format a list of field info dicts into human-readable prompt lines."""
     lines: list[str] = []
     for field in fields:
@@ -246,14 +246,14 @@ def _paging_example_code(output_mode: str, class_name: str, base_example: str | 
 
 
 def build_type_page_prompt(
-    packet: dict,
-    type_entry: dict,
-    fields_page: list[dict],
+    packet: dict[str, Any],
+    type_entry: dict[str, Any],
+    fields_page: list[dict[str, Any]],
     page_index: int,
     page_count: int,
     is_root: bool,
-    values_page: list | None = None,
-    names_page: list | None = None,
+    values_page: list[Any] | None = None,
+    names_page: list[Any] | None = None,
 ) -> str:
     """Build an LLM prompt for a single page of a single type.
 
@@ -276,9 +276,9 @@ def build_type_page_prompt(
     is_enum = bool(type_entry.get("enum_values") and not type_entry.get("fields"))
     output_mode = _output_mode(is_root, page_index, is_enum)
 
-    all_fields: list[dict] = type_entry.get("fields") or []
+    all_fields: list[dict[str, Any]] = type_entry.get("fields") or []
     all_field_names = [f["json_name"] for f in all_fields]
-    all_enum_values: list = type_entry.get("enum_values") or []
+    all_enum_values: list[Any] = type_entry.get("enum_values") or []
 
     lines: list[str] = []
 
@@ -369,13 +369,13 @@ def build_type_page_prompt(
 
 
 def build_prompt_packet(
-    root_type: dict,
-    nested_types: list[dict],
+    root_type: dict[str, Any],
+    nested_types: list[dict[str, Any]],
     endpoint: Endpoint,
-    schemas_by_id: dict[str, dict],
-    max_fields_per_page: int = _MAX_FIELDS_PER_PAGE,
+    schemas_by_id: dict[str, dict[str, Any]],
+    max_fields_per_page: int = MAX_FIELDS_PER_PAGE,
     response_description: str | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """Assemble a prompt packet from a collected type closure.
 
     Args:
@@ -423,7 +423,7 @@ def build_system_prompt() -> str:
     return _join_lines(prompts["instructions"])
 
 
-def build_user_prompt(packet: dict) -> str:
+def build_user_prompt(packet: dict[str, Any]) -> str:
     """Format a prompt packet as the user-facing LLM message.
 
     Produces a single, self-contained prompt that describes the root type,
@@ -504,7 +504,7 @@ def build_user_prompt(packet: dict) -> str:
     return "\n".join(lines)
 
 
-def format_schema_markdown(root_type: dict, nested_types: list[dict]) -> str:
+def format_schema_markdown(root_type: dict[str, Any], nested_types: list[dict[str, Any]]) -> str:
     """Produce the schema.md artefact for human review.
 
     Generates a Markdown summary of the root type and all nested types,
@@ -523,7 +523,7 @@ def format_schema_markdown(root_type: dict, nested_types: list[dict]) -> str:
     """
     lines: list[str] = []
 
-    def _render_type(entry: dict, level: int = 2) -> None:
+    def _render_type(entry: dict[str, Any], level: int = 2) -> None:
         prefix = "#" * level
         lines.append(f"{prefix} {entry.get('name', 'Schema')}")
         lines.append("")
@@ -549,7 +549,7 @@ def format_schema_markdown(root_type: dict, nested_types: list[dict]) -> str:
                     lines.append(f"- `{v}`")
             lines.append("")
 
-        props: list[dict] = entry.get("properties") or []
+        props: list[dict[str, Any]] = entry.get("properties") or []
         if props:
             lines.append("### Fields")
             lines.append("")

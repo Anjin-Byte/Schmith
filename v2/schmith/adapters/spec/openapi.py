@@ -261,7 +261,7 @@ def _resolve_parameter(spec: dict, param: Any) -> dict | None:
 # ---------------------------------------------------------------------------
 
 
-def extract_schemas(spec: dict[str, Any], spec_path: str) -> dict[str, dict]:
+def extract_schemas(spec: dict[str, Any], spec_path: str) -> dict[str, dict[str, Any]]:
     """Extract all schemas from an OpenAPI/Swagger spec into a flat dict.
 
     Args:
@@ -271,7 +271,7 @@ def extract_schemas(spec: dict[str, Any], spec_path: str) -> dict[str, dict]:
     Returns:
         Dict mapping schema_id -> schema record.
     """
-    schemas: dict[str, dict] = {}
+    schemas: dict[str, dict[str, Any]] = {}
     schema_hashes: dict[str, str] = {}
     is_swagger2 = spec.get("swagger") == "2.0"
 
@@ -358,7 +358,7 @@ def extract_schemas(spec: dict[str, Any], spec_path: str) -> dict[str, dict]:
     return schemas
 
 
-def extract_operations(spec: dict[str, Any], spec_path: str) -> list[dict]:
+def extract_operations(spec: dict[str, Any], spec_path: str) -> list[dict[str, Any]]:
     """Extract all operations from an OpenAPI/Swagger spec.
 
     Args:

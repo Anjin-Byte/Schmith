@@ -332,7 +332,7 @@ def _register_nested_schemas(
 # ---------------------------------------------------------------------------
 
 
-def extract_schemas(spec: dict[str, Any], spec_path: str) -> dict[str, dict]:
+def extract_schemas(spec: dict[str, Any], spec_path: str) -> dict[str, dict[str, Any]]:
     """Extract all schemas from a RAML spec into a flat dict.
 
     Args:
@@ -342,7 +342,7 @@ def extract_schemas(spec: dict[str, Any], spec_path: str) -> dict[str, dict]:
     Returns:
         Dict mapping schema_id -> schema record.
     """
-    schemas: dict[str, dict] = {}
+    schemas: dict[str, dict[str, Any]] = {}
     schema_hashes: dict[str, str] = {}
 
     for primitive in ("object", "array"):
@@ -411,7 +411,7 @@ def extract_schemas(spec: dict[str, Any], spec_path: str) -> dict[str, dict]:
     return schemas
 
 
-def extract_operations(spec: dict[str, Any], spec_path: str) -> list[dict]:
+def extract_operations(spec: dict[str, Any], spec_path: str) -> list[dict[str, Any]]:
     """Extract all operations from a RAML spec.
 
     Args:

@@ -24,7 +24,13 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, Protocol, cast
+
+
+class _ConsolePrinter(Protocol):
+    """Minimal structural interface for the rich Console we use."""
+
+    def print(self, *args: Any, **kwargs: Any) -> None: ...
 
 
 def _load_config(config_path: str) -> dict[str, Any]:
@@ -40,9 +46,12 @@ def _load_config(config_path: str) -> dict[str, Any]:
         sys.exit(1)
 
     with open(path, encoding="utf-8") as f:
-        result = yaml.safe_load(f)
+        result: Any = yaml.safe_load(f)
 
-    return result if isinstance(result, dict) else {}
+    if not isinstance(result, dict):
+        return {}
+    # Safe: yaml.safe_load on a well-formed config file produces str-keyed mappings.
+    return cast(dict[str, Any], result)
 
 
 def _path_slug(path: str) -> str:
@@ -119,10 +128,12 @@ def _main_validate(argv: list[str]) -> None:
     )
     args = parser.parse_args(argv)
 
-    from rich.console import Console
+    from rich.console import Console  # type: ignore[import-not-found]
     from schmith.validation import print_validation_report, validate_generated_code
 
-    console = Console(stderr=True)
+    # cast: Console satisfies _ConsolePrinter; needed because rich is not
+    # resolvable by the IDE's interpreter (uv venv path mismatch).
+    console: _ConsolePrinter = cast(_ConsolePrinter, Console(stderr=True))
     any_errors = False
 
     for raw_path in args.dirs:
@@ -165,12 +176,14 @@ def _main_validate(argv: list[str]) -> None:
             )
 
         with open(ir_path, encoding="utf-8") as f:
-            ir_data = json.load(f)
+            # Safe: json.load returns Any; ir.json is always a str-keyed object.
+            ir_data: dict[str, Any] = cast(dict[str, Any], json.load(f))
 
         csharp_code = cs_path.read_text(encoding="utf-8")
         packet = _packet_from_ir(ir_data)
 
-        ep = ir_data.get("endpoint") or {}
+        # Safe: "endpoint" is always a dict in our ir.json output.
+        ep: dict[str, Any] = cast(dict[str, Any], ir_data.get("endpoint") or {})
         endpoint_label = f"{ep.get('method', '')} {ep.get('path', '')}".strip()
         console.print(
             f"\n[bold]Validating[/bold] [cyan]{cs_path.name}[/cyan]"
@@ -252,7 +265,9 @@ def main() -> None:
     fields_per_page: int | None = codegen_cfg.get("fields_per_page") or None
     enum_values_per_page: int | None = codegen_cfg.get("enum_values_per_page") or None
 
-    output_base = Path((config.get("output") or {}).get("dir") or "output")
+    # Safe: "output" section is always a dict when present in config.
+    output_cfg: dict[str, Any] = cast(dict[str, Any], config.get("output") or {})
+    output_base = Path(cast(str, output_cfg.get("dir") or "output"))
 
     # Import here so import errors surface with a clear message
     from schmith.adapters.api import load_adapter
@@ -313,8 +328,10 @@ def main() -> None:
     schema_path.write_text(schema_md, encoding="utf-8")
 
     # <Name>DataObject.cs
-    raw_name: str = (ir_data.get("root_type") or {}).get("name") or "DataObject"
-    data_object_name = raw_name if raw_name.endswith("DataObject") else f"{raw_name}DataObject"
+    # Safe: "root_type" is always a dict in pipeline output; "name" is always str.
+    root_type_ir: dict[str, Any] = cast(dict[str, Any], ir_data.get("root_type") or {})
+    raw_name: str = cast(str, root_type_ir.get("name") or "DataObject")
+    data_object_name: str = raw_name if raw_name.endswith("DataObject") else f"{raw_name}DataObject"
     cs_path = output_dir / f"{data_object_name}.cs"
     cs_path.write_text(csharp_code, encoding="utf-8")
 

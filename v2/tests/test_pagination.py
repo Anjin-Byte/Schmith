@@ -9,8 +9,8 @@ from schmith.generation.llm import (
 from schmith.generation.prompt import (
     FIELDS_END_MARKER,
     FIELDS_START_MARKER,
-    _MAX_ENUM_VALUES_PER_PAGE,
-    _MAX_FIELDS_PER_PAGE,
+    MAX_ENUM_VALUES_PER_PAGE as _MAX_ENUM_VALUES_PER_PAGE,
+    MAX_FIELDS_PER_PAGE as _MAX_FIELDS_PER_PAGE,
     _output_mode,
     _paging_instructions,
     build_type_page_prompt,

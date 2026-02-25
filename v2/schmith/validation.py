@@ -144,7 +144,7 @@ def _check_artifacts(code: str, result: ValidationResult) -> None:
 
 
 def _check_class_declarations(
-    code: str, packet: dict, result: ValidationResult
+    code: str, packet: dict[str, Any], result: ValidationResult
 ) -> None:
     """Verify every expected type has a public class/enum/record declaration.
 
@@ -155,7 +155,7 @@ def _check_class_declarations(
     from schmith.generation.type_mapping import format_data_object_name
 
     declared: set[str] = set(_CLASS_DECL_RE.findall(code))
-    all_types: list[dict] = [packet["root"]] + list(packet.get("nested_types") or [])
+    all_types: list[dict[str, Any]] = [packet["root"]] + list(packet.get("nested_types") or [])
     for i, te in enumerate(all_types):
         name: str = te.get("name") or ""
         if not name:
@@ -175,10 +175,10 @@ def _check_class_declarations(
 
 
 def _check_json_property_coverage(
-    code: str, packet: dict, result: ValidationResult
+    code: str, packet: dict[str, Any], result: ValidationResult
 ) -> None:
     """Verify every object field has a [JsonPropertyName(...)] in the output."""
-    all_types: list[dict] = [packet["root"]] + list(packet.get("nested_types") or [])
+    all_types: list[dict[str, Any]] = [packet["root"]] + list(packet.get("nested_types") or [])
     for te in all_types:
         # Enum types use [JsonStringEnumMemberName], not [JsonPropertyName]
         if te.get("enum_values") and not te.get("fields"):
@@ -197,10 +197,10 @@ def _check_json_property_coverage(
                 )
 
 
-def _collect_all_json_names(packet: dict) -> set[str]:
+def _collect_all_json_names(packet: dict[str, Any]) -> set[str]:
     """Gather the set of all json_name values across all types in the packet."""
     names: set[str] = set()
-    all_types: list[dict] = [packet["root"]] + list(packet.get("nested_types") or [])
+    all_types: list[dict[str, Any]] = [packet["root"]] + list(packet.get("nested_types") or [])
     for te in all_types:
         for f in te.get("fields") or []:
             json_name = f.get("json_name") or ""
@@ -210,7 +210,7 @@ def _collect_all_json_names(packet: dict) -> set[str]:
 
 
 def _check_phantom_fields(
-    code: str, packet: dict, result: ValidationResult
+    code: str, packet: dict[str, Any], result: ValidationResult
 ) -> None:
     """Warn about [JsonPropertyName] values not present in the IR schema."""
     valid_names = _collect_all_json_names(packet)
@@ -262,7 +262,7 @@ def _check_duplicate_json_properties(code: str, result: ValidationResult) -> Non
 # ---------------------------------------------------------------------------
 
 
-def validate_generated_code(code: str, packet: dict) -> ValidationResult:
+def validate_generated_code(code: str, packet: dict[str, Any]) -> ValidationResult:
     """Run all deterministic checks on generated C# code against the IR packet.
 
     Args:
