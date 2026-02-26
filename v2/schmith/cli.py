@@ -318,10 +318,16 @@ def main() -> None:
     output_dir = output_base / f"{method_upper}_{slug}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # ir.json
+    # ir.json  (excludes prompts to keep it concise)
     ir_path = output_dir / "ir.json"
+    ir_without_prompts = {k: v for k, v in ir_data.items() if k != "prompts"}
     with open(ir_path, "w", encoding="utf-8") as f:
-        json.dump(ir_data, f, indent=2, default=str)
+        json.dump(ir_without_prompts, f, indent=2, default=str)
+
+    # prompts.json  (full system+user prompt text for every LLM call)
+    prompts_path = output_dir / "prompts.json"
+    with open(prompts_path, "w", encoding="utf-8") as f:
+        json.dump(ir_data.get("prompts", []), f, indent=2, ensure_ascii=False)
 
     # schema.md
     schema_path = output_dir / "schema.md"

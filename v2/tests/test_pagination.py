@@ -13,6 +13,7 @@ from schmith.generation.prompt import (
     MAX_FIELDS_PER_PAGE as _MAX_FIELDS_PER_PAGE,
     _output_mode,
     _paging_instructions,
+    _select_primary_key,
     build_type_page_prompt,
 )
 from schmith.pipeline import _chunk_enum_values, _chunk_fields
@@ -273,6 +274,79 @@ class TestStitchTypePages:
 
 
 # ---------------------------------------------------------------------------
+# _select_primary_key
+# ---------------------------------------------------------------------------
+
+
+def _field(json_name: str, csharp_type: str = "string", required: bool = False, nullable: bool = False) -> dict:
+    return {
+        "json_name": json_name,
+        "csharp_name": "".join(w.capitalize() for w in json_name.split("_")),
+        "csharp_type": csharp_type,
+        "required": required,
+        "nullable": nullable,
+    }
+
+
+class TestSelectPrimaryKey:
+    def test_returns_none_for_empty_fields(self) -> None:
+        assert _select_primary_key([]) is None
+
+    def test_exact_id_wins(self) -> None:
+        fields = [_field("name"), _field("id"), _field("customer_id")]
+        result = _select_primary_key(fields)
+        assert result is not None
+        assert result["json_name"] == "id"
+
+    def test_ends_with_id_beats_contains_id(self) -> None:
+        # "customer_id" ends with "_id"; "additional_info" only contains "id"
+        fields = [_field("additional_info"), _field("customer_id")]
+        result = _select_primary_key(fields)
+        assert result is not None
+        assert result["json_name"] == "customer_id"
+
+    def test_ends_with_key_is_preferred(self) -> None:
+        fields = [_field("description"), _field("api_key")]
+        result = _select_primary_key(fields)
+        assert result is not None
+        assert result["json_name"] == "api_key"
+
+    def test_required_nonnullable_preferred_over_nullable(self) -> None:
+        # Neither has "id"/"key" — prefer required+non-nullable
+        fields = [
+            _field("alpha", required=False, nullable=True),
+            _field("beta", required=True, nullable=False),
+        ]
+        result = _select_primary_key(fields)
+        assert result is not None
+        assert result["json_name"] == "beta"
+
+    def test_string_type_preferred_over_complex(self) -> None:
+        fields = [
+            _field("ref", csharp_type="ComplexType", required=True, nullable=False),
+            _field("code", csharp_type="string", required=True, nullable=False),
+        ]
+        result = _select_primary_key(fields)
+        assert result is not None
+        assert result["json_name"] == "code"
+
+    def test_single_field_always_returned(self) -> None:
+        f = _field("only_field")
+        result = _select_primary_key([f])
+        assert result is f
+
+    def test_id_beats_required_non_id(self) -> None:
+        # "id" should win even if the other field is required+non-nullable
+        fields = [
+            _field("id", required=False, nullable=True),
+            _field("code", required=True, nullable=False),
+        ]
+        result = _select_primary_key(fields)
+        assert result is not None
+        assert result["json_name"] == "id"
+
+
+# ---------------------------------------------------------------------------
 # build_type_page_prompt
 # ---------------------------------------------------------------------------
 
@@ -398,3 +472,34 @@ class TestBuildTypePagePrompt:
         assert "Values in this page:" in prompt
         assert "Total values:" in prompt
         assert "Fields in this page:" not in prompt
+
+    def test_root_page1_includes_primary_key_when_set(self) -> None:
+        type_entry = {
+            **self.type_entry,
+            "primary_key_json_name": "id",
+            "primary_key_csharp_name": "Id",
+        }
+        prompt = build_type_page_prompt(self.packet, type_entry, [], 1, 1, is_root=True)
+        assert "PRIMARY KEY: id [→ Id]" in prompt
+
+    def test_root_page1_no_primary_key_when_not_set(self) -> None:
+        prompt = build_type_page_prompt(self.packet, self.type_entry, [], 1, 1, is_root=True)
+        assert "PRIMARY KEY:" not in prompt
+
+    def test_nested_page1_no_primary_key_even_when_set(self) -> None:
+        type_entry = {
+            **self.packet["nested_types"][0],
+            "primary_key_json_name": "id",
+            "primary_key_csharp_name": "Id",
+        }
+        prompt = build_type_page_prompt(self.packet, type_entry, [], 1, 1, is_root=False)
+        assert "PRIMARY KEY:" not in prompt
+
+    def test_root_page2_no_primary_key_even_when_set(self) -> None:
+        type_entry = {
+            **self.type_entry,
+            "primary_key_json_name": "id",
+            "primary_key_csharp_name": "Id",
+        }
+        prompt = build_type_page_prompt(self.packet, type_entry, [], 2, 3, is_root=True)
+        assert "PRIMARY KEY:" not in prompt

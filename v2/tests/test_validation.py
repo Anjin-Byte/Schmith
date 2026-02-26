@@ -11,6 +11,7 @@ from schmith.validation import (
     _check_json_property_coverage,
     _check_phantom_fields,
     _check_structural,
+    _check_undeclared_property_types,
     _collect_all_json_names,
     print_validation_report,
     validate_generated_code,
@@ -554,6 +555,90 @@ class TestCheckDuplicateJsonProperties:
 
 
 # ---------------------------------------------------------------------------
+# _check_undeclared_property_types
+# ---------------------------------------------------------------------------
+
+
+class TestCheckUndeclaredPropertyTypes:
+    def _run(self, code: str) -> ValidationResult:
+        r = ValidationResult()
+        _check_undeclared_property_types(code, r)
+        return r
+
+    def test_declared_enum_type_passes(self) -> None:
+        code = (
+            "public enum ExtendedFlag { Red, Yellow, Green }\n"
+            "public class Foo { public ExtendedFlag? Flag { get; init; } }"
+        )
+        assert self._run(code).is_clean
+
+    def test_undeclared_type_is_error(self) -> None:
+        code = (
+            "public enum ExtendedFlag { Red }\n"
+            "public class Foo { public FlagEnum? Flag { get; init; } }"
+        )
+        result = self._run(code)
+        assert result.has_errors
+        assert any(i.code == "UNDECLARED_TYPE" for i in result.errors)
+        assert any("FlagEnum" in i.message for i in result.errors)
+
+    def test_csharp_primitive_passes(self) -> None:
+        code = "public class Foo { public string? Name { get; init; } }"
+        assert self._run(code).is_clean
+
+    def test_nullable_primitive_passes(self) -> None:
+        code = "public class Foo { public int? Count { get; init; } }"
+        assert self._run(code).is_clean
+
+    def test_array_of_declared_type_passes(self) -> None:
+        code = (
+            "public class Bar { }\n"
+            "public class Foo { public Bar[]? Items { get; init; } }"
+        )
+        assert self._run(code).is_clean
+
+    def test_array_of_undeclared_type_is_error(self) -> None:
+        code = "public class Foo { public Ghost[]? Items { get; init; } }"
+        result = self._run(code)
+        assert result.has_errors
+        assert any(i.code == "UNDECLARED_TYPE" for i in result.errors)
+
+    def test_datetime_passes(self) -> None:
+        code = "public class Foo { public DateTime? CreatedAt { get; init; } }"
+        assert self._run(code).is_clean
+
+    def test_json_element_passes(self) -> None:
+        code = "public class Foo { public JsonElement? Data { get; init; } }"
+        assert self._run(code).is_clean
+
+    def test_clean_when_no_properties(self) -> None:
+        code = "public class Foo { }"
+        assert self._run(code).is_clean
+
+    def test_same_undeclared_type_reported_once(self) -> None:
+        # FlagEnum used in two properties — should only produce one UNDECLARED_TYPE error.
+        code = (
+            "public class Foo {\n"
+            "    public FlagEnum? Flag1 { get; init; }\n"
+            "    public FlagEnum? Flag2 { get; init; }\n"
+            "}"
+        )
+        result = self._run(code)
+        errors = [i for i in result.errors if i.code == "UNDECLARED_TYPE"]
+        assert len(errors) == 1
+
+    def test_detail_lists_declared_types(self) -> None:
+        code = (
+            "public enum StatusEnum { Active }\n"
+            "public class Foo { public GhostType? X { get; init; } }"
+        )
+        result = self._run(code)
+        errors = [i for i in result.errors if i.code == "UNDECLARED_TYPE"]
+        assert errors
+        assert "StatusEnum" in (errors[0].detail or "")
+
+
+# ---------------------------------------------------------------------------
 # validate_generated_code (integration)
 # ---------------------------------------------------------------------------
 
@@ -602,6 +687,17 @@ class TestValidateGeneratedCode:
         dup_code = _CLEAN_CODE + '\n    [JsonPropertyName("id")]\n    public string Id2 { get; init; }\n}'
         result = validate_generated_code(dup_code, self.packet)
         assert any(i.code == "DUPLICATE_FIELD" for i in result.errors)
+
+    def test_undeclared_type_detected(self) -> None:
+        packet = _make_packet("Foo", root_fields=[_make_field("flag")])
+        code = (
+            'public class Foo {\n'
+            '    [JsonPropertyName("flag")]\n'
+            '    public FlagEnum? Flag { get; init; }\n'
+            '}'
+        )
+        result = validate_generated_code(code, packet)
+        assert any(i.code == "UNDECLARED_TYPE" for i in result.errors)
 
     def test_all_checks_run_on_bad_input(self) -> None:
         packet = _make_packet("MissingClass", root_fields=[_make_field("x")])

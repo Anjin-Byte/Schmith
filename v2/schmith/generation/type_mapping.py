@@ -171,9 +171,15 @@ def build_field_info(prop: dict, schemas_by_id: dict[str, dict]) -> dict[str, An
             enum_values, enum_names = _enum_meta(schema)
 
     if enum_values is not None:
-        schema = schemas_by_id.get(schema_id) if schema_id else None
-        name_hint = schema.get("name_hint") if schema else None
-        csharp_type = extract_clean_name(schema_id, name_hint) if name_hint else f"{csharp_name}Enum"
+        # resolved_type is the authoritative name assigned by type_tree.py (e.g. "ExtendedFlag").
+        # Prefer it over the name_hint derivation so that the prompt matches the generated enum.
+        resolved_type = prop.get("resolved_type")
+        if resolved_type:
+            csharp_type = resolved_type
+        else:
+            schema = schemas_by_id.get(schema_id) if schema_id else None
+            name_hint = schema.get("name_hint") if schema else None
+            csharp_type = extract_clean_name(schema_id, name_hint) if name_hint else f"{csharp_name}Enum"
 
     items_schema_id = prop.get("items_schema_id")
     if items_schema_id and csharp_type == "object[]":

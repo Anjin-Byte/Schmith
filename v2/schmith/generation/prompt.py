@@ -80,6 +80,40 @@ def _process_type(type_entry: dict[str, Any], schemas_by_id: dict[str, dict[str,
     }
 
 
+def _select_primary_key(fields: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Select the best primary key field from a list of processed field info dicts.
+
+    Uses deterministic heuristics (descending priority):
+      1. Exact json_name == "id"
+      2. json_name ends with "_id" or "_key"
+      3. json_name contains "id" or "key"
+      4. Field is required and not nullable
+      5. C# type is string, int, or long
+
+    Returns None if the list is empty.
+    """
+    if not fields:
+        return None
+
+    def _score(field: dict[str, Any]) -> tuple[int, ...]:
+        json_name = (field.get("json_name") or "").lower()
+        csharp_type = (field.get("csharp_type") or "").lower().rstrip("?")
+        is_required = bool(field.get("required"))
+        is_nullable = bool(field.get("nullable"))
+
+        exact_id = (
+            2 if json_name == "id"
+            else (1 if (json_name.endswith("_id") or json_name.endswith("_key")) else 0)
+        )
+        contains_id_key = 1 if ("id" in json_name or "key" in json_name) else 0
+        required_nonnull = 1 if (is_required and not is_nullable) else 0
+        good_type = 1 if csharp_type in ("string", "int", "long") else 0
+
+        return (exact_id, contains_id_key, required_nonnull, good_type)
+
+    return max(fields, key=_score)
+
+
 def _format_fields_section(fields: list[dict[str, Any]], indent: str = "  ") -> list[str]:
     """Format a list of field info dicts into human-readable prompt lines."""
     lines: list[str] = []
@@ -311,6 +345,11 @@ def build_type_page_prompt(
     lines.append("=" * 60)
     lines.append(f"Schema ID: {type_entry.get('schema_id', '')}")
     lines.append(f"Description: {type_entry.get('description') or 'No description'}")
+    if is_root and page_index == 1:
+        pk_json = type_entry.get("primary_key_json_name")
+        pk_cs = type_entry.get("primary_key_csharp_name")
+        if pk_json:
+            lines.append(f"PRIMARY KEY: {pk_json} [→ {pk_cs}]")
     lines.append("")
 
     if page_count > 1:
@@ -394,6 +433,11 @@ def build_prompt_packet(
     root = _process_type(root_type, schemas_by_id)
     nested = [_process_type(nt, schemas_by_id) for nt in nested_types]
 
+    # Deterministically select the primary key field from the root's processed fields.
+    pk_field = _select_primary_key(root["fields"])
+    root["primary_key_json_name"] = pk_field["json_name"] if pk_field else None
+    root["primary_key_csharp_name"] = pk_field.get("csharp_name") if pk_field else None
+
     data_object_name = format_data_object_name(root["name"])
 
     return {
@@ -451,6 +495,10 @@ def build_user_prompt(packet: dict[str, Any]) -> str:
     # Root type
     lines.append(f"SCHEMA ID: {root['schema_id']}")
     lines.append(f"Description: {root['description'] or 'No description'}")
+    pk_json = root.get("primary_key_json_name")
+    pk_cs = root.get("primary_key_csharp_name")
+    if pk_json:
+        lines.append(f"PRIMARY KEY: {pk_json} [→ {pk_cs}]")
     lines.append("")
 
     # Enum-only root

@@ -253,7 +253,7 @@ def _generate_paginated(
     system_prompt: str,
     page_size: int = MAX_FIELDS_PER_PAGE,
     enum_page_size: int = MAX_ENUM_VALUES_PER_PAGE,
-) -> str:
+) -> tuple[str, list[dict[str, Any]]]:
     """Generate C# code for all types in a packet using per-type, per-page calls.
 
     Each type (root + nested) gets its own series of LLM calls. If a type has
@@ -264,7 +264,9 @@ def _generate_paginated(
     for DryRunProvider (calls are instantaneous, no useful signal).
 
     Returns:
-        Single C# source string with all classes concatenated.
+        Tuple of (csharp_code, prompt_log) where prompt_log is a list of
+        per-page dicts with keys: type_name, is_root, page, total_pages,
+        system, user. Useful for debugging LLM behaviour post-run.
     """
     from rich.console import Console  # type: ignore[import-not-found]
     from rich.progress import (  # type: ignore[import-not-found]
@@ -322,6 +324,7 @@ def _generate_paginated(
     )
 
     all_outputs: list[str] = []
+    prompt_log: list[dict[str, Any]] = []
 
     if is_dry_run:
         # For dry-run, just show a plan table without a live bar.
@@ -351,6 +354,14 @@ def _generate_paginated(
                     packet, type_entry, fields_page, page_index, page_count, is_root,
                     values_page=values_page, names_page=names_page,
                 )
+                prompt_log.append({
+                    "type_name": type_entry["name"],
+                    "is_root": is_root,
+                    "page": page_index,
+                    "total_pages": page_count,
+                    "system": system_prompt,
+                    "user": prompt,
+                })
                 code = generate_code(prompt, system_prompt, provider)
                 page_outputs.append(code)
             all_outputs.append(stitch_type_pages(page_outputs))
@@ -401,6 +412,14 @@ def _generate_paginated(
                         packet, type_entry, fields_page, page_index, page_count, is_root,
                         values_page=values_page, names_page=names_page,
                     )
+                    prompt_log.append({
+                        "type_name": type_entry["name"],
+                        "is_root": is_root,
+                        "page": page_index,
+                        "total_pages": page_count,
+                        "system": system_prompt,
+                        "user": prompt,
+                    })
                     code = generate_code(prompt, system_prompt, provider)
                     page_outputs_live.append(code)
                     progress.advance(task)
@@ -409,7 +428,7 @@ def _generate_paginated(
 
         console.print(f"  [green]✓[/green] Done — {total_calls} LLM {call_word} completed\n")
 
-    return "\n\n".join(all_outputs).rstrip() + "\n"
+    return "\n\n".join(all_outputs).rstrip() + "\n", prompt_log
 
 
 # ---------------------------------------------------------------------------
@@ -564,7 +583,7 @@ def run(
         gen_kwargs["page_size"] = fields_per_page
     if enum_values_per_page is not None:
         gen_kwargs["enum_page_size"] = enum_values_per_page
-    csharp_code = _generate_paginated(packet, provider, system_prompt, **gen_kwargs)
+    csharp_code, prompt_log = _generate_paginated(packet, provider, system_prompt, **gen_kwargs)
 
     if debug:
         iv.check_all(6, csharp_code, store)
@@ -591,6 +610,7 @@ def run(
         },
         "root_type": root_type,
         "nested_types": nested_types,
+        "prompts": prompt_log,
         "validation": {
             "is_clean": validation_result.is_clean,
             "errors": [

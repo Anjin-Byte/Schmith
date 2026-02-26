@@ -72,6 +72,19 @@ _CLASS_DECL_RE = re.compile(
     r"\bpublic\s+(?:sealed\s+)?(?:partial\s+)?(?:class|enum|record)\s+(\w+)"
 )
 _JSON_PROP_RE = re.compile(r'\[JsonPropertyName\("([^"]+)"\)\]')
+# Matches property declarations: public TypeName? PropName { get; ...
+# Captures TypeName only ([] and ? stripped by the pattern itself).
+_PROP_TYPE_RE = re.compile(
+    r"\bpublic\s+(\w+)(?:\[\])?\??\s+\w+\s*\{\s*(?:get|init|set)"
+)
+# C# built-in types and common BCL types that never need a declaration in the file.
+_CSHARP_PRIMITIVES: frozenset[str] = frozenset({
+    "string", "int", "long", "double", "float", "decimal", "bool",
+    "byte", "char", "short", "uint", "ulong", "ushort", "sbyte",
+    "object", "dynamic", "var",
+    "DateTime", "DateTimeOffset", "DateOnly", "TimeOnly", "Guid", "TimeSpan",
+    "JsonElement", "JsonDocument", "JsonArray", "JsonObject",
+})
 
 # Each entry: (regex_pattern, issue_code, severity, message_template)
 _ARTIFACT_PATTERNS: list[tuple[str, str, Literal["error", "warning"], str]] = [
@@ -224,6 +237,33 @@ def _check_phantom_fields(
             )
 
 
+def _check_undeclared_property_types(code: str, result: ValidationResult) -> None:
+    """Flag property type references that have no matching declaration in the file.
+
+    Catches hallucinated type names: the LLM uses a name like ``FlagEnum`` in a
+    property declaration but never declares it, while the correct name (e.g.
+    ``ExtendedFlag``) is declared but not used.  The check is code-only — no
+    packet needed — so it fires even when the IR is correct.
+    """
+    declared: set[str] = set(_CLASS_DECL_RE.findall(code))
+    seen_undeclared: set[str] = set()
+    for type_name in _PROP_TYPE_RE.findall(code):
+        if type_name in _CSHARP_PRIMITIVES:
+            continue
+        if type_name in declared:
+            continue
+        if type_name in seen_undeclared:
+            continue
+        seen_undeclared.add(type_name)
+        result.add(
+            "error",
+            "UNDECLARED_TYPE",
+            f"Property references type '{type_name}' which is not declared in this file",
+            "May be a hallucinated or renamed type; declared types: "
+            + ", ".join(sorted(declared)),
+        )
+
+
 def _check_duplicate_json_properties(code: str, result: ValidationResult) -> None:
     """Flag [JsonPropertyName] values that appear more than once in the same class.
 
@@ -277,6 +317,7 @@ def validate_generated_code(code: str, packet: dict[str, Any]) -> ValidationResu
     _check_structural(code, result)
     _check_artifacts(code, result)
     _check_class_declarations(code, packet, result)
+    _check_undeclared_property_types(code, result)
     _check_json_property_coverage(code, packet, result)
     _check_phantom_fields(code, packet, result)
     _check_duplicate_json_properties(code, result)
