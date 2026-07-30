@@ -22,6 +22,8 @@
     "    - bool for booleans",
     "    - DateTime for datetime fields",
     "    - DateOnly for date-only fields",
+    "13. If a field has [pii] attribute: add [WriteOnly] attribute to the property. [WriteOnly] must appear before [JsonPropertyName]. Example:\n    [WriteOnly]\n    [JsonPropertyName(\"email\")]\n    public string? Email { get; init; }",
+    "14. If a field has [review: ...] attribute: add a // [REVIEW: <reason text>] comment on the line immediately before the property's first attribute. Apply regardless of whether the field also has [pii]. Example:\n    // [REVIEW: Could be a personal or business phone]\n    [JsonPropertyName(\"phone\")]\n    public string? Phone { get; init; }",
     "",
     "DO NOT INCLUDE:",
     "- namespace declarations",
@@ -50,6 +52,12 @@
     "    [Description(\"Display name\")]",
     "    [Nullable(true)]",
     "    public string? Name { get; init; }",
+    "",
+    "    // [REVIEW: Could be personal contact info]",
+    "    [WriteOnly]",
+    "    [JsonPropertyName(\"phone\")]",
+    "    [Nullable(true)]",
+    "    public string? Phone { get; init; }",
     "}"
   ]
 }

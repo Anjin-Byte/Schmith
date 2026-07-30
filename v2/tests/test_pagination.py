@@ -1,11 +1,14 @@
 """Tests for paginated code generation (prompt building, stitching, pipeline helpers)."""
 
-from schmith.generation.llm import (
+from typing import Any
+
+from schmith.assembly import (
     _extract_field_block,
     _insert_fields,
     _normalize_class_indentation,
     stitch_type_pages,
 )
+from schmith.generation.llm import DryRunProvider, GenerationResult
 from schmith.generation.prompt import (
     FIELDS_END_MARKER,
     FIELDS_START_MARKER,
@@ -16,7 +19,7 @@ from schmith.generation.prompt import (
     _select_primary_key,
     build_type_page_prompt,
 )
-from schmith.pipeline import _chunk_enum_values, _chunk_fields
+from schmith.pipeline import _calibrate_page_size, _chunk_enum_values, _chunk_fields
 
 
 # ---------------------------------------------------------------------------
@@ -388,11 +391,34 @@ class TestBuildTypePagePrompt:
         assert "CustomerAddressDataObject" in prompt
         assert "Do NOT generate them here" in prompt
 
-    def test_nested_page1_no_nested_types_hint(self) -> None:
+    def test_nested_page1_gets_type_reference_hint(self) -> None:
         nested_entry = self.packet["nested_types"][0]
         prompt = build_type_page_prompt(self.packet, nested_entry, [], 1, 1, is_root=False)
-        # Should not include the nested types hint when generating a nested class
+        # Nested pages get the compact reminder, not the full declaration
+        assert "TYPE REFERENCE (use exact names):" in prompt
+        assert "CustomerAddressDataObject" in prompt
         assert "Do NOT generate them here" not in prompt
+
+    def test_root_continuation_page_gets_type_reference_hint(self) -> None:
+        fields = [{"json_name": "id", "csharp_type": "string", "nullable": False, "required": True}]
+        prompt = build_type_page_prompt(self.packet, self.type_entry, fields, 2, 3, is_root=True)
+        assert "TYPE REFERENCE (use exact names):" in prompt
+        assert "CustomerAddressDataObject" in prompt
+        # Full declaration phrase should not appear on continuation pages
+        assert "Do NOT generate them here" not in prompt
+
+    def test_nested_continuation_page_gets_type_reference_hint(self) -> None:
+        nested_entry = self.packet["nested_types"][0]
+        fields = [{"json_name": "id", "csharp_type": "string", "nullable": False, "required": True}]
+        prompt = build_type_page_prompt(self.packet, nested_entry, fields, 2, 3, is_root=False)
+        assert "TYPE REFERENCE (use exact names):" in prompt
+        assert "CustomerAddressDataObject" in prompt
+
+    def test_no_nested_types_hint_when_nested_types_empty(self) -> None:
+        packet_no_nested = {**self.packet, "nested_types": []}
+        prompt = build_type_page_prompt(packet_no_nested, self.type_entry, [], 1, 1, is_root=True)
+        assert "NESTED TYPES:" not in prompt
+        assert "TYPE REFERENCE" not in prompt
 
     def test_fields_only_mode_has_marker_instruction(self) -> None:
         fields = [{"json_name": "id", "csharp_type": "string", "nullable": False}]
@@ -503,3 +529,118 @@ class TestBuildTypePagePrompt:
         }
         prompt = build_type_page_prompt(self.packet, type_entry, [], 2, 3, is_root=True)
         assert "PRIMARY KEY:" not in prompt
+
+
+# ---------------------------------------------------------------------------
+# _calibrate_page_size
+# ---------------------------------------------------------------------------
+
+
+def _make_fields(n: int) -> list[dict[str, Any]]:
+    return [
+        {"json_name": f"field_{i}", "csharp_type": "string", "nullable": True, "required": False}
+        for i in range(n)
+    ]
+
+
+_CALIBRATE_PACKET: dict[str, Any] = {
+    "metadata": {
+        "method": "GET",
+        "path": "/items",
+        "data_object_name": "ItemDataObject",
+        "response_description": "",
+    },
+    "generation": {"instructions": "", "example_code": ""},
+    "root": {
+        "name": "ItemDataObject",
+        "schema_id": "s:Item",
+        "description": "",
+        "kind": "object",
+        "fields": [],
+        "enum_values": None,
+    },
+    "nested_types": [],
+}
+
+
+class TestCalibratePageSize:
+    def setup_method(self) -> None:
+        self.provider = DryRunProvider()
+        self.system = "Generate C# code."
+
+    def _type_entry(self, n: int) -> dict[str, Any]:
+        return {**_CALIBRATE_PACKET["root"], "fields": _make_fields(n)}
+
+    def test_empty_fields_returns_fallback(self) -> None:
+        te = self._type_entry(0)
+        result = _calibrate_page_size(
+            _CALIBRATE_PACKET, te, True, self.system, self.provider, fallback=15
+        )
+        assert result == 15
+
+    def test_fields_under_min_page_returns_field_count(self) -> None:
+        # 3 fields, min_page=5 → returns 3 (one call for all fields)
+        te = self._type_entry(3)
+        result = _calibrate_page_size(
+            _CALIBRATE_PACKET, te, True, self.system, self.provider,
+            min_page=5, fallback=20,
+        )
+        assert result == 3
+
+    def test_fields_equal_min_page_returns_field_count(self) -> None:
+        te = self._type_entry(5)
+        result = _calibrate_page_size(
+            _CALIBRATE_PACKET, te, True, self.system, self.provider,
+            min_page=5, fallback=20,
+        )
+        assert result == 5
+
+    def test_large_target_returns_all_fields(self) -> None:
+        # With a huge token budget, all 30 fields fit in one call.
+        te = self._type_entry(30)
+        result = _calibrate_page_size(
+            _CALIBRATE_PACKET, te, True, self.system, self.provider,
+            target_tokens=999_999, min_page=5, fallback=10,
+        )
+        assert result == 30
+
+    def test_small_target_splits_fields(self) -> None:
+        # With a tiny token budget, should return a page size < total fields.
+        te = self._type_entry(30)
+        result = _calibrate_page_size(
+            _CALIBRATE_PACKET, te, True, self.system, self.provider,
+            target_tokens=1, min_page=5, fallback=10,
+        )
+        assert result < 30
+
+    def test_result_is_at_least_min_page(self) -> None:
+        te = self._type_entry(30)
+        result = _calibrate_page_size(
+            _CALIBRATE_PACKET, te, True, self.system, self.provider,
+            target_tokens=1, min_page=7, fallback=10,
+        )
+        assert result >= 7
+
+    def test_result_is_positive_integer(self) -> None:
+        te = self._type_entry(20)
+        result = _calibrate_page_size(
+            _CALIBRATE_PACKET, te, True, self.system, self.provider,
+        )
+        assert isinstance(result, int)
+        assert result >= 1
+
+    def test_count_tokens_exception_returns_fallback(self) -> None:
+        class BrokenProvider:
+            model: str = "broken"
+
+            def generate(self, prompt: str, system: str | None = None) -> GenerationResult:
+                return GenerationResult("", 0, 0)
+
+            def count_tokens(self, prompt: str, system: str | None = None) -> int:
+                raise RuntimeError("unavailable")
+
+        te = self._type_entry(30)
+        result = _calibrate_page_size(
+            _CALIBRATE_PACKET, te, True, self.system, BrokenProvider(), fallback=15,
+        )
+        assert result == 15

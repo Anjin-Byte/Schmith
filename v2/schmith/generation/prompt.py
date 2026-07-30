@@ -129,8 +129,23 @@ def _format_fields_section(fields: list[dict[str, Any]], indent: str = "  ") -> 
             attrs.append("read-only")
         if field.get("write_only"):
             attrs.append("write-only")
-        if field.get("type_unresolved"):
+        is_unresolved = bool(field.get("type_unresolved"))
+        has_pii_review = bool(field.get("pii_review"))
+        if field.get("pii"):
+            attrs.append("pii")
+        if is_unresolved and not has_pii_review:
+            # Standalone unresolved type: the LLM will emit a trailing
+            # // [REVIEW: Type unresolved from IR] inline comment (req 10).
             attrs.append("type_unresolved")
+        if has_pii_review:
+            # Consolidated review reason.  When the type is also unresolved,
+            # append that fact here so the LLM emits ONE // [REVIEW: ...] comment
+            # covering both concerns — prevents duplicate comments from
+            # requirements 10 and 14 firing independently on the same field.
+            parts = [(field.get("pii_reason") or "borderline classification").rstrip(".")]
+            if is_unresolved:
+                parts.append("type unresolved from IR")
+            attrs.append(f"review: {'; '.join(parts)}")
 
         attr_str = f" [{', '.join(attrs)}]" if attrs else ""
         type_str = field["csharp_type"]
@@ -288,6 +303,7 @@ def build_type_page_prompt(
     is_root: bool,
     values_page: list[Any] | None = None,
     names_page: list[Any] | None = None,
+    correction_block: str | None = None,
 ) -> str:
     """Build an LLM prompt for a single page of a single type.
 
@@ -337,6 +353,12 @@ def build_type_page_prompt(
         )
         lines.append("")
 
+    # Correction block from a previous failed attempt (retry only).
+    # Injected on page 1 only so the LLM sees the feedback before the schema.
+    if page_index == 1 and correction_block:
+        lines.append(correction_block)
+        lines.append("")
+
     lines.append("=" * 60)
     lines.append(f"ENDPOINT: {metadata['method']} {metadata['path']}")
     if metadata.get("response_description"):
@@ -366,11 +388,17 @@ def build_type_page_prompt(
                 lines.append(f"  All field names: {', '.join(all_field_names)}")
         lines.append("")
 
-    # Nested type names hint — root page 1 only
-    if is_root and page_index == 1 and nested_types:
+    # Nested type names hint — every page where nested types exist.
+    # Root page 1: full "NESTED TYPES" declaration with generation instruction.
+    # All other pages (root continuation, nested page 1+): compact reminder so
+    # the LLM can reference exact type names even without prior context.
+    if nested_types:
         nested_names = [nt["name"] for nt in nested_types]
-        lines.append(f"NESTED TYPES: {', '.join(nested_names)}")
-        lines.append("Use these class names for complex field types. Do NOT generate them here.")
+        if is_root and page_index == 1:
+            lines.append(f"NESTED TYPES: {', '.join(nested_names)}")
+            lines.append("Use these class names for complex field types. Do NOT generate them here.")
+        else:
+            lines.append(f"TYPE REFERENCE (use exact names): {', '.join(nested_names)}")
         lines.append("")
 
     if is_enum:

@@ -10,6 +10,7 @@ from schmith.validation import (
     _check_duplicate_json_properties,
     _check_json_property_coverage,
     _check_phantom_fields,
+    _check_pii_reason_in_description,
     _check_structural,
     _check_undeclared_property_types,
     _collect_all_json_names,
@@ -768,3 +769,102 @@ class TestPrintValidationReport:
         console = _MockConsole()
         print_validation_report(ValidationResult(), console)
         assert "error" not in console.output.lower().replace("passed", "")
+
+
+# ---------------------------------------------------------------------------
+# _check_pii_reason_in_description
+# ---------------------------------------------------------------------------
+
+
+def _make_field_with_pii(json_name: str, pii_reason: str | None = None) -> dict:
+    f = _make_field(json_name)
+    f["pii_reason"] = pii_reason
+    return f
+
+
+def _cs_prop(json_name: str, description: str, csharp_name: str | None = None) -> str:
+    """Minimal C# property snippet for testing."""
+    cs_name = csharp_name or json_name.replace("_", "").capitalize()
+    return (
+        f'    [JsonPropertyName("{json_name}")]\n'
+        f'    [Description("{description}")]\n'
+        f"    [Nullable(true)]\n"
+        f"    public string? {cs_name} {{ get; init; }}\n"
+    )
+
+
+class TestCheckPiiReasonInDescription:
+    def _type_entry(self, fields: list) -> dict:
+        return {"name": "TestType", "fields": fields}
+
+    def test_exact_match_is_error(self) -> None:
+        reason = "Email is direct contact information for an individual"
+        code = _cs_prop("email", reason)
+        result = ValidationResult()
+        _check_pii_reason_in_description(code, self._type_entry([_make_field_with_pii("email", reason)]), result)
+        assert result.has_errors
+        assert any(i.code == "PII_REASON_IN_DESCRIPTION" for i in result.errors)
+
+    def test_exact_match_strips_trailing_period(self) -> None:
+        """pii_reason with a trailing period should still match description without."""
+        reason_with_period = "Email is direct contact information for an individual."
+        reason_without = "Email is direct contact information for an individual"
+        code = _cs_prop("email", reason_without)
+        result = ValidationResult()
+        _check_pii_reason_in_description(
+            code, self._type_entry([_make_field_with_pii("email", reason_with_period)]), result
+        )
+        assert result.has_errors
+
+    def test_substantial_substring_is_error(self) -> None:
+        reason = "Could contain personal names or identifiers in some contexts, but likely an equipment model name"
+        # Description is the reason text embedded in a slightly longer string
+        description = reason
+        code = _cs_prop("name", description)
+        result = ValidationResult()
+        _check_pii_reason_in_description(code, self._type_entry([_make_field_with_pii("name", reason)]), result)
+        assert result.has_errors
+
+    def test_unrelated_description_is_clean(self) -> None:
+        reason = "Email is direct contact information for an individual"
+        code = _cs_prop("email", "The user's email address")
+        result = ValidationResult()
+        _check_pii_reason_in_description(code, self._type_entry([_make_field_with_pii("email", reason)]), result)
+        assert result.is_clean
+
+    def test_short_overlap_does_not_trigger(self) -> None:
+        """Short pii_reason that appears in description should not trigger (< 30 chars)."""
+        short_reason = "Contact info"
+        code = _cs_prop("email", "Contact info for the user")
+        result = ValidationResult()
+        _check_pii_reason_in_description(code, self._type_entry([_make_field_with_pii("email", short_reason)]), result)
+        assert result.is_clean
+
+    def test_no_pii_reason_is_clean(self) -> None:
+        field = _make_field("email")
+        field["pii_reason"] = None
+        code = _cs_prop("email", "anything")
+        result = ValidationResult()
+        _check_pii_reason_in_description(code, self._type_entry([field]), result)
+        assert result.is_clean
+
+    def test_no_fields_is_clean(self) -> None:
+        code = _cs_prop("email", "anything")
+        result = ValidationResult()
+        _check_pii_reason_in_description(code, self._type_entry([]), result)
+        assert result.is_clean
+
+    def test_field_not_in_code_is_clean(self) -> None:
+        """A field in the type entry that doesn't appear in the code doesn't error."""
+        reason = "Email is direct contact information for an individual"
+        code = _cs_prop("phone", "Phone number")
+        result = ValidationResult()
+        _check_pii_reason_in_description(code, self._type_entry([_make_field_with_pii("email", reason)]), result)
+        assert result.is_clean
+
+    def test_error_identifies_field_name(self) -> None:
+        reason = "Could contain personal names or identifiers in some contexts, but likely an equipment model name"
+        code = _cs_prop("name", reason)
+        result = ValidationResult()
+        _check_pii_reason_in_description(code, self._type_entry([_make_field_with_pii("name", reason)]), result)
+        assert any("name" in i.message for i in result.errors)
