@@ -20,6 +20,11 @@ once, stored on disk, and can be re-executed by any executor (any model) at any 
 boundaries are baked into the prompt text, not into the executor. Switching models does not
 require recomputing page sizes.
 
+**The `.cs` file is a pure derived artifact.** It is always reconstructed from `pages.json`
+and carries no structural metadata of its own. `pages.json` is the authoritative record of page
+outputs and type ordering. This eliminates any need for in-file type boundary markers — they
+would create two sources of truth without adding capability.
+
 ---
 
 ## Concepts and Terminology
@@ -40,8 +45,8 @@ a run. When `total_pages == 1`, the type fits in one call.
 `prompts.json`. Stable across models; the model is the executor, not part of the prompt content.
 
 **Output:** The raw LLM response for one page after code extraction. Stored in `pages.json`.
-The final `.cs` file is derived from outputs by stitching and assembly — it is never the primary
-source of truth.
+The final `.cs` file is derived by stitching and assembling all outputs — it is never the primary
+source of truth and can always be fully reconstructed from `pages.json`.
 
 **Assembly:** The process of combining page outputs into a stitched type block, then combining
 all type blocks into the final `.cs` file. Assembly is deterministic given the page outputs.
@@ -54,7 +59,7 @@ Every generation run produces five artifacts in the output directory:
 
 ```
 output/{EndpointLabel}/
-  {DataObjectName}.cs     # final assembled .cs — includes SCHMITH type markers
+  {DataObjectName}.cs     # final assembled .cs — pure derived artifact
   ir.json                 # IR snapshot, endpoint metadata, validation summary
   schema.md               # human-readable schema (for review)
   prompts.json            # per-page prompt inputs  [already implemented]
@@ -79,6 +84,9 @@ ir.json ────────────────────────
 
 `prompts.json` and `pages.json` are parallel: entry `i` in `prompts.json` corresponds to
 entry `i` in `pages.json`, both identified by `(type_name, page, total_pages)`.
+
+The `.cs` is the rightmost node in this graph — nothing reads it as input within the tooling.
+Any partial regeneration operation reads from `prompts.json` and `pages.json`, not from the `.cs`.
 
 ### `prompts.json` format (existing, shown for reference)
 
@@ -143,94 +151,65 @@ computed (spec update, IR fix), any cached pages should be treated with caution.
 different model, the envelope `model` field becomes the latest model used; individual page
 entries record the actual executor.
 
----
-
-## Type Boundary Markers
-
-The final `.cs` file is currently a flat join of all type outputs. To support precise type block
-extraction and replacement without fragile regex over the C# AST, each type's block is wrapped
-with lightweight comment markers:
-
-```csharp
-// [SCHMITH:BEGIN ProjectDataObject]
-/// <summary>
-/// A project.
-/// </summary>
-[PrimaryKey("id", nameof(Id))]
-public class ProjectDataObject
-{
-    ...
-}
-// [SCHMITH:END ProjectDataObject]
-
-// [SCHMITH:BEGIN ExtendedFlag]
-[JsonConverter(typeof(JsonStringEnumConverter))]
-public enum ExtendedFlag
-{
-    ...
-}
-// [SCHMITH:END ExtendedFlag]
-```
-
-These markers are C# line comments — valid C#, ignored by the compiler, survive reformatting.
-The `type_name` in the marker matches the `type_name` in `pages.json` exactly.
-
-The markers are added by the assembly step after stitching each type, before joining all types
-into the final `.cs`. They do not appear in individual page outputs stored in `pages.json`.
+**Type ordering** is implicit in the `pages` list: the first occurrence of each `type_name`
+determines its position in the assembled `.cs`. Assembly iterates `pages` in order, groups by
+`type_name` (preserving first-occurrence order), stitches each group, and joins the blocks.
 
 ---
 
 ## Assembly Module
 
-A new module `v2/schmith/assembly.py` owns all operations that combine or decompose the final
-`.cs` file. It is imported by `pipeline.py` (generation) and by the regeneration path.
+A new module `v2/schmith/assembly.py` owns all operations that combine page outputs into the
+final `.cs`. It has no dependency on the `.cs` file itself — it reads from `pages.json`
+entries and returns assembled code.
 
 ### Operations
 
 ```python
-MARKER_BEGIN = "// [SCHMITH:BEGIN {name}]"
-MARKER_END   = "// [SCHMITH:END {name}]"
+def stitch_type_pages(page_outputs: list[str]) -> str:
+    """Combine page outputs for a single type into one class/enum block.
 
-
-def wrap_type_block(type_name: str, code: str) -> str:
-    """Wrap a stitched type block with SCHMITH boundary markers."""
-
-
-def extract_type_block(cs_code: str, type_name: str) -> str | None:
-    """Return the code between SCHMITH markers for type_name, or None if absent."""
-
-
-def replace_type_block(cs_code: str, type_name: str, new_code: str) -> str:
-    """Replace the marked block for type_name with new_code.
-
-    Raises ValueError if the type is not found in cs_code.
+    Page 1 supplies the full class skeleton (full_class or class_only).
+    Pages 2+ supply fields_only blocks (BEGIN_FIELDS / END_FIELDS delimited).
+    Moved here from llm.py; llm.py re-exports for backward compatibility.
     """
 
 
-def list_type_names(cs_code: str) -> list[str]:
-    """Return type names in marker order from cs_code."""
+def assemble_from_pages(pages: list[dict[str, Any]]) -> str:
+    """Assemble the full .cs from all page entries in pages.json.
 
-
-def assemble_cs(type_outputs: list[tuple[str, str]]) -> str:
-    """Combine stitched type outputs into a final .cs file.
+    Groups entries by type_name, preserving first-occurrence order.
+    Stitches pages within each group (sorted by page index).
+    Joins all stitched type blocks with double newlines.
 
     Args:
-        type_outputs: List of (type_name, stitched_code) pairs in generation order.
+        pages: The "pages" list from pages.json (list of page entry dicts).
 
     Returns:
-        .cs content with SCHMITH markers around each type block.
+        Complete .cs file content, ready to write.
     """
+```
 
+The complete assembly logic is:
 
-def stitch_and_assemble(
-    all_type_pages: list[tuple[str, bool, list[str]]]
-) -> str:
-    """Stitch pages for each type, then assemble into the final .cs.
+```python
+from collections import OrderedDict
 
-    Args:
-        all_type_pages: List of (type_name, is_root, page_outputs) tuples
-            in generation order.
-    """
+def assemble_from_pages(pages: list[dict[str, Any]]) -> str:
+    # Group by type_name preserving first-occurrence order
+    type_groups: OrderedDict[str, list[dict[str, Any]]] = OrderedDict()
+    for entry in pages:
+        name = entry["type_name"]
+        if name not in type_groups:
+            type_groups[name] = []
+        type_groups[name].append(entry)
+
+    type_blocks: list[str] = []
+    for entries in type_groups.values():
+        page_outputs = [e["output"] for e in sorted(entries, key=lambda e: e["page"])]
+        type_blocks.append(stitch_type_pages(page_outputs))
+
+    return "\n\n".join(type_blocks).rstrip() + "\n"
 ```
 
 ### Usage in the current pipeline
@@ -246,14 +225,28 @@ return "\n\n".join(all_outputs).rstrip() + "\n", prompt_log
 After this change it does:
 
 ```python
-all_type_pages.append((type_entry["name"], is_root, page_outputs_for_this_type))
+# Collect page output dicts as pages.json entries
+all_page_entries.append({
+    "index": global_page_index,
+    "type_name": type_entry["name"],
+    "is_root": is_root,
+    "page": page_index,
+    "total_pages": page_count,
+    "model": provider.model,
+    "generated_at": utcnow(),
+    "input_tokens": input_tokens,   # if token metadata available
+    "output_tokens": output_tokens,
+    "output": raw_output,
+})
 ...
-cs_code = assemble_cs([
-    (name, stitch_type_pages(pages))
-    for name, _, pages in all_type_pages
-])
-return cs_code, prompt_log, all_type_pages   # all_type_pages flows to pages.json writer
+# Assembly at end of run
+cs_code = assemble_from_pages(all_page_entries)
+return cs_code, prompt_log, all_page_entries
 ```
+
+The `all_page_entries` list flows to the `pages.json` writer in `cli.py`. The `.cs` is
+assembled from the same entries and written alongside it — they are always in sync by
+construction.
 
 ---
 
@@ -273,7 +266,7 @@ def partial_regenerate(
     """Regenerate one or more types from stored prompts.
 
     Args:
-        output_dir: Directory containing prompts.json, pages.json, and .cs file.
+        output_dir: Directory containing prompts.json and pages.json.
         type_names: Types to regenerate. None means all types.
         page_numbers: Optional dict of type_name → [page indices] to regenerate
             only specific pages. Pages not listed keep their existing output.
@@ -295,7 +288,7 @@ def partial_regenerate(
 
 ```
 load prompts.json  → prompt_entries: list[PromptEntry]
-load pages.json    → page_store: PageStore
+load pages.json    → pages_store: PagesStore   # mutable, owns the list of page dicts
 
 for each target (type_name, page_index):
     prompt = prompt_entries.find(type_name, page_index)
@@ -305,19 +298,20 @@ for each target (type_name, page_index):
         user_text = build_correction_block(correction_context[type_name]) + "\n\n" + user_text
 
     new_output = provider.generate(user_text, system=prompt["system"])
-    page_store.update(type_name, page_index, new_output, model=provider.model)
+    pages_store.update(type_name, page_index, new_output, model=provider.model)
 
-# Re-stitch affected types
-for each affected type_name:
-    page_outputs = page_store.all_pages_for_type(type_name)   # in page order
-    new_stitched = stitch_type_pages(page_outputs)
-    cs_code = replace_type_block(cs_code, type_name, new_stitched)
+# Re-assemble the full .cs from the updated page store
+new_cs_code = assemble_from_pages(pages_store.pages)
 
 write updated pages.json
 write updated .cs
-run validate_generated_code(cs_code, packet)
+run validate_generated_code(new_cs_code, packet)
 return PartialRegenResult(...)
 ```
+
+No extraction or patching of the `.cs` file is needed. The entire `.cs` is rewritten from the
+updated page store. For large files with many types, this is still fast — assembly is pure string
+manipulation with no LLM calls.
 
 ### `PartialRegenResult`
 
@@ -361,32 +355,49 @@ The existing page prompt follows immediately after, unchanged, so the LLM has fu
 ### Per-type error attribution
 
 `validate_generated_code` currently validates the entire `.cs` as one unit. For targeted retry,
-errors must be attributed to specific types. The SCHMITH markers make this straightforward.
+errors must be attributed to specific types.
+
+Since `pages.json` contains per-type page outputs, each type can be validated independently by
+re-stitching its pages and validating the stitched block. This avoids any parsing of the `.cs`
+and produces a clean 1:1 mapping of errors to types.
 
 New function in `validation.py`:
 
 ```python
 def validate_by_type(
-    cs_code: str,
+    pages: list[dict[str, Any]],
     packet: dict[str, Any],
 ) -> dict[str, ValidationResult]:
     """Run validation per type block and return a map of type_name → result.
 
-    Uses SCHMITH markers to extract each type's block before validating.
-    Falls back to full-file validation if markers are absent.
+    Re-stitches each type's pages from the pages.json entry list. Validates
+    each stitched block against a per-type packet derived from the full packet.
+
+    Args:
+        pages: The "pages" list from pages.json.
+        packet: Full prompt packet (root + nested_types).
+
+    Returns:
+        Dict mapping type_name → ValidationResult for each type in the closure.
     """
 ```
+
+Per-type packet derivation:
+- **Root type**: `{"root": packet["root"], "nested_types": packet["nested_types"]}`
+  (full packet; root page is expected to reference nested types)
+- **Nested type**: `{"root": nested_entry, "nested_types": []}` where `nested_entry` is the
+  matching entry from `packet["nested_types"]`
 
 Attribution rules per error code:
 
 | Error code | Attribution |
 |---|---|
-| `UNDECLARED_TYPE` | Type block where the property with the undeclared type appears |
-| `DUPLICATE_FIELD` | Type block where the duplicate `[JsonPropertyName]` appears (already scoped by `_check_duplicate_json_properties`) |
-| `MISSING_CLASS` | The expected type (from packet) that has no declaration in its block |
-| `PHANTOM_FIELD` | Type block where the extra `[JsonPropertyName]` appears |
-| `STRUCTURAL` | Type block where brace imbalance is detected |
-| `ARTIFACT` | Type block where the artifact pattern matches |
+| `UNDECLARED_TYPE` | Type where the property with the undeclared type appears (scoped by which type's stitched block contains the match) |
+| `DUPLICATE_FIELD` | Type where the duplicate `[JsonPropertyName]` appears |
+| `MISSING_CLASS` | The expected type that has no declaration in its stitched block |
+| `PHANTOM_FIELD` | Type where the extra `[JsonPropertyName]` appears |
+| `STRUCTURAL` | Type where brace imbalance is detected |
+| `ARTIFACT` | Type where the artifact pattern matches |
 
 ### Auto-retry loop in `pipeline.py`
 
@@ -394,7 +405,7 @@ After generation completes, if `auto_retry=True` (default):
 
 ```python
 for attempt in range(max_retries):
-    results_by_type = validate_by_type(cs_code, packet)
+    results_by_type = validate_by_type(all_page_entries, packet)
     failing = {name: r for name, r in results_by_type.items() if r.has_errors}
     if not failing:
         break
@@ -490,8 +501,9 @@ Examples:
   schmith validate output/GET_rest_v1.1_projects --by-type
 ```
 
-`schmith validate` reads the `.cs` and `ir.json` from the output directory, re-runs validation,
-and updates the validation summary in `ir.json`. It does not call any LLM.
+`schmith validate` reads `pages.json` and `ir.json` from the output directory, re-stitches each
+type from page outputs, runs validation, and updates the validation summary in `ir.json`. It does
+not call any LLM and does not read the `.cs` file.
 
 ---
 
@@ -523,19 +535,18 @@ This system has a natural build order based on dependencies:
 
 | Step | Deliverable | Depends on |
 |---|---|---|
-| 1 | `assembly.py` with `wrap_type_block`, `extract_type_block`, `replace_type_block`, `assemble_cs` | Nothing |
-| 2 | Update `_generate_paginated` to use `assemble_cs` and emit markers | Step 1 |
-| 3 | `pages.json` writer in `cli.py` (collect page outputs in `_generate_paginated`, write alongside prompts.json) | Step 2 |
-| 4 | `validate_by_type` in `validation.py` | Step 1 |
+| 1 | `assembly.py` with `stitch_type_pages` (moved from `llm.py`) and `assemble_from_pages` | Nothing |
+| 2 | Update `_generate_paginated` to collect page entries and use `assemble_from_pages` | Step 1 |
+| 3 | `pages.json` writer in `cli.py` | Step 2 |
+| 4 | `validate_by_type` in `validation.py` (uses pages entry list, no .cs reading) | Step 1 |
 | 5 | `partial_regenerate` in `pipeline.py` | Steps 1, 3, 4 |
 | 6 | Auto-retry loop in `pipeline.py` `run()` | Steps 4, 5 |
 | 7 | `schmith regenerate` CLI subcommand | Step 5 |
 | 8 | `schmith validate` CLI subcommand | Step 4 |
 | 9 | Staleness detection | Steps 3, 5 |
 
-Steps 1–3 are entirely backward-compatible and can be done first. The generated `.cs` gains
-SCHMITH markers (which are valid C# comments), and `pages.json` begins to be written. No
-existing behaviour changes.
+Steps 1–3 are entirely backward-compatible: the `.cs` output content is unchanged (same assembly
+logic, same type ordering), and `pages.json` begins to be written. No existing behaviour changes.
 
 Steps 4–6 add the validation-driven retry loop. This is the highest-value change for output
 quality and can be implemented without the CLI interface (the auto-retry fires internally during
@@ -549,8 +560,8 @@ Steps 7–9 add the manual interface and are independent of each other.
 
 | Module | Tests |
 |---|---|
-| `assembly.py` | `test_assembly.py` — `wrap/extract/replace_type_block`, round-trip, missing type error, multiple types, nested enum markers |
-| `validation.py` (by-type) | Extension of `test_validation.py` — errors attributed to correct type block |
-| `pipeline.py` (partial regen) | Integration test with `DryRunProvider` — verify pages.json is updated, .cs type block is replaced, markers present |
+| `assembly.py` | `test_assembly.py` — `stitch_type_pages` (moved), `assemble_from_pages` with single type, multiple types, multi-page type, ordering preserved from first occurrence |
+| `validation.py` (by-type) | Extension of `test_validation.py` — errors attributed to correct type block; root type errors vs nested type errors |
+| `pipeline.py` (partial regen) | Integration test with `DryRunProvider` — verify `pages.json` is updated, `.cs` is reassembled from updated pages, unchanged types are unchanged in output |
 | `pipeline.py` (auto-retry) | Mock provider that returns invalid code on attempt 1, valid on attempt 2 — verify retry fires and correction block is injected |
 | `cli.py` (regenerate) | CLI invocation test with output fixture directory |

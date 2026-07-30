@@ -6,20 +6,39 @@ LLM providers (Anthropic Claude, OpenAI GPT) for code generation tasks.
 API keys are read at call time from the config dict or from environment
 variables. No automatic .env loading occurs — users set keys in their shell
 or source a .env file themselves.
+
+Stitching helpers (``stitch_type_pages`` and its internals) live in
+``schmith.assembly`` so that assembly logic is co-located with
+``assemble_from_pages``.
 """
 
 from __future__ import annotations
 
 import os
 import sys
-from typing import Any, Protocol
+from typing import Any, NamedTuple, Protocol
+
+
+class GenerationResult(NamedTuple):
+    """Output from a single LLM generation call."""
+
+    text: str
+    input_tokens: int
+    output_tokens: int
 
 
 class LLMProvider(Protocol):
     """Protocol for LLM providers."""
 
-    def generate(self, prompt: str, system: str | None = None) -> str:
+    model: str
+    """The model identifier used by this provider."""
+
+    def generate(self, prompt: str, system: str | None = None) -> GenerationResult:
         """Generate a response from the LLM."""
+        ...
+
+    def count_tokens(self, prompt: str, system: str | None = None) -> int:
+        """Count the tokens in a prompt without generating a response."""
         ...
 
 
@@ -27,10 +46,17 @@ class AnthropicProvider:
     """Anthropic Claude provider."""
 
     DEFAULT_MODEL = "claude-3-5-haiku-20241022"
+    DEFAULT_MAX_OUTPUT_TOKENS = 32768
 
-    def __init__(self, api_key: str | None = None, model: str | None = None):
+    def __init__(
+        self,
+        api_key: str | None = None,
+        model: str | None = None,
+        max_output_tokens: int | None = None,
+    ):
         self.api_key = api_key or os.environ.get("ANTHROPIC_API_KEY")
         self.model = model or self.DEFAULT_MODEL
+        self.max_output_tokens = max_output_tokens or self.DEFAULT_MAX_OUTPUT_TOKENS
         self._client = None
 
         if not self.api_key:
@@ -51,24 +77,48 @@ class AnthropicProvider:
                 sys.exit(1)
         return self._client
 
-    def generate(self, prompt: str, system: str | None = None) -> str:
+    def generate(self, prompt: str, system: str | None = None) -> GenerationResult:
         message = self.client.messages.create(
             model=self.model,
-            max_tokens=4096,
+            max_tokens=self.max_output_tokens,
             system=system or "You are a C# code generator specializing in Trimble XChange DataObjects.",
             messages=[{"role": "user", "content": prompt}],
         )
-        return message.content[0].text
+        return GenerationResult(
+            text=message.content[0].text,
+            input_tokens=message.usage.input_tokens,
+            output_tokens=message.usage.output_tokens,
+        )
+
+    def count_tokens(self, prompt: str, system: str | None = None) -> int:
+        result = self.client.messages.count_tokens(
+            model=self.model,
+            system=system or "",
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return result.input_tokens
 
 
 class OpenAIProvider:
     """OpenAI GPT provider."""
 
     DEFAULT_MODEL = "gpt-5-mini-2025-08-07"
+    # max_completion_tokens is optional for OpenAI — omitting it lets the model
+    # generate until it naturally stops. No default cap is set here.
+    DEFAULT_MAX_OUTPUT_TOKENS: int | None = None
 
-    def __init__(self, api_key: str | None = None, model: str | None = None):
+    def __init__(
+        self,
+        api_key: str | None = None,
+        model: str | None = None,
+        max_output_tokens: int | None = None,
+    ):
         self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
         self.model = model or self.DEFAULT_MODEL
+        # None means "no cap" — the model runs until natural completion.
+        self.max_output_tokens: int | None = (
+            max_output_tokens if max_output_tokens is not None else self.DEFAULT_MAX_OUTPUT_TOKENS
+        )
         self._client = None
 
         if not self.api_key:
@@ -89,25 +139,47 @@ class OpenAIProvider:
                 sys.exit(1)
         return self._client
 
-    def generate(self, prompt: str, system: str | None = None) -> str:
-        messages = []
+    def generate(self, prompt: str, system: str | None = None) -> GenerationResult:
+        create_kwargs: dict[str, Any] = {
+            "model": self.model,
+            "input": prompt,
+        }
         if system:
-            messages.append({"role": "system", "content": system})
-        messages.append({"role": "user", "content": prompt})
-
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=messages,
-            max_completion_tokens=4096,
+            create_kwargs["instructions"] = system
+        if self.max_output_tokens is not None:
+            create_kwargs["max_output_tokens"] = self.max_output_tokens
+        response = self.client.responses.create(**create_kwargs)
+        usage = response.usage
+        return GenerationResult(
+            text=response.output_text or "",
+            input_tokens=usage.input_tokens if usage else 0,
+            output_tokens=usage.output_tokens if usage else 0,
         )
-        return response.choices[0].message.content
+
+    def count_tokens(self, prompt: str, system: str | None = None) -> int:
+        try:
+            import tiktoken
+            enc = tiktoken.encoding_for_model(self.model)
+            return len(enc.encode((system or "") + prompt))
+        except (ImportError, KeyError):
+            # Rough heuristic: 1 token ≈ 4 characters
+            return len((system or "") + prompt) // 4
 
 
 class DryRunProvider:
     """Dry-run provider that doesn't call any API."""
 
-    def generate(self, prompt: str, system: str | None = None) -> str:
-        return "// Dry run - no code generated"
+    model: str = "dry_run"
+
+    def generate(self, prompt: str, system: str | None = None) -> GenerationResult:
+        return GenerationResult(
+            text="// Dry run - no code generated",
+            input_tokens=0,
+            output_tokens=0,
+        )
+
+    def count_tokens(self, prompt: str, system: str | None = None) -> int:
+        return len((system or "") + prompt) // 4
 
 
 def get_provider(config: dict[str, Any]) -> LLMProvider:
@@ -147,10 +219,12 @@ def get_provider(config: dict[str, Any]) -> LLMProvider:
     model: str | None = llm_cfg.get("model") or None
     api_key: str | None = llm_cfg.get("api_key") or None
 
+    max_output_tokens: int | None = llm_cfg.get("max_output_tokens")  # None = use provider default
+
     if provider_name == "anthropic":
-        return AnthropicProvider(api_key=api_key, model=model)
+        return AnthropicProvider(api_key=api_key, model=model, max_output_tokens=max_output_tokens)
     elif provider_name == "openai":
-        return OpenAIProvider(api_key=api_key, model=model)
+        return OpenAIProvider(api_key=api_key, model=model, max_output_tokens=max_output_tokens)
     else:
         raise ValueError(
             f"Unknown LLM provider '{provider_name}'. "
@@ -158,8 +232,8 @@ def get_provider(config: dict[str, Any]) -> LLMProvider:
         )
 
 
-def generate_code(prompt: str, system: str, provider: LLMProvider) -> str:
-    """Call the LLM and return extracted C# code.
+def generate_code(prompt: str, system: str, provider: LLMProvider) -> tuple[str, int, int]:
+    """Call the LLM and return (extracted C# code, input_tokens, output_tokens).
 
     Args:
         prompt: The user-facing prompt (schema + field information).
@@ -167,89 +241,21 @@ def generate_code(prompt: str, system: str, provider: LLMProvider) -> str:
         provider: Configured LLM provider.
 
     Returns:
-        Extracted C# code string (markdown fences stripped).
+        Tuple of (code, input_tokens, output_tokens) where code has markdown
+        fences stripped.
     """
-    response = provider.generate(prompt, system=system)
-    return extract_code_from_response(response)
-
-
-def _extract_field_block(code: str) -> str:
-    """Extract the field-only block from a fields_only page response.
-
-    Looks for BEGIN_FIELDS / END_FIELDS markers (imported from prompt).
-    Falls back to the entire stripped response if markers are absent.
-    """
-    from schmith.generation.prompt import FIELDS_END_MARKER, FIELDS_START_MARKER
-
-    if FIELDS_START_MARKER in code and FIELDS_END_MARKER in code:
-        start = code.split(FIELDS_START_MARKER, 1)[1]
-        return start.split(FIELDS_END_MARKER, 1)[0].strip()
-    return code.strip()
-
-
-def _insert_fields(base_code: str, fields_code: str) -> str:
-    """Insert extra fields before the closing brace of the first class block.
-
-    Tracks brace depth to find the first top-level `}` so it doesn't
-    accidentally target a closing brace inside a nested enum or inner class.
-    """
-    depth = 0
-    insert_at = -1
-    in_first_block = False
-
-    for i, char in enumerate(base_code):
-        if char == "{":
-            if depth == 0:
-                in_first_block = True
-            depth += 1
-        elif char == "}":
-            depth -= 1
-            if depth == 0 and in_first_block:
-                insert_at = i
-                break
-
-    if insert_at == -1:
-        return f"{base_code.rstrip()}\n\n{fields_code.strip()}\n"
-
-    before = base_code[:insert_at].rstrip()
-    after = base_code[insert_at:]
-    return f"{before}\n\n{fields_code.strip()}\n{after.lstrip()}"
-
-
-def _normalize_class_indentation(code: str, indent: str = "    ") -> str:
-    """Re-indent member lines inside class braces that lost their indentation."""
-    lines = code.splitlines()
-    out: list[str] = []
-    depth = 0
-    for line in lines:
-        stripped = line.lstrip()
-        if depth > 0 and stripped and not line.startswith(indent):
-            if stripped.startswith(
-                ("[", "///", "//", "/*", "*", "public", "private", "protected", "internal")
-            ):
-                line = indent + stripped
-        out.append(line)
-        depth += stripped.count("{")
-        depth -= stripped.count("}")
-        if depth < 0:
-            depth = 0
-    return "\n".join(out)
-
-
-def stitch_type_pages(page_outputs: list[str]) -> str:
-    """Combine paginated LLM outputs for a single type into one class block.
-
-    Page 1 supplies the full class skeleton (full_class or class_only).
-    Pages 2+ supply fields_only blocks delimited by BEGIN_FIELDS/END_FIELDS.
-    Each extra block is inserted before the first class's closing brace.
-    """
-    if not page_outputs:
-        return ""
-    class_code = page_outputs[0]
-    for extra in page_outputs[1:]:
-        fields_block = _extract_field_block(extra)
-        class_code = _insert_fields(class_code, fields_block)
-    return _normalize_class_indentation(class_code).rstrip()
+    result = provider.generate(prompt, system=system)
+    max_out = getattr(provider, "max_output_tokens", None)
+    if max_out and result.output_tokens >= max_out:
+        print(
+            f"WARNING: LLM output was truncated at {result.output_tokens} tokens "
+            f"(max_output_tokens={max_out}). "
+            "Increase llm.max_output_tokens in config.yaml or reduce target_input_tokens "
+            "to fit fewer fields per page.",
+            file=sys.stderr,
+        )
+    code = extract_code_from_response(result.text)
+    return code, result.input_tokens, result.output_tokens
 
 
 def extract_code_from_response(response: str) -> str:

@@ -268,15 +268,35 @@ This means:
 - A dense 20-field type with long descriptions and constraints → 2 calls
 - The same `Extended` (59 fields, moderate density) → 3 calls instead of 10
 
-#### Protocol change: `count_tokens`
+#### Protocol changes
 
-Add a `count_tokens` method to the `LLMProvider` protocol in `llm.py`:
+Two additions to `LLMProvider` in `llm.py`:
+
+1. **`count_tokens`** — pre-generation probe, no LLM call consumed:
+2. **`generate` return type** — changed from `str` to `GenerationResult` so actual token counts
+   are surfaced and can be stored in `PageEntry` (see below).
 
 ```python
+class GenerationResult(NamedTuple):
+    text: str
+    input_tokens: int
+    output_tokens: int
+
 class LLMProvider(Protocol):
-    def generate(self, prompt: str, system: str | None = None) -> str: ...
+    model: str
+    def generate(self, prompt: str, system: str | None = None) -> GenerationResult: ...
     def count_tokens(self, prompt: str, system: str | None = None) -> int: ...
 ```
+
+`generate_code()` in `llm.py` is updated to unwrap the result:
+```python
+def generate_code(prompt: str, system: str, provider: LLMProvider) -> tuple[str, int, int]:
+    result = provider.generate(prompt, system=system)
+    code = extract_code_from_response(result.text)
+    return code, result.input_tokens, result.output_tokens
+```
+
+Callers that only need the code string use: `code, _, _ = generate_code(...)`.
 
 Provider implementations:
 
@@ -369,22 +389,31 @@ pages = _chunk_fields(te.get("fields") or [], calibrated)
 
 #### Usage data from generation responses
 
-In addition to pre-generation `count_tokens`, capture actual `input_tokens` and `output_tokens`
-from each generation response and add them to the `prompt_log` entry:
+Because `generate()` now returns `GenerationResult`, `_generate_paginated` can populate the
+`input_tokens` and `output_tokens` fields already present on `PageEntry`:
 
 ```python
-# Extend the provider protocol (optional enhancement):
-class GenerationResult(NamedTuple):
-    text: str
-    input_tokens: int
-    output_tokens: int
+# In _generate_paginated, replacing the existing generate_code call:
+code, input_tok, output_tok = generate_code(prompt, system_prompt, provider)
 
-# AnthropicProvider.generate returns GenerationResult instead of str
-# generate_code unwraps text; pipeline logs the token counts
+page_entries.append(PageEntry(
+    index=global_index,
+    type_name=type_entry["name"],
+    is_root=is_root,
+    page=page_index,
+    total_pages=page_count,
+    model=provider.model,
+    generated_at=utcnow(),
+    output=code,
+    input_tokens=input_tok,
+    output_tokens=output_tok,
+))
 ```
 
-This makes token counts visible in `prompts.json` alongside each call, enabling post-run
-analysis of actual vs estimated token counts and refinement of `TARGET_INPUT_TOKENS`.
+Token counts are persisted in `pages.json` per page entry — no separate token log needed.
+Post-run analysis: compare `input_tokens` (actual) against the `TARGET_INPUT_TOKENS` budget
+to tune the calibration constant. The `prompt_log` (stored in `prompts.json`) records the
+prompt text only; token counts live in `pages.json` alongside the output they produced.
 
 #### Config exposure
 
@@ -397,9 +426,12 @@ llm:
 
 #### Tests
 
-- `test_llm_provider_config.py`: verify `count_tokens` on `DryRunProvider` returns a positive integer
-- `test_pagination.py`: add `TestCalibratePageSize` exercising the boundary conditions
+- `test_llm_provider_config.py`: verify `count_tokens` on `DryRunProvider` returns a positive
+  integer; verify `DryRunProvider.generate()` returns a `GenerationResult` with non-None token fields
+- `test_pagination.py`: add `TestCalibratePageSize` exercising boundary conditions
   (fits in one call, needs split, count_tokens raises, empty fields)
+- `test_assembly.py`: existing `PageEntry` tests — confirm `input_tokens`/`output_tokens` are
+  optional fields that default to `None` and round-trip through `page_entry_to_dict`
 
 ---
 
@@ -578,8 +610,8 @@ After each implementation:
 
 1. Re-run the Project endpoint (`GET /rest/v1.1/projects`) — the highest-complexity endpoint
    observed so far (27 nested types, 59-field type, known previous errors).
-2. Check `prompts.json` to confirm structural changes took effect (NESTED TYPES on page 2+,
-   correct page count with new size, temperature in metadata if added).
+2. Check `prompts.json` for prompt text (NESTED TYPES on page 2+, correct page count). Check
+   `pages.json` for token counts per page after Impl-2b (actual `input_tokens` vs budget).
 3. Check validation output for `error`-severity findings — the target is zero errors.
 4. Track `// [REVIEW]` comment count in the generated `.cs` file as a proxy for unresolved fields.
 
