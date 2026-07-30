@@ -12,10 +12,12 @@ Usage:
     schmith validate output/ --fail-on-errors    # exit 1 if any errors found
 
 The generate flow reads config.yaml (or the file passed via --config), then
-delegates to pipeline.run() and writes three artefacts to the output directory:
-    ir.json           — type closure IR data
-    schema.md         — human-readable schema summary
-    <Name>DataObject.cs — generated C# DataObject
+delegates to pipeline.run() and writes four artefacts to the output directory:
+    ir.json             — type closure IR data
+    schema.md           — human-readable schema summary
+    prompts.json        — per-page system+user prompt text for every LLM call
+    pages.json          — per-page raw LLM outputs (source of truth for assembly)
+    <Name>DataObject.cs — generated C# DataObject (derived from pages.json)
 """
 
 from __future__ import annotations
@@ -261,9 +263,13 @@ def main() -> None:
     if args.dry_run:
         llm_config["dry_run"] = True
 
+    pii_cfg: dict[str, Any] = config.get("pii") or {}
+
     codegen_cfg: dict[str, Any] = config.get("codegen") or {}
     fields_per_page: int | None = codegen_cfg.get("fields_per_page") or None
     enum_values_per_page: int | None = codegen_cfg.get("enum_values_per_page") or None
+    _max_retries_cfg = codegen_cfg.get("max_retries")
+    max_retries: int = int(_max_retries_cfg) if _max_retries_cfg is not None else 2
 
     # Safe: "output" section is always a dict when present in config.
     output_cfg: dict[str, Any] = cast(dict[str, Any], config.get("output") or {})
@@ -282,7 +288,7 @@ def main() -> None:
         sys.exit(1)
 
     try:
-        ir_data, schema_md, csharp_code = pipeline.run(
+        ir_data, schema_md, csharp_code, page_entries = pipeline.run(
             spec_path=spec_path,
             spec_format=spec_format,
             method=args.method,
@@ -293,6 +299,8 @@ def main() -> None:
             debug=args.debug,
             fields_per_page=fields_per_page,
             enum_values_per_page=enum_values_per_page,
+            max_retries=max_retries,
+            pii_config=pii_cfg,
         )
     except SpecLoadError as exc:
         print(f"Spec load error: {exc}", file=sys.stderr)
@@ -318,16 +326,45 @@ def main() -> None:
     output_dir = output_base / f"{method_upper}_{slug}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # ir.json  (excludes prompts to keep it concise)
+    # ir.json  (excludes prompts and pii_log — those go to their own files)
     ir_path = output_dir / "ir.json"
-    ir_without_prompts = {k: v for k, v in ir_data.items() if k != "prompts"}
+    ir_without_logs = {k: v for k, v in ir_data.items() if k not in ("prompts", "pii_log")}
     with open(ir_path, "w", encoding="utf-8") as f:
-        json.dump(ir_without_prompts, f, indent=2, default=str)
+        json.dump(ir_without_logs, f, indent=2, default=str)
 
-    # prompts.json  (full system+user prompt text for every LLM call)
-    prompts_path = output_dir / "prompts.json"
-    with open(prompts_path, "w", encoding="utf-8") as f:
+    # codegen/  (codegen system+user prompts + raw LLM outputs per page)
+    from schmith.generation.pages import page_entry_to_dict
+    from schmith.shared.hashing import canonical_json_hash
+    codegen_dir = output_dir / "codegen"
+    codegen_dir.mkdir(exist_ok=True)
+    # Safe: ir_without_logs is our own str-keyed dict.
+    ir_hash = "sha1:" + canonical_json_hash(cast(dict[str, Any], ir_without_logs))
+    with open(codegen_dir / "prompts.json", "w", encoding="utf-8") as f:
         json.dump(ir_data.get("prompts", []), f, indent=2, ensure_ascii=False)
+    pages_envelope: dict[str, Any] = {
+        "version": 1,
+        "endpoint": cast(dict[str, Any], ir_data.get("endpoint") or {}),
+        "ir_hash": ir_hash,
+        "pages": [page_entry_to_dict(e) for e in page_entries],
+    }
+    with open(codegen_dir / "pages.json", "w", encoding="utf-8") as f:
+        json.dump(pages_envelope, f, indent=2, ensure_ascii=False)
+
+    # pii/  (PII classification prompts + raw LLM outputs, one entry per batch)
+    pii_log_data: dict[str, Any] = cast(dict[str, Any], ir_data.get("pii_log") or {})
+    if pii_log_data.get("pages"):
+        pii_dir = output_dir / "pii"
+        pii_dir.mkdir(exist_ok=True)
+        with open(pii_dir / "prompts.json", "w", encoding="utf-8") as f:
+            json.dump(pii_log_data.get("prompts", []), f, indent=2, ensure_ascii=False)
+        pii_pages_envelope: dict[str, Any] = {
+            "version": 1,
+            "endpoint": cast(dict[str, Any], ir_data.get("endpoint") or {}),
+            "ir_hash": ir_hash,
+            "pages": pii_log_data.get("pages", []),
+        }
+        with open(pii_dir / "pages.json", "w", encoding="utf-8") as f:
+            json.dump(pii_pages_envelope, f, indent=2, ensure_ascii=False)
 
     # schema.md
     schema_path = output_dir / "schema.md"

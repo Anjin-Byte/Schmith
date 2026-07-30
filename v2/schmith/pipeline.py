@@ -23,13 +23,14 @@ import re
 
 from schmith.adapters.base import ApiAdapter
 from schmith.adapters.spec import openapi, raml
+from schmith.assembly import assemble_from_pages, stitch_type_pages
 from schmith.generation.llm import (
     DryRunProvider,
     LLMProvider,
     generate_code,
     get_provider,
-    stitch_type_pages,
 )
+from schmith.generation.pages import PageEntry, utcnow
 from schmith.generation.prompt import (
     MAX_ENUM_VALUES_PER_PAGE,
     MAX_FIELDS_PER_PAGE,
@@ -42,7 +43,12 @@ from schmith.generation.type_tree import build_type_hierarchy
 from schmith.ir.models import Endpoint, OperationResponse, SchemaNode
 from schmith.ir.store import SchemaStore
 from schmith import pipeline_invariants as iv
-from schmith.validation import ValidationResult, print_validation_report, validate_generated_code
+from schmith.validation import (
+    ValidationResult,
+    print_validation_report,
+    validate_generated_code,
+    validate_type_block,
+)
 
 
 class _ConsolePrinter(Protocol):
@@ -233,6 +239,57 @@ def _chunk_fields(fields: list[dict[str, Any]], page_size: int) -> list[list[dic
     return [fields[i: i + page_size] for i in range(0, len(fields), page_size)]
 
 
+def _calibrate_page_size(
+    packet: dict[str, Any],
+    type_entry: dict[str, Any],
+    is_root: bool,
+    system_prompt: str,
+    provider: LLMProvider,
+    target_tokens: int = 3_500,
+    min_page: int = 5,
+    fallback: int = MAX_FIELDS_PER_PAGE,
+) -> int:
+    """Return the optimal fields-per-page for this type.
+
+    Builds a probe prompt containing all fields and asks the provider how many
+    tokens it is. If it fits within target_tokens, all fields go in one call.
+    Otherwise, divides into pages sized to stay within the budget.
+
+    Falls back to ``fallback`` if count_tokens raises or is unavailable.
+    """
+    all_fields: list[dict[str, Any]] = type_entry.get("fields") or []
+    if not all_fields:
+        return fallback
+    if len(all_fields) <= min_page:
+        # Small type: always fits in one call regardless of token count.
+        return len(all_fields)
+
+    probe = build_type_page_prompt(
+        packet, type_entry, all_fields, 1, 1, is_root,
+    )
+    try:
+        n = provider.count_tokens(probe, system_prompt)
+    except Exception:
+        return fallback
+
+    if n <= target_tokens:
+        return len(all_fields)
+
+    # Isolate per-field token cost by probing with empty fields.
+    try:
+        empty_probe = build_type_page_prompt(
+            packet, type_entry, [], 1, 1, is_root,
+        )
+        overhead = provider.count_tokens(empty_probe, system_prompt)
+    except Exception:
+        overhead = 0
+
+    field_tokens = max(1, n - overhead)
+    tokens_per_field = field_tokens / len(all_fields)
+    budget = max(0, target_tokens - overhead)
+    return max(min_page, int(budget / tokens_per_field))
+
+
 def _chunk_enum_values(
     values: list[Any], names: list[Any] | None, page_size: int
 ) -> list[tuple[list[Any], list[Any] | None]]:
@@ -247,26 +304,50 @@ def _chunk_enum_values(
     return pages
 
 
+def _build_correction_block(result: ValidationResult) -> str:
+    """Format validation errors as a CORRECTION REQUIRED block for the retry prompt.
+
+    The returned string is injected into the next attempt's page-1 prompt so the
+    LLM can see exactly what went wrong and fix it without being given entirely
+    different instructions.
+    """
+    lines = ["CORRECTION REQUIRED:"]
+    for issue in result.errors:
+        lines.append(f"  - [{issue.code}] {issue.message}")
+        if issue.detail:
+            lines.append(f"    {issue.detail}")
+    return "\n".join(lines)
+
+
 def _generate_paginated(
     packet: dict[str, Any],
     provider: LLMProvider,
     system_prompt: str,
     page_size: int = MAX_FIELDS_PER_PAGE,
     enum_page_size: int = MAX_ENUM_VALUES_PER_PAGE,
-) -> tuple[str, list[dict[str, Any]]]:
+    target_input_tokens: int = 3_500,
+    min_page_size: int = 5,
+    max_retries: int = 2,
+) -> tuple[str, list[dict[str, Any]], list[PageEntry], list[dict[str, Any]]]:
     """Generate C# code for all types in a packet using per-type, per-page calls.
 
     Each type (root + nested) gets its own series of LLM calls. If a type has
     more than page_size fields it is split across multiple calls; the results
-    are stitched back together by stitch_type_pages.
+    are stitched back together by stitch_type_pages, then all types are assembled
+    into the final .cs via assemble_from_pages.
 
     Emits a rich progress bar to stderr during actual LLM generation. Skipped
     for DryRunProvider (calls are instantaneous, no useful signal).
 
     Returns:
-        Tuple of (csharp_code, prompt_log) where prompt_log is a list of
-        per-page dicts with keys: type_name, is_root, page, total_pages,
-        system, user. Useful for debugging LLM behaviour post-run.
+        Tuple of (csharp_code, prompt_log, page_entries, retry_log) where:
+        - csharp_code: assembled .cs content
+        - prompt_log: per-page dicts (type_name, is_root, page, total_pages,
+          system, user) for prompt inspection
+        - page_entries: typed PageEntry records for pages.json serialization
+        - retry_log: per-type retry records for types that needed >1 attempt
+          (empty when no retries occurred); each record has type_name,
+          total_attempts, final_clean, final_errors
     """
     from rich.console import Console  # type: ignore[import-not-found]
     from rich.progress import (  # type: ignore[import-not-found]
@@ -296,7 +377,13 @@ def _generate_paginated(
                 enum_page_size,
             )
         else:
-            pages = _chunk_fields(te.get("fields") or [], page_size)
+            calibrated = _calibrate_page_size(
+                packet, te, is_root, system_prompt, provider,
+                target_tokens=target_input_tokens,
+                min_page=min_page_size,
+                fallback=page_size,
+            )
+            pages = _chunk_fields(te.get("fields") or [], calibrated)
         type_pages.append((te, is_root, is_enum_type, pages))
 
     total_calls = sum(len(pages) for _, _, _, pages in type_pages)
@@ -323,8 +410,10 @@ def _generate_paginated(
         f"  {total_calls} LLM {call_word}[/dim]\n"
     )
 
-    all_outputs: list[str] = []
     prompt_log: list[dict[str, Any]] = []
+    page_entries: list[PageEntry] = []
+    retry_log: list[dict[str, Any]] = []
+    global_index = 0
 
     if is_dry_run:
         # For dry-run, just show a plan table without a live bar.
@@ -342,7 +431,6 @@ def _generate_paginated(
                 f"  [dim]({role})[/dim]"
                 f"  [dim]·  {item_count} {item_label}  ·  {page_count} page{'s' if page_count != 1 else ''}[/dim]"
             )
-            page_outputs: list[str] = []
             for page_index, page_data in enumerate(pages, start=1):
                 if is_enum_type:
                     values_page, names_page = page_data
@@ -362,9 +450,20 @@ def _generate_paginated(
                     "system": system_prompt,
                     "user": prompt,
                 })
-                code = generate_code(prompt, system_prompt, provider)
-                page_outputs.append(code)
-            all_outputs.append(stitch_type_pages(page_outputs))
+                code, input_tok, output_tok = generate_code(prompt, system_prompt, provider)
+                page_entries.append(PageEntry(
+                    index=global_index,
+                    type_name=type_entry["name"],
+                    is_root=is_root,
+                    page=page_index,
+                    total_pages=page_count,
+                    model=provider.model,
+                    generated_at=utcnow(),
+                    output=code,
+                    input_tokens=input_tok,
+                    output_tokens=output_tok,
+                ))
+                global_index += 1
         console.print()
     else:
         # Live progress bar for actual LLM calls.
@@ -384,51 +483,103 @@ def _generate_paginated(
                 class_name = type_entry["name"]
                 role = "root" if is_root else "nested"
                 page_count = len(pages)
+                # External type names for the undeclared-type check: nested type
+                # names are valid references in the root block even though they
+                # are not declared there.
+                known_external: frozenset[str] = (
+                    frozenset(nt["name"] for nt in packet.get("nested_types", []))
+                    if is_root else frozenset()
+                )
 
-                page_outputs_live: list[str] = []
-                for page_index, page_data in enumerate(pages, start=1):
-                    if is_enum_type:
-                        values_page, names_page = page_data
-                        fields_page = []
-                        item_count = len(values_page)
-                        item_label = "values"
-                    else:
-                        fields_page = page_data
-                        values_page, names_page = None, None
-                        item_count = len(fields_page)
-                        item_label = "fields"
-                    page_info = (
-                        f"  page {page_index}/{page_count}  ·  {item_count} {item_label}"
-                        if page_count > 1
-                        else f"  ·  {item_count} {item_label}"
-                    )
-                    progress.update(
-                        task,
-                        description=(
-                            f"[cyan]{class_name}[/cyan]  [dim]({role}){page_info}[/dim]"
-                        ),
-                    )
-                    prompt = build_type_page_prompt(
-                        packet, type_entry, fields_page, page_index, page_count, is_root,
-                        values_page=values_page, names_page=names_page,
-                    )
-                    prompt_log.append({
-                        "type_name": type_entry["name"],
-                        "is_root": is_root,
-                        "page": page_index,
-                        "total_pages": page_count,
-                        "system": system_prompt,
-                        "user": prompt,
-                    })
-                    code = generate_code(prompt, system_prompt, provider)
-                    page_outputs_live.append(code)
-                    progress.advance(task)
+                correction: str | None = None
+                for attempt in range(max_retries + 1):
+                    attempt_entries: list[PageEntry] = []
+                    attempt_prompt_log: list[dict[str, Any]] = []
+                    attempt_base = global_index  # same base index for every attempt
 
-                all_outputs.append(stitch_type_pages(page_outputs_live))
+                    for page_index, page_data in enumerate(pages, start=1):
+                        if is_enum_type:
+                            values_page, names_page = page_data
+                            fields_page = []
+                            item_count = len(values_page)
+                            item_label = "values"
+                        else:
+                            fields_page = page_data
+                            values_page, names_page = None, None
+                            item_count = len(fields_page)
+                            item_label = "fields"
+                        attempt_label = f"  retry {attempt}" if attempt > 0 else ""
+                        page_info = (
+                            f"  page {page_index}/{page_count}  ·  {item_count} {item_label}{attempt_label}"
+                            if page_count > 1
+                            else f"  ·  {item_count} {item_label}{attempt_label}"
+                        )
+                        progress.update(
+                            task,
+                            description=(
+                                f"[cyan]{class_name}[/cyan]  [dim]({role}){page_info}[/dim]"
+                            ),
+                        )
+                        prompt = build_type_page_prompt(
+                            packet, type_entry, fields_page, page_index, page_count, is_root,
+                            values_page=values_page, names_page=names_page,
+                            correction_block=correction if page_index == 1 else None,
+                        )
+                        attempt_prompt_log.append({
+                            "type_name": type_entry["name"],
+                            "is_root": is_root,
+                            "page": page_index,
+                            "total_pages": page_count,
+                            "system": system_prompt,
+                            "user": prompt,
+                        })
+                        code, input_tok, output_tok = generate_code(prompt, system_prompt, provider)
+                        attempt_entries.append(PageEntry(
+                            index=attempt_base + page_index - 1,
+                            type_name=type_entry["name"],
+                            is_root=is_root,
+                            page=page_index,
+                            total_pages=page_count,
+                            model=provider.model,
+                            generated_at=utcnow(),
+                            output=code,
+                            input_tokens=input_tok,
+                            output_tokens=output_tok,
+                        ))
+                        if attempt == 0:
+                            progress.advance(task)
+
+                    # Validate the stitched output for this type.
+                    stitched = stitch_type_pages([e.output for e in attempt_entries])
+                    v_result = validate_type_block(stitched, type_entry, known_external)
+
+                    if v_result.has_errors and attempt < max_retries:
+                        correction = _build_correction_block(v_result)
+                        progress.console.print(
+                            f"  [yellow]↩[/yellow] [cyan]{class_name}[/cyan]"
+                            f"  [dim]retry {attempt + 1}/{max_retries}"
+                            f" — {len(v_result.errors)} error(s)[/dim]"
+                        )
+                        continue  # retry this type
+
+                    # Commit the final attempt's entries.
+                    page_entries.extend(attempt_entries)
+                    prompt_log.extend(attempt_prompt_log)
+                    global_index += len(attempt_entries)
+                    # Record retry metadata for types that needed more than one attempt.
+                    if attempt > 0:
+                        retry_log.append({
+                            "type_name": class_name,
+                            "total_attempts": attempt + 1,
+                            "final_clean": not v_result.has_errors,
+                            "final_errors": len(v_result.errors),
+                        })
+                    break
 
         console.print(f"  [green]✓[/green] Done — {total_calls} LLM {call_word} completed\n")
 
-    return "\n\n".join(all_outputs).rstrip() + "\n", prompt_log
+    csharp_code = assemble_from_pages(page_entries)
+    return csharp_code, prompt_log, page_entries, retry_log
 
 
 # ---------------------------------------------------------------------------
@@ -447,7 +598,9 @@ def run(
     debug: bool = False,
     fields_per_page: int | None = None,
     enum_values_per_page: int | None = None,
-) -> tuple[dict[str, Any], str, str]:
+    max_retries: int = 2,
+    pii_config: dict[str, Any] | None = None,
+) -> tuple[dict[str, Any], str, str, list[PageEntry]]:
     """Run the full six-stage pipeline for a single endpoint.
 
     Args:
@@ -465,10 +618,11 @@ def run(
             InvariantViolation on structural problems.
 
     Returns:
-        (ir_data, schema_md, csharp_code):
+        (ir_data, schema_md, csharp_code, page_entries):
         - ir_data: dict with endpoint metadata, root_type, and nested_types.
         - schema_md: Markdown summary of the type closure (for schema.md).
         - csharp_code: Generated C# DataObject code.
+        - page_entries: Typed PageEntry records for pages.json serialization.
 
     Raises:
         SpecLoadError: If the spec cannot be loaded.
@@ -568,6 +722,25 @@ def run(
         iv.check_all(5, (root_type, nested_types), store)
 
     # ------------------------------------------------------------------
+    # Stage 5.5 — PII classification (opt-out; skipped in dry-run mode)
+    # ------------------------------------------------------------------
+    _pii_cfg: dict[str, Any] = pii_config or {}
+    _is_dry_run = bool(_llm_config.get("dry_run"))
+    _pii_prompt_log: list[dict[str, Any]] = []
+    _pii_page_dicts: list[dict[str, Any]] = []
+    if _pii_cfg.get("enabled", True) and not _is_dry_run:
+        _pii_batch = int(_pii_cfg.get("batch_size", 20))
+        _pii_provider = get_provider(_llm_config)
+        from schmith.pii import run_pii_pass
+        _pii_prompt_log, _pii_page_dicts = run_pii_pass(
+            root_type,
+            nested_types,
+            endpoint_path=f"{method.upper()} {path}",
+            provider=_pii_provider,
+            batch_size=_pii_batch,
+        )
+
+    # ------------------------------------------------------------------
     # Stage 6 — Generate code
     # ------------------------------------------------------------------
     packet = build_prompt_packet(
@@ -583,7 +756,16 @@ def run(
         gen_kwargs["page_size"] = fields_per_page
     if enum_values_per_page is not None:
         gen_kwargs["enum_page_size"] = enum_values_per_page
-    csharp_code, prompt_log = _generate_paginated(packet, provider, system_prompt, **gen_kwargs)
+    _target = _llm_config.get("target_input_tokens")
+    if _target is not None:
+        gen_kwargs["target_input_tokens"] = int(_target)
+    _min_page = _llm_config.get("min_page_size")
+    if _min_page is not None:
+        gen_kwargs["min_page_size"] = int(_min_page)
+    gen_kwargs["max_retries"] = max_retries
+    csharp_code, prompt_log, page_entries, retry_log = _generate_paginated(
+        packet, provider, system_prompt, **gen_kwargs
+    )
 
     if debug:
         iv.check_all(6, csharp_code, store)
@@ -601,6 +783,9 @@ def run(
     else:
         validation_result = ValidationResult()
 
+    _all_props = [
+        f for t in [root_type] + nested_types for f in (t.get("properties") or [])
+    ]
     ir_data: dict[str, Any] = {
         "endpoint": {
             "method": endpoint.method,
@@ -611,8 +796,19 @@ def run(
         "root_type": root_type,
         "nested_types": nested_types,
         "prompts": prompt_log,
+        "pii_log": {
+            "prompts": _pii_prompt_log,
+            "pages": _pii_page_dicts,
+        },
+        "pii": {
+            "enabled": bool(_pii_cfg.get("enabled", True)),
+            "classified": sum(1 for f in _all_props if f.get("pii") is not None),
+            "pii_count": sum(1 for f in _all_props if f.get("pii") is True),
+            "review_count": sum(1 for f in _all_props if f.get("pii_review") is True),
+        },
         "validation": {
             "is_clean": validation_result.is_clean,
+            "retries": retry_log,
             "errors": [
                 {"code": i.code, "message": i.message, "detail": i.detail}
                 for i in validation_result.errors
@@ -624,4 +820,4 @@ def run(
         },
     }
 
-    return ir_data, schema_md, csharp_code
+    return ir_data, schema_md, csharp_code, page_entries
