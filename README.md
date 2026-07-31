@@ -1,21 +1,62 @@
 # Schmith
 
-**Endpoint-focused C# DataObject generator for API specifications.**
+[![Tests](https://github.com/Anjin-Byte/Schmith/actions/workflows/tests.yml/badge.svg)](https://github.com/Anjin-Byte/Schmith/actions/workflows/tests.yml)
 
-Schmith reads an OpenAPI or RAML spec, locates a specific endpoint, resolves its full type closure, and uses an LLM to generate a ready-to-use C# DataObject class — with all nested types, enums, `[JsonPropertyName]`, `[Description]`, `[Required]`, and `[Nullable]` attributes filled in. Each type gets its own dedicated LLM call; large types are automatically split across pages and stitched back together.
+**Point it at one API endpoint, get back a ready-to-use C# DataObject.**
+
+Schmith reads an OpenAPI or RAML spec, locates a specific endpoint, resolves its full type closure, and uses an LLM to generate a C# DataObject class — nested types, enums, `[JsonPropertyName]`, `[Description]`, `[Required]`, and `[Nullable]` attributes all filled in. Each type gets its own dedicated LLM call; large types are automatically split across pages and stitched back together.
+
+```bash
+schmith GET /customers/{id}
+```
+
+```
+Resolving GET /customers/{id}
+  3 types  ·  4 LLM calls
+  ✓ CustomerDataObject.cs written to output/GET_customers_{id}/
+```
+
+```csharp
+public class CustomerDataObject
+{
+    [JsonPropertyName("id")]
+    [Description("Unique customer identifier")]
+    [Required]
+    public int Id { get; set; }
+
+    [JsonPropertyName("email")]
+    [Description("Primary contact email")]
+    [WriteOnly]                      // ← flagged by the PII pre-pass
+    public string Email { get; set; }
+
+    [JsonPropertyName("status")]
+    public CustomerStatus? Status { get; set; }
+}
+```
+
+*(Illustrative — attribute set and shape are what the tool emits; field names depend on your spec.)*
+
+---
+
+## The problem it solves
+
+API spec formats describe *structure*, not *intent*. A spec can say a response has a `data` array under a `page`/`total` envelope — but nothing in the spec says the envelope is infrastructure and the array item is the object you actually want. That judgment is API-author convention, and it differs per API.
+
+Schmith puts that knowledge in pluggable adapters instead of hardcoding it, so the core pipeline stays spec-format-neutral while per-API quirks stay isolated and testable. [docs/DESIGN.md](docs/DESIGN.md) works through this in depth.
 
 ---
 
 ## How it works
 
-Generation runs as a six-stage pipeline:
+Generation runs as a staged pipeline:
 
 1. **Spec load** — Parse the API spec (OpenAPI JSON/YAML or RAML) into a schema store.
 2. **Endpoint match** — Find the operation and 2xx response for the given `METHOD /path`.
 3. **Root resolve** — Identify the root DataObject type, unwrapping pagination envelopes as needed.
 4. **Type tree** — Recursively resolve the full closure of nested object and enum types.
 5. **Transform** — Apply API-specific normalization via the adapter hook.
-6. **Code generation** — Build structured prompt packets and submit one LLM call per type (per page). Assemble outputs into a single `.cs` file.
+6. **PII classification** — Classify every field for sensitive data so PII fields are marked `[WriteOnly]` and borderline cases are flagged for human review.
+7. **Code generation** — Build structured prompt packets and submit one LLM call per type (per page). Validate each block and retry with the specific errors attached; assemble outputs into a single `.cs` file.
 
 The pipeline is adapter-driven: API-specific wrapping logic (envelope unwrapping, naming conventions, type overrides) lives in a pluggable `ApiAdapter` subclass rather than in the core.
 
@@ -72,6 +113,13 @@ codegen:
   fields_per_page: null         # optional hard override for fields per page
   enum_values_per_page: 30      # enum values per LLM call
   max_retries: 2                # retry attempts per type when validation finds errors
+
+pii:
+  enabled: true                 # classify fields for PII before generating
+  # batch_size: 20              # fields per classification call
+
+validation:
+  enabled: true                 # deterministic checks after each generation
 ```
 
 API keys can also be set as environment variables:
@@ -112,8 +160,12 @@ output/GET_customers/
   CustomerDataObject.cs   ← generated C# code
   ir.json                 ← IR snapshot, validation summary
   schema.md               ← human-readable schema for review
-  prompts.json            ← exact system+user prompt sent per LLM call
-  pages.json              ← raw LLM outputs per page (source of truth for .cs)
+  codegen/
+    prompts.json          ← exact system+user prompt sent per LLM call
+    pages.json            ← raw LLM outputs per page (source of truth for .cs)
+  pii/                    ← only when the PII pre-pass runs
+    prompts.json          ← classification prompt per field batch
+    pages.json            ← raw classification outputs
 ```
 
 ### Validate previously generated output
@@ -140,10 +192,10 @@ Validation checks run deterministically against the `.cs` file and the IR — no
 | `<Name>DataObject.cs` | Generated C# class. Derived artifact — reconstructed from `pages.json`. |
 | `ir.json` | Intermediate representation: endpoint metadata, root type, nested types, validation summary. |
 | `schema.md` | Markdown summary of the full type closure for human review. |
-| `prompts.json` | The exact system and user prompt text sent to the LLM for each page of each type. Stable across models — re-submittable to any provider. |
-| `pages.json` | Raw LLM output per page. Authoritative source for the `.cs` file. `ir_hash` field enables staleness detection after spec changes. |
+| `codegen/prompts.json` | The exact system and user prompt text sent to the LLM for each page of each type. Stable across models — re-submittable to any provider. |
+| `codegen/pages.json` | Raw LLM output per page. Authoritative source for the `.cs` file. `ir_hash` field enables staleness detection after spec changes. |
 
-### pages.json structure
+### codegen/pages.json structure
 
 ```json
 {
@@ -192,7 +244,7 @@ api:
   adapter: mypackage.adapters.MyApiAdapter
 ```
 
-Built-in adapters for Procore, Paycore, ServiceFusion, and UKG are included in the `builders/` directory of the parent repository.
+[`schmith/adapters/procore.py`](schmith/adapters/procore.py) is the reference implementation. It handles two real Procore quirks: `allOf` schemas split into `Normal`/`Extended` segments (which the LLM otherwise emits as a class literally named `Normal`), and `{ "data": [...] }` list envelopes that would otherwise produce a useless wrapper class.
 
 ---
 
@@ -214,7 +266,7 @@ uv run pytest tests/test_assembly.py -v
 ```
 schmith/
   assembly.py          ← stitch page outputs; assemble final .cs from PageEntry list
-  pipeline.py          ← six-stage orchestration
+  pipeline.py          ← stage orchestration
   pipeline_invariants.py ← optional structural checks between stages
   validation.py        ← deterministic post-generation checks
   cli.py               ← CLI entry point (generate + validate subcommands)
@@ -224,8 +276,10 @@ schmith/
     prompt.py          ← prompt packet construction; page prompt builder
     type_mapping.py    ← C# type inference from schema field descriptors
     type_tree.py       ← recursive type closure resolution
+  pii.py               ← PII/sensitive-data classification pre-pass
   adapters/
     base.py            ← ApiAdapter base class with pass-through hooks
+    procore.py         ← reference adapter: allOf segments, data envelopes
     spec/
       openapi.py       ← OpenAPI schema/operation extraction
       raml.py          ← RAML schema/operation extraction
@@ -237,19 +291,21 @@ schmith/
     hashing.py         ← canonical_json_hash for IR fingerprinting
     provenance.py      ← source tracing helpers
     schema_ids.py      ← schema ID normalization
-tests/
-  test_assembly.py
-  test_pagination.py
-  test_validation.py
-  test_pipeline_invariants.py
-  ... (16 test files, ~371 tests)
+tests/                 ← 18 files, 447 tests
 docs/
   DESIGN.md                           ← problem statement and design rationale
-  IMPLEMENTATION.md                   ← phase-by-phase implementation log
+  CLI.md                              ← full config, flag, and exit-code reference
+  IMPLEMENTATION.md                   ← migration record (historical)
   GENERATION_STABILITY.md             ← LLM output stability improvement specs
   PARTIAL_REGENERATION.md             ← partial regeneration system design
   TYPED_PYTHON_ARCHITECTURE_GUIDELINES.md ← coding standards
 ```
+
+Roughly 6,200 lines of source against 4,650 lines of tests.
+
+### Project history
+
+The first-generation pipeline built a file-based IR on disk and generated exhaustively across whole APIs. It is archived at the `v1-legacy` tag (`git checkout v1-legacy`); [docs/IMPLEMENTATION.md](docs/IMPLEMENTATION.md) records what carried over and what was rewritten, and why.
 
 ---
 
@@ -257,8 +313,12 @@ docs/
 
 **The `.cs` is a derived artifact.** `pages.json` is the source of truth. The final `.cs` is always reconstructed from raw per-page LLM outputs via `assemble_from_pages`. This means a single type can be regenerated by updating its entries in `pages.json` and reassembling — no regex parsing of the `.cs` required.
 
-**Prompts are stable across models.** A prompt is computed from the IR once, stored in `prompts.json`, and can be resubmitted to any model. Switching providers does not require recomputing page boundaries.
+**Prompts are stable across models.** A prompt is computed from the IR once, stored in `codegen/prompts.json`, and can be resubmitted to any model. Switching providers does not require recomputing page boundaries.
 
 **Each type is its own LLM call.** Root object, nested objects, and enums are never merged into a single prompt. This bounds the context per call and makes partial regeneration trivially scoped to one type.
 
 **Adapters encode API conventions.** Envelope unwrapping, nested field promotion, and naming overrides are per-API logic that belongs in an adapter, not in the pipeline. The core pipeline stays spec-format-neutral.
+
+**Validation failures are fed back, not retried blind.** When a generated block fails a check, the specific errors are injected into the retry prompt as a correction block. Retrying with the error text attached fixes most single-field mistakes on the first attempt.
+
+**A failed PII classification never marks a field safe.** Fields that can't be classified — parse failure, or absent from the model's response — are recorded as `None` and left out of generation entirely, rather than defaulting to "not PII". Borderline fields are flagged for human review instead of being silently decided.

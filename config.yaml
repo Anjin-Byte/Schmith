@@ -9,8 +9,9 @@
 # All fields under `llm` and `output` are optional (shown with defaults).
 
 api:
-  # Path to the API spec file (OpenAPI YAML/JSON or RAML)
-  spec: ../procore_api_info/combined_OAS.json
+  # Path to the API spec file (OpenAPI YAML/JSON or RAML).
+  # Relative paths resolve from the directory you run `schmith` in.
+  spec: procore_api_info/combined_OAS.json
 
   # Spec format: openapi | openapi3 | swagger | oas | raml
   format: openapi

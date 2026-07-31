@@ -116,8 +116,12 @@ output/<METHOD>_<path-slug>/
   <Name>DataObject.cs    ← generated C# code (derived from pages.json)
   ir.json                ← IR: endpoint metadata, type closure, validation summary
   schema.md              ← human-readable type closure for review
-  prompts.json           ← exact system+user prompt for every LLM call
-  pages.json             ← raw LLM output per page (source of truth for the .cs)
+  codegen/
+    prompts.json         ← exact system+user prompt for every LLM call
+    pages.json           ← raw LLM output per page (source of truth for the .cs)
+  pii/                   ← written only when the PII pre-pass runs
+    prompts.json         ← classification prompt per field batch
+    pages.json           ← raw classification output per batch
 ```
 
 The path slug is the endpoint path with `/` replaced by `_` and path parameters kept verbatim:
@@ -130,7 +134,7 @@ POST /jobs/assignments  → output/POST_jobs_assignments/
 
 #### `ir.json`
 
-Intermediate representation snapshot. Contains the resolved type closure and a validation summary. Written without the `prompts` key (those go to `prompts.json` to keep `ir.json` concise).
+Intermediate representation snapshot. Contains the resolved type closure and a validation summary. Written without the `prompts` key (those go to `codegen/prompts.json`, and PII logs to `pii/`, to keep `ir.json` concise).
 
 ```json
 {
@@ -156,7 +160,7 @@ The `validation.is_clean` field reflects the **post-assembly** validation result
 
 Markdown summary of the root type and all nested types — field names, resolved C# types, schema IDs, enum values. Intended for human review before code review.
 
-#### `prompts.json`
+#### `codegen/prompts.json`
 
 A flat JSON array. Each entry is one LLM call, in generation order. On retry, only the **final** successful (or last) attempt's prompts are stored.
 
@@ -176,7 +180,7 @@ A flat JSON array. Each entry is one LLM call, in generation order. On retry, on
 
 Useful for debugging hallucinations: if a type has the wrong field name or type, compare the `user` prompt for that page to the generated `.cs`.
 
-#### `pages.json`
+#### `codegen/pages.json`
 
 Authoritative source for the `.cs` file. The `.cs` is always reconstructable from this file by running `assemble_from_pages`.
 
@@ -203,7 +207,7 @@ Authoritative source for the `.cs` file. The `.cs` is always reconstructable fro
 }
 ```
 
-`ir_hash` is a SHA-1 of `ir.json`. It changes whenever the spec or type tree changes, making it easy to detect stale `pages.json` files. `input_tokens` and `output_tokens` are populated from the API's usage response; both are `null` for dry-run.
+`ir_hash` is a SHA-1 of `ir.json`. It changes whenever the spec or type tree changes, making it easy to detect stale `codegen/pages.json` files. `input_tokens` and `output_tokens` are populated from the API's usage response; both are `null` for dry-run.
 
 ### Exit codes
 
@@ -283,7 +287,7 @@ Checks run against both the `.cs` file and `ir.json`. No network calls are made.
 schmith GET /customers --dry-run
 ```
 
-Parses the spec, resolves the type tree, builds all prompts, and writes `ir.json`, `schema.md`, `prompts.json`, and a placeholder `.cs` — without calling the LLM. Check `schema.md` and `prompts.json` to verify the type closure looks correct before running the real generation.
+Parses the spec, resolves the type tree, builds all prompts, and writes `ir.json`, `schema.md`, `codegen/prompts.json`, and a placeholder `.cs` — without calling the LLM. Check `schema.md` and `codegen/prompts.json` to verify the type closure looks correct before running the real generation.
 
 ### Debug spec parsing problems
 
