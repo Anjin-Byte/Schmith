@@ -46,7 +46,7 @@ API spec formats describe *structure*, not *intent*. A spec can say a response h
 
 The same questions come back with every new data source: which field is the real record, which wrapper is transport, which of two near-identical schema variants is authoritative, which columns are sensitive. The answers are specific to one provider and don't transfer to the next — so the integration cost is per-provider and recurring, and it lands on whoever understands both the provider's data and what the consuming system needs.
 
-SpecBridge isolates that per-provider knowledge in pluggable adapters rather than hardcoding it in the pipeline. The core stays spec-format-neutral; provider quirks stay in one file, under test, where they can be read and corrected by someone who knows the API. [docs/DESIGN.md](docs/DESIGN.md) works through this in depth.
+SpecBridge isolates that per-provider knowledge in pluggable adapters rather than hardcoding it in the pipeline. The core stays spec-format-neutral; provider quirks stay in one file, under test, where they can be read and corrected by someone who knows the API.
 
 ---
 
@@ -151,7 +151,7 @@ export ANTHROPIC_API_KEY=sk-ant-...
 export OPENAI_API_KEY=sk-...
 ```
 
-For a complete reference covering every config key, all CLI flags, exit codes, artifact structure, and common patterns, see [docs/CLI.md](docs/CLI.md).
+Every key is documented inline in `config.yaml`, including the ones commented out by default.
 
 ---
 
@@ -203,7 +203,7 @@ specbridge validate output/GET_*/
 specbridge validate output/ --fail-on-errors
 ```
 
-Validation checks run deterministically against the `.cs` file and the IR — no LLM required. Checks include: brace balance, missing/phantom/duplicate JSON property names, undeclared property types, and template artifact detection. See [docs/CLI.md](docs/CLI.md) for the full check list with codes and severity levels.
+Validation checks run deterministically against the `.cs` file and the IR — no LLM required. Checks include: brace balance, missing/phantom/duplicate JSON property names, undeclared property types, and template artifact detection. Each check has a code and severity; `specbridge validate --help` lists the flags.
 
 ---
 
@@ -340,20 +340,13 @@ specbridge/
     provenance.py      ← source tracing helpers
     schema_ids.py      ← schema ID normalization
 tests/                 ← 18 files, 447 tests
-docs/
-  DESIGN.md                           ← problem statement and design rationale
-  CLI.md                              ← full config, flag, and exit-code reference
-  IMPLEMENTATION.md                   ← migration record (historical)
-  GENERATION_STABILITY.md             ← LLM output stability improvement specs
-  PARTIAL_REGENERATION.md             ← partial regeneration system design
-  TYPED_PYTHON_ARCHITECTURE_GUIDELINES.md ← coding standards
 ```
 
 Roughly 6,200 lines of source against 4,650 lines of tests.
 
 ### Project history
 
-The first-generation pipeline built a file-based IR on disk and generated exhaustively across whole APIs. It is archived at the `v1-legacy` tag (`git checkout v1-legacy`); [docs/IMPLEMENTATION.md](docs/IMPLEMENTATION.md) records what carried over and what was rewritten, and why.
+The first-generation pipeline built a file-based IR on disk and generated exhaustively across whole APIs. It is archived at the `v1-legacy` tag (`git checkout v1-legacy`).
 
 ---
 
