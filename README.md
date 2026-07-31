@@ -2,11 +2,11 @@
 
 [![Tests](https://github.com/Anjin-Byte/SpecBridge/actions/workflows/tests.yml/badge.svg)](https://github.com/Anjin-Byte/SpecBridge/actions/workflows/tests.yml)
 
-**Turns one endpoint of a third-party API spec into a typed, PII-classified data contract.**
+**Turns one endpoint of a source system's API description into a typed, PII-classified data contract.**
 
-Onboarding a partner's API means reading their specification, working out which part of each response is the object you actually care about, mapping it onto your own types, and deciding which fields carry sensitive data. SpecBridge does that one endpoint at a time: it parses an OpenAPI or RAML spec, resolves the endpoint's full schema closure, classifies every field for PII, and generates a ready-to-use C# DataObject — nested types, enums, and `[JsonPropertyName]` / `[Description]` / `[Required]` / `[Nullable]` / `[WriteOnly]` attributes filled in.
+Onboarding a partner's API means reading their description, working out which part of each response is the object you actually care about, mapping it onto your own types, and deciding which fields carry sensitive data. SpecBridge does that one endpoint at a time: it parses an OpenAPI or RAML description, resolves the transitive closure of every schema the endpoint touches, classifies each field for PII, and generates a ready-to-use C# DataObject — nested types, enums, and `[JsonPropertyName]` / `[Description]` / `[Required]` / `[Nullable]` / `[WriteOnly]` / `[PrimaryKey]` attributes filled in.
 
-Each type gets its own dedicated LLM call; large types are automatically split across pages and stitched back together.
+This is **model generation, not client generation**: the output is the data contract itself, not the request builders and transport around it. Each type gets its own dedicated LLM call; large types are split across pages and stitched back together.
 
 ```bash
 specbridge GET /customers/{id}
@@ -46,7 +46,25 @@ API spec formats describe *structure*, not *intent*. A spec can say a response h
 
 The same questions come back with every new data source: which field is the real record, which wrapper is transport, which of two near-identical schema variants is authoritative, which columns are sensitive. The answers are specific to one provider and don't transfer to the next — so the integration cost is per-provider and recurring, and it lands on whoever understands both the provider's data and what the consuming system needs.
 
-SpecBridge isolates that per-provider knowledge in pluggable adapters rather than hardcoding it in the pipeline. The core stays spec-format-neutral; provider quirks stay in one file, under test, where they can be read and corrected by someone who knows the API.
+SpecBridge isolates that per-source knowledge in pluggable adapters rather than hardcoding it in the pipeline. The core stays description-format-neutral; source quirks stay in one file, under test, where they can be read and corrected by someone who knows the API. [docs/DESIGN.md](docs/DESIGN.md) works through this in depth.
+
+---
+
+## Where it fits
+
+SpecBridge is a step in the [App Xchange connector toolchain](https://trimble-xchange.github.io/connector-docs/), not a replacement for it. Trimble's `xchange` CLI scaffolds the connector and the empty DataObject; SpecBridge fills that DataObject in from the source system's description; the CLI takes over again to extract schemas and submit.
+
+```bash
+xchange connector new                        # scaffold the connector project
+xchange data-object new --module-id app-1 \  # scaffold an empty DataObject + reader
+                        --name Employees
+specbridge GET /employees                    # ← populate it from the source description
+xchange extract                              # emit connector.json schemas
+```
+
+The SDK's own guidance warns that *"missing or improper attributes represent a common reason a submission is rejected."* Getting `[PrimaryKey]`, `[Required]`, `[Nullable]`, and the rest right across several hundred fields is exactly the mechanical, high-volume, easy-to-get-wrong step worth automating.
+
+Primary key selection is deterministic rather than left to the model: candidates are ranked by naming convention (`id`, then `*_id` / `*_key`, then any name containing `id` or `key`), with required-and-non-nullable and key-shaped types (`string`, `int`, `long`) as tiebreakers. The choice is a suggestion carried into the prompt, so it stays reviewable — but it doesn't vary run to run.
 
 ---
 
@@ -227,7 +245,7 @@ Generated output is traceable back to the specification that produced it.
 
 Every registered schema and operation carries a `Provenance` record naming the source file and the exact JSON pointer it came from — down to the individual response content type. When a generated type looks wrong, "where did this come from?" has a recorded answer rather than requiring a re-read of a 39 MB spec. Both the OpenAPI and RAML adapters populate it, so the trail survives regardless of the provider's format.
 
-Each run's outputs are fingerprinted with a canonical hash of the IR. Because the hash is canonical, it is stable across key ordering and formatting noise, and changes only when the underlying schema actually changes — so stale output is detectable after a provider revises their spec, instead of being found later by whatever breaks downstream.
+Each run's outputs are fingerprinted with a canonical hash of the IR. Because the hash is canonical — sorted keys, no whitespace — it is stable across key ordering and formatting noise, and changes only when the underlying schema actually changes. That makes **schema drift** detectable at the point a source system revises its description, rather than downstream once something has already broken.
 
 Assembly is deterministic: the same page outputs always produce the same `.cs`. Reruns are diffable, and a single type can be regenerated and reassembled without touching the rest.
 
@@ -362,4 +380,14 @@ The first-generation pipeline built a file-based IR on disk and generated exhaus
 
 **Validation failures are fed back, not retried blind.** When a generated block fails a check, the specific errors are injected into the retry prompt as a correction block. Retrying with the error text attached fixes most single-field mistakes on the first attempt.
 
-**Generation is scoped to one endpoint, on demand.** The predecessor generated exhaustively across an entire provider, which meant a spec revision invalidated everything at once and most output was never consumed. Scoping to a single endpoint keeps each run small enough to review, and makes the blast radius of a provider change proportionate to what actually changed.
+**Generation is scoped to one endpoint, on demand.** The predecessor generated exhaustively across an entire source system, which meant a description revision invalidated everything at once and most output was never consumed. Scoping to a single endpoint keeps each run small enough to review, and makes the blast radius of a source change proportionate to what actually changed.
+
+---
+
+## Prior art
+
+Generating types from an OpenAPI description is well-trodden ground. [NSwag](https://github.com/RicoSuter/NSwag) and [Kiota](https://learn.microsoft.com/en-us/openapi/kiota/) are the mature options in .NET, alongside the multi-language [OpenAPI Generator](https://openapi-generator.tech/) — and Kiota already does endpoint-scoped generation, filtering output to the exact surface area you ask for.
+
+They generate API **clients**: request builders, path hierarchies, transport. SpecBridge generates a **model** for a specific target platform — an App Xchange DataObject carrying the SDK's attribute contract. That is a different artifact, not a better client, and the two compose fine: nothing stops a connector from using a generated client for transport and a generated DataObject for the contract.
+
+The gap this fills is narrow and specific. Trimble's CLI scaffolds a DataObject but does not populate it from a source description. General-purpose generators populate types but know nothing about App Xchange's attribute requirements. Neither classifies fields for sensitive data — PII tooling generally inspects records in flight or at rest, not schema fields before any data exists.
