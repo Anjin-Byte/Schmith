@@ -2,9 +2,11 @@
 
 [![Tests](https://github.com/Anjin-Byte/Schmith/actions/workflows/tests.yml/badge.svg)](https://github.com/Anjin-Byte/Schmith/actions/workflows/tests.yml)
 
-**Point it at one API endpoint, get back a ready-to-use C# DataObject.**
+**Turns one endpoint of a third-party API spec into a typed, PII-classified data contract.**
 
-Schmith reads an OpenAPI or RAML spec, locates a specific endpoint, resolves its full type closure, and uses an LLM to generate a C# DataObject class — nested types, enums, `[JsonPropertyName]`, `[Description]`, `[Required]`, and `[Nullable]` attributes all filled in. Each type gets its own dedicated LLM call; large types are automatically split across pages and stitched back together.
+Onboarding a partner's API means reading their specification, working out which part of each response is the object you actually care about, mapping it onto your own types, and deciding which fields carry sensitive data. Schmith does that one endpoint at a time: it parses an OpenAPI or RAML spec, resolves the endpoint's full schema closure, classifies every field for PII, and generates a ready-to-use C# DataObject — nested types, enums, and `[JsonPropertyName]` / `[Description]` / `[Required]` / `[Nullable]` / `[WriteOnly]` attributes filled in.
+
+Each type gets its own dedicated LLM call; large types are automatically split across pages and stitched back together.
 
 ```bash
 schmith GET /customers/{id}
@@ -40,9 +42,29 @@ public class CustomerDataObject
 
 ## The problem it solves
 
-API spec formats describe *structure*, not *intent*. A spec can say a response has a `data` array under a `page`/`total` envelope — but nothing in the spec says the envelope is infrastructure and the array item is the object you actually want. That judgment is API-author convention, and it differs per API.
+API spec formats describe *structure*, not *intent*. A spec can say a response has a `data` array under a `page`/`total` envelope — but nothing in the spec says the envelope is infrastructure and the array item is the object you actually want. That judgment is API-author convention, and it differs per provider.
 
-Schmith puts that knowledge in pluggable adapters instead of hardcoding it, so the core pipeline stays spec-format-neutral while per-API quirks stay isolated and testable. [docs/DESIGN.md](docs/DESIGN.md) works through this in depth.
+The same questions come back with every new data source: which field is the real record, which wrapper is transport, which of two near-identical schema variants is authoritative, which columns are sensitive. The answers are specific to one provider and don't transfer to the next — so the integration cost is per-provider and recurring, and it lands on whoever understands both the provider's data and what the consuming system needs.
+
+Schmith isolates that per-provider knowledge in pluggable adapters rather than hardcoding it in the pipeline. The core stays spec-format-neutral; provider quirks stay in one file, under test, where they can be read and corrected by someone who knows the API. [docs/DESIGN.md](docs/DESIGN.md) works through this in depth.
+
+---
+
+## Scope
+
+Schmith and the v1 pipeline it replaced have been run against five provider APIs across two specification formats:
+
+| Provider | Format | Schemas | Operations |
+|---|---|---:|---:|
+| Procore | OpenAPI 3 | 14,119 | 2,319 |
+| UKG (v2 client) | OpenAPI 3 | 2,707 | 334 |
+| Paycore | OpenAPI 3 | 2,265 | 53 |
+| ServiceFusion | OpenAPI 3 | 138 | 27 |
+| PeopleDoc (UKG) | RAML 1.0 | 95 | — |
+
+The Procore specification alone is a 39 MB combined OAS document. Working at that size is what drove the endpoint-scoped design: resolving one endpoint's schema closure on demand is tractable, while generating exhaustively across a whole provider is not — and produces mostly output nobody asked for.
+
+Provider data is rarely clean. The Procore adapter exists because that spec splits object schemas into `Normal`/`Extended` `allOf` segments and wraps list responses in single-key `data` envelopes — two conventions that produce silently wrong types if taken literally.
 
 ---
 
@@ -185,6 +207,32 @@ Validation checks run deterministically against the `.cs` file and the IR — no
 
 ---
 
+## Sensitive data
+
+Before any code is generated, every field in the closure is classified against a fixed set of sensitive-data criteria — government identifiers, payment details, compensation, health data, credentials, contact information, and confidential business data. Fields that classify as sensitive are emitted with `[WriteOnly]`.
+
+Three properties matter more than the classification itself:
+
+- **Borderline fields are escalated, not decided.** A field that is sensitive in one context and not in another is flagged `// [REVIEW: ...]` with the reasoning attached, so a human rules on it rather than the tool guessing quietly.
+- **Failure never means "safe."** If a classification response can't be parsed, or a field is missing from it, that field is recorded as unclassified and excluded from generation. There is no path where a failed check silently produces an unmarked field.
+- **Every decision is auditable.** Each classification carries a one-sentence justification, and the full prompt and raw response for every batch are written to `pii/`. A reviewer can reconstruct why any given field was marked the way it was.
+
+Classification runs on the resolved closure, so inherited and deeply nested fields are covered, not just the top-level record.
+
+---
+
+## Lineage and reproducibility
+
+Generated output is traceable back to the specification that produced it.
+
+Every registered schema and operation carries a `Provenance` record naming the source file and the exact JSON pointer it came from — down to the individual response content type. When a generated type looks wrong, "where did this come from?" has a recorded answer rather than requiring a re-read of a 39 MB spec. Both the OpenAPI and RAML adapters populate it, so the trail survives regardless of the provider's format.
+
+Each run's outputs are fingerprinted with a canonical hash of the IR. Because the hash is canonical, it is stable across key ordering and formatting noise, and changes only when the underlying schema actually changes — so stale output is detectable after a provider revises their spec, instead of being found later by whatever breaks downstream.
+
+Assembly is deterministic: the same page outputs always produce the same `.cs`. Reruns are diffable, and a single type can be regenerated and reassembled without touching the rest.
+
+---
+
 ## Output artifacts
 
 | File | Description |
@@ -321,4 +369,4 @@ The first-generation pipeline built a file-based IR on disk and generated exhaus
 
 **Validation failures are fed back, not retried blind.** When a generated block fails a check, the specific errors are injected into the retry prompt as a correction block. Retrying with the error text attached fixes most single-field mistakes on the first attempt.
 
-**A failed PII classification never marks a field safe.** Fields that can't be classified — parse failure, or absent from the model's response — are recorded as `None` and left out of generation entirely, rather than defaulting to "not PII". Borderline fields are flagged for human review instead of being silently decided.
+**Generation is scoped to one endpoint, on demand.** The predecessor generated exhaustively across an entire provider, which meant a spec revision invalidated everything at once and most output was never consumed. Scoping to a single endpoint keeps each run small enough to review, and makes the blast radius of a provider change proportionate to what actually changed.
