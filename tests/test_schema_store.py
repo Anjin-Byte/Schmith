@@ -1,6 +1,6 @@
 """Tests for ir/store.py."""
 
-from schmith.ir.store import SchemaStore
+from specbridge.ir.store import SchemaStore
 
 
 class TestSchemaStore:

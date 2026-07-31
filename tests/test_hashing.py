@@ -1,6 +1,6 @@
 """Tests for shared/hashing.py."""
 
-from schmith.shared.hashing import canonical_json_hash
+from specbridge.shared.hashing import canonical_json_hash
 
 
 class TestCanonicalJsonHash:

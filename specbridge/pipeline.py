@@ -21,17 +21,17 @@ from typing import Any, Protocol, cast
 
 import re
 
-from schmith.adapters.base import ApiAdapter
-from schmith.adapters.spec import openapi, raml
-from schmith.assembly import assemble_from_pages, stitch_type_pages
-from schmith.generation.llm import (
+from specbridge.adapters.base import ApiAdapter
+from specbridge.adapters.spec import openapi, raml
+from specbridge.assembly import assemble_from_pages, stitch_type_pages
+from specbridge.generation.llm import (
     DryRunProvider,
     LLMProvider,
     generate_code,
     get_provider,
 )
-from schmith.generation.pages import PageEntry, utcnow
-from schmith.generation.prompt import (
+from specbridge.generation.pages import PageEntry, utcnow
+from specbridge.generation.prompt import (
     MAX_ENUM_VALUES_PER_PAGE,
     MAX_FIELDS_PER_PAGE,
     build_prompt_packet,
@@ -39,11 +39,11 @@ from schmith.generation.prompt import (
     build_type_page_prompt,
     format_schema_markdown,
 )
-from schmith.generation.type_tree import build_type_hierarchy
-from schmith.ir.models import Endpoint, OperationResponse, SchemaNode
-from schmith.ir.store import SchemaStore
-from schmith import pipeline_invariants as iv
-from schmith.validation import (
+from specbridge.generation.type_tree import build_type_hierarchy
+from specbridge.ir.models import Endpoint, OperationResponse, SchemaNode
+from specbridge.ir.store import SchemaStore
+from specbridge import pipeline_invariants as iv
+from specbridge.validation import (
     ValidationResult,
     print_validation_report,
     validate_generated_code,
@@ -731,7 +731,7 @@ def run(
     if _pii_cfg.get("enabled", True) and not _is_dry_run:
         _pii_batch = int(_pii_cfg.get("batch_size", 20))
         _pii_provider = get_provider(_llm_config)
-        from schmith.pii import run_pii_pass
+        from specbridge.pii import run_pii_pass
         _pii_prompt_log, _pii_page_dicts = run_pii_pass(
             root_type,
             nested_types,

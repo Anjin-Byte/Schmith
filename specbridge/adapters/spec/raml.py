@@ -8,8 +8,8 @@ from __future__ import annotations
 
 from typing import Any, Iterable
 
-from schmith.shared.hashing import canonical_json_hash
-from schmith.shared.provenance import Provenance
+from specbridge.shared.hashing import canonical_json_hash
+from specbridge.shared.provenance import Provenance
 
 # ---------------------------------------------------------------------------
 # Constants

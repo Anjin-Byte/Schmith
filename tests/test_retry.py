@@ -12,8 +12,8 @@ from typing import Any
 
 import pytest
 
-from schmith.validation import ValidationResult, validate_type_block
-from schmith.pipeline import _build_correction_block
+from specbridge.validation import ValidationResult, validate_type_block
+from specbridge.pipeline import _build_correction_block
 
 
 # ---------------------------------------------------------------------------
@@ -257,7 +257,7 @@ class TestBuildCorrectionBlock:
 
 class TestCorrectionBlockPromptInjection:
     def test_correction_block_appears_on_page_1(self) -> None:
-        from schmith.generation.prompt import build_type_page_prompt
+        from specbridge.generation.prompt import build_type_page_prompt
 
         correction = "CORRECTION REQUIRED:\n  - [MISSING_CLASS] No class found"
         prompt = build_type_page_prompt(
@@ -268,7 +268,7 @@ class TestCorrectionBlockPromptInjection:
         assert "[MISSING_CLASS]" in prompt
 
     def test_correction_block_absent_when_none(self) -> None:
-        from schmith.generation.prompt import build_type_page_prompt
+        from specbridge.generation.prompt import build_type_page_prompt
 
         prompt = build_type_page_prompt(
             _MINIMAL_PACKET, _MINIMAL_TYPE_ENTRY, [], 1, 1, True,
@@ -277,7 +277,7 @@ class TestCorrectionBlockPromptInjection:
         assert "CORRECTION REQUIRED:" not in prompt
 
     def test_correction_block_not_injected_on_page_2(self) -> None:
-        from schmith.generation.prompt import build_type_page_prompt
+        from specbridge.generation.prompt import build_type_page_prompt
 
         # Provide 2 fields so page 2 is meaningful
         fields = [
@@ -296,7 +296,7 @@ class TestCorrectionBlockPromptInjection:
         assert "CORRECTION REQUIRED:" not in prompt
 
     def test_correction_appears_before_endpoint_header(self) -> None:
-        from schmith.generation.prompt import build_type_page_prompt
+        from specbridge.generation.prompt import build_type_page_prompt
 
         correction = "CORRECTION REQUIRED:\n  - [STRUCTURAL] Unbalanced braces"
         prompt = build_type_page_prompt(

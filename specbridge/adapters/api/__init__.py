@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import importlib
 
-from schmith.adapters.base import ApiAdapter
+from specbridge.adapters.base import ApiAdapter
 
 
 def load_adapter(ref: str | None) -> ApiAdapter:

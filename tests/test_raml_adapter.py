@@ -1,6 +1,6 @@
 """Tests for adapters/spec/raml.py."""
 
-from schmith.adapters.spec.raml import extract_operations, extract_schemas
+from specbridge.adapters.spec.raml import extract_operations, extract_schemas
 
 
 # ---------------------------------------------------------------------------

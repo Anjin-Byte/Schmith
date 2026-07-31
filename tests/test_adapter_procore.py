@@ -1,4 +1,4 @@
-"""Tests for schmith/adapters/procore.py — ProcoreAdapter."""
+"""Tests for specbridge/adapters/procore.py — ProcoreAdapter."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from typing import Any
 
 import pytest
 
-from schmith.adapters.procore import ProcoreAdapter
+from specbridge.adapters.procore import ProcoreAdapter
 
 
 # ---------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 """Tests for generation/type_mapping.py."""
 
-from schmith.generation.type_mapping import (
+from specbridge.generation.type_mapping import (
     build_field_info,
     extract_clean_name,
     format_data_object_name,

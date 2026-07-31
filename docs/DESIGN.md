@@ -1,11 +1,11 @@
-# Schmith — Design Document
+# SpecBridge — Design Document
 
 ## Table of Contents
 
 1. [Motivating Issues](#motivating-issues)
 2. [Philosophy](#philosophy)
-3. [Previous Work — Schmith Legacy](#previous-work--schmith-legacy)
-4. [Requirements — Schmith v2](#requirements--schmith-v2)
+3. [Previous Work — SpecBridge Legacy](#previous-work--specbridge-legacy)
+4. [Requirements — SpecBridge v2](#requirements--specbridge-v2)
 
 ---
 
@@ -142,9 +142,9 @@ and the adapter provides explicit overrides for cases where the default is wrong
 
 ---
 
-## Previous Work — Schmith Legacy
+## Previous Work — SpecBridge Legacy
 
-The original Schmith program (`legacy/`) was built to generate an exhaustive set of DataObject
+The original SpecBridge program (`legacy/`) was built to generate an exhaustive set of DataObject
 classes from an API spec. It represents substantial learned knowledge about the problem space and
 contains several components of real value.
 
@@ -219,7 +219,7 @@ insufficient for the topology decisions that real API adapters need to make.
 
 ---
 
-## Requirements — Schmith v2
+## Requirements — SpecBridge v2
 
 ### Inputs
 

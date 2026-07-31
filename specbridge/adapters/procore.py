@@ -1,18 +1,18 @@
-"""Procore API adapter for Schmith.
+"""Procore API adapter for SpecBridge.
 
 Handles Procore-specific patterns in the OpenAPI spec that would otherwise
 cause LLM confusion or generate incorrect code.
 
 Usage in config.yaml:
     api:
-      adapter: schmith.adapters.procore.ProcoreAdapter
+      adapter: specbridge.adapters.procore.ProcoreAdapter
 """
 
 from __future__ import annotations
 
 from typing import Any
 
-from schmith.adapters.base import ApiAdapter
+from specbridge.adapters.base import ApiAdapter
 
 
 class ProcoreAdapter(ApiAdapter):

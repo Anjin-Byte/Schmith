@@ -2,10 +2,10 @@
 
 import pytest
 
-from schmith.ir.models import Endpoint, OperationResponse, SchemaNode
-from schmith.ir.store import SchemaStore
-from schmith import pipeline_invariants as iv
-from schmith.pipeline_invariants import InvariantViolation
+from specbridge.ir.models import Endpoint, OperationResponse, SchemaNode
+from specbridge.ir.store import SchemaStore
+from specbridge import pipeline_invariants as iv
+from specbridge.pipeline_invariants import InvariantViolation
 
 
 def _make_store(*schema_ids: str) -> SchemaStore:

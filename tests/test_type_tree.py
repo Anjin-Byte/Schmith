@@ -1,7 +1,7 @@
 """Tests for generation/type_tree.py."""
 
-from schmith.adapters.base import ApiAdapter, NodeClassification, TreeContext
-from schmith.generation.type_tree import (
+from specbridge.adapters.base import ApiAdapter, NodeClassification, TreeContext
+from specbridge.generation.type_tree import (
     NamingContext,
     _trim_parent_name,
     build_type_hierarchy,
@@ -10,7 +10,7 @@ from schmith.generation.type_tree import (
     is_primitive_schema,
     is_primitive_schema_id,
 )
-from schmith.ir.models import SchemaNode
+from specbridge.ir.models import SchemaNode
 
 
 # ---------------------------------------------------------------------------

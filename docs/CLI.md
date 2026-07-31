@@ -1,10 +1,10 @@
-# Schmith CLI Reference
+# SpecBridge CLI Reference
 
 ## Synopsis
 
 ```
-schmith METHOD PATH [options]
-schmith validate DIR [DIR ...] [--fail-on-errors]
+specbridge METHOD PATH [options]
+specbridge validate DIR [DIR ...] [--fail-on-errors]
 ```
 
 ---
@@ -16,12 +16,12 @@ Generates a C# DataObject for one endpoint and writes output artifacts to disk.
 ### Usage
 
 ```bash
-schmith GET /customers
-schmith GET /customers/{id}
-schmith POST /jobs --status 201
-schmith GET /customers --dry-run
-schmith GET /customers --config path/to/config.yaml
-schmith GET /customers --debug
+specbridge GET /customers
+specbridge GET /customers/{id}
+specbridge POST /jobs --status 201
+specbridge GET /customers --dry-run
+specbridge GET /customers --config path/to/config.yaml
+specbridge GET /customers --debug
 ```
 
 ### Positional arguments
@@ -216,7 +216,7 @@ Authoritative source for the `.cs` file. The `.cs` is always reconstructable fro
 | `0` | Success. Output written. |
 | `1` | Error: spec not found, endpoint not matched, adapter load failed, or unexpected pipeline error. |
 
-Note: validation errors in the generated code do **not** cause a non-zero exit from the generate command. Use `schmith validate --fail-on-errors` in CI to gate on validation results.
+Note: validation errors in the generated code do **not** cause a non-zero exit from the generate command. Use `specbridge validate --fail-on-errors` in CI to gate on validation results.
 
 ---
 
@@ -228,19 +228,19 @@ Runs deterministic checks on previously generated DataObjects — no LLM require
 
 ```bash
 # Single directory
-schmith validate output/GET_customers/
+specbridge validate output/GET_customers/
 
 # Multiple directories (shell glob expansion supported)
-schmith validate output/GET_*/
+specbridge validate output/GET_*/
 
 # All subdirectories
-schmith validate output/
+specbridge validate output/
 
 # Exit 1 if any errors found (CI mode)
-schmith validate output/ --fail-on-errors
+specbridge validate output/ --fail-on-errors
 
 # Pass a .cs file directly (ir.json resolved from the same directory)
-schmith validate output/GET_customers/CustomerDataObject.cs
+specbridge validate output/GET_customers/CustomerDataObject.cs
 ```
 
 ### Arguments
@@ -284,7 +284,7 @@ Checks run against both the `.cs` file and `ir.json`. No network calls are made.
 ### Preview before spending tokens
 
 ```bash
-schmith GET /customers --dry-run
+specbridge GET /customers --dry-run
 ```
 
 Parses the spec, resolves the type tree, builds all prompts, and writes `ir.json`, `schema.md`, `codegen/prompts.json`, and a placeholder `.cs` — without calling the LLM. Check `schema.md` and `codegen/prompts.json` to verify the type closure looks correct before running the real generation.
@@ -292,7 +292,7 @@ Parses the spec, resolves the type tree, builds all prompts, and writes `ir.json
 ### Debug spec parsing problems
 
 ```bash
-schmith GET /customers --dry-run --debug
+specbridge GET /customers --dry-run --debug
 ```
 
 `--debug` runs pipeline invariant checks after each stage. If the type tree has structural problems (disconnected schemas, missing resolved types, etc.), the invariant check will surface the issue with stage context rather than a cryptic downstream error.
@@ -329,12 +329,12 @@ Generate all endpoints and fail the build if any have validation errors:
 
 ```bash
 # Generate
-schmith GET /customers
-schmith GET /customers/{id}
-schmith POST /jobs --status 201
+specbridge GET /customers
+specbridge GET /customers/{id}
+specbridge POST /jobs --status 201
 
 # Gate
-schmith validate output/ --fail-on-errors
+specbridge validate output/ --fail-on-errors
 ```
 
 ### Use a different model

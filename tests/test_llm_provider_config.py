@@ -2,7 +2,7 @@
 
 from types import SimpleNamespace
 
-from schmith.generation.llm import DryRunProvider, GenerationResult, OpenAIProvider, get_provider
+from specbridge.generation.llm import DryRunProvider, GenerationResult, OpenAIProvider, get_provider
 
 
 def test_get_provider_accepts_top_level_config_with_llm_block() -> None:

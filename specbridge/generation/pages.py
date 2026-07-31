@@ -4,7 +4,7 @@
 captures the raw extracted C# code produced by one LLM call, together with
 enough provenance metadata to replay or trace the call later.
 
-This module intentionally has no imports from other schmith modules so it can
+This module intentionally has no imports from other specbridge modules so it can
 be imported without triggering the full pipeline dependency chain.
 """
 

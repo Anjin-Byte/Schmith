@@ -1,15 +1,15 @@
-# Schmith
+# SpecBridge
 
-[![Tests](https://github.com/Anjin-Byte/Schmith/actions/workflows/tests.yml/badge.svg)](https://github.com/Anjin-Byte/Schmith/actions/workflows/tests.yml)
+[![Tests](https://github.com/Anjin-Byte/SpecBridge/actions/workflows/tests.yml/badge.svg)](https://github.com/Anjin-Byte/SpecBridge/actions/workflows/tests.yml)
 
 **Turns one endpoint of a third-party API spec into a typed, PII-classified data contract.**
 
-Onboarding a partner's API means reading their specification, working out which part of each response is the object you actually care about, mapping it onto your own types, and deciding which fields carry sensitive data. Schmith does that one endpoint at a time: it parses an OpenAPI or RAML spec, resolves the endpoint's full schema closure, classifies every field for PII, and generates a ready-to-use C# DataObject — nested types, enums, and `[JsonPropertyName]` / `[Description]` / `[Required]` / `[Nullable]` / `[WriteOnly]` attributes filled in.
+Onboarding a partner's API means reading their specification, working out which part of each response is the object you actually care about, mapping it onto your own types, and deciding which fields carry sensitive data. SpecBridge does that one endpoint at a time: it parses an OpenAPI or RAML spec, resolves the endpoint's full schema closure, classifies every field for PII, and generates a ready-to-use C# DataObject — nested types, enums, and `[JsonPropertyName]` / `[Description]` / `[Required]` / `[Nullable]` / `[WriteOnly]` attributes filled in.
 
 Each type gets its own dedicated LLM call; large types are automatically split across pages and stitched back together.
 
 ```bash
-schmith GET /customers/{id}
+specbridge GET /customers/{id}
 ```
 
 ```
@@ -46,13 +46,13 @@ API spec formats describe *structure*, not *intent*. A spec can say a response h
 
 The same questions come back with every new data source: which field is the real record, which wrapper is transport, which of two near-identical schema variants is authoritative, which columns are sensitive. The answers are specific to one provider and don't transfer to the next — so the integration cost is per-provider and recurring, and it lands on whoever understands both the provider's data and what the consuming system needs.
 
-Schmith isolates that per-provider knowledge in pluggable adapters rather than hardcoding it in the pipeline. The core stays spec-format-neutral; provider quirks stay in one file, under test, where they can be read and corrected by someone who knows the API. [docs/DESIGN.md](docs/DESIGN.md) works through this in depth.
+SpecBridge isolates that per-provider knowledge in pluggable adapters rather than hardcoding it in the pipeline. The core stays spec-format-neutral; provider quirks stay in one file, under test, where they can be read and corrected by someone who knows the API. [docs/DESIGN.md](docs/DESIGN.md) works through this in depth.
 
 ---
 
 ## Scope
 
-Schmith and the v1 pipeline it replaced have been run against five provider APIs across two specification formats:
+SpecBridge and the v1 pipeline it replaced have been run against five provider APIs across two specification formats:
 
 | Provider | Format | Schemas | Operations |
 |---|---|---:|---:|
@@ -89,8 +89,8 @@ The pipeline is adapter-driven: API-specific wrapping logic (envelope unwrapping
 Requires Python 3.11+. The project uses [uv](https://docs.astral.sh/uv/) for environment management.
 
 ```bash
-git clone https://github.com/Anjin-Byte/Schmith.git
-cd Schmith
+git clone https://github.com/Anjin-Byte/SpecBridge.git
+cd SpecBridge
 
 # Install with uv (creates .venv automatically)
 uv sync
@@ -113,7 +113,7 @@ pip install -e ".[all]"
 
 ## Configuration
 
-Copy and edit `config.yaml` in the directory where you run `schmith`:
+Copy and edit `config.yaml` in the directory where you run `specbridge`:
 
 ```yaml
 api:
@@ -161,18 +161,18 @@ For a complete reference covering every config key, all CLI flags, exit codes, a
 
 ```bash
 # Generate C# for a specific endpoint
-schmith GET /customers
-schmith GET /customers/{id}
-schmith POST /jobs --status 201
+specbridge GET /customers
+specbridge GET /customers/{id}
+specbridge POST /jobs --status 201
 
 # Preview what would be generated without calling the LLM
-schmith GET /customers --dry-run
+specbridge GET /customers --dry-run
 
 # Use a different config file
-schmith GET /customers --config path/to/config.yaml
+specbridge GET /customers --config path/to/config.yaml
 
 # Enable pipeline invariant checks for debugging
-schmith GET /customers --debug
+specbridge GET /customers --debug
 ```
 
 Each run writes a directory under `output/`:
@@ -194,13 +194,13 @@ output/GET_customers/
 
 ```bash
 # Validate a single output directory
-schmith validate output/GET_customers/
+specbridge validate output/GET_customers/
 
 # Validate multiple directories (shell glob supported)
-schmith validate output/GET_*/
+specbridge validate output/GET_*/
 
 # Exit with status 1 if any errors are found (useful in CI)
-schmith validate output/ --fail-on-errors
+specbridge validate output/ --fail-on-errors
 ```
 
 Validation checks run deterministically against the `.cs` file and the IR — no LLM required. Checks include: brace balance, missing/phantom/duplicate JSON property names, undeclared property types, and template artifact detection. See [docs/CLI.md](docs/CLI.md) for the full check list with codes and severity levels.
@@ -272,8 +272,8 @@ Assembly is deterministic: the same page outputs always produce the same `.cs`. 
 The adapter hook allows API-specific behaviour without modifying core pipeline logic.
 
 ```python
-from schmith.adapters.base import ApiAdapter
-from schmith.ir.models import Endpoint, SchemaNode
+from specbridge.adapters.base import ApiAdapter
+from specbridge.ir.models import Endpoint, SchemaNode
 
 class MyApiAdapter(ApiAdapter):
     def resolve_root(self, endpoint: Endpoint, node: SchemaNode) -> SchemaNode:
@@ -292,7 +292,7 @@ api:
   adapter: mypackage.adapters.MyApiAdapter
 ```
 
-[`schmith/adapters/procore.py`](schmith/adapters/procore.py) is the reference implementation. It handles two real Procore quirks: `allOf` schemas split into `Normal`/`Extended` segments (which the LLM otherwise emits as a class literally named `Normal`), and `{ "data": [...] }` list envelopes that would otherwise produce a useless wrapper class.
+[`specbridge/adapters/procore.py`](specbridge/adapters/procore.py) is the reference implementation. It handles two real Procore quirks: `allOf` schemas split into `Normal`/`Extended` segments (which the LLM otherwise emits as a class literally named `Normal`), and `{ "data": [...] }` list envelopes that would otherwise produce a useless wrapper class.
 
 ---
 
@@ -303,7 +303,7 @@ api:
 uv run pytest tests/ -q
 
 # Run with coverage
-uv run pytest tests/ -q --cov=schmith --cov-report=term-missing
+uv run pytest tests/ -q --cov=specbridge --cov-report=term-missing
 
 # Run a specific test file
 uv run pytest tests/test_assembly.py -v
@@ -312,7 +312,7 @@ uv run pytest tests/test_assembly.py -v
 ### Project structure
 
 ```
-schmith/
+specbridge/
   assembly.py          ← stitch page outputs; assemble final .cs from PageEntry list
   pipeline.py          ← stage orchestration
   pipeline_invariants.py ← optional structural checks between stages

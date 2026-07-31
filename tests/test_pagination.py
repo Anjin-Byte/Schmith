@@ -2,14 +2,14 @@
 
 from typing import Any
 
-from schmith.assembly import (
+from specbridge.assembly import (
     _extract_field_block,
     _insert_fields,
     _normalize_class_indentation,
     stitch_type_pages,
 )
-from schmith.generation.llm import DryRunProvider, GenerationResult
-from schmith.generation.prompt import (
+from specbridge.generation.llm import DryRunProvider, GenerationResult
+from specbridge.generation.prompt import (
     FIELDS_END_MARKER,
     FIELDS_START_MARKER,
     MAX_ENUM_VALUES_PER_PAGE as _MAX_ENUM_VALUES_PER_PAGE,
@@ -19,7 +19,7 @@ from schmith.generation.prompt import (
     _select_primary_key,
     build_type_page_prompt,
 )
-from schmith.pipeline import _calibrate_page_size, _chunk_enum_values, _chunk_fields
+from specbridge.pipeline import _calibrate_page_size, _chunk_enum_values, _chunk_fields
 
 
 # ---------------------------------------------------------------------------

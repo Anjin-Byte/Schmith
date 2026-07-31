@@ -1,8 +1,8 @@
 """Tests for adapters/base.py — ApiAdapter, NodeClassification, TreeContext."""
 
-from schmith.adapters.base import ApiAdapter, NodeClassification, TreeContext
-from schmith.ir.models import Endpoint, SchemaNode
-from schmith.generation.type_tree import NamingContext
+from specbridge.adapters.base import ApiAdapter, NodeClassification, TreeContext
+from specbridge.ir.models import Endpoint, SchemaNode
+from specbridge.generation.type_tree import NamingContext
 
 
 class TestNodeClassification:

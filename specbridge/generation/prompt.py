@@ -14,12 +14,12 @@ import json
 from pathlib import Path
 from typing import Any
 
-from schmith.generation.type_mapping import (
+from specbridge.generation.type_mapping import (
     build_field_info,
     format_data_object_name,
     json_name_to_csharp_property,
 )
-from schmith.ir.models import Endpoint
+from specbridge.ir.models import Endpoint
 
 _PROMPTS_PATH = Path(__file__).parent / "prompts.json"
 

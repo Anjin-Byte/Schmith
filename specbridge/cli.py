@@ -1,15 +1,15 @@
-"""CLI entry point for Schmith.
+"""CLI entry point for SpecBridge.
 
 Usage:
-    schmith GET /customers
-    schmith GET /customers/{id} --config my_config.yaml
-    schmith POST /jobs --status 201 --dry-run
-    schmith GET /customers --debug
+    specbridge GET /customers
+    specbridge GET /customers/{id} --config my_config.yaml
+    specbridge POST /jobs --status 201 --dry-run
+    specbridge GET /customers --debug
 
     # Run validation checks on a previously generated DataObject:
-    schmith validate output/GET_rest_v1.0_projects_{project_id}_timesheets/
-    schmith validate output/GET_rest_*/          # shell glob — multiple dirs
-    schmith validate output/ --fail-on-errors    # exit 1 if any errors found
+    specbridge validate output/GET_rest_v1.0_projects_{project_id}_timesheets/
+    specbridge validate output/GET_rest_*/          # shell glob — multiple dirs
+    specbridge validate output/ --fail-on-errors    # exit 1 if any errors found
 
 The generate flow reads config.yaml (or the file passed via --config), then
 delegates to pipeline.run() and writes to the output directory:
@@ -79,7 +79,7 @@ def _packet_from_ir(ir_data: dict[str, Any]) -> dict[str, Any]:
     and the json_name of every field. Full csharp_type resolution is
     skipped because it is not needed for any validation check.
     """
-    from schmith.generation.type_mapping import format_data_object_name
+    from specbridge.generation.type_mapping import format_data_object_name
 
     def _to_entry(type_dict: dict[str, Any]) -> dict[str, Any]:
         props: list[dict[str, Any]] = type_dict.get("properties") or []
@@ -108,7 +108,7 @@ def _packet_from_ir(ir_data: dict[str, Any]) -> dict[str, Any]:
 
 
 def _main_validate(argv: list[str]) -> None:
-    """Handle ``schmith validate <dir> [<dir> ...]`` invocations.
+    """Handle ``specbridge validate <dir> [<dir> ...]`` invocations.
 
     Each argument may be:
     - A generated output directory (contains ir.json + *.cs)
@@ -118,7 +118,7 @@ def _main_validate(argv: list[str]) -> None:
     shell expands the pattern before passing arguments to the process.
     """
     parser = argparse.ArgumentParser(
-        prog="schmith validate",
+        prog="specbridge validate",
         description="Run deterministic validation checks on previously generated DataObjects.",
     )
     parser.add_argument(
@@ -135,7 +135,7 @@ def _main_validate(argv: list[str]) -> None:
     args = parser.parse_args(argv)
 
     from rich.console import Console  # type: ignore[import-not-found]
-    from schmith.validation import print_validation_report, validate_generated_code
+    from specbridge.validation import print_validation_report, validate_generated_code
 
     # cast: Console satisfies _ConsolePrinter; needed because rich is not
     # resolvable by the IDE's interpreter (uv venv path mismatch).
@@ -207,14 +207,14 @@ def _main_validate(argv: list[str]) -> None:
 
 
 def main() -> None:
-    # Dispatch `schmith validate ...` before the normal method/path parser so
-    # that the existing `schmith GET /path` interface is fully preserved.
+    # Dispatch `specbridge validate ...` before the normal method/path parser so
+    # that the existing `specbridge GET /path` interface is fully preserved.
     if len(sys.argv) > 1 and sys.argv[1] == "validate":
         _main_validate(sys.argv[2:])
         return
 
     parser = argparse.ArgumentParser(
-        prog="schmith",
+        prog="specbridge",
         description="Generate a C# DataObject for a single API endpoint.",
     )
     parser.add_argument(
@@ -280,10 +280,10 @@ def main() -> None:
     output_base = Path(cast(str, output_cfg.get("dir") or "output"))
 
     # Import here so import errors surface with a clear message
-    from schmith.adapters.api import load_adapter
-    from schmith import pipeline
-    from schmith.pipeline import EndpointMatchError, SpecLoadError
-    from schmith import pipeline_invariants
+    from specbridge.adapters.api import load_adapter
+    from specbridge import pipeline
+    from specbridge.pipeline import EndpointMatchError, SpecLoadError
+    from specbridge import pipeline_invariants
 
     try:
         adapter = load_adapter(adapter_ref)
@@ -337,8 +337,8 @@ def main() -> None:
         json.dump(ir_without_logs, f, indent=2, default=str)
 
     # codegen/  (codegen system+user prompts + raw LLM outputs per page)
-    from schmith.generation.pages import page_entry_to_dict
-    from schmith.shared.hashing import canonical_json_hash
+    from specbridge.generation.pages import page_entry_to_dict
+    from specbridge.shared.hashing import canonical_json_hash
     codegen_dir = output_dir / "codegen"
     codegen_dir.mkdir(exist_ok=True)
     # Safe: ir_without_logs is our own str-keyed dict.

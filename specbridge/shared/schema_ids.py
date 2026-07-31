@@ -2,7 +2,7 @@
 
 from typing import Any, cast
 
-from schmith.shared.hashing import canonical_json_hash
+from specbridge.shared.hashing import canonical_json_hash
 
 Schema = dict[str, Any]
 

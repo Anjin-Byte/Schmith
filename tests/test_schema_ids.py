@@ -1,7 +1,7 @@
 """Tests for shared/schema_ids.py."""
 
-from schmith.shared.schema_ids import schema_id_for_schema, schema_id_from_ref
-from schmith.shared.hashing import canonical_json_hash
+from specbridge.shared.schema_ids import schema_id_for_schema, schema_id_from_ref
+from specbridge.shared.hashing import canonical_json_hash
 
 
 class TestSchemaIdFromRef:

@@ -2,8 +2,8 @@
 
 import pytest
 
-from schmith.ir.models import Endpoint
-from schmith.pipeline import EndpointMatchError, _match_endpoint
+from specbridge.ir.models import Endpoint
+from specbridge.pipeline import EndpointMatchError, _match_endpoint
 
 
 def _make_response(status: str, schema_id: str | None = "schema:components/Customer") -> dict:

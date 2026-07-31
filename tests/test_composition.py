@@ -1,6 +1,6 @@
 """Tests for ir/composition.py — CompositionResolver."""
 
-from schmith.ir.composition import CompositionResolver
+from specbridge.ir.composition import CompositionResolver
 
 
 def _make_resolver(schemas: dict[str, dict]):

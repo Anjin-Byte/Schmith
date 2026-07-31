@@ -15,8 +15,8 @@ from enum import Enum
 from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
-    from schmith.ir.models import Endpoint, SchemaNode
-    from schmith.generation.type_tree import NamingContext
+    from specbridge.ir.models import Endpoint, SchemaNode
+    from specbridge.generation.type_tree import NamingContext
 
 
 class NodeClassification(Enum):

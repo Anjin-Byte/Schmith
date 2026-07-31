@@ -1,8 +1,8 @@
-"""Tests for schmith/validation.py — deterministic post-generation checks."""
+"""Tests for specbridge/validation.py — deterministic post-generation checks."""
 
 import pytest
 
-from schmith.validation import (
+from specbridge.validation import (
     ValidationIssue,
     ValidationResult,
     _check_artifacts,

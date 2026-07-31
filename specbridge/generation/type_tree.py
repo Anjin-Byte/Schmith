@@ -27,14 +27,14 @@ import re
 from dataclasses import dataclass, field
 from typing import Any, Callable, Literal
 
-from schmith.adapters.base import ApiAdapter, NodeClassification, TreeContext
-from schmith.generation.type_mapping import (
+from specbridge.adapters.base import ApiAdapter, NodeClassification, TreeContext
+from specbridge.generation.type_mapping import (
     IR_TO_CSHARP_TYPE,
     extract_clean_name,
     is_shapeless_schema,
     json_name_to_csharp_property,
 )
-from schmith.ir.models import SchemaNode
+from specbridge.ir.models import SchemaNode
 
 
 # Primitive schema IDs that don't need expansion

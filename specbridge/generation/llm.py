@@ -8,7 +8,7 @@ variables. No automatic .env loading occurs — users set keys in their shell
 or source a .env file themselves.
 
 Stitching helpers (``stitch_type_pages`` and its internals) live in
-``schmith.assembly`` so that assembly logic is co-located with
+``specbridge.assembly`` so that assembly logic is co-located with
 ``assemble_from_pages``.
 """
 
@@ -73,7 +73,7 @@ class AnthropicProvider:
                 self._client = anthropic.Anthropic(api_key=self.api_key)
             except ImportError:
                 print("Error: anthropic package not installed.", file=sys.stderr)
-                print("Install with: pip install 'schmith[anthropic]'", file=sys.stderr)
+                print("Install with: pip install 'specbridge[anthropic]'", file=sys.stderr)
                 sys.exit(1)
         return self._client
 
@@ -135,7 +135,7 @@ class OpenAIProvider:
                 self._client = openai.OpenAI(api_key=self.api_key)
             except ImportError:
                 print("Error: openai package not installed.", file=sys.stderr)
-                print("Install with: pip install 'schmith[openai]'", file=sys.stderr)
+                print("Install with: pip install 'specbridge[openai]'", file=sys.stderr)
                 sys.exit(1)
         return self._client
 

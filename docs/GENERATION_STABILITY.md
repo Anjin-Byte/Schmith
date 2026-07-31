@@ -2,7 +2,7 @@
 
 ## Overview
 
-Schmith generates C# DataObject classes by decomposing each endpoint's type closure into a
+SpecBridge generates C# DataObject classes by decomposing each endpoint's type closure into a
 series of LLM calls, stitching the results back together, and running a deterministic validator
 over the output. The pipeline is structurally sound: the IR is accurate, the validator catches
 real errors, and the stitching logic handles marker extraction correctly.
@@ -155,7 +155,7 @@ deterministic. For code generation, determinism is desirable.
 
 ### Impl-1: Repeat NESTED TYPES on All Continuation Pages
 
-**File:** `schmith/generation/prompt.py` — `build_type_page_prompt`
+**File:** `specbridge/generation/prompt.py` — `build_type_page_prompt`
 
 **Current behaviour:** NESTED TYPES hint is emitted only when `is_root and page_index == 1`.
 
@@ -205,7 +205,7 @@ appear in the prompt for `page_index=2` and `is_root=False` continuation pages.
 
 ### Impl-2a: Increase Default Page Size (Quick Win)
 
-**File:** `schmith/generation/prompt.py`
+**File:** `specbridge/generation/prompt.py`
 
 **Current:**
 ```python
@@ -437,7 +437,7 @@ llm:
 
 ### Impl-3: Validation-Driven Retry Loop
 
-**Files:** `schmith/pipeline.py`, `schmith/validation.py`
+**Files:** `specbridge/pipeline.py`, `specbridge/validation.py`
 
 **Current behaviour:** Validation runs after all code is generated and printed. Issues are
 reported but not acted on. The generated `.cs` file is written regardless of validation outcome.
@@ -520,7 +520,7 @@ available output. Do not silently swallow validation failures.
 
 ### Impl-4: Temperature Configuration
 
-**File:** `schmith/generation/llm.py` (or wherever the API client is initialised)
+**File:** `specbridge/generation/llm.py` (or wherever the API client is initialised)
 
 **Required change:** Expose `temperature` as a key in `llm_config` and pass it through to the
 API call. Default to `0.2` rather than the provider default.
@@ -543,8 +543,8 @@ llm:
 
 ### Impl-5: Enrich type_unresolved Fields
 
-**File:** `schmith/generation/type_mapping.py` — `build_field_info`
-**File:** `schmith/generation/prompt.py` — `_format_fields_section`
+**File:** `specbridge/generation/type_mapping.py` — `build_field_info`
+**File:** `specbridge/generation/prompt.py` — `_format_fields_section`
 
 **Current behaviour:** When `type_unresolved=true`, the field is emitted as:
 ```

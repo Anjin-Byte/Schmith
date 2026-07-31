@@ -172,7 +172,7 @@ def _check_class_declarations(
     formatted DataObject name (e.g. ``TimesheetDataObject``) are accepted, since
     the LLM may apply the DataObject suffix it learned from the system prompt.
     """
-    from schmith.generation.type_mapping import format_data_object_name
+    from specbridge.generation.type_mapping import format_data_object_name
 
     declared: set[str] = set(_CLASS_DECL_RE.findall(code))
     all_types: list[dict[str, Any]] = [packet["root"]] + list(packet.get("nested_types") or [])
@@ -357,7 +357,7 @@ def _check_single_type_declaration(
     code: str, type_entry: dict[str, Any], result: ValidationResult
 ) -> None:
     """Verify this type's public class/enum/record declaration is present in the block."""
-    from schmith.generation.type_mapping import format_data_object_name
+    from specbridge.generation.type_mapping import format_data_object_name
 
     declared: set[str] = set(_CLASS_DECL_RE.findall(code))
     name: str = type_entry.get("name") or ""

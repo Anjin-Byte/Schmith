@@ -29,7 +29,7 @@ would create two sources of truth without adding capability.
 
 ## Concepts and Terminology
 
-**Generation run:** A single invocation of `schmith generate` for one endpoint. Produces a
+**Generation run:** A single invocation of `specbridge generate` for one endpoint. Produces a
 complete set of artifacts in an output directory.
 
 **Type:** One entry in the type closure — the root object, a nested object, or a referenced
@@ -159,7 +159,7 @@ determines its position in the assembled `.cs`. Assembly iterates `pages` in ord
 
 ## Assembly Module
 
-A new module `schmith/assembly.py` owns all operations that combine page outputs into the
+A new module `specbridge/assembly.py` owns all operations that combine page outputs into the
 final `.cs`. It has no dependency on the `.cs` file itself — it reads from `pages.json`
 entries and returns assembled code.
 
@@ -436,7 +436,7 @@ Detection: compare the `ir_hash` in `pages.json` against a fresh hash of `ir.jso
 ```python
 def check_staleness(pages_json: dict, ir_json: dict) -> bool:
     """Return True if pages.json was generated from a different IR than ir.json."""
-    from schmith.shared.hashing import canonical_hash
+    from specbridge.shared.hashing import canonical_hash
     return pages_json.get("ir_hash") != canonical_hash(ir_json)
 ```
 
@@ -448,10 +448,10 @@ before proceeding. A `--ignore-stale` flag bypasses the check.
 
 ## CLI Interface
 
-### New subcommand: `schmith regenerate`
+### New subcommand: `specbridge regenerate`
 
 ```
-schmith regenerate [OPTIONS] OUTPUT_DIR
+specbridge regenerate [OPTIONS] OUTPUT_DIR
 
   Regenerate one or more types in an existing output directory from stored prompts.
 
@@ -471,25 +471,25 @@ Options:
 
 Examples:
   # Regenerate a single type
-  schmith regenerate output/GET_rest_v1.1_projects --type ExtendedFlag
+  specbridge regenerate output/GET_rest_v1.1_projects --type ExtendedFlag
 
   # Regenerate a specific page of a type
-  schmith regenerate output/GET_rest_v1.1_projects --type Project --page 3
+  specbridge regenerate output/GET_rest_v1.1_projects --type Project --page 3
 
   # Regenerate all types that currently have validation errors
-  schmith regenerate output/GET_rest_v1.1_projects --from-errors
+  specbridge regenerate output/GET_rest_v1.1_projects --from-errors
 
   # Re-run all prompts through a different model
-  schmith regenerate output/GET_rest_v1.1_projects --model claude-opus-4-6
+  specbridge regenerate output/GET_rest_v1.1_projects --model claude-opus-4-6
 
   # Dry-run: see what would be submitted
-  schmith regenerate output/GET_rest_v1.1_projects --type Project --dry-run
+  specbridge regenerate output/GET_rest_v1.1_projects --type Project --dry-run
 ```
 
-### Updated subcommand: `schmith validate`
+### Updated subcommand: `specbridge validate`
 
 ```
-schmith validate [OPTIONS] OUTPUT_DIR
+specbridge validate [OPTIONS] OUTPUT_DIR
 
   Run validation against an existing output directory.
 
@@ -497,11 +497,11 @@ Options:
   --by-type    Report errors grouped by type instead of a flat list.
 
 Examples:
-  schmith validate output/GET_rest_v1.1_projects
-  schmith validate output/GET_rest_v1.1_projects --by-type
+  specbridge validate output/GET_rest_v1.1_projects
+  specbridge validate output/GET_rest_v1.1_projects --by-type
 ```
 
-`schmith validate` reads `pages.json` and `ir.json` from the output directory, re-stitches each
+`specbridge validate` reads `pages.json` and `ir.json` from the output directory, re-stitches each
 type from page outputs, runs validation, and updates the validation summary in `ir.json`. It does
 not call any LLM and does not read the `.cs` file.
 
@@ -541,8 +541,8 @@ This system has a natural build order based on dependencies:
 | 4 | `validate_by_type` in `validation.py` (uses pages entry list, no .cs reading) | Step 1 |
 | 5 | `partial_regenerate` in `pipeline.py` | Steps 1, 3, 4 |
 | 6 | Auto-retry loop in `pipeline.py` `run()` | Steps 4, 5 |
-| 7 | `schmith regenerate` CLI subcommand | Step 5 |
-| 8 | `schmith validate` CLI subcommand | Step 4 |
+| 7 | `specbridge regenerate` CLI subcommand | Step 5 |
+| 8 | `specbridge validate` CLI subcommand | Step 4 |
 | 9 | Staleness detection | Steps 3, 5 |
 
 Steps 1–3 are entirely backward-compatible: the `.cs` output content is unchanged (same assembly
@@ -550,7 +550,7 @@ logic, same type ordering), and `pages.json` begins to be written. No existing b
 
 Steps 4–6 add the validation-driven retry loop. This is the highest-value change for output
 quality and can be implemented without the CLI interface (the auto-retry fires internally during
-`schmith generate`).
+`specbridge generate`).
 
 Steps 7–9 add the manual interface and are independent of each other.
 

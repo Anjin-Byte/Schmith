@@ -17,7 +17,7 @@
 ## Module Structure
 
 ```
-schmith/
+specbridge/
   adapters/
     base.py              # ApiAdapter base class + NodeClassification  [NEW]
     procore.py           # Procore allOf/envelope transforms           [NEW]
@@ -60,7 +60,7 @@ path updates.
 
 ---
 
-### `schmith/shared/hashing.py`
+### `specbridge/shared/hashing.py`
 
 **Legacy source:** `legacy/builders/shared/hashing.py`
 
@@ -69,7 +69,7 @@ for anonymous schema ID generation and deduplication. No changes needed.
 
 ---
 
-### `schmith/shared/provenance.py`
+### `specbridge/shared/provenance.py`
 
 **Legacy source:** `legacy/builders/shared/provenance.py`
 
@@ -79,7 +79,7 @@ changes needed.
 
 ---
 
-### `schmith/shared/schema_ids.py`
+### `specbridge/shared/schema_ids.py`
 
 **Legacy source:** `legacy/builders/shared/schema_ids.py`
 
@@ -89,7 +89,7 @@ These are the keys used throughout the schema store. No changes needed.
 
 ---
 
-### `schmith/ir/composition.py`
+### `specbridge/ir/composition.py`
 
 **Legacy source:** `legacy/codegen/ir/composition.py`
 
@@ -100,7 +100,7 @@ decoupled from the storage layer. No changes needed.
 
 ---
 
-### `schmith/generation/type_mapping.py`
+### `specbridge/generation/type_mapping.py`
 
 **Legacy source:** `legacy/codegen/schema/type_mapping.py`
 
@@ -119,7 +119,7 @@ any file I/O or global state. No changes needed.
 
 ---
 
-### `schmith/generation/prompts.json`
+### `specbridge/generation/prompts.json`
 
 **Legacy source:** `legacy/codegen/generation/prompts.json`
 
@@ -135,7 +135,7 @@ to fit the v2 architecture.
 
 ---
 
-### `schmith/adapters/spec/openapi.py`
+### `specbridge/adapters/spec/openapi.py`
 
 **Legacy source:** `legacy/builders/adapters/openapi/schemas.py` +
 `legacy/builders/adapters/openapi/operations.py`
@@ -173,7 +173,7 @@ The core logic — `register_schema`, `build_field`, `resolve_ref`,
 
 ---
 
-### `schmith/adapters/spec/raml.py`
+### `specbridge/adapters/spec/raml.py`
 
 **Legacy source:** `legacy/builders/adapters/raml/schemas.py` +
 `legacy/builders/adapters/raml/operations.py`
@@ -183,7 +183,7 @@ add optional endpoint filter.
 
 ---
 
-### `schmith/generation/type_tree.py`
+### `specbridge/generation/type_tree.py`
 
 **Legacy source:** `legacy/codegen/schema/type_tree.py`
 
@@ -219,7 +219,7 @@ In v2, these decision points must be exposed to the `ApiAdapter` via hooks.
 
 ---
 
-### `schmith/generation/prompt.py`
+### `specbridge/generation/prompt.py`
 
 **Legacy source:** `legacy/codegen/generation/prompt_packets.py`
 
@@ -254,7 +254,7 @@ rendering) is unchanged.
 
 ---
 
-### `schmith/generation/llm.py`
+### `specbridge/generation/llm.py`
 
 **Legacy source:** `legacy/codegen/providers/llm.py` +
 `legacy/codegen/generation/code_generator.py`
@@ -282,7 +282,7 @@ These have no direct legacy equivalent and must be written from scratch.
 
 ---
 
-### `schmith/adapters/base.py`
+### `specbridge/adapters/base.py`
 
 The `ApiAdapter` base class and associated types.
 
@@ -292,8 +292,8 @@ from enum import Enum
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from schmith.ir.models import SchemaNode, Endpoint
-    from schmith.generation.type_tree import NamingContext, TreeContext
+    from specbridge.ir.models import SchemaNode, Endpoint
+    from specbridge.generation.type_tree import NamingContext, TreeContext
 
 
 class NodeClassification(Enum):
@@ -363,7 +363,7 @@ class ApiAdapter:
 
 ---
 
-### `schmith/ir/models.py`
+### `specbridge/ir/models.py`
 
 Lightweight dataclasses for the v2 IR layer. These are passed into adapter
 hooks and through the pipeline.
@@ -420,7 +420,7 @@ class SchemaNode:
 
 ---
 
-### `schmith/ir/store.py`
+### `specbridge/ir/store.py`
 
 In-memory schema store. Replaces the file-based `IRLoader`.
 
@@ -455,7 +455,7 @@ No file reading, no manifest parsing, no lazy loading from disk.
 
 ---
 
-### `schmith/generation/type_tree.py` — `TreeContext`
+### `specbridge/generation/type_tree.py` — `TreeContext`
 
 New dataclass passed to `classify_node`.
 
@@ -470,7 +470,7 @@ class TreeContext:
 
 ---
 
-### `schmith/pipeline.py`
+### `specbridge/pipeline.py`
 
 The 6-stage orchestrator. This is the central new piece that wires everything
 together.
@@ -520,7 +520,7 @@ the `adapter` parameter threaded through.
 
 ---
 
-### `schmith/adapters/api/__init__.py`
+### `specbridge/adapters/api/__init__.py`
 
 A simple registry that maps API names to adapter classes, and a loader that
 can instantiate an adapter by name or from a module path.
@@ -562,13 +562,13 @@ responsibility.
 
 ---
 
-### `schmith/cli.py`
+### `specbridge/cli.py`
 
 Entry point. Loads `config.yaml` and accepts an endpoint specification. No
 other arguments are needed for the common case.
 
 ```
-Usage: schmith <method> <path> [--config <path>] [--status <code>] [--dry-run]
+Usage: specbridge <method> <path> [--config <path>] [--status <code>] [--dry-run]
 
 Arguments:
   method     HTTP method (GET, POST, etc.)
@@ -648,7 +648,7 @@ descended from legacy's invariant framework.
 | 6. Transformed root validity | After stage 5 | The root returned by `adapter.transform_tree()` is still resolvable in the `SchemaStore`. |
 
 These invariants are implemented as standalone functions in
-`schmith/pipeline_invariants.py` — new module, no legacy equivalent — and
+`specbridge/pipeline_invariants.py` — new module, no legacy equivalent — and
 called by `pipeline.py` between stages when debug mode is active.
 
 ---

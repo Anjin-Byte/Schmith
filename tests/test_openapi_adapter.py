@@ -1,6 +1,6 @@
 """Tests for adapters/spec/openapi.py."""
 
-from schmith.adapters.spec.openapi import extract_operations, extract_schemas
+from specbridge.adapters.spec.openapi import extract_operations, extract_schemas
 
 
 # ---------------------------------------------------------------------------

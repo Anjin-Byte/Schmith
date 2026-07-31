@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run schmith validate on every DataObject in the output directory.
+# Run specbridge validate on every DataObject in the output directory.
 # Directories whose .cs file contains only dry-run placeholders are skipped.
 #
 # Usage:
@@ -47,4 +47,4 @@ fi
 
 echo "Validating ${#targets[@]} DataObject(s) in $OUTPUT_DIR"
 
-env -u VIRTUAL_ENV uv run --project "$PROJECT_DIR" schmith validate "${targets[@]}" "$@"
+env -u VIRTUAL_ENV uv run --project "$PROJECT_DIR" specbridge validate "${targets[@]}" "$@"

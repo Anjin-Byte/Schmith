@@ -1,4 +1,4 @@
-"""Tests for the PII classification pre-pass (schmith/pii.py)."""
+"""Tests for the PII classification pre-pass (specbridge/pii.py)."""
 
 from __future__ import annotations
 
@@ -6,9 +6,9 @@ import json
 import re
 from typing import Any
 
-from schmith.generation.llm import GenerationResult
-from schmith.generation.prompt import _format_fields_section
-from schmith.pii import classify_fields_pii, run_pii_pass
+from specbridge.generation.llm import GenerationResult
+from specbridge.generation.prompt import _format_fields_section
+from specbridge.pii import classify_fields_pii, run_pii_pass
 
 
 # ---------------------------------------------------------------------------

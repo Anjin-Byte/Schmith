@@ -1,11 +1,11 @@
-"""Tests for schmith.assembly — stitch_type_pages and assemble_from_pages."""
+"""Tests for specbridge.assembly — stitch_type_pages and assemble_from_pages."""
 
 from datetime import datetime, timezone
 
 import pytest
 
-from schmith.assembly import assemble_from_pages, stitch_type_pages
-from schmith.generation.pages import PageEntry
+from specbridge.assembly import assemble_from_pages, stitch_type_pages
+from specbridge.generation.pages import PageEntry
 
 
 # ---------------------------------------------------------------------------

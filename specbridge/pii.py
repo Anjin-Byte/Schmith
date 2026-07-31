@@ -1,4 +1,4 @@
-"""PII classification pre-pass for Schmith codegen.
+"""PII classification pre-pass for SpecBridge codegen.
 
 Classifies every field in a type closure for PII / sensitive data before
 code generation.  Results are stored in-place on the property dicts and
@@ -28,7 +28,7 @@ import sys
 from typing import Any, TYPE_CHECKING, cast
 
 if TYPE_CHECKING:
-    from schmith.generation.llm import GenerationResult, LLMProvider
+    from specbridge.generation.llm import GenerationResult, LLMProvider
 
 PII_CRITERIA = """
 PII and sensitive data that MUST be marked WriteOnly includes but is not limited to:

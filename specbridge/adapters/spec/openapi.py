@@ -8,9 +8,9 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from schmith.shared.hashing import canonical_json_hash
-from schmith.shared.provenance import Provenance
-from schmith.shared.schema_ids import schema_id_for_schema, schema_id_from_ref
+from specbridge.shared.hashing import canonical_json_hash
+from specbridge.shared.provenance import Provenance
+from specbridge.shared.schema_ids import schema_id_for_schema, schema_id_from_ref
 
 HTTP_METHODS = {"get", "post", "put", "patch", "delete", "head", "options"}
 

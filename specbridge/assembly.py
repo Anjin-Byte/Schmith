@@ -9,8 +9,8 @@ Two public entry points:
     stitch_type_pages(page_outputs)    → one type's stitched code block
     assemble_from_pages(page_entries)  → full .cs from all page entries
 
-``stitch_type_pages`` migrated here from ``schmith.generation.llm`` so that
-assembly logic is co-located. ``schmith.generation.llm`` re-exports it for
+``stitch_type_pages`` migrated here from ``specbridge.generation.llm`` so that
+assembly logic is co-located. ``specbridge.generation.llm`` re-exports it for
 callers that haven't been updated.
 """
 
@@ -19,11 +19,11 @@ from __future__ import annotations
 from collections import OrderedDict
 from typing import Sequence
 
-from schmith.generation.pages import PageEntry
+from specbridge.generation.pages import PageEntry
 
 
 # ---------------------------------------------------------------------------
-# Internal stitching helpers  (migrated from schmith.generation.llm)
+# Internal stitching helpers  (migrated from specbridge.generation.llm)
 # ---------------------------------------------------------------------------
 
 
@@ -33,7 +33,7 @@ def _extract_field_block(code: str) -> str:
     Looks for BEGIN_FIELDS / END_FIELDS markers (defined in prompt module).
     Falls back to the entire stripped response if markers are absent.
     """
-    from schmith.generation.prompt import FIELDS_END_MARKER, FIELDS_START_MARKER
+    from specbridge.generation.prompt import FIELDS_END_MARKER, FIELDS_START_MARKER
 
     if FIELDS_START_MARKER in code and FIELDS_END_MARKER in code:
         start = code.split(FIELDS_START_MARKER, 1)[1]

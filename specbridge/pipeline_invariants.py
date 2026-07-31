@@ -15,7 +15,7 @@ The six stages and their invariant checks:
 
 Usage (debug mode):
 
-    from schmith import pipeline_invariants as iv
+    from specbridge import pipeline_invariants as iv
     iv.check_all(1, (store, operations), store)
     iv.check_all(2, op_response, store)
     ...
@@ -25,8 +25,8 @@ from __future__ import annotations
 
 from typing import Any, Callable, cast
 
-from schmith.ir.models import OperationResponse, SchemaNode
-from schmith.ir.store import SchemaStore
+from specbridge.ir.models import OperationResponse, SchemaNode
+from specbridge.ir.store import SchemaStore
 
 
 class InvariantViolation(Exception):
