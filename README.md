@@ -26,9 +26,8 @@ The pipeline is adapter-driven: API-specific wrapping logic (envelope unwrapping
 Requires Python 3.11+. The project uses [uv](https://docs.astral.sh/uv/) for environment management.
 
 ```bash
-# Clone and enter the v2 directory
-git clone <repo-url>
-cd Schmith/v2
+git clone https://github.com/Anjin-Byte/Schmith.git
+cd Schmith
 
 # Install with uv (creates .venv automatically)
 uv sync

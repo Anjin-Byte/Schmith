@@ -45,21 +45,16 @@ htmlcov/
 .nox/
 
 # Generated output (schmith)
-# These are runtime artifacts — regenerated on demand, never committed.
+# Runtime artifacts — regenerated on demand, never committed.
 output/
-v2/output/
 generated/
-legacy/ir/
 reports/
-prompt_packets/
 
-# Procore API info directory (spec files, run scripts — not tracked)
+# Vendor API specs and local scratch data (large, not ours to redistribute)
 procore_api_info/
+legacy/
 
-# Lock files
-# uv.lock / poetry.lock pin exact versions but are noisy in diffs.
-# Remove these lines if you want reproducible installs tracked in git.
-uv.lock
+# uv.lock is tracked deliberately: it pins exact versions so `uv sync`
+# reproduces this environment. Other lock files are not.
 *.lock
-
-XChange Knowledge Base
+!uv.lock

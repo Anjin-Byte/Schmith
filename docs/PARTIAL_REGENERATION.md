@@ -159,7 +159,7 @@ determines its position in the assembled `.cs`. Assembly iterates `pages` in ord
 
 ## Assembly Module
 
-A new module `v2/schmith/assembly.py` owns all operations that combine page outputs into the
+A new module `schmith/assembly.py` owns all operations that combine page outputs into the
 final `.cs`. It has no dependency on the `.cs` file itself — it reads from `pages.json`
 entries and returns assembled code.
 

@@ -1,4 +1,4 @@
-# Schmith v2 — Design Document
+# Schmith — Design Document
 
 ## Table of Contents
 

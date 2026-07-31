@@ -1,43 +1,53 @@
-# Schmith v2 — Implementation Document
+# Implementation — Migration Record
 
-## Overview
-
-This document maps the v2 implementation against the legacy codebase. For each
-component it specifies: whether logic is ported as-is, ported with changes, or
-written from scratch — and what the changes are and why.
+> **Historical document.** This records how the current implementation was
+> derived from the first-generation pipeline, component by component: what was
+> ported as-is, what was ported with changes, and what was written from scratch.
+> It is kept for the design rationale, not as a description of the current tree.
+>
+> The v1 pipeline it refers to is archived at the `v1-legacy` tag
+> (`git checkout v1-legacy`). Paths beginning `builders/`, `codegen/`, or
+> `lib/` refer to that tag, not to this working tree.
+>
+> For the architecture as it stands today, see [DESIGN.md](DESIGN.md) and the
+> [README](../README.md).
 
 ---
 
-## Proposed Module Structure
+## Module Structure
 
 ```
-v2/
-  schmith/
-    adapters/
-      base.py              # ApiAdapter base class + NodeClassification  [NEW]
-      spec/
-        openapi.py         # OpenAPI → in-memory IR                      [PORTED, minor changes]
-        raml.py            # RAML → in-memory IR                         [PORTED, minor changes]
-      api/                 # API-specific adapter implementations
-        __init__.py        # Adapter registry/loader                     [NEW]
-    ir/
-      models.py            # SchemaNode, Endpoint, OperationResponse      [NEW]
-      store.py             # In-memory schema store                      [NEW, replaces IRLoader]
-      composition.py       # Composition resolver                        [PORTED, as-is]
-    generation/
-      type_tree.py         # Type closure traversal                      [PORTED, modified]
-      type_mapping.py      # IR → C# type mapping                        [PORTED, as-is]
-      prompt.py            # Prompt packet builder                       [PORTED, simplified]
-      llm.py               # LLM provider caller                        [PORTED, minor changes]
-      prompts.json         # LLM instruction text                        [PORTED, as-is]
-    shared/
-      hashing.py           # Canonical JSON hashing                      [PORTED, as-is]
-      provenance.py        # Provenance dataclass                        [PORTED, as-is]
-      schema_ids.py        # Schema ID generation                        [PORTED, as-is]
-    pipeline.py            # 6-stage orchestrator                        [NEW]
-    cli.py                 # Entry point                                 [NEW]
-  config.yaml              # Per-API setup config                        [NEW]
-  pyproject.toml
+schmith/
+  adapters/
+    base.py              # ApiAdapter base class + NodeClassification  [NEW]
+    procore.py           # Procore allOf/envelope transforms           [NEW]
+    spec/
+      openapi.py         # OpenAPI → in-memory IR                      [PORTED, minor changes]
+      raml.py            # RAML → in-memory IR                         [PORTED, minor changes]
+    api/                 # API-specific adapter implementations
+      __init__.py        # Adapter registry/loader                     [NEW]
+  ir/
+    models.py            # SchemaNode, Endpoint, OperationResponse     [NEW]
+    store.py             # In-memory schema store                      [NEW, replaces IRLoader]
+    composition.py       # Composition resolver                        [PORTED, as-is]
+  generation/
+    type_tree.py         # Type closure traversal                      [PORTED, modified]
+    type_mapping.py      # IR → C# type mapping                        [PORTED, as-is]
+    prompt.py            # Prompt packet builder                       [PORTED, simplified]
+    llm.py               # LLM provider caller                         [PORTED, minor changes]
+    pages.py             # PageEntry record for one LLM call           [NEW]
+    prompts.json         # LLM instruction text                        [PORTED, as-is]
+  shared/
+    hashing.py           # Canonical JSON hashing                      [PORTED, as-is]
+    provenance.py        # Provenance dataclass                        [PORTED, as-is]
+    schema_ids.py        # Schema ID generation                        [PORTED, as-is]
+  assembly.py            # Deterministic page → .cs assembly           [NEW]
+  validation.py          # Generated-block validation                  [NEW]
+  pii.py                 # PII classification pre-pass                 [NEW]
+  pipeline.py            # Stage orchestrator                          [NEW]
+  cli.py                 # Entry point                                 [NEW]
+config.yaml              # Per-API setup config                        [NEW]
+pyproject.toml
 ```
 
 ---

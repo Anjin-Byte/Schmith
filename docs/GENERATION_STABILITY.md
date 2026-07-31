@@ -2,7 +2,7 @@
 
 ## Overview
 
-Schmith v2 generates C# DataObject classes by decomposing each endpoint's type closure into a
+Schmith generates C# DataObject classes by decomposing each endpoint's type closure into a
 series of LLM calls, stitching the results back together, and running a deterministic validator
 over the output. The pipeline is structurally sound: the IR is accurate, the validator catches
 real errors, and the stitching logic handles marker extraction correctly.
@@ -155,7 +155,7 @@ deterministic. For code generation, determinism is desirable.
 
 ### Impl-1: Repeat NESTED TYPES on All Continuation Pages
 
-**File:** `v2/schmith/generation/prompt.py` — `build_type_page_prompt`
+**File:** `schmith/generation/prompt.py` — `build_type_page_prompt`
 
 **Current behaviour:** NESTED TYPES hint is emitted only when `is_root and page_index == 1`.
 
@@ -205,7 +205,7 @@ appear in the prompt for `page_index=2` and `is_root=False` continuation pages.
 
 ### Impl-2a: Increase Default Page Size (Quick Win)
 
-**File:** `v2/schmith/generation/prompt.py`
+**File:** `schmith/generation/prompt.py`
 
 **Current:**
 ```python
@@ -418,7 +418,7 @@ prompt text only; token counts live in `pages.json` alongside the output they pr
 #### Config exposure
 
 ```yaml
-# v2/config.yaml
+# config.yaml
 llm:
   target_input_tokens: 3500   # calibration budget per page
   min_page_size: 5             # minimum fields per page (avoids degenerate splits)
@@ -437,7 +437,7 @@ llm:
 
 ### Impl-3: Validation-Driven Retry Loop
 
-**Files:** `v2/schmith/pipeline.py`, `v2/schmith/validation.py`
+**Files:** `schmith/pipeline.py`, `schmith/validation.py`
 
 **Current behaviour:** Validation runs after all code is generated and printed. Issues are
 reported but not acted on. The generated `.cs` file is written regardless of validation outcome.
@@ -520,7 +520,7 @@ available output. Do not silently swallow validation failures.
 
 ### Impl-4: Temperature Configuration
 
-**File:** `v2/schmith/generation/llm.py` (or wherever the API client is initialised)
+**File:** `schmith/generation/llm.py` (or wherever the API client is initialised)
 
 **Required change:** Expose `temperature` as a key in `llm_config` and pass it through to the
 API call. Default to `0.2` rather than the provider default.
@@ -533,7 +533,7 @@ temperature = llm_config.get("temperature", 0.2)
 `0.2` rather than `0.0` because pure temperature-0 can produce repetitive artifacts on very
 long outputs; a small positive value preserves fluency while dramatically reducing variance.
 
-**Config file:** `v2/config.yaml` should expose this as a user-configurable value:
+**Config file:** `config.yaml` should expose this as a user-configurable value:
 ```yaml
 llm:
   temperature: 0.2
@@ -543,8 +543,8 @@ llm:
 
 ### Impl-5: Enrich type_unresolved Fields
 
-**File:** `v2/schmith/generation/type_mapping.py` — `build_field_info`
-**File:** `v2/schmith/generation/prompt.py` — `_format_fields_section`
+**File:** `schmith/generation/type_mapping.py` — `build_field_info`
+**File:** `schmith/generation/prompt.py` — `_format_fields_section`
 
 **Current behaviour:** When `type_unresolved=true`, the field is emitted as:
 ```

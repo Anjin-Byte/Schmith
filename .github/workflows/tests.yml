@@ -8,10 +8,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: v2
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v4

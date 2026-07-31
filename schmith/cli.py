@@ -1,4 +1,4 @@
-"""CLI entry point for Schmith v2.
+"""CLI entry point for Schmith.
 
 Usage:
     schmith GET /customers
@@ -12,12 +12,16 @@ Usage:
     schmith validate output/ --fail-on-errors    # exit 1 if any errors found
 
 The generate flow reads config.yaml (or the file passed via --config), then
-delegates to pipeline.run() and writes four artefacts to the output directory:
-    ir.json             — type closure IR data
-    schema.md           — human-readable schema summary
-    prompts.json        — per-page system+user prompt text for every LLM call
-    pages.json          — per-page raw LLM outputs (source of truth for assembly)
-    <Name>DataObject.cs — generated C# DataObject (derived from pages.json)
+delegates to pipeline.run() and writes to the output directory:
+    ir.json               — type closure IR data
+    schema.md             — human-readable schema summary
+    <Name>DataObject.cs   — generated C# DataObject (derived from pages.json)
+    codegen/prompts.json  — system+user prompt text for every codegen call
+    codegen/pages.json    — raw codegen outputs (source of truth for assembly)
+    pii/prompts.json      — prompt text for every PII classification call
+    pii/pages.json        — raw PII classification outputs
+
+The pii/ artefacts are written only when the PII pre-pass runs.
 """
 
 from __future__ import annotations
@@ -378,4 +382,8 @@ def main() -> None:
     cs_path = output_dir / f"{data_object_name}.cs"
     cs_path.write_text(csharp_code, encoding="utf-8")
 
-    print(f"Output written to: ./v2/{output_dir}/{data_object_name}.cs")
+    print(f"Output written to: {cs_path}")
+
+
+if __name__ == "__main__":
+    main()

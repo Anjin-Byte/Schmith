@@ -1,4 +1,4 @@
-"""Procore API adapter for Schmith v2.
+"""Procore API adapter for Schmith.
 
 Handles Procore-specific patterns in the OpenAPI spec that would otherwise
 cause LLM confusion or generate incorrect code.
