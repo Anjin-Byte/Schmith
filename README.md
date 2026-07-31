@@ -46,7 +46,7 @@ API spec formats describe *structure*, not *intent*. A spec can say a response h
 
 The same questions come back with every new data source: which field is the real record, which wrapper is transport, which of two near-identical schema variants is authoritative, which columns are sensitive. The answers are specific to one provider and don't transfer to the next — so the integration cost is per-provider and recurring, and it lands on whoever understands both the provider's data and what the consuming system needs.
 
-SpecBridge isolates that per-source knowledge in pluggable adapters rather than hardcoding it in the pipeline. The core stays description-format-neutral; source quirks stay in one file, under test, where they can be read and corrected by someone who knows the API. [docs/DESIGN.md](docs/DESIGN.md) works through this in depth.
+SpecBridge isolates that per-source knowledge in pluggable adapters rather than hardcoding it in the pipeline. The core stays description-format-neutral; source quirks stay in one file, under test, where they can be read and corrected by someone who knows the API.
 
 ---
 
